@@ -1,0 +1,50 @@
+.show-popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000080;
+    animation-duration: 0.5s;
+    animation-name: popupBG;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999999999;
+    .text-wrapper {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 8px;
+        animation-duration: 0.3s;
+        animation-name: popupCard;
+        margin-top: -50px;
+    }
+    .top-side {
+        border-radius: 8px 8px 0px 0px;
+        background-color: #FBC011;
+    }
+    .bot-side {
+        background-color: #151933;
+    }
+}
+
+.hide-popup {
+    display: none;
+}
+
+@keyframes popupCard {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0px); opacity: 1;}
+}
+@keyframes popupCardBounce {
+    0% {transform: translateY(0px); opacity: 0;}
+    20% {transform: translateY(-50px);}
+    40% {transform: translateY(10px); opacity: 1;}
+    60% {transform: translateY(-10px);}
+    90% {transform: translateY(0px);}
+    100% {transform: translateY(0px);}
+}
+@keyframes popupBG {
+    from {background: #00000000;}
+    to {background: #00000080;}
+}

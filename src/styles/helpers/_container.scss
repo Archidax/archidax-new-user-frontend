@@ -1,0 +1,63 @@
+.container-homepage {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 85%;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+@media (min-width: 750px) {
+  .container-homepage {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 75%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-homepage {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 75%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+// Price responsive
+.price-trade-responsive {
+  width: 100px;
+}
+
+@media (min-width: 750px) {
+  .price-trade-responsive {
+    width: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .price-trade-responsive {
+    width: 200px;
+  }
+}
+
+// padding price
+.padding-price-responsive {
+  padding: 1rem 1rem;
+}
+
+@media (min-width: 750px) {
+  .padding-price-responsive {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .padding-price-responsive {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

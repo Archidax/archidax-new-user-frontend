@@ -1,0 +1,627 @@
+.bg-homepage {
+  background-color: #0b0c22;
+}
+
+.bg-homepage2 {
+  background-color: #151933;
+}
+
+.bg-homepage-banner {
+  background-image: url(../../assets/img/background/homepage.jpg);
+  background-size: cover;
+}
+
+.bg-homepage-yellow {
+  background-color: #dfb331;
+}
+
+.bg-homepage-yellow2 {
+  background-color: #faff1d;
+}
+
+.bg-homepage-gray {
+  background-color: #aeb4ce;
+}
+
+.bg-kenapa2 {
+  background-image: url(../../assets/img/homepage/kenapa/BG0.png);
+  background-size: cover;
+}
+
+.text-homepage-yellow {
+  color: #dfb331;
+}
+
+.text-homepage-yellow2 {
+  color: #faff1d;
+}
+
+.min-h-100 {
+  min-height: 100vh;
+}
+.min-h-90 {
+  min-height: 90vh;
+}
+.min-h-80 {
+  min-height: 80vh;
+}
+.min-h-70 {
+  min-height: 70vh;
+}
+.min-h-65 {
+  min-height: 62vh;
+}
+.min-h-60 {
+  min-height: 60vh;
+}
+.min-h-50 {
+  min-height: 50vh;
+}
+.min-h-40 {
+  min-height: 40vh;
+}
+.min-h-30 {
+  min-height: 30vh;
+}
+.min-h-20 {
+  min-height: 20vh;
+}
+.min-h-10 {
+  min-height: 10vh;
+}
+
+// .card-homepage {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-column-gap: 10px;
+// }
+
+// .card-homepage-news {
+//   display: grid;
+//   grid-template-columns: repeat(5, 1fr);
+//   grid-column-gap: 25px;
+// }
+// @media only screen and (max-width: 600px){
+//   .card-homepage-news {
+//     display: grid;
+//     grid-template-columns: repeat(1, 1fr);
+//     grid-column-gap: 25px;
+//   }
+// }
+
+.text-homepage-p {
+  color: #c2c2c2;
+}
+
+.bg-kenapa {
+  background-color: #aeb4ce;
+}
+
+.bg-kenapa:hover {
+  //   background-color: #dfb331;
+  background-image: url(../../assets/img/background/yellow-baloon.png);
+  background-size: cover;
+}
+
+.bg-apa-itu {
+  background-image: url(../../assets/img/homepage/apaitu/apaitu_bg.png);
+  // background-repeat: no-repeat;
+  // background-size: auto;
+}
+
+// Banner
+
+//
+
+.btn-daftar {
+  background-color: #dfb331;
+  border: 1px solid #dfb331;
+  color: black;
+  border-radius: 5px;
+}
+.btn-daftar:hover {
+  text-decoration: none;
+  background: black;
+  color: white;
+}
+.btn-masuk {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+}
+.btn-masuk:hover {
+  text-decoration: none;
+  background-color: #0b0c22;
+  color: white;
+}
+
+// Tabs
+// Global
+.tabs-homepage-price {
+  .nav .nav-item .nav-link {
+    background: #050611;
+    // background-color: yellow;
+    color: #e5e5e5;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #fff;
+    background: #1d2244;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+// Table Homepage
+
+/* This is what we are focused on */
+
+.outter-table-wrapper {
+  background-color: #050611;
+}
+.table-wrapper {
+  overflow-y: scroll;
+  height: 380px;
+}
+
+.table-wrapper th {
+  position: sticky;
+  top: 0;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.table-wrapper tr th {
+  padding-bottom: 15px;
+}
+
+#homepage-table tr:hover {
+  background-color: #1d2244;
+}
+
+/* A bit more styling to make it look better */
+.table-wrapper {
+  background: #050611;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: #050611;
+  }
+
+  td,
+  th {
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+//
+
+.tb-border-bottom {
+  border-bottom: 3px none rgba(255, 255, 255, 0.4);
+}
+
+.tb-border-bottom2 {
+  border-bottom: 4px solid rgba(21, 25, 51, 0.6);
+}
+
+.table-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.price-green {
+  color: #00cc14;
+  text-align: left;
+}
+
+.price-red {
+  color: #ff1900;
+  text-align: left;
+}
+
+// Hoverable Kenapa
+.price-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+// cursor pointer
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// focus none
+.focus-none:focus {
+  outline: 0 !important;
+}
+
+// relative div
+.relative-div {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.absolute-right {
+  position: absolute;
+  right: 0px;
+}
+
+// Media Query Homepage
+
+// Margin
+.mb-hp-r {
+  margin-bottom: 5px;
+}
+
+@media (min-width: 750px) {
+  .mb-hp-r {
+    margin-bottom: 70px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mb-hp-r {
+    margin-bottom: 70px;
+  }
+}
+
+.mt-hp-r {
+  margin-top: 5px;
+}
+
+@media (min-width: 750px) {
+  .mt-hp-r {
+    margin-top: 70px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mt-hp-r {
+    margin-top: 70px;
+  }
+}
+
+// HeaderLogo
+.navbar-homepage-responsive {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  .navbar-homepage-responsive {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-homepage-responsive {
+    display: block;
+  }
+}
+
+// // Banner Padding Top
+// .banner-padding-responsive {
+//   padding-top: 2vh;
+// }
+
+@media (min-width: 750px) {
+  .banner-padding-responsive {
+    padding-top: 9vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .banner-padding-responsive {
+    padding-top: 9vh;
+  }
+}
+
+// Font Title
+.font-50-reponsive {
+  font-size: 28px;
+  text-align: center;
+}
+
+@media (min-width: 750px) {
+  .font-50-reponsive {
+    font-size: 55px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .font-50-reponsive {
+    font-size: 50px;
+    text-align: left;
+  }
+}
+
+.font-22-reponsive {
+  font-size: 22px;
+  text-align: center;
+}
+
+@media (min-width: 750px) {
+  .font-22-reponsive {
+    font-size: 22px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .font-22-reponsive {
+    font-size: 50px;
+    text-align: left;
+  }
+}
+
+.font-miliki {
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (min-width: 750px) {
+  .font-miliki {
+    font-size: 22px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .font-miliki {
+    font-size: 22px;
+    text-align: left;
+  }
+}
+
+// Bapepti
+.image-bapepti-height {
+  height: 35px;
+}
+
+@media (min-width: 750px) {
+  .image-bapepti-height {
+    height: 75px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .image-bapepti-height {
+    height: 75px;
+  }
+}
+
+// Apa itu CryptoIndex
+.font-apa-itu-responsive {
+  font-size: 22px;
+}
+
+@media (min-width: 750px) {
+  .font-apa-itu-responsive {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .font-apa-itu-responsive {
+    font-size: 34px;
+  }
+}
+
+.font-apa-itu-responsive2 {
+  font-size: 12px;
+}
+
+@media (min-width: 750px) {
+  .font-apa-itu-responsive2 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .font-apa-itu-responsive2 {
+    font-size: 16px;
+  }
+}
+
+// Font Calculator
+.font-calculator {
+  font-size: 14px;
+}
+
+@media (min-width: 750px) {
+  .font-calculator {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .font-calculator {
+    font-size: 16px;
+  }
+}
+
+// btn-daftar
+.btn-daftar-r {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 13px;
+}
+
+@media (min-width: 750px) {
+  .btn-daftar-r {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 13px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-daftar-r {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 13px;
+  }
+}
+
+// btn-masuk
+.btn-masuk-r {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 13px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (min-width: 750px) {
+  .btn-masuk-r {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 13px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-masuk-r {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 13px;
+  }
+}
+
+// display flex block
+.display-f-b {
+  display: block;
+}
+
+@media (min-width: 750px) {
+  .display-f-b {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .display-f-b {
+    display: flex;
+  }
+}
+
+// display block none
+.display-b-n {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  .display-b-n {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .display-b-n {
+    display: block;
+  }
+}
+
+// display block none
+.display-f-n {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  .display-f-n {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .display-f-n {
+    display: flex;
+  }
+}
+
+// height banner
+.min-h-65-r {
+  min-height: 68vh;
+  padding-top: 30px;
+}
+
+@media (min-width: 750px) {
+  .min-h-65-r {
+    min-height: 65vh;
+    padding-top: 2vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .min-h-65-r {
+    min-height: 65vh;
+    padding-top: 2vh;
+  }
+}
+
+// Kenapa Memilih
+// Title Apa Itu Padding
+.title-apa-itu-responsive {
+  padding: 10px;
+}
+
+@media (min-width: 750px) {
+  .title-apa-itu-responsive {
+    min-height: 65vh;
+    padding-top: 2vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title-apa-itu-responsive {
+    min-height: 65vh;
+    padding-top: 2vh;
+  }
+}
+
+// Kenapa margin
+.margin-kenapa-card-responsive {
+  margin: 10px;
+}
+
+@media (min-width: 750px) {
+  .margin-kenapa-card-responsive {
+    margin: 0px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .margin-kenapa-card-responsive {
+    margin: 0px;
+  }
+}
+
+// Footer
+// Footer-
+.width-responsive-logo-footer {
+  width: 90%;
+}
+
+@media (min-width: 750px) {
+  .width-responsive-logo-footer {
+    width: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .width-responsive-logo-footer {
+    width: 180px;
+  }
+}

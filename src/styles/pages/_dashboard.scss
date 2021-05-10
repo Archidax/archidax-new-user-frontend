@@ -1,0 +1,114 @@
+.bg-dashboard-activated {
+  background-image: linear-gradient(#09ae7d, #03583f);
+  border-radius: 5px;
+}
+
+.bg-dashboard-not-active {
+  background-image: linear-gradient(#9b9b9b, #2f2f2f);
+  border-radius: 5px;
+}
+
+.bg-google {
+  background-image: url(../../assets/img/dashboard/background/google.png);
+  background-size: cover;
+  border-radius: 5px;
+  border: none !important;
+}
+
+.bg-key {
+  background-image: url(../../assets/img/dashboard/background/key.png);
+  background-size: cover;
+  border-radius: 5px;
+  border: none !important;
+}
+
+.bg-dashboard-verification {
+  background-image: url(../../assets/img/dashboard/background/verification.png);
+  background-size: cover;
+  border-radius: 5px;
+  border: 1px transparent solid !important;
+}
+
+.bg-dashboard-wallet {
+  background-image: url(../../assets/img/dashboard/background/wallet.png);
+  background-size: cover;
+  border-radius: 5px;
+  border: 1px transparent solid !important;
+}
+
+.slider1-dashboard {
+  background-image: url(../../assets/img/dashboard/ads/banner1.png);
+  background-size: cover;
+}
+
+.slider2-dashboard {
+  background-image: url(../../assets/img/dashboard/ads/banner2.png);
+  background-size: cover;
+}
+
+// Table
+
+.outter-table-wrapper-dashboard {
+  background-color: #151933;
+}
+// .table-wrapper-dashboard {
+//   overflow-y: scroll;
+//   max-height: 400px;
+// }
+
+.table-wrapper-dashboard th {
+  position: sticky;
+  top: 0;
+}
+
+/* A bit more styling to make it look better */
+.table-wrapper-dashboard {
+  background: #151933;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: #151933;
+  }
+
+  td {
+    font-size: 14px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+
+  td,
+  th {
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+.tp-tb {
+  padding: 10px 10px;
+  font-size: 14px;
+}
+
+.table-padding {
+  padding-top: 2px;
+}
+
+// End Table
+
+// Hover Table
+#dashboard-table tr:hover {
+  background-color: #272a3f;
+}
+
+// Undraggable
+.undraggable {
+  // user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}

@@ -1,0 +1,100 @@
+// Colors Netral
+$theme-Black-BackgroundDefault: #111111;
+$theme-White-BackgroundDefault: #ffffff;
+
+// Colors Base
+$theme-BlueDarkPrimaryBase-BackgroundDefault: #0b0c22;
+$theme-BlueDarkSecondarykBase-BackgroundDefault: #151933;
+$theme-BlueDarkBase-BackgroundDefault: #1c233f;
+$theme-GoldBase-BackgroundDefault: #dfb332;
+$theme-YellowBase-BackgroundDefault: #e7cf6d;
+$theme-GreyBase-BackgroundDefault: #aeb4ce;
+
+// Font type
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+@import url("react-bootstrap-table-next/dist/react-bootstrap-table2.min.css");
+
+/* Dashboard Wrapper */
+.wrapper {
+  // display: flex;
+  // align-items: stretch;
+  background-color: $theme-BlueDarkPrimaryBase-BackgroundDefault;
+}
+#content {
+  width: 100%;
+}
+.content-wrapper {
+  padding-left: 250px;
+  transition: padding-left 0s;
+}
+.content-wrapper.active {
+  padding-left: 0px;
+}
+@media (max-width: 1180px) {
+  .content-wrapper {
+    padding-left: 0px;
+  }
+}
+a {
+  color: white;
+}
+a:hover {
+  text-decoration: none;
+  color: #cccccc;
+}
+/* End Dashboard Wrapper */
+
+p,
+li {
+  font-size: 13px;
+}
+
+/* Components */
+@import "./components/header";
+@import "./components/sidenav";
+@import "./components/button";
+@import "./components/input";
+@import "./components/checkonof";
+@import "./components/hr";
+@import "./components/customcard";
+@import "./components/icon";
+@import "./components/table";
+@import "./components/smspopup";
+@import "./components/card";
+@import "./components/apipopup";
+@import "./components/ubahPassword";
+@import "./components//limitakun";
+@import "./components/popup";
+@import "./components/animation";
+@import "./components/banner";
+
+/* Helpers */
+@import "./helpers/container";
+@import "./helpers/fontSizes";
+@import "./helpers/fontColors";
+@import "./helpers/fontTypes";
+@import "./helpers/backgroundColors";
+@import "./helpers/avatar";
+@import "./helpers/trackScrollbar";
+@import "./helpers/layout";
+@import "./helpers/paddingSizes";
+
+/* Pages */
+@import "./pages/loadingPage";
+@import "./pages/homepage";
+@import "./pages/beritapage";
+@import "./pages/panduanpenggunapage";
+@import "./pages/trade";
+@import "./pages/profilepage";
+@import "./pages/voucher";
+@import "./pages/bantuanpage";
+@import "./pages/privasipage";
+@import "./pages/manajemenapipage";
+@import "./pages/riwayat";
+@import "./pages/feeRate";
+@import "./pages/auth";
+@import "./pages/dashboard";
+@import "./pages/loginregister";
+@import "./pages/404page";
+@import "./pages/pengajuanKoin";
+@import './pages/keuanganpage';

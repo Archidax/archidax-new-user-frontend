@@ -1,0 +1,175 @@
+#sidebar {
+  position: fixed;
+  z-index: 999;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+  background: $theme-BlueDarkSecondarykBase-BackgroundDefault;
+  color: #fff;
+  transition: all 0.3s;
+  padding: 0px;
+  .sidebar-header {
+    padding: 20px;
+    background: $theme-BlueDarkSecondarykBase-BackgroundDefault;
+    .ci-baseLogo-link {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+  }
+  .ci-ulSideBar {
+    padding: 20px 0;
+    // border-bottom: 1px solid #47748b;
+    .ci-liSideBar {
+      .ci-nav-link,
+      .ci-nav-link:hover,
+      .ci-nav-link:focus {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+        padding-left: 20px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin: 8px 0;
+        .ci-spanText {
+          display: block;
+        }
+        .ci-spanText.active {
+          border-radius: 8px;
+          background-image: linear-gradient(
+            to right,
+            $theme-GoldBase-BackgroundDefault,
+            transparent
+          );
+          display: block;
+        }
+        .ci-spanText.active-white {
+          border-radius: 8px;
+          background-image: linear-gradient(
+            to right,
+            #917e44e3,
+            transparent
+          );
+          display: block;
+        }
+      }
+      .ci-sidebarDropdown[data-toggle="collapse"] {
+        position: relative;
+      }
+      .ci-sidebarDropdown::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+      }
+
+      a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+      }
+
+      .ci-dropdownSideBar a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: $theme-BlueDarkPrimaryBase-BackgroundDefault;
+      }
+    }
+  }
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+@media (max-width: 1180px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+  #sidebar.active {
+    margin-left: -250px;
+  }
+}
+
+@media (max-width: 1180px) {
+  #sidebar {
+    position: fixed;
+    z-index: 80;
+    margin-left: -250px;
+    // animation-name: AnimationSideNav;
+    // animation-duration: 5;
+  }
+  #sidebar.active {
+    min-width: 20% !important;
+    margin-left: 0px;
+    background: transparent !important;
+    box-shadow: 0px 0px 125px #0c0e1b;
+    // animation-name: AnimationSideNav;
+    // animation-duration: 5;
+  }
+  #sidebar.active{
+    .sidebar-header {
+      background: #151933 !important;
+      // max-width: 65% !important;
+    }
+  }
+  #sidebar.active{
+    .sidebar-body {
+      background: #151933 !important;
+      // max-width: 65% !important;
+      min-height: 100vh;
+    }
+  }
+  .close-click.active {
+    min-width: 100% !important;
+    /* margin-left: 0px; */
+    background: #1315258c;
+    position: fixed;
+    height: 100vh;
+    z-index: 5;
+  }
+
+  @keyframes AnimationSideNav {
+    0%   {margin-left: -250px;}
+    25%  {margin-left: -175px;}
+    50%  {margin-left: -100px;}
+    75%  {margin-left: -75px;}
+    100% {margin-left: 0;}
+  }
+}
+
+// @media (max-width: 720px) {
+//   #sidebar {
+//     // position: fixed;
+//     z-index: 80;
+//     margin-left: -250px;
+//   }
+//   #sidebar.active {
+//     min-width: 65% !important;
+//     margin-left: 0px;
+//     background: transparent !important;
+//     box-shadow: 0px 0px 125px #0c0e1b;
+//   }
+//   #sidebar.active{
+//     .sidebar-header {
+//       background: #151933 !important;
+//       // max-width: 65% !important;
+//     }
+//   }
+//   #sidebar.active{
+//     .sidebar-body {
+//       background: #151933 !important;
+//       // max-width: 65% !important;
+//       min-height: 100vh;
+//     }
+//   }
+//   .close-click.active {
+//     min-width: 100% !important;
+//     /* margin-left: 0px; */
+//     background: #1315258c;
+//     position: fixed;
+//     height: 100vh;
+//     z-index: 5;
+//   }
+// }

@@ -1,0 +1,155 @@
+.nav{
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.nav-tabs-custom{
+  border: none;
+}
+
+.tab-content-custom-riwayat{
+  background: #151933;
+  position: relative;
+}
+
+.riwayat{
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  min-height:72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+}
+
+.nav-link-custom.active{
+  background-color: #151933 !important;
+  color: #ffffff !important;
+  border-width: 1px;
+  border-bottom: 0;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #f9bd00,rgba(0, 0, 0, 100)) 1 100%;
+  border-image-slice: 5%;
+}
+
+.nav-link-custom{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.nav-link-custom:hover{
+  background-color: #151933 !important;
+  color: #ffffff !important;
+  border-width: 1px;
+  border-bottom: 0;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #f9bd00,rgba(0, 0, 0, 100)) 1 100%;
+  border-image-slice: 5%;
+  outline: none !important;
+}
+
+.title-riwayat{
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.select{
+  background: #2C355A;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 7px 0;
+}
+
+.table-custom{
+  width: 100%;
+  overflow-x: scroll;
+  position: relative;
+}
+
+.table-header{
+  color:#ffffff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  border-bottom: 1px solid #2C355A;
+}
+
+.table-row-custom{
+  color: #ffffff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.table-row-custom:hover{
+  background-color: #2C355A !important;
+  color: #ffffff !important;
+}
+.table-row-custom td{
+  border: none !important;
+}
+
+.data-kosong-wrapper{
+  display: grid;
+  place-items: center;
+  height: 50vh;
+}
+
+.data-kosong img{
+  margin-left: 25%;
+}
+
+.data-kosong p{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #424766;
+}
+
+.pagination-button{
+  width: max-content;
+  display: flex;
+  justify-self: flex-end;
+}
+
+.pagination-button button{
+  background: #2C355A;
+  border:1px solid #151933;
+  padding: 5px;;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  width: 20px;
+  height: 20px;
+}
+
+.pagination-button button:focus{
+  background: #f9bd00;
+  outline: none;
+  color: #000000;
+  font-weight: 500;
+}
+
+@media (max-width: 575.98px) {
+
+  .select-wrapper{
+    margin-bottom: 10px;
+  }
+}
+
+

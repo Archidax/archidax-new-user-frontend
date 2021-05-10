@@ -1,0 +1,39 @@
+/* Custom Table Head 1 */
+.ci-tableHeads-custom {
+  border-top: 0px !important;
+  border-bottom: 1px solid #f9ba42 !important;
+}
+
+// Media Query  CustomSize
+
+@media screen and (min-width: 1367px) {
+  .ci-tableHeads-custom {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .ci-tableHeads-custom {
+    font-size: 9px;
+  }
+}
+
+@media screen and (min-width: 1367px) {
+  .font-custom-size {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .font-custom-size {
+    font-size: 9px;
+  }
+}
+/* End Custom Table Head 1 */
+
+/* Custom Table Head 1 */
+.ci-tableHeads-custom-2 {
+  border-top: 1px solid #dddddd !important;
+  border-bottom: 1.3px solid #dddddd !important;
+}
+/* End Custom Table Head 1 */

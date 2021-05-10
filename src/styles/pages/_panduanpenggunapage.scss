@@ -1,0 +1,89 @@
+.panduan-pengguna {
+  background: $theme-BlueDarkPrimaryBase-BackgroundDefault;
+  font-style: normal;
+  &-banner {
+    background: url("../../assets/img/background/wayangdanbg.png");
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 6rem 2rem;
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}
+.panduan-pengguna-copy {
+  background: $theme-BlueDarkPrimaryBase-BackgroundDefault;
+  font-style: normal;
+  &-banner {
+    background: url("../../assets/img/background/bg_copytrade.png");
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 8rem 2rem;
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}
+
+.ci-list-panduan {
+  background: #2c355a;
+  color: white;
+  border: none;
+}
+.ci-list-panduan:hover {
+  background: #222844;
+  color: white;
+}
+.ci-list-panduan.active {
+  background: #f9ba42;
+  color: #222222;
+}
+.benefit-card {
+  background: rgb(11,12,34);
+  background: linear-gradient(36deg, rgba(11,12,34,1) 0%, rgba(21,25,51,1) 100%);
+  border-radius: 10px;
+  img{
+    width: 80%;
+    height: auto;
+  }
+}
+.step-card {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  box-shadow: 4px 5px 13px -2px rgba(0,0,0,0.56);
+  -webkit-box-shadow: 4px 5px 13px -2px rgba(0,0,0,0.56);
+  -moz-box-shadow: 4px 5px 13px -2px rgba(0,0,0,0.56);
+}
+.oval {
+  width: 90%;
+  margin: 0 auto;
+  height: 3px;
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 52%, rgba(21,25,51,0) 100%);
+  border-radius: 500% / 25px;
+}

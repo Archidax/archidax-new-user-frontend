@@ -1,0 +1,25 @@
+.input-custom-label-right {
+    width: 100%;
+    // max-width: 500px;
+    // color: white;
+    background-color:  #aeb4ce50;
+    border: 0;
+    input {
+        padding: 9px 12px;
+        width: 100%;
+        background-color: #00000000;
+        border: 0px;
+        color: white;
+    }
+    i {
+        padding: 9px 11px;
+        cursor: pointer;
+    }
+}
+.button-green {
+    border: none;
+    background-color:#038D00;
+    padding: 9px 26px;
+    color: white;
+    // border-radius: 5px;
+}

@@ -1,0 +1,42 @@
+#grid-voucher {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 25px;
+  height: 300px;
+}
+
+#grid-voucher > div {
+  background-color: #151933;
+  color: white;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.ci-input-voucher {
+  padding: 8px 15px;
+  background-color: $theme-BlueDarkPrimaryBase-BackgroundDefault;
+  color: $theme-White-BackgroundDefault;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-voucher {
+  background-color: #0b0c22;
+  padding: 8px 24px;
+  color: white;
+  border: 1px solid white;
+  &:hover {
+    background-color: #dfb332;
+    color:  #111111;
+    border-color: #dfb332;
+  }
+}

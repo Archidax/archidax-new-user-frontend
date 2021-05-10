@@ -1,0 +1,29 @@
+.keuangan {
+    background: #0B0C22;
+    min-height: 100vh;
+}
+
+.card-keuangan{
+    position: relative;
+}
+
+.card-text-keuangan{
+    position: absolute;
+    top:7% ;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button-slider-keuangan{
+    border: 1px solid #F9BD00;
+    background: #151933;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.table-keuangan{
+    max-height: 50vh;
+    overflow-y: scroll;
+}

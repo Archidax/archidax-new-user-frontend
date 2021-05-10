@@ -1,0 +1,40 @@
+.ci-step-pengajuanKoin {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    &-info {
+        .ci-iconKoin-info {
+            background: #F9BA42;
+            width: 50px;
+            min-height: 50px;
+            border-radius: 100%;
+        }
+    }
+    .ci-step-pengajuanKoin-line {
+        &-gradient {
+            height: 6px;
+            width: 100%;
+            margin-top: 20px;
+            background: linear-gradient(45deg, #F9BA42, #2C355A);
+        }
+        &-gradient.active {
+            height: 6px;
+            width: 100%;
+            margin-top: 20px;
+            background: linear-gradient(45deg, #F9BA42, #F9BA42);
+        }
+    }
+    &-pengajuan {
+        .ci-iconKoin-pengajuan {
+            background: #2C355A;
+            width: 50px;
+            min-height: 50px;
+            border-radius: 100%;
+        }
+        .ci-iconKoin-pengajuan.active {
+            background: #F9BA42;
+            width: 50px;
+            min-height: 50px;
+            border-radius: 100%;
+        }
+    }
+}

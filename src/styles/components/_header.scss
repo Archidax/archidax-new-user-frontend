@@ -1,0 +1,213 @@
+/* BUTTON HEADER AND SIDEBAR */
+/* BURGER BUTTON */
+.ci-iconBurger {
+  cursor: pointer;
+  .ci-bar {
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    box-shadow: 1px 1px 3px RGBa(0, 0, 0, 0.4);
+    border-radius: 10px;
+    &:not(:first-child) {
+      margin-top: 5px;
+    }
+  }
+}
+/* END BURGER BUTTON */
+
+/* FLAG DROPDOWN */
+.ci-flag-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  &-icon {
+    width: 100% !important;
+    border-radius: 50%;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+  }
+}
+.ci-flag-item-icon {
+  border-radius: 50%;
+}
+/* END FLAG DROPDOWN */
+
+/* PROFILE DROPDOWN */
+.ci-dropdown-btn-profile {
+  .ci-username-text-profile {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    .ci-username {
+      color: white;
+      margin-bottom: 0;
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 14px;
+      margin: 0;
+      span {
+        color: white;
+        font-size: 10px;
+        line-height: 10px;
+        margin-bottom: 4px;
+        display: block;
+      }
+    }
+  }
+  &-arrow {
+    background: #f9ba42 !important;
+    &-icons {
+      vertical-align: middle;
+      margin-top: 4px;
+    }
+  }
+}
+
+.ci-dropdown-menu-profile {
+  width: 300px;
+  background: lighten($color: #1c233f, $amount: 5);
+  border: none;
+  padding-bottom: 0;
+  &-img {
+    position: relative;
+    top: -40px;
+  }
+  &-item:nth-child(odd) {
+    border-bottom: 1px solid #1c233f;
+  }
+  &-item {
+    background-color: lighten($color: #1c233f, $amount: 8);
+    .ci-link-dropdownHeader {
+      color: #f9ba42;
+    }
+    .ci-link-dropdownHeader-logout {
+      cursor: pointer;
+      color: lighten(red, 10);
+    }
+  }
+  &-textName {
+    position: relative;
+    top: -20px;
+  }
+  &-item:hover {
+    background-color: lighten(#1c233f, 10);
+    .ci-link-dropdownHeader {
+      text-decoration: none;
+    }
+  }
+}
+/* END PROFILE DROPDOWN */
+
+/* WALLETS DROPDOWN */
+.ci-dropdown-btn-wallets {
+  // background-color: lighten(#151933, 5);
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #dddddd;
+  font-weight: 500;
+  &:hover {
+    // background-color: lighten(#2b3052, 5);
+    background-color: #f9ba42;
+    color: black;
+  }
+  &:focus {
+    outline: none !important;
+    background-color: lighten(#151933, 5);
+    color: #dddddd;
+  }
+}
+.ci-dropdown-menu-wallets {
+  background: lighten($color: rgb(29, 36, 58), $amount: 5);
+  margin-top: 16px;
+  // width: 300px;
+  border: none;
+  &-scrollbar {
+    width: 340px;
+    max-height: 200px;
+    overflow-x: auto;
+  }
+}
+.ci-dropdown-toggle-custom::after {
+  content: none !important;
+}
+/* END WALLET DROPDOWN */
+
+.trade-wallet-dropdown {
+  background: lighten($color: rgb(13, 13, 13), $amount: 5);
+  margin-top: 16px;
+  // width: 360px;
+  border: none;
+  &-scrollbar {
+    width: 340px;
+    max-height: 200px;
+    overflow-x: auto;
+  }
+}
+
+/* NOTIFICATION DROPDOWN */
+.ci-dropdown-notification {
+  background: lighten($color: rgb(29, 36, 58), $amount: 5);
+  margin-top: 16px;
+  width: 380px;
+  border: none;
+  &-scrollbar {
+    width: 100%;
+    max-height: 280px;
+    overflow-x: auto;
+    &-row {
+      border-bottom: 1px solid #666666 !important;
+      border-top: 1px solid #666666 !important;
+      &:hover {
+        background: lighten($color: rgb(49, 56, 78), $amount: 5);
+        cursor: pointer;
+      }
+    }
+  }
+}
+/* END NOTIFICATION DROPDOWN */
+
+/* FLAG DROPDOWN */
+.ci-dropdown-flag {
+  background: lighten($color: rgb(29, 36, 58), $amount: 5);
+  margin-top: 16px;
+  width: 200px;
+  border: none;
+  &-scrollbar {
+    width: 100%;
+    max-height: 200px;
+    overflow-x: auto;
+    &-item {
+      cursor: pointer;
+      color: #dddddd;
+      &:hover {
+        background: #f8c566;
+        color: #222222;
+      }
+    }
+  }
+}
+/* END FLAG DROPDOWN */
+/* END BUTTON HEADER AND SIDEBAR */
+
+.counter {
+  height: 14px;
+  width: 14px;
+  text-align: center;
+  line-height: 14px;
+  vertical-align: middle;
+  color: white;
+  font-size: 9px;
+  border-radius: 6px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+
+@media (max-width: 767.98px) { 
+  .nav-keuangan {
+    display: none;
+  }
+ }

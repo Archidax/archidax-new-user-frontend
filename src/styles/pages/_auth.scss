@@ -1,0 +1,23 @@
+.ci-auth {
+    &-form {
+        background: #151933;
+        position: absolute;
+        z-index: 1;
+        min-height: 100vh;
+        &-card {
+            background: #151933;
+            padding: 4rem;
+        }
+    }
+}
+
+.ci-auth-form-card-title{
+    color: #F9BD00;
+    margin-top: 10vh;
+}
+
+.link-syarat-ketentuan{
+    border-bottom: 1px solid #F9BD00;
+    color: #F9BD00;
+    
+}

@@ -1,0 +1,1491 @@
+// $color-black: rgb(0, 0, 0);
+// $color-white: rgb(255, 255, 255);
+// $color-gray-light: rgba($color-white, 0.15);
+// $color-gray-dark: rgba($color-black, 0.15);
+
+// $base-color1: #0c0c0c;
+// $base-color2: #161616;
+// $base-color3: black;
+// $base-color4: white;
+// $base-color5: #f9ba42;
+// $base-color6: black;
+// $base-color-table-dropdown: #0c0c0c;
+// $base-color-tabs-global: black;
+// $base-color-tabs-global-active: #0c0c0c;
+// $base-color-tabs-mainchart: #0c0c0c;
+// $base-color-tabs-mainchart-active: #232323;
+// $price-buy: #08eeaa;
+// $price-sell: #ff6675;
+// $price-gold: #f9bd00;
+// $price-top: #f9ba42;
+// $price-bottom: white;
+// $price-text: white;
+// $price-text2: white;
+
+// $base-color1-dark: rgb(240, 240, 240);
+// $base-color2-dark: #161616;
+// $base-color3-dark: rgb(240, 240, 240);
+// $base-color4-dark: black;
+// $base-color5-dark: #f9ba42;
+// $base-color6-dark: rgb(240, 240, 240);
+// $base-color-table-dropdown-dark: rgb(200, 200, 200);
+// $base-color-tabs-globa-darkl: black;
+// $base-color-tabs-global-active-dark: #0c0c0c;
+// $base-color-tabs-mainchart-dark: #0c0c0c;
+// $base-color-tabs-mainchart-active-dark: #232323;
+// $price-buy-dark: #005900;
+// $price-sell-dark: #990000;
+// $price-gold-dark: #f9bd00;
+// $price-top-dark: #8b4513;
+// $price-bottom-dark: black;
+// $price-text-dark: black;
+// $price-text2-dark: white;
+
+//gelap
+$base-color1-dark: #0c0c0c;
+$base-color2-dark: #161616;
+$base-color3-dark: black;
+$base-color4-dark: white;
+$base-color5-dark: #f9ba42;
+$base-color6-dark: black;
+$base-color-table-dropdown-dark: #0c0c0c;
+$base-color-tabs-global-dark: black;
+$base-color-tabs-global-active-dark: #0c0c0c;
+$base-color-tabs-mainchart-dark: #0c0c0c;
+$base-color-tabs-mainchart-active-dark: #232323;
+$price-buy-dark: #08eeaa;
+$price-sell-dark: #ff6675;
+$price-gold-dark: #f9bd00;
+$price-top-dark: #f9ba42;
+$price-bottom-dark: white;
+$price-text-dark: white;
+$price-text2-dark: white;
+$tab-header-dark: #161616;
+$tab-hover-dark: #f9ba42;
+$chat-bg-dark: rgba(189, 189, 189, 0);
+$chat-color-dark: white;
+
+//terang
+$base-color1: rgb(250, 250, 250);
+$base-color2: #00688f;
+$base-color3: rgb(250, 250, 250);
+$base-color4: black;
+$base-color5: #f9ba42;
+$base-color6: rgb(250, 250, 250);
+$base-color-table-dropdown: rgb(250, 250, 250);
+$base-color-tabs-global: #00688f;
+$base-color-tabs-global-active: #ae822e;
+$base-color-tabs-mainchart: #0c0c0c;
+$base-color-tabs-mainchart-active: #232323;
+$price-buy: #005900;
+$price-sell: #990000;
+$price-gold: #f9bd00;
+$price-top: #00688f;
+$price-bottom: black;
+$price-text: black;
+$price-text2: white;
+$tab-header: #00688f;
+$tab-hover: rgba(232, 232, 232, 1);
+$chat-bg: rgba(189, 189, 189, 0.3);
+$chat-color: black;
+
+:root {
+  --color1: #{$base-color1};
+}
+
+// .dark {
+//   --color1: #{$base-color1-dark};
+// }
+
+* {
+  transition: all 0.15s ease;
+}
+
+.body-trade {
+  min-height: 100vh;
+  background-color: $base-color3;
+}
+
+.body-trade2 {
+  background-color: $base-color6;
+}
+.body-trade2-dark {
+  background-color: $base-color6-dark;
+}
+.daynight {
+  &:hover {
+    cursor: pointer;
+  }
+  .active {
+    fill: red;
+  }
+}
+.trade-title {
+  background-color: rgb(19, 23, 34);
+  color: white;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.chat-field {
+  background-color: $chat-bg;
+}
+
+.chat-text-color {
+  color: $chat-color;
+}
+.chat-text-color-dark {
+  color: $chat-color-dark;
+}
+
+.width-chart {
+  width: 97.5%;
+  margin: auto;
+}
+
+.dummy-card {
+  background-color: $base-color3;
+  // height: 400px;
+}
+.dummy-card-dark {
+  background-color: $base-color3-dark;
+  // height: 400px;
+}
+.dummy-card2 {
+  background-color: $base-color1;
+}
+
+.dummy-card2-dark {
+  background-color: $base-color1-dark;
+}
+
+.dummy-card3 {
+  background-color: $base-color1;
+  border: 1px solid;
+}
+
+.height-kanan {
+  height: 360px;
+}
+
+.border-market {
+  border: 1px solid rgba($color: $base-color4, $alpha: 0.4) !important;
+  border-radius: 5px;
+}
+
+.border-market-dark {
+  background-color: #0d0d0d;
+  color: white;
+  border: 1px solid rgba($color: $base-color4-dark, $alpha: 0.4) !important;
+  border-radius: 5px;
+}
+
+.price-padding {
+  padding-bottom: 6px;
+  padding-top: 6px;
+}
+
+.bg-trade-header {
+  background-color: #0c0c0c !important;
+}
+.bg-trade {
+  background-color: $base-color1;
+}
+.bg-trade-dark {
+  background-color: $base-color1-dark;
+}
+.bg-trade2 {
+  background-color: $base-color1;
+}
+.bg-trade2-dark {
+  background-color: $base-color1-dark;
+}
+.bg-trade3 {
+  background-color: $base-color2;
+}
+.bg-trade3-dark {
+  background-color: $base-color2-dark;
+}
+.bg-trade4 {
+  background-color: $base-color3;
+}
+
+.bg-header-dark {
+  background-color: $base-color1-dark;
+}
+
+.bg-header {
+  background-color: $base-color2;
+}
+
+.bg-buy-dark {
+  background-image: url(../../assets/img/trade/button/bgbuy.png);
+  background-size: cover;
+}
+
+.bg-buy {
+  background-image: url(../../assets/img/trade/button/bgbuytest.svg);
+  background-size: cover;
+}
+
+.bg-sell-dark {
+  background-image: url(../../assets/img/trade/button/bgsell.png);
+  background-size: cover;
+}
+
+.bg-sell {
+  background-image: url(../../assets/img/trade/button/bgselltest.svg);
+  background-size: cover;
+}
+
+.bg-loginfirst {
+  background-color: #696969;
+  padding-top: 9px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+.text-chart {
+  color: #face7a99;
+  font-size: 14px;
+}
+
+.text-price-top {
+  color: $price-top;
+  font-weight: 700;
+}
+.text-price-top-dark {
+  color: $price-top-dark;
+  font-weight: 400;
+}
+
+.text-price-bottom {
+  color: $price-bottom;
+  font-weight: 500;
+}
+.text-price-bottom-dark {
+  color: $price-bottom-dark;
+  font-weight: 500;
+}
+
+.text-price {
+  color: $price-text !important;
+  font-size: 13px;
+}
+.text-price-dark {
+  color: $price-text-dark !important;
+  font-size: 13px;
+}
+.text-price2 {
+  color: $price-text2;
+}
+.text-price2-dark {
+  color: $price-text2-dark;
+}
+
+.text-buy-dark {
+  color: $price-buy-dark;
+}
+
+.text-buy {
+  color: $price-buy;
+}
+
+.text-sell-dark {
+  color: $price-sell-dark;
+}
+
+.text-sell {
+  color: $price-sell;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-dgrey {
+  color: #7e7e7e;
+}
+
+.border-trade {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.width-trade {
+  width: 85%;
+  margin: auto;
+}
+
+// Tabs
+// Global
+.tabs-global {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    background-color: $base-color-tabs-global;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #fff;
+    background: $base-color-tabs-global-active;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+.tabs-global-dark {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    background-color: $base-color-tabs-global-dark;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #fff;
+    background: $base-color-tabs-global-active-dark;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+// Time Price
+.tabs-mainchart {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    background-color: $base-color-tabs-mainchart;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #fff;
+    background: $base-color-tabs-mainchart-active;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+// End Tabs
+
+.make-middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#grid-trade-percent-dark {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+}
+
+#grid-trade-percent-dark > button {
+  border: 1px none $base-color3;
+  background-color: #161616;
+  color: white;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  outline: none;
+
+  &:focus {
+    background-color: $base-color5;
+    color: black;
+  }
+}
+
+#grid-trade-percent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+}
+
+#grid-trade-percent > button {
+  border: 1px solid $base-color3;
+  background-color: #00688f;
+  color: white;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  outline: none;
+
+  &:focus {
+    background-color: $base-color5;
+    color: black;
+  }
+}
+
+.input-trade {
+  color: rgb(31, 31, 31);
+
+  &::placeholder {
+    color: #c6c6cc;
+    opacity: 1; /* Firefox */
+  }
+}
+.input-trade-dark {
+  color: rgb(31, 31, 31);
+
+  &::placeholder {
+    color: #0c0c0c;
+    opacity: 1; /* Firefox */
+  }
+}
+
+.input-label-trade {
+  position: absolute;
+  top: 45px;
+  left: 60px;
+  background: $base-color1;
+  color: $price-text;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px solid silver;
+}
+.input-label-trade-dark {
+  position: absolute;
+  top: 45px;
+  left: 60px;
+  background: #0d0d0d;
+  color: $price-text-dark;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px none rgb(125, 125, 125);
+}
+
+.input-label-trade2 {
+  position: absolute;
+  top: 105px;
+  left: 60px;
+  background: $base-color1;
+  color: $price-text;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px solid silver;
+}
+.input-label-trade2-dark {
+  position: absolute;
+  top: 105px;
+  left: 60px;
+  background: #0d0d0d;
+  color: $price-text-dark;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px none rgb(125, 125, 125);
+}
+
+.input-label-trade3 {
+  position: absolute;
+  top: 250px;
+  left: 60px;
+  background: $base-color1;
+  color: $price-text;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px solid silver;
+}
+.input-label-trade3-dark {
+  position: absolute;
+  top: 250px;
+  left: 60px;
+  background: #0d0d0d;
+  color: $price-text-dark;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px none rgb(125, 125, 125);
+}
+
+// ESTIMASI MARKET
+.input-label-trade4 {
+  position: absolute;
+  top: 53px;
+  left: 60px;
+  background: $base-color1;
+  color: $price-text;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px solid silver;
+}
+.input-label-trade4-dark {
+  position: absolute;
+  top: 53px;
+  left: 60px;
+  background: #0d0d0d;
+  color: $price-text-dark;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px none rgb(125, 125, 125);
+}
+
+.input-label-trade5 {
+  position: absolute;
+  top: 194px;
+  left: 60px;
+  background: $base-color1;
+  color: $price-text;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px solid silver;
+}
+.input-label-trade5-dark {
+  position: absolute;
+  top: 194px;
+  left: 60px;
+  background: #0d0d0d;
+  color: $price-text-dark;
+  padding: 0px 13px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 999 !important;
+  border: 1px none rgb(125, 125, 125);
+}
+
+// SCROLL TABLE LIST BUY SELL
+
+.outter-table-wrapper2 {
+  background-color: $base-color1;
+}
+.table-wrapper2,
+.table-wrapper2-dark {
+  overflow-y: auto;
+  height: 293px;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $base-color4, $alpha: 0.5) !important;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aeb4ce;
+  }
+}
+
+.table-wrapper2 th {
+  position: sticky;
+  top: 0;
+  background-color: $tab-header !important;
+}
+
+.table-wrapper2-dark th {
+  position: sticky;
+  top: 0;
+  background-color: $tab-header-dark !important;
+}
+
+/* A bit more styling to make it look better */
+.table-wrapper2 {
+  background: $base-color3;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: $base-color2;
+  }
+
+  th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 13px;
+  }
+  td {
+    padding-top: 7px;
+    padding-bottom: 3px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+  }
+}
+
+.table-wrapper2-dark {
+  background: $base-color1-dark;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: $base-color2-dark;
+  }
+
+  th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 13px;
+  }
+  td {
+    padding-top: 7px;
+    padding-bottom: 3px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+  }
+}
+
+// SCROLL TABLE LIVE MARKET
+
+.outter-table-wrapper3 {
+  background-color: $base-color1;
+}
+.outter-table-wrapper3-dark {
+  background-color: $base-color1-dark;
+  border: 1px solid;
+}
+.table-wrapper3 {
+  overflow-y: auto;
+  height: 340px;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $base-color4, $alpha: 0.5) !important;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aeb4ce;
+  }
+}
+.table-wrapper3-dark {
+  overflow-y: auto;
+  height: 340px;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $base-color4-dark, $alpha: 0.5) !important;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aeb4ce;
+  }
+}
+
+.table-wrapper3 th {
+  position: sticky;
+  top: 0;
+}
+
+/* A bit more styling to make it look better */
+.table-wrapper3 {
+  background: $base-color1;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: $base-color1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 13px;
+  }
+  td {
+    padding-top: 7px;
+    padding-bottom: 3px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+  }
+}
+.table-wrapper3-dark {
+  background: $base-color1-dark;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: $base-color1-dark;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 13px;
+  }
+  td {
+    padding-top: 7px;
+    padding-bottom: 3px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+  }
+}
+
+// SCROLL TABLE LIVE MARKET
+
+.outter-table-wrapper4 {
+  background-color: $base-color1;
+  border: 1px solid;
+}
+.outter-table-wrapper4-dark {
+  background-color: $base-color1-dark;
+}
+.table-wrapper4 {
+  overflow-y: auto;
+  height: 339px;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $base-color4, $alpha: 0.5) !important;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aeb4ce;
+  }
+}
+.table-wrapper4-dark {
+  overflow-y: auto;
+  height: 339px;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $base-color4-dark, $alpha: 0.5) !important;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aeb4ce;
+  }
+}
+
+.table-wrapper4 th {
+  position: sticky;
+  top: 0;
+}
+
+/* A bit more styling to make it look better */
+.table-wrapper4 {
+  background: $base-color1;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: $base-color1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 13px;
+  }
+  td {
+    padding-top: 10px;
+    padding-bottom: 6px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+  }
+}
+.table-wrapper4-dark {
+  background: $base-color1-dark;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: $base-color1-dark;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 13px;
+  }
+  td {
+    padding-top: 10px;
+    padding-bottom: 6px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+  }
+}
+
+// SCROLL TABLE ORDER PENDING
+
+.outter-table-wrapper5 {
+  background-color: $base-color1;
+  border: 1px solid;
+}
+.table-wrapper5 {
+  overflow-y: auto;
+  height: auto;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $base-color4, $alpha: 0.5) !important;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aeb4ce;
+  }
+}
+
+.table-wrapper5 th {
+  position: sticky;
+  top: 0;
+}
+
+/* A bit more styling to make it look better */
+.table-wrapper5 {
+  background: $base-color1;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: $base-color2;
+  }
+
+  th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 13px;
+  }
+  td {
+    padding-top: 7px;
+    padding-bottom: 3px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+  }
+}
+
+// SCROLL TABLE ORDER HISTORY
+
+.outter-table-wrapper6 {
+  background-color: $base-color1;
+  border: 1px solid;
+}
+.table-wrapper6 {
+  overflow-y: auto;
+  height: 300px;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $base-color4, $alpha: 0.5) !important;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #aeb4ce;
+  }
+}
+
+.table-wrapper6 th {
+  position: sticky;
+  top: 0;
+}
+
+/* A bit more styling to make it look better */
+.table-wrapper6 {
+  background: $base-color1;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: $base-color2;
+  }
+
+  th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 13px;
+  }
+  td {
+    padding-top: 7px;
+    padding-bottom: 3px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 12px;
+  }
+}
+
+// Header
+.ci-dropdown-btn-wallets-trade {
+  // background-color: lighten(#161616, 5);
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #dddddd;
+  font-weight: 500;
+  &:hover {
+    background-color: #f9ba42;
+    color: black;
+  }
+  &:focus {
+    outline: none !important;
+    background-color: lighten(#161616, 5);
+    color: #dddddd;
+  }
+}
+
+.ci-dropdown-menu-wallets-trade {
+  background: lighten($color: rgb(29, 36, 58), $amount: 5);
+  margin-top: 16px;
+  width: 360px;
+  border: none;
+  &-scrollbar {
+    width: 340px;
+    max-height: 200px;
+    overflow-x: auto;
+  }
+}
+
+.ci-dropdown-btn-profile-trade {
+  .ci-username-text-profile {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    .ci-username {
+      color: white;
+      margin-bottom: 0;
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 14px;
+      margin: 0;
+      span {
+        color: white;
+        font-size: 10px;
+        line-height: 10px;
+        margin-bottom: 4px;
+        display: block;
+      }
+    }
+  }
+  &-arrow {
+    background: #f9ba42 !important;
+    &-icons {
+      vertical-align: middle;
+      margin-top: 4px;
+    }
+  }
+}
+
+.ci-dropdown-menu-profile {
+  width: 300px;
+  background: lighten($color: #1c233f, $amount: 5);
+  border: none;
+  padding-bottom: 0;
+  &-img {
+    position: relative;
+    top: -40px;
+  }
+  &-item:nth-child(odd) {
+    border-bottom: 1px solid #1c233f;
+  }
+  &-item {
+    background-color: lighten($color: #1c233f, $amount: 8);
+    .ci-link-dropdownHeader {
+      color: #f9ba42;
+    }
+    .ci-link-dropdownHeader-logout {
+      cursor: pointer;
+      color: lighten(red, 10);
+    }
+  }
+  &-textName {
+    position: relative;
+    top: -20px;
+  }
+  &-item:hover {
+    background-color: lighten(#1c233f, 10);
+    .ci-link-dropdownHeader {
+      text-decoration: none;
+    }
+  }
+}
+
+// Trade Main Page
+
+.outter-table-wrapper-trade-main-page {
+  background-color: #151933;
+  border: 1px solid;
+}
+.table-wrapper-trade-main-page {
+  overflow-y: scroll;
+  max-height: 750px;
+}
+
+.table-wrapper-trade-main-page th {
+  position: sticky;
+  top: 0;
+}
+
+/* A bit more styling to make it look better */
+.table-wrapper-trade-main-page {
+  background: #151933;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background: #151933;
+  }
+
+  td {
+    font-size: 14px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+
+  td,
+  th {
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+.tp-tb {
+  padding: 10px 10px;
+  font-size: 14px;
+}
+
+.table-padding {
+  padding-top: 2px;
+}
+
+// depth chart
+#myChart {
+  height: 100%;
+  width: 100%;
+  min-height: 150px;
+}
+.zc-ref {
+  display: none;
+}
+
+// Button Depth Chart + Advance Chart
+
+.ci-dropdown-btn-wallets-trade2 {
+  background-color: lighten(#161616, 5);
+  border: none;
+  border-radius: 3px;
+  padding: 6px 10px 10px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  color: #dddddd;
+  &:hover {
+    background-color: lighten(#2b3052, 5);
+    color: #dddddd;
+  }
+  &:focus {
+    outline: none !important;
+    background-color: lighten(#161616, 5);
+    color: #dddddd;
+  }
+}
+
+#myChart-license-text {
+  display: none;
+}
+
+// tabs trade
+
+// Price dropdown coin selector
+
+.ci-dropdown-btn-TradeSymbol {
+  border: none;
+  border-radius: 8px;
+  color: #dddddd;
+  &:hover {
+    background-color: lighten(#303030, 5);
+    color: #dddddd;
+  }
+  &:focus {
+    outline: none !important;
+    background-color: lighten(#3d3d3d, 5);
+    color: #dddddd;
+  }
+}
+.ci-dropdown-menu-TradeSymbol {
+  background: lighten($color: rgb(13, 13, 13), $amount: 5);
+  margin-top: 8px;
+  width: 360px;
+  border: none;
+  &-scrollbar {
+    max-height: 300px;
+    overflow-x: auto;
+    border-radius: 6px;
+    .table-wrapper4 {
+      background: $base-color-table-dropdown;
+    }
+    /* width */
+    &::-webkit-scrollbar {
+      width: 5px;
+      display: none;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 8px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background-color: #f9ba42 !important;
+      border-radius: 8px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #aeb4ce;
+    }
+  }
+}
+.ci-dropdown-toggle-custom::after {
+  content: none !important;
+}
+
+// Day Nigh Button
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+
+  em {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+// hoverable table
+#trade-table tr:hover {
+  background-color: $tab-hover;
+}
+#trade-table-dark tr:hover {
+  background-color: $tab-hover-dark;
+}
+
+// Banner List Coin
+.banner-list-coin {
+  min-height: 110px;
+  background-color: #161a33;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+// Dropdown list coin
+.list-coin-responsive {
+  padding: 5px 15px;
+  width: 90%;
+}
+
+@media (min-width: 750px) {
+  .list-coin-responsive {
+    padding: 0px 0px;
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .list-coin-responsive {
+    padding: 0px 0px;
+    width: 80%;
+  }
+}
+
+// Logo
+.logo-trade-responsive {
+  width: 150px;
+}
+
+@media (min-width: 750px) {
+  .logo-trade-responsive {
+    width: 170px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-trade-responsive {
+    width: 170px;
+  }
+}
+
+// Tabs Limit Chat
+// Responsive
+.height-limit-chat {
+  height: auto;
+}
+
+@media (min-width: 750px) {
+  .height-limit-chat {
+    height: 410px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .height-limit-chat {
+    height: 410px;
+  }
+}
+
+// day night
+.day-night-responsive {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  .day-night-responsive {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .day-night-responsive {
+    display: block;
+  }
+}
+
+// margintop
+.mt-2-trade {
+  margin-top: 15px;
+}
+
+@media (min-width: 750px) {
+  .mt-2-trade {
+    margin-top: 0px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mt-2-trade {
+    margin-top: 0px;
+  }
+}
+
+// paddingbottom
+.ptb-2-trade {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+@media (min-width: 750px) {
+  .ptb-2-trade {
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ptb-2-trade {
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+}
+
+.nav-trade-full-dark {
+  background-color: #000000;
+}
+
+.nav-trade-full {
+  background-color: #00688f;
+}

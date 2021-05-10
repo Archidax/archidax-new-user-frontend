@@ -1,0 +1,53 @@
+.bannersyaratdanketentuan {
+  height: 280px;
+  background-image: url(../../assets/img/footercomponents/syaratpengguna/bannersyaratpengguna.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.bannerkebijakanprivasi {
+  height: 280px;
+  background-image: url(../../assets/img/footercomponents/kebijakanprivasi/kebijakanprivasi.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.perjanjianpengguna {
+  height: 280px;
+  background-image: url(../../assets/img/footercomponents/perjanjianpengguna/perjanjianpengguna.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.feesbanners {
+  height: 280px;
+  background-image: url(../../assets/img/footercomponents/fee/feedepowd.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.belikriptos {
+  background: $theme-BlueDarkPrimaryBase-BackgroundDefault;
+  font-style: normal;
+  .belikripto {
+    background: url(../../assets/img/footercomponents/belikripto/belikripto.png);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 6rem 2rem;
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}

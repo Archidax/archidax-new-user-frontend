@@ -1,0 +1,30 @@
+.circle-icon {
+  background: #ffc0c0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+  padding: 30px;
+}
+
+// Fav Icon
+
+.fav-icon-before {
+  background-image: url(../../assets/img/trade/icon/fav_stroke.svg);
+  width: 17px;
+  height: 17px;
+}
+
+.fav-icon-before:hover {
+  background-image: url(../../assets/img/trade/icon/fav_hover.svg);
+  width: 17px;
+  height: 17px;
+}
+
+.fav-icon-after {
+  background-image: url(../../assets/img/trade/icon/fav_fill.svg);
+  width: 17px;
+  height: 17px;
+}

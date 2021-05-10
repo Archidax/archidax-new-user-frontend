@@ -1,0 +1,32 @@
+/* Auth Layout */
+.ci-p-right-0 {
+  right: 0px;
+}
+.ci-p-right-100rem {
+  right: 1rem;
+}
+.ci-p-left-100rem {
+  left: 1rem;
+}
+/* End Auth Layout */
+
+/* Vertical Align */
+.ci-verti-align-middle {
+  vertical-align: middle !important;
+}
+/* End Vertical Align */
+
+/* Width Layout */
+.ci-layoutW-responsive {
+  width: 60%;
+}
+@media only screen and (max-width: 991.98px) {
+  .ci-layoutW-responsive {
+    width: 100%;
+  }
+}
+
+//
+.br-5 {
+  border-radius: 5px;
+}

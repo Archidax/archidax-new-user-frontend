@@ -1,0 +1,448 @@
+/* BUTTON DEFAULT & CUSTOM */
+// Button Background
+.ci-btn-primary {
+  background: #00a2e0;
+  border: none;
+  border-radius: 4px;
+  color: #dddddd;
+  &:hover {
+    background: #39afdd;
+    color: #dddddd;
+  }
+  &:focus {
+    outline: none !important;
+    background: #39afdd;
+    color: #dddddd;
+  }
+  &:disabled {
+    background: #0d8cbe;
+    border: none;
+    border-radius: 4px;
+    color: #dddddd;
+  }
+}
+.ci-btn-secondary {
+  background: #cbcbcb;
+  border: none;
+  border-radius: 4px;
+  color: #0b0c22;
+  &:hover {
+    background: #afafaf;
+    color: #0b0c22;
+  }
+  &:focus {
+    outline: none !important;
+    background: #afafaf;
+    color: #0b0c22;
+  }
+  &:disabled {
+    background: #a0a0a0;
+    border: none;
+    border-radius: 4px;
+    color: #0b0c22;
+  }
+}
+.ci-btn-success {
+  background: #1ba27a;
+  border: none;
+  border-radius: 4px;
+  color: #dddddd;
+  &:hover {
+    background: #2d8f71;
+    color: #dddddd;
+  }
+  &:focus {
+    outline: none !important;
+    background: #2d8f71;
+    color: #dddddd;
+  }
+  &:disabled {
+    background: #1f795e;
+    border: none;
+    border-radius: 4px;
+    color: #dddddd;
+  }
+}
+.ci-btn-danger {
+  background: #ed4c5c;
+  border: none;
+  border-radius: 4px;
+  color: #dddddd;
+  &:hover {
+    background: rgb(212, 94, 106);
+    color: #dddddd;
+  }
+  &:focus {
+    outline: none !important;
+    background: rgb(212, 94, 106);
+    color: #dddddd;
+  }
+  &:disabled {
+    background: #af4953;
+    border: none;
+    border-radius: 4px;
+    color: #dddddd;
+  }
+}
+.ci-btn-warning {
+  background: #f9bd00;
+  border: none;
+  border-radius: 4px;
+  color: #0b0c22;
+  &:hover {
+    background: #ffce2c;
+    color: #0b0c22;
+  }
+  &:focus {
+    outline: none !important;
+    background: #ffce2c;
+    color: #0b0c22;
+  }
+  &:disabled {
+    background: #c99c0b;
+    border: none;
+    border-radius: 4px;
+    color: #0b0c22;
+  }
+}
+.ci-btn-info {
+  background: #5fd0fb;
+  border: none;
+  border-radius: 4px;
+  color: #0b0c22;
+  &:hover {
+    background: #61b5d6;
+    color: #0b0c22;
+  }
+  &:focus {
+    outline: none !important;
+    background: #61b5d6;
+    color: #0b0c22;
+  }
+  &:disabled {
+    background: #4897b6;
+    border: none;
+    border-radius: 4px;
+    color: #0b0c22;
+  }
+}
+// End Button Background
+
+// Button Bordered
+.ci-btnOL-primary {
+  background: transparent;
+  border: 1px solid #00a2e0;
+  border-radius: 4px;
+  color: #39afdd;
+  &:hover {
+    background: #39afdd;
+    color: #dddddd;
+  }
+  &:focus {
+    outline: none !important;
+    background: #39a0c9;
+    color: #dddddd;
+  }
+  &:disabled {
+    background: transparent;
+    border: 1px solid #0d8cbe;
+    border-radius: 4px;
+    color: #0d8cbe;
+  }
+}
+.ci-btnOL-secondary {
+  background: transparent;
+  border: 1px solid #cbcbcb;
+  border-radius: 4px;
+  color: #cbcbcb;
+  &:hover {
+    background: #cbcbcb;
+    color: #0b0c22;
+  }
+  &:focus {
+    outline: none !important;
+    background: #bbbbbb;
+    color: #0b0c22;
+  }
+  &:disabled {
+    background: transparent;
+    border: 1px solid #a0a0a0;
+    border-radius: 4px;
+    color: #a0a0a0;
+  }
+}
+.ci-btnOL-success {
+  background: transparent;
+  border: 1px solid #1ba27a;
+  border-radius: 4px;
+  color: #2d8f71;
+  &:hover {
+    background: #2d8f71;
+    color: #dddddd;
+  }
+  &:focus {
+    outline: none !important;
+    background: #2c856a;
+    color: #dddddd;
+  }
+  &:disabled {
+    background: transparent;
+    border: 1px solid #1f795e;
+    border-radius: 4px;
+    color: #1f795e;
+  }
+}
+.ci-btnOL-danger {
+  background: transparent;
+  border: 1px solid #d45e6a;
+  border-radius: 4px;
+  color: #d45e6a;
+  &:hover {
+    background: #d45e6a;
+    color: #dddddd;
+  }
+  &:focus {
+    outline: none !important;
+    background: #c55b66;
+    color: #dddddd;
+  }
+  &:disabled {
+    background: transparent;
+    border: 1px solid #af4953;
+    border-radius: 4px;
+    color: #af4953;
+  }
+}
+.ci-btnOL-warning {
+  background: transparent;
+  border: 1px solid #ffce2c;
+  border-radius: 4px;
+  color: #ffce2c;
+  &:hover {
+    background: #ffce2c;
+    color: #0b0c22;
+  }
+  &:focus {
+    outline: none !important;
+    background: #eec12e;
+    color: #0b0c22;
+  }
+  &:disabled {
+    background: transparent;
+    border: 1px solid #c99c0b;
+    border-radius: 4px;
+    color: #c99c0b;
+  }
+}
+.ci-btnOL-info {
+  background: transparent;
+  border: 1px solid #61b5d6;
+  border-radius: 4px;
+  color: #61b5d6;
+  &:hover {
+    background: #61b5d6;
+    color: #0b0c22;
+  }
+  &:focus {
+    outline: none !important;
+    background: #5da9c7;
+    color: #0b0c22;
+  }
+  &:disabled {
+    background: transparent;
+    border: 1px solid #4897b6;
+    border-radius: 4px;
+    color: #4897b6;
+  }
+}
+// End Button Bordered
+
+.ci-btn-custom-1 {
+  background: #2c355a;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  &:hover {
+    background: lighten($color: #2c355a, $amount: 2);
+    color: lighten($color: white, $amount: 1);
+  }
+  &:focus {
+    box-shadow: none;
+    outline: none !important;
+  }
+}
+.ci-btn-custom-2 {
+  background: $theme-GoldBase-BackgroundDefault;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  &:hover {
+    background: lighten($color: #dfb332, $amount: 2);
+    color: lighten($color: white, $amount: 1);
+  }
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+.ci-btn-custom-3 {
+  background: transparent;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  color: white;
+  &:hover {
+    border: 1px solid white;
+    color: lighten($color: white, $amount: 1);
+  }
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+.ci-btn-custom-4 {
+  background: #2c355a;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  color: white;
+  &:hover {
+    background: lighten($color: #2c355a, $amount: 2);
+    color: lighten($color: white, $amount: 1);
+  }
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+/* END BUTTON DEFAULT & CUSTOM */
+
+/* TABS ACTIVE */
+.ci-btn-affiliasi {
+  background: transparent !important;
+  border-radius: 0;
+  color: #999999;
+  &:hover {
+    border-color: #0b0c22 !important;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.ci-btn-affiliasi.active {
+  background: #151933 !important;
+  color: white !important;
+  border-width: 3px;
+  border-image: linear-gradient(to bottom, #f9bd00, rgba(0, 0, 0, 0)) 1 100%;
+  border-top: 3px solid #f9bd00 !important;
+  border-image-slice: 2%;
+}
+.ci-btn-tabsSetorTarik.active {
+  background: #f9bd00 !important;
+}
+/* END TABS ACTIVE */
+
+/* BUTTON BACK TO HOME (LOGIN REGISTER) */
+.ci-btn-back {
+  width: 2.4rem;
+  position: absolute;
+  top: 1rem;
+  z-index: 1;
+  background: white;
+  opacity: 0.5;
+  text-align: center;
+  padding: 4px;
+}
+/* END BUTTON BACK TO HOME (LOGIN REGISTER) */
+/* BUTTON LOGIN REGISTER ANIMATION */
+.ci-btn-authAnim-1 {
+  animation-duration: 1s;
+  animation-name: buttonAnimateLogin;
+}
+.ci-btn-authAnim-2 {
+  animation-duration: 1s;
+  animation-name: buttonAnimateRegister;
+}
+@keyframes buttonAnimateLogin {
+  0% {
+    transform: translateX(-50px);
+  }
+  20% {
+    transform: translateX(-50px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  90% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes buttonAnimateRegister {
+  0% {
+    transform: translateX(50px);
+  }
+  20% {
+    transform: translateX(50px);
+  }
+  40% {
+    transform: translateX(-10px);
+  }
+  60% {
+    transform: translateX(10px);
+  }
+  90% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+/* END BUTTON LOGIN REGISTER ANIMATION */
+
+/* TRADE */
+.button-cancel-trade {
+  background-color: #f85778;
+  padding: 2px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* TABS ACTIVE */
+.ci-btn-trade {
+  background: #0b0d22 !important;
+  border-radius: 0;
+  color: #999999;
+  &:hover {
+    border-color: transparent !important;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.ci-btn-trade.active {
+  background: #151933 !important;
+  color: white !important;
+  border-width: 3px;
+  border-image: linear-gradient(to bottom, #f9bd00, rgba(0, 0, 0, 0)) 1 100%;
+  border-top: 3px solid #f9bd00 !important;
+  border-image-slice: 2%;
+}
+.ci-btn-tabsSetorTarik.active {
+  background: #f9bd00 !important;
+}
+/* END TABS ACTIVE */
+/* END TRADE */
+
+// WALLET
+.ci-button-setor-tarik {
+  background-color: white;
+  color: black;
+  &:hover {
+    background-color: #f9bd00;
+    color: black;
+  }
+}

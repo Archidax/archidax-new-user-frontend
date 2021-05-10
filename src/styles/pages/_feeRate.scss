@@ -1,0 +1,34 @@
+.jaringan-bg{
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    color: black ;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 8px;
+    border-radius: 10px;
+    background: rgba($color: #f9ba42, $alpha: 1);
+}
+
+#feerate td, #feerate th {
+    border: 0.2px solid rgba($color: white, $alpha: 0.2);
+    padding: 19px 15px;
+    font-size: 16px;
+  }
+
+  #feerate tr {color: white; background-color: #151933;}
+  
+  #feerate tr:nth-child(even){background-color: #151933;}
+  
+  #feerate tr:hover {
+      background-color: #0B0C22; color: #f9ba42;
+      font-weight: 700;
+    }
+  
+  #feerate th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0B0C22;
+    color: white;
+  }
