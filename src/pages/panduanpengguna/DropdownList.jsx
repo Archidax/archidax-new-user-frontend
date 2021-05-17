@@ -2,13 +2,13 @@ import React from 'react'
 
 function DropdownListPanduan({className}) {
     const Panduan = [
-        {title: "Memahami Apa itu Crypto", id: "memahami-crypto", href: "#memahami-cypto"},
-        {title: "Keuntungan/Benefit Crypto", id: "keuntungan-atau-benefit-crypto-list", href: "#keuntungan-atau-benefit-crypto"},
-        {title: "Mari Memulai", id: "mari-memulai-list", href: "#mari-memulai"},
-        {title: "Hal Yang Harus Dipersiapkan Sebelum Melakukan Trading", id: "persiapan-trading-list", href: "#persiapan-trading"},
-        {title: "Mengaktifkan Google Authenticator", id: "mengaktifkan-google-auth-list", href: "#mengaktifkan-google-auth"},
-        {title: "Deposit dan Penarikan Rupiah", id: "cara-deposit-dan-penarikan-list", href: "#cara-deposit-dan-penarikano"},
-        {title: "Deposit dan Penarikan Kripto", id: "cara-deposit-dan-penarikan-kripto-list", href: "#cara-deposit-dan-penarikan-kripto"},
+        {title: "What is Crypto ?", id: "memahami-crypto", href: "#memahami-cypto"},
+        {title: "Benefits of Cryptocurrency", id: "keuntungan-atau-benefit-crypto-list", href: "#keuntungan-atau-benefit-crypto"},
+        {title: "Let's Get Started", id: "mari-memulai-list", href: "#mari-memulai"},
+        {title: "Things That Must Be Prepared Before Trading", id: "persiapan-trading-list", href: "#persiapan-trading"},
+        {title: "Activating Google Authenticator", id: "mengaktifkan-google-auth-list", href: "#mengaktifkan-google-auth"},
+        // {title: "Deposit dan Penarikan Rupiah", id: "cara-deposit-dan-penarikan-list", href: "#cara-deposit-dan-penarikano"},
+        // {title: "Deposit dan Penarikan Kripto", id: "cara-deposit-dan-penarikan-kripto-list", href: "#cara-deposit-dan-penarikan-kripto"},
         {title: "Metode Instan dan Metode Limit", id: "metode-instan-limit-list", href: "#metode-instan-limit"}
     ]
 
