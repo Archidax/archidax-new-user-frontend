@@ -18,57 +18,57 @@ function MariMemulai() {
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-gold font-34 font-weight-bold">
-                        Mari Memulai
+                        Let's Get Started
                     </h2>
                 </div>
             </div>
             <div className="row mt-2">
                 <div className="col-12 mt-2">
-                    <h3 className="text-gold font-16 text-justify">A. Proses Registrasi</h3>
-                    <p className="text-gray2 font-15 text-justify">Ketika semua sudah dipersiapkan, langkah selanjutnya yang harus dilakukan ialah Proses Registrasi, proses ini dapat dilakukan dengan langkah-langkah berikut ini :</p>
+                    <h3 className="text-gold font-16 text-justify">A. Registration Process</h3>
+                    <p className="text-gray2 font-15 text-justify">When everything has been prepared, the next step that must be done is the Registration Process, this process can be done with the following steps:</p>
                     <ol>
-                        <li className="text-gray2 font-14">Pertama-tama, buka website kami di <a href="https://cryptoindex.id">https://cryptoindex.id</a></li>
-                        <li className="text-gray2 font-14">Jika anda belum terdaftar sebagai member cryptoindex, anda dapat registrasi dengan  klik <b>“Daftar Sekarang”</b>.</li>
+                        <li className="text-gray2 font-14">First of all, open our website at <a href="https://archidax.net">https://archidax.net</a></li>
+                        <li className="text-gray2 font-14">If you are not registered as a archidax member, you can register by clicking <b>"Register Now".</b></li>
                         <div className="text-center">
                             <img src={Register1} alt="..." className="img-fluid mt-2 mb-3"/>
                         </div>
-                        <li className="text-gray2 font-14">Untuk pengguna baru yang melakukan registrasi harus memasukkan username, e-mail, nomor handphone dan password Anda. Kami meminta Anda untuk mencantumkan no HP utama. Klik saya menyetujui syarat dan kesepakatan yang berlaku. Kemudian, klik <b>“Register”</b>.</li>
+                        <li className="text-gray2 font-14">New users who register must enter their username, e-mail, mobile number, and password. We ask you to include the main cellphone number. Click I agree to the terms and conditions that apply. Then, click <b>"Register".</b></li>
                         <div className="text-center">
                             <img src={Register2} alt="..." className="img-fluid mt-2 mb-3"/>
                         </div>
-                        <li className="text-gray2 font-14">User akan mendapat pemberitahuan link aktivasi yang telah dikirimkan ke email user. Kemudian, user diminta check email untuk melengkapi registrasi.</li>
+                        <li className="text-gray2 font-14">The user will receive an activation link notification that has been sent to the user's email. Then, the user is asked to check email to complete registration.</li>
                         <div className="text-center">
                             <img src={Register3} alt="..." className="img-fluid mt-2 mb-3"/>
                         </div>
-                        <li className="text-gray2 font-14">Berikut ini adalah tampilan email verifikasi. Untuk lanjut ke tahap selanjutnya, Anda harus mengklik tombol <b>Aktivasi Akun Sekarang</b>.</li>
+                        <li className="text-gray2 font-14">The following is the appearance of the verification email. To proceed to the next stage, you must click the <b>Activate Account</b> Now button.</li>
                         <div className="text-center">
                             <img src={Register4} alt="..." className="img-fluid mt-2 mb-3"/>
                         </div>
-                        <li className="text-gray2 font-14">Jika verifikasi berhasil, Anda akan diarahkan ke halaman login (masuk). Masukkan email dan password yang sudah diverifikasi, lalu klik <b>“Masuk”</b>.</li>
+                        <li className="text-gray2 font-14">If the verification is successful, you will be directed to the login page (login). Enter the verified email and password, then click <b>"Login".</b></li>
                         <div className="text-center">
                             <img src={Register5} alt="..." className="img-fluid mt-2 mb-3"/>
                         </div>
-                        <li className="text-gray2 font-14">Anda akan diarahkan masuk ke dashboard.</li>
+                        <li className="text-gray2 font-14">You will be directed to enter the dashboard.</li>
                         <div className="text-center">
                             <img src={Register6} alt="..." className="img-fluid mt-2 mb-3"/>
                         </div>
-                        <li className="text-gray2 font-14">Jika Anda ingin melakukan transaksi seperti deposit, withdrawal dan perdagangan pada aset kripto, Anda diharuskan melakukan verifikasi identitas (KYC).</li>
+                        <li className="text-gray2 font-14">If you want to make transactions such as deposits, withdrawals, and trading on crypto assets, you are required to perform identity verification (KYC).</li>
                     </ol>
                 </div>
                 <div className="col-12 mt-2">
-                    <h3 className="text-gold font-16 text-justify">B. Proses KYC</h3>
-                    <p className="text-gray2 font-15 text-justify">Proses KYC dilakukan dengan tujuan untuk memastikan bahwa identitas Anda adalah benar dan sah, langkah-langkahnya adalah sebagai berikut :</p>
+                    <h3 className="text-gold font-16 text-justify">B. KYC Process</h3>
+                    <p className="text-gray2 font-15 text-justify">The KYC process is carried out to ensure that your identity is correct and valid, the steps are as follows :</p>
                     <ol>
-                        <li className="text-gray2 font-14">Pada halaman dashboard, klik tombol <b>“belum verifikasi”</b> atau bisa juga klik tombol <b>“Verifikasi Sekarang”</b>.</li>
+                        <li className="text-gray2 font-14">On the dashboard page, click the <b>"not verified"</b> button or you can also click the <b>"Verify Now"</b> button.</li>
                         <img src={KYC1} alt="..." className="img-fluid mt-2 mb-3"/>
-                        <li className="text-gray2 font-14">Kemudian, anda akan dialihkan ke halaman verifikasi akun, dimana anda diminta untuk melengkapi data-data berikut seperti mengisi formulir verifikasi seperti nama lengkap, tempat lahir, tanggal lahir, jenis kelamin, pekerjaan, warga negara, dan alamat.</li>
-                        <li className="text-gray2 font-14">Masukkan juga nomor kartu identitas kalian dan masa berlakunya.</li>
-                        <li className="text-gray2 font-14">Serta masukkan data kontak darurat anda yang terdiri dari : nama kerabat, hubungan kerabat, dan nomor telepon darurat. Selanjutnya, klik tombol Lanjut.</li>
+                        <li className="text-gray2 font-14">Then, you will be redirected to the account verification page, where you are asked to complete the following data such as filling out a verification form such as full name, place of birth, date of birth, gender, occupation, nationality, and address.</li>
+                        <li className="text-gray2 font-14">Also, enter your identity card number and its validity period.</li>
+                        <li className="text-gray2 font-14">And enter your emergency contact data which consists of the name of your relative, relative, and emergency telephone number. Next, click on the Next button.</li>
                         <img src={KYC2} alt="..." className="img-fluid mt-2 mb-3"/>
-                        <li className="text-gray2 font-14">Masih di halaman verifikasi akun, anda harus mengambil foto untuk identitas anda dengan benar, sesuai dengan syarat yang telah tertera.</li>
-                        <li className="text-gray2 font-14">Kemudian, anda juga harus melakukan verifikasi wajah dengan cara melakukan selfie dengan memegang kartu identitas anda sesuai dengan syarat yang telah tertera. Setelah itu, klik tombol ajukan KYC.</li>
+                        <li className="text-gray2 font-14">Still, on the account verification page, you must take a photo of your identity correctly, according to the conditions listed.</li>
+                        <li className="text-gray2 font-14">Then, you also have to verify your face by taking a selfie by holding your identity card according to the conditions listed. After that, click on the submit KYC button.</li>
                         <img src={KYC3} alt="..." className="img-fluid mt-2 mb-3"/>
-                        <li className="text-gray2 font-14">Ketika proses KYC selesai, anda akan melihat ikon <b>“Terverifikasi”</b> pada halaman dashboard anda.</li>
+                        <li className="text-gray2 font-14">When the KYC process is complete, you will see a <b>“Verified”</b> icon on your dashboard page.</li>
                         <img src={KYC4} alt="..." className="img-fluid mt-2 mb-3"/>
                     </ol>
                 </div>
