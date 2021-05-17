@@ -7,6 +7,7 @@ import Waiting from '../waitingComponent'
 import { emailFormatError, idCardFormatError, imageSizeError } from '../../../stores/errorHandler'
 import {convertNumber} from '../../../assets/js'
 import listBank from '../../listBank';
+import Translate from '../../../i18n/Translate';
 
 export default function Step1 () {
     const history = useHistory()
@@ -69,7 +70,7 @@ export default function Step1 () {
                     }}
                     onClick={() => {
                             history.replace('/profile')
-                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" /> Kembali ke profil</p>
+                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" />{Translate('ue_kembali')}</p>
                 </div>
             </div>
             
@@ -77,17 +78,17 @@ export default function Step1 () {
                 <div className="col-6">
                     <div className="row no-gutters">
                         <div className="col-12">
-                            <p className="label-title-top mb-0 font-roboto">Ubah Kenaikan Limit Penarikan</p>
+                            <p className="label-title-top mb-0 font-roboto">{Translate('ul_ubah_kenaikan_limit')}</p>
                         </div>
                         <div className="col-12">
-                            <p className="label-title mb-0">Lengkapi isian berikut untuk mengajukan kenaikan limit penarikan.</p>
+                            <p className="label-title mb-0">{Translate('ul_text_lengkapi')}</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-6">
                     <div className="row no-gutters">
                         <div className="col-12 d-flex justify-content-end">
-                            <p className="label-title2 mb-0">Limit saat ini</p>
+                            <p className="label-title2 mb-0">{Translate('ul_limit_saat_ini')}</p>
                         </div>
                         <div className="col-12 d-flex justify-content-end">
                             <p className="label-title-top mb-0 font-roboto">{convertNumber.toMoney(kyc.limit)}</p>
@@ -133,25 +134,25 @@ export default function Step1 () {
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
                             <p className=" label-title">
-                                Informasi Pribadi
+                                {Translate('ul_informasi_pribadi')}
                             </p>
                         </div>
                     </div>
                     <div className="row mb-3">
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Nama Lengkap</p>
+                            <p className=" mb-1 label-title2">{Translate('ul_nama_lengkap')}</p>
                             <div className="input-group ci-inputDefault-bg">
                                 <input value={full_name} onChange={e => setFull_name(e.target.value)} type="text"  className="form-control ci-inputDefault-bg-input ci-pd"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Email</p>
+                            <p className=" mb-1 label-title2">{Translate('pr_email')}</p>
                             <div className="input-group ci-inputDefault-bg">
                                 <input value={email} onChange={e => setEmail(e.target.value)} type="text"  className="form-control ci-inputDefault-bg-input ci-pd"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Pekerjaan</p>
+                            <p className=" mb-1 label-title2">{Translate('ul_pekerjaan')}</p>
                             <div className="input-group ci-inputDefault-bg">
                                 <input value={job} onChange={e => setJob(e.target.value)} type="text"  className="form-control ci-inputDefault-bg-input ci-pd"/>
                             </div>
@@ -161,13 +162,13 @@ export default function Step1 () {
                         borderBottom: '1px solid white'
                     }} className="row pb-4">
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Nama Perusahaan</p>
+                            <p className=" mb-1 label-title2">{Translate('ul_nama_perusahaan')}</p>
                             <div className="input-group ci-inputDefault-bg">
                                 <input type="text" value={companyName} onChange={e => setCompanyName(e.target.value)} className="form-control ci-inputDefault-bg-input ci-pd"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Akun Media Sosial</p>
+                            <p className=" mb-1 label-title2">{Translate('ul_akun_medsos')}</p>
                             <div className="input-group ci-inputDefault-bg">
                                 <input type="text" value={socialMedia} onChange={e => setSocialMedia(e.target.value)} className="form-control ci-inputDefault-bg-input ci-pd"/>
                             </div>
@@ -177,7 +178,7 @@ export default function Step1 () {
                     <div className="row no-gutters mt-3">
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
                             <p className=" label-title">
-                                Kartu Identitas
+                                {Translate('ul_kartu_identitas')}
                             </p>
                         </div>
                     </div>
@@ -185,13 +186,13 @@ export default function Step1 () {
                         borderBottom: '1px solid white'
                     }} className="row pb-4">
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Nomor KTP/SIM/Passport</p>
+                            <p className=" mb-1 label-title2">{Translate('ul_nomor_kartu')}</p>
                             <div className="input-group ci-inputDefault-bg">
                                 <input type="number" value={idCardNumber} onChange={e => setIdCardNumber(e.target.value)} className="form-control ci-inputDefault-bg-input ci-pd"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Unggah KTP/SIM/Passport</p>
+                            <p className=" mb-1 label-title2">{Translate('ul_unggah_kartu')}</p>
                             <div className="row input-custom-file no-gutters">
 
                                 <div
@@ -209,7 +210,7 @@ export default function Step1 () {
                                         borderRadius: "4px",
                                         }}
                                     >
-                                        Unggah
+                                        {Translate('ue_uanggah')}
                                     </label>
                                     <input
                                         style={{
@@ -229,33 +230,18 @@ export default function Step1 () {
                                         {file ? file.name : "Belum memilih file.."}
                                         </span>
                                         <span className="ci-text-white mb-0 font-10">
-                                        Maksimal ukuran file 1MB
+                                       {Translate('ue_ukuran_file')}
                                         </span>
                                     </div>
                                     </div>
                                 </div>
-
-
-
-                                {/* <div className="col-12">
-                                    <label for="inputFile">Unggah</label>
-                                    <input style={{
-                                        display: 'none'
-                                    }} onChange={e => {
-                                        imageSizeError(e.target.files[0], 1000000, () => setFile(e.target.files[0]))
-                                    }} id="inputFile" type="file" accept=".png, .jpg, .jpeg"/>
-                                    <span className=" label-title pl-3">{file ? file.name : "Belum memilih file.."}</span>
-                                </div>
-                                <div className="col-12">
-                                    <p className="ci-text-white label-title  font-12 mb-0">Maksimal ukuran file 1MB.</p>
-                                </div> */}
                             </div>
                         </div>
                     </div>
                     <div className="row no-gutters pt-4">
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
                             <p className=" label-title">
-                                Bank
+                                {Translate('ul_bank')}
                             </p>
                         </div>
                     </div>
@@ -263,37 +249,37 @@ export default function Step1 () {
                         borderBottom: '1px solid white'
                     }} className="row pb-4">
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Nomor Rekening</p>
+                            <p className=" mb-1 label-title2">{Translate('ul_noRek')}</p>
                             <div className="input-group ci-inputDefault-bg">
                                 <input type="number" value={noRekening} onChange={e => setNoRekening(e.target.value)} className="form-control ci-inputDefault-bg-input ci-pd"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Bank</p>
+                            <p className=" mb-1 label-title2">{Translate('ul_bank')}</p>
                             <Dropdown dataOptions={Object.keys(listBank)} onChange={setBankName} value={bankName} searchBar={true} />
                         </div>
                     </div>
                     <div className="row no-gutters pt-4">
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
                             <p className=" label-title">
-                                Limit Baru
+                                {Translate('ul_limit_baru')}
                             </p>
                         </div>
                     </div>
                     <div className="row mb-3">
                         <div className="col-12 col-md-4 mb-2 mb-md-0">
-                            <p className=" mb-1 label-title2">Nominal Limit</p>
+                            <p className=" mb-1 label-title2">{Translate('ul_nomina_limit')}</p>
                             <div className="input-group ci-inputDefault-bg">
                                 <input type="number" value={limit} onChange={e => setLimit(e.target.value)} className="form-control ci-inputDefault-bg-input ci-pd"/>
                             </div>
                             {/* <div className="col-12"> */}
-                            <p className="ci-text-white label-title  font-12 mb-0 mt-1">Limit Penarikan Anda saat ini adalah: Rp. 200.000.000 per hari (atau ekuivalen untuk aset lain).</p>
+                            <p className="ci-text-white label-title  font-12 mb-0 mt-1">{Translate('ul_text_limit_penarikan')}</p>
                             {/* </div> */}
                         </div>
                     </div>
                 </div>
                 <div className="col-12 px-5 d-flex justify-content-end">
-                    <button onClick={sendlimit} style={{maxWidth: '120px'}} className="ci-btn-warning ci-md mt-4">Simpan</button>
+                    <button onClick={sendlimit} style={{maxWidth: '120px'}} className="ci-btn-warning ci-md mt-4">{Translate('ue_simpan')}</button>
                 </div>
             </div>
         </div>

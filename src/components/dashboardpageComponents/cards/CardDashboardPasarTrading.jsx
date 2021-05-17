@@ -2,6 +2,7 @@ import React from "react";
 import PricePasarTrading from "./cardPricePasarTrading/PricePasarTrading";
 import { useSelector } from "react-redux";
 import pasarlogo from "../../../assets/img/dashboard/logo/pasar.svg";
+import Translate from "../../../i18n/Translate";
 
 function CardDashboardPasarTrading() {
   const { Exchange } = useSelector(
@@ -11,7 +12,11 @@ function CardDashboardPasarTrading() {
   return (
     <div
       className="card"
-      style={{ backgroundColor: "#151933", border: "none" }}
+      style={{
+        backgroundColor: "#151933",
+        border: "none",
+        marginBottom: "12px",
+      }}
     >
       <div className="card-body">
         <div className="d-flex flex-direction-row justify-content-between pl-1 pr-4 mb-2">
@@ -25,7 +30,7 @@ function CardDashboardPasarTrading() {
               </div>
               <div>
                 <h4 className="ml-3 text-gold font-bold font-16 label-title-top">
-                  Pasar Trading
+                  {Translate('db_pasar_title')}
                 </h4>
               </div>
             </div>
@@ -61,59 +66,49 @@ function CardDashboardPasarTrading() {
                       scope="col"
                       style={{ height: "60px", verticalAlign: "middle" }}
                     >
-                      No.
+                      {Translate('db_pasar_no')}
                     </th>
                     <th
                       className="ci-tableHeads-custom text-white"
                       scope="col"
                       style={{ height: "60px", verticalAlign: "middle" }}
                     >
-                      Nama Koin
+                      {Translate('db_pasar_nama_koin')}
                     </th>
                     <th
                       className="ci-tableHeads-custom text-white"
                       scope="col"
                       style={{ height: "60px", verticalAlign: "middle" }}
                     >
-                      Harga
+                      {Translate('db_pasar_harga')}
                     </th>
                     <th
                       className="ci-tableHeads-custom text-white"
                       scope="col"
                       style={{ height: "60px", verticalAlign: "middle" }}
                     >
-                      Perubahan
+                      {Translate('db_pasar_perubahan')}
                     </th>
                     <th
                       className="ci-tableHeads-custom text-white"
                       scope="col"
                       style={{ height: "60px", verticalAlign: "middle" }}
                     >
-                      Saldo Aktif
+                      {Translate('db_pasar_saldo_aktif')}
                     </th>
-                    {/* <th
-                      className="ci-tableHeads-custom text-white"
-                      scope="col"
-                      style={{ height: "60px", verticalAlign: "middle" }}
-                    >
-                      Estimasi (IDR)
-                    </th> */}
-
                     <th
                       className="ci-tableHeads-custom text-center text-white"
                       scope="col"
                       style={{ height: "60px", verticalAlign: "middle" }}
                     >
-                      Aksi
+                      {Translate('db_pasar_aksi')}
                     </th>
                   </thead>
                   {Exchange && Exchange.length > 0 ? (
-                    <PricePasarTrading
-                      data={Exchange}
-                    />
+                    <PricePasarTrading data={Exchange} />
                   ) : (
                     <tr>
-                      <td>Data Not Found</td>
+                      <td>{Translate('db_data_tidak_ditemukan')}</td>
                     </tr>
                   )}
                 </table>
@@ -121,25 +116,6 @@ function CardDashboardPasarTrading() {
             </div>
           </div>
         </div>
-        {/* <div className="col-12 px-3 d-flex flex-row-reverse bd-highlight mt-3">
-          <div className="form-check px-3">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="hideAsset"
-              checked={isEmpty}
-              onChange={(e) => {
-                setIsEmpty(e.target.checked);
-              }}
-            />
-            <label
-              className="text-white font-13 form-check-label"
-              for="hideAsset"
-            >
-              Sembunyikan Aset Kosong
-            </label>
-          </div>
-        </div> */}
       </div>
     </div>
   );

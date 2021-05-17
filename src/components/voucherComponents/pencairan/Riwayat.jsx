@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import Translate from "../../../i18n/Translate";
 import { downloadRedeemVoucherHistory } from "../../../stores";
 
 import TidakAdaData from "./TidakAdaVoucher/TidakAdaData";
@@ -106,7 +107,7 @@ function RiwayatPencairan() {
         <div className="row mt-2 mb-3">
           <div className="col-12 col-md-12">
             <h2 className="font-bold text-white font-20 label-title-top">
-              Riwayat Pencairan Voucher
+              {Translate('vc_riwayat_pencairan_voucher')}
             </h2>
           </div>
         </div>
@@ -149,7 +150,7 @@ function RiwayatPencairan() {
           </div>
           <div className="col-12 col-md-2 d-flex justify-content-end mt-1">
             <button className="btn ci-btn-custom-1 px-3 w-100 py-2 ci-bg-success rounded" onClick={() => download()}>
-            <i class="fas fa-file-download mr-2"></i> <span className="font-12">Export to CSV</span>
+            <i class="fas fa-file-download mr-2"></i> <span className="font-12">{Translate('vc_export')}</span>
             </button>
           </div>
         </div>
@@ -164,25 +165,25 @@ function RiwayatPencairan() {
                       className="ci-tableHeads-custom-2 text-white"
                       style={{ width: "25%" }}
                     >
-                      Waktu
+                      {Translate('vc_waktu')}
                     </th>
                     <th
                       className="ci-tableHeads-custom-2 text-white"
                       style={{ width: "25%" }}
                     >
-                      Jenis
+                      {Translate('vc_jenis')}
                     </th>
                     <th
                       className="ci-tableHeads-custom-2 text-white"
                       style={{ width: "25%" }}
                     >
-                      Jumlah
+                      {Translate('vc_jumlah')}
                     </th>
                     <th
                       className="ci-tableHeads-custom-2 text-white"
                       style={{ width: "25%" }}
                     >
-                      Status
+                      {Translate('vc_status')}
                     </th>
                   </tr>
                 </thead>
@@ -202,12 +203,12 @@ function RiwayatPencairan() {
                           <td style={{ width: "20%" }}>
                             {data.isConfirmed ? (
                               data.isRedeem ? (
-                                <> Sudah diredeem </>
+                                <> {Translate('vc_sudah_diredeem')} </>
                               ) : (
-                                <> Sudah dikonfirmasi</>
+                                <> {Translate('vc_sudah_dikonfirmasi')}</>
                               )
                             ) : (
-                              <> Belum dikonfirmasi</>
+                              <> {Translate('vc_belum_dikonfirmasi')}</>
                             )}
                           </td>
                         </tr>

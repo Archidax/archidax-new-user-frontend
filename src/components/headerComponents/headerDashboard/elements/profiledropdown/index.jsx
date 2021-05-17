@@ -28,7 +28,7 @@ function ProfileDropdown() {
                 </figure> */}
         <div className="ci-username-text-profile ml-2 mr-2 d-none d-lg-inline-block">
           <h6 className="ci-username">
-            <span>Selamat Datang,</span>
+            <span>Welcome,</span>
             {profile.username}
           </h6>
         </div>

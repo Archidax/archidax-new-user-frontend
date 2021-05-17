@@ -4,20 +4,25 @@ import FavoritePair from "./FavoritePair";
 import FiatPair from "./FiatPair";
 import star from "../../../assets/img/trade/star.png";
 
-import {useDispatch, useSelector} from "react-redux";
-import {GetListingExchange} from "../../../stores/pasartrading/functions";
+import { useDispatch, useSelector } from "react-redux";
+import { GetListingExchange } from "../../../stores/pasartrading/functions";
 
 export default function ListingExchange() {
-  const {mode} = useSelector(state => state.daynightReducer)
-  const Dispatch=useDispatch();
+  const { mode } = useSelector((state) => state.daynightReducer);
+  const Dispatch = useDispatch();
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     Dispatch(GetListingExchange());
-  },[Dispatch]);
+  }, [Dispatch]);
 
   return (
-    <div className={mode ? "tabs-global-dark":"tabs-global"}>
-      <ul className="nav nav-pills mb-0 font-14" id="pills-tab" role="tablist">
+    <div className={mode ? "tabs-global-dark" : "tabs-global"}>
+      <ul
+        className="nav nav-pills mb-0 font-14"
+        id="pills-tab"
+        role="tablist"
+        style={{ background: "#000000" }}
+      >
         <li className="nav-item col-4 p-0">
           <a
             className="nav-link text-center"
@@ -31,7 +36,7 @@ export default function ListingExchange() {
             <img src={star} alt="star" />
           </a>
         </li>
-        <li className="nav-item col-4 p-0">
+        {/* <li className="nav-item col-4 p-0">
           <a
             className="nav-link text-center active"
             id="crypto-pair"
@@ -43,10 +48,10 @@ export default function ListingExchange() {
           >
             USD
           </a>
-        </li>
+        </li> */}
         <li className="nav-item col-4 p-0">
           <a
-            className="nav-link text-center"
+            className="nav-link text-center active"
             id="fiat-pair"
             data-toggle="pill"
             href="#pills-contact"
@@ -67,16 +72,16 @@ export default function ListingExchange() {
         >
           <FavoritePair />
         </div>
-        <div
-          className="tab-pane fade show active"
+        {/* <div
+          className="tab-pane fade"
           id="pills-profile"
           role="tabpanel"
           aria-labelledby="crypto-pair"
         >
           <CryptoPair />
-        </div>
+        </div> */}
         <div
-          className="tab-pane fade"
+          className="tab-pane fade show active"
           id="pills-contact"
           role="tabpanel"
           aria-labelledby="fiat-pair"

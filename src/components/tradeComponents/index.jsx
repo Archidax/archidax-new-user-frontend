@@ -45,7 +45,7 @@ export default function Index() {
             pairFrom: dataSymbol.base,
             pairTo: dataSymbol.quote,
             icon: dataSymbol.price_24hour.icon,
-            other:dataSymbol,
+            other: dataSymbol,
           }),
         );
       }
@@ -91,7 +91,7 @@ export default function Index() {
                   <h6
                     className={`mb-0 ${mode ? "text-gold" : "text-black"} px-3`}
                   >
-                    Market Jual
+                    Market Sell
                   </h6>
                 </div>
                 <div
@@ -110,7 +110,7 @@ export default function Index() {
                   <h6
                     className={`mb-0 ${mode ? "text-gold" : "text-black"} px-3`}
                   >
-                    Market Beli
+                    Market Buy
                   </h6>
                 </div>
                 <div

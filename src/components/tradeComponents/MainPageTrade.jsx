@@ -41,7 +41,7 @@ function MainPageTrade() {
                 Fav
               </button>
               <button
-                className="nav-link ci-btn-trade active px-2 py-3 font-responsive-trade-page font-bold"
+                className="nav-link ci-btn-trade px-2 py-3 font-responsive-trade-page font-bold"
                 id="IDR-tab"
                 data-toggle="tab"
                 href="#IDR"
@@ -53,7 +53,7 @@ function MainPageTrade() {
                 USD
               </button>
               <button
-                className="nav-link ci-btn-trade px-2 py-3 font-responsive-trade-page font-bold"
+                className="nav-link ci-btn-trade active px-2 py-3 font-responsive-trade-page font-bold"
                 id="USDT-tab"
                 data-toggle="tab"
                 href="#USDT"
@@ -71,7 +71,7 @@ function MainPageTrade() {
         <div className="container-fluid">
           <div className="tab-content" id="myTabContent">
             <div
-              className="tab-pane fade show active"
+              className="tab-pane fade "
               id="IDR"
               role="tabpanel"
               aria-labelledby="IDR-tab"
@@ -91,7 +91,7 @@ function MainPageTrade() {
               />
             </div>
             <div
-              className="tab-pane fade"
+              className="tab-pane fade show active"
               id="USDT"
               role="tabpanel"
               aria-labelledby="USDT-tab"
