@@ -28,7 +28,7 @@ export const methods = [
     // { type: "VISA", value: "VISA", icon: OVOIcon, banner: VisaBg },
     // { type: "Mastercard", value: "MASTERCARD", icon: OVOIcon, banner: MastercardBg },
     { type: "Paypal", value: "PAYPAL", icon: OVOIcon, banner: PaypalBg },
-    { type: "Credit Card", value: "CREDITCARD", icon: OVOIcon, banner: ccBg }
+    { type: "Credit Card", value: "CREDIT CARD", icon: OVOIcon, banner: ccBg }
 
 ]
 

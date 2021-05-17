@@ -41,8 +41,9 @@ function SetorRupiahLanjutan({ nominal }) {
                     method.toUpperCase() === "OVO" ? <SetorRupiahOvo nominal={nominal} metode={method} /> :
                         method.toUpperCase() === "TRANSFER BANK" ? <SetorRupiahTransferBank nominal={nominal} metode={method} /> :
                             method.toUpperCase() === "PAYPAL" ? <SetorRupiahPaypal nominal={nominal} metode={method} /> :
-                                method.toUpperCase().includes("QRIS_") ? <QRISSetorBank nominal={nominal} metode={method} /> :
-                                    method === "" ? <SetorRupiahTerjadiKesalahan /> : <SetorRupiahTransferBank nominal={nominal} metode={method} /> 
+                                method.toUpperCase() === "CREDIT CARD" ? <SetorRupiahPaypal nominal={nominal} metode={method} /> :
+                                    method.toUpperCase().includes("QRIS_") ? <QRISSetorBank nominal={nominal} metode={method} /> :
+                                        method === "" ? <SetorRupiahTerjadiKesalahan /> : <SetorRupiahTransferBank nominal={nominal} metode={method} />
                 }
             </>
         )
