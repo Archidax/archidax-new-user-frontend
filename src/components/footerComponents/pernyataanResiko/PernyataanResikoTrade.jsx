@@ -10,15 +10,12 @@ export default function PernyataanResikoTrade() {
             style={{ background: "rgba(255, 0, 0, 0.4)" }}
             className="px-2 py-1"
           >
-            Pernyataan Resiko :
+            Risk Statement :
           </span>
         </p>
         <p className={`${mode ? "text-price-dark" : "text-price"} mb-0`} style={{ fontStyle: "italic" }}>
-          Perdagangan Digital aset (crypto) memiliki resiko yang tinggi.
-          Pertimbangan dan keputusan ada di tangan Pengguna Cryptoindex tidak
-          memaksakan pengguna melakukan aktivitas dan transaksi jual beli dan
-          semua keputusan jual beli aset uang digital Anda adalah keputusan Anda
-          sendiri dan tidak dipengaruhi oleh pihak manapun.{" "}
+          Trading digital assets (crypto) carries a high risk.
+          Considerations and decisions are in the hands of Cryptoindex users not to force users to carry out buying and selling activities and transactions and all buying and selling decisions of your digital money assets are your own decisions and are not influenced by any party.{" "}
         </p>
       </div>
     </div>

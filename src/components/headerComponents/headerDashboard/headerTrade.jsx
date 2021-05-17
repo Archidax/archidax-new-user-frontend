@@ -4,7 +4,7 @@ import {
   // useRouteMatch
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import logocryptoindex from "../../../assets/img/logo_flat.svg";
+import logocryptoindex from "../../../assets/img/logoArchidax.png";
 
 // Import Elements
 import FlagsDropdownHeader from "./elements/flagsdropdown";

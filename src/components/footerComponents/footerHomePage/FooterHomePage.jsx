@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../../assets/img/logo.svg";
+import logo from "../../../assets/img/logoArchidax.png";
 // import { useHistory } from "react-router-dom";
 import Translate from "../../../i18n/Translate";
 
@@ -220,18 +220,15 @@ export default function FooterHomePage() {
                 style={{ background: "rgba(255, 0, 0, 0.4)" }}
                 className="px-2 py-1"
               >
-                Pernyataan Resiko :
+                Risk Statement :
               </span>
             </p>
             <p
               className="text-white font-12 mb-0"
               style={{ fontStyle: "italic" }}
             >
-              Perdagangan Digital aset (crypto) memiliki resiko yang tinggi.
-              Pertimbangan dan keputusan ada di tangan Pengguna Cryptoindex
-              tidak memaksakan pengguna melakukan aktivitas dan transaksi jual
-              beli dan semua keputusan jual beli aset uang digital Anda adalah
-              keputusan Anda sendiri dan tidak dipengaruhi oleh pihak manapun.{" "}
+              Trading digital assets (crypto) carries a high risk.
+              Considerations and decisions are in the hands of Cryptoindex users not to force users to carry out buying and selling activities and transactions and all buying and selling decisions of your digital money assets are your own decisions and are not influenced by any party.{" "}
             </p>
           </div>
         </div>
@@ -242,7 +239,7 @@ export default function FooterHomePage() {
             <hr className="hr-copyright" />
             <div className="d-flex justify-content-between">
               <p className="text-white mb-0 py-2 font-13">
-                Copyright © 2021 CryptoIndex. All Rights Reserved
+                Copyright © 2021 Archidax. All Rights Reserved
               </p>
 
               <div

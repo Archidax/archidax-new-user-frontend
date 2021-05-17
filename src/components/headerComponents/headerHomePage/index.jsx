@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/img/logo_flat.svg";
+import logo from "../../../assets/img/logoArchidax.png";
 import giflogo from "../../../assets/img/header/headerhomepage/blip.gif";
 import Flags from "../headerDashboard/elements/flagsdropdown";
 
@@ -10,7 +10,7 @@ function HeaderHomePage(props) {
   // eslint-disable-next-line
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-transparent px-5 py-3 font-roboto ">
+    <nav className={`navbar navbar-expand-lg navbar-light bg-transparent px-5 py-3 font-roboto ${props.bg_normal}`} >
       <Link to="/home">
         <a
           className="navbar-brand"

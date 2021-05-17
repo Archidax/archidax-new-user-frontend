@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FlagsDropdownHeader from "../headerDashboard/elements/flagsdropdown";
-import logo from "../../../assets/img/logo.svg";
+import logo from "../../../assets/img/logoArchidax.png";
 
 export default function Index() {
   return (
