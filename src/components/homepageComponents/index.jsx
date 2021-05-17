@@ -19,12 +19,10 @@ function Home(props) {
     });
   }, [setMarketData]);
 
-  console.log(MarketData);
-
   return (
     <div className="navbar-homePage">
       <div className="navbar-top">
-        <HeaderHomePage setLocale={props.setLocale} />
+        <HeaderHomePage setLocale={props.setLocale} bg_normal="bg-header-homepage"/>
         <BannerHomepage setLocale={props.setLocale} />
         <SliderHomepage setLocale={props.setLocale} dataHome={MarketData} />
         <TableHomepage setLocale={props.setLocale} dataHome={MarketData} />

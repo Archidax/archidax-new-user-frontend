@@ -9,7 +9,7 @@ export default function CopyrightDashboard() {
           <div className="">
             <h6 className="mb-0 font-14">
               All rights reserved by{" "}
-              <span className="text-gold">Cryptoindex</span>
+              <span className="text-gold">Archidax</span>
             </h6>
           </div>
         </div>
