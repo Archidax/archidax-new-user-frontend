@@ -8,8 +8,9 @@ export default {
         hh_pasar:"Market",
         hh_keuangan:"Finance",
         hh_forum:"Forum",
-        hh_masuk:"Register",
-        hh_daftar:"Login",
+        hh_masuk:"Login",
+        hh_daftar:"Register",
+        hh_panduan_pemuala:"Beginners Guide",
 
         // Banner
         hb_title:"Sell, Buy, and Invest Crypto Assets Easily, Safely, and Convenient",
@@ -124,6 +125,13 @@ export default {
         db_not_active: "Not Active",
         db_pin: "PIN",
         db_chart_aset_anda : "Your Asset Chart",
+        db_verifikasi_akun:"Account Verification",
+        db_langkah_verifikasi:"Verify your account now to open access to withdraw and deposit funds at Cryptoindex.",
+        db_langkah1: "Step 1",
+        db_langkah2:"Step 2",
+        db_akses_pasar_trading:"Access the trading market",
+        db_akses_tarik_dana: "Access to withdraw / deposit funds",
+        db_verivikasi_sekarang:"Verify Now",
 
         // Section2
         db_pasar_title: "Market Trading",
