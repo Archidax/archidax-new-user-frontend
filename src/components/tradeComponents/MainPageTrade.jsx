@@ -40,8 +40,8 @@ function MainPageTrade() {
               >
                 Fav
               </button>
-              <button
-                className="nav-link ci-btn-trade active px-2 py-3 font-responsive-trade-page font-bold"
+              {/* <button
+                className="nav-link ci-btn-trade px-2 py-3 font-responsive-trade-page font-bold"
                 id="IDR-tab"
                 data-toggle="tab"
                 href="#IDR"
@@ -51,9 +51,9 @@ function MainPageTrade() {
                 style={{ width: "110px" }}
               >
                 IDR
-              </button>
+              </button> */}
               <button
-                className="nav-link ci-btn-trade px-2 py-3 font-responsive-trade-page font-bold"
+                className="nav-link ci-btn-trade active px-2 py-3 font-responsive-trade-page font-bold"
                 id="USDT-tab"
                 data-toggle="tab"
                 href="#USDT"

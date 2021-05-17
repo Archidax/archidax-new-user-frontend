@@ -118,7 +118,7 @@ export default function LimitBuy() {
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
               <img src={buylogo} width="22px" alt="buylogo" />
-              <h6 className="text-buy mb-0 ml-2 font-19">Beli</h6>
+              <h6 className="text-buy mb-1 ml-2 font-19">Buy</h6>
             </div>
             <div className="make-middle">
               <img src={walletlogo} width="14px" alt="walletlogo" />
@@ -138,7 +138,7 @@ export default function LimitBuy() {
             <span
               className={mode ? "input-label-trade-dark" : "input-label-trade"}
             >
-              Limit Harga
+              Limit Price
             </span>
             <input
               type="text"
@@ -159,7 +159,7 @@ export default function LimitBuy() {
                 mode ? "input-label-trade2-dark" : "input-label-trade2"
               }
             >
-              Total Pembelian
+              Total Amount
             </span>
             <input
               type="number"
@@ -245,7 +245,7 @@ export default function LimitBuy() {
                 mode ? "input-label-trade3-dark" : "input-label-trade3"
               }
             >
-              Estimasi
+              Estimation
             </span>
             <input
               type="number"
@@ -275,7 +275,7 @@ export default function LimitBuy() {
                   mode ? "font-weight-bold" : "text-white font-bolder2"
                 }`}
               >
-                Beli
+                Buy
               </h5>
             </button>
           ) : (
