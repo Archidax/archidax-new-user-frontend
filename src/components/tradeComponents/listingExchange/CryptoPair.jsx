@@ -28,15 +28,15 @@ export default function CryptoPair() {
           >
             <thead className="">
               <tr className={mode ? "text-price-dark" : "text-price"}>
-                <th className="text-left">Pasangan</th>
-                <th className="text-left">Harga</th>
+                <th className="text-left">Pair</th>
+                <th className="text-left">Price</th>
                 <th className="text-left">%</th>
               </tr>
             </thead>
             <tbody>
               {Exchange && Array.isArray(Exchange) && Exchange.length > 0 ? (
                 Exchange.filter((item) => {
-                  if (item.base.toString().toUpperCase() === "IDR") {
+                  if (item.base.toString().toUpperCase() === "USD") {
                     return item;
                   } else {
                     return null;

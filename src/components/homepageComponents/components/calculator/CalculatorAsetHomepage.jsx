@@ -10,7 +10,7 @@ export default function CalculatorAsetHomepage() {
   const [toText, setToText] = useState("");
   
   const [activePairFrom, setActivePairFrom] = useState('BTC');
-  const [activePairTo, setActivePairTo] = useState('IDR');
+  const [activePairTo, setActivePairTo] = useState('USD');
   const [pricePairs, setPricePairs] = useState(false);
   const [icons, setIcons] = useState(false);
   
@@ -91,10 +91,11 @@ export default function CalculatorAsetHomepage() {
     setFromText(0);
     setToText(0);
     if(pricePairs) {
+      console.log(pricePairs)
       let temp = Object.keys(pricePairs).filter((key) =>
         key.includes(activePairFrom),
       );
-      setActivePairTo(temp?temp[0].split("/")[1]:'IDR')
+      setActivePairTo(temp.length?temp[0].split("/")[1]:'USD')
     }
   }, [activePairFrom,pricePairs]);
 

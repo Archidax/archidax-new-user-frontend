@@ -112,7 +112,7 @@ export default function Limitsell() {
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
               <img src={selllogo} alt="selllogo" width="22px" />
-              <h6 className="text-sell mb-0 ml-2 font-19">Jual</h6>
+              <h6 className="text-sell mb-1 ml-2 font-19">Sell</h6>
             </div>
             <div className="make-middle">
               <img src={walletlogo} alt="walletlogo" width="14px" />
@@ -130,7 +130,7 @@ export default function Limitsell() {
             <span
               className={mode ? "input-label-trade-dark" : "input-label-trade"}
             >
-              Limit Harga
+              Limit Price
             </span>
             <input
               type="number"
@@ -150,7 +150,7 @@ export default function Limitsell() {
                 mode ? "input-label-trade2-dark" : "input-label-trade2"
               }
             >
-              Total Penjualan
+              Total Amount
             </span>
             <input
               type="number"
@@ -210,7 +210,7 @@ export default function Limitsell() {
                 mode ? "input-label-trade3-dark" : "input-label-trade3"
               }
             >
-              Estimasi
+              Estimation
             </span>
             <input
               type="number"
@@ -239,7 +239,7 @@ export default function Limitsell() {
                   mode ? "font-weight-bold" : "text-white font-bolder2"
                 }`}
               >
-                Jual
+                Sell
               </h5>
             </button>
           ) : (

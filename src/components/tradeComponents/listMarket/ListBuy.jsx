@@ -44,7 +44,7 @@ export default function ListBuy() {
           <table>
             <thead className="">
               <tr className={mode ? "text-price2-dark" : "text-price2"}>
-                <th className="text-left font-bolder25">Harga</th>
+                <th className="text-left font-bolder25">Price</th>
                 {/* <th className="text-left font-bolder25">Jumlah</th> */}
                 <th className="text-left font-bolder25">{pairTo}</th>
                 <th className="text-left font-bolder25">{pairFrom}</th>
