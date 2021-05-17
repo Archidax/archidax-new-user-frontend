@@ -8,12 +8,11 @@ let nowDate = new Date();
 export default function CalculatorAsetHomepage() {
   const [fromText, setFromText] = useState("");
   const [toText, setToText] = useState("");
-  
-  const [activePairFrom, setActivePairFrom] = useState('BTC');
-  const [activePairTo, setActivePairTo] = useState('IDR');
+
+  const [activePairFrom, setActivePairFrom] = useState("CGOLD");
+  const [activePairTo, setActivePairTo] = useState("USD");
   const [pricePairs, setPricePairs] = useState(false);
   const [icons, setIcons] = useState(false);
-  
 
   const handleFromChange = (value) => {
     if (pricePairs) {
@@ -51,10 +50,10 @@ export default function CalculatorAsetHomepage() {
 
   const fromPair = () => {
     let result = [];
-    if (pricePairs&&icons) {
+    if (pricePairs && icons) {
       Object.keys(icons).forEach((pair) => {
         if (!result.some((el) => el.symbol === pair.split("/")[0])) {
-          result.push({symbol:pair.split("/")[0],icon:icons[pair]});
+          result.push({ symbol: pair.split("/")[0], icon: icons[pair] });
         }
       });
     }
@@ -68,8 +67,8 @@ export default function CalculatorAsetHomepage() {
         key.includes(activePairFrom),
       );
       temp.forEach((pair) => {
-        if (!result.some((el)=>el.symbol ===pair.split("/")[1])) {
-          result.push({symbol:pair.split("/")[1]});
+        if (!result.some((el) => el.symbol === pair.split("/")[1])) {
+          result.push({ symbol: pair.split("/")[1] });
         }
       });
     }
@@ -80,23 +79,22 @@ export default function CalculatorAsetHomepage() {
     baseAxiosTrading({
       method: "GET",
       url: "/home/latest",
-    })
-      .then(({ data }) => {
-        setPricePairs(data.result);
-        setIcons(data.icon);
-      })
+    }).then(({ data }) => {
+      setPricePairs(data.result);
+      setIcons(data.icon);
+    });
   }, []);
 
   useEffect(() => {
     setFromText(0);
     setToText(0);
-    if(pricePairs) {
+    if (pricePairs) {
       let temp = Object.keys(pricePairs).filter((key) =>
         key.includes(activePairFrom),
       );
-      setActivePairTo(temp?temp[0].split("/")[1]:'IDR')
+      setActivePairTo(temp ? temp[0].split("/")[1] : "IDR");
     }
-  }, [activePairFrom,pricePairs]);
+  }, [activePairFrom, pricePairs]);
 
   return (
     <div>
@@ -105,11 +103,9 @@ export default function CalculatorAsetHomepage() {
           <h6 className="text-center text-white font-apa-itu-responsive2">
             Update Terakhir:{" "}
             <span>
-              {
-                `${nowDate.getUTCFullYear()}-${
-                  nowDate.getMonth() + 1
-                }-${nowDate.getDate()} ${nowDate.getHours()}:${nowDate.getMinutes()}`
-              }
+              {`${nowDate.getUTCFullYear()}-${
+                nowDate.getMonth() + 1
+              }-${nowDate.getDate()} ${nowDate.getHours()}:${nowDate.getMinutes()}`}
             </span>
           </h6>
         </div>
@@ -126,8 +122,15 @@ export default function CalculatorAsetHomepage() {
                   onChange={(e) => handleFromChange(e.target.value)}
                 />
               </div>
-              <div class="absolute-right" style={{right:'10px', top:'3px'}}>
-                <DropdownWithLogo value={activePairFrom} icon={"https://storage.googleapis.com/cryptoindex/Bitcoin_BTC.svg"} onChange={setActivePairFrom} dataOptions={fromPair()}/>
+              <div class="absolute-right" style={{ right: "10px", top: "3px" }}>
+                <DropdownWithLogo
+                  value={activePairFrom}
+                  icon={
+                    "https://storage.googleapis.com/cryptoindex/Bitcoin_BTC.svg"
+                  }
+                  onChange={setActivePairFrom}
+                  dataOptions={fromPair()}
+                />
               </div>
             </div>
             <div className="form-group col-md-6 relative-div">
@@ -141,8 +144,15 @@ export default function CalculatorAsetHomepage() {
                   onChange={(e) => handleToChange(e.target.value)}
                 />
               </div>
-              <div class="absolute-right " style={{right:'10px', top:'10px'}}>
-                <DropdownWithLogo value={activePairTo} onChange={setActivePairTo} dataOptions={getToPair()}/>
+              <div
+                class="absolute-right "
+                style={{ right: "10px", top: "10px" }}
+              >
+                <DropdownWithLogo
+                  value={activePairTo}
+                  onChange={setActivePairTo}
+                  dataOptions={getToPair()}
+                />
               </div>
             </div>
           </div>
