@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Translate from "../../../i18n/Translate";
 
 import { downloadCreateVoucherHistory, getMoreVoucherHistories } from "../../../stores";
 import TidakAdaData from "./TidakAdaVoucher/TidakAdaData";
@@ -102,7 +103,7 @@ function RiwayatBuatVoucher() {
         <div className="row mt-2 mb-3">
           <div className="col-12 col-md-12">
             <h2 className="font-18 text-gold font-bold label-title-top">
-              Riwayat Pembuatan Voucher
+              {Translate('vc_riwayat_pembuatan_voucher')}
             </h2>
           </div>
         </div>
@@ -145,7 +146,7 @@ function RiwayatBuatVoucher() {
           </div>
           <div className="col-12 col-md-2 d-flex justify-content-end mt-1">
             <button className="btn ci-btn-custom-1 px-3 w-100 py-2 ci-bg-success rounded" onClick={() => download()}>
-            <i class="fas fa-file-download mr-2"></i> <span className="font-12">Export to CSV</span>
+            <i class="fas fa-file-download mr-2"></i> <span className="font-12">{Translate('vc_export')}</span>
             </button>
           </div>
         </div>
@@ -160,25 +161,25 @@ function RiwayatBuatVoucher() {
                       className="table-header text-white"
                       style={{ width: "20%" }}
                     >
-                      Waktu
+                      {Translate('vc_waktu')}
                     </th>
                     <th
                       className="table-header text-white"
                       style={{ width: "20%" }}
                     >
-                      Kode Voucher
+                      {Translate('vc_kode_voucher')}
                     </th>
                     <th
                       className="table-header text-white"
                       style={{ width: "20%" }}
                     >
-                      Jumlah
+                      {Translate('vc_jumlah')}
                     </th>
                     <th
                       className="table-header text-white"
                       style={{ width: "20%" }}
                     >
-                      Status
+                      {Translate('vc_status')}
                     </th>
                   </tr>
                 </thead>
@@ -207,11 +208,11 @@ function RiwayatBuatVoucher() {
                             {
                               data.isConfirmed ?
                                 data.isRedeem ?
-                                  <> Sudah diredeem </>
+                                  <> {Translate('vc_sudah_diredeem')} </>
                                   :
-                                  <> Sudah dikonfirmasi</>
+                                  <> {Translate('vc_sudah_dikonfirmasi')}</>
                                 :
-                                <> Belum dikonfirmasi</>
+                                <> {Translate('vc_belum_dikonfirmasi')}</>
                             }
                           </td>
                         </tr>
@@ -224,8 +225,8 @@ function RiwayatBuatVoucher() {
               {
                 historyHasNext && <div className="col-12 col-md-2 d-flex justify-content-end mt-1">
                   <button onClick={() => getMoreVoucherHistories(dispatch, history.length)} className="btn ci-btn-custom-1 px-3 w-100 py-2">
-                    Load more data
-                                    </button>
+                    {Translate('vc_load_more')}
+                  </button>
                 </div>
               }
 

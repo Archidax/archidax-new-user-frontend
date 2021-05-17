@@ -5,6 +5,7 @@ import { hidePhoneNumber } from "../../../helpers";
 import PopupBuatVoucherKhusus from "./popUps/PopupBuatVoucherKhusus";
 import PopupKonfirmasiOTP from "./popUps/PopupKonfirmasiOTP";
 import PopUp from "../../popUps/index";
+import Translate from "../../../i18n/Translate";
 
 export default function VoucherKhusus(props) {
   const { createVoucherRequest } = props;
@@ -62,13 +63,13 @@ export default function VoucherKhusus(props) {
           <div className="card-body">
             <div className="row">
               <div className="col-12 col-md-12">
-                <div className="label-title-top">Voucher Khusus</div>
+                <div className="label-title-top">{Translate('vc_khusus')}</div>
               </div>
             </div>
 
             <div className="mt-3 row">
               <div className="col-12 col-md-3 ci-text-white lable-title mb-1">
-                <p className="ci-text-white mb-0 font-12">Nominal Rupiah</p>
+                <p className="ci-text-white mb-0 font-12">{Translate('vc_nominal_rupiah')}</p>
               </div>
               <div className="col-12 col-md-9 flex-column">
                 <div className="input-group ci-inputDefault-bg">
@@ -84,7 +85,7 @@ export default function VoucherKhusus(props) {
             </div>
             <div className="mt-2 row">
               <div className="col-12 col-md-3 ci-text-white lable-title mb-1">
-                <p className="ci-text-white mb-0 font-12">Email Penerima</p>
+                <p className="ci-text-white mb-0 font-12">{Translate('vc_email_penerima')}</p>
               </div>
               <div className="col-12 col-md-9 flex-column">
                 <div className="input-group ci-inputDefault-bg">
@@ -100,7 +101,7 @@ export default function VoucherKhusus(props) {
             </div>
             <div className="mt-2 row">
               <div className="col-12 col-md-3 ci-text-white lable-title mb-1">
-                <p className="ci-text-white mb-0 font-12">PIN Pencairan</p>
+                <p className="ci-text-white mb-0 font-12">{Translate('vc_pin_pencairan')}</p>
               </div>
               <div className="col-12 col-md-9 flex-column">
                 <div className="input-group ci-inputDefault-bg">
@@ -119,17 +120,17 @@ export default function VoucherKhusus(props) {
               <div className="col-12 col-md-12">
                 <ul style={{ paddingLeft: "25px", border: "0.5px dashed #f9bd00"  }} className="font-12 mt-4 py-2 rounded">
                   <li className="font-12">
-                    Maksimal penarikan voucher Rp. 250.000.000 per hari.
+                    {Translate('vc_text_maks_penarikan')}
                   </li>
                   <li className="font-12">
-                    Pembuatan voucher per hari diakumulasikan dengan total penarikan Rupiah.
+                    {Translate('vc_text_penarikan')}
                   </li>
                 </ul>
               </div>
               <div className="col-12 col-md-12 w-100 justify-content-end d-flex mt-md-2 mt-0">
                 <button type="submit" className="ci-btnOL-secondary ci-lg ci-bg-warning border-0 text-dark">
                   {" "}
-                  Buat Voucher{" "}
+                  {Translate('vc_buat_voucher')}{" "}
                 </button>
               </div>
             </div>

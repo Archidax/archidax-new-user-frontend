@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import Translate from '../../i18n/Translate'
 import { sendOTP } from '../../stores'
 
 
@@ -34,6 +35,6 @@ export default function OTP (props) {
         disabled={counter > 0}
         style={{
             // marginLeft: '15px'
-        }} className={`ci-btnOL-secondary w-100 ${className}`}>{counter ? ("0" + min).slice(-2)+":"+("0" + seconds).slice(-2): "Kirim PIN"}</button>
+        }} className={`ci-btnOL-secondary w-100 ${className}`}>{counter ? ("0" + min).slice(-2)+":"+("0" + seconds).slice(-2): Translate('ue_kirim_pin')}</button>
     )
 }

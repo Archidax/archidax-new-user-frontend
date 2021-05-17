@@ -4,6 +4,7 @@ import { setMyFav } from "../../../stores/pasartrading/functions";
 import { useSelector, useDispatch } from "react-redux";
 
 import { convertNumber } from "../../../assets/js";
+import Translate from "../../../i18n/Translate";
 
 function PriceIDR({ exchange }) {
   let history = useHistory();
@@ -56,43 +57,43 @@ function PriceIDR({ exchange }) {
               className="ci-tableHeads-custom text-white text-left"
               style={{ width: "8%" }}
             >
-              Pasar
+              {Translate('db_pasar_pasar')}
             </th>
             <th
               className="ci-tableHeads-custom text-white text-left"
               style={{ width: "10%" }}
             >
-              Nama Koin
+              {Translate('db_pasar_nama_koin')}
             </th>
             <th
               className="ci-tableHeads-custom text-white text-left"
               style={{ width: "12%" }}
             >
-              Harga
+              {Translate('db_pasar_harga')}
             </th>
             <th
               className="ci-tableHeads-custom text-white text-left"
               style={{ width: "5%" }}
             >
-              24 Jam
+              {Translate('mk_24jam')}
             </th>
             <th
               className="ci-tableHeads-custom text-white text-left"
               style={{ width: "12%" }}
             >
-              High
+              {Translate('mk_high')}
             </th>
             <th
               className="ci-tableHeads-custom text-white text-left"
               style={{ width: "12%" }}
             >
-              Low
+              {Translate('mk_low')}
             </th>
             <th
               className="ci-tableHeads-custom text-white text-left"
               style={{ width: "12%" }}
             >
-              Volume (IDR)
+              {Translate('mk_volume')} (IDR)
             </th>
           </tr>
         </thead>
@@ -184,7 +185,7 @@ function PriceIDR({ exchange }) {
         ) : (
           <tbody>
             <tr>
-              <td colSpan={7}>No Data</td>
+              <td colSpan={7}>{Translate('db_data_tidak_ditemukan')}</td>
             </tr>
           </tbody>
         )}

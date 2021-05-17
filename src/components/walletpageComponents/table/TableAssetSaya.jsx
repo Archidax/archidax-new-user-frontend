@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 // import images
 import { getCoinIcon, getCoinName } from "../../../helpers";
 import { convertNumber } from "../../../assets/js";
+import Translate from "../../../i18n/Translate";
 
 function TableAssetSaya() {
   const history = useHistory();
@@ -22,10 +23,6 @@ function TableAssetSaya() {
     setView(data);
   }, [search,assets]);
 
-  // const getIcon = (coincode) => {
-  //   const coin = coins.filter(el => el.abbr === coincode)
-  //   return coin.icon
-  // }
 
   const toPasar = (url) => {
     history.push(url);
@@ -40,7 +37,7 @@ function TableAssetSaya() {
         <div className="row align-items-center mb-3">
           <div className="col-6 col-md-2">
             <h4 className="font-16 font-bold text-gold label-title-top">
-              Asset Saya
+              {Translate('wal_aset_saya')}
             </h4>
           </div>
           <div className="col-6 col-md-2">
@@ -70,7 +67,7 @@ function TableAssetSaya() {
                 className="text-white font-12 form-check-label mr-2"
                 for="hideAsset"
               >
-                Sembunyikan Aset Kosong
+                {Translate('wal_sembunyikan')}
               </label>
             </div>
           </div>
@@ -85,34 +82,34 @@ function TableAssetSaya() {
                 <thead>
                   <tr>
                     <th className="ci-tableHeads-custom text-white" scope="col">
-                      No
+                      {Translate('wal_no')}
                     </th>
                     <th className="ci-tableHeads-custom text-white" scope="col">
-                      Nama Koin
+                      {Translate('wal_nama_koin')}
                     </th>
                     <th
                       className="ci-tableHeads-custom text-white text-center"
                       scope="col"
                     >
-                      Explorer
+                      {Translate('wal_explorer')}
                     </th>
                     <th className="ci-tableHeads-custom text-white" scope="col">
-                      Saldo Aktif
+                      {Translate('wal_saldo_aktif')}
                     </th>
                     <th className="ci-tableHeads-custom text-white" scope="col">
-                      Saldo Beku
+                      {Translate('wal_saldo_beku')}
                     </th>
                     <th className="ci-tableHeads-custom text-white" scope="col">
-                      Estimasi Aset (IDR)
+                      {Translate('wal_estimasi_nilai_idr')}
                     </th>
                     <th className="ci-tableHeads-custom text-white" scope="col">
-                      Status
+                      {Translate('wal_status')}
                     </th>
                     <th
                       className="ci-tableHeads-custom text-white text-center"
                       scope="col"
                     >
-                      Aksi
+                      {Translate('wal_aksi')}
                     </th>
                   </tr>
                 </thead>
@@ -164,7 +161,7 @@ function TableAssetSaya() {
                                       <button
                                         className={`py-1 px-3 w-100 p-0 ci-btn-primary`}
                                       >
-                                        Setor
+                                        {Translate('wal_setor')}
                                       </button>
                                     </div>
                                   </Link>
@@ -173,7 +170,7 @@ function TableAssetSaya() {
                                       <button
                                         className={`py-1 px-3 w-100 p-0 ci-btn-danger`}
                                       >
-                                        Tarik
+                                        {Translate('wal_tarik')}
                                       </button>
                                     </div>
                                   </Link>
@@ -182,7 +179,7 @@ function TableAssetSaya() {
                                       onClick={() => history.push(`/pasar/${items.detail_crypto.symbol.toString().replace('/', '_')}`) }
                                       className={`py-1 px-3 w-100 p-0 ci-btn-warning`}
                                     >
-                                      Pasar
+                                      {Translate('wal_pasar')}
                                     </button>
                                   </div>
                                 </div>
@@ -237,7 +234,7 @@ function TableAssetSaya() {
                                       <button
                                         className={`py-1 px-3 w-100 p-0 ci-btn-primary`}
                                       >
-                                        Setor
+                                        {Translate('wal_setor')}
                                       </button>
                                     </div>
                                   </Link>
@@ -246,7 +243,7 @@ function TableAssetSaya() {
                                       <button
                                         className={`py-1 px-3 w-100 p-0 ci-btn-danger`}
                                       >
-                                        Tarik
+                                        {Translate('wal_tarik')}
                                       </button>
                                     </div>
                                   </Link>
@@ -255,7 +252,7 @@ function TableAssetSaya() {
                                       onClick={() => history.push(`/pasar/${items.detail_crypto.symbol.toString().replace('/', '_')}`) }
                                       className={`py-1 px-3 w-100 p-0 ci-btn-warning`}
                                     >
-                                      Pasar
+                                      {Translate('wal_pasar')}
                                     </button>
                                   </div>
                                 </div>
