@@ -50,7 +50,7 @@ function MainPageTrade() {
                 aria-selected="true"
                 style={{ width: "110px" }}
               >
-                IDR
+                USD
               </button>
               <button
                 className="nav-link ci-btn-trade px-2 py-3 font-responsive-trade-page font-bold"
@@ -80,7 +80,7 @@ function MainPageTrade() {
                 exchange={
                   Exchange && Exchange instanceof Array && Exchange.length > 0
                     ? Exchange.filter((item) => {
-                        if (item.base.toString().toUpperCase() === "IDR") {
+                        if (item.base.toString().toUpperCase() === "USD") {
                           return item;
                         } else {
                           return null;
