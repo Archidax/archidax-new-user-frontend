@@ -4,7 +4,7 @@ import { convertNumber } from "../../../../assets/js";
 
 import { useHistory } from "react-router-dom";
 
-export default function TableHomepage({ dataHome }) {
+export default function TableHomepage({dataHome}) {
   const history = useHistory();
 
   return (
@@ -14,17 +14,19 @@ export default function TableHomepage({ dataHome }) {
           <table id="homepage-table">
             <thead className="tb-border-bottom">
               <tr className="text-white">
-                <th className="text-left">Pasangan</th>
-                <th className="text-left">Nama Koin</th>
-                <th className="text-left">Persentase</th>
-                <th className="text-left">Harga (24 jam)</th>
-                <th className="text-left">High (24 jam)</th>
-                <th className="text-left">Low (24 jam)</th>
-                <th className="text-left">Volume (24 jam)</th>
+                <th className="text-left">Symbol Coin</th>
+                <th className="text-left">Coin Name</th>
+                <th className="text-left">Percentage</th>
+                <th className="text-left">Price (24 Hours)</th>
+                <th className="text-left">High (24 Hours)</th>
+                <th className="text-left">Low (24 Hours)</th>
+                <th className="text-left">Volume (24 Hours)</th>
               </tr>
             </thead>
             <tbody>
-              {dataHome && Array.isArray(dataHome) && dataHome.length > 0 ? (
+              {dataHome &&
+              Array.isArray(dataHome) &&
+              dataHome.length > 0 ? (
                 dataHome.map((item) => {
                   const handleRowClick = (row) => {
                     history.push(
@@ -50,10 +52,7 @@ export default function TableHomepage({ dataHome }) {
                       </td>
                       <td className="text-white text-left">{item.assetName}</td>
                       <td
-                        className={`${convertNumber.tradeUpDownChangeHomepage(
-                          item.price24h_change,
-                          2,
-                        )}`}
+                        className={`${convertNumber.tradeUpDownChange(item.price24h_change, 2)}`}
                       >
                         {convertNumber.tradeChange(item.price24h_change, 2)}
                       </td>
@@ -80,8 +79,7 @@ export default function TableHomepage({ dataHome }) {
                   </td>
                 </tr>
               )}
-              {/* 
-                      <tr className="tb-border-bottom2">
+              {/* <tr className="tb-border-bottom2">
                         <td className="text-white table-center">
                           <img
                             src=""

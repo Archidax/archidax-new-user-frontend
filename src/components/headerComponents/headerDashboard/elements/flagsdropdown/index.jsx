@@ -3,8 +3,6 @@ import { LOCALES } from "../../../../../i18n";
 
 function Flags(props) {
   const { setLocale, flag } = props;
-  // const [flag, setFlag] = useState("flag-icon-id");
-  // const [name, setName] = React.useState("Indonesia");
 
   const language = (type) => {
     if (type === "indonesia") {

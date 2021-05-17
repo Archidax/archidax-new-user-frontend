@@ -4,6 +4,7 @@ import Waiting from '../waitingComponent'
 import { useSelector, useDispatch } from 'react-redux'
 import { postLimit2 } from '../../../stores'
 import {convertNumber} from '../../../assets/js'
+import Translate from '../../../i18n/Translate';
 
 export default function UbahLimitStep2 () {
     const history = useHistory()
@@ -12,7 +13,6 @@ export default function UbahLimitStep2 () {
     const loading = useSelector(state => state.loadingReducer)
     const kyc = useSelector(state => state.kycReducer)
 
-    // const [showPopUpSimpan, setShowPopUpSimpan] = useState(false)
     const [check, setCheck] = useState(false)
     const [quiz, setQuiz] = useState({
         quiz1: {
@@ -81,7 +81,7 @@ export default function UbahLimitStep2 () {
                     }}
                     onClick={() => {
                             history.replace('/profile')
-                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" /> Kembali ke profil</p>
+                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" /> {Translate('ue_kembali')}</p>
                 </div>
             </div>
             
@@ -89,17 +89,17 @@ export default function UbahLimitStep2 () {
                 <div className="col-12 col-md-6">
                      <div className="row no-gutters">
                         <div className="col-12">
-                            <p className="label-title-top mb-0 font-roboto">Ubah Kenaikan Limit Penarikan</p>
+                            <p className="label-title-top mb-0 font-roboto">{Translate('ul_ubah_kenaikan_limit')}</p>
                         </div>
                         <div className="col-12">
-                            <p className="label-title mb-0">Lengkapi isian berikut untuk mengajukan kenaikan limit penarikan.</p>
+                            <p className="label-title mb-0">{Translate('ul_text_lengkapi')}</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
                      <div className="row no-gutters">
                         <div className="col-12 d-flex justify-content-end">
-                            <p className="label-title2 mb-0">Limit saat ini</p>
+                            <p className="label-title2 mb-0">{Translate('ul_limit_saat_ini')}</p>
                         </div>
                         <div className="col-12 d-flex justify-content-end">
                             <p className="label-title-top mb-0 font-roboto">{convertNumber.toMoney(kyc.limit)}</p>
@@ -238,7 +238,7 @@ export default function UbahLimitStep2 () {
                     
                 </div>
                 <div className="col-12 px-5 d-flex justify-content-end">
-                    <button onClick={sendLimit} style={{maxWidth: '120px'}} className="ci-btn-warning ci-md mt-4" disabled={!check}>Simpan</button>
+                    <button onClick={sendLimit} style={{maxWidth: '120px'}} className="ci-btn-warning ci-md mt-4" disabled={!check}>{Translate('ue_simpan')}</button>
                 </div>
             </div>
         </div>

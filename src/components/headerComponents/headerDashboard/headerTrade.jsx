@@ -4,7 +4,7 @@ import {
   // useRouteMatch
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import logocryptoindex from "../../../assets/img/logo_flat.svg";
+import logocryptoindex from "../../../assets/img/logoArchidax.png";
 
 // Import Elements
 import FlagsDropdownHeader from "./elements/flagsdropdown";
@@ -50,13 +50,13 @@ function HeaderDashboard(props) {
           <ul class="navbar-nav mr-auto mx-5 mt-2 mt-lg-0">
             <li class="nav-item mx-2">
               <Link to="/">
-                <h6 className="mb-0 font-16">Beranda</h6>
+                <h6 className="mb-0 font-16">Dashboard</h6>
               </Link>
             </li>
             <ProtectedPagePasar2>
               <li class="nav-item mx-2">
                 <Link to="/pasar">
-                  <h6 className="mb-0 font-16">Pasar</h6>
+                  <h6 className="mb-0 font-16">Trade</h6>
                 </Link>
               </li>
             </ProtectedPagePasar2>

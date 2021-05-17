@@ -3,15 +3,11 @@ import SliderTopGainer from "./slider/SliderTopGainer";
 import SliderTopLoser from "./slider/SliderTopLoser";
 
 export default function SliderHomepage({dataHome}){
-  const [topGainer, setTopGainer] = React.useState([])
-  const [topLoser, setTopLoser] = React.useState([])
+  let topGainer = dataHome.sort((a, b) => b.price24h_change - a.price24h_change)
+  .filter((item) => item.price24h_change > 0)||[]
 
-  React.useEffect(() => {
-    if(dataHome&&dataHome.length) {
-      setTopGainer(dataHome.sort((a, b) => b.price24h_change - a.price24h_change).filter((item) => item.price24h_change > 0))
-      setTopLoser(dataHome.sort((a, b) => a.price24h_change - b.price24h_change).filter((item) => item.price24h_change < 0))
-    }
-  }, [dataHome])
+  let topLoser = dataHome.sort((a, b) => a.price24h_change - b.price24h_change)
+  .filter((item) => item.price24h_change < 0)||[]
 
   return (
     <div className=" mt-4 mb-5">

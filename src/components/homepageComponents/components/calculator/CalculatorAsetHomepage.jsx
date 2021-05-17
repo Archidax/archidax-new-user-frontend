@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { baseAxiosTrading } from "../../../../stores";
 import { parseFixedNumber } from "../../../../helpers/functions";
 import DropdownWithLogo from "../../../dropdownLogo";
-import bitcoinIcon from "../../../../assets/img/trade/cryptologo/Bitcoin_BTC.svg"
 
 let nowDate = new Date();
 
@@ -19,7 +18,7 @@ export default function CalculatorAsetHomepage() {
   const handleFromChange = (value) => {
     if (pricePairs) {
       let newValue = value.replace(/[^0-9.,]+/, "");
-      setFromText(parseFixedNumber(newValue, 18));
+      setFromText(parseFixedNumber(newValue));
       setToText(
         parseFixedNumber(
           parseFloat(
@@ -27,7 +26,7 @@ export default function CalculatorAsetHomepage() {
               pricePairs[`${activePairFrom}/${activePairTo}`],
           )
             .toString()
-            .replace(".", ","), 18
+            .replace(".", ","),
         ),
       );
     }
@@ -36,7 +35,7 @@ export default function CalculatorAsetHomepage() {
   const handleToChange = (value) => {
     if (pricePairs) {
       let newValue = value.replace(/[^0-9.,]+/, "");
-      setToText(parseFixedNumber(newValue,18));
+      setToText(parseFixedNumber(newValue));
       setFromText(
         parseFixedNumber(
           parseFloat(
@@ -44,7 +43,7 @@ export default function CalculatorAsetHomepage() {
               pricePairs[`${activePairFrom}/${activePairTo}`],
           )
             .toString()
-            .replace(".", ","), 18
+            .replace(".", ","),
         ),
       );
     }
@@ -92,11 +91,16 @@ export default function CalculatorAsetHomepage() {
     setFromText(0);
     setToText(0);
     if(pricePairs) {
+      console.log(pricePairs)
       let temp = Object.keys(pricePairs).filter((key) =>
         key.includes(activePairFrom),
       );
+<<<<<<< HEAD
       console.log(temp)
       setActivePairTo(temp?temp[0].split("/")[1]:'IDR')
+=======
+      setActivePairTo(temp.length?temp[0].split("/")[1]:'USD')
+>>>>>>> 1ecfa8a1c53495f3977e8aa8cf95f95514e8360a
     }
   }, [activePairFrom,pricePairs]);
 
@@ -129,7 +133,7 @@ export default function CalculatorAsetHomepage() {
                 />
               </div>
               <div class="absolute-right" style={{right:'10px', top:'3px'}}>
-                <DropdownWithLogo value={activePairFrom} icon={bitcoinIcon} onChange={setActivePairFrom} dataOptions={fromPair()}/>
+                <DropdownWithLogo value={activePairFrom} icon={"https://storage.googleapis.com/cryptoindex/Bitcoin_BTC.svg"} onChange={setActivePairFrom} dataOptions={fromPair()}/>
               </div>
             </div>
             <div className="form-group col-md-6 relative-div">

@@ -7,7 +7,7 @@ import NotificationDropdownHeader from "./elements/notificationdropdown";
 import ProfileDropdownHeader from "./elements/profiledropdown";
 import WalletsDropdownHeader from "./elements/walletsdropdown";
 
-import logoIcon from "../../../assets/img/logo.svg";
+import logoIcon from "../../../assets/img/logoArchidax.png";
 
 function HeaderDashboard(props) {
   // const { url } = useRouteMatch();
