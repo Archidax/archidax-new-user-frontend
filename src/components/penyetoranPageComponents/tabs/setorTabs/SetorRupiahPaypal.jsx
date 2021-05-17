@@ -38,30 +38,25 @@ function SetorRupiahAlfamart() {
     return (
         <div className="border border-info m-0 mt-3 px-2 py-3 tab2">
             <div>
-                <div className="mb-2 font-12 font-bold">SILAKAN MELAKUKAN PEMBAYARAN MELALUI PAYPAL.</div>
+                <div className="mb-2 font-12 label-title2 text-center font-bold">PAYPAL, DEBIT/CC INSTRUCTION</div>
                 <div className="w-100 ci-bg-secondary p-3 rounded">
-                    <table className="font-bold">
-                        <tr>
-                            <td className="pr-3 font-12">Batas pembayaran</td>
-                            <td className="font-12">: {moment(createdAt).format("MMMM Do YYYY, h:mm:ss a")}</td>
+                    <table className="font-bold label-title2">
+                        <tr className="label-title2">
+                            <td className="pr-3 font-12 label-title2">Batas pembayaran</td>
+                            <td className="font-12 label-title2">: {moment(createdAt).format("MMMM Do YYYY, h:mm:ss a")}</td>
                         </tr>
-                        <tr>
-                            <td className="pr-3 font-12">Jumlah tagihan</td>
-                            <td className="font-12">: {formatRupiah(amount + fee, { format: false })}</td>
-                        </tr>
-                        <tr>
-                            <td className="pr-3 font-12">Kode pembayaran</td>
-                            <td className="font-12">: DEPO449094</td>
+                        <tr className="label-title2">
+                            <td className="pr-3 font-12 label-title2">Jumlah tagihan</td>
+                            <td className="font-12 label-title2">: {formatRupiah(amount + fee, { format: false })}</td>
                         </tr>
                     </table>
                 </div>
                 <ul className="p-0 my-3">
-                    <li className="ml-3 font-12">Mohon ikuti instruksi berikut untuk melakukan deposit melalui Alfamart.</li>
-                    <li className="ml-3 font-12">Pembayaran dapat dilakukan di salah satu gerai Alfamart terdekat pilihan kamu.</li>
-                    <li className="ml-3 font-12">Bayar tagihan aplikasi "CRYPTOINDEX" kepada kasir dengan menunjukkan Nomor Tagihan kepada kasir.</li>
-                    <li className="ml-3 font-12">Pastikan Anda melakukan pembayaran deposit dengan nominal {formatRupiah(amount + fee, { format: false })}</li>
-                    <li className="ml-3 font-12">Simpan struk bukti transaksi.</li>
-                    <li className="ml-3 font-12">ika saldo Anda belum masuk, Anda dapat memilih Konfirmasi Sekarang. Jika saldo Anda belum masuk, Anda bisa memilih Konfirmasi Sekarang. Kemudian, Anda harus mengisi form yang mengandung informasi seperti jumlah deposit, tanggal deposit, metode pembayaran, nomor rekening anda, dan bukti transfer.</li>
+                    <li className="ml-3 font-12 label-title2">Please follow the instructions below to deposit via PayPal or Debit/Credit Card.</li>
+                    <li className="ml-3 font-12 label-title2">If you already have a PayPal account, Payment can be made by clicking the PayPal button.</li>
+                    <li className="ml-3 font-12 label-title2">Then, you will be directed to the PayPal login page. Follow the next instructions from PayPal until the payment process is complete.</li>
+                    <li className="ml-3 font-12 label-title2">You can also make payments via Debit/Credit Card by clicking the Debit/Credit Card button.</li>
+                    <li className="ml-3 font-12 label-title2">Fill and complete the form provided, then follow the next instructions until the payment process is complete.</li>
                 </ul>
             </div>
             <div className="m-0 mt-4 pt-4 px-2">
