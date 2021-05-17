@@ -11,14 +11,13 @@ export default function App() {
   const [loading, setLoading] = React.useState(true);
   const [priceBTCTitle, setPriceBTCTitle] = React.useState(0)
 
-  const GetPriceBTCIDR = () => {
+  const GetPriceBTCUSD = () => {
     axios({
       method: 'GET',
-      url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=IDR',
+      url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD',
     }).then(({data}) => {
-      setPriceBTCTitle(data.IDR)
+      setPriceBTCTitle(data.USD)
     }).catch((err) => {
-      console.log(err)
     })
   }
   
@@ -37,10 +36,10 @@ export default function App() {
         setLoading(false)
       }
     })()
-    GetPriceBTCIDR()
+    GetPriceBTCUSD()
   }, [])
 
-  document.title = `${priceBTCTitle.toLocaleString("id-ID")} BTC/IDR - Cryptoindex`
+  document.title = `${priceBTCTitle.toLocaleString("id-ID")} BTC/USD - Archidax`
   
   return (
       <>
