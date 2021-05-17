@@ -10,8 +10,8 @@ export default function CalculatorAsetHomepage() {
   const [fromText, setFromText] = useState("");
   const [toText, setToText] = useState("");
   
-  const [activePairFrom, setActivePairFrom] = useState('BTC');
-  const [activePairTo, setActivePairTo] = useState('IDR');
+  const [activePairFrom, setActivePairFrom] = useState('CGOLD');
+  const [activePairTo, setActivePairTo] = useState('USD');
   const [pricePairs, setPricePairs] = useState(false);
   const [icons, setIcons] = useState(false);
   
@@ -95,6 +95,7 @@ export default function CalculatorAsetHomepage() {
       let temp = Object.keys(pricePairs).filter((key) =>
         key.includes(activePairFrom),
       );
+      console.log(temp)
       setActivePairTo(temp?temp[0].split("/")[1]:'IDR')
     }
   }, [activePairFrom,pricePairs]);
