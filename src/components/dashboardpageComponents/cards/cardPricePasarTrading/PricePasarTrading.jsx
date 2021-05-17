@@ -1,13 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import PasarButton from "../buttonComponents/PasarButton";
-// import SetorButton from "../buttonComponents/SetorButton";
-// import TarikButton from "../buttonComponents/TarikButton";
-// import bitcoinIcon from "../../../../assets/img/iconsCoin/BitcoinCoin.png";
-// import { Link } from "react-router-dom";
 import { getCoinIcon, getCoinName } from "../../../../helpers";
 import { convertNumber } from "../../../../assets/js";
+import Translate from "../../../../i18n/Translate";
 
 function PricePasarTrading({ data }) {
   const { assets } = useSelector((state) => state.walletReducer );
@@ -23,7 +19,6 @@ function PricePasarTrading({ data }) {
           return filteredAssets.some(el => el.type === a.initialSymbol) ? -1 : filteredAssets.some(el => el.type === b.initialSymbol) ? 1 : 0
         }).map((el, index) => {
           let symbolQuote = el.symbol.split("/")[0];
-          // let symbolBase = el.symbol.split("/")[1];
           let est = assets.find(ele => ele.type === el.initialSymbol)
           return (
             <tr key={index} style={{ height: "45px" }}>
@@ -69,11 +64,6 @@ function PricePasarTrading({ data }) {
               {est?convertNumber.toRupiah(est.balance): 0}{" "}
                 <span className="text-white-50">{el.initialSymbol}</span>
               </td>
-              {/* estimasi */}
-              {/* <td className="ci-verti-align-middle text-white font-14">
-                {est?convertNumber.toRupiah(est.balance * el.price_24hour.price24h_close) : 0}
-              </td> */}
-              {/* masih kosong nih fungsinya */}
               <td className="">
                 <div
                   style={{
@@ -93,7 +83,7 @@ function PricePasarTrading({ data }) {
                       }
                       className={`py-1 px-3 w-100 p-0 ci-btn-success`}
                     >
-                      Dompet
+                      {Translate('db_wallet')}
                     </button>
                   </div>
                   <div className="ci-asset-btn-aksi">
@@ -105,7 +95,7 @@ function PricePasarTrading({ data }) {
                       }
                       className={`py-1 px-3 w-100 p-0 ci-btn-warning`}
                     >
-                      Pasar
+                      {Translate('wal_pasar')}
                     </button>
                   </div>
                 </div>

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import googlelogo from "../../../../assets/img/dashboard/logo/google.png";
 import keylogo from "../../../../assets/img/dashboard/logo/key.png";
 import dateFormat from "dateformat";
+import Translate from "../../../../i18n/Translate";
 
 function ProfileDashboardCard() {
   const history = useHistory();
@@ -58,7 +59,7 @@ function ProfileDashboardCard() {
                   }}
                   className="text-center"
                 >
-                  <p className=" mb-0 lable-title">Terverifikasi</p>
+                  <p className=" mb-0 lable-title">{Translate('db_terverifikasi')}</p>
                 </div>
               ) : kyc &&
                 kyc.kycStatus === "2" &&
@@ -75,7 +76,7 @@ function ProfileDashboardCard() {
                   }}
                   className="text-center"
                 >
-                  <p className=" mb-0 lable-title">Menunggu verifikasi</p>
+                  <p className=" mb-0 lable-title">{Translate('db_menunggu_verifikasi')}</p>
                 </div>
               ) : (
                 <button
@@ -93,7 +94,7 @@ function ProfileDashboardCard() {
                     maxWidth: "150px",
                   }}
                 >
-                  Belum verifikasi
+                  {Translate('db_belum_verifikasi')}
                 </button>
               )}
             </div>
@@ -101,24 +102,14 @@ function ProfileDashboardCard() {
           <div className="row mt-4">
             <div className="col-12 col-md-12 col-lg-12">
               <p className="font-14 mb-1">
-                <span className="text-gold">IP address : </span>
+                <span className="text-gold">{Translate('db_ip')} : </span>
                 {loading.ip}
               </p>
               <p className="font-14 mb-1">
-                <span className="text-gold">Terakhir online : </span>
+                <span className="text-gold">{Translate('db_terakhir')} : </span>
                 {`${dateFormat(loading.lastLoggin, "HH:MM dd-mm-yyyy")}`}
               </p>
             </div>
-            {/* <div className="col-12 col-md-4 text-right">
-              <button
-                onClick={() => {
-                  history.push("/profile");
-                }}
-                className="w-100 px-5 py-2 ci-btn-custom-1 font-12"
-              >
-                Ubah Profil
-              </button>
-            </div> */}
           </div>
         </div>
       </div>
@@ -129,9 +120,9 @@ function ProfileDashboardCard() {
             <div className="container-fluid p-3 border bg-google">
               {/* <i className="fab fa-google"></i> */}
               <img src={googlelogo} alt="googlelogo" height={40} />
-              <div className="font-12 font-bold">Google Authenticator</div>
+              <div className="font-12 font-bold">{Translate('db_google')}</div>
               <div className="font-12">
-                {profile.googlefa ? "Aktif" : "Not Active"}
+                {profile.googlefa ? Translate('db_active') : Translate('db_not_active')}
               </div>
             </div>
           </Link>
@@ -141,9 +132,9 @@ function ProfileDashboardCard() {
             <div className="container-fluid p-3 border bg-key">
               {/* <i className="fas fa-key"></i> */}
               <img src={keylogo} alt="keylogo" height={40} />
-              <div className="font-12 font-bold">PIN</div>
+              <div className="font-12 font-bold">{Translate('db_pin')}</div>
               <div className="font-12">
-                {profile.pin ? "Aktif" : "Not Active"}
+                {profile.pin ? Translate('db_active') : Translate('db_not_active')}
               </div>
             </div>
           </Link>
