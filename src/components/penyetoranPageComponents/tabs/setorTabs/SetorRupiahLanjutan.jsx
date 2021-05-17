@@ -36,7 +36,7 @@ function SetorRupiahLanjutan({ nominal }) {
     if (method) {
         return (
             <>
-                {isExist && popUps.fire({ title: "Tunggu!", text: "Anda masih punya transaksi deposit yang belum selesai. Silakan lanjutkan ke proses pembayaran." })}
+                {isExist && popUps.fire({ title: "Tunggu!", text: "You have unfinished transaction. Please complete it before creating a new one." })}
                 {method.toUpperCase() === "ALFAMART" ? <SetorRupiahAlfamart nominal={nominal} metode={method} /> :
                     method.toUpperCase() === "OVO" ? <SetorRupiahOvo nominal={nominal} metode={method} /> :
                         method.toUpperCase() === "TRANSFER BANK" ? <SetorRupiahTransferBank nominal={nominal} metode={method} /> :
