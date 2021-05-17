@@ -47,7 +47,7 @@ export default function BannerHomepage() {
               <SliderBannerHomepage />
             </div>
             <div className="col-lg-11 offset-lg-1 col-xs-12 mt-4 p-0">
-              <img src={group} style={{ width: "100%" }} />
+              {/* <img src={group} style={{ width: "100%" }} /> */}
               {/* <div
                 style={{
                   display: "flex",

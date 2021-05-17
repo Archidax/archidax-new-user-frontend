@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/img/logo.svg";
+import logo from "../../../assets/img/logoArchidax.png";
 import Flags from "../headerDashboard/elements/flagsdropdown";
 
 // import Translate from "../../../i18n/Translate";

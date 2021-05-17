@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 // Import Images
-import logoIcon from "../../../assets/img/logo_flat.svg";
+import logoIcon from "../../../assets/img/logoArchidax.png";
 import profilelogo from "../../../assets/img/header/headerdashboard/profile.svg";
 import keamananlogo from "../../../assets/img/header/headerdashboard/keamanan.svg";
 import riwayatlogo from "../../../assets/img/header/headerdashboard/riwayat.svg";
