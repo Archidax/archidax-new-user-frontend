@@ -46,11 +46,11 @@ export default function LiveMarket() {
             <thead className="">
               <tr className={mode ? "text-price-dark" : "text-price"}>
                 <th className="text-left">
-                  Harga (
+                  Price (
                   {PairSymbol ? PairSymbol.toString().split("/")[1] : null})
                 </th>
                 <th className="text-right">
-                  Jumlah (
+                  Amount (
                   {PairSymbol ? PairSymbol.toString().split("/")[0] : null})
                 </th>
                 <th className="text-right">Waktu</th>
