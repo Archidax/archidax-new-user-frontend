@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 import BuatVoucher from "./buatVoucher/BuatVoucher";
 import PencairanVoucher from "./pencairan/PencairanVoucher";
-// import SetorRupiahTabs from './tabs/SetorRupiahTabs'
-// import TarikRupiahTabs from './tabs/TarikRupiahTabs'
+
 import { getVoucherHistories, getRedeemHistories } from "../../stores";
 import CopyrightDashboard from "../footerComponents/copyrightComponents/CopyrightDashboard";
+
+import Translate from '../../i18n/Translate';
 
 function SetorTarik() {
   const { history } = useSelector((state) => state.voucherReducer);
@@ -40,7 +41,7 @@ function SetorTarik() {
                 aria-controls="setor"
                 aria-selected="true"
               >
-                Pencairan
+                {Translate('vc_pencairan')}
               </button>
               <button
                 className="nav-link btn ci-btn-custom-1 ci-btn-tabsSetorTarik px-5 py-3 font-16 font-bold border-0"
@@ -52,7 +53,7 @@ function SetorTarik() {
                 aria-controls="tarik"
                 aria-selected="false"
               >
-                Buat Voucher
+                {Translate('vc_buat_voucher')}
               </button>
             </div>
           </div>

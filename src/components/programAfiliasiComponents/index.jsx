@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import bgImg from "../../assets/img/affiliasi/BannerProgramAfiliasi.png";
 import sepuluhjutaImg from "../../assets/img/sepuluhjuta.png";
-// import DaftarAfiliasi from "./DaftarAfiliasi";
-// import LaporanKomisi from "./LaporanKomisi";
 
 import facebook from "../../assets/img/affiliasi/facebook.svg";
 import twitter from "../../assets/img/affiliasi/twitter.svg";
@@ -18,7 +16,8 @@ import CopyrightDashboard from "../footerComponents/copyrightComponents/Copyrigh
 import { getMyAffiliation } from '../../stores/index'
 import { useDispatch, useSelector } from "react-redux";
 
-import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Translate from '../../i18n/Translate';
 
 function ProgramAffiliasi() {
   const myAffiliation = useSelector(state => state.affiliasiReducer.myAffiliation)
@@ -47,22 +46,16 @@ function ProgramAffiliasi() {
                 <div className="row">
                   <div className="col-12 col-md-8">
                     <h2 className="pt-5 mb-4 label-title-top2">
-                      Program Affiliasi
+                      {Translate('pa_program_afiliasi')}
                     </h2>
                     <p className="font-14 text-white text-justify">
-                      Dapatkan komisi referral atau tambahan penghasilan dari
-                      Cryptoindex !
+                      {Translate('pa_text_dapatkan')}
                     </p>
                     <p className="font-14 text-white text-justify">
-                      Sebarkan Link Afiliasi di atas di sosial media anda , di
-                      group WA, Group Telegram, blog, forum, email, dan
-                      sebagainya. Minta mereka untuk melakukan registrasi
-                      menggunakan URL Afiliasi Anda.
+                      {Translate('pa_text_sebarkan_link')}
                     </p>
                     <p className="font-14 text-white text-justify">
-                      Dengan mereferensikan Cryptoindex kepada teman, saudara
-                      atau rekan kerja. Anda akan mendapatkan komisi sebesar 30%
-                      dari biaya Withdraw selama 6 bulan setelah pendaftaran.
+                      {Translate('pa_text_dengan_mereferensikan')}
                     </p>
                   </div>
                 </div>
@@ -98,7 +91,7 @@ function ProgramAffiliasi() {
                               <div className="card h-100">
                                 <div className="card-body pb-0 d-flex flex-column justify-content-between">
                                   <div className="font-12 text-dark text-center font-bold">
-                                    Jumlah Teman
+                                    {Translate('pa_jumlah_teman')}
                                   </div>
                                   <div className="row mt-2 d-flex justify-content-between align-content-end">
                                     <img
@@ -118,7 +111,7 @@ function ProgramAffiliasi() {
                               <div className="card">
                                 <div className="card-body pb-0">
                                   <div className="font-12 text-dark text-center font-bold">
-                                    Teman Terverifikasi
+                                    {Translate('pa_teman_terverivikasi')}
                                   </div>
                                   <div className="row mt-2 d-flex justify-content-between align-content-end">
                                     <img
@@ -138,7 +131,7 @@ function ProgramAffiliasi() {
                               <div className="card">
                                 <div className="card-body pb-0">
                                   <div className="font-12 text-dark text-center font-bold">
-                                    Komisi
+                                    {Translate('pa_komisi')}
                                   </div>
                                   <div className="row mt-2 d-flex justify-content-between align-content-end">
                                     <img src={komisiImg} alt="komisiImg" className="w-25" />
@@ -155,7 +148,7 @@ function ProgramAffiliasi() {
                             <div className="col-12 col-md-12">
                               {" "}
                               <p className="text-white font-12 lable-title mb-1">
-                                URL Afiliasi Anda:
+                                {Translate('pa_url_afiliasi_anda')}:
                               </p>
                               <div className="input-group ci-inputDefault-bg mb-3">
                                 <input
@@ -235,7 +228,7 @@ function ProgramAffiliasi() {
                           aria-controls="setor"
                           aria-selected="true"
                         >
-                          Laporan Komisi
+                          {Translate('pa_laporan_komisi')}
                         </button>
                         <button
                           className="col-6 col-md-3 nav-link ci-btn-affiliasi px-2 py-3 font-16 font-bold"
@@ -246,7 +239,7 @@ function ProgramAffiliasi() {
                           aria-controls="tarik"
                           aria-selected="false"
                         >
-                          Daftar Afiliasi
+                          {Translate('pa_daftar_afiliasi')}
                         </button>
                       </div>
                     </div>

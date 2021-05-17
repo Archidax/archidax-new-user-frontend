@@ -133,6 +133,7 @@ export default {
         
         db_pasar_search:"Search",
         db_pasar_sembunyikan:"Sembunyikan Aset Kosong",
+        db_data_tidak_ditemukan : "Tidak Ada Data",
 
         // Section3
         db_wallet: "Dompet",
@@ -202,6 +203,7 @@ export default {
         vc_riwayat_tarik_rupiah: "Riwayat Tarik Rupiah",
         vc_semua: "Semua",
         vc_belum_dikonfirmasi: "Belum dikonfirmasi",
+        vc_sudah_dikonfirmasi : "Sudah dikonfirmasi",
         vc_belum_diredeem: "Belum diredeem",
         vc_sudah_diredeem: "Sudah diredeem",
         vc_waktu: "Waktu",
@@ -213,7 +215,6 @@ export default {
         vc_text_redeem : "Anda bisa mencairkan kode voucher yang anda miliki dengan memasukkan kode voucher tersebut pada form di atas.",
         vc_text_maks_penarikan : "Maksimal penarikan voucher Rp. 250.000.000 per hari.",
         vc_text_penarikan : "Pembuatan voucher per hari diakumulasikan dengan total penarikan Rupiah.",
-        vc_sudah_dikonfirmasi : "Sudah dikonfirmasi",
         vc_load_more : "Load More Data",
 	    vc_riwayat_pencairan_voucher : "Riwayat Pencairan Voucer",
         vc_riwayat_pembuatan_voucher : "Riwayat Pembuatan Voucer",
@@ -315,6 +316,7 @@ export default {
         ue_alasan_mengganti : "Alasan Mengganti Email",
         ue_pin_otp : "PIN OTP",
         ue_kirim_pin : "Kirim PIN",
+        ue_simpan :"Simpan",
 
         // ubah nomor telepon
         ut_ubah_telepon : "Ubah Nomor Telepon",

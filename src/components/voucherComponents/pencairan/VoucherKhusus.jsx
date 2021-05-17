@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import PencairanVoucherGagal from "./popUps/PencairanVoucherGagal";
+import Translate from "../../../i18n/Translate";
 
 export default function VoucherKhusus(props) {
   const { redeemVoucherRequest } = props;
@@ -20,9 +20,7 @@ export default function VoucherKhusus(props) {
     e.preventDefault();
     redeemVoucherRequest(data, setData);
   };
-  // const [showPopupVocherKhusus, setShowPopupVocherKhusus] = React.useState(false)
-
-  // const balance = "1.000.000";
+ 
   return (
     <div className="col-12 col-md-6 p-3">
       <form onSubmit={(e) => submitForm(e)}>
@@ -31,14 +29,14 @@ export default function VoucherKhusus(props) {
             <div className="row">
               <div className="col-12 col-md-12">
                 <div className="font-18 text-gold font-bold label-title-top">
-                  Voucher Khusus
+                  {Translate('vc_khusus')}
                 </div>
               </div>
             </div>
 
             <div className="mt-3 row">
               <div className="col-12 col-md-3">
-                <p className="ci-text-white mb-0 font-12">Kode Voucher</p>
+                <p className="ci-text-white mb-0 font-12">{Translate('vc_kode_voucher')}</p>
               </div>
               <div className="col-12 col-md-9 flex-column">
                 <div className="input-group ci-inputDefault-bg">
@@ -51,7 +49,7 @@ export default function VoucherKhusus(props) {
                 </div>
                 <div className="font-10 mt-2 text-white-50">
                   <span className="font-bold mr-2 text-gold">
-                    * Format voucher:
+                    * {Translate('vc_format_voucher')}:
                   </span>
                   CTI-IDR-ABCDEFGH-IJKLMNOP-QRSTUVWX-YZ123456-7890ABCD
                 </div>
@@ -59,7 +57,7 @@ export default function VoucherKhusus(props) {
             </div>
             <div className="mt-3 row">
               <div className="col-12 col-md-3 text-white lable-title">
-                <p className="ci-text-white mb-0 font-12">PIN Pencairan</p>
+                <p className="ci-text-white mb-0 font-12">{Translate('vc_pin_pencairan')}</p>
               </div>
               <div className="col-12 col-md-9 flex-column">
                 <div className="input-group ci-inputDefault-bg">
@@ -77,7 +75,7 @@ export default function VoucherKhusus(props) {
               <div className="col-12 col-md-12">
                 <ul style={{ paddingLeft: "25px", border: "0.5px dashed #f9bd00" }} className="font-12 mt-4 py-2 rounded">
                   <li className="font-12">
-                    Anda bisa mencairkan kode voucher yang anda miliki dengan memasukkan kode voucher tersebut pada form di atas.
+                    {Translate('vc_text_redeem')}
                   </li>
                 </ul>
               </div>
@@ -89,20 +87,13 @@ export default function VoucherKhusus(props) {
                   data-target="#pencairanVoucherGagal"
                 >
                   {" "}
-                  Cairkan{" "}
+                  {Translate('vc_cairkan')}{" "}
                 </button>
               </div>
             </div>
           </div>
         </div>
       </form>
-
-      {/* <PencairanVoucherGagal showPopupVocherKhusus={showPopupVocherKhusus} setShowPopupVocherKhusus={setShowPopupVocherKhusus} value={
-        {
-          title: "Gagal !!!",
-          text: `Voucher yang anda masukan salah.`
-        }
-      }/> */}
     </div>
   );
 }

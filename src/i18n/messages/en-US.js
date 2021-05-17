@@ -318,6 +318,7 @@ export default {
         ue_alasan_mengganti : "Reasons to Change Email",
         ue_pin_otp : "OTP PIN",
         ue_kirim_pin : "Send PIN",
+        ue_simpan :"Save",
 
         // ubah nomor telepon
         ut_ubah_telepon : "Change Phone Number",

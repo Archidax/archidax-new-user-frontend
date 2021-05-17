@@ -8,6 +8,7 @@ import List from "./listberita";
 import Content from "./contentberita";
 import Header from "../headerComponents/headerBerita";
 import { berita, beritaRecent } from "../../stores/berita/functions";
+import Translate from "../../i18n/Translate";
 
 export default function Index () {
   const path = useLocation()
@@ -27,11 +28,11 @@ export default function Index () {
         <div className="container">
           <div className="row">
             <div className="col-12 my-2">
-              <h1 className="font-bold text-gold" style={{letterSpacing: "0.1em"}}>Berita</h1>
+              <h1 className="font-bold text-gold" style={{letterSpacing: "0.1em"}}>{Translate('br_berita')}</h1>
             </div>
             <div className="col-12 my-3">
               <p className="font-18" style={{letterSpacing: "1px", lineHeight: "1.7em"}}>
-                Pelajari tentang Cryptocurrency, Berita, Wawasan Pakar, dan Tips Perdagangan
+                {Translate('br_text_banner')}
               </p>
             </div>
           </div>
