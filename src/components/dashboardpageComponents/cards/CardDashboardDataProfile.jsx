@@ -5,6 +5,7 @@ import VerifikasiAkun from "./cardDashboardDataProfile/VerifikasiAkun";
 import { useSelector } from "react-redux";
 import ChartDashboardPie from "./pieChartEstimation/ChartDashboardPie";
 import EmptyChart from "./pieChartEstimation/EmptyChart";
+import Translate from "../../../i18n/Translate";
 
 function CardDashboardDataProfile() {
   const kyc = useSelector((state) => state.kycReducer);
@@ -27,7 +28,7 @@ function CardDashboardDataProfile() {
             <div className="col-12 col-md-12 col-lg-12 col-xl-6 mt-2 mt-xl-0 mt-4 d-sm-block d-none">
               <div className="h-100">
                 <h4 className="font-16 font-bold text-gold label-title-top">
-                  Chart Asset Anda
+                  {Translate('db_chart_aset_anda')}
                 </h4>
                 <div className="mt-4">
                   {assets&&assets.length &&
