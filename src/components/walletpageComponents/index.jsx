@@ -10,7 +10,7 @@ import CopyrightDashboard from "../footerComponents/copyrightComponents/Copyrigh
 function Wallet() {
   return (
     <div>
-      <div className="px-3 pt-3">
+      <div className="px-3 pt-3" style={{ minHeight: "88vh" }}>
         <div className="row">
           <div className="col-12 col-md-12">
             <div className="card ci-customCard-1 bg-transparent">

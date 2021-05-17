@@ -71,7 +71,7 @@ function MainPageTrade() {
         <div className="container-fluid">
           <div className="tab-content" id="myTabContent">
             <div
-              className="tab-pane fade show active"
+              className="tab-pane fade "
               id="IDR"
               role="tabpanel"
               aria-labelledby="IDR-tab"
@@ -91,7 +91,7 @@ function MainPageTrade() {
               />
             </div>
             <div
-              className="tab-pane fade"
+              className="tab-pane fade show active"
               id="USDT"
               role="tabpanel"
               aria-labelledby="USDT-tab"

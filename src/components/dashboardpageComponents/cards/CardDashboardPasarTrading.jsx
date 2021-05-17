@@ -11,7 +11,11 @@ function CardDashboardPasarTrading() {
   return (
     <div
       className="card"
-      style={{ backgroundColor: "#151933", border: "none" }}
+      style={{
+        backgroundColor: "#151933",
+        border: "none",
+        marginBottom: "12px",
+      }}
     >
       <div className="card-body">
         <div className="d-flex flex-direction-row justify-content-between pl-1 pr-4 mb-2">
@@ -108,9 +112,7 @@ function CardDashboardPasarTrading() {
                     </th>
                   </thead>
                   {Exchange && Exchange.length > 0 ? (
-                    <PricePasarTrading
-                      data={Exchange}
-                    />
+                    <PricePasarTrading data={Exchange} />
                   ) : (
                     <tr>
                       <td>Data Not Found</td>
