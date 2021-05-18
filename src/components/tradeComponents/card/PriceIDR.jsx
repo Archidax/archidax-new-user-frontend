@@ -93,7 +93,7 @@ function PriceIDR({ exchange }) {
               className="ci-tableHeads-custom text-white text-left"
               style={{ width: "12%" }}
             >
-              {Translate('mk_volume')} (IDR)
+              {Translate('mk_volume')} (BTC)
             </th>
           </tr>
         </thead>

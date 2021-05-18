@@ -46,7 +46,7 @@ export default function ListingExchange() {
             aria-controls="pills-profile"
             aria-selected="false"
           >
-            USD
+            BTC
           </a>
         </li>
         <li className="nav-item col-4 p-0">

@@ -133,7 +133,7 @@ export default function Price() {
                               aria-controls="pills-idrs"
                               aria-selected="false"
                             >
-                              IDR
+                              BTC
                             </a>
                           </li>
                           <li className="nav-item col-4 p-0">

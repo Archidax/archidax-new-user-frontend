@@ -36,7 +36,7 @@ export default function CryptoPair() {
             <tbody>
               {Exchange && Array.isArray(Exchange) && Exchange.length > 0 ? (
                 Exchange.filter((item) => {
-                  if (item.base.toString().toUpperCase() === "USD") {
+                  if (item.base.toString().toUpperCase() === "BTC") {
                     return item;
                   } else {
                     return null;
