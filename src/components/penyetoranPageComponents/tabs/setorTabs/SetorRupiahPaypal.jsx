@@ -10,7 +10,7 @@ import PaypalButton from './paypalButton'
 
 const initialOptions = {
     // "client-id": "ATcZUPONAjGfAgxUDAt-F5_HCAPchIeeTxxQcf8Lej5rDetgSPSYE27wx0JNRsqMas5pXliaGby4pf8u", //sandbox
-    "client-id": "ATv4Z_W0h86lR3X32STglnQSKHgLGBc8lmh78I0N4Uk4NBKiuSRxUivB_eUIZ_QoHaFX9kcYfzIPFgNj", 
+    "client-id": "AWrDP6CZtaVmHrxz8IaCMk-MEfztrP7sUj53I8-Yx0nbb69NRKBT5NBArQQosPI3clUAiSO4s6WkKD91", 
     currency: "USD",
     intent: "capture",
     // "data-client-token": "abc123xyz==",

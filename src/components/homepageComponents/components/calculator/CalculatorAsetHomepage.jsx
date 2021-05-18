@@ -95,12 +95,7 @@ export default function CalculatorAsetHomepage() {
       let temp = Object.keys(pricePairs).filter((key) =>
         key.includes(activePairFrom),
       );
-<<<<<<< HEAD
-      console.log(temp)
-      setActivePairTo(temp?temp[0].split("/")[1]:'IDR')
-=======
       setActivePairTo(temp.length?temp[0].split("/")[1]:'USD')
->>>>>>> 1ecfa8a1c53495f3977e8aa8cf95f95514e8360a
     }
   }, [activePairFrom,pricePairs]);
 

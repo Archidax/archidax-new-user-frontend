@@ -44,15 +44,13 @@ export * from './affiliasi/functions'
 
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
-// export const baseUrl = 'http://localhost:8000';
-export const baseUrl = 'https://dev.archidax.net';
+export const baseUrl = 'http://localhost:8000';
+// export const baseUrl = 'https://dev.archidax.net';
 // export const baseUrl = 'http://192.168.1.32:8000';
 ///////////////////////////////////////////////////////////////
 export const baseUserSocketUrl = 'https://dev.archidax.net';
 // export const baseUserSocketUrl = 'http://localhost:8000'
 ///////////////////////////////////////////////////////////////
-// export const baseUrl = 'http://192.168.0.162:8000';
-// export const baseUrl = 'http://localhost:3000';
 //  export const baseUrlTrade='http://192.168.1.9:2021';
 // export const baseUrlTrade='http://localhost:2021';
 export const baseUrlTrade = 'https://trade.archidax.net';
