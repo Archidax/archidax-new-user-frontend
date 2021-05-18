@@ -7,10 +7,11 @@ import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
 import { cancelPenyetoran } from '../../../../stores/setorrupiah/functions'
 import PaypalButton from './paypalButton'
+import { convertNumber } from '../../../../assets/js'
 
 const initialOptions = {
     // "client-id": "ATcZUPONAjGfAgxUDAt-F5_HCAPchIeeTxxQcf8Lej5rDetgSPSYE27wx0JNRsqMas5pXliaGby4pf8u", //sandbox
-    "client-id": "ATv4Z_W0h86lR3X32STglnQSKHgLGBc8lmh78I0N4Uk4NBKiuSRxUivB_eUIZ_QoHaFX9kcYfzIPFgNj", 
+    "client-id": "AWrDP6CZtaVmHrxz8IaCMk-MEfztrP7sUj53I8-Yx0nbb69NRKBT5NBArQQosPI3clUAiSO4s6WkKD91", 
     currency: "USD",
     intent: "capture",
     // "data-client-token": "abc123xyz==",
@@ -47,7 +48,7 @@ function SetorRupiahAlfamart() {
                         </tr>
                         <tr className="label-title2">
                             <td className="pr-3 font-12 label-title2">Jumlah tagihan</td>
-                            <td className="font-12 label-title2">: {formatRupiah(amount + fee, { format: false })}</td>
+                            <td className="font-12 label-title2">: {convertNumber.toMoney(amount + fee, "$")}</td>
                         </tr>
                     </table>
                 </div>

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { putEmergency} from '../../../stores'
 import { telefonFormatError } from '../../../stores/errorHandler'
 import OTP from '../../../components/otp'
+import Translate from '../../../i18n/Translate';
 
 export default function KontakDaruratTab(){
     const history = useHistory()
@@ -53,17 +54,17 @@ export default function KontakDaruratTab(){
                     }}
                     onClick={() => {
                             history.replace('/profile')
-                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" /> Kembali ke profil</p>
+                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" />{Translate('ue_kembali')}</p>
                 </div>
             </div>
             <div className="row no-gutters bg-homepage2 p-4">
                 <div className="col-12 mb-4">
                     <div className="row no-gutters">
                         <div className="col-12">
-                            <p className="label-title-top mb-0 font-roboto">Ubah Kontak Darurat</p>
+                            <p className="label-title-top mb-0 font-roboto">{Translate('uk_ubah_kontak_darurat')}</p>
                         </div>
                         <div className="col-12">
-                            <p className="label-title mb-0">Kami menganjurkan penggunaan Kontak Darurat guna menghindari adanya eksploitasi keuangan terhadap akun Anda.</p>
+                            <p className="label-title mb-0">{Translate('uk_text_kontak')}</p>
                         </div>
                     </div>
                 </div>
@@ -72,12 +73,12 @@ export default function KontakDaruratTab(){
                         <div className="col-md-12 col-lg-6">
                             <div className="row no-gutters">
                                 <div className="col-12 mb-4">
-                                    <p className="label-title-top mb-0 font-18">Kontak Darurat Lama</p>
+                                    <p className="label-title-top mb-0 font-18">{Translate('uk_kontak_darurat_lama')}</p>
                                 </div>
                             </div>
                             <div className="row no-gutters mb-3">
                                 <div className="col-12 col-md-6 d-flex align-items-center">
-                                    <p className=" mb-0 label-title">Nama Kerabat</p>
+                                    <p className=" mb-0 label-title">{Translate('pr_nama_kerabat')}</p>
                                 </div>
                                 <div className="col-12 col-md-6">
                                     <p className="mb-0  label-title2">{kyc.namaKerabat}</p>
@@ -85,7 +86,7 @@ export default function KontakDaruratTab(){
                             </div>
                             <div className="row no-gutters mb-3">
                                 <div className="col-12 col-md-6 d-flex align-items-center">
-                                    <p className=" mb-0 label-title">Hubungan Kerabat</p>
+                                    <p className=" mb-0 label-title">{Translate('pr_hubungan_kerabat')}</p>
                                 </div>
                                 <div className="col-12 col-md-6">
                                     <p className="mb-0  label-title2">{kyc.hubunganKerabat}</p>
@@ -93,7 +94,7 @@ export default function KontakDaruratTab(){
                             </div>
                             <div className="row no-gutters mb-3">
                                 <div className="col-12 col-md-6 d-flex align-items-center">
-                                    <p className=" mb-0 label-title">Nomor Telefon Kerabat</p>
+                                    <p className=" mb-0 label-title">{Translate('pr_nomor_kerabat')}</p>
                                 </div>
                                 <div className="col-12 col-md-6">
                                     <p className="mb-0  label-title2">{kyc.nomorTelefonKerabat}</p>
@@ -105,15 +106,15 @@ export default function KontakDaruratTab(){
                             <div className="row no-gutters">
 
                                 <div className="col-12">
-                                    <p className="label-title-top mb-0 font-18">Kontak Darurat Baru</p>
+                                    <p className="label-title-top mb-0 font-18">{Translate('uk_kontak_darurat_baru')}</p>
                                 </div>
                                 <div className="col-12 mb-4">
-                                    <p className="label-title mb-0">Lengkapi isian berikut untuk mengajukan penggantian kontak darurat.</p>
+                                    <p className="label-title mb-0">{Translate('uk_text_lengkapi')}</p>
                                 </div>
                                 <div className="col-12 mb-2">
                                     <div className="row no-gutters mb-3">
                                         <div className="col-12 col-md-4 d-flex align-items-center">
-                                            <p className="mb-0 label-title">Nama Kerabat</p>
+                                            <p className="mb-0 label-title">{Translate('pr_nama_kerabat')}</p>
                                         </div>
                                         <div className="col-12 col-md-8">
                                             <div className="input-group ci-inputDefault-bg">
@@ -123,7 +124,7 @@ export default function KontakDaruratTab(){
                                     </div>
                                     <div className="row no-gutters mb-3">
                                         <div className="col-12 col-md-4 d-flex align-items-center">
-                                            <p className=" mb-0 label-title">Hubungan Kerabat</p>
+                                            <p className=" mb-0 label-title">{Translate('pr_hubungan_kerabat')}</p>
                                         </div>
                                         <div className="col-12 col-md-8">
                                             <Dropdown onChange={setNewHubunganKerabat} value={newHubunganKerabat} dataOptions={arrKeluarga} />
@@ -131,7 +132,7 @@ export default function KontakDaruratTab(){
                                     </div>
                                     <div className="row no-gutters mb-3">
                                         <div className="col-12 col-md-4 d-flex align-items-center">
-                                            <p className=" mb-0  label-title">Nomor Telefon Kerabat</p>
+                                            <p className=" mb-0  label-title">{Translate('pr_nomor_kerabat')}</p>
                                         </div>
                                         <div className="col-12 col-md-8">
                                             <div className="input-group ci-inputDefault-bg">
@@ -145,7 +146,7 @@ export default function KontakDaruratTab(){
                                     </div>
                                     <div className="row no-gutters mb-3">
                                         <div className="col-12 col-md-4 d-flex align-items-center">
-                                        <p className="mb-0 label-title">PIN SMS</p>
+                                        <p className="mb-0 label-title">{Translate('ue_pin_sms')}</p>
                                         </div>
                                         <div className="col-12 col-md-8">
                                             <div className="row no-gutters">
@@ -168,7 +169,7 @@ export default function KontakDaruratTab(){
                     
                 </div>
                 <div className="col-12 splitter d-flex justify-content-end mt-5">
-                    <button onClick={putEmergencyKontak} className="ci-btn-warning ci-md mt-3">Simpan</button>
+                    <button onClick={putEmergencyKontak} className="ci-btn-warning ci-md mt-3">{Translate('ue_simpan')}</button>
                 </div>
             </div>
         </div>

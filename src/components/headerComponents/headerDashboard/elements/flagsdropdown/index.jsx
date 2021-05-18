@@ -5,12 +5,12 @@ function Flags(props) {
   const { setLocale, flag } = props;
 
   const language = (type) => {
-    if (type === "indonesia") {
-      setLocale(LOCALES.INDONESIA);
-      // setCountry("Indonesia");
-    } else if (type === "english") {
+    if (type === "english") {
       setLocale(LOCALES.ENGLISH);
       // setCountry("English");
+    } else if (type === "indonesia") {
+      setLocale(LOCALES.INDONESIA);
+      // setCountry("Indonesia");
     } else if (type === "france") {
       // setLocale(LOCALES.FRANCE);
       // setCountry("France");
@@ -70,17 +70,17 @@ function Flags(props) {
         <div className="container-fluid px-0 mt-0 mb-2 ci-dropdown-flag-scrollbar">
           <div
             className="dropdown-item ci-dropdown-flag-scrollbar-item py-2"
-            onClick={() => language("indonesia")}
-          >
-            <span className="flag-icon flag-icon-id flag-icon-squared ci-flag-item-icon" />
-            <span className="ml-2">Indonesia</span>
-          </div>
-          <div
-            className="dropdown-item ci-dropdown-flag-scrollbar-item py-2"
             onClick={() => language("english")}
           >
             <span className="flag-icon flag-icon-us flag-icon-squared ci-flag-item-icon" />
             <span className="ml-2">English</span>
+          </div>
+          <div
+            className="dropdown-item ci-dropdown-flag-scrollbar-item py-2"
+            onClick={() => language("indonesia")}
+          >
+            <span className="flag-icon flag-icon-id flag-icon-squared ci-flag-item-icon" />
+            <span className="ml-2">Indonesia</span>
           </div>
           <div
             className="dropdown-item ci-dropdown-flag-scrollbar-item py-2"

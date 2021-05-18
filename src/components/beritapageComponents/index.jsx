@@ -62,7 +62,7 @@ export default function Index () {
               aria-controls="pills-berita"
               aria-selected="true"
             >
-              Berita
+              {Translate('br_berita')}
             </Link>
           </li>
           <li className="nav-item">
@@ -75,7 +75,7 @@ export default function Index () {
               aria-controls="pills-pengumuman"
               aria-selected="false"
             >
-              Pengumuman
+              {Translate('br_pengumuman')}
             </Link>
           </li>
           <li className="nav-item">
@@ -88,20 +88,20 @@ export default function Index () {
               aria-controls="pills-artikel"
               aria-selected="false"
             >
-              Artikel
+              {Translate('br_artikel')}
             </Link>
           </li>
         </ul>
       </div>
       <Switch>
         <Route exact path="/berita">
-          <List title="Berita" data={dataBerita.Berita} />
+          <List title={Translate('br_berita')} data={dataBerita.Berita} />
         </Route>
         <Route exact path="/berita/pengumuman">
-          <List title="Pengumuman" data={dataBerita.Pengumuman} />
+          <List title={Translate('br_pengumuman')} data={dataBerita.Pengumuman} />
         </Route>
         <Route exact path="/berita/artikel">
-          <List title="Artikel" data={dataBerita.Artikel} />
+          <List title={Translate('br_artikel')} data={dataBerita.Artikel} />
         </Route>
         <Route path="/berita/:slug">
           <Content />

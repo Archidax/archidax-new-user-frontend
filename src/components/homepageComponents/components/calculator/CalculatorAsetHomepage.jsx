@@ -9,7 +9,7 @@ export default function CalculatorAsetHomepage() {
   const [fromText, setFromText] = useState("");
   const [toText, setToText] = useState("");
   
-  const [activePairFrom, setActivePairFrom] = useState('BTC');
+  const [activePairFrom, setActivePairFrom] = useState('CGOLD');
   const [activePairTo, setActivePairTo] = useState('USD');
   const [pricePairs, setPricePairs] = useState(false);
   const [icons, setIcons] = useState(false);
