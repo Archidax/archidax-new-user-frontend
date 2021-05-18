@@ -30,11 +30,7 @@ export default function TableHomepage({dataHome}) {
                 dataHome.map((item) => {
                   const handleRowClick = (row) => {
                     history.push(
-                      `/pasar/${
-                        item.symbol
-                          ? item.symbol.toString().replace("/", "_")
-                          : null
-                      }`,
+                      `/pasar/${item.symbol.toString().replace("/", "_") }`,
                     );
                   };
                   return (
@@ -79,26 +75,6 @@ export default function TableHomepage({dataHome}) {
                   </td>
                 </tr>
               )}
-              {/* <tr className="tb-border-bottom2">
-                        <td className="text-white table-center">
-                          <img
-                            src=""
-                            style={{ maxHeight: "23px", marginRight: "10px" }}
-                          />
-                          <div>BTC / IDR</div>
-                        </td>
-                        <td className="text-white text-left">Bitcoin</td>
-                        <td className="text-white text-left">640.714.000</td>
-                        <td className="price-green">4.5%</td>
-                        <td className="price-green">10%</td>
-                        <td className="text-white text-left">
-                          <span>173,4bn </span>IDR
-                        </td>
-                        <td className="text-white text-left">
-                          <span>173,4bn </span>IDR
-                        </td>
-                      </tr>
-                */}
             </tbody>
           </table>
         </div>

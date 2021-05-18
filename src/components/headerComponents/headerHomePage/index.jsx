@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {useSelector} from 'react-redux'
 import logo from "../../../assets/img/logoArchidax.png";
 import giflogo from "../../../assets/img/header/headerhomepage/blip.gif";
 import Flags from "../headerDashboard/elements/flagsdropdown";
@@ -8,6 +9,7 @@ import Translate from "../../../i18n/Translate";
 
 function HeaderHomePage(props) {
   // eslint-disable-next-line
+  const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
 
   return (
     <nav className={`navbar navbar-expand-lg navbar-light bg-transparent px-5 py-3 font-roboto ${props.bg_normal}`} >
@@ -47,7 +49,7 @@ function HeaderHomePage(props) {
           <li className="nav-item mx-2">
             <a
               className="nav-link text-white font-18 text-center"
-              href="/pasar/BTC_IDR"
+              href={PairSymbol?`/pasar/${PairSymbol.toString().replace('/', '_')}`:'/pasar/BTC_USDT'}
             >
               {Translate("hh_pasar")}
             </a>

@@ -50,7 +50,7 @@ function MainPageTrade() {
                 aria-selected="true"
                 style={{ width: "110px" }}
               >
-                USD
+                BTC
               </button>
               <button
                 className="nav-link ci-btn-trade active px-2 py-3 font-responsive-trade-page font-bold"
@@ -80,7 +80,7 @@ function MainPageTrade() {
                 exchange={
                   Exchange && Exchange instanceof Array && Exchange.length > 0
                     ? Exchange.filter((item) => {
-                        if (item.base.toString().toUpperCase() === "USD") {
+                        if (item.base.toString().toUpperCase() === "BTC") {
                           return item;
                         } else {
                           return null;
