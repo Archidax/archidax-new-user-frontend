@@ -101,7 +101,7 @@ function NotificationDropdownHeader() {
         className="dropdown-menu dropdown-menu-right ci-dropdown-notification pt-0 pb-0"
         aria-labelledby="dropdownMenuButton"
         style={{
-          backgroundColor: mode ? "" : "white",
+          backgroundColor: mode ? "#0c0c0c" : "white",
           border: mode ? "1px solid white" : "1px solid black",
         }}
       >

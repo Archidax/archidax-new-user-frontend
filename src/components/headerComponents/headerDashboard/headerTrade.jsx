@@ -9,7 +9,7 @@ import logocryptoindex from "../../../assets/img/logoArchidax.png";
 // Import Elements
 import FlagsDropdownHeader from "./elements/flagsdropdown";
 import WalletsDropdownHeaderTrade from "./elements/walletsdropdown/WalletsDropdownHeaderTrade";
-import NotificationDropdownHeader from "./elements/notificationdropdown";
+import NotificationDropdownHeader from "./elements/notificationdropdown/notiftrade";
 import ProfileDropdownHeader from "./elements/profiledropdown";
 
 import ProtectedPagePasar from "../../tradeComponents/card/HalamanLoginHeader";
