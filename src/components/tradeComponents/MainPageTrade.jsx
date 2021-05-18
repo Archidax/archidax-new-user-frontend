@@ -41,19 +41,19 @@ function MainPageTrade() {
                 Fav
               </button>
               <button
-                className="nav-link ci-btn-trade px-2 py-3 font-responsive-trade-page font-bold"
-                id="IDR-tab"
+                className="nav-link ci-btn-trade px-2 py-3 font-responsive-trade-page font-bold active"
+                id="USD-tab"
                 data-toggle="tab"
-                href="#IDR"
+                href="#USD"
                 role="tab"
-                aria-controls="IDR"
+                aria-controls="USD"
                 aria-selected="true"
                 style={{ width: "110px" }}
               >
                 USD
               </button>
-              <button
-                className="nav-link ci-btn-trade active px-2 py-3 font-responsive-trade-page font-bold"
+              {/* <button
+                className="nav-link ci-btn-trade px-2 py-3 font-responsive-trade-page font-bold"
                 id="USDT-tab"
                 data-toggle="tab"
                 href="#USDT"
@@ -63,7 +63,7 @@ function MainPageTrade() {
                 style={{ width: "110px" }}
               >
                 USDT
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -71,36 +71,16 @@ function MainPageTrade() {
         <div className="container-fluid">
           <div className="tab-content" id="myTabContent">
             <div
-              className="tab-pane fade "
-              id="IDR"
+              className="tab-pane fade show active"
+              id="USD"
               role="tabpanel"
-              aria-labelledby="IDR-tab"
+              aria-labelledby="USD-tab"
             >
               <PriceIDR
                 exchange={
                   Exchange && Exchange instanceof Array && Exchange.length > 0
                     ? Exchange.filter((item) => {
                         if (item.base.toString().toUpperCase() === "USD") {
-                          return item;
-                        } else {
-                          return null;
-                        }
-                      })
-                    : []
-                }
-              />
-            </div>
-            <div
-              className="tab-pane fade show active"
-              id="USDT"
-              role="tabpanel"
-              aria-labelledby="USDT-tab"
-            >
-              <PriceUSDT
-                exchange={
-                  Exchange && Exchange instanceof Array && Exchange.length > 0
-                    ? Exchange.filter((item) => {
-                        if (item.base.toString().toUpperCase() === "USDT") {
                           return item;
                         } else {
                           return null;
@@ -124,6 +104,26 @@ function MainPageTrade() {
                   Exchange.length > 0
                     ? Exchange.filter((item) => {
                         if (myFav.includes(item._id)) {
+                          return item;
+                        } else {
+                          return null;
+                        }
+                      })
+                    : []
+                }
+              />
+            </div>
+            <div
+              className="tab-pane fade "
+              id="USDT"
+              role="tabpanel"
+              aria-labelledby="USDT-tab"
+            >
+              <PriceUSDT
+                exchange={
+                  Exchange && Exchange instanceof Array && Exchange.length > 0
+                    ? Exchange.filter((item) => {
+                        if (item.base.toString().toUpperCase() === "USDT") {
                           return item;
                         } else {
                           return null;

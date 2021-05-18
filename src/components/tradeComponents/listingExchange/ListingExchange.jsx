@@ -21,7 +21,7 @@ export default function ListingExchange() {
         className="nav nav-pills mb-0 font-14"
         id="pills-tab"
         role="tablist"
-        style={{ background: "#000000" }}
+        style={{ background: mode ? "#000000" : "#00688F" }}
       >
         <li className="nav-item col-4 p-0">
           <a

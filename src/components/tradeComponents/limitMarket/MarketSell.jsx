@@ -98,7 +98,7 @@ export default function MarketSell() {
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
               <img src={selllogo} alt="selllogo" width="22px" />
-              <div className="text-sell ml-2 font-20 font-bolder2">Jual</div>
+              <div className="text-sell ml-2 font-20 font-bolder2">Sell</div>
             </div>
             <div className="make-middle">
               <img src={walletlogo} alt="walletlogo" width="14px" />
@@ -118,7 +118,7 @@ export default function MarketSell() {
                 mode ? "input-label-trade4-dark" : "input-label-trade4"
               }
             >
-              Total Penjualan
+              Total Amount
             </span>
             <input
               type="number"
@@ -203,7 +203,7 @@ export default function MarketSell() {
                 mode ? "input-label-trade5-dark" : "input-label-trade5"
               }
             >
-              Estimasi
+              Estimation
             </span>
             <input
               type="number"
@@ -228,18 +228,18 @@ export default function MarketSell() {
                   mode ? "font-weight-bold" : "text-white font-bolder2"
                 }`}
               >
-                Jual
+                Sell
               </h5>
             </button>
           ) : (
             <div className="text-center bg-loginfirst col-12 mt-3">
               <h5 className="mb-0 font-13 font-weight-bold">
                 <Link to="/login" className="mr-2">
-                  Masuk
+                  Login
                 </Link>
-                atau
+                or
                 <Link to="/login" className="ml-2">
-                  Daftar
+                  Register
                 </Link>
               </h5>
             </div>

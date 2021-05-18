@@ -282,11 +282,11 @@ export default function LimitBuy() {
             <div className="text-center bg-loginfirst col-12 mt-3">
               <h5 className="mb-0 font-13 font-weight-bold">
                 <Link to="/login" className="mr-2">
-                  Masuk
+                  Login
                 </Link>
-                atau
+                or
                 <Link to="/login" className="ml-2">
-                  Daftar
+                  Register
                 </Link>
               </h5>
             </div>
