@@ -122,7 +122,7 @@ function PriceUSDT({ exchange }) {
                   )}
                   <tp
                     className="ci-verti-align-middle text-white tp-tb d-flex"
-                    onClick={() => handleClick(el.quote + "_" + el.base)}
+                    onClick={() => handleClick(el.symbol.toString().replace("/", "_"))}
                     style={{ cursor: "pointer" }}
                   >
                     <img
@@ -134,7 +134,7 @@ function PriceUSDT({ exchange }) {
                   </tp>
                   <td
                     className="ci-verti-align-middle text-white font-responsive-trade-page"
-                    onClick={() => handleClick(el.quote + "_" + el.base)}
+                    onClick={() => handleClick(el.symbol.toString().replace("/", "_"))}
                     style={{ cursor: "pointer" }}
                   >
                     {el.assetName ? el.assetName : "-"}

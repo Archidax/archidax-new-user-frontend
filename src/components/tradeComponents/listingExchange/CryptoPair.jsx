@@ -65,7 +65,7 @@ function CryptoPairRealtime({ item, index }) {
   const [Data, setData] = React.useState(item.price_24hour);
 
   const handleRowClick = () => {
-    history.push(`/pasar/${item.quote}_${item.base}`);
+    history.push(`/pasar/${item.symbol.toString().replace('/', '_')}`);
   };
 
   React.useEffect(() => {
