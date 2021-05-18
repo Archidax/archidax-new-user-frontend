@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import buylogo from "../../../assets/img/trade/buy.png";
 import buylogo2 from "../../../assets/img/trade/keranjanghitam.svg";
 import walletlogo from "../../../assets/img/trade/wallet.png";
+import walletlogo2 from "../../../assets/img/trade/wallet2.svg";
 import { PercentMath } from "../helpers/trade";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -105,8 +106,12 @@ export default function MarketBuy() {
               <div className="text-buy ml-2 font-20 font-bolder2">Buy</div>
             </div>
             <div className="make-middle">
-              <img src={walletlogo} alt="walletlogo" width="14px" />
-              <div className="text-dgrey ml-2 font-14">
+              <img
+                src={mode ? walletlogo : walletlogo2}
+                alt="walletlogo"
+                width="14px"
+              />
+              <div className="text-dgrey ml-2 font-14 font-bolder2">
                 {pairFrom ? pairFrom : "-"}:
               </div>
               <div

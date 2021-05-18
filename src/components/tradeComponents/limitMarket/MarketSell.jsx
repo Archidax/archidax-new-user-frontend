@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import selllogo from "../../../assets/img/trade/sell.png";
+import buylogo2 from "../../../assets/img/trade/keranjanghitam.svg";
 import walletlogo from "../../../assets/img/trade/wallet.png";
+import walletlogo1 from "../../../assets/img/trade/wallet1.svg";
+import walletlogo2 from "../../../assets/img/trade/wallet2.svg";
 import { PercentMath } from "../helpers/trade";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -97,12 +100,22 @@ export default function MarketSell() {
         <div className="width-trade">
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
-              <img src={selllogo} alt="selllogo" width="22px" />
+              <img
+                src={mode ? selllogo : buylogo2}
+                alt="selllogo"
+                width="22px"
+              />
               <div className="text-sell ml-2 font-20 font-bolder2">Sell</div>
             </div>
             <div className="make-middle">
-              <img src={walletlogo} alt="walletlogo" width="14px" />
-              <div className="text-dgrey ml-2 font-14">{pairTo}:</div>
+              <img
+                src={mode ? walletlogo : walletlogo2}
+                alt="walletlogo"
+                width="14px"
+              />
+              <div className="text-dgrey ml-2 font-14 font-bolder2">
+                {pairTo}:
+              </div>
               <div
                 className={`${
                   mode ? "text-price-dark" : "text-price"
