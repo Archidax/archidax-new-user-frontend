@@ -6,6 +6,7 @@ import Popup from '../../components/popUps'
 import arrow from "../../assets/img/arrow-next.png";
 import { baseAxios } from "../../stores";
 import { parseFixedNumber } from '../../helpers/functions'
+import Translate from "../../i18n/Translate";
 
 export default function Listbantuan() {
   const [categories, setCategories] = useState([]);
@@ -97,7 +98,7 @@ export default function Listbantuan() {
             className="ci-text-white font-16"
             style={{ letterSpacing: "2px" }}
           >
-            Artikel Tebaru
+            {Translate('br_artikel_terbaru')}
           </h2>
           <div
             style={{ background: "#F9BA42", width: "25%", height: "2px" }}
@@ -129,7 +130,7 @@ export default function Listbantuan() {
             className="ci-text-white font-16"
             style={{ letterSpacing: "2px" }}
           >
-            Artikel Terpopuler
+            {Translate('bn_artikel_terpopuler')}
           </h2>
           <div
             style={{ background: "#F9BA42", width: "30%", height: "2px" }}
@@ -142,7 +143,7 @@ export default function Listbantuan() {
             return (
               <div key={index}>
                 <div className="artikel-bantuan-keterangan">
-                  <p className="ci-text-white font-10">Bantuan</p>
+                  <p className="ci-text-white font-10">{Translate('bn_help')}</p>
                   <img src={arrow} alt="arrow" />
                   <p className="ci-text-white font-10">{item.categoryName}</p>
                 </div>
@@ -163,9 +164,9 @@ export default function Listbantuan() {
 
       <div style={{ marginBottom: "5vh" }}>
         <p className="ci-text-white font-12">
-          Punya pertanyaan lain?
+          {Translate('bn_punya_pertanyaan')}
           <Link to="/bantuan/hubungi-kami">
-            <span className="link-hubungi-kami">Hubungi Kami</span>
+            <span className="link-hubungi-kami ml-2">{Translate('bn_hubungi_kami')}</span>
           </Link>
         </p>
       </div>

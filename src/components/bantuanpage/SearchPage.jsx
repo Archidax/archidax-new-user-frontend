@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Translate from "../../i18n/Translate";
 
 import { baseAxios } from "../../stores";
 
@@ -63,7 +64,7 @@ function SearchPage() {
       <div className="row">
         <div className="col-12 col-md-7">
           <div className="searchPage_head">
-            <h5>Hasil Pencarian:</h5>
+            <h5>{Translate('bn_hasil_pencarian')}</h5>
             <p>{cari}</p>
           </div>
           {loading ? (
@@ -87,7 +88,7 @@ function SearchPage() {
                     to={`/bantuan/${item.categorySlug}/${item.topics.topicSlug}`}
                   >
                     <h6 className="font-12">
-                      Selengkapnya<i className="fas fa-chevron-right mx-2"></i>
+                      {Translate('db_selengkapnya')}<i className="fas fa-chevron-right mx-2"></i>
                     </h6>
                   </Link>
                 </div>
@@ -95,13 +96,13 @@ function SearchPage() {
             })
           ) : (
             <div className="searchPage_results">
-              <h5 className="font-16">No Result</h5>
+              <h5 className="font-16">{Translate('bn_tidak_ada_hasil')}</h5>
             </div>
           )}
         </div>
         <div className="col-12 col-md-5">
           <h5 className="artikel-bantuan-column-title ci-text-white">
-            Kategori Lainnya
+            {Translate(' bn_kategori_lainnya')}
           </h5>
           {categories.map((item, index) => {
             return (
@@ -121,9 +122,9 @@ function SearchPage() {
         style={{ borderTop: "0.3px solid #AEB4CE" }}
       >
         <p className="ci-text-white font-12">
-          Punya pertanyaan lain?
+          {Translate('bn_punya_pertanyaan')}
           <Link to="/bantuan/hubungi-kami">
-            <span className="link-hubungi-kami">Hubungi Kami</span>
+            <span className="link-hubungi-kami ml-2">{Translate('bn_hubungi_kami')}</span>
           </Link>
         </p>
       </div>

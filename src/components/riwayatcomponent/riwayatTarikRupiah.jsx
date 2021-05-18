@@ -6,9 +6,10 @@ import { getRiwayatTarikRupiah, downloadRiwayatTarikRupiah } from '../../stores/
 import { convertNumber } from '../../assets/js'
 import moment from 'moment'
 import Pagination from 'react-js-pagination'
+import Translate from '../../i18n/Translate';
 
 const tableHeader = [
-  "Waktu", "Jenis", "Jumlah", "Deskripsi", "Status",
+  Translate('rw_waktu'), Translate('rw_jenis'), Translate('rw_jumlah'), Translate('rw_deskripsi'), Translate('rw_status'),
 ];
 
 export default function RiwayatTarikRupiah() {

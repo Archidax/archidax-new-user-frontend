@@ -1,12 +1,13 @@
 import React from 'react';
 import file from "../../assets/img/file.png";
 import arrow from "../../assets/img/arrow-next.png";
+import Translate from '../../i18n/Translate';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getRiwayatMutasi } from '../../stores/index';
 
 
 const tableHeader = [
-  "Waktu", "Aksi", "Deskripsi", "Perubahan", "Saldo IDR", "Saldo Crypto",
+  Translate('rw_waktu'), Translate('rw_aksi'), Translate('rw_deskripsi'), Translate('rw_perubahan'), Translate('rw_saldo_usd'), Translate('rw_saldo_kripto'),
 ];
 
 const data = [

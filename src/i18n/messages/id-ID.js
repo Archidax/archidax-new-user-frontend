@@ -44,6 +44,7 @@ export default {
 
         // Berita
         hberita:"Berita Terbaru",
+        hberita_kembali:"Kembali ke Cryptoindex.com",
 
         // 
         // Footer
@@ -97,6 +98,7 @@ export default {
         hd_lihat_riwayat_transaksi_anda: "Lihat Riwayat Transaksi Anda",
         hd_baru : "Baru",
         hd_tandai_semua_telah_dibaca : "Mark all as read",
+        hd_lebih_banyak:'Lihat lebih banyak',
 
 
         // Sidebar Dashboard
@@ -179,8 +181,7 @@ export default {
         wal_tarik: "Tarik",
         wal_pasar: "Pasar",
         wal_sembunyikan: "Sembunyikan Nilai Aset",
-
-
+        
 
         // Secrtion2
 
@@ -266,7 +267,7 @@ export default {
         br_bagikan_melalui : "Bagikan Melalui",
 
         //Bantuan
-        bn_butuh_bantuan : "Butuh Bantuan?",
+        bn_butuh_bantuan : "Butuh Bantuan ?",
         bn_text_banner : "Silahkan lakukan pencarian atau tanyakan pertanyaan Anda disini",
         bn_riwayat_transaksi : "Riwayat Transaksi",
         bn_akun_archidax : "Akun Archidax",
@@ -284,6 +285,12 @@ export default {
         bn_security_bug_report : "Security Bug Report",
         bn_business_development: "Business Development",
         bn_alamat : "Alamat",
+        bn_help:"Bantuan",
+        bn_punya_pertanyaan:'Punya pertanyaan lain ?',
+        bn_hubungi_kami:'Hubungi Kami',
+        bn_hasil_pencarian:'Hasil pencarian :',
+        bn_kategori_lainnya:'Kategori Lainnya',
+        bn_tidak_ada_hasil:"Tidak Ada Hasil",
 
         //Profile
         pr_profile : "Profile",
@@ -376,6 +383,67 @@ export default {
         uk_istri : "Istri",
         uk_kakak : "Kakak",
         uk_adik : "Adik",
-  
+
+        // Riwayat
+        rw_riwayat:"Riwayat",
+        rw_order:"Order",
+        rw_transaksi:"Transaksi",
+        rw_setor_kripto:"Setor Kripto",
+        rw_tarik_kripto:"Tarik Kripto",
+        rw_setor_usd:"Setor USD",
+        rw_tarik_usd:"Tarik USD",
+        rw_mutasi:"Mutasi",
+        rw_pair:"Pair",
+        rw_jenis:"Jenis",
+        rw_jumlah:"Jumlah",
+        rw_waktu:"waktu",
+        rw_harga:"Harga",
+        rw_total_harga:"Total Harga",
+        rw_terisi:"Terisi",
+        rw_status:"Status",
+        rw_tujuan:"Tujuan",
+        rw_dari:"Dari",
+        rw_keterangan:"Keterangan",
+        rw_deskripsi:"Deskripsi",
+        rw_aksi:"Aksi",
+        rw_perubahan:"Perubahan",
+        rw_saldo_usd:"Saldo USD",
+        rw_saldo_kripto:"Saldo Kripto",
+
+        //Keamanan akun
+        ka_keamanan_akun:"Keamanan Akun",
+        ka_text_harap:"Harap gunakan kata sandi dan Google Authenticator untuk memastikan perlindungan maksimal dari akun Anda.",
+        ka_password:"Password",
+        ka_google_auth:"Google Authenticator",
+        ka_pin:"PIN",
+        ka_ganti:"Ganti",
+        ka_aktifkan:"Aktifkan",
+        ka_layanan_aktif:"Layanan Aktif",
+        ka_hidupkan:"Hidupkan",
+        ka_matikan:"Matikan",
+        ka_nonaktifkan:"Non-Aktifkan",
+        ka_alamat_ip:"Alamat IP",
+        ka_perangkat:"Perangkat",
+        ka_terakhir_login:"Terakhir Login",
+        ka_text_no_history_login:"Anda tidak punya history login akhir-akhir ini.",
+        ka_ubah_password:"Ubah Password",
+        ka_konfirmasi_pass:"Konfirmasi Password",
+        ka_text_warning_ubah_pass:"Mengubah kata sandi Anda akan mengeluarkan Anda dari semua perangkat, termasuk ponsel Anda. Anda harus memasukkan kata sandi baru di semua perangkat Anda.",
+        ka_pass_lama:"Password Lama",
+        ka_pass_baru:"Password Baru",
+        ka_aktifkan_google_auth:"Aktifkan Google Authenticator",
+        ka_text_mengapa_google_auth:"Mengapa harus menggunakan Google Authenticator ?",
+        ka_alasan_google_auth1:"Melindungi akun dari hacker.",
+        ka_alasan_google_auth2 :"Dana lebih aman.",
+        ka_alasan_google_auth3 :"Mudah digunakan.",
+        ka_alasan_google_auth4 :"Bisa di-install di Android, iPhone, iPad, dan Komputer/Laptop.",
+        ka_unduh_google_auth:"Unduh dan pasang aplikasi Google Authenticator",
+        ka_pass_akun:"Password Akun",
+        ka_kode_auth:"Kode Authenticator",
+        ka_text_scan:"Scan barcode di bawah dengan Google Authenticator, kemudian masukan PIN yang dihasilkan",
+        ka_aktifkan_pin:"Aktifkan PIN",
+        ka_text_warning_pin:"Simpan dan jangan beritahukan kode PIN anda kepada siapa pun, termasuk ke tim support Cryptoindex.",
+        ka_konfirmasi_pin:"Konfirmasi Pin",
+
     }
 };

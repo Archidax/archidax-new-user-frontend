@@ -3,6 +3,7 @@ import warning from "../../assets/img/warning.png";
 import { createPin } from "../../stores";
 import { useDispatch } from "react-redux";
 import OTP from "../otp";
+import Translate from "../../i18n/Translate";
 
 export default function AktifkanPin() {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export default function AktifkanPin() {
             </button>
           </div>
           <div className="modal-body modal-body-custom">
-            <h1>Aktifkan Pin</h1>
+            <h1>{Translate('ka_aktifkan_pin')}</h1>
             <div className="container">
               <div className="row warning-ubah-password">
                 <div className="col-1">
@@ -48,8 +49,7 @@ export default function AktifkanPin() {
                 </div>
                 <div className="col-11">
                   <p className="text-warning-custom">
-                    Simpan dan jangan beritahukan kode PIN anda kepada siapa
-                    pun, termasuk ke tim support Cryptoindex.
+                    {Translate('ka_text_warning_pin')}
                   </p>
                 </div>
               </div>
@@ -60,7 +60,7 @@ export default function AktifkanPin() {
                   htmlFor="inputPin label-input"
                   className="col-sm-4 col-form-label"
                 >
-                  Pin
+                  {Translate('ka_pin')}
                 </label>
                 <div className="col-sm-8 input-group ci-inputDefault-bg">
                   <input
@@ -87,7 +87,7 @@ export default function AktifkanPin() {
                   htmlFor="inputKonfirmasiPin label-input"
                   className="col-sm-4 col-form-label"
                 >
-                  Konfirmasi Pin
+                  {Translate('ka_konfirmasi_pin')}
                 </label>
                 <div className="col-sm-8 input-group ci-inputDefault-bg">
                   <input
@@ -114,7 +114,7 @@ export default function AktifkanPin() {
                   htmlFor="inputPinSms label-input"
                   className="col-sm-4 col-form-label"
                 >
-                  PIN SMS
+                  {Translate('ue_pin_sms')}
                 </label>
                 <div className="col-sm-5 input-group ci-inputDefault-bg">
                   <input
@@ -134,7 +134,7 @@ export default function AktifkanPin() {
               disabled={!(nomor_pin && nomor_pin2 && nomor_pin2 === nomor_pin)}
               className="ci-btn-lg ci-btn-custom-1 w-100 pt-2 pb-2"
             >
-              Aktifkan Pin
+              {Translate('ka_aktifkan_pin')}
             </button>
           </div>
         </div>
