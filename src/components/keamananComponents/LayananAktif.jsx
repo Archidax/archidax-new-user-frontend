@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
 import { getLoginHistory, deleteLogItem } from "../../stores/index";
 import moment from "moment";
+import Translate from "../../i18n/Translate";
 
 function LayananAktif() {
   const loginHistory = useSelector(
@@ -25,13 +26,13 @@ function LayananAktif() {
   return (
     <div>
       {/* <p>{JSON.stringify(loginHistory)}</p> */}
-      <p className="label-title-top">Layanan Aktif</p>
+      <p className="label-title-top">{Translate('ka_layanan_aktif')}</p>
       <table className="table label-title">
         <thead className="font-bold">
-          <th>Alamat IP</th>
-          <th>Perangkat</th>
-          <th>Terakhir Login</th>
-          <th>Aksi</th>
+          <th>{Translate('ka_alamat_ip')}</th>
+          <th>{Translate('ka_perangkat')}</th>
+          <th>{Translate('ka_terakhir_login')}</th>
+          <th>{Translate('rw_aksi')}</th>
         </thead>
         <tbody>
           {loginHistory.length > 0 ? (
@@ -74,7 +75,7 @@ function LayananAktif() {
           ) : (
             <tr>
               <td className="text-center" colSpan="4">
-                Anda tidak punya history login akhir-akhir ini.
+               {Translate('ka_text_no_history_login')}
               </td>
             </tr>
           )}

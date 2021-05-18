@@ -6,10 +6,11 @@ import { getRiwayatSetorRupiah, downloadRiwayatSetorRupiah } from '../../stores/
 import Pagination from 'react-js-pagination'
 import { convertNumber } from '../../assets/js';
 import moment from 'moment'
+import Translate from '../../i18n/Translate';
 
 
 const tableHeader = [
-  "Waktu", "Jenis", "Jumlah", "Keterangan", "Status",
+  Translate('rw_waktu'), Translate('rw_jenis'), Translate('rw_jumlah'), Translate('rw_keterangan'), Translate('rw_status'),
 ];
 
 

@@ -48,12 +48,13 @@ import { GetListingExchange, setMyFav } from "../stores/pasartrading/functions";
 import KeuanganPage from "./keuangan";
 
 export default function MainPages() {
-  const [locale, setLocale] = React.useState("");
+  const [locale, setLocale] = React.useState(LOCALES.ENGLISH);
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
   const { email } = useSelector((state) => state?.profileReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
+
     if (isLoginAccount) {
       if (localStorage.getItem("myFav") && email) {
         const data = JSON.parse(localStorage.getItem("myFav"));
@@ -63,18 +64,19 @@ export default function MainPages() {
     }
   }, [email, dispatch, isLoginAccount]);
 
-  useEffect(() => {
-    axios
-      .get("https://ipclient.herokuapp.com/")
-      .then(({ data }) => {
-        if (data.country === "ID") {
-          setLocale(LOCALES.INDONESIA);
-        } else {
-          setLocale(LOCALES.ENGLISH);
-        }
-      })
-      .catch((err) => {});
-  }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     .get("https://ipclient.herokuapp.com/")
+  //     .then(({ data }) => {
+  //       if (data.country === "ID") {
+  //         setLocale(LOCALES.INDONESIA);
+  //       } else {
+  //         setLocale(LOCALES.ENGLISH);
+  //       }
+  //     })
+  //     .catch((err) => {});
+  // }, []);
 
   return (
     <>

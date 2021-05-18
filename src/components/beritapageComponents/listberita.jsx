@@ -4,6 +4,7 @@ import {ButtonGroup} from 'react-bootstrap';
 
 import Card from "./cardberita";
 import arrow from "../../assets/img/arrow-next.png";
+import Translate from '../../i18n/Translate';
 // import { beritaNext } from '../../stores/berita/functions'
 
 export default function Listberita({title,data}) {
@@ -35,8 +36,8 @@ export default function Listberita({title,data}) {
             <p>1</p>
             <p>2</p>
             <p>3</p>
-            <p>Berikutnya 
-              <img src={arrow} alt="arrow" />
+            <p>{Translate('br_berikutnya')} 
+              <img className="ml-2" src={arrow} alt="arrow" />
             </p>
           </ButtonGroup>
         :
