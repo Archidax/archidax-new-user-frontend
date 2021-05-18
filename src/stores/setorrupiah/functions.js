@@ -5,12 +5,12 @@ import popUps from '../../components/popUps'
 import errorHandler from '../errorHandler'
 import { getMyAssets } from '../'
 
-export const createSetorRupiah = (metode, data, dispatch, next) => {
+export const createSetorRupiah = (metode, amount, dispatch, next) => {
     Popup.showLoading()
     axios({
         method: "POST",
         url: baseUrl + '/requisition/setor/rupiah',
-        data: { amount: data.amount, metode_pembayaran: metode },
+        data: { amount: amount, metode_pembayaran: metode },
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {

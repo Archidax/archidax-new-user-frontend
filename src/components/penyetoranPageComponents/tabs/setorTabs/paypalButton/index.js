@@ -24,7 +24,8 @@ export default function PaypalButton(props) {
             {
               amount: {
                 "currency_code": "USD",
-                value: Number.parseFloat((amount/14436.80)).toFixed(2),
+                value: amount,
+                // value: Number.parseFloat((amount/14436.80)).toFixed(2),
               },
             },
           ],
