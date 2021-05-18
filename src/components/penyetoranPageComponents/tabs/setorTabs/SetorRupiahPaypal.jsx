@@ -7,6 +7,7 @@ import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
 import { cancelPenyetoran } from '../../../../stores/setorrupiah/functions'
 import PaypalButton from './paypalButton'
+import { convertNumber } from '../../../../assets/js'
 
 const initialOptions = {
     // "client-id": "ATcZUPONAjGfAgxUDAt-F5_HCAPchIeeTxxQcf8Lej5rDetgSPSYE27wx0JNRsqMas5pXliaGby4pf8u", //sandbox
@@ -47,7 +48,7 @@ function SetorRupiahAlfamart() {
                         </tr>
                         <tr className="label-title2">
                             <td className="pr-3 font-12 label-title2">Jumlah tagihan</td>
-                            <td className="font-12 label-title2">: {formatRupiah(amount + fee, { format: false })}</td>
+                            <td className="font-12 label-title2">: {convertNumber.toMoney(amount + fee, "$")}</td>
                         </tr>
                     </table>
                 </div>

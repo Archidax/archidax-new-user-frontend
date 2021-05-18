@@ -6,7 +6,7 @@ function DropdownPayment({ data, onChange, value, disabled }) {
         <div className="dropdown ci-dropdown">
             <div className="ci-dropdown-btn dropdown-toggle ci-md w-100 p-0 py-2" id="dropdownRiwayatTarikCrypto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ overflow: "hidden" }}>
                 <div className="mb-1">{!value ? "" : <img src={getPaymentBanner(value)} alt="" srcset="" className="mr-2 font-12 w-100" />}</div>
-                {value ? <span className="mx-2">{getPaymentName(value)}</span> : <span className="p-2">Pilih Salah Satu</span>}
+                {value ? <span className="mx-2">{getPaymentName(value)}</span> : <span className="p-2">Choose one</span>}
             </div>
             <div className="ci-dropdown-menu dropdown-menu w-100" aria-labelledby="dropdownRiwayatTarikCrypto">
                 <div className="container-fluid ci-dropdown-menu-content px-0 pb-0 ci-bg-primary">
