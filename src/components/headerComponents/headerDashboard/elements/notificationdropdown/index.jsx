@@ -102,7 +102,7 @@ function NotificationDropdownHeader() {
         aria-labelledby="dropdownMenuButton"
         style={{
           backgroundColor: mode ? "" : "white",
-          border: mode ? "1px solid white" : "1px solid black",
+          // border: mode ? "1px solid white" : "1px solid black",
         }}
       >
         <div
