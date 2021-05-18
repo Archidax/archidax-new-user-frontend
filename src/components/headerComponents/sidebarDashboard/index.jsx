@@ -19,6 +19,7 @@ import walletIcon from "../../../assets/affiliasi/wallet-icon.svg";
 // Import redux
 import { logout } from "../../../stores";
 import { useDispatch } from "react-redux";
+import Translate from "../../../i18n/Translate";
 
 export default function SidebarDashboard(props) {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={dashboardIcon} alt="dashboardIcon" className="ml-1 mr-3" />
-                    Dashboard
+                    {Translate('si_dashboard')}
                   </span>
                 </Link>
               </div>
@@ -66,7 +67,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={walletIcon} alt="walletIcon" className="mr-3" />
-                    Wallet
+                    {Translate('si_wallet')}
                   </span>
                 </Link>
               </div>
@@ -78,7 +79,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={pasarIcon} alt="pasarIcon" className="mr-3" />
-                    Pasar
+                    {Translate('si_pasar')}
                   </span>
                 </Link>
               </div>
@@ -90,7 +91,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={voucherIcon} alt="voucherIcon" className="mr-3" />
-                    Voucher
+                    {Translate('si_voucher')}
                   </span>
                 </Link>
               </div>
@@ -104,7 +105,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={affiliasiIcon} alt="affiliasiIcon" className="mr-3" />
-                    Program Afiliasi
+                    {Translate('si_program')}
                   </span>
                 </Link>
               </div>
@@ -116,7 +117,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={blogIcon} alt="blogIcon" className="mr-3" />
-                    Berita
+                    {Translate('si_berita')}
                   </span>
                 </Link>
               </div>
@@ -128,7 +129,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={bantuanIcon} alt="bantuanIcon" className="mr-3" />
-                    Bantuan
+                    {Translate('si_bantuan')}
                   </span>
                 </Link>
               </div>
