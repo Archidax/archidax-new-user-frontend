@@ -36,10 +36,11 @@ function SetorRupiahPilih() {
     }
 
     const lanjutkan = () => {
+        let amount= !customNominal ? nominal : customNominal
         if(metodePembayaran.includes("QRIS_")) {
-            createPenyetoranQRIS(customNominal === 0 ? nominal : customNominal, metodePembayaran, dispatch, setLangkah(2))
+            createPenyetoranQRIS(amount, metodePembayaran, dispatch, setLangkah(2))
         } else {
-            createSetorRupiah(metodePembayaran, { amount: customNominal === 0 ? nominal : customNominal }, dispatch, setLangkah(2))
+            createSetorRupiah(metodePembayaran, amount, dispatch, setLangkah(2))
         }
     }
 
@@ -92,7 +93,7 @@ function SetorRupiahPilih() {
                     </div>
                 </div>
                 <div className="row d-flex flex-direction m-0 px-0 justify-content-end pt-2">
-                    <button className="ci-btn-warning ci-md mt-3 px-4 py-2" disabled={nominal === 0 && customNominal === 0 && customNominal === "" ? true : false} onClick={() => lanjutkan()}>Lanjutkan</button>
+                    <button className="ci-btn-warning ci-md mt-3 px-4 py-2" disabled={!nominal && !customNominal ? true : false} onClick={() => lanjutkan()}>Lanjutkan</button>
                 </div>
             </div>
             <div style={langkah === 2 ? { display: "block" } : { display: "none" }}>
