@@ -45,10 +45,10 @@ export * from './affiliasi/functions'
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
 // export const baseUrl = 'http://localhost:8000';
-export const baseUrl = 'https://dev.archidax.net';
+export const baseUrl = 'https://dev.cryptoindex.id';
 // export const baseUrl = 'http://192.168.1.32:8000';
 ///////////////////////////////////////////////////////////////
-// export const baseUserSocketUrl = 'https://dev.cryptoindex.id';
+export const baseUserSocketUrl = 'https://dev.archidax.net';
 // export const baseUserSocketUrl = 'http://localhost:8000'
 ///////////////////////////////////////////////////////////////
 // export const baseUrl = 'http://192.168.0.162:8000';

@@ -6,24 +6,24 @@ function KeuntunganCrypto() {
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-gold font-34 font-weight-bold">
-                        Keuntungan/Benefit Crypto
+                        Benefits of Cryptocurrency
                     </h2>
                 </div>
             </div>
             <div className="row mt-2">
                 <div className="col-12 mt-2">
-                    <p className="text-gray2 font-16 text-justify">Berikut ini merupakan beberapa keuntungan dari penggunaan crypto, seperti :</p>
+                    <p className="text-gray2 font-16 text-justify">The following are some of the benefits of using crypto, such as :</p>
                     <ol>
-                        <li className="text-gray2 font-14">Crypto bersifat universal, yang berarti setiap orang dapat menggunakan aset kripto tanpa adanya peraturan yang mengikat dan syarat apapun.</li>
-                        <li className="text-gray2 font-14">Crypto bersifat transparan, yang berarti setiap pengguna dapat melihat berbagai aktivitas transaksi yang pernah dilakukan. Tentunya, transparansi tersebut juga memiliki batasan dimana anda tidak dapat melihat orang yang menjalankan transaksi.</li>
-                        <li className="text-gray2 font-14">Crypto memiliki kontrol atas pribadi, ini berarti setiap pengguna atau user akan bertanggung jawab dengan asetnya masing – masing.</li>
-                        <li className="text-gray2 font-14">Pasar crypto berlangsung selama 24 jam tanpa libur. Anda bisa melakukan pembayaran kepada siapa saja, kapan saja, terlepas dari jam kerja, akhir pekan, dan hari libur.</li>
-                        <li className="text-gray2 font-14">Pembayaran crypto akan segera diproses tanpa perantara, sehingga waktu settlement akan lebih cepat.</li>
-                        <li className="text-gray2 font-14">Crypto adalah mata uang digital tanpa batas. Siapa pun di dunia dapat menggunakan crypto untuk membayar apa pun.</li>
-                        <li className="text-gray2 font-14">Mengirim dana (uang fiat) dengan crypto adalah salah satu cara untuk transfer dana dengan cepat dan dengan biaya transaksi yang rendah.</li>
-                        <li className="text-gray2 font-14">Berbagai jenis crypto dapat dikonversi ke mata uang lokal pilihanmu (uang fiat) seperti Rupiah atau USD. Kemudian, dana tersebut dapat disetorkan ke rekening bank anda pada hari kerja berikutnya. Sedangkan, jika menggunakan transaksi kartu, di mana anda harus menunggu hingga seminggu atau lebih sebelum kamu menerima uang.</li>
-                        <li className="text-gray2 font-14">Crypto memungkinkan pelaku usaha dapat memperluas basis pelanggan potensial mereka dalam skala global, karena tidak perlu menawarkan sejumlah besar mata uang lokal ketika menawarkan crypto saja sudah cukup.</li>
-                        <li className="text-gray2 font-14">Crypto adalah salah satu instrumen investasi yang menawarkan return yang menjanjikan.</li>
+                        <li className="text-gray2 font-14">Crypto is universal, which means that anyone can use crypto assets without any binding regulations or conditions.</li>
+                        <li className="text-gray2 font-14">Crypto is transparent, which means that every user can see various transaction activities that have been carried out. Of course, this transparency also has a limit where you cannot see the person carrying out the transaction.</li>
+                        <li className="text-gray2 font-14">Crypto has control over personal, this means that each user or user will be responsible for their respective assets.</li>
+                        <li className="text-gray2 font-14">The crypto market lasts 24 hours without holidays. You can make payments to anyone, anytime, regardless of working hours, weekends, and holidays.</li>
+                        <li className="text-gray2 font-14">Crypto payments will be processed immediately without intermediaries, so settlement times will be faster.</li>
+                        <li className="text-gray2 font-14">Crypto is a digital currency without borders. Anyone in the world can use crypto to pay for anything.</li>
+                        <li className="text-gray2 font-14">Sending funds (fiat money) with crypto is one of the ways to transfer funds quickly and with low transaction fees.</li>
+                        <li className="text-gray2 font-14">Various types of crypto can be converted to the local currency of your choice (fiat money) such as Rupiah or USD. Then, the funds can be deposited into your bank account the next working day. Meanwhile, if you use card transactions, where you have to wait up to a week or more before you receive money.</li>
+                        <li className="text-gray2 font-14">Crypto allows businesses to expand their potential customer base on a global scale, as there is no need to offer large amounts of local currency when offering crypto alone is sufficient.</li>
+                        <li className="text-gray2 font-14">Crypto is one of the investment instruments that offer promising returns.</li>
                     </ol>
                 </div>
             </div>

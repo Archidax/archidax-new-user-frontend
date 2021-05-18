@@ -15,17 +15,20 @@ import SinarmasBg from '../assets/img/payments/banner/sinarmas.svg'
 import VisaBg from '../assets/img/payments/banner/visa.svg'
 import MastercardBg from '../assets/img/payments/banner/mastercard.svg'
 import PaypalBg from '../assets/img/payments/banner/paypal.svg'
+import ccBg from '../assets/img/payments/banner/creditcard.svg'
+
 
 export const methods = [
-    { type: "BCA", value: "QRIS_BCA", icon: BCAIcon, banner: BCABg },
-    { type: "Mandiri", value: "QRIS_MANDIRI", icon: MandiriIcon, banner: MandiriBg },
-    { type: "BNI", value: "QRIS_BNI", icon: BNIIcon, banner: BNIBg },
-    { type: "Permata", value: "QRIS_PERMATA", icon: PermataIcon, banner: PermataBg },
-    { type: "Sinarmas", value: "QRIS_SINARMAS", icon: SinarmasIcon, banner: SinarmasBg },
-    { type: "OVO", value: "QRIS_OVO", icon: OVOIcon, banner: BCABg },
-    { type: "VISA", value: "VISA", icon: OVOIcon, banner: VisaBg },
-    { type: "Mastercard", value: "MASTERCARD", icon: OVOIcon, banner: MastercardBg },
-    { type: "Paypal", value: "PAYPAL", icon: OVOIcon, banner: PaypalBg }
+    // { type: "BCA", value: "QRIS_BCA", icon: BCAIcon, banner: BCABg },
+    // { type: "Mandiri", value: "QRIS_MANDIRI", icon: MandiriIcon, banner: MandiriBg },
+    // { type: "BNI", value: "QRIS_BNI", icon: BNIIcon, banner: BNIBg },
+    // { type: "Permata", value: "QRIS_PERMATA", icon: PermataIcon, banner: PermataBg },
+    // { type: "Sinarmas", value: "QRIS_SINARMAS", icon: SinarmasIcon, banner: SinarmasBg },
+    // { type: "OVO", value: "QRIS_OVO", icon: OVOIcon, banner: BCABg },
+    // { type: "VISA", value: "VISA", icon: OVOIcon, banner: VisaBg },
+    // { type: "Mastercard", value: "MASTERCARD", icon: OVOIcon, banner: MastercardBg },
+    { type: "Paypal", value: "PAYPAL", icon: OVOIcon, banner: PaypalBg },
+    { type: "Credit Card", value: "CREDIT CARD", icon: OVOIcon, banner: ccBg }
 
 ]
 
