@@ -9,7 +9,7 @@ function SetorRupiahTabs() {
         <div className="container-fluid">
             <div className="row border-top mt-3 border-warning">
                 <div className="col-12 col-md-6 font-roboto text-white mt-2">
-                    <h3 className="label-title-top">Setor Rupiah</h3>
+                    <h3 className="label-title-top">Fiat Deposit</h3>
                     <h4 className="label-title mt-3 font-16">Syarat Setor Dana</h4>
                     <ul>
                         <li className="label-title2">Minimal penyetoran Rp.10.000.</li>
