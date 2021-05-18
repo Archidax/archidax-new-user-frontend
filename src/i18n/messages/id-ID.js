@@ -11,6 +11,7 @@ export default {
         hh_forum:"Forum",
         hh_masuk:"Masuk",
         hh_daftar:"Daftar",
+        hh_panduan_pemuala:"Panduan Pemula",
 
         // Banner
         hb_title:"Jual, Beli, dan Investasi Aset Kripto dengan Mudah, Aman, dan Praktis.",
@@ -118,6 +119,13 @@ export default {
         db_not_active: "Tidak Aktif",
         db_pin: "PIN",
         db_chart_aset_anda : "Grafik Asset Anda",
+        db_verifikasi_akun:"Verifikasi Akun",
+        db_langkah_verifikasi:"Lakukan verifikasi akun anda sekarang juga untuk membuka akses tarik dan setor dana di Cryptoindex.",
+        db_langkah1: "Langkah 1",
+        db_langkah2:"Langkah 2",
+        db_akses_pasar_trading:"Akses pasar trading",
+        db_akses_tarik_dana: "Akses tarik / setor dana",
+        db_verivikasi_sekarang:"Verifikasi Sekarang",
         
         // Section2
         db_pasar_title: "Pasar Trading",

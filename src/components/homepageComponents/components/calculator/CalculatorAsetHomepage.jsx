@@ -8,9 +8,15 @@ let nowDate = new Date();
 export default function CalculatorAsetHomepage() {
   const [fromText, setFromText] = useState("");
   const [toText, setToText] = useState("");
+<<<<<<< HEAD
 
   const [activePairFrom, setActivePairFrom] = useState("CGOLD");
   const [activePairTo, setActivePairTo] = useState("USD");
+=======
+  
+  const [activePairFrom, setActivePairFrom] = useState('BTC');
+  const [activePairTo, setActivePairTo] = useState('USD');
+>>>>>>> 4fada6ba6e95f962f175db218e905d36a2e3f95b
   const [pricePairs, setPricePairs] = useState(false);
   const [icons, setIcons] = useState(false);
 
@@ -88,11 +94,12 @@ export default function CalculatorAsetHomepage() {
   useEffect(() => {
     setFromText(0);
     setToText(0);
-    if (pricePairs) {
+    if(pricePairs) {
+      console.log(pricePairs)
       let temp = Object.keys(pricePairs).filter((key) =>
         key.includes(activePairFrom),
       );
-      setActivePairTo(temp ? temp[0].split("/")[1] : "IDR");
+      setActivePairTo(temp.length?temp[0].split("/")[1]:'USD')
     }
   }, [activePairFrom, pricePairs]);
 

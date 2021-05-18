@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import profilelogo from "../../../../../assets/img/header/headerdashboard/profile.svg";
 import keamananlogo from "../../../../../assets/img/header/headerdashboard/keamanan.svg";
 import riwayatlogo from "../../../../../assets/img/header/headerdashboard/riwayat.svg";
+import Translate from '../../../../../i18n/Translate';
 
 function ProfileDropdown() {
   const dispatch = useDispatch();
@@ -20,15 +21,9 @@ function ProfileDropdown() {
         aria-haspopup="true"
         aria-expanded="false"
       >
-        {/* <figure className="rounded avatar avatar-30">
-                    <img style={{
-                            objectPosition: 'center',
-                            objectFit: 'cover'
-                        }} src={profile.foto ? profile.foto : userimage} alt="crypto_index" />
-                </figure> */}
         <div className="ci-username-text-profile ml-2 mr-2 d-none d-lg-inline-block">
           <h6 className="ci-username">
-            <span>Welcome,</span>
+            <span>{Translate('hd_selamat_datang')}</span>
             {profile.username}
           </h6>
         </div>
@@ -41,21 +36,6 @@ function ProfileDropdown() {
         className="dropdown-menu dropdown-menu-right pt-0 mt-3 overflow-hidden ci-dropdown-menu-profile active"
         aria-labelledby="dropdownMenuButton"
       >
-        {/* <div className="text-center rounded ci-dropdown-menu-profile-imgBG">
-                    <img src={backgroundimage} className="img-fluid" alt="crypto_index" />
-                </div>
-                <div className="text-center ci-dropdown-menu-profile-img">
-                    <figure className="avatar avatar-90 mx-auto shadow">
-                        <img style={{
-                            objectPosition: 'center',
-                            objectFit: 'cover'
-                        }} src={profile.foto ? profile.foto : userimage} alt="crypto_index img-fluid" />
-                    </figure>
-                </div> */}
-        {/* <div className="text-center ci-dropdown-menu-profile-textName">
-                    <h5 className="text-center mb-0 text-white">{profile.namaLengkap}</h5>
-                    <p className="text-center text-secondary font-13 text-white">Jakarta, Indonesia</p>
-                </div> */}
         <div className="dropdown-item ci-dropdown-menu-profile-item">
           <Link className="ci-link-dropdownHeader" to={`/profile`}>
             <div className="row">
@@ -63,9 +43,9 @@ function ProfileDropdown() {
                 <img src={profilelogo} alt="profilelogo" />
               </div>
               <div className="col pl-0">
-                <p className="mb-0 font-bold">Profile Saya</p>
+                <p className="mb-0 font-bold">{Translate('hd_profile_saya')}</p>
                 <p className="mb-1 small text-white text-trucated">
-                  Informasi data diri Anda
+                  {Translate('hd_informasi_data_diri')}
                 </p>
               </div>
             </div>
@@ -78,9 +58,9 @@ function ProfileDropdown() {
                 <img src={riwayatlogo} alt="riwayatlogo" />
               </div>
               <div className="col pl-0">
-                <p className="mb-0 font-bold">Riwayat</p>
+                <p className="mb-0 font-bold">{Translate('hd_riwayat')}</p>
                 <p className="mb-1 small text-white text-trucated">
-                  Lihat riwayat transaksi Anda
+                  {Translate('hd_lihat_riwayat_transaksi_anda')}
                 </p>
               </div>
             </div>
@@ -93,29 +73,14 @@ function ProfileDropdown() {
                 <img src={keamananlogo} alt="keamananlogo" />
               </div>
               <div className="col pl-0">
-                <p className="mb-0 font-bold">Keamanan Akun</p>
+                <p className="mb-0 font-bold">{Translate('hd_keamanan_akun')}</p>
                 <p className="mb-1 small text-white text-trucated">
-                  Atur keamanan akun Anda
+                  {Translate('hd_atur_keamanan')}
                 </p>
               </div>
             </div>
           </Link>
         </div>
-        {/* <div className="dropdown-item ci-dropdown-menu-profile-item">
-                    <Link className="ci-link-dropdownHeader" to={`/profile`}>
-                        <div className="row">
-                            <div className="col-auto align-self-center">
-                                <i className="fas fa-house-user"></i>
-                            </div>
-                            <div className="col pl-0">
-                                <p className="mb-0">KYC</p>
-                                <p className="mb-1 small text-mute text-trucated">
-                                    Proses verifikasi akun
-                                </p>
-                            </div>
-                        </div>
-                    </Link>    
-                </div> */}
         <div className="dropdown-item ci-dropdown-menu-profile-item pt-3 pb-3">
           <div
             onClick={async () => {
@@ -127,7 +92,7 @@ function ProfileDropdown() {
               <i className="fas fa-sign-out-alt"></i>
             </div>
             <div className="col pl-0">
-              <p className="mb-0 text-danger">Keluar</p>
+              <p className="mb-0 text-danger">{Translate('hd_keluar')}</p>
             </div>
           </div>
         </div>
