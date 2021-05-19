@@ -43,7 +43,7 @@ export default {
 
         // Berita
         hberita:"Latest news",
-        hberita_kembali:"Back to Cryptoindex.com",
+        hberita_kembali:"Back to Archidax.com",
 
         // Footer
         // Footer1

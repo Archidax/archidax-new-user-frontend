@@ -1,13 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import {useHistory} from 'react-router-dom'
-import {useDispatch} from 'react-redux'
+import React, {useState} from 'react'
 import {imageSizeError} from '../../../stores/errorHandler'
 import {postPengajuanKoin} from '../../../stores/pengajuanCoin/function'
 import Popup from '../../../components/popUps'
 
 function FormPengajuanKoin() {
-    const dispatch = useDispatch()
-    const history = useHistory()
     
     const statePengajuan = {
         full_name: "",
@@ -26,9 +22,8 @@ function FormPengajuanKoin() {
         short_description: "",
 
         assetName: "",
-        // simbol: "",
         initialSymbol: "",
-        tipe: "",
+        type: "",
         assetDecimals: "",
         technology: "",
         amountAssetMaxSupply: "",
@@ -68,17 +63,17 @@ function FormPengajuanKoin() {
         if (!dataIcon&&!dataWhitePaper) {
             Popup.fire({
                 title: "Gagal !",
-                text: "Tolong input gambar iconnya dan data whitepaper."
+                text: "Please input icon file and whitepaper file."
             })
         } else if(!dataIcon) {
             Popup.fire({
                 title: "Gagal !",
-                text: "Tolong input gambar iconnya."
+                text: "Please input your icon file."
             })
         } else if(!dataWhitePaper) {
             Popup.fire({
                 title: "Gagal !",
-                text: "Tolong input data whitepapernya."
+                text: "please input your whitepaper data."
             })
         } else {
             for(let [key,value] of Object.entries({ ...dataPengajuan })){
@@ -86,7 +81,7 @@ function FormPengajuanKoin() {
             }
             formData.append("files", dataIcon);
             formData.append("files", dataWhitePaper);
-            postPengajuanKoin(formData, history)
+            postPengajuanKoin(formData)
         }
     }
     
@@ -298,7 +293,7 @@ function FormPengajuanKoin() {
                                     <p className="text-gray2 mb-1">Tipe</p>
                                     <div className="input-group ci-inputDefault-bg mb-3">
                                         <input type="text" className="form-control ci-inputDefault-bg-input ci-pd" placeholder="Tipe" aria-label="Tipe"
-                                            onChange={(e) => onHandleChange(e.target.value, "tipe")}/>
+                                            onChange={(e) => onHandleChange(e.target.value, "type")}/>
                                     </div>
                                 </div>
                             </div>

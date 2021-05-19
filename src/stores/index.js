@@ -47,6 +47,8 @@ export * from './affiliasi/functions'
 // export const baseUrl = 'http://localhost:8000';
 export const baseUrl = 'https://dev.archidax.net';
 // export const baseUrl = 'http://192.168.1.32:8000';
+// export const baseUrl = 'https://dev.cryptoindex.id';
+// export const baseUrl = 'http://192.168.55.129:8000';
 ///////////////////////////////////////////////////////////////
 export const baseUserSocketUrl = 'https://dev.archidax.net';
 // export const baseUserSocketUrl = 'http://localhost:8000'

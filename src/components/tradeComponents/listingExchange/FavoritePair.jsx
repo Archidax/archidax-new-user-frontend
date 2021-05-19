@@ -64,7 +64,7 @@ function FavoritePairRealtime({ item, index }) {
   const { mode } = useSelector((state) => state.daynightReducer);
 
   const handleRowClick = () => {
-    history.push(`/pasar/${item.quote}_${item.base}`);
+    history.push(`/pasar/${item.symbol.toString().replace('/', '_')}`);
   };
 
   React.useEffect(() => {
