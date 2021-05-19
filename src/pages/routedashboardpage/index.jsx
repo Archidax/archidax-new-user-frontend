@@ -63,13 +63,8 @@ function RouteDashboardPage() {
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
 
   const [locale, setLocale] = React.useState(
-    localStorage.CryptoIndexLocale
-      ? localStorage.CryptoIndexLocale
-      : LOCALES.ENGLISH,
+    localStorage.CryptoIndexLocale ? localStorage.CryptoIndexLocale : "",
   );
-  // const [locale, setLocale] = React.useState(
-  //   localStorage.CryptoIndexLocale ? localStorage.CryptoIndexLocale : "",
-  // );
   const [flag, setFlag] = useState("flag-icon-id");
   const history = useHistory();
   const dispatch = useDispatch();

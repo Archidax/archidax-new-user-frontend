@@ -15,7 +15,7 @@ export default {
         // Banner
         hb_title:"Sell, Buy, and Invest Crypto Assets Easily, Safely, and Convenient",
         hb_text1:"Own your Crypto Assets",
-        hb_text2:"now on Cryptoindex!",
+        hb_text2:"now on Archidax!",
         hb_daftar:"Register Now",
         hb_masuk:"Login",
 
@@ -24,22 +24,22 @@ export default {
         hs_top_loser:"Top Loser",
 
         // Apa itu CryptoIndex
-        haic_title:"What is Cryptoindex?",
-        haic_text1:"Cryptoindex is a digital asset / crypto asset marketplace in Indonesia, you can buy and sell crypto assets such as Bitcoin, Ethereum, Cardano, Tether, Litecoin and dozens of other assets easily, safely and quickly.",
-        haic_text2:"Save and get profit from your crypto assets by joining Cryptoindex. Benefit from trading and investing in Cryptoindex!",
+        haic_title:"What is Archidax ?",
+        haic_text1:"Archidax is a crypto asset exchange platform. You can trade and invest crypto assets such as Bitcoin, Ethereum, Cardano, Tether, Litecoin, and dozens of other assets easily, safely, and quickly.",
+        haic_text2:"Save and get profit from your crypto assets by joining Archidax. Benefit from trading and investing only at Archidax!",
 
         // Kenapa Memilih CryptoIndex
-        hkmc_title:"Why Choose CryptoIndex?",
-        hkmc_text1:"Cryptoindex is a crypto asset exchange that has a high level of security, all transactions and processes are designed in a practical manner, as well as an investment experience that you can easily get here.",
-        hkmc_text2:"Cryptoindex accepts deposits from all local Indonesian banks (free of charge) to make crypto asset purchases. Your crypto assets can be converted into rupiah in just one hour.",
+        hkmc_title:"Why Choose Archidax ?",
+        hkmc_text1:"Archidax is a crypto asset exchange that has a high level of security, all transactions and processes are designed in a practical manner, as well as an investment experience that you can easily get here.",
+        hkmc_text2:"You can trade and invest with many crypto assets such as Bitcoin, Ethereum, Tether, CODEO GOLD and other crypto assets.",
         hkmc_subtitle1:"Buying and Selling Crypto Assets",
-        hkmc_subtitle1a:"Cryptoindex accepts deposits from all local Indonesian banks (free of charge) to make crypto asset purchases. Your crypto assets can be converted into rupiah in just one hour.",
+        hkmc_subtitle1a:"Archidax accepts PayPal or Credit Card / Debit balance deposits for Crypto Asset Trading. Crypto Asset Trading process can be done instantly or limit.",
         hkmc_subtitle2:"Crypto Asset Investment",
-        hkmc_subtitle2a:"With Cryptoindex, now you can take sure steps to invest. Invest your crypto assets today to prepare for a better future.",
+        hkmc_subtitle2a:"With Archidax, now you are sure for taking steps to invest. Invest your crypto assets today to prepare for a better future.",
         hkmc_subtitle3:"24 hour Transaction",
-        hkmc_subtitle3a:"Buying and selling crypto assets for 24 hours only on Cryptoindex, even on holidays.",
+        hkmc_subtitle3a:"Buying and selling crypto assets for 24 hours only on Archidax, even on holidays.",
         hkmc_subtitle4:"Member Services",
-        hkmc_subtitle4a:"Contact us via live chat or call the Call Center at phone number +628119041234",
+        hkmc_subtitle4a:"Contact us via live chat or email at: archidax.net@gmail.com",
 
         // Berita
         hberita:"Latest news",

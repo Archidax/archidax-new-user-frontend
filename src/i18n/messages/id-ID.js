@@ -16,7 +16,7 @@ export default {
         // Banner
         hb_title:"Jual, Beli, dan Investasi Aset Kripto dengan Mudah, Aman, dan Praktis.",
         hb_text1:"Miliki Aset Kripto anda",
-        hb_text2:"sekarang juga di Cryptoindex !",
+        hb_text2:"sekarang juga di Archidax !",
         hb_daftar:"Daftar Sekarang",
         hb_masuk:"Masuk",
 
@@ -25,22 +25,22 @@ export default {
         hs_top_loser:"Top Loser",
 
         // Apa itu CryptoIndex
-        haic_title:"Apa itu Cryptoindex ?",
-        haic_text1:"Cryptoindex adalah platform jual beli (marketplace) aset digital / aset kripto yang ada di Indonesia, anda bisa melakukan jual beli aset kripto seperti Bitcoin, Ethereum, Cardano, Tether, Litecoin serta puluhan aset lainnya dengan mudah, aman, dan cepat.",
-        haic_text2:"Simpan dan dapatkan keuntungan dari aset kripto anda dengan bergabung di Cryptoindex. Dapatkan keuntungan dari trading dan investasi di Cryptoindex !",
+        haic_title:"Apa itu Archidax ?",
+        haic_text1:"Archidax adalah platform pertukaran aset crypto. Anda bisa melakukan perdagangan dan investasi aset kripto seperti Bitcoin, Ethereum, Cardano, Tether, Litecoin serta puluhan aset lainnya dengan mudah, aman, dan cepat.",
+        haic_text2:"Simpan dan dapatkan keuntungan dari aset kripto anda dengan bergabung di Archidax. Dapatkan keuntungan dari trading dan investasi hanya di Archidax!",
 
         // Kenapa Memilih CryptoIndex
-        hkmc_title:"Kenapa Memilih CryptoIndex?",
-        hkmc_text1:"Cryptoindex merupakan exchange aset kripto yang memiliki tingkat keamanan yang tinggi, semua transaksi dan proses dirancang secara praktis, serta pengalaman investasi yang mudah anda dapatkan disini.",
+        hkmc_title:"Kenapa Memilih Archidax",
+        hkmc_text1:"Archidax merupakan exchange aset kripto yang memiliki tingkat keamanan yang tinggi, semua transaksi dan proses dirancang secara praktis, serta pengalaman investasi yang mudah anda dapatkan disini.",
         hkmc_text2:"Anda dapat melakukan trading dan investasi dengan banyak aset kripto seperti Bitcoin, Ethereum, Tether, CODEO GOLD dan aset kripto lainnya.",
-        hkmc_subtitle1:"Jual Beli Aset Kripto",
-        hkmc_subtitle1a:"Cryptoindex menerima deposit dari semua bank lokal Indonesia (tanpa biaya sedikitpun) untuk melakukan pembelian aset kripto. Aset kripto anda dapat diubah menjadi rupiah hanya dalam waktu satu jam saja.",
+        hkmc_subtitle1:"Perdagangan Aset Kripto",
+        hkmc_subtitle1a:"Archidax menerima deposit saldo dari PayPal ataupun Credit Card/Debit untuk Perdagangan Aset Crypto. Proses Perdagangan Aset Kripto dapat dilakukan secara instan atau limit..",
         hkmc_subtitle2:"Investasi Aset Kripto",
-        hkmc_subtitle2a:"Dengan Cryptoindex, sekarang anda bisa mengambil langkah pasti untuk investasi. Investasikan aset kripto anda saat ini untuk mempersiapkan masa depan yang lebih baik.",
+        hkmc_subtitle2a:"Dengan Archidax, sekarang anda bisa mengambil langkah pasti untuk investasi. Investasikan aset kripto anda saat ini untuk mempersiapkan masa depan yang lebih baik.",
         hkmc_subtitle3:"Transaksi 24 Jam",
-        hkmc_subtitle3a:"Transaksi jual beli aset kripto selama 24 jam hanya di Cryptoindex, bahkan pada hari libur.",
+        hkmc_subtitle3a:"Transaksi jual beli aset kripto selama 24 jam hanya di Archidax, bahkan pada hari libur.",
         hkmc_subtitle4:"Layanan Member",
-        hkmc_subtitle4a:"Kontak kami melalui live chat atau hubungi Call Center di nomor telepon +628119041234.",
+        hkmc_subtitle4a:"Kontak kami melalui live chat atau email di : archidax.net@gmail.com",
 
         // Berita
         hberita:"Berita Terbaru",
