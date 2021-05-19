@@ -43,12 +43,12 @@ function SetorRupiahAlfamart() {
                 <div className="w-100 ci-bg-secondary p-3 rounded">
                     <table className="font-bold label-title2">
                         <tr className="label-title2">
-                            <td className="pr-3 font-12 label-title2">Batas pembayaran</td>
+                            <td className="pr-3 font-12 label-title2">Payment Deadline</td>
                             <td className="font-12 label-title2">: {moment(createdAt).format("MMMM Do YYYY, h:mm:ss a")}</td>
                         </tr>
                         <tr className="label-title2">
-                            <td className="pr-3 font-12 label-title2">Jumlah tagihan</td>
-                            <td className="font-12 label-title2">: {convertNumber.toMoney(amount + fee, "$")}</td>
+                            <td className="pr-3 font-12 label-title2">Amount</td>
+                            <td className="font-12 label-title2">: {convertNumber.toMoney(amount, "$")}</td>
                         </tr>
                     </table>
                 </div>
@@ -72,7 +72,7 @@ function SetorRupiahAlfamart() {
                 <div>
                     <button className="btn btn-danger font-12 border-0 py-2 px-3 m-0" onClick={() => batalkan()}>
                         <i class="fas fa-ban mr-2"></i>
-                        <span className="font-12">Batalkan Penyetoran</span>
+                        <span className="font-12">Cancel Deposit</span>
                     </button>
                 </div>
             </div>

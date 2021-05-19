@@ -83,12 +83,12 @@ function WalletsDropdownHeader() {
                 <p className="text-white lable-title mb-0">USD</p>
               </div>
               <div className="col-3 col-md-3 pr-1">
-                <Link to={`/wallet/setor-rupiah`}>
+                <Link to={`/wallet/deposit`}>
                   <button className="ci-btn-success ci-sm w-100">{Translate('hd_setor')}</button>
                 </Link>
               </div>
               <div className="col-3 col-md-3 pl-1">
-                <Link to={`/wallet/setor-rupiah`}>
+                <Link to={`/wallet/deposit`}>
                   <button className="ci-btn-danger ci-sm w-100">{Translate('hd_tarik')}</button>
                 </Link>
               </div>

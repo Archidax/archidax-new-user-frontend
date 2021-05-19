@@ -202,7 +202,7 @@ function RouteDashboardPage() {
             <Protectedkyc path={`/setor-rupiah/konfirmasi`}>
               <SetorKonfirmasi />
             </Protectedkyc>
-            <Protectedkyc path={`/wallet/setor-rupiah`}>
+            <Protectedkyc path={`/wallet/deposit`}>
               <SetorTarikPage />
             </Protectedkyc>
             <Protectedkyc exact path={`/wallet`}>
