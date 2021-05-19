@@ -23,12 +23,12 @@ export default {
         hs_top_gainer:"Top Gainer",
         hs_top_loser:"Top Loser",
 
-        // Apa itu CryptoIndex
+        // Apa itu Archidax
         haic_title:"What is Archidax ?",
         haic_text1:"Archidax is a crypto asset exchange platform. You can trade and invest crypto assets such as Bitcoin, Ethereum, Cardano, Tether, Litecoin, and dozens of other assets easily, safely, and quickly.",
         haic_text2:"Save and get profit from your crypto assets by joining Archidax. Benefit from trading and investing only at Archidax!",
 
-        // Kenapa Memilih CryptoIndex
+        // Kenapa Memilih Archidax
         hkmc_title:"Why Choose Archidax ?",
         hkmc_text1:"Archidax is a crypto asset exchange that has a high level of security, all transactions and processes are designed in a practical manner, as well as an investment experience that you can easily get here.",
         hkmc_text2:"You can trade and invest with many crypto assets such as Bitcoin, Ethereum, Tether, CODEO GOLD and other crypto assets.",
@@ -80,7 +80,7 @@ export default {
 
         // Footer4
         f4_berlangganan: "Subscribe",
-        f4_anda: "You can subscribe to the latest news on Cryptoindex right now!",
+        f4_anda: "You can subscribe to the latest news on Archidax right now!",
         f4_masukan: "Enter your email here",
 
         // Dashboard
@@ -128,7 +128,7 @@ export default {
         db_pin: "PIN",
         db_chart_aset_anda : "Your Asset Chart",
         db_verifikasi_akun:"Account Verification",
-        db_langkah_verifikasi:"Verify your account now to open access to withdraw and deposit funds at Cryptoindex.",
+        db_langkah_verifikasi:"Verify your account now to open access to withdraw and deposit funds at Archidax.",
         db_langkah1: "Step 1",
         db_langkah2:"Step 2",
         db_akses_pasar_trading:"Access the trading market",
@@ -201,7 +201,7 @@ export default {
         vc_umum: "General Voucher",
         vc_kode_voucher: "Voucher Code",
         vc_format_voucher: "Voucher format",
-        vc_jika_anda: "If you already have a voucher code, please enter the code below to withdraw the voucher into a balance at Cryptoindex",
+        vc_jika_anda: "If you already have a voucher code, please enter the code below to withdraw the voucher into a balance at Archidax",
         vc_apabila_anda: "If you don't have a voucher code, you can get it by buying a voucher at several online changers",
         vc_nominal_rupiah: "Nominal Rupiah",
 
@@ -233,8 +233,8 @@ export default {
 
         // Program Afiliasi
         pa_program_afiliasi : "Affiliate Program",
-        pa_text_dapatkan : "Get referral commission or additional income from Cryptoindex!",
-        pa_text_sebarkan_link : "Spread the Affiliate Link above on your social media, in the WA group, Telegram Group, blog, forum, email, and so on. Ask them to register using your Affiliate URL. By referring Cryptoindex to friends, relatives or colleagues.",
+        pa_text_dapatkan : "Get referral commission or additional income from Archidax!",
+        pa_text_sebarkan_link : "Spread the Affiliate Link above on your social media, in the WA group, Telegram Group, blog, forum, email, and so on. Ask them to register using your Affiliate URL. By referring Archidax to friends, relatives or colleagues.",
         pa_text_dengan_mereferensikan : "You will get a commission of 30% of the withdrawal fee for 6 months after registration.",
         pa_jumlah_teman : "Number of Friends",
         pa_teman_terverivikasi : "Verified Friends",
@@ -445,7 +445,7 @@ export default {
         ka_kode_auth:"Authenticator Code",
         ka_text_scan:"Scan the barcode below with Google Authenticator, then enter the resulting PIN",
         ka_aktifkan_pin:"Activate PIN",
-        ka_text_warning_pin:"Save and do not share your PIN code with anyone, including the Cryptoindex support team.",
+        ka_text_warning_pin:"Save and do not share your PIN code with anyone, including the Archidax support team.",
         ka_konfirmasi_pin:"Confirm Pin",
 
     }

@@ -78,7 +78,7 @@ function HeaderHomePage(props) {
               }}
             >
               {/* {Translate("hh_forum")} */}
-              <div>Panduan Pemula</div>
+              <div>{Translate('hh_panduan_pemuala')}</div>
               <div style={{ position: "absolute", right: "-10px", top: "0px" }}>
                 <img src={giflogo} alt="giflogo" style={{ width: "17px" }} />
               </div>
