@@ -129,7 +129,7 @@ function TableAssetSaya() {
                             <span className="text-white-50">{`(${getCoinName(items.type)})`}</span>
                           </td>
                           <td className="ci-verti-align-middle text-white text-center">
-                            <i className="fas fa-link text-info" style={{ cursor: "pointer" }} onClick={() => toPasar(`/pasar/${items.type}_IDR`)}></i>
+                            <i className="fas fa-link text-info" style={{ cursor: "pointer" }} onClick={() => toPasar(`/pasar/${items.detail_crypto.symbol.toString().replace('/', '_')}`)}></i>
                           </td>
                           <td className="ci-verti-align-middle text-white">
                             {convertNumber.toRupiah(items.balance)} <span className="text-white-50">{items.type}</span>
@@ -201,7 +201,7 @@ function TableAssetSaya() {
                             } width="20px" alt="" srcset="" className="mr-2" /> <span className="font-bold">{items.type}</span>
                           </td>
                           <td className="ci-verti-align-middle text-white text-center">
-                            <i className="fas fa-link text-info" style={{ cursor: "pointer" }} onClick={() => toPasar(`/pasar/${items.type}_IDR`)}></i>
+                            <i className="fas fa-link text-info" style={{ cursor: "pointer" }} onClick={() => toPasar(`/pasar/${items.detail_crypto.symbol.toString().replace('/', '_')}`)}></i>
                           </td>
                           <td className="ci-verti-align-middle text-white">
                             {convertNumber.toRupiah(items.balance)}<span className="text-white-50">{items.type}</span>

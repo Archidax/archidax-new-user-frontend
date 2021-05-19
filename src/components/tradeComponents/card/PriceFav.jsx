@@ -67,7 +67,7 @@ function PriceFav({ exchange }) {
                 <tr key={index}>
                   <tp
                     className="ci-verti-align-middle text-white tp-tb d-flex"
-                    onClick={() => handleClick(el.quote + "_" + el.base)}
+                    onClick={() => handleClick(el.symbol.toString().replace("/", "_"))}
                     style={{ cursor: "pointer" }}
                   >
                     <img src={el.price_24hour.icon} alt="icons" height={20} />
@@ -75,7 +75,7 @@ function PriceFav({ exchange }) {
                   </tp>
                   <td
                     className="ci-verti-align-middle text-white"
-                    onClick={() => handleClick(el.quote + "_" + el.base)}
+                    onClick={() => handleClick(el.symbol.toString().replace("/", "_"))}
                     style={{ cursor: "pointer" }}
                   >
                     {el.assetName}

@@ -63,8 +63,13 @@ function RouteDashboardPage() {
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
 
   const [locale, setLocale] = React.useState(
-    localStorage.CryptoIndexLocale ? localStorage.CryptoIndexLocale : "",
+    localStorage.CryptoIndexLocale
+      ? localStorage.CryptoIndexLocale
+      : LOCALES.ENGLISH,
   );
+  // const [locale, setLocale] = React.useState(
+  //   localStorage.CryptoIndexLocale ? localStorage.CryptoIndexLocale : "",
+  // );
   const [flag, setFlag] = useState("flag-icon-id");
   const history = useHistory();
   const dispatch = useDispatch();
@@ -197,7 +202,7 @@ function RouteDashboardPage() {
             <Protectedkyc path={`/setor-rupiah/konfirmasi`}>
               <SetorKonfirmasi />
             </Protectedkyc>
-            <Protectedkyc path={`/wallet/setor-rupiah`}>
+            <Protectedkyc path={`/wallet/deposit`}>
               <SetorTarikPage />
             </Protectedkyc>
             <Protectedkyc exact path={`/wallet`}>

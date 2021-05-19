@@ -36,7 +36,7 @@ export default function CryptoPair() {
             <tbody>
               {Exchange && Array.isArray(Exchange) && Exchange.length > 0 ? (
                 Exchange.filter((item) => {
-                  if (item.base.toString().toUpperCase() === "USD") {
+                  if (item.base.toString().toUpperCase() === "BTC") {
                     return item;
                   } else {
                     return null;
@@ -65,7 +65,7 @@ function CryptoPairRealtime({ item, index }) {
   const [Data, setData] = React.useState(item.price_24hour);
 
   const handleRowClick = () => {
-    history.push(`/pasar/${item.quote}_${item.base}`);
+    history.push(`/pasar/${item.symbol.toString().replace('/', '_')}`);
   };
 
   React.useEffect(() => {

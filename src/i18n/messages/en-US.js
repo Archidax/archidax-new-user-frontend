@@ -43,6 +43,7 @@ export default {
 
         // Berita
         hberita:"Latest news",
+        hberita_kembali:"Back to Archidax.com",
 
         // Footer
         // Footer1
@@ -102,6 +103,7 @@ export default {
         hd_lihat_riwayat_transaksi_anda: "See your history transaction",
         hd_baru : "New",
         hd_tandai_semua_telah_dibaca : "Mark all as read",
+        hd_lebih_banyak:'See more',
 
 
         // Sidebar Dashboard
@@ -268,7 +270,7 @@ export default {
         br_bagikan_melalui : "Share Through",
 
         //Bantuan
-        bn_butuh_bantuan : "Need help?",
+        bn_butuh_bantuan : "Need help ?",
         bn_text_banner : "Please do a search or ask your question here",
         bn_riwayat_transaksi : "Transaction History",
         bn_akun_archidax : "Archidax account",
@@ -286,6 +288,12 @@ export default {
         bn_security_bug_report : "Security Bug Report",
         bn_business_development: "Business Development",
         bn_alamat : "Address",
+        bn_help:"Help",
+        bn_punya_pertanyaan:'Have another question ?',
+        bn_hubungi_kami:'Contact Us',
+        bn_hasil_pencarian:'Search result :',
+        bn_kategori_lainnya:'Other Categories',
+        bn_tidak_ada_hasil:"No results",
 
         //Profile
         pr_profile : "Profile",
@@ -378,6 +386,67 @@ export default {
         uk_istri : "Wife",
         uk_kakak : "Brother",
         uk_adik : "Little brother",
+
+         // Riwayat
+         rw_riwayat:"History",
+         rw_order:"Order",
+         rw_transaksi:"Transaction",
+         rw_setor_kripto:"Crypto Deposit",
+         rw_tarik_kripto:"Withdraw Crypto",
+         rw_setor_usd:"Deposit USD",
+         rw_tarik_usd:"Withdraw USD",
+         rw_mutasi:"Mutation",
+         rw_pair:"Pair",
+         rw_jenis:"Type",
+         rw_jumlah:"Amount",
+         rw_waktu:"Time",
+         rw_harga:"Price",
+         rw_total_harga:"Total price",
+         rw_terisi:"Filled",
+         rw_status:"Status",
+         rw_tujuan:"Destination",
+         rw_dari:"From",
+         rw_keterangan:"Information",
+         rw_deskripsi:"Description",
+         rw_aksi:"Action",
+         rw_perubahan:"Change",
+         rw_saldo_usd:"USD balance",
+         rw_saldo_kripto:"Crypto Balances",
+
+         //Keamanan akun
+        ka_keamanan_akun:"Account Security",
+        ka_text_harap:"Please use a password and Google Authenticator to ensure maximum protection of your account.",
+        ka_password:"Password",
+        ka_google_auth:"Google Authenticator",
+        ka_pin:"PIN",
+        ka_ganti:"Change",
+        ka_aktifkan:"Activate",
+        ka_layanan_aktif:"Active Service",
+        ka_hidupkan:"Turn on",
+        ka_matikan:"Turn off",
+        ka_nonaktifkan:"Non-Activate",
+        ka_alamat_ip:"IP Address",
+        ka_perangkat:"Device",
+        ka_terakhir_login:"Last Login",
+        ka_text_no_history_login:"You have no recent login history.",
+        ka_ubah_password:"Change Password",
+        ka_konfirmasi_pass:"Confirm Password",
+        ka_text_warning_ubah_pass:"Changing your password will log you out of all devices, including your phone. You will need to enter a new password on all of your devices.",
+        ka_pass_lama:"Old password",
+        ka_pass_baru:"New Password",
+        ka_aktifkan_google_auth:"Enable Google Authenticator",
+        ka_text_mengapa_google_auth:"Why should I use Google Authenticator?",
+        ka_alasan_google_auth1:"Protect accounts from hackers.",
+        ka_alasan_google_auth2 :"Funds are safer.",
+        ka_alasan_google_auth3 :"Easy to use.",
+        ka_alasan_google_auth4 :"Can be installed on Android, iPhone, iPad, and Computer / Laptop.",
+        ka_unduh_google_auth:"Download and install the Google Authenticator app",
+        ka_pass_akun:"Account Password",
+        ka_kode_auth:"Authenticator Code",
+        ka_text_scan:"Scan the barcode below with Google Authenticator, then enter the resulting PIN",
+        ka_aktifkan_pin:"Activate PIN",
+        ka_text_warning_pin:"Save and do not share your PIN code with anyone, including the Cryptoindex support team.",
+        ka_konfirmasi_pin:"Confirm Pin",
 
     }
 };

@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { downloadRiwayatSetorCrypto, getRiwayatSetorCrypto } from '../../stores/index';
 import moment from 'moment'
 import Pagination from 'react-js-pagination'
+import Translate from '../../i18n/Translate';
 
 
 const tableHeader = [
-  "Waktu", "Jenis", "Jumlah", "Tujuan", "TX", "Status",
+  Translate('rw_waktu'),Translate('rw_jenis'), Translate('rw_jumlah'), Translate('rw_tujuan'), "TX", Translate('rw_status'),
 ];
 
 

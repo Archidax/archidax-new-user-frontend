@@ -36,7 +36,7 @@ export default function ListingExchange() {
             <img src={star} alt="star" />
           </a>
         </li>
-        {/* <li className="nav-item col-4 p-0">
+        <li className="nav-item col-4 p-0">
           <a
             className="nav-link text-center active"
             id="crypto-pair"
@@ -46,12 +46,12 @@ export default function ListingExchange() {
             aria-controls="pills-profile"
             aria-selected="false"
           >
-            USD
+            BTC
           </a>
-        </li> */}
+        </li>
         <li className="nav-item col-4 p-0">
           <a
-            className="nav-link text-center active"
+            className="nav-link text-center"
             id="fiat-pair"
             data-toggle="pill"
             href="#pills-contact"
@@ -72,16 +72,16 @@ export default function ListingExchange() {
         >
           <FavoritePair />
         </div>
-        {/* <div
-          className="tab-pane fade"
+        <div
+          className="tab-pane fade show active"
           id="pills-profile"
           role="tabpanel"
           aria-labelledby="crypto-pair"
         >
           <CryptoPair />
-        </div> */}
+        </div>
         <div
-          className="tab-pane fade show active"
+          className="tab-pane fade"
           id="pills-contact"
           role="tabpanel"
           aria-labelledby="fiat-pair"
