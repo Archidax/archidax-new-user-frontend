@@ -315,6 +315,61 @@
 }
 /* END BUTTON DEFAULT & CUSTOM */
 
+// Button Tabs
+.ci-btn-tabsBars {
+  background: #2C355A;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 16px;
+  &:hover {
+      color: #DDDDDD;
+  }
+  &:focus {
+      outline: none !important;
+  }
+}
+.ci-btn-tabsBars.active {
+  background: #F9BD00;
+  color: #2C355A;
+  font-weight: bold;
+  &:hover {
+      color: lighten($color: #2C355A, $amount: 4);
+  }
+  &:focus {
+      outline: none !important;
+  }
+}
+.ci-btn-tabsBarsBorder:focus {
+  background: #151933 !important;
+  color: white !important;
+  border-width: 1px;
+  border-bottom: 1px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #ffedb3, rgba(0,0,0,0)) 1 100%;
+  border-image-slice: 5%;
+  outline: none;
+}
+.ci-btn-tabsBarsBorder:hover {
+  background: #151933 !important;
+  color: white !important;
+  border-width: 1px;
+  border-bottom: 1px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #ffedb3, rgba(0,0,0,0)) 1 100%;
+  border-image-slice: 5%;
+}
+.ci-btn-tabsBarsBorder.active {
+  background: #151933 !important;
+  color: white !important;
+  border-width: 1px;
+  border-bottom: 0;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #F9BD00, rgba(0,0,0,0)) 1 100%;
+  border-image-slice: 5%;
+}
+// End Button Tabs
+
 /* TABS ACTIVE */
 .ci-btn-affiliasi {
   background: transparent !important;
