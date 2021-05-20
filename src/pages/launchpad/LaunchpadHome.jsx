@@ -28,7 +28,12 @@ function LaunchpadHome() {
                         <button className="ci-btn-warning w-100 py-2">Submit your project</button>
                     </div>
                     <div className="col col-md-2">
-                        <button className="ci-btnOL-secondary w-100 py-2">My Portofolio</button>
+                        <button
+                            onClick={() => history.push('/launchpad/my-portofolio')}
+                            className="ci-btnOL-secondary w-100 py-2"
+                        >
+                            My Portofolio
+                        </button>
                     </div>
                 </div>
             </div>
@@ -46,11 +51,15 @@ function LaunchpadHome() {
                 </div>
                 <div className="row py-2">
                     {
-                        datas.map((data) => (
+                        datas.map((data, index) => (
                             <div className="col col-md-4 col-lg-3 mb-4">
                                 <div className="card ci-bg-primary">
                                     <div className="card-body py-0 px-0 ">
-                                        <img src={imagaCoin} alt="" className="w-100 rounded"/>
+                                        <img 
+                                            onClick={() => history.push('/launchpad/:index')}
+                                            src={imagaCoin} alt="" className="w-100 rounded"
+                                            style={{cursor:'pointer'}}
+                                        />
                                         <div className="d-flex justify-content-between align-items-center py-3">
                                             <div className="text-white d-flex align-items-center justify-content-between">
                                                 <h3 className="font-20 mb-0">{data.title}</h3>
