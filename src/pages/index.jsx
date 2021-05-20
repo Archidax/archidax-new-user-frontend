@@ -47,6 +47,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { GetListingExchange, setMyFav } from "../stores/pasartrading/functions";
 import KeuanganPage from "./keuangan";
+import LaunchpadHome from "./launchpad/LaunchpadHome";
 
 export default function MainPages() {
   const [locale, setLocale] = React.useState("");
@@ -161,7 +162,7 @@ export default function MainPages() {
               <KeuanganPage />
             </Route>
             <Route path="/launchpad">
-
+              <LaunchpadHome/>
             </Route>
             <Route path="/launchpad-detail">
 
