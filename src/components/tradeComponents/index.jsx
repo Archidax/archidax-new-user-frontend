@@ -60,8 +60,89 @@ export default function Index() {
   }, [isLoginPages, dispatch, history]);
 
   return (
-    <div className={mode ? "body-trade2-dark" : "body-trade2"}>
+    // <div className={mode ? "body-trade2-dark" : "body-trade2"}>
+    <div>
       <div className="width-chart">
+        <div className="row">
+          <div className="col-3 p-0">
+            <div
+              className="col-12"
+              style={{
+                minHeight: "51vh",
+                background: "black",
+                border: "1px solid white",
+              }}
+            >
+              <Price />
+            </div>
+            <div
+              className="col-12"
+              style={{
+                minHeight: "40vh",
+                background: "black",
+                border: "1px solid white",
+              }}
+            ></div>
+          </div>
+          <div className="col-9">
+            <div className="row">
+              <div
+                className="col-12"
+                style={{
+                  minHeight: "48vh",
+                  background: "black",
+                  border: "1px solid white",
+                }}
+              ></div>
+            </div>
+            <div className="row ">
+              <div
+                className="col-4"
+                style={{
+                  minHeight: "35vh",
+                  background: "black",
+                  border: "1px solid white",
+                }}
+              ></div>
+              <div
+                className="col-4"
+                style={{
+                  minHeight: "35vh",
+                  background: "black",
+                  border: "1px solid white",
+                }}
+              ></div>
+              <div
+                className="col-4"
+                style={{
+                  minHeight: "35vh",
+                  background: "black",
+                  border: "1px solid white",
+                }}
+              ></div>
+            </div>
+            <div className="row">
+              <div
+                className="col-12"
+                style={{
+                  minHeight: "4vh",
+                  background: "black",
+                  border: "1px solid white",
+                }}
+              ></div>
+              <div
+                className="col-12"
+                style={{
+                  minHeight: "4vh",
+                  background: "black",
+                  border: "1px solid white",
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className="width-chart">
         <div className="row">
           <div className="col-12 p-0">
             <Price />
@@ -182,7 +263,7 @@ export default function Index() {
       </div>
       <div>
         <PernyataanResikoTrade />
-      </div>
+      </div> */}
     </div>
   );
 }

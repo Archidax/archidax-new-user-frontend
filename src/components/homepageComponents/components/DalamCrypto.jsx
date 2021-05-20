@@ -1,4 +1,8 @@
 import React from "react";
+import logo1 from "../../../assets/img/homepage/keuntungan/1.png";
+import logo2 from "../../../assets/img/homepage/keuntungan/2.png";
+import logo3 from "../../../assets/img/homepage/keuntungan/3.png";
+import logo4 from "../../../assets/img/homepage/keuntungan/4.png";
 
 export default function DalamCrypto() {
   return (
@@ -7,9 +11,16 @@ export default function DalamCrypto() {
         <h4 className="text-homepage-yellow">Lorem, ipsum.</h4>
       </div>
       <div className="col-lg-6 px-0">
-        <h5 className="text-white">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid
-          veniam ad facilis!
+        <h5 className="text-white font-16">
+          Cryptoindex is a crypto asset exchange that has a high level of
+          security, all transactions and processes are designed in a practical
+          manner, as well as an investment experience that you can easily get
+          here.
+        </h5>
+        <h5 className="text-white font-16">
+          Cryptoindex accepts deposits from all local Indonesian banks (free of
+          charge) to make crypto asset purchases. Your crypto assets can be
+          converted into rupiah in just one hour.
         </h5>
       </div>
       <div className="mt-4" style={{ display: "flex" }}>
@@ -28,7 +39,7 @@ export default function DalamCrypto() {
             aria-controls="v-pills-home"
             aria-selected="true"
           >
-            EXCHANGE
+            Buying and Selling Crypto Assets
           </a>
           <a
             class="nav-link"
@@ -39,7 +50,7 @@ export default function DalamCrypto() {
             aria-controls="v-pills-profile"
             aria-selected="false"
           >
-            TOKONEWS
+            Crypto Asset Investment
           </a>
           <a
             class="nav-link"
@@ -50,7 +61,7 @@ export default function DalamCrypto() {
             aria-controls="v-pills-messages"
             aria-selected="false"
           >
-            TOKO LAUNCHPAD
+            24 hour Transaction
           </a>
           <a
             class="nav-link"
@@ -61,7 +72,7 @@ export default function DalamCrypto() {
             aria-controls="v-pills-settings"
             aria-selected="false"
           >
-            PREMIUM TRADING
+            Member Services
           </a>
         </div>
         <div class="tab-content px-5 py-3 w-100" id="v-pills-tabContent">
@@ -101,11 +112,8 @@ export default function DalamCrypto() {
                   Lihat Selengkapnya
                 </button>
               </div>
-              <div className="col-6">
-                <img
-                  src="https://www.tokocrypto.com/cdn/images/toko/exchange.png"
-                  style={{ width: "80%" }}
-                />
+              <div className="col-5">
+                <img src={logo1} style={{ width: "100%" }} />
               </div>
             </div>
           </div>
@@ -145,11 +153,8 @@ export default function DalamCrypto() {
                   Lihat Selengkapnya
                 </button>
               </div>
-              <div className="col-6">
-                <img
-                  src="https://www.tokocrypto.com/cdn/images/toko/tokonews.png"
-                  style={{ width: "80%" }}
-                />
+              <div className="col-5">
+                <img src={logo2} style={{ width: "100%" }} />
               </div>
             </div>
           </div>
@@ -183,11 +188,8 @@ export default function DalamCrypto() {
                   Lihat Selengkapnya
                 </button>
               </div>
-              <div className="col-6">
-                <img
-                  src="https://www.tokocrypto.com/cdn/images/toko/tokolaunchpad.png"
-                  style={{ width: "80%" }}
-                />
+              <div className="col-5">
+                <img src={logo3} style={{ width: "100%" }} />
               </div>
             </div>
           </div>
@@ -220,11 +222,8 @@ export default function DalamCrypto() {
                   Lihat Selengkapnya
                 </button>
               </div>
-              <div className="col-6">
-                <img
-                  src="https://www.tokocrypto.com/cdn/images/toko/otc.png"
-                  style={{ width: "80%" }}
-                />
+              <div className="col-5">
+                <img src={logo4} style={{ width: "100%" }} />
               </div>
             </div>
           </div>
