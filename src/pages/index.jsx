@@ -11,6 +11,7 @@ import RegisterPage from "./registerPage";
 import KebijakanPrivasiPage from "./privasipage";
 import Berita from "./beritapage/index";
 import Bantuan from "./bantuanpage";
+import Launchpad from "./launchpad";
 import ChangePassLoginPage from "./forgetpassword/ChangePassLoginPage";
 import ForgetPassLoginPage from "./forgetpassword/ForgetPassLoginPage";
 import NotFound from "./404page";
@@ -158,6 +159,15 @@ export default function MainPages() {
             </Route>
             <Route path="/keuangan">
               <KeuanganPage />
+            </Route>
+            <Route path="/launchpad">
+
+            </Route>
+            <Route path="/launchpad-detail">
+
+            </Route>
+            <Route path="/launchpad-porto">
+              
             </Route>
             <ProtectedRoute path="/">
               <RouteDashboardPage setLocale={setLocale} />
