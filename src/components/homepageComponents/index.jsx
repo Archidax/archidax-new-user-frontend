@@ -10,6 +10,7 @@ import NewsHomepage from "./components/NewsHomepage";
 import FooterHomePage from "../footerComponents/footerHomePage/FooterHomePage";
 
 import { HomeMarket } from "../../stores/chart/functions";
+import DalamCrypto from "./components/DalamCrypto";
 
 function Home(props) {
   let [MarketData, setMarketData] = React.useState([]);
@@ -22,11 +23,15 @@ function Home(props) {
   return (
     <div className="navbar-homePage">
       <div className="navbar-top">
-        <HeaderHomePage setLocale={props.setLocale} bg_normal="bg-header-homepage"/>
+        <HeaderHomePage
+          setLocale={props.setLocale}
+          bg_normal="bg-header-homepage"
+        />
         <BannerHomepage setLocale={props.setLocale} />
         <SliderHomepage setLocale={props.setLocale} dataHome={MarketData} />
         <TableHomepage setLocale={props.setLocale} dataHome={MarketData} />
         <ApaItuCrypto setLocale={props.setLocale} />
+        <DalamCrypto setLocale={props.setLocale} />
         <CalculatorCrypto setLocale={props.setLocale} />
         <KenapaMemilihCrypto setLocale={props.setLocale} />
         <NewsHomepage setLocale={props.setLocale} />
