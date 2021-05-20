@@ -90,13 +90,13 @@ function Flags(props) {
             <span className="flag-icon flag-icon-id flag-icon-squared ci-flag-item-icon" />
             <span className="ml-2">Indonesia</span>
           </div>
-          <div
+          {/* <div
             className="dropdown-item ci-dropdown-flag-scrollbar-item py-2"
             onClick={() => language("vietnam")}
           >
             <span className="flag-icon flag-icon-vn flag-icon-squared ci-flag-item-icon" />
             <span className="ml-2">Vietnam</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
