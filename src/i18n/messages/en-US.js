@@ -182,7 +182,7 @@ export default {
         wal_nama_koin: "Coin Name",
         wal_explorer: "Explorer",
         wal_saldo_aktif: "Active balance",
-        wal_saldo_beku: "Freeze Balance ",
+        wal_saldo_beku: "Frozen Balance ",
         wal_estimasi_nilai_idr: "Estimated Assets (IDR)",
         wal_status: "Status",
         wal_aksi: "Action",
