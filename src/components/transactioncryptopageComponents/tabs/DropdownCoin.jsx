@@ -14,7 +14,7 @@ function DropdownCoin({ data, action }) {
             <div className="ci-dropdown-menu dropdown-menu w-100" aria-labelledby="dropdownRiwayatTarikCrypto">
                 <div className="container-fluid ci-dropdown-menu-content px-0 pb-0">
                     {data&&Array.isArray(data)&&data.map(el => {
-                        if (el.base === "IDR") {
+                        if (el.base === "USDT") {
                             return (
                                 <button className="dropdown-item py-1" type="button" onClick={() => toCoin(`/crypto/${action}/${el.initialSymbol}`)} value={el.initialSymbol}>
                                     <div className="row">

@@ -43,7 +43,7 @@ function VerifikasiAkun() {
                 }
               ></i>
             </div>
-            <div>{Translate('db_akses_tarik_dana')}</div>
+            <div className="font-12">{Translate('db_akses_tarik_dana')}</div>
           </div>
         </div>
       </div>
