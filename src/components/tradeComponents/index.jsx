@@ -62,11 +62,11 @@ export default function Index() {
   return (
     // <div className={mode ? "body-trade2-dark" : "body-trade2"}>
     <div>
-      <div className="width-chart">
+      <div className="width-chart2">
         <div className="row">
           <div className="col-3 p-0">
             <div
-              className="col-12"
+              className="col-12 p-0"
               style={{
                 minHeight: "51vh",
                 background: "black",
@@ -76,56 +76,64 @@ export default function Index() {
               <Price />
             </div>
             <div
-              className="col-12"
+              className="col-12 p-0"
               style={{
-                minHeight: "40vh",
+                minHeight: "42.8vh",
                 background: "black",
                 border: "1px solid white",
               }}
-            ></div>
+            >
+              <LiveMarket />
+            </div>
           </div>
           <div className="col-9">
             <div className="row">
               <div
-                className="col-12"
+                className="col-12 p-0"
                 style={{
-                  minHeight: "48vh",
+                  minHeight: "54vh",
                   background: "black",
                   border: "1px solid white",
                 }}
-              ></div>
+              >
+                <ChartTrade />
+              </div>
             </div>
             <div className="row ">
               <div
                 className="col-4"
                 style={{
-                  minHeight: "35vh",
+                  minHeight: "33vh",
                   background: "black",
                   border: "1px solid white",
                 }}
               ></div>
               <div
-                className="col-4"
+                className="col-4 p-0"
                 style={{
-                  minHeight: "35vh",
+                  minHeight: "33vh",
                   background: "black",
                   border: "1px solid white",
                 }}
-              ></div>
+              >
+                <ListSell />
+              </div>
               <div
-                className="col-4"
+                className="col-4 p-0"
                 style={{
-                  minHeight: "35vh",
+                  minHeight: "33vh",
                   background: "black",
                   border: "1px solid white",
                 }}
-              ></div>
+              >
+                <ListBuy />
+              </div>
             </div>
             <div className="row">
               <div
                 className="col-12"
                 style={{
-                  minHeight: "4vh",
+                  minHeight: "32px",
                   background: "black",
                   border: "1px solid white",
                 }}
@@ -133,7 +141,7 @@ export default function Index() {
               <div
                 className="col-12"
                 style={{
-                  minHeight: "4vh",
+                  minHeight: "32px",
                   background: "black",
                   border: "1px solid white",
                 }}

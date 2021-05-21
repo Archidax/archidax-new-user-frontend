@@ -146,6 +146,11 @@ $chat-color: black;
   margin: auto;
 }
 
+.width-chart2 {
+  width: 98%;
+  margin: auto;
+}
+
 .dummy-card {
   background-color: $base-color3;
   // height: 400px;
@@ -580,7 +585,7 @@ $chat-color: black;
 .table-wrapper2,
 .table-wrapper2-dark {
   overflow-y: auto;
-  height: 293px;
+  height: 307px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -685,7 +690,7 @@ $chat-color: black;
 }
 .table-wrapper3 {
   overflow-y: auto;
-  height: 340px;
+  height: 357px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -711,7 +716,7 @@ $chat-color: black;
 }
 .table-wrapper3-dark {
   overflow-y: auto;
-  height: 340px;
+  height: 357px;
 
   /* width */
   &::-webkit-scrollbar {

@@ -170,30 +170,35 @@ export default function Price() {
             </div>
           </div>
         </div>
-        <DayNight />
       </div>
-      <div>
+      <div className="p-2">
         <div style={{ display: "flex", justifyContent: "column" }}>
           {/* Price */}
           <div
             className={`${
               mode ? "text-price-bottom-dark" : "text-price-bottom"
-            } font-13`}
+            } font-28`}
           >
-            {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+            {/* {price24H ? convertNumber.toRupiah(price24H.Close) : 0} */}
+            5.000.000
           </div>
           {/* Change */}
           <div
             className={`${
               mode ? "text-white" : "text-black"
-            } font-13 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
+            } font-24 ml-3 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
+            // style={{ background: "#232323" }}
           >
-            {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"}
+            {/* {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"} */}
+            50%
           </div>
         </div>
 
         <div className="row">
-          <div className="col-6">
+          <div
+            className="col-5"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
             {/* Volume IDR */}
             <div
               className={`${
@@ -203,8 +208,35 @@ export default function Price() {
               {price24H ? convertNumber.toRupiah(price24H.Volume) : 0}
             </div>
           </div>
+          {/* High */}
+          <div
+            className="col-5"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <div
+              className={`${
+                mode ? "text-price-top-dark" : "text-price-top"
+              } font-16 mr-2`}
+            >
+              High :
+            </div>
+            <div
+              className={`${
+                mode ? "text-price-bottom-dark" : "text-price-bottom"
+              } font-16`}
+            >
+              {/* {price24H ? convertNumber.toRupiah(price24H.High) : 0} */}
+              845.000.000
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
           {/* Volume BTC */}
-          <div className="col-6">
+          <div
+            className="col-5"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
             <div
               className={`${
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
@@ -213,27 +245,25 @@ export default function Price() {
               {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
             </div>
           </div>
-        </div>
-
-        <div className="row">
-          <div className="col-6">
-            {/* High */}
-            <div
-              className={`${
-                mode ? "text-price-bottom-dark" : "text-price-bottom"
-              } font-13`}
-            >
-              {price24H ? convertNumber.toRupiah(price24H.High) : 0}
-            </div>
-          </div>
           {/* Low */}
-          <div className="col-6">
+          <div
+            className="col-5"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <div
+              className={`${
+                mode ? "text-price-top-dark" : "text-price-top"
+              } font-16 mr-2`}
+            >
+              Low :
+            </div>
             <div
               className={`${
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
-              } font-13`}
+              } font-16`}
             >
-              {price24H ? convertNumber.toRupiah(price24H.Low) : 0}
+              {/* {price24H ? convertNumber.toRupiah(price24H.Low) : 0} */}
+              840.000.000
             </div>
           </div>
         </div>
@@ -361,7 +391,7 @@ export default function Price() {
         >
           <div className="row">
             <div className="col-3"></div>
-            <div className="col-6 day-night-responsive"></div>
+            <div className="col-5 day-night-responsive"></div>
           </div>
         </div>
       </div> */}
