@@ -70,7 +70,6 @@ function Tim() {
     
     return (
         <div className="container-fluid">
-            <p className="text-white mb-4 font-roboto font-18">Tim</p>
             <div className="row no-gutters">
                 {
                     teams.map((val, index) => {
