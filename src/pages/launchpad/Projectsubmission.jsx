@@ -109,7 +109,7 @@ function LaunchpadPorto() {
                 </div>
             </Jumbotron>
 
-            <div className="container mt-5 mb-5">
+            <div className="container mt-5 mb-5 punyaGUETIN">
                 <div className="row">
                     <div className="col-12 col-xl-6">
                        
