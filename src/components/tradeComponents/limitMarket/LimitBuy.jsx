@@ -134,6 +134,7 @@ export default function LimitBuy() {
               </div>
             </div>
           </div>
+
           <div className="d-flex">
             <span
               className={mode ? "input-label-trade-dark" : "input-label-trade"}

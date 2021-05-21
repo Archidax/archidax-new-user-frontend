@@ -39,7 +39,7 @@ export default function Price() {
         mode ? "bg-trade2-dark" : "bg-trade2"
       } px-2 ptb-2-trade mt-2`}
     >
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div className="pt-3" style={{ display: "flex", flexDirection: "row" }}>
         <div
           class="ci-dropdown list-coin-responsive"
           // style={{
@@ -171,7 +171,7 @@ export default function Price() {
           </div>
         </div>
       </div>
-      <div className="p-2">
+      <div className="p-2 mt-2">
         <div style={{ display: "flex", justifyContent: "column" }}>
           {/* Price */}
           <div
@@ -194,36 +194,47 @@ export default function Price() {
           </div>
         </div>
 
-        <div className="row">
+        <div
+          className="mt-3"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
           <div
-            className="col-5"
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
-            {/* Volume IDR */}
-            <div
-              className={`${
-                mode ? "text-price-bottom-dark" : "text-price-bottom"
-              } font-13`}
-            >
-              {price24H ? convertNumber.toRupiah(price24H.Volume) : 0}
-            </div>
-          </div>
-          {/* High */}
-          <div
-            className="col-5"
+            className=""
             style={{ display: "flex", justifyContent: "space-between" }}
           >
             <div
               className={`${
                 mode ? "text-price-top-dark" : "text-price-top"
-              } font-16 mr-2`}
+              } font-15 mr-2`}
+            >
+              Volume {PairSymbol ? PairSymbol.toString().split("/")[1] : null} :
+            </div>
+            {/* Volume IDR */}
+            <div
+              className={`${
+                mode ? "text-price-bottom-dark" : "text-price-bottom"
+              } font-15`}
+            >
+              {/* {price24H ? convertNumber.toRupiah(price24H.Volume) : 0} */}
+              30.652.175.748
+            </div>
+          </div>
+          {/* High */}
+          <div
+            className=""
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <div
+              className={`${
+                mode ? "text-price-top-dark" : "text-price-top"
+              } font-15 mr-2`}
             >
               High :
             </div>
             <div
               className={`${
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
-              } font-16`}
+              } font-15`}
             >
               {/* {price24H ? convertNumber.toRupiah(price24H.High) : 0} */}
               845.000.000
@@ -231,36 +242,47 @@ export default function Price() {
           </div>
         </div>
 
-        <div className="row">
+        <div
+          className="mt-2"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
           {/* Volume BTC */}
           <div
-            className="col-5"
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
-            <div
-              className={`${
-                mode ? "text-price-bottom-dark" : "text-price-bottom"
-              } font-13`}
-            >
-              {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
-            </div>
-          </div>
-          {/* Low */}
-          <div
-            className="col-5"
+            className=""
             style={{ display: "flex", justifyContent: "space-between" }}
           >
             <div
               className={`${
                 mode ? "text-price-top-dark" : "text-price-top"
-              } font-16 mr-2`}
+              } font-15 mr-2`}
+            >
+              Volume {PairSymbol ? PairSymbol.toString().split("/")[0] : null} :
+            </div>
+            <div
+              className={`${
+                mode ? "text-price-bottom-dark" : "text-price-bottom"
+              } font-15 `}
+            >
+              {/* {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0} */}
+              30.652.175.748
+            </div>
+          </div>
+          {/* Low */}
+          <div
+            className=""
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <div
+              className={`${
+                mode ? "text-price-top-dark" : "text-price-top"
+              } font-15 mr-2`}
             >
               Low :
             </div>
             <div
               className={`${
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
-              } font-16`}
+              } font-15`}
             >
               {/* {price24H ? convertNumber.toRupiah(price24H.Low) : 0} */}
               840.000.000

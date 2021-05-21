@@ -60,15 +60,15 @@ export default function Index() {
   }, [isLoginPages, dispatch, history]);
 
   return (
-    // <div className={mode ? "body-trade2-dark" : "body-trade2"}>
-    <div>
+    <div className={mode ? "body-trade2-dark" : "body-trade2"}>
+      {/* <div> */}
       <div className="width-chart2">
         <div className="row">
           <div className="col-3 p-0">
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "51vh",
+                minHeight: "45vh",
                 background: "black",
                 border: "1px solid white",
               }}
@@ -78,12 +78,12 @@ export default function Index() {
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "42.8vh",
+                minHeight: "48.8vh",
                 background: "black",
                 border: "1px solid white",
               }}
             >
-              <LiveMarket />
+              <LimitMarketChat />
             </div>
           </div>
           <div className="col-9">
@@ -91,7 +91,7 @@ export default function Index() {
               <div
                 className="col-12 p-0"
                 style={{
-                  minHeight: "54vh",
+                  minHeight: "53vh",
                   background: "black",
                   border: "1px solid white",
                 }}
@@ -100,14 +100,6 @@ export default function Index() {
               </div>
             </div>
             <div className="row ">
-              <div
-                className="col-4"
-                style={{
-                  minHeight: "33vh",
-                  background: "black",
-                  border: "1px solid white",
-                }}
-              ></div>
               <div
                 className="col-4 p-0"
                 style={{
@@ -128,24 +120,85 @@ export default function Index() {
               >
                 <ListBuy />
               </div>
+              <div
+                className="col-4 p-0"
+                style={{
+                  minHeight: "33vh",
+                  background: "black",
+                  border: "1px solid white",
+                }}
+              >
+                <LiveMarket />
+              </div>
             </div>
             <div className="row">
               <div
-                className="col-12"
-                style={{
-                  minHeight: "32px",
-                  background: "black",
-                  border: "1px solid white",
-                }}
-              ></div>
-              <div
-                className="col-12"
-                style={{
-                  minHeight: "32px",
-                  background: "black",
-                  border: "1px solid white",
-                }}
-              ></div>
+                class="accordion col-12 p-0"
+                id="accordionExample"
+                style={{ margin: "2px 1px" }}
+              >
+                <div
+                  class=""
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  <div class="" id="headingTwo">
+                    <div
+                      className="py-1"
+                      style={{ background: mode ? "#232323" : "#00688f" }}
+                    >
+                      <th
+                        className="collapsed text-gold font-15 mb-0"
+                        style={{ padding: "2px 12px" }}
+                      >
+                        Order Pending
+                      </th>
+                    </div>
+                  </div>
+                  <div
+                    id="collapseTwo"
+                    class="collapse"
+                    aria-labelledby="headingTwo"
+                    data-parent="#accordionExample"
+                  >
+                    <OrderPending />
+                  </div>
+                </div>
+                <div
+                  class=""
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                  style={{ marginTop: "2px" }}
+                >
+                  <div class="" id="headingThree">
+                    <div
+                      className="py-1"
+                      style={{ background: mode ? "#232323" : "#00688f" }}
+                    >
+                      <th
+                        className="collapsed text-gold font-15 mb-0"
+                        style={{ padding: "2px 12px" }}
+                      >
+                        Order History
+                      </th>
+                    </div>
+                  </div>
+                  <div
+                    id="collapseThree"
+                    class="collapse"
+                    aria-labelledby="headingThree"
+                    data-parent="#accordionExample"
+                  >
+                    <OrderHistory />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
