@@ -109,9 +109,18 @@ function LaunchpadPorto() {
                 </div>
             </Jumbotron>
 
-            <div className="container mt-5 mb-5 punyaGUETIN">
-                <div className="row">
-                    <div className="col-12 col-xl-6">
+            <div className="container mt-5 mb-5">
+                
+                <div className="row no-gutters">
+                    <div className="col-12 col-xl-6 MARTIN">
+                       
+                    </div>
+                    <div className="col-12 col-xl-6 TATAG">
+                       
+                    </div>
+                </div>
+                <div className="row no-gutters">
+                    <div className="col-12 col-xl-12 AMEL">
                        
                     </div>
                 </div>
