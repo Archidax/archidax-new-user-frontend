@@ -96,7 +96,6 @@ function SetorCryptoTabs() {
                 return <GenericInstructions />;
         }
     }
-
     return (
         <div className="container-fluid">
             <div className="row border-top mt-3 border-warning">

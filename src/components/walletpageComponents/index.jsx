@@ -26,7 +26,8 @@ function Wallet() {
                 </div>
 
                 <div className="row">
-                  <NilaiAsset />
+                  lagi bug ya, nnti dlu
+                  {/* <NilaiAsset /> */}
                 </div>
               </div>
             </div>
