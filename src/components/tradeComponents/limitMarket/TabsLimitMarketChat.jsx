@@ -122,7 +122,52 @@ export default function TabsLimitMarketChat() {
         >
           <div className="row col-12 m-0 p-0">
             <div className="col-lg-12 col-sm-12 col-xs-12 p-0">
-              <LimitSell />
+              <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    id="pills-limit-sell-tab"
+                    data-toggle="pill"
+                    href="#pills-limit-sell"
+                    role="tab"
+                    aria-controls="pills-limit-sell"
+                    aria-selected="true"
+                  >
+                    Limit
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="pills-market-sell-tab"
+                    data-toggle="pill"
+                    href="#pills-market-sell"
+                    role="tab"
+                    aria-controls="pills-market-sell"
+                    aria-selected="false"
+                  >
+                    Market
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="pills-limit-sell"
+                  role="tabpanel"
+                  aria-labelledby="pills-limit-sell-tab"
+                >
+                  <LimitSell />
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="pills-market-sell"
+                  role="tabpanel"
+                  aria-labelledby="pills-market-sell-tab"
+                >
+                  <MarketSell />
+                </div>
+              </div>
             </div>
           </div>
         </div>
