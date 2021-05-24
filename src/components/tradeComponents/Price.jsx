@@ -37,7 +37,8 @@ export default function Price() {
     <div
       className={`${
         mode ? "bg-trade2-dark" : "bg-trade2"
-      } px-2 ptb-2-trade mt-2`}
+      } px-2 ptb-2-trade mt-1`}
+      style={{ minHeight: "44vh" }}
     >
       <div className="pt-3" style={{ display: "flex", flexDirection: "row" }}>
         <div

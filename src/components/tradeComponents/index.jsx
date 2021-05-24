@@ -69,8 +69,8 @@ export default function Index() {
               className="col-12 p-0"
               style={{
                 minHeight: "45vh",
-                background: "black",
-                border: "1px solid white",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
               }}
             >
               <Price />
@@ -79,8 +79,8 @@ export default function Index() {
               className="col-12 p-0"
               style={{
                 minHeight: "48.8vh",
-                background: "black",
-                border: "1px solid white",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
               }}
             >
               <LimitMarketChat />
@@ -92,20 +92,20 @@ export default function Index() {
                 className="col-12 p-0"
                 style={{
                   minHeight: "53vh",
-                  background: "black",
-                  border: "1px solid white",
+                  background: mode ? "black" : "white",
+                  border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
                 <ChartTrade />
               </div>
             </div>
-            <div className="row ">
+            <div className="row mt-1">
               <div
                 className="col-4 p-0"
                 style={{
-                  minHeight: "33vh",
-                  background: "black",
-                  border: "1px solid white",
+                  minHeight: "32vh",
+                  background: mode ? "black" : "white",
+                  border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
                 <ListSell />
@@ -113,9 +113,9 @@ export default function Index() {
               <div
                 className="col-4 p-0"
                 style={{
-                  minHeight: "33vh",
-                  background: "black",
-                  border: "1px solid white",
+                  minHeight: "32vh",
+                  background: mode ? "black" : "white",
+                  border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
                 <ListBuy />
@@ -123,9 +123,9 @@ export default function Index() {
               <div
                 className="col-4 p-0"
                 style={{
-                  minHeight: "33vh",
-                  background: "black",
-                  border: "1px solid white",
+                  minHeight: "32vh",
+                  background: mode ? "black" : "white",
+                  border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
                 <LiveMarket />
