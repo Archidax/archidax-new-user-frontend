@@ -11,9 +11,9 @@ export default function DalamCrypto() {
       <div>
         <h4 className="text-homepage-yellow">{Translate("hkmc_title")}</h4>
       </div>
-      <div className="col-lg-6 px-0">
-        <h5 className="text-white font-16">{Translate("hkmc_text1")}</h5>
-        <h5 className="text-white font-16">{Translate("hkmc_text2")}</h5>
+      <div className="col-lg-6 px-0 mt-4">
+        <p className="text-white font-16">{Translate("hkmc_text1")}</p>
+        <p className="text-white font-16">{Translate("hkmc_text2")}</p>
       </div>
       <div className="mt-4" style={{ display: "flex" }}>
         <div
