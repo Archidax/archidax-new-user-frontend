@@ -31,7 +31,7 @@ export default function DalamCrypto() {
             aria-controls="v-pills-home"
             aria-selected="true"
           >
-            Buying and Selling Crypto Assets
+            {Translate("hkmc_subtitle1")}
           </a>
           <a
             class="nav-link"
@@ -42,7 +42,7 @@ export default function DalamCrypto() {
             aria-controls="v-pills-profile"
             aria-selected="false"
           >
-            Crypto Asset Investment
+            {Translate("hkmc_subtitle2")}
           </a>
           <a
             class="nav-link"
@@ -53,7 +53,7 @@ export default function DalamCrypto() {
             aria-controls="v-pills-messages"
             aria-selected="false"
           >
-            24 hour Transaction
+            {Translate("hkmc_subtitle3")}
           </a>
           <a
             class="nav-link"
@@ -64,7 +64,7 @@ export default function DalamCrypto() {
             aria-controls="v-pills-settings"
             aria-selected="false"
           >
-            Member Services
+            {Translate("hkmc_subtitle4")}
           </a>
         </div>
         <div class="tab-content px-5 py-3 w-100" id="v-pills-tabContent">
