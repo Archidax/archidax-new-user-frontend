@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import buylogo from "../../../assets/img/trade/buy.png";
+import buylogo2 from "../../../assets/img/trade/keranjanghitam.svg";
 import walletlogo from "../../../assets/img/trade/wallet.png";
+import walletlogo2 from "../../../assets/img/trade/wallet2.svg";
 import { PercentMath } from "../helpers/trade";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -100,12 +102,16 @@ export default function MarketBuy() {
         <div className="width-trade">
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
-              <img src={buylogo} width="22px" alt="buylogo" />
-              <div className="text-buy ml-2 font-20 font-bolder2">Beli</div>
+              <img src={mode ? buylogo : buylogo2} width="22px" alt="buylogo" />
+              <div className="text-buy ml-2 font-20 font-bolder2">Buy</div>
             </div>
             <div className="make-middle">
-              <img src={walletlogo} alt="walletlogo" width="14px" />
-              <div className="text-dgrey ml-2 font-14">
+              <img
+                src={mode ? walletlogo : walletlogo2}
+                alt="walletlogo"
+                width="14px"
+              />
+              <div className="text-dgrey ml-2 font-14 font-bolder2">
                 {pairFrom ? pairFrom : "-"}:
               </div>
               <div
@@ -124,7 +130,7 @@ export default function MarketBuy() {
                 mode ? "input-label-trade4-dark" : "input-label-trade4"
               }
             >
-              Total Pembelian
+              Total Amount
             </span>
             <input
               type="number"
@@ -209,7 +215,7 @@ export default function MarketBuy() {
                 mode ? "input-label-trade5-dark" : "input-label-trade5"
               }
             >
-              Estimasi
+              Estimation
             </span>
             <input
               type="number"
@@ -234,18 +240,18 @@ export default function MarketBuy() {
                   mode ? "font-weight-bold" : "text-white font-bolder2"
                 }`}
               >
-                Beli
+                Buy
               </h5>
             </button>
           ) : (
             <div className="text-center bg-loginfirst col-12 mt-3">
               <h5 className="mb-0 font-13 font-weight-bold">
                 <Link to="/login" className="mr-2">
-                  Masuk
+                  Login
                 </Link>
-                atau
+                or
                 <Link to="/login" className="ml-2">
-                  Daftar
+                  Register
                 </Link>
               </h5>
             </div>

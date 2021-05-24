@@ -27,9 +27,9 @@ function ProfileDropdown() {
             {profile.username}
           </h6>
         </div>
-        <div className="rounded avatar avatar-30 d-none d-md-inline-block ci-dropdown-btn-profile-arrow">
+        {/* <div className="rounded avatar avatar-30 d-none d-md-inline-block ci-dropdown-btn-profile-arrow">
           <i className="fas fa-chevron-down ci-dropdown-btn-profile-arrow-icons"></i>
-        </div>
+        </div> */}
       </div>
 
       <div

@@ -5,6 +5,7 @@ import Calculator from "./calculator/CalculatorAsetHomepage";
 export default function apaItuCrypto() {
   return (
     <div className="mt-hp-r">
+      <hr style={{ border: "1px solid rgba(249,186,66,0.5)", width: "50%" }} />
       <div className="container">
         <div
           className="p-4 text-center"
@@ -16,7 +17,7 @@ export default function apaItuCrypto() {
           <h2 className="text-homepage-yellow font-apa-itu-responsive">
             Calculator Aset Crypto
           </h2>
-          <Calculator/>
+          <Calculator />
         </div>
       </div>
     </div>
