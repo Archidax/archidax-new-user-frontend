@@ -25,7 +25,9 @@ function LaunchpadHome() {
                 <h3 className="text-white text-center font-24 mb-4">Archidax Launchpad</h3>
                 <div className="row d-flex justify-content-center">
                     <div className="col col-md-2">
-                        <button className="ci-btn-warning w-100 py-2">Submit your project</button>
+                        <button 
+                        onClick={() => history.push('/launchpad/project-submission')}
+                        className="ci-btn-warning w-100 py-2">Submit your project</button>
                     </div>
                     <div className="col col-md-2">
                         <button

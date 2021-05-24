@@ -11,8 +11,6 @@ import {
 } from "../../../../../stores";
 import { parseDate, parseTime } from "../../../../../helpers";
 
-import Translate from '../../../../../i18n/Translate';
-
 function NotificationDropdownHeader() {
   const { notifications, hasNext, unreads } = useSelector(
     (state) => state.notificationReducer,
@@ -23,7 +21,7 @@ function NotificationDropdownHeader() {
 
   const { mode } = useSelector((state) => state.daynightReducer);
   const [loading, setLoading] = useState(false);
-  const [mode2, setMode2] = useState(Translate('hd_semua'));
+  const [mode2, setMode2] = useState("Semua");
   const [filteredNotification, setFilteredNotification] = useState([]);
   const [loadingDelete, setLoadingDelete] = useState(null);
   const [showDelete, setShowDelete] = useState("");
@@ -50,7 +48,7 @@ function NotificationDropdownHeader() {
 
   const toggleMode2 = (e) => {
     preventDropdownClose(e);
-    setMode2(mode2 === Translate('hd_semua') ? Translate('hd_baru') : Translate('hd_semua'));
+    setMode2(mode2 === "Semua" ? "Baru" : "Semua");
   };
 
   const handleReadAll = (e) => {
@@ -103,8 +101,8 @@ function NotificationDropdownHeader() {
         className="dropdown-menu dropdown-menu-right ci-dropdown-notification pt-0 pb-0"
         aria-labelledby="dropdownMenuButton"
         style={{
-          backgroundColor: mode ? "" : "white",
-          // border: mode ? "1px solid white" : "1px solid black",
+          backgroundColor: mode ? "#0c0c0c" : "white",
+          border: mode ? "1px solid white" : "1px solid black",
         }}
       >
         <div
@@ -116,7 +114,7 @@ function NotificationDropdownHeader() {
             <div className="row">
               <div className="col py-2">
                 <p className="text-dark font-weight-bold mb-0 lable-title font-12">
-                  {Translate('hd_notifikasi')}
+                  NOTIFIKASI
                 </p>
               </div>
               <div
@@ -154,7 +152,7 @@ function NotificationDropdownHeader() {
                       <div>
                         {!items.read && (
                           <span className="counter text-white rounded bg-danger mr-2">
-                            {Translate('hd_baru')}
+                            Baru
                           </span>
                         )}
                         {showDelete === itemIndex ? (
@@ -215,7 +213,7 @@ function NotificationDropdownHeader() {
                     </div>
                   ) : (
                     <p className="text-white font-14 text-center lable-title mb-0">
-                      {Translate('hd_lebih_banyak')}
+                      Lihat lebih banyak
                     </p>
                   )}
                 </button>
@@ -225,7 +223,7 @@ function NotificationDropdownHeader() {
             <div className="row py-3 px-0 m-0 col-12">
               <div className="col-12 col-md-12">
                 <p className="text-white font-14 text-center lable-title mb-0">
-                  {Translate('hd_tidak_ada_notifikasi_baru')}
+                  Tidak ada notifikasi baru
                 </p>
               </div>
             </div>
@@ -241,7 +239,7 @@ function NotificationDropdownHeader() {
               <div className="row">
                 <div className="col-12 col-md-12 py-2 text-center">
                   <p className="text-dark font-weight-bold mb-0 lable-title font-12">
-                    {Translate('hd_tandai_semua_telah_dibaca')}
+                    Mark all as read
                   </p>
                 </div>
               </div>

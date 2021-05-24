@@ -18,6 +18,16 @@ import HeaderHomePage from '../../components/headerComponents/headerHomePage'
 // import DropdownListPanduan from './DropdownList'
 // import HelpNav from './HelpNav'
 
+import fb_grey from '../../assets/img/launchpad/fb_grey.svg'
+import twitter_grey from '../../assets/img/launchpad/twitter_grey.svg'
+import linkedin_grey from '../../assets/img/launchpad/linkedin_grey.svg'
+import fbwarna from '../../assets/img/launchpad/facebook-warna.svg'
+import twitterwarna from '../../assets/img/launchpad/twitter-warna.svg'
+import linkedinwarna from '../../assets/img/launchpad/linkedin-warna.svg'
+import telegramwarna from '../../assets/img/launchpad/telegram-warna.svg'
+import youtubewarna from '../../assets/img/launchpad/youtube-warna.svg'
+import dokumen from '../../assets/img/launchpad/dokumen.svg'
+
 function LaunchpadPorto() {
     const teams = [
         {
@@ -212,30 +222,36 @@ function LaunchpadPorto() {
                                     <p className="text-white mb-0 mt-2">{val.name}</p>
                                     <p className="text-white mb-0">{val.job}</p>
                                     <div className="d-flex justify-content-around mt-2">
-                                        <div style={{
-                                            backgroundColor: 'grey',
+                                        <a href="#" style={{
                                             height: '20px',
-                                            width: '20px',
-                                            borderRadius: '5px'
-                                        }} className="mr-2">
-
-                                        </div>
-                                        <div style={{
-                                            backgroundColor: 'grey',
+                                            width: '20px'
+                                        }}  className="mr-2">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px',
+                                                verticalAlign: 'top'
+                                            }} src={fb_grey}  />
+                                        </a> 
+                                        <a href="#" style={{
                                             height: '20px',
-                                            width: '20px',
-                                            borderRadius: '5px'
+                                            width: '20px'
                                         }}>
-
-                                        </div>
-                                        <div style={{
-                                            backgroundColor: 'grey',
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px',
+                                                verticalAlign: 'top'
+                                            }} src={twitter_grey}  />
+                                        </a> 
+                                        <a href="#" style={{
                                             height: '20px',
-                                            width: '20px',
-                                            borderRadius: '5px'
-                                        }} className="ml-2">
-
-                                        </div>
+                                            width: '20px'
+                                        }}  className="ml-2">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px',
+                                                verticalAlign: 'top'
+                                            }} src={linkedin_grey}  />
+                                        </a> 
                                     </div>
                                 </div>
                                } )
@@ -246,20 +262,51 @@ function LaunchpadPorto() {
                                 <p className="text-white mb-2 font-roboto font-16">Dokumen</p>
                                 <div>
                                     <button style={{
-                                        backgroundColor: 'transparent',
-                                        border: '1px solid white',
-                                        color: 'white',
-                                    }} className="font-roboto font-12 mr-2 p-2">Whitepaper</button>
+                                       backgroundColor: 'transparent',
+                                       border: '1px solid white',
+                                       color: 'white',
+                                    }} className="mr-3">
+                                        <div className="d-flex align-items-center p-2">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px'
+                                            }} src={dokumen} className="mr-2" />
+                                            <p className="font-roboto font-12 mb-0">
+                                                Whitepaper
+                                            </p>
+                                        </div>
+                                    </button>
                                     <button style={{
-                                        backgroundColor: 'transparent',
-                                        border: '1px solid white',
-                                        color: 'white',
-                                    }} className="font-roboto font-12 p-2">Presentasi</button>
+                                       backgroundColor: 'transparent',
+                                       border: '1px solid white',
+                                       color: 'white',
+                                    }} className="mr-3">
+                                        <div className="d-flex align-items-center p-2">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px'
+                                            }} src={dokumen} className="mr-2" />
+                                            <p className="font-roboto font-12 mb-0">
+                                                Presentasi
+                                            </p>
+                                        </div>
+                                    </button>
                                     <button style={{
-                                        backgroundColor: 'transparent',
-                                        border: '1px solid white',
-                                        color: 'white',
-                                    }} className="font-roboto font-12 ml-2 p-2">Ringkasan Berita</button>
+                                       backgroundColor: 'transparent',
+                                       border: '1px solid white',
+                                       color: 'white',
+                                    }} className="mr-3">
+                                        <div className="d-flex align-items-center p-2">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px'
+                                            }} src={dokumen} className="mr-2" />
+                                            <p className="font-roboto font-12 mb-0">
+                                                Ringkasan Berita
+                                            </p>
+                                        </div>
+                                    </button>
+                                    
                                 </div>
                            </div>
                        </div>
@@ -271,31 +318,81 @@ function LaunchpadPorto() {
                                         backgroundColor: 'transparent',
                                         color: 'white',
                                         border: 'none',
-                                    }} className="font-roboto font-12 m-2">Facebook</button>
+                                    }} className="font-roboto font-14 mt-2 mr-2 mb-2 ml-0 align-items-center">
+                                        <div className="d-flex align-items-center">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px'
+                                            }} src={fbwarna} className="mr-2" />
+                                            <p className="text-white mb-0">
+                                                Facebook
+                                            </p>
+                                        </div>
+                                    </button>
                                     <button style={{
                                         backgroundColor: 'transparent',
-                                        border: 'none',
                                         color: 'white',
-                                    }} className="font-roboto font-12 m-2">Twitter</button>
+                                        border: 'none',
+                                    }} className="font-roboto font-14 mt-2 mr-2 mb-2 ml-0 align-items-center">
+                                        <div className="d-flex align-items-center">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px'
+                                            }} src={twitterwarna} className="mr-2" />
+                                            <p className="text-white mb-0">
+                                                Twitter
+                                            </p>
+                                        </div>
+                                    </button>
                                     <button style={{
                                         backgroundColor: 'transparent',
-                                        border: 'none',
                                         color: 'white',
-                                    }} className="font-roboto font-12 m-2">LinkedIn</button>
+                                        border: 'none',
+                                    }} className="font-roboto font-14 mt-2 mr-2 mb-2 ml-0 align-items-center">
+                                        <div className="d-flex align-items-center">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px'
+                                            }} src={linkedinwarna} className="mr-2" />
+                                            <p className="text-white mb-0">
+                                                LinkedIn
+                                            </p>
+                                        </div>
+                                    </button>
                                     <button style={{
                                         backgroundColor: 'transparent',
-                                        border: 'none',
                                         color: 'white',
-                                    }} className="font-roboto font-12 m-2">Telegram</button>
-                                     <button style={{
+                                        border: 'none',
+                                    }} className="font-roboto font-14 mt-2 mr-2 mb-2 ml-0 align-items-center">
+                                        <div className="d-flex align-items-center">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px'
+                                            }} src={telegramwarna} className="mr-2" />
+                                            <p className="text-white mb-0">
+                                                Telegram
+                                            </p>
+                                        </div>
+                                    </button>
+                                    <button style={{
                                         backgroundColor: 'transparent',
-                                        border: 'none',
                                         color: 'white',
-                                    }} className="font-roboto font-12 m-2">Youtube</button>
+                                        border: 'none',
+                                    }} className="font-roboto font-14 mt-2 mr-2 mb-2 ml-0 align-items-center">
+                                        <div className="d-flex align-items-center">
+                                            <img style={{
+                                                height: '20px',
+                                                width: '20px'
+                                            }} src={youtubewarna} className="mr-2" />
+                                            <p className="text-white mb-0">
+                                                Youtube
+                                            </p>
+                                        </div>
+                                    </button>
                                 </div>
                            </div>
                        </div>
-                    </div>
+                    </div>  
                 </div>
             </div>
 
