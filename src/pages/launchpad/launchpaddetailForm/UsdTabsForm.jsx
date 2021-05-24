@@ -9,7 +9,7 @@ function UsdTabsForm() {
                 </div>
                 <div className="col-12 col-md-6 text-left text-sm-right">
                     <label className="text-gold font-roboto font-14 mb-0">Balance</label>
-                    <p className="text-white font-roboto font-16 mb-0">0.000010121 USDT</p>
+                    <p className="text-white font-roboto font-16 mb-0">0.000010121 USD</p>
                 </div>
             </div>
 
@@ -21,7 +21,7 @@ function UsdTabsForm() {
                         </div>
                         <input type="number" className="form-control ci-inputDefault-border-input" placeholder="Input Price" aria-label="Username" aria-describedby="basic-addon1" style={{paddingLeft: "62px"}}/>
                         <div className="ci-inputDefault-border-appendR">
-                            <label className="text-gold font-roboto font-14 mb-0 ci-inputDefault-border-appendL-icon">USDT</label>
+                            <label className="text-gold font-roboto font-14 mb-0 ci-inputDefault-border-appendL-icon">USD</label>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ function UsdTabsForm() {
                         </div>
                         <input type="number" className="form-control ci-inputDefault-border-input" placeholder="Input Total" aria-label="Username" aria-describedby="basic-addon1" style={{paddingLeft: "62px"}}/>
                         <div className="ci-inputDefault-border-appendR">
-                            <label className="text-gold font-roboto font-14 mb-0 ci-inputDefault-border-appendL-icon">USDT</label>
+                            <label className="text-gold font-roboto font-14 mb-0 ci-inputDefault-border-appendL-icon">USD</label>
                         </div>
                     </div>
                 </div>

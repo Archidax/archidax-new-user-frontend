@@ -100,8 +100,8 @@ function EthTabsForm() {
                 <div className="col-12 col-md-12">
                     <div className="form-group mb-0">
                         <div className="custom-control custom-switch switch-secondary">
-                            <input type="checkbox" className="custom-control-input" id="customSwitchSuccess"/>
-                            <label className="font-12 custom-control-label text-muted text-white" for="customSwitchSuccess">
+                            <input type="checkbox" className="custom-control-input" id="customSwitch_1"/>
+                            <label className="font-12 custom-control-label text-muted text-white" for="customSwitch_1">
                                 I agree to the Terms Of Use (including purchaser's citizenship and/or residency restrictions) and Privacy Policy
                             </label>
                         </div>
@@ -113,8 +113,8 @@ function EthTabsForm() {
                 <div className="col-12 col-md-12">
                     <div className="form-group mb-0">
                         <div className="custom-control custom-switch switch-secondary">
-                            <input type="checkbox" className="custom-control-input" id="customSwitchSuccess"/>
-                            <label className="font-12 custom-control-label text-muted text-white" for="customSwitchSuccess">
+                            <input type="checkbox" className="custom-control-input" id="customSwitch_2"/>
+                            <label className="font-12 custom-control-label text-muted text-white" for="customSwitch_2">
                                 I am not a citizen and/or resident of FATF blacklist countries and/or countries not recognized by the Estonia/EU.
                             </label>
                         </div>
