@@ -15,7 +15,7 @@ export default {
         // Banner
         hb_title:"Sell, Buy, and Invest Crypto Assets Easily, Safely, and Convenient",
         hb_text1:"Own your Crypto Assets",
-        hb_text2:"now on Cryptoindex!",
+        hb_text2:"now on Archidax!",
         hb_daftar:"Register Now",
         hb_masuk:"Login",
 
@@ -23,23 +23,23 @@ export default {
         hs_top_gainer:"Top Gainer",
         hs_top_loser:"Top Loser",
 
-        // Apa itu CryptoIndex
-        haic_title:"What is Cryptoindex?",
-        haic_text1:"Cryptoindex is a digital asset / crypto asset marketplace in Indonesia, you can buy and sell crypto assets such as Bitcoin, Ethereum, Cardano, Tether, Litecoin and dozens of other assets easily, safely and quickly.",
-        haic_text2:"Save and get profit from your crypto assets by joining Cryptoindex. Benefit from trading and investing in Cryptoindex!",
+        // Apa itu Archidax
+        haic_title:"What is Archidax ?",
+        haic_text1:"Archidax is a crypto asset exchange platform. You can trade and invest crypto assets such as Bitcoin, Ethereum, Cardano, Tether, Litecoin, and dozens of other assets easily, safely, and quickly.",
+        haic_text2:"Save and get profit from your crypto assets by joining Archidax. Benefit from trading and investing only at Archidax!",
 
-        // Kenapa Memilih CryptoIndex
-        hkmc_title:"Why Choose CryptoIndex?",
-        hkmc_text1:"Cryptoindex is a crypto asset exchange that has a high level of security, all transactions and processes are designed in a practical manner, as well as an investment experience that you can easily get here.",
-        hkmc_text2:"Cryptoindex accepts deposits from all local Indonesian banks (free of charge) to make crypto asset purchases. Your crypto assets can be converted into rupiah in just one hour.",
+        // Kenapa Memilih Archidax
+        hkmc_title:"Why Choose Archidax ?",
+        hkmc_text1:"Archidax is a crypto asset exchange that has a high level of security, all transactions and processes are designed in a practical manner, as well as an investment experience that you can easily get here.",
+        hkmc_text2:"You can trade and invest with many crypto assets such as Bitcoin, Ethereum, Tether, CODEO GOLD and other crypto assets.",
         hkmc_subtitle1:"Buying and Selling Crypto Assets",
-        hkmc_subtitle1a:"Cryptoindex accepts deposits from all local Indonesian banks (free of charge) to make crypto asset purchases. Your crypto assets can be converted into rupiah in just one hour.",
+        hkmc_subtitle1a:"Archidax accepts PayPal or Credit Card / Debit balance deposits for Crypto Asset Trading. Crypto Asset Trading process can be done instantly or limit.",
         hkmc_subtitle2:"Crypto Asset Investment",
-        hkmc_subtitle2a:"With Cryptoindex, now you can take sure steps to invest. Invest your crypto assets today to prepare for a better future.",
+        hkmc_subtitle2a:"With Archidax, now you are sure for taking steps to invest. Invest your crypto assets today to prepare for a better future.",
         hkmc_subtitle3:"24 hour Transaction",
-        hkmc_subtitle3a:"Buying and selling crypto assets for 24 hours only on Cryptoindex, even on holidays.",
+        hkmc_subtitle3a:"Buying and selling crypto assets for 24 hours only on Archidax, even on holidays.",
         hkmc_subtitle4:"Member Services",
-        hkmc_subtitle4a:"Contact us via live chat or call the Call Center at phone number +628119041234",
+        hkmc_subtitle4a:"Contact us via live chat or email at: archidax.net@gmail.com",
 
         // Berita
         hberita:"Latest news",
@@ -80,7 +80,7 @@ export default {
 
         // Footer4
         f4_berlangganan: "Subscribe",
-        f4_anda: "You can subscribe to the latest news on Cryptoindex right now!",
+        f4_anda: "You can subscribe to the latest news on Archidax right now!",
         f4_masukan: "Enter your email here",
 
         // Dashboard
@@ -128,7 +128,7 @@ export default {
         db_pin: "PIN",
         db_chart_aset_anda : "Your Asset Chart",
         db_verifikasi_akun:"Account Verification",
-        db_langkah_verifikasi:"Verify your account now to open access to withdraw and deposit funds at Cryptoindex.",
+        db_langkah_verifikasi:"Verify your account now to open access to withdraw and deposit funds at Archidax.",
         db_langkah1: "Step 1",
         db_langkah2:"Step 2",
         db_akses_pasar_trading:"Access the trading market",
@@ -182,7 +182,7 @@ export default {
         wal_nama_koin: "Coin Name",
         wal_explorer: "Explorer",
         wal_saldo_aktif: "Active balance",
-        wal_saldo_beku: "Freeze Balance ",
+        wal_saldo_beku: "Frozen Balance ",
         wal_estimasi_nilai_idr: "Estimated Assets (IDR)",
         wal_status: "Status",
         wal_aksi: "Action",
@@ -201,7 +201,7 @@ export default {
         vc_umum: "General Voucher",
         vc_kode_voucher: "Voucher Code",
         vc_format_voucher: "Voucher format",
-        vc_jika_anda: "If you already have a voucher code, please enter the code below to withdraw the voucher into a balance at Cryptoindex",
+        vc_jika_anda: "If you already have a voucher code, please enter the code below to withdraw the voucher into a balance at Archidax",
         vc_apabila_anda: "If you don't have a voucher code, you can get it by buying a voucher at several online changers",
         vc_nominal_rupiah: "Nominal Rupiah",
 
@@ -233,8 +233,8 @@ export default {
 
         // Program Afiliasi
         pa_program_afiliasi : "Affiliate Program",
-        pa_text_dapatkan : "Get referral commission or additional income from Cryptoindex!",
-        pa_text_sebarkan_link : "Spread the Affiliate Link above on your social media, in the WA group, Telegram Group, blog, forum, email, and so on. Ask them to register using your Affiliate URL. By referring Cryptoindex to friends, relatives or colleagues.",
+        pa_text_dapatkan : "Get referral commission or additional income from Archidax!",
+        pa_text_sebarkan_link : "Spread the Affiliate Link above on your social media, in the WA group, Telegram Group, blog, forum, email, and so on. Ask them to register using your Affiliate URL. By referring Archidax to friends, relatives or colleagues.",
         pa_text_dengan_mereferensikan : "You will get a commission of 30% of the withdrawal fee for 6 months after registration.",
         pa_jumlah_teman : "Number of Friends",
         pa_teman_terverivikasi : "Verified Friends",
@@ -445,7 +445,7 @@ export default {
         ka_kode_auth:"Authenticator Code",
         ka_text_scan:"Scan the barcode below with Google Authenticator, then enter the resulting PIN",
         ka_aktifkan_pin:"Activate PIN",
-        ka_text_warning_pin:"Save and do not share your PIN code with anyone, including the Cryptoindex support team.",
+        ka_text_warning_pin:"Save and do not share your PIN code with anyone, including the Archidax support team.",
         ka_konfirmasi_pin:"Confirm Pin",
 
     }

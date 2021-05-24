@@ -16,7 +16,7 @@ export default {
         // Banner
         hb_title:"Jual, Beli, dan Investasi Aset Kripto dengan Mudah, Aman, dan Praktis.",
         hb_text1:"Miliki Aset Kripto anda",
-        hb_text2:"sekarang juga di Cryptoindex !",
+        hb_text2:"sekarang juga di Archidax !",
         hb_daftar:"Daftar Sekarang",
         hb_masuk:"Masuk",
 
@@ -24,27 +24,27 @@ export default {
         hs_top_gainer:"Top Gainer",
         hs_top_loser:"Top Loser",
 
-        // Apa itu CryptoIndex
-        haic_title:"Apa itu Cryptoindex ?",
-        haic_text1:"Cryptoindex adalah platform jual beli (marketplace) aset digital / aset kripto yang ada di Indonesia, anda bisa melakukan jual beli aset kripto seperti Bitcoin, Ethereum, Cardano, Tether, Litecoin serta puluhan aset lainnya dengan mudah, aman, dan cepat.",
-        haic_text2:"Simpan dan dapatkan keuntungan dari aset kripto anda dengan bergabung di Cryptoindex. Dapatkan keuntungan dari trading dan investasi di Cryptoindex !",
+        // Apa itu Archidax
+        haic_title:"Apa itu Archidax ?",
+        haic_text1:"Archidax adalah platform pertukaran aset crypto. Anda bisa melakukan perdagangan dan investasi aset kripto seperti Bitcoin, Ethereum, Cardano, Tether, Litecoin serta puluhan aset lainnya dengan mudah, aman, dan cepat.",
+        haic_text2:"Simpan dan dapatkan keuntungan dari aset kripto anda dengan bergabung di Archidax. Dapatkan keuntungan dari trading dan investasi hanya di Archidax!",
 
-        // Kenapa Memilih CryptoIndex
-        hkmc_title:"Kenapa Memilih CryptoIndex?",
-        hkmc_text1:"Cryptoindex merupakan exchange aset kripto yang memiliki tingkat keamanan yang tinggi, semua transaksi dan proses dirancang secara praktis, serta pengalaman investasi yang mudah anda dapatkan disini.",
+        // Kenapa Memilih Archidax
+        hkmc_title:"Kenapa Memilih Archidax",
+        hkmc_text1:"Archidax merupakan exchange aset kripto yang memiliki tingkat keamanan yang tinggi, semua transaksi dan proses dirancang secara praktis, serta pengalaman investasi yang mudah anda dapatkan disini.",
         hkmc_text2:"Anda dapat melakukan trading dan investasi dengan banyak aset kripto seperti Bitcoin, Ethereum, Tether, CODEO GOLD dan aset kripto lainnya.",
-        hkmc_subtitle1:"Jual Beli Aset Kripto",
-        hkmc_subtitle1a:"Cryptoindex menerima deposit dari semua bank lokal Indonesia (tanpa biaya sedikitpun) untuk melakukan pembelian aset kripto. Aset kripto anda dapat diubah menjadi rupiah hanya dalam waktu satu jam saja.",
+        hkmc_subtitle1:"Perdagangan Aset Kripto",
+        hkmc_subtitle1a:"Archidax menerima deposit saldo dari PayPal ataupun Credit Card/Debit untuk Perdagangan Aset Crypto. Proses Perdagangan Aset Kripto dapat dilakukan secara instan atau limit..",
         hkmc_subtitle2:"Investasi Aset Kripto",
-        hkmc_subtitle2a:"Dengan Cryptoindex, sekarang anda bisa mengambil langkah pasti untuk investasi. Investasikan aset kripto anda saat ini untuk mempersiapkan masa depan yang lebih baik.",
+        hkmc_subtitle2a:"Dengan Archidax, sekarang anda bisa mengambil langkah pasti untuk investasi. Investasikan aset kripto anda saat ini untuk mempersiapkan masa depan yang lebih baik.",
         hkmc_subtitle3:"Transaksi 24 Jam",
-        hkmc_subtitle3a:"Transaksi jual beli aset kripto selama 24 jam hanya di Cryptoindex, bahkan pada hari libur.",
+        hkmc_subtitle3a:"Transaksi jual beli aset kripto selama 24 jam hanya di Archidax, bahkan pada hari libur.",
         hkmc_subtitle4:"Layanan Member",
-        hkmc_subtitle4a:"Kontak kami melalui live chat atau hubungi Call Center di nomor telepon +628119041234.",
+        hkmc_subtitle4a:"Kontak kami melalui live chat atau email di : archidax.net@gmail.com",
 
         // Berita
         hberita:"Berita Terbaru",
-        hberita_kembali:"Kembali ke Cryptoindex.com",
+        hberita_kembali:"Kembali ke Archidax.com",
 
         // 
         // Footer
@@ -75,7 +75,7 @@ export default {
 
         // Footer4
         f4_berlangganan: "Berlangganan",
-        f4_anda: "Anda dapat berlangganan berita-berita terbaru di Cryptoindex sekarang juga!",
+        f4_anda: "Anda dapat berlangganan berita-berita terbaru di Archidax sekarang juga!",
         f4_masukan: "Masukan email anda disini",
 
         // Dashboard
@@ -122,7 +122,7 @@ export default {
         db_pin: "PIN",
         db_chart_aset_anda : "Grafik Asset Anda",
         db_verifikasi_akun:"Verifikasi Akun",
-        db_langkah_verifikasi:"Lakukan verifikasi akun anda sekarang juga untuk membuka akses tarik dan setor dana di Cryptoindex.",
+        db_langkah_verifikasi:"Lakukan verifikasi akun anda sekarang juga untuk membuka akses tarik dan setor dana di Archidax.",
         db_langkah1: "Langkah 1",
         db_langkah2:"Langkah 2",
         db_akses_pasar_trading:"Akses pasar trading",
@@ -199,7 +199,7 @@ export default {
         vc_umum: "Voucher Umum",
         vc_kode_voucher: "Kode Voucher",
         vc_format_voucher: "Format voucher",
-        vc_jika_anda: "Jika Anda sudah memiliki kode voucher, silakan masukan kode tersebut di bawah ini untuk mencairkan voucher menjadi saldo di Cryptoindex",
+        vc_jika_anda: "Jika Anda sudah memiliki kode voucher, silakan masukan kode tersebut di bawah ini untuk mencairkan voucher menjadi saldo di Archidax",
         vc_apabila_anda: "Apabila Anda belum memiliki kode voucher, Anda bisa mendapatkannya dengan membeli voucher di beberapa changer Online",
         vc_nominal_rupiah: "Nominal Rupiah",
 
@@ -230,9 +230,9 @@ export default {
 
         // Program Afiliasi
         pa_program_afiliasi :"Program Afiliasi",
-        pa_text_dapatkan : "Dapatkan komisi referral atau tambahan penghasilan dari Cryptoindex !",
+        pa_text_dapatkan : "Dapatkan komisi referral atau tambahan penghasilan dari Archidax !",
         pa_text_sebarkan_link : "Sebarkan Link Afiliasi di atas di sosial media anda , di group WA, Group Telegram, blog, forum, email, dan sebagainya. Minta mereka untuk melakukan registrasi menggunakan URL Afiliasi Anda.",
-        pa_text_dengan_mereferensikan : "Dengan mereferensikan Cryptoindex kepada teman, saudara atau rekan kerja. Anda akan mendapatkan komisi sebesar 30% dari biaya Withdraw selama 6 bulan setelah pendaftaran.",
+        pa_text_dengan_mereferensikan : "Dengan mereferensikan Archidax kepada teman, saudara atau rekan kerja. Anda akan mendapatkan komisi sebesar 30% dari biaya Withdraw selama 6 bulan setelah pendaftaran.",
         pa_jumlah_teman : "Jumlah Teman",
         pa_teman_terverivikasi : "Teman Terverifikasi",
         pa_komisi : "Komisi",
@@ -442,7 +442,7 @@ export default {
         ka_kode_auth:"Kode Authenticator",
         ka_text_scan:"Scan barcode di bawah dengan Google Authenticator, kemudian masukan PIN yang dihasilkan",
         ka_aktifkan_pin:"Aktifkan PIN",
-        ka_text_warning_pin:"Simpan dan jangan beritahukan kode PIN anda kepada siapa pun, termasuk ke tim support Cryptoindex.",
+        ka_text_warning_pin:"Simpan dan jangan beritahukan kode PIN anda kepada siapa pun, termasuk ke tim support Archidax.",
         ka_konfirmasi_pin:"Konfirmasi Pin",
 
     }

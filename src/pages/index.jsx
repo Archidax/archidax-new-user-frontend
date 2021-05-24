@@ -31,6 +31,7 @@ import { I18nProvider, LOCALES } from "../i18n";
 import FeeRate from "./feeRatepage/FeeRate";
 import ScrollToTop from "../components/scrolltotop/ScrollToTop";
 import Pasar from "./tradepage";
+import LaunchpadPages from "./launchpad/index";
 
 // pasar
 // import PasarHomePage from "./pasarHomepage";
@@ -48,13 +49,12 @@ import { GetListingExchange, setMyFav } from "../stores/pasartrading/functions";
 import KeuanganPage from "./keuangan";
 
 export default function MainPages() {
-  const [locale, setLocale] = React.useState(LOCALES.ENGLISH);
+  const [locale, setLocale] = React.useState("");
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
   const { email } = useSelector((state) => state?.profileReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     if (isLoginAccount) {
       if (localStorage.getItem("myFav") && email) {
         const data = JSON.parse(localStorage.getItem("myFav"));
@@ -64,19 +64,28 @@ export default function MainPages() {
     }
   }, [email, dispatch, isLoginAccount]);
 
-
-  // useEffect(() => {
-  //   axios
-  //     .get("https://ipclient.herokuapp.com/")
-  //     .then(({ data }) => {
-  //       if (data.country === "ID") {
-  //         setLocale(LOCALES.INDONESIA);
-  //       } else {
-  //         setLocale(LOCALES.ENGLISH);
-  //       }
-  //     })
-  //     .catch((err) => {});
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem('language')) {
+      if (localStorage.getItem('language') === "ID") {
+        setLocale(LOCALES.INDONESIA);
+      } else {
+        setLocale(LOCALES.ENGLISH);
+      }
+    } else {
+      axios
+        .get("https://ipclient.herokuapp.com/")
+        .then(({ data }) => {
+          if (data.country === "ID") {
+            localStorage.setItem('language', "ID")
+            setLocale(LOCALES.INDONESIA);
+          } else {
+            localStorage.setItem('language', "EN")
+            setLocale(LOCALES.ENGLISH);
+          }
+        })
+        .catch((err) => { });
+    }
+  }, []);
 
   return (
     <>
@@ -160,6 +169,9 @@ export default function MainPages() {
             </Route>
             <Route path="/keuangan">
               <KeuanganPage />
+            </Route>
+            <Route path="/launchpad">
+              <LaunchpadPages />
             </Route>
             <ProtectedRoute path="/">
               <RouteDashboardPage setLocale={setLocale} />
