@@ -323,6 +323,10 @@ $chat-color: black;
   width: 85%;
   margin: auto;
 }
+.width-trade2 {
+  width: 95%;
+  margin: auto;
+}
 
 // Tabs
 // Global
@@ -453,7 +457,7 @@ $chat-color: black;
 
 .input-label-trade {
   position: absolute;
-  top: 45px;
+  top: 39px;
   left: 60px;
   background: $base-color1;
   color: $price-text;
@@ -465,7 +469,7 @@ $chat-color: black;
 }
 .input-label-trade-dark {
   position: absolute;
-  top: 45px;
+  top: 39px;
   left: 60px;
   background: #0d0d0d;
   color: $price-text-dark;
@@ -478,7 +482,7 @@ $chat-color: black;
 
 .input-label-trade2 {
   position: absolute;
-  top: 105px;
+  top: 97px;
   left: 60px;
   background: $base-color1;
   color: $price-text;
@@ -490,7 +494,7 @@ $chat-color: black;
 }
 .input-label-trade2-dark {
   position: absolute;
-  top: 105px;
+  top: 97px;
   left: 60px;
   background: #0d0d0d;
   color: $price-text-dark;
@@ -503,7 +507,7 @@ $chat-color: black;
 
 .input-label-trade3 {
   position: absolute;
-  top: 250px;
+  top: 235px;
   left: 60px;
   background: $base-color1;
   color: $price-text;
@@ -515,7 +519,7 @@ $chat-color: black;
 }
 .input-label-trade3-dark {
   position: absolute;
-  top: 250px;
+  top: 235px;
   left: 60px;
   background: #0d0d0d;
   color: $price-text-dark;
@@ -1494,3 +1498,20 @@ input:checked + .slider:before {
 .nav-trade-full {
   background-color: #00688f;
 }
+
+// Tabs Radio Button
+input ~ .tab {
+  display: none;
+}
+#tab1:checked ~ .tab.content1,
+#tab2:checked ~ .tab.content2 {
+  display: block;
+}
+
+// input ~ .tab2 {
+//   display: none;
+// }
+// #tab3:checked ~ .tab.content3,
+// #tab4:checked ~ .tab.content4 {
+//   display: block;
+// }

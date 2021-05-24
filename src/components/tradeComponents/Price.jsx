@@ -180,8 +180,8 @@ export default function Price() {
               mode ? "text-price-bottom-dark" : "text-price-bottom"
             } font-28`}
           >
-            {/* {price24H ? convertNumber.toRupiah(price24H.Close) : 0} */}
-            5.000.000
+            {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+            {/* 5.000.000 */}
           </div>
           {/* Change */}
           <div
@@ -190,8 +190,8 @@ export default function Price() {
             } font-24 ml-3 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
             // style={{ background: "#232323" }}
           >
-            {/* {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"} */}
-            50%
+            {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"}
+            {/* 50% */}
           </div>
         </div>
 
@@ -216,8 +216,8 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15`}
             >
-              {/* {price24H ? convertNumber.toRupiah(price24H.Volume) : 0} */}
-              30.652.175.748
+              {price24H ? convertNumber.toRupiah(price24H.Volume) : 0}
+              {/* 30.652.175.748 */}
             </div>
           </div>
           {/* High */}
@@ -237,8 +237,8 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15`}
             >
-              {/* {price24H ? convertNumber.toRupiah(price24H.High) : 0} */}
-              845.000.000
+              {price24H ? convertNumber.toRupiah(price24H.High) : 0}
+              {/* 845.000.000 */}
             </div>
           </div>
         </div>
@@ -264,8 +264,8 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15 `}
             >
-              {/* {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0} */}
-              30.652.175.748
+              {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
+              {/* 30.652.175.748 */}
             </div>
           </div>
           {/* Low */}
@@ -285,8 +285,8 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15`}
             >
-              {/* {price24H ? convertNumber.toRupiah(price24H.Low) : 0} */}
-              840.000.000
+              {price24H ? convertNumber.toRupiah(price24H.Low) : 0}
+              {/* 840.000.000 */}
             </div>
           </div>
         </div>

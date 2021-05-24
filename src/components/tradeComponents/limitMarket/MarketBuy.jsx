@@ -99,7 +99,7 @@ export default function MarketBuy() {
       }  col-12 px-0 py-3 height-kanan`}
     >
       <form onSubmit={isLoginPages ? PostBuyMarket : PostBuyInstantDisabled}>
-        <div className="width-trade">
+        <div className="width-trade2">
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
               <img src={mode ? buylogo : buylogo2} width="22px" alt="buylogo" />

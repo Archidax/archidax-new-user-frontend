@@ -65,50 +65,38 @@ export default function TabsLimitMarketChat() {
         >
           <div className="row col-12 m-0 p-0">
             <div className="col-lg-12 col-sm-12 col-xs-12 p-0">
-              <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    id="pills-home-tab"
-                    data-toggle="pill"
-                    href="#pills-home"
-                    role="tab"
-                    aria-controls="pills-home"
-                    aria-selected="true"
+              <div className={`${mode ? "bg-trade-dark" : "bg-trade"}`}>
+                <div className="width-trade pt-2">
+                  <input
+                    className="ml-3 mr-2"
+                    type="radio"
+                    name="tabs"
+                    id="tab1"
+                    checked
+                  />
+                  <label
+                    for="tab1"
+                    className="mr-4 font-13"
+                    style={{ color: mode ? "white" : "black" }}
                   >
                     Limit
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="pills-profile-tab"
-                    data-toggle="pill"
-                    href="#pills-profile"
-                    role="tab"
-                    aria-controls="pills-profile"
-                    aria-selected="false"
+                  </label>
+
+                  <input type="radio" name="tabs" id="tab2" className="mr-2" />
+                  <label
+                    for="tab2"
+                    className="font-13"
+                    style={{ color: mode ? "white" : "black" }}
                   >
                     Market
-                  </a>
-                </li>
-              </ul>
-              <div class="tab-content" id="pills-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-home"
-                  role="tabpanel"
-                  aria-labelledby="pills-home-tab"
-                >
-                  <LimitBuy />
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="pills-profile"
-                  role="tabpanel"
-                  aria-labelledby="pills-profile-tab"
-                >
-                  <MarketBuy />
+                  </label>
+
+                  <div class="tab content1">
+                    <LimitBuy />
+                  </div>
+                  <div class="tab content2">
+                    <MarketBuy />
+                  </div>
                 </div>
               </div>
             </div>
@@ -122,51 +110,39 @@ export default function TabsLimitMarketChat() {
         >
           <div className="row col-12 m-0 p-0">
             <div className="col-lg-12 col-sm-12 col-xs-12 p-0">
-              <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    id="pills-limit-sell-tab"
-                    data-toggle="pill"
-                    href="#pills-limit-sell"
-                    role="tab"
-                    aria-controls="pills-limit-sell"
-                    aria-selected="true"
+              <div className={`${mode ? "bg-trade-dark" : "bg-trade"}`}>
+                {/* <div className="width-trade pt-2">
+                  <input
+                    className="ml-3 mr-2"
+                    type="radio"
+                    name="tabs"
+                    id="tab3"
+                    checked
+                  />
+                  <label
+                    for="tab3"
+                    className="mr-4 font-13"
+                    style={{ color: mode ? "white" : "black" }}
                   >
                     Limit
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="pills-market-sell-tab"
-                    data-toggle="pill"
-                    href="#pills-market-sell"
-                    role="tab"
-                    aria-controls="pills-market-sell"
-                    aria-selected="false"
+                  </label>
+
+                  <input type="radio" name="tabs" id="tab4" className="mr-2" />
+                  <label
+                    for="tab4"
+                    className="font-13"
+                    style={{ color: mode ? "white" : "black" }}
                   >
                     Market
-                  </a>
-                </li>
-              </ul>
-              <div class="tab-content" id="pills-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-limit-sell"
-                  role="tabpanel"
-                  aria-labelledby="pills-limit-sell-tab"
-                >
-                  <LimitSell />
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="pills-market-sell"
-                  role="tabpanel"
-                  aria-labelledby="pills-market-sell-tab"
-                >
-                  <MarketSell />
-                </div>
+                  </label>
+
+                  <div class="tab2 content3">
+                    <LimitBuy />
+                  </div>
+                  <div class="tab2 content4">
+                    <MarketBuy />
+                  </div>
+                </div> */}
               </div>
             </div>
           </div>
