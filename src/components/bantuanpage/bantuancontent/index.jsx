@@ -7,6 +7,7 @@ import arrow from "../../../assets/img/arrow-next.png";
 import Judul from "./judulBantuan";
 import Artikel from "./artikelBantuan";
 import { baseAxios } from '../../../stores'
+import Translate from '../../../i18n/Translate';
 
 export default function HelpContent() {
 
@@ -41,7 +42,7 @@ export default function HelpContent() {
       <div className="navbar-bantuan">
         <div className="container artikel-bantuan-keterangan">
           <Link to="/bantuan">
-            <p className="ci-text-white font-12">Bantuan</p>
+            <p className="ci-text-white font-12">{Translate('bn_help')}</p>
           </Link>
           <img src={arrow}/>
           <Link to={`/bantuan/${params.categorySlug}`}>
@@ -64,7 +65,7 @@ export default function HelpContent() {
               </Switch>
             </div>
             <div className="col">
-              <h2 className="artikel-bantuan-column-title ci-text-white font-16">Artikel Terpopuler</h2>
+              <h2 className="artikel-bantuan-column-title ci-text-white font-16">{Translate('bn_artikel_terpopuler')}</h2>
               {
                 loadingPA?
                   <div>
@@ -83,7 +84,7 @@ export default function HelpContent() {
                     })
                   :
                     <div>
-                        <h6 className="artikel-bantuan-title kategori-lain ci-text-white font-12">No Data</h6>
+                        <h6 className="artikel-bantuan-title kategori-lain ci-text-white font-12">{Translate('vc_tidak_ada_data')}</h6>
                     </div>
               }
             </div>
@@ -91,9 +92,9 @@ export default function HelpContent() {
         </div>
       </div>
       <div className="container" style={{marginBottom:"5vh",}}>
-        <p className="ci-text-white font-12">Punya pertanyaan lain?
+        <p className="ci-text-white font-12">{Translate('bn_punya_pertanyaan')}
           <Link to="/bantuan/hubungi-kami">
-            <span className="link-hubungi-kami">Hubungi Kami</span>
+            <span className="link-hubungi-kami ml-2">{Translate('bn_hubungi_kami')}</span>
           </Link>
         </p>
       </div>

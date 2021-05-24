@@ -5,33 +5,41 @@ function Flags(props) {
   const { setLocale, flag } = props;
 
   const language = (type) => {
+    // if (type === "english") {
+    //   setLocale(LOCALES.ENGLISH);
+    //   // setCountry("English");
+    // } else if (type === "indonesia") {
+    //   setLocale(LOCALES.INDONESIA);
+    //   // setCountry("Indonesia");
+    // } else if (type === "france") {
+    //   // setLocale(LOCALES.FRANCE);
+    //   // setCountry("France");
+    // } else if (type === "japan") {
+    //   // setLocale(LOCALES.JAPAN);
+    //   // setCountry("Japan");
+    // } else if (type === "russia") {
+    //   // setLocale(LOCALES.RUSSIA);
+    //   // setCountry("Russia");
+    // } else if (type === "germany") {
+    //   // setLocale(LOCALES.GERMANY);
+    //   // setCountry("Germany");
+    // } else if (type === "korea") {
+    //   // setLocale(LOCALES.KOREA);
+    //   // setCountry("Korean");
+    // } else if (type === "vietnam") {
+    //   props.setLocale(LOCALES.VIETNAM);
+    //   // setCountry("Vietnam");
+    // } else if (type === "china") {
+    //   // setLocale(LOCALES.CHINA);
+    //   // setCountry("China");
+    // }
+
     if (type === "indonesia") {
       setLocale(LOCALES.INDONESIA);
-      // setCountry("Indonesia");
-    } else if (type === "english") {
+      localStorage.setItem('language', 'ID')
+    } else {
       setLocale(LOCALES.ENGLISH);
-      // setCountry("English");
-    } else if (type === "france") {
-      // setLocale(LOCALES.FRANCE);
-      // setCountry("France");
-    } else if (type === "japan") {
-      // setLocale(LOCALES.JAPAN);
-      // setCountry("Japan");
-    } else if (type === "russia") {
-      // setLocale(LOCALES.RUSSIA);
-      // setCountry("Russia");
-    } else if (type === "germany") {
-      // setLocale(LOCALES.GERMANY);
-      // setCountry("Germany");
-    } else if (type === "korea") {
-      // setLocale(LOCALES.KOREA);
-      // setCountry("Korean");
-    } else if (type === "vietnam") {
-      props.setLocale(LOCALES.VIETNAM);
-      // setCountry("Vietnam");
-    } else if (type === "china") {
-      // setLocale(LOCALES.CHINA);
-      // setCountry("China");
+      localStorage.setItem('language', 'EN')
     }
   };
 
@@ -70,13 +78,6 @@ function Flags(props) {
         <div className="container-fluid px-0 mt-0 mb-2 ci-dropdown-flag-scrollbar">
           <div
             className="dropdown-item ci-dropdown-flag-scrollbar-item py-2"
-            onClick={() => language("indonesia")}
-          >
-            <span className="flag-icon flag-icon-id flag-icon-squared ci-flag-item-icon" />
-            <span className="ml-2">Indonesia</span>
-          </div>
-          <div
-            className="dropdown-item ci-dropdown-flag-scrollbar-item py-2"
             onClick={() => language("english")}
           >
             <span className="flag-icon flag-icon-us flag-icon-squared ci-flag-item-icon" />
@@ -84,11 +85,18 @@ function Flags(props) {
           </div>
           <div
             className="dropdown-item ci-dropdown-flag-scrollbar-item py-2"
+            onClick={() => language("indonesia")}
+          >
+            <span className="flag-icon flag-icon-id flag-icon-squared ci-flag-item-icon" />
+            <span className="ml-2">Indonesia</span>
+          </div>
+          {/* <div
+            className="dropdown-item ci-dropdown-flag-scrollbar-item py-2"
             onClick={() => language("vietnam")}
           >
             <span className="flag-icon flag-icon-vn flag-icon-squared ci-flag-item-icon" />
             <span className="ml-2">Vietnam</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -48,7 +48,7 @@ function SetorRupiahPilih() {
         <>
             <div className="border border-info m-0 mt-3 p-3 tab2" style={langkah === 1 ? { display: 'block' } : { display: 'none' }}>
                 <div className="mb-3">
-                    <div className="label-title2 mb-2">Lengkapi informasi deposit di bawah:</div>
+                    <div className="label-title2 mb-2">Please fill the form below!</div>
                     <div className="px-2">
                         <div className="row">
                             <div onClick={(e) => pickNominal(e, 10)} className={`px-1 py-2 col-6 col-md-3 ci-bg-secondary text-center d-flex align-items-center justify-content-center font-bold font-14 ${nominal === 10 && customNominal === 0 ? "active-price" : ""}`} style={{ border: "4px solid #0b0c22", cursor: "pointer" }}>$ 10</div>
@@ -67,7 +67,7 @@ function SetorRupiahPilih() {
                 <div>
                     <div className="row pb-2">
                         <div className="col-12 col-md-4 label-title2">
-                            Jumlah Setor
+                            Amount
                         </div>
                         <div className="col-12 col-md-8">
                             <div className="input-group ci-inputDefault-bg">
@@ -83,7 +83,7 @@ function SetorRupiahPilih() {
                     </div>
                     <div className="row">
                         <div className="col-12 col-md-4 label-title2">
-                            Metode Pembayaran
+                            Payment Method
                         </div>
                         <div className="col">
                             {/* <DropdownCustom dataOptions={metode} value={metodePembayaran} onChange={setMetodePembayaran}/> */}

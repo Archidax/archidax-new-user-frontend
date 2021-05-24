@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import profilelogo from "../../../../../assets/img/header/headerdashboard/profile.svg";
 import keamananlogo from "../../../../../assets/img/header/headerdashboard/keamanan.svg";
 import riwayatlogo from "../../../../../assets/img/header/headerdashboard/riwayat.svg";
-import Translate from '../../../../../i18n/Translate';
+import Translate from "../../../../../i18n/Translate";
 
 function ProfileDropdown() {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function ProfileDropdown() {
       >
         <div className="ci-username-text-profile ml-2 mr-2 d-none d-lg-inline-block">
           <h6 className="ci-username">
-            <span>{Translate('hd_selamat_datang')}</span>
+            <span>{Translate("hd_selamat_datang")}</span>
             {profile.username}
           </h6>
         </div>
@@ -43,9 +43,9 @@ function ProfileDropdown() {
                 <img src={profilelogo} alt="profilelogo" />
               </div>
               <div className="col pl-0">
-                <p className="mb-0 font-bold">{Translate('hd_profile_saya')}</p>
+                <p className="mb-0 font-bold">{Translate("hd_profile_saya")}</p>
                 <p className="mb-1 small text-white text-trucated">
-                  {Translate('hd_informasi_data_diri')}
+                  {Translate("hd_informasi_data_diri")}
                 </p>
               </div>
             </div>
@@ -58,9 +58,9 @@ function ProfileDropdown() {
                 <img src={riwayatlogo} alt="riwayatlogo" />
               </div>
               <div className="col pl-0">
-                <p className="mb-0 font-bold">{Translate('hd_riwayat')}</p>
+                <p className="mb-0 font-bold">{Translate("hd_riwayat")}</p>
                 <p className="mb-1 small text-white text-trucated">
-                  {Translate('hd_lihat_riwayat_transaksi_anda')}
+                  {Translate("hd_lihat_riwayat_transaksi_anda")}
                 </p>
               </div>
             </div>
@@ -73,9 +73,11 @@ function ProfileDropdown() {
                 <img src={keamananlogo} alt="keamananlogo" />
               </div>
               <div className="col pl-0">
-                <p className="mb-0 font-bold">{Translate('hd_keamanan_akun')}</p>
+                <p className="mb-0 font-bold">
+                  {Translate("hd_keamanan_akun")}
+                </p>
                 <p className="mb-1 small text-white text-trucated">
-                  {Translate('hd_atur_keamanan')}
+                  {Translate("hd_atur_keamanan")}
                 </p>
               </div>
             </div>
@@ -92,7 +94,7 @@ function ProfileDropdown() {
               <i className="fas fa-sign-out-alt"></i>
             </div>
             <div className="col pl-0">
-              <p className="mb-0 text-danger">{Translate('hd_keluar')}</p>
+              <p className="mb-0 text-danger">{Translate("hd_keluar")}</p>
             </div>
           </div>
         </div>

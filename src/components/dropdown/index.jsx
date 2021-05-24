@@ -23,8 +23,8 @@ function DropdownCustom(props) {
 
     return (
         <div className={`dropdown ci-dropdown ${props.classDropdown} font-12`}>
-            <button disabled={props.disabled ? props.disabled : false} className="ci-dropdown-btn dropdown-toggle ci-md w-100" type="button" id="dropdownRiwayatTarikCrypto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{overflow: "hidden"}}>
-                 {props.value ? props.value : "Pilih Salah Satu"}
+            <button disabled={props.disabled ? props.disabled : false} className="ci-dropdown-btn dropdown-toggle ci-md w-100" type="button" id="dropdownRiwayatTarikCrypto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{overflow: "hidden", padding: "10px"}}>
+                 {props.value ? props.value : "Choose one"}
             </button>
             <div className="ci-dropdown-menu dropdown-menu w-100" aria-labelledby="dropdownRiwayatTarikCrypto">
                 {

@@ -53,7 +53,7 @@ export default function LiveMarket() {
                   Amount (
                   {PairSymbol ? PairSymbol.toString().split("/")[0] : null})
                 </th>
-                <th className="text-right">Waktu</th>
+                <th className="text-right">Time</th>
                 {/* <th className="text-right">Waktu</th> */}
               </tr>
             </thead>

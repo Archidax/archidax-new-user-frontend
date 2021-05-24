@@ -5,10 +5,12 @@ import { downloadRiwayatTransaksi, getRiwayatTransaksi } from '../../stores/inde
 import moment from 'moment'
 import { convertNumber } from '../../assets/js';
 import Pagination from 'react-js-pagination'
+import Translate from '../../i18n/Translate';
 
 const tableHeader = [
-  "Waktu", "Pair", "Jenis", "Jumlah", "Harga", "Total Harga", "Status",
+  Translate('rw_waktu'), Translate('rw_pair'), Translate('rw_jenis'), Translate('rw_jumlah'), Translate('rw_harga'), Translate('rw_total_harga'), Translate('rw_status'),
 ];
+
 
 export default function RiwayatTransaksi() {
   const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
