@@ -3,25 +3,17 @@ import logo1 from "../../../assets/img/homepage/keuntungan/1.png";
 import logo2 from "../../../assets/img/homepage/keuntungan/2.png";
 import logo3 from "../../../assets/img/homepage/keuntungan/3.png";
 import logo4 from "../../../assets/img/homepage/keuntungan/4.png";
+import Translate from "../../../i18n/Translate";
 
 export default function DalamCrypto() {
   return (
     <div className="col-lg-8 offset-lg-2 py-5">
       <div>
-        <h4 className="text-homepage-yellow">Lorem, ipsum.</h4>
+        <h4 className="text-homepage-yellow">{Translate("hkmc_title")}</h4>
       </div>
       <div className="col-lg-6 px-0">
-        <h5 className="text-white font-16">
-          Cryptoindex is a crypto asset exchange that has a high level of
-          security, all transactions and processes are designed in a practical
-          manner, as well as an investment experience that you can easily get
-          here.
-        </h5>
-        <h5 className="text-white font-16">
-          Cryptoindex accepts deposits from all local Indonesian banks (free of
-          charge) to make crypto asset purchases. Your crypto assets can be
-          converted into rupiah in just one hour.
-        </h5>
+        <h5 className="text-white font-16">{Translate("hkmc_text1")}</h5>
+        <h5 className="text-white font-16">{Translate("hkmc_text2")}</h5>
       </div>
       <div className="mt-4" style={{ display: "flex" }}>
         <div

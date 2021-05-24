@@ -33,7 +33,7 @@ function Home(props) {
         <ApaItuCrypto setLocale={props.setLocale} />
         <DalamCrypto setLocale={props.setLocale} />
         <CalculatorCrypto setLocale={props.setLocale} />
-        <KenapaMemilihCrypto setLocale={props.setLocale} />
+        {/* <KenapaMemilihCrypto setLocale={props.setLocale} /> */}
         <NewsHomepage setLocale={props.setLocale} />
         <FooterHomePage setLocale={props.setLocale} />
       </div>
