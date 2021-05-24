@@ -69,7 +69,6 @@ export const parseTime = (date) => {
 }
 
 export const parseFixedNumber = (amount, maxDecimals = 8) => {
-  console.log(maxDecimals, 'decimals <==')
   let newAmount = amount ? amount.toString().replaceAll('.', '') : ''
   // let front = parseInt(newAmount).toString()
   /////

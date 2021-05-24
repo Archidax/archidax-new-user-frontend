@@ -44,8 +44,8 @@ export * from './affiliasi/functions'
 
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
-// export const baseUrl = 'http://localhost:8000';
-export const baseUrl = 'https://dev.archidax.net';
+export const baseUrl = 'http://localhost:8000';
+// export const baseUrl = 'https://dev.archidax.net';
 // export const baseUrl = 'http://192.168.1.32:8000';
 ///////////////////////////////////////////////////////////////
 export const baseUserSocketUrl = 'https://dev.archidax.net';
@@ -59,12 +59,12 @@ export const baseUrlTradeVersion='/api/v1';
 
 export const baseAxios = axios.create({ 
     baseURL: baseUrl,
-    timeout: 10000,
+    // timeout: 10000,
 });
 
 export const baseAxiosTrading = axios.create({ 
     baseURL: baseUrlTrade+baseUrlTradeVersion,
-    timeout: 10000,
+    // timeout: 10000,
 });
 
 const rootReducer = combineReducers({
