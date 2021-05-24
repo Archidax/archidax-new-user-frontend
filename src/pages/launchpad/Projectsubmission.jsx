@@ -61,6 +61,41 @@ function LaunchpadPorto() {
     }
 
 
+    // Team
+    const [memberDetails, setMemberDetails] = useState([{
+        name: "",
+        facebook: "",
+        twitter: "",
+        linkedin: ""
+    }])
+
+    const addTeamMember = () => {
+        let form = {
+            name: "",
+            facebook: "",
+            twitter: "",
+            linkedin: ""
+        }
+        setMemberDetails([...memberDetails, form])
+        console.log(memberDetails)
+    }
+
+    const removeMember = (index) => {
+        console.log(index, memberDetails)
+        let members = memberDetails.splice(index, 1)
+        setMemberDetails(members)
+    }
+
+    const onChangeMember = (index, name, value,) => {
+        let tmp = [...memberDetails]
+        // tmp = tmp.map((el, i) => {
+        //     if (i === index) {
+        //         {...el, name: value}
+        //     }
+        // })
+
+    }
+
     return (
         <div className="panduan-pengguna">
             <HeaderHomePage />
@@ -106,7 +141,7 @@ function LaunchpadPorto() {
                                         <p className="ci-text-white mb-0 label-title">Industry</p>
                                     </div>
                                     <div className="col-12">
-                                        <Dropdown searchBar={false}/>
+                                        <Dropdown searchBar={false} />
                                     </div>
                                 </div>
                                 <div className="row no-gutters mb-2">
@@ -401,7 +436,34 @@ function LaunchpadPorto() {
                     </div>
                 </div>
                 <div className="row no-gutters">
-                    <CardTeamMember/>
+                    <div className="row no-gutters mb-2">
+                        <div style={{
+                            borderBottom: '1px solid white'
+                        }} className="col-12 d-flex align-items-center">
+                            <p style={{
+                                fontWeight: '800',
+                                letterSpacing: "1px"
+                            }} className="ci-text-white font-roboto font-18 mb-2 text-gold">Team</p>
+                        </div>
+                    </div>
+
+                    {
+                        memberDetails.map((el, index) => {
+                            return <CardTeamMember key={index} removeFunc={() => removeMember(index)} onChangeMember={onChangeMember} />
+                        })
+                    }
+
+                    <div className="col-12 no-gutters mt-2">
+                        <div className="row mt-2">
+                            <div className="col-12 d-flex justify-content-end">
+                                <button
+                                    onClick={() => addTeamMember()}
+                                    className="ci-btn-custom-1 py-1">
+                                    Add Team Member <i className="fas fa-plus ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="row">
@@ -423,29 +485,29 @@ function LaunchpadPorto() {
                                         for="inputFile"
                                         className="mb-0 ml-4"
                                         style={{
-                                        background: "#454964",
-                                        color: "white",
-                                        padding: "5px 14px",
-                                        borderRadius: "4px",
+                                            background: "#454964",
+                                            color: "white",
+                                            padding: "5px 14px",
+                                            borderRadius: "4px",
                                         }}
                                     >
                                         Upload Image Whitepaper
                                     </label>
                                     <input
                                         style={{
-                                        display: "none",
+                                            display: "none",
                                         }}
                                         onChange={(e) => {
                                             // imageSizeError(e.target.files[0], 1000000, () =>
                                             // setImg(e.target.files[0])
                                             // );
-                                            }
+                                        }
                                         }
                                         id="inputFile"
                                         type="file"
                                         accept=".png, .jpg, .jpeg"
                                     />
-                                        {/* <div className="pl-3 unggah-flex">
+                                    {/* <div className="pl-3 unggah-flex">
                                             <span className="ci-text-white label-title font-13">
                                             {img ? img.name : "Belum memilih file.."}
                                             </span>
@@ -459,29 +521,29 @@ function LaunchpadPorto() {
                                         for="inputFile"
                                         className="mb-0 ml-4"
                                         style={{
-                                        background: "#454964",
-                                        color: "white",
-                                        padding: "5px 14px",
-                                        borderRadius: "4px",
+                                            background: "#454964",
+                                            color: "white",
+                                            padding: "5px 14px",
+                                            borderRadius: "4px",
                                         }}
                                     >
                                         Upload Image Presentation
                                     </label>
                                     <input
                                         style={{
-                                        display: "none",
+                                            display: "none",
                                         }}
                                         onChange={(e) => {
                                             // imageSizeError(e.target.files[0], 1000000, () =>
                                             // setImg(e.target.files[0])
                                             // );
-                                            }
+                                        }
                                         }
                                         id="inputFile"
                                         type="file"
                                         accept=".png, .jpg, .jpeg"
                                     />
-                                        {/* <div className="pl-3 unggah-flex">
+                                    {/* <div className="pl-3 unggah-flex">
                                             <span className="ci-text-white label-title font-13">
                                             {img ? img.name : "Belum memilih file.."}
                                             </span>
@@ -495,29 +557,29 @@ function LaunchpadPorto() {
                                         for="inputFile"
                                         className="mb-0 ml-4"
                                         style={{
-                                        background: "#454964",
-                                        color: "white",
-                                        padding: "5px 14px",
-                                        borderRadius: "4px",
+                                            background: "#454964",
+                                            color: "white",
+                                            padding: "5px 14px",
+                                            borderRadius: "4px",
                                         }}
                                     >
                                         Upload Image Executive Summary
                                     </label>
                                     <input
                                         style={{
-                                        display: "none",
+                                            display: "none",
                                         }}
                                         onChange={(e) => {
                                             // imageSizeError(e.target.files[0], 1000000, () =>
                                             // setImg(e.target.files[0])
                                             // );
-                                            }
+                                        }
                                         }
                                         id="inputFile"
                                         type="file"
                                         accept=".png, .jpg, .jpeg"
                                     />
-                                        {/* <div className="pl-3 unggah-flex">
+                                    {/* <div className="pl-3 unggah-flex">
                                             <span className="ci-text-white label-title font-13">
                                             {img ? img.name : "Belum memilih file.."}
                                             </span>
@@ -548,9 +610,9 @@ function LaunchpadPorto() {
                                             />
                                             <div className="ci-inputDefault-bg-appendL">
                                                 <i
-                                                className={
-                                                    "fab fa-facebook-square ci-inputDefault-bg-appendL-icon ci-text-white"
-                                                } style={{fontSize:'30px'}}
+                                                    className={
+                                                        "fab fa-facebook-square ci-inputDefault-bg-appendL-icon ci-text-white"
+                                                    } style={{ fontSize: '30px' }}
                                                 ></i>
                                             </div>
                                         </form>
@@ -564,9 +626,9 @@ function LaunchpadPorto() {
                                             />
                                             <div className="ci-inputDefault-bg-appendL">
                                                 <i
-                                                className={
-                                                    "fab fa-twitter ci-inputDefault-bg-appendL-icon ci-text-white"
-                                                } style={{fontSize:'30px'}}
+                                                    className={
+                                                        "fab fa-twitter ci-inputDefault-bg-appendL-icon ci-text-white"
+                                                    } style={{ fontSize: '30px' }}
                                                 ></i>
                                             </div>
                                         </form>
@@ -580,9 +642,9 @@ function LaunchpadPorto() {
                                             />
                                             <div className="ci-inputDefault-bg-appendL">
                                                 <i
-                                                className={
-                                                    "fab fa-linkedin ci-inputDefault-bg-appendL-icon ci-text-white"
-                                                } style={{fontSize:'30px'}}
+                                                    className={
+                                                        "fab fa-linkedin ci-inputDefault-bg-appendL-icon ci-text-white"
+                                                    } style={{ fontSize: '30px' }}
                                                 ></i>
                                             </div>
                                         </form>
@@ -596,9 +658,9 @@ function LaunchpadPorto() {
                                             />
                                             <div className="ci-inputDefault-bg-appendL">
                                                 <i
-                                                className={
-                                                    "fab fa-telegram ci-inputDefault-bg-appendL-icon ci-text-white"
-                                                } style={{fontSize:'30px'}}
+                                                    className={
+                                                        "fab fa-telegram ci-inputDefault-bg-appendL-icon ci-text-white"
+                                                    } style={{ fontSize: '30px' }}
                                                 ></i>
                                             </div>
                                         </form>
@@ -612,9 +674,9 @@ function LaunchpadPorto() {
                                             />
                                             <div className="ci-inputDefault-bg-appendL">
                                                 <i
-                                                className={
-                                                    "fab fa-youtube ci-inputDefault-bg-appendL-icon ci-text-white"
-                                                } style={{fontSize:'30px',}}
+                                                    className={
+                                                        "fab fa-youtube ci-inputDefault-bg-appendL-icon ci-text-white"
+                                                    } style={{ fontSize: '30px', }}
                                                 ></i>
                                             </div>
                                         </form>

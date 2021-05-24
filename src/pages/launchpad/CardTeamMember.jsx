@@ -1,19 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Dropdown } from 'react-bootstrap'
 
-function CardTeamMember() {
+function CardTeamMember({ key, removeFunc, onChangeMember }) {
     return (
-        <div className="col-12 col-xl-12">
-            <div className="row no-gutters mb-2">
-                <div style={{
-                    borderBottom: '1px solid white'
-                }} className="col-12 d-flex align-items-center">
-                    <p style={{
-                        fontWeight: '800',
-                        letterSpacing: "1px"
-                    }} className="ci-text-white font-roboto font-18 mb-2">Team</p>
-                </div>
-            </div>
+        <div className="col-12 col-xl-12 mb-2">
+
             <div className="row no-gutters p-2 border rounded">
                 <div className="col-12 col-lg-6 pr-2">
                     <div className="row no-gutters mb-2">
@@ -131,19 +122,15 @@ function CardTeamMember() {
                         </div>
                     </div>
                     <div className="col-12 d-flex align-items-end flex-column justify-content-end" style={{ height: '100px' }}>
-                        <button className="ci-btn-custom-1 py-1">
+                        <button className="ci-btn-custom-1 py-1"
+                            onClick={() => removeFunc(key)}
+                        >
                             Remove Team Member <i className="fas fa-trash-alt ml-2"></i>
                         </button>
                     </div>
                 </div>
             </div>
-            <div className="row mt-2">
-                <div className="col-12 d-flex justify-content-end">
-                    <button className="ci-btn-custom-1 py-1">
-                        Add Team Member <i className="fas fa-plus ml-2"></i>
-                    </button>
-                </div>
-            </div>
+
         </div>
     )
 }
