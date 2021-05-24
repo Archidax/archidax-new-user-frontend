@@ -14,6 +14,7 @@ import EthTabsForm from './launchpaddetailForm/EthTabsForm'
 import UsdTabsForm from './launchpaddetailForm/UsdTabsForm'
 import UsdtTabsForm from './launchpaddetailForm/UsdtTabsForm'
 import WavesTabsForm from './launchpaddetailForm/WavesTabsForm'
+import { Link } from 'react-router-dom'
 
 function LaunchpadDetail() {
 
@@ -22,6 +23,13 @@ function LaunchpadDetail() {
             <HeaderHomePage />
 
             <div className="container mt-5 mb-5">
+                <div className="row mb-3 mt-2">
+                    <div className="col-12 col-md-3">
+                        <Link to={"/launchpad"}>
+                            <i className="fas fa-arrow-left"></i>
+                        </Link>
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-12 col-xl-6">
                         <img src="https://picsum.photos/id/237/1920/1080"
@@ -87,7 +95,7 @@ function LaunchpadDetail() {
                         
                     </div>
 
-                    <div className="col-12 col-xl-6">
+                    <div className="col-12 col-xl-6 mt-sm-0 mt-3">
                         
                         <ul
                             className="nav nav-pills mb-0 font-14"
