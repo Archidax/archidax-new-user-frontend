@@ -63,13 +63,8 @@ function RouteDashboardPage() {
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
 
   const [locale, setLocale] = React.useState(
-    localStorage.CryptoIndexLocale
-      ? localStorage.CryptoIndexLocale
-      : LOCALES.ENGLISH,
+    localStorage.CryptoIndexLocale ? localStorage.CryptoIndexLocale : "",
   );
-  // const [locale, setLocale] = React.useState(
-  //   localStorage.CryptoIndexLocale ? localStorage.CryptoIndexLocale : "",
-  // );
   const [flag, setFlag] = useState("flag-icon-id");
   const history = useHistory();
   const dispatch = useDispatch();
@@ -80,16 +75,27 @@ function RouteDashboardPage() {
   const { email } = useSelector((state) => state?.profileReducer);
 
   useEffect(() => {
-    axios
-      .get("https://ipclient.herokuapp.com/")
-      .then(({ data }) => {
-        if (data.country === "ID") {
-          setLocale(LOCALES.INDONESIA);
-        } else {
-          setLocale(LOCALES.ENGLISH);
-        }
-      })
-      .catch((err) => {});
+    if (localStorage.getItem('language')) {
+      if (localStorage.getItem('language') === "ID") {
+        setLocale(LOCALES.INDONESIA);
+      } else {
+        setLocale(LOCALES.ENGLISH);
+      }
+    } else {
+      axios
+        .get("https://ipclient.herokuapp.com/")
+        .then(({ data }) => {
+          if (data.country === "ID") {
+            localStorage.setItem('language', "ID")
+            setLocale(LOCALES.INDONESIA);
+          } else {
+            localStorage.setItem('language', "EN")
+            setLocale(LOCALES.ENGLISH);
+          }
+        })
+        .catch((err) => { });
+    }
+
   }, []);
 
   const onClickActiveSidebar = () => {
@@ -202,7 +208,7 @@ function RouteDashboardPage() {
             <Protectedkyc path={`/setor-rupiah/konfirmasi`}>
               <SetorKonfirmasi />
             </Protectedkyc>
-            <Protectedkyc path={`/wallet/setor-rupiah`}>
+            <Protectedkyc path={`/wallet/deposit`}>
               <SetorTarikPage />
             </Protectedkyc>
             <Protectedkyc exact path={`/wallet`}>

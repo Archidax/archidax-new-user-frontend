@@ -24,6 +24,8 @@ import riwayatReducer from './riwayat'
 import tarikCryptoReducer from './tarikcrypto'
 import affiliasiReducer from './affiliasi'
 import daynightReducer from './daynight'
+import launchpadReducer from './launchpad'
+
 
 // Function
 export * from './auth/functions';
@@ -41,6 +43,8 @@ export * from './setorcrypto/functions'
 export * from './riwayat/functions'
 export * from './tarikcrypto/functions'
 export * from './affiliasi/functions'
+export * from './launchpad/functions'
+
 
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
@@ -87,6 +91,7 @@ const rootReducer = combineReducers({
     tarikCryptoReducer,
     affiliasiReducer,
     daynightReducer,
+    launchpadReducer
 });
 
 export default function ReduxState(props) {

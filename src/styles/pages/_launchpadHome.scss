@@ -1,0 +1,13 @@
+.launchpad-banner {
+    background-image: url('../../assets/img/background/launchpad-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.content-launchpad {
+    min-height: 100vh;
+}
+.ci-tabs-launchpad.active {
+    background: #F9BA42 !important;
+    color: black !important;
+}
