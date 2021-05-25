@@ -9,11 +9,12 @@ import logocryptoindex from "../../../assets/img/logoArchidax.png";
 // Import Elements
 import FlagsDropdownHeader from "./elements/flagsdropdown";
 import WalletsDropdownHeaderTrade from "./elements/walletsdropdown/WalletsDropdownHeaderTrade";
-import NotificationDropdownHeader from "./elements/notificationdropdown";
-import ProfileDropdownHeader from "./elements/profiledropdown";
+import NotificationDropdownHeader from "./elements/notificationdropdown/notiftrade";
+import ProfileDropdownHeader from "./elements/profiledropdown/profiledropdowntrade";
 
 import ProtectedPagePasar from "../../tradeComponents/card/HalamanLoginHeader";
 import ProtectedPagePasar2 from "../../tradeComponents/card/HalamanLoginPasar";
+import DayNight from "../../../components/tradeComponents/daynight/DayNight";
 
 function HeaderDashboard(props) {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -25,7 +26,7 @@ function HeaderDashboard(props) {
       <nav
         className={`col-12 p-1 ${
           mode ? "navbar-dark bg-header-dark" : "bg-header"
-        } navbar navbar-expand-lg py-3 px-4`}
+        } navbar navbar-expand-lg py-1 px-4`}
       >
         <Link to="/home">
           <img
@@ -69,6 +70,9 @@ function HeaderDashboard(props) {
               <ProfileDropdownHeader />
             </form>
           </ProtectedPagePasar>
+          <div className="ml-4">
+            <DayNight />
+          </div>
         </div>
       </nav>
       {/* <nav className="navbar navbar-expand-lg bg-trade-header navbar-light pt-3 pb-3">

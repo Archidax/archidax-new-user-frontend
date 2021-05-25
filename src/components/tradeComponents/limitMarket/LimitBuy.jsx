@@ -111,9 +111,9 @@ export default function LimitBuy() {
     <div
       className={`${
         mode ? "bg-trade-dark" : "bg-trade"
-      }  col-12 px-0 py-3 height-kanan`}
+      }  col-12 px-0 pt-1 pb-3 height-kanan`}
     >
-      <div className="width-trade">
+      <div className="width-trade2">
         <form onSubmit={isLoginPages ? PostBuyLimit : PostBuyLimitDisabled}>
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
@@ -134,6 +134,7 @@ export default function LimitBuy() {
               </div>
             </div>
           </div>
+
           <div className="d-flex">
             <span
               className={mode ? "input-label-trade-dark" : "input-label-trade"}
@@ -282,11 +283,11 @@ export default function LimitBuy() {
             <div className="text-center bg-loginfirst col-12 mt-3">
               <h5 className="mb-0 font-13 font-weight-bold">
                 <Link to="/login" className="mr-2">
-                  Masuk
+                  Login
                 </Link>
-                atau
+                or
                 <Link to="/login" className="ml-2">
-                  Daftar
+                  Register
                 </Link>
               </h5>
             </div>

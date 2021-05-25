@@ -48,7 +48,7 @@ function Dashboard() {
               <div className="col-12 mt-2 px-2">
                 <CardDashboardWallets />
               </div>
-              <div className="col-12 mt-2 px-2">
+              <div className="col-12 mt-2 mb-4 px-2">
                 <AdvertisingSliderDashboard />
               </div>
             </div>
