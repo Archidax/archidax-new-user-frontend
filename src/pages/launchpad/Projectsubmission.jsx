@@ -106,9 +106,7 @@ function LaunchpadPorto() {
                                         <p className="ci-text-white mb-0 label-title">Currency Base</p>
                                     </div>
                                     <div className="col-12">
-                                        <div className="input-group ci-inputDefault-bg">
-                                            <input type="text" className="form-control ci-inputDefault-bg-input ci-pd" />
-                                        </div>
+                                        <Dropdown dataOptions={['BTC', 'USDT']}  searchBar={false} />
                                     </div>
                                 </div>
                                 <div className="row no-gutters mb-2">
