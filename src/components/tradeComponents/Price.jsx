@@ -38,6 +38,7 @@ export default function Price() {
     const Price = supabase
       .from('Price')
       .on('*', payload => {
+        dispatch({type: 'SET_UPDATELISTING', data: payload.new})
         if(payload.new.symbol === PairSymbol) {
           dispatch(setPasarTrading({
             Open: payload.new.open,
@@ -52,7 +53,7 @@ export default function Price() {
       })
       .subscribe()
   }
-
+  
   React.useEffect(() => {
     getListingSupa(dispatch)
     listenToListing()

@@ -42,7 +42,16 @@ const pasarTradingReducer = ((state = initialState, action) => {
             return {
                 ...state, listingList: data
             }
-        
+        case "SET_UPDATELISTING":
+            let tmp = [...state.listingList]
+            tmp.map(val => {
+                if(val.symbol === data.symbol){
+                    val.Price = data
+                }
+            })
+            return {
+                ...state, listingList: tmp
+            }
         case "SET_LOADING":
             return { ...state, loading: data};
         case "SET_PASAR_TRADING":
