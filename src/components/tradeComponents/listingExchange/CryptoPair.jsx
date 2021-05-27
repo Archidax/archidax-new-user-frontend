@@ -68,12 +68,12 @@ function CryptoPairRealtime({ item, index }) {
   const dispatch = useDispatch();
 
   const history = useHistory();
-  const [Data, setData] = React.useState(item.price_24hour);
+  // const [Data, setData] = React.useState(item.price_24hour);
 
   const handleRowClick = () => {
     history.push(`/pasar/${item.symbol.toString().replace('/', '_')}`);
   };
-
+  console.log(item)
   // React.useEffect(() => {
   //   if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
   //     IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
@@ -115,27 +115,27 @@ function CryptoPairRealtime({ item, index }) {
       </td>
       <td
         className={`${mode ? "text-white" : "text-black"} ${
-          convertNumber.tradeUpDownChange(item.close, 2) ===
+          convertNumber.tradeUpDownChange(item.Price.close, 2) ===
           "text-price-dark"
             ? mode
               ? "text-price-dark"
               : "text-price"
-            : convertNumber.tradeUpDownChange(item.close, 2)
+            : convertNumber.tradeUpDownChange(item.Price.close, 2)
         }`}
       >
         {item.Price.close}
       </td>
       <td
         className={`${mode ? "text-white" : "text-black"} ${
-          convertNumber.tradeUpDownChange(item.change, 2) ===
+          convertNumber.tradeUpDownChange(item.Price.change, 2) ===
           "text-price"
             ? mode
               ? "text-price-dark"
               : "text-price"
-            : convertNumber.tradeUpDownChange(item.change, 2)
+            : convertNumber.tradeUpDownChange(item.Price.change, 2)
         }`}
       >
-        {convertNumber.tradeChange(item.change, 2)}
+        {convertNumber.tradeChange(item.Price.change, 2)}
       </td>
     </tr>
   );

@@ -33,26 +33,16 @@ export default function Price() {
   );
 
  
-
   const listenToListing = async() =>{
     const Price = supabase
     .from('Price')
     .on('*', payload => {
-      // console.log('Change received!', payload)
-      const tmpArray = [...listingList]
-      
-      tmpArray.map((val) => {
-        if(val.symbol === payload.new.symbol){
-          val.Price = payload.new
-        }
-      })
-      console.log(tmpArray,'baru')
-      // dispatch({type: 'SET_LISTINGLIST', data: tmpArray})
+      dispatch({type: 'SET_UPDATELISTING', data: payload.new})
     })
     .subscribe()
     // console.log(Price,"<><><><><><><><>ASDSADASD")
   }
-  console.log(listingList,'lama')
+  
   React.useEffect(() => {
     getListingSupa(dispatch)
     listenToListing()
