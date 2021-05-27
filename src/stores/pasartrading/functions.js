@@ -1,4 +1,4 @@
-import { baseAxios } from '../index'
+import { baseAxios, supabase } from '../index'
 import { baseUrlTrade, baseUrlTradeVersion } from '../index'
 import Swal from 'sweetalert2'
 import errorHandler from '../errorHandler'
@@ -74,6 +74,37 @@ export function SET_RX_FORM_DATABUY({price,amount}) {
 
 // Actions
 // GET
+
+export const getListingSupa = async (dispatch) => {
+    let { data: PairToken, error } = await supabase
+    .from('PairToken')
+    .select(`
+      *,
+      Price (
+        *
+      ),
+      toToken(
+        *
+      ),
+      fromToken(
+        *
+      )
+    `)
+    const arrFav = []
+    const arrBTC = []
+    const arrUSDT = []
+    PairToken.forEach(val => {
+        if(val.toToken.symbol === "USDT"){
+            arrUSDT.push(val)
+        }else if(val.toToken.symbol === "BTC") {
+            arrBTC.push(val)
+        }
+    })
+    dispatch({type: 'SET_LISTINGLISTBTC', data: arrBTC})
+    dispatch({type: 'SET_LISTINGLISTUSDT', data: arrUSDT})
+    console.log(PairToken)
+}
+
 export function GetOrderBuyAndSell ({dispatch,pair,side,limit}) {
     axios({
         url:`${baseUrlTrade}${baseUrlTradeVersion}/TradeOrder`,

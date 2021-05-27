@@ -9,11 +9,14 @@ import { convertNumber } from "../../../assets/js";
 import { setPasarTrading } from "../../../stores/pasartrading/functions";
 
 export default function CryptoPair() {
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
+  // const { Exchange } = useSelector(
+  //   (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
+  // );
+  const { listingListBTC } = useSelector((state) =>
+    state ? state.pasarTradingReducer : {},
   );
   const { mode } = useSelector((state) => state.daynightReducer);
-
+  console.log(listingListBTC,">>>>>>")
   return (
     <div className="">
       <div
@@ -34,6 +37,11 @@ export default function CryptoPair() {
               </tr>
             </thead>
             <tbody>
+              {listingListBTC.map((val, index) => {
+                return <CryptoPairRealtime item={val} index={index} />;
+              })}
+            </tbody>
+            {/* <tbody>
               {Exchange && Array.isArray(Exchange) && Exchange.length > 0 ? (
                 Exchange.filter((item) => {
                   if (item.base.toString().toUpperCase() === "BTC") {
@@ -47,7 +55,7 @@ export default function CryptoPair() {
               ) : (
                 <div className="text-center p-2">No Data</div>
               )}
-            </tbody>
+            </tbody> */}
           </table>
         </div>
       </div>
@@ -57,8 +65,8 @@ export default function CryptoPair() {
 
 function CryptoPairRealtime({ item, index }) {
   const { mode } = useSelector((state) => state.daynightReducer);
-  const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
-
+  // const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
+  console.log(item,"<<<<")
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -68,75 +76,115 @@ function CryptoPairRealtime({ item, index }) {
     history.push(`/pasar/${item.symbol.toString().replace('/', '_')}`);
   };
 
-  React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-      IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
-        if (data) {
-          setData(data);
-        }
+  // React.useEffect(() => {
+  //   if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
+  //     IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
+  //       if (data) {
+  //         setData(data);
+  //       }
 
-        if (PairSymbol === data.symbol) {
-          dispatch(
-            setPasarTrading({
-              Open: data.price24h_open,
-              High: data.price24h_high,
-              Low: data.price24h_low,
-              Close: data.price24h_close,
-              Change: data.price24h_change,
-              Volume: data.price24h_priceVolume,
-              VolumeCrypto: data.price24h_volume,
-            }),
-          );
-        }
-      });
-      return () =>
-        IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
-    }
-  }, [item, setData]);
+  //       if (PairSymbol === data.symbol) {
+  //         dispatch(
+  //           setPasarTrading({
+  //             Open: data.price24h_open,
+  //             High: data.price24h_high,
+  //             Low: data.price24h_low,
+  //             Close: data.price24h_close,
+  //             Change: data.price24h_change,
+  //             Volume: data.price24h_priceVolume,
+  //             VolumeCrypto: data.price24h_volume,
+  //           }),
+  //         );
+  //       }
+  //     });
+  //     return () =>
+  //       IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
+  //   }
+  // }, [item, setData]);
+  return (
+    <tr
+      onClick={handleRowClick}
+      className="cursor-pointer"
+      activeClassName="active"
+      key={index}
+    >
+      <td className="text-left d-flex">
+        <img src={item.fromToken.icon} alt="logo" className="mr-2" />
 
-  if (Data) {
-    return (
-      <tr
-        onClick={handleRowClick}
-        className="cursor-pointer"
-        activeClassName="active"
-        key={index}
+        <div className={mode ? "text-price-dark" : "text-price"}>
+          {/* {Data.symbol} */}
+        </div>
+      </td>
+      {/* <td
+        className={`${mode ? "text-white" : "text-black"} ${
+          convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+          "text-price-dark"
+            ? mode
+              ? "text-price-dark"
+              : "text-price"
+            : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
+        }`}
       >
-        <td className="text-left d-flex">
-          <img src={Data.icon} alt="logo" className="mr-2" />
+        {Data &&
+          Number(Data.price24h_close).toLocaleString("id-ID").split(",")[0]}
+      </td> */}
+      {/* <td
+        className={`${mode ? "text-white" : "text-black"} ${
+          convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+          "text-price"
+            ? mode
+              ? "text-price-dark"
+              : "text-price"
+            : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
+        }`}
+      >
+        {convertNumber.tradeChange(Data.price24h_change, 2)}
+      </td> */}
+    </tr>
+  );
+  // if (Data) {
+  //   return (
+  //     <tr
+  //       onClick={handleRowClick}
+  //       className="cursor-pointer"
+  //       activeClassName="active"
+  //       key={index}
+  //     >
+  //       <td className="text-left d-flex">
+  //         <img src={Data.icon} alt="logo" className="mr-2" />
 
-          <div className={mode ? "text-price-dark" : "text-price"}>
-            {Data.symbol}
-          </div>
-        </td>
-        <td
-          className={`${mode ? "text-white" : "text-black"} ${
-            convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
-            "text-price-dark"
-              ? mode
-                ? "text-price-dark"
-                : "text-price"
-              : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
-          }`}
-        >
-          {Data &&
-            Number(Data.price24h_close).toLocaleString("id-ID").split(",")[0]}
-        </td>
-        <td
-          className={`${mode ? "text-white" : "text-black"} ${
-            convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
-            "text-price"
-              ? mode
-                ? "text-price-dark"
-                : "text-price"
-              : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
-          }`}
-        >
-          {convertNumber.tradeChange(Data.price24h_change, 2)}
-        </td>
-      </tr>
-    );
-  }
+  //         <div className={mode ? "text-price-dark" : "text-price"}>
+  //           {Data.symbol}
+  //         </div>
+  //       </td>
+  //       <td
+  //         className={`${mode ? "text-white" : "text-black"} ${
+  //           convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+  //           "text-price-dark"
+  //             ? mode
+  //               ? "text-price-dark"
+  //               : "text-price"
+  //             : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
+  //         }`}
+  //       >
+  //         {Data &&
+  //           Number(Data.price24h_close).toLocaleString("id-ID").split(",")[0]}
+  //       </td>
+  //       <td
+  //         className={`${mode ? "text-white" : "text-black"} ${
+  //           convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+  //           "text-price"
+  //             ? mode
+  //               ? "text-price-dark"
+  //               : "text-price"
+  //             : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
+  //         }`}
+  //       >
+  //         {convertNumber.tradeChange(Data.price24h_change, 2)}
+  //       </td>
+  //     </tr>
+  //   );
+  // }
 
-  return null;
+  // return null;
 }
