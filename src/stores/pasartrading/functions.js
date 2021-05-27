@@ -74,7 +74,6 @@ export function SET_RX_FORM_DATABUY({price,amount}) {
 
 // Actions
 // GET
-
 export const getListingSupa = async (dispatch) => {
     let { data: PairToken, error } = await supabase
     .from('PairToken')
@@ -90,7 +89,6 @@ export const getListingSupa = async (dispatch) => {
         *
       )
     `)
-
     dispatch({type: 'SET_LISTINGLIST', data: PairToken})
 }
 

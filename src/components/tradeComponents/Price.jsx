@@ -30,9 +30,7 @@ export default function Price() {
   );
   const { listingList } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
-  );
-
- 
+  ); 
 
   const listenToListing = () =>{
     const Price = supabase
@@ -267,9 +265,8 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15`}
             >
-              0
-              {/* {price24H ? convertNumber.toRupiah(price24H.High) : 0}
-              845.000.000 */}
+              {price24H ? convertNumber.toRupiah(price24H.High) : 0}
+              845.000.000
             </div>
           </div>
         </div>

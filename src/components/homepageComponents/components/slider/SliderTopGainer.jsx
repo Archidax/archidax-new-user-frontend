@@ -118,7 +118,7 @@ export default function SliderTopGainer({ dataHome }) {
                 <div className="row">
                   <div className="col-6">
                     <img
-                      src={item.icon}
+                      src={item.Price.icon}
                       alt="icon"
                       style={{
                         width: "55px",
