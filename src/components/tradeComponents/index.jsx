@@ -26,6 +26,8 @@ export default function Index() {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
+  console.log(symbol, "<<<<<<<<<<<<")
+
   const { Exchange } = useSelector(
     (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
   );
