@@ -28,6 +28,9 @@ export default function Price() {
   const { PairSymbol, icon, price24H } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
   );
+  const { listingList } = useSelector((state) =>
+    state ? state.pasarTradingReducer : {},
+  );
 
  
 
@@ -38,6 +41,12 @@ export default function Price() {
       console.log('Change received!', payload)
     })
     .subscribe()
+    const tmpArray = [...listingList]
+    console.log(tmpArray)
+    tmpArray.map((val) => {
+      // if(val.symbol === )
+    } )
+    // console.log(Price,"<><><><><><><><>ASDSADASD")
   }
   React.useEffect(() => {
     getListingSupa(dispatch)
@@ -161,7 +170,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="favorite-tabs"
                     >
-                      <FavoritePair />
+                      <FavoritePair listingList={listingList} />
                     </div>
                     <div
                       className="tab-pane ci-dropdown-menu-TradeSymbol-scrollbar fade show active"
@@ -169,7 +178,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="crypto-pairs"
                     >
-                      <CryptoPair />
+                      <CryptoPair listingList={listingList}/>
                     </div>
                     <div
                       className="tab-pane ci-dropdown-menu-TradeSymbol-scrollbar fade"
@@ -177,7 +186,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="fiat-pairs"
                     >
-                      <FiatPair />
+                      <FiatPair listingList={listingList}/>
                     </div>
                   </div>
                 </div>

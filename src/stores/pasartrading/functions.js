@@ -90,19 +90,8 @@ export const getListingSupa = async (dispatch) => {
         *
       )
     `)
-    const arrFav = []
-    const arrBTC = []
-    const arrUSDT = []
-    PairToken.forEach(val => {
-        if(val.toToken.symbol === "USDT"){
-            arrUSDT.push(val)
-        }else if(val.toToken.symbol === "BTC") {
-            arrBTC.push(val)
-        }
-    })
-    dispatch({type: 'SET_LISTINGLISTBTC', data: arrBTC})
-    dispatch({type: 'SET_LISTINGLISTUSDT', data: arrUSDT})
-    console.log(PairToken)
+
+    dispatch({type: 'SET_LISTINGLIST', data: PairToken})
 }
 
 export function GetOrderBuyAndSell ({dispatch,pair,side,limit}) {

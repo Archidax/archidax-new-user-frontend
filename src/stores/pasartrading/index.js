@@ -32,21 +32,17 @@ const initialState = {
     searchCrypto: '',
 
 
-    listingListBTC: [],
-    listingListUSDT: []
+    listingList: [],
 };
 
 const pasarTradingReducer = ((state = initialState, action) => {
     let { type, data } = action;
     switch (type) {
-        case "SET_LISTINGLISTBTC": 
+        case "SET_LISTINGLIST": 
             return {
-                ...state, listingListBTC: data
+                ...state, listingList: data
             }
-        case "SET_LISTINGLISTUSDT": 
-            return {
-                ...state, listingListUSDT: data
-            }
+        
         case "SET_LOADING":
             return { ...state, loading: data};
         case "SET_PASAR_TRADING":
