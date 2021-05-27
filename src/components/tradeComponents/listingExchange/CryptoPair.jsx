@@ -65,7 +65,6 @@ export default function CryptoPair({listingList}) {
 function CryptoPairRealtime({ item, index }) {
   const { mode } = useSelector((state) => state.daynightReducer);
   // const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
-  console.log(item,"<<<<")
   const dispatch = useDispatch();
 
   const history = useHistory();
