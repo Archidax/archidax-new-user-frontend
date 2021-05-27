@@ -28,6 +28,9 @@ export default function Price() {
   const { PairSymbol, icon, price24H } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
   );
+  const { listingList } = useSelector((state) =>
+    state ? state.pasarTradingReducer : {},
+  );
 
  
 
@@ -35,10 +38,21 @@ export default function Price() {
     const Price = supabase
     .from('Price')
     .on('*', payload => {
-      console.log('Change received!', payload)
+      // console.log('Change received!', payload)
+      const tmpArray = [...listingList]
+      
+      tmpArray.map((val) => {
+        if(val.symbol === payload.new.symbol){
+          val.Price = payload.new
+        }
+      })
+      console.log(tmpArray,'baru')
+      // dispatch({type: 'SET_LISTINGLIST', data: tmpArray})
     })
     .subscribe()
+    // console.log(Price,"<><><><><><><><>ASDSADASD")
   }
+  console.log(listingList,'lama')
   React.useEffect(() => {
     getListingSupa(dispatch)
     listenToListing()
@@ -161,7 +175,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="favorite-tabs"
                     >
-                      <FavoritePair />
+                      <FavoritePair listingList={listingList} />
                     </div>
                     <div
                       className="tab-pane ci-dropdown-menu-TradeSymbol-scrollbar fade show active"
@@ -169,7 +183,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="crypto-pairs"
                     >
-                      <CryptoPair />
+                      <CryptoPair listingList={listingList}/>
                     </div>
                     <div
                       className="tab-pane ci-dropdown-menu-TradeSymbol-scrollbar fade"
@@ -177,7 +191,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="fiat-pairs"
                     >
-                      <FiatPair />
+                      <FiatPair listingList={listingList}/>
                     </div>
                   </div>
                 </div>

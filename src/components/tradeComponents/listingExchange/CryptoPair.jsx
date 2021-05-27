@@ -8,15 +8,12 @@ import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { convertNumber } from "../../../assets/js";
 import { setPasarTrading } from "../../../stores/pasartrading/functions";
 
-export default function CryptoPair() {
+export default function CryptoPair({listingList}) {
   // const { Exchange } = useSelector(
   //   (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
   // );
-  const { listingListBTC } = useSelector((state) =>
-    state ? state.pasarTradingReducer : {},
-  );
+
   const { mode } = useSelector((state) => state.daynightReducer);
-  console.log(listingListBTC,">>>>>>")
   return (
     <div className="">
       <div
@@ -37,8 +34,10 @@ export default function CryptoPair() {
               </tr>
             </thead>
             <tbody>
-              {listingListBTC.map((val, index) => {
-                return <CryptoPairRealtime item={val} index={index} />;
+              {listingList.map((val, index) => {
+                if(val.toToken.symbol === "BTC"){
+                  return <CryptoPairRealtime item={val} index={index} />;
+                }
               })}
             </tbody>
             {/* <tbody>
@@ -66,7 +65,6 @@ export default function CryptoPair() {
 function CryptoPairRealtime({ item, index }) {
   const { mode } = useSelector((state) => state.daynightReducer);
   // const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
-  console.log(item,"<<<<")
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -112,34 +110,33 @@ function CryptoPairRealtime({ item, index }) {
         <img src={item.fromToken.icon} alt="logo" className="mr-2" />
 
         <div className={mode ? "text-price-dark" : "text-price"}>
-          {/* {Data.symbol} */}
+          {item.symbol}
         </div>
       </td>
-      {/* <td
+      <td
         className={`${mode ? "text-white" : "text-black"} ${
-          convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+          convertNumber.tradeUpDownChange(item.close, 2) ===
           "text-price-dark"
             ? mode
               ? "text-price-dark"
               : "text-price"
-            : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
+            : convertNumber.tradeUpDownChange(item.close, 2)
         }`}
       >
-        {Data &&
-          Number(Data.price24h_close).toLocaleString("id-ID").split(",")[0]}
-      </td> */}
-      {/* <td
+        {item.Price.close}
+      </td>
+      <td
         className={`${mode ? "text-white" : "text-black"} ${
-          convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+          convertNumber.tradeUpDownChange(item.change, 2) ===
           "text-price"
             ? mode
               ? "text-price-dark"
               : "text-price"
-            : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
+            : convertNumber.tradeUpDownChange(item.change, 2)
         }`}
       >
-        {convertNumber.tradeChange(Data.price24h_change, 2)}
-      </td> */}
+        {convertNumber.tradeChange(item.change, 2)}
+      </td>
     </tr>
   );
   // if (Data) {

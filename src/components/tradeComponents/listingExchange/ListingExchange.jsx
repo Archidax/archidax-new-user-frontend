@@ -9,11 +9,11 @@ import { GetListingExchange } from "../../../stores/pasartrading/functions";
 
 export default function ListingExchange() {
   const { mode } = useSelector((state) => state.daynightReducer);
-  const Dispatch = useDispatch();
+  // const Dispatch = useDispatch();
 
-  React.useEffect(() => {
-    Dispatch(GetListingExchange());
-  }, [Dispatch]);
+  // React.useEffect(() => {
+  //   Dispatch(GetListingExchange());
+  // }, [Dispatch]);
 
   return (
     <div className={mode ? "tabs-global-dark" : "tabs-global"}>
