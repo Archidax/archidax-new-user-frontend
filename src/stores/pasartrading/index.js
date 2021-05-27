@@ -29,12 +29,24 @@ const initialState = {
         amount:0,
     },
     myFav:[],
-    searchCrypto: ''
+    searchCrypto: '',
+
+
+    listingListBTC: [],
+    listingListUSDT: []
 };
 
 const pasarTradingReducer = ((state = initialState, action) => {
     let { type, data } = action;
     switch (type) {
+        case "SET_LISTINGLISTBTC": 
+            return {
+                ...state, listingListBTC: data
+            }
+        case "SET_LISTINGLISTUSDT": 
+            return {
+                ...state, listingListUSDT: data
+            }
         case "SET_LOADING":
             return { ...state, loading: data};
         case "SET_PASAR_TRADING":

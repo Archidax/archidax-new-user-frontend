@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import {supabase, getListingSupa} from '../../stores'
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
 
 import {
@@ -29,9 +29,23 @@ export default function Price() {
     state ? state.pasarTradingReducer : {},
   );
 
+ 
+
+  const listenToListing = async() =>{
+    const Price = supabase
+    .from('Price')
+    .on('*', payload => {
+      console.log('Change received!', payload)
+    })
+    .subscribe()
+  }
   React.useEffect(() => {
-    dispatch(GetOrderLastPrice({ pair: PairSymbol }));
-  }, [dispatch, PairSymbol]);
+    getListingSupa(dispatch)
+    listenToListing()
+  },[])
+  // React.useEffect(() => {
+  //   dispatch(GetOrderLastPrice({ pair: PairSymbol }));
+  // }, [dispatch, PairSymbol]);
 
   return (
     <div
