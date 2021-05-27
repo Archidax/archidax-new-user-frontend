@@ -242,22 +242,18 @@ export function GetOrderLastPrice ({pair}) {
             const {data} = await axios({
                 url:`${baseUrlTrade}${baseUrlTradeVersion}/prices`,
                 method:"GET",
-                headers:{
-                    jwttoken:localStorage.getItem("token")
-                },
                 params:{
                     pair
                 },
             })
-            console.log(data);
             dispatch(setPasarTrading({
-                Open:data.price_24hours.price24h_open,
-                High:data.price_24hours.price24h_high,
-                Low:data.price_24hours.price24h_low,
-                Close:data.price_24hours.price24h_close,
-                Change:data.price_24hours.price24h_change,
-                Volume:data.price_24hours.price24h_priceVolume,
-                VolumeCrypto:data.price_24hours.price24h_volume,
+                Open:data.open,
+                High:data.high,
+                Low:data.low,
+                Close:data.close,
+                Change:data.change,
+                Volume:data.volumePrice,
+                VolumeCrypto:data.volumeCoin,
             }));
         } catch (err) {
             dispatch(setPasarTrading({
@@ -280,7 +276,8 @@ export function GetListingExchange () {
                 url:`${baseUrlTrade}${baseUrlTradeVersion}/ListingExchange`,
                 method:"GET"
             })
-            dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
+            console.log(data, ",,,,,,,,,,,,,,,,,,sdadsadw")
+            // dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
         }
         catch (err) {
             dispatch(SET_RX_LISTING_EXCHANGE([]));
