@@ -1500,18 +1500,18 @@ input:checked + .slider:before {
 }
 
 // Tabs Radio Button
-input ~ .tab {
+input ~ .tabbuy {
   display: none;
 }
-#tab1:checked ~ .tab.content1,
-#tab2:checked ~ .tab.content2 {
+#tabbuy1:checked ~ .tabbuy.content1,
+#tabbuy2:checked ~ .tabbuy.content2 {
   display: block;
 }
 
-input ~ .tab2 {
+input ~ .tabsell {
   display: none;
 }
-#tab3:checked ~ .tab.content3,
-#tab4:checked ~ .tab.content4 {
+#tabsell1:checked ~ .tabsell.content1,
+#tabsell2:checked ~ .tabsell.content2 {
   display: block;
 }

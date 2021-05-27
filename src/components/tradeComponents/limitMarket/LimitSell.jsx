@@ -105,9 +105,9 @@ export default function Limitsell() {
     <div
       className={`${
         mode ? "bg-trade-dark" : "bg-trade"
-      }  col-12 px-0 py-3 height-kanan`}
+      }  col-12 px-0 pt-1 pb-3 height-kanan`}
     >
-      <div className="width-trade">
+      <div className="width-trade2">
         <form onSubmit={isLoginPages ? PostSellLimit : PostSellLimitDisabled}>
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
