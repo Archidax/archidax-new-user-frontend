@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {supabase, getListingSupa} from '../../stores'
+import {supabase, getListingSupa, getOneListingSupa} from '../../stores'
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
 
 import {
@@ -34,32 +34,33 @@ export default function Price() {
 
  
 
-  const listenToListing = async() =>{
+  const listenToListing = () =>{
     const Price = supabase
-    .from('Price')
-    .on('*', payload => {
-      // console.log('Change received!', payload)
-      const tmpArray = [...listingList]
-      
-      tmpArray.map((val) => {
-        if(val.symbol === payload.new.symbol){
-          val.Price = payload.new
+      .from('Price')
+      .on('*', payload => {
+        if(payload.new.symbol === PairSymbol) {
+          dispatch(setPasarTrading({
+            Open: payload.new.open,
+            High: payload.new.high,
+            Low: payload.new.low,
+            Close: payload.new.close,
+            Change: payload.new.change,
+            Volume: payload.new.volumePrice,
+            VolumeCrypto: payload.new.volumeCoin
+          }))
         }
       })
-      console.log(tmpArray,'baru')
-      // dispatch({type: 'SET_LISTINGLIST', data: tmpArray})
-    })
-    .subscribe()
-    // console.log(Price,"<><><><><><><><>ASDSADASD")
+      .subscribe()
   }
-  console.log(listingList,'lama')
+
   React.useEffect(() => {
     getListingSupa(dispatch)
     listenToListing()
   },[])
-  // React.useEffect(() => {
-  //   dispatch(GetOrderLastPrice({ pair: PairSymbol }));
-  // }, [dispatch, PairSymbol]);
+
+  React.useEffect(() => {
+    getOneListingSupa(dispatch, PairSymbol)
+  }, [PairSymbol]);
 
   return (
     <div
@@ -265,8 +266,9 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15`}
             >
-              {price24H ? convertNumber.toRupiah(price24H.High) : 0}
-              {/* 845.000.000 */}
+              0
+              {/* {price24H ? convertNumber.toRupiah(price24H.High) : 0}
+              845.000.000 */}
             </div>
           </div>
         </div>

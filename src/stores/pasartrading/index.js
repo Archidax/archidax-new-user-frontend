@@ -80,7 +80,7 @@ const pasarTradingReducer = ((state = initialState, action) => {
         case "RX_PAIR":
             return {
                 ...state,
-                PairSymbol:`${data.pairTo}/${data.pairFrom}`,
+                PairSymbol:`${data.pairFrom}/${data.pairTo}`,
                 currencyFrom:data.currencyFrom,
                 currencyTo:data.currencyTo,
                 pairFrom:data.pairFrom,

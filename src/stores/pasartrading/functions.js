@@ -94,6 +94,26 @@ export const getListingSupa = async (dispatch) => {
     dispatch({type: 'SET_LISTINGLIST', data: PairToken})
 }
 
+export const getOneListingSupa = async (dispatch, PairSymbol) => {
+    let { data: PairToken, error } = await supabase
+    .from('Price')
+    .select(`
+        high, open, close, low, volumeCoin, volumePrice, change
+    `)
+    .eq('symbol', PairSymbol).single()
+    if(PairToken) {
+        dispatch({type: 'SET_PASAR_TRADING', data: {
+            Open: PairToken.open,
+            High: PairToken.high,
+            Low: PairToken.low,
+            Close: PairToken.close,
+            Change: PairToken.change,
+            Volume: PairToken.volumePrice,
+            VolumeCrypto: PairToken.volumeCoin
+        }})
+    }
+}
+
 export function GetOrderBuyAndSell ({dispatch,pair,side,limit}) {
     axios({
         url:`${baseUrlTrade}${baseUrlTradeVersion}/TradeOrder`,
