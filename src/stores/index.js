@@ -1,5 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { createClient } from '@supabase/supabase-js'
 
 // Axios
 import axios from 'axios';
@@ -26,6 +27,9 @@ import affiliasiReducer from './affiliasi'
 import daynightReducer from './daynight'
 import launchpadReducer from './launchpad'
 
+const supabaseUrl = 'https://wmxeonvmtnxajofwqpcb.supabase.co'
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyMTkyNDQ4MCwiZXhwIjoxOTM3NTAwNDgwfQ.nx_o1P4GYwrChkA77SS0uOfdQkiDM3mGVE2h6UoT2_E"
+export const supabase = createClient(supabaseUrl, supabaseKey)
 
 // Function
 export * from './auth/functions';
@@ -44,6 +48,7 @@ export * from './riwayat/functions'
 export * from './tarikcrypto/functions'
 export * from './affiliasi/functions'
 export * from './launchpad/functions'
+
 
 
 // Base URLgoit

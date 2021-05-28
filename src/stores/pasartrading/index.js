@@ -1,14 +1,5 @@
 const initialState = {
     loading: false,
-    price24H: {
-        Open: 0,
-        High: 0,
-        Low: 0,
-        Close: 0,
-        Change: 0,
-        Volume: 0,
-        VolumeCrypto: 0,
-    },
     PairSymbol:"",
     currencyFrom:"",
     currencyTo:"",
@@ -29,12 +20,48 @@ const initialState = {
         amount:0,
     },
     myFav:[],
-    searchCrypto: ''
+    searchCrypto: '',
+
+    price24H: {
+        Open: 0,
+        High: 0,
+        Low: 0,
+        Close: 0,
+        Change: 0,
+        Volume: 0,
+        VolumeCrypto: 0,
+    },
+    listingList: [],
 };
 
 const pasarTradingReducer = ((state = initialState, action) => {
     let { type, data } = action;
     switch (type) {
+        case "SET_LISTINGLIST": 
+            return {
+                ...state, listingList: data
+            }
+        case "SET_UPDATELISTING":
+            let tmp = [...state.listingList]
+            tmp.map(val => {
+                if(val.symbol === data.symbol){
+                    val.Price = data
+                }
+            })
+            return {
+                ...state, listingList: tmp
+            }
+        case "RX_PAIR":
+            return {
+                ...state,
+                PairSymbol:`${data.pairFrom}/${data.pairTo}`,
+                currencyFrom:data.currencyFrom,
+                currencyTo:data.currencyTo,
+                pairFrom:data.pairFrom,
+                pairTo:data.pairTo,
+                icon: data.icon
+            }
+        
         case "SET_LOADING":
             return { ...state, loading: data};
         case "SET_PASAR_TRADING":
@@ -68,16 +95,6 @@ const pasarTradingReducer = ((state = initialState, action) => {
             return {
                 ...state,
                 OrderPending: []
-            }
-        case "RX_PAIR":
-            return {
-                ...state,
-                PairSymbol:`${data.pairTo}/${data.pairFrom}`,
-                currencyFrom:data.currencyFrom,
-                currencyTo:data.currencyTo,
-                pairFrom:data.pairFrom,
-                pairTo:data.pairTo,
-                icon: data.icon
             }
         case "SET_FORMDATASELL":
             return {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import {supabase, getListingSupa, getOneListingSupa} from '../../stores'
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
 
 import {
@@ -28,10 +28,38 @@ export default function Price() {
   const { PairSymbol, icon, price24H } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
   );
+  const { listingList } = useSelector((state) =>
+    state ? state.pasarTradingReducer : {},
+  ); 
+
+  const listenToListing = () =>{
+    const Price = supabase
+      .from('Price')
+      .on('*', payload => {
+        dispatch({type: 'SET_UPDATELISTING', data: payload.new})
+        if(payload.new.symbol === PairSymbol) {
+          dispatch(setPasarTrading({
+            Open: payload.new.open,
+            High: payload.new.high,
+            Low: payload.new.low,
+            Close: payload.new.close,
+            Change: payload.new.change,
+            Volume: payload.new.volumePrice,
+            VolumeCrypto: payload.new.volumeCoin
+          }))
+        }
+      })
+      .subscribe()
+  }
+  
+  React.useEffect(() => {
+    getListingSupa(dispatch)
+    listenToListing()
+  },[])
 
   React.useEffect(() => {
-    dispatch(GetOrderLastPrice({ pair: PairSymbol }));
-  }, [dispatch, PairSymbol]);
+    getOneListingSupa(dispatch, PairSymbol)
+  }, [PairSymbol]);
 
   return (
     <div
@@ -147,7 +175,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="favorite-tabs"
                     >
-                      <FavoritePair />
+                      <FavoritePair listingList={listingList} />
                     </div>
                     <div
                       className="tab-pane ci-dropdown-menu-TradeSymbol-scrollbar fade show active"
@@ -155,7 +183,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="crypto-pairs"
                     >
-                      <CryptoPair />
+                      <CryptoPair listingList={listingList}/>
                     </div>
                     <div
                       className="tab-pane ci-dropdown-menu-TradeSymbol-scrollbar fade"
@@ -163,7 +191,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="fiat-pairs"
                     >
-                      <FiatPair />
+                      <FiatPair listingList={listingList}/>
                     </div>
                   </div>
                 </div>
@@ -238,7 +266,7 @@ export default function Price() {
               } font-15`}
             >
               {price24H ? convertNumber.toRupiah(price24H.High) : 0}
-              {/* 845.000.000 */}
+              845.000.000
             </div>
           </div>
         </div>

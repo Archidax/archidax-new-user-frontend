@@ -1,10 +1,14 @@
 import React from "react";
+import {useSelector} from 'react-redux'
 
 import { convertNumber } from "../../../../assets/js";
 
 import { useHistory } from "react-router-dom";
 
-export default function TableHomepage({dataHome}) {
+export default function TableHomepage() {
+  const { listingList } = useSelector((state) =>
+    state ? state.pasarTradingReducer : {},
+  ); 
   const history = useHistory();
 
   return (
@@ -24,10 +28,10 @@ export default function TableHomepage({dataHome}) {
               </tr>
             </thead>
             <tbody>
-              {dataHome &&
-              Array.isArray(dataHome) &&
-              dataHome.length > 0 ? (
-                dataHome.map((item) => {
+              {listingList &&
+              Array.isArray(listingList) &&
+              listingList.length > 0 ? (
+                listingList.map((item) => {
                   const handleRowClick = (row) => {
                     history.push(
                       `/pasar/${item.symbol.toString().replace("/", "_") }`,
@@ -40,29 +44,29 @@ export default function TableHomepage({dataHome}) {
                     >
                       <td className="text-white table-center">
                         <img
-                          src={item.icon}
+                          src={item.fromToken.icon}
                           alt="icon"
                           style={{ maxHeight: "23px", marginRight: "10px" }}
                         />
                         <div className="text-white">{item.symbol}</div>
                       </td>
-                      <td className="text-white text-left">{item.assetName}</td>
+                      <td className="text-white text-left">{item.fromToken.assetName}</td>
                       <td
-                        className={`${convertNumber.tradeUpDownChange(item.price24h_change, 2)}`}
+                        className={`${convertNumber.tradeUpDownChange(item.Price.change, 2)}`}
                       >
-                        {convertNumber.tradeChange(item.price24h_change, 2)}
+                        {convertNumber.tradeChange(item.Price.change, 2)}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_close)}
+                        {convertNumber.toRupiah(item.Price.close)}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_high)}
+                        {convertNumber.toRupiah(item.Price.high)}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_low)}
+                        {convertNumber.toRupiah(item.Price.low)}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_volume)}{" "}
+                        {convertNumber.toRupiah(item.Price.volumeCoin)}{" "}
                         {item.symbol ? item.symbol.split("/")[0] : null}
                       </td>
                     </tr>
