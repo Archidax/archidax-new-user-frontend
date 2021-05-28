@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Dropdown } from 'react-bootstrap'
 
-function CardTeamMember({ key, removeFunc, onChangeMember }) {
+function CardTeamMember({ key, removeFunc, memberDetails, data, index, setMemberDetails }) {
+    const hiddenFileInput = useRef(null)
+    const hiddenClickUpload = (e) => {
+        e.preventDefault()
+        hiddenFileInput.current.click()
+    }
+
     return (
         <div className="col-12 col-xl-12 mb-2">
 
@@ -13,7 +19,14 @@ function CardTeamMember({ key, removeFunc, onChangeMember }) {
                         </div>
                         <div className="col-12">
                             <div className="input-group ci-inputDefault-bg">
-                                <input type="text" className="form-control ci-inputDefault-bg-input ci-pd" />
+                                <input type="text" className="form-control ci-inputDefault-bg-input ci-pd"
+                                    onChange={(e) => {
+                                        var tmp = [...memberDetails]
+                                        tmp[index].memberName = e.target.value
+                                        setMemberDetails(tmp)
+                                    }}
+                                    value={data.memberName}
+                                />
                             </div>
                         </div>
                     </div>
@@ -26,7 +39,14 @@ function CardTeamMember({ key, removeFunc, onChangeMember }) {
                                 className="input-group ci-inputDefault-bg"
                             >
                                 <input
+                                    type="text"
                                     className="form-control ci-inputDefault-bg-input"
+                                    onChange={(e) => {
+                                        var tmp = [...memberDetails]
+                                        tmp[index].facebook = e.target.value
+                                        setMemberDetails(tmp)
+                                    }}
+                                    value={data.facebook}
                                 />
                                 <div className="ci-inputDefault-bg-appendL">
                                     <i
@@ -42,7 +62,14 @@ function CardTeamMember({ key, removeFunc, onChangeMember }) {
                                 className="input-group ci-inputDefault-bg"
                             >
                                 <input
+                                    type="text"
                                     className="form-control ci-inputDefault-bg-input "
+                                    onChange={(e) => {
+                                        var tmp = [...memberDetails]
+                                        tmp[index].twitter = e.target.value
+                                        setMemberDetails(tmp)
+                                    }}
+                                    value={data.twitter}
                                 />
                                 <div className="ci-inputDefault-bg-appendL">
                                     <i
@@ -58,7 +85,14 @@ function CardTeamMember({ key, removeFunc, onChangeMember }) {
                                 className="input-group ci-inputDefault-bg"
                             >
                                 <input
+                                    type="text"
                                     className="form-control ci-inputDefault-bg-input "
+                                    onChange={(e) => {
+                                        var tmp = [...memberDetails]
+                                        tmp[index].linkedin = e.target.value
+                                        setMemberDetails(tmp)
+                                    }}
+                                    value={data.linkedin}
                                 />
                                 <div className="ci-inputDefault-bg-appendL">
                                     <i
@@ -77,7 +111,14 @@ function CardTeamMember({ key, removeFunc, onChangeMember }) {
                     </div>
                     <div className="col-12">
                         <div className="input-group ci-inputDefault-bg">
-                            <Dropdown classDropdown="w-100" />
+                            <input type="text" className="form-control ci-inputDefault-bg-input ci-pd"
+                                onChange={(e) => {
+                                    var tmp = [...memberDetails]
+                                    tmp[index].position = e.target.value
+                                    setMemberDetails(tmp)
+                                }}
+                                value={data.position}
+                            />
                         </div>
                     </div>
                     <div className="col-12 d-flex align-items-center">
@@ -94,6 +135,7 @@ function CardTeamMember({ key, removeFunc, onChangeMember }) {
                                     padding: "5px 14px",
                                     borderRadius: "4px",
                                 }}
+                                onClick={(e) => hiddenClickUpload(e)}
                             >
                                 Upload Image
                                         </label>
@@ -101,15 +143,17 @@ function CardTeamMember({ key, removeFunc, onChangeMember }) {
                                 style={{
                                     display: "none",
                                 }}
-                                onChange={(e) => {
-                                    // imageSizeError(e.target.files[0], 1000000, () =>
-                                    // setImg(e.target.files[0])
-                                    // );
-                                }
-                                }
+                                ref={hiddenFileInput}
                                 id="inputFile"
                                 type="file"
                                 accept=".png, .jpg, .jpeg"
+                                onChange={(e) => {
+                                    console.log("masuk", e.target.files[0])
+                                    var tmp = [...memberDetails]
+                                    tmp[index].photo = e.target.files[0]
+                                    setMemberDetails(tmp)
+                                }}
+                                // value={data.photo}
                             />
                             {/* <div className="pl-3 unggah-flex">
                                                 <span className="ci-text-white label-title font-13">
