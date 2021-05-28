@@ -173,7 +173,7 @@ $chat-color: black;
 }
 
 .height-kanan {
-  height: 380px;
+  height: 328px;
 }
 
 .border-market {
@@ -1514,4 +1514,25 @@ input ~ .tabsell {
 #tabsell1:checked ~ .tabsell.content1,
 #tabsell2:checked ~ .tabsell.content2 {
   display: block;
+}
+
+// volume
+.dark-sell {
+  background: url(../../assets/img/trade/volume/dark-sell.svg);
+  background-repeat: no-repeat;
+}
+
+.day-sell {
+  background: url(../../assets/img/trade/volume/day-sell.svg);
+  background-repeat: no-repeat;
+}
+
+.dark-buy {
+  background: url(../../assets/img/trade/volume/dark-buy.svg);
+  background-repeat: no-repeat;
+}
+
+.day-buy {
+  background: url(../../assets/img/trade/volume/day-buy.svg);
+  background-repeat: no-repeat;
 }

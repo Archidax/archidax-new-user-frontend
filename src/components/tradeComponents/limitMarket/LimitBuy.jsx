@@ -144,14 +144,14 @@ export default function LimitBuy() {
                 justifyContent: "center",
               }}
             >
-              <h5 className="font-14 mt-3 text-white">Limit Price : </h5>
+              <h5 className="font-14 mt-4 text-white">Limit Price : </h5>
             </div>
             <input
               type="text"
               id="fname"
               name="fname"
               placeholder="0"
-              className={`col-9 py-2 mt-3 ${
+              className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
               // value={parseFixedNumber(inputPrice)}
@@ -168,14 +168,14 @@ export default function LimitBuy() {
                 justifyContent: "center",
               }}
             >
-              <h5 className="font-14 mt-3 text-white">Amount : </h5>
+              <h5 className="font-14 mt-4 text-white">Amount : </h5>
             </div>
             <input
               type="number"
               id="fname"
               name="fname"
               placeholder="0"
-              className={`col-9 py-2 mt-3 ${
+              className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
@@ -313,7 +313,7 @@ export default function LimitBuy() {
                 justifyContent: "center",
               }}
             >
-              <h5 className="font-14 mt-3 text-white">Estimation : </h5>
+              <h5 className="font-14 mt-4 text-white">Estimation : </h5>
             </div>
             <input
               type="number"
@@ -325,7 +325,7 @@ export default function LimitBuy() {
                   : 0
               }
               placeholder="0"
-              className={`col-9 py-2 mt-3 ${
+              className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
               disabled

@@ -50,10 +50,14 @@ export default function ListBuy() {
                 <th className="text-left font-bolder25">{pairFrom}</th>
               </tr>
             </thead>
-            <tbody>
-              {data && Array.isArray(data) && data.length > 0 ? (
-                data.map((item, index) => {
-                  return (
+
+            {data && Array.isArray(data) && data.length > 0 ? (
+              data.map((item, index) => {
+                return (
+                  <tbody
+                    className={`${mode ? "dark-buy" : "day-buy"}`}
+                    style={{ backgroundSize: "50%" }} // value based on volume sisa
+                  >
                     <tr
                       key={index}
                       style={{ cursor: "pointer" }}
@@ -94,16 +98,21 @@ export default function ListBuy() {
                           : convertNumber.toRupiah(item.total)}
                       </td>
                     </tr>
-                  );
-                })
-              ) : (
+                  </tbody>
+                );
+              })
+            ) : (
+              <tbody
+              // className={`${mode ? "dark-buy" : "day-buy"}`}
+              // style={{ backgroundSize: "50%" }}
+              >
                 <tr>
                   <td className="text-success text-center" colSpan={4}>
                     No Order
                   </td>
                 </tr>
-              )}
-            </tbody>
+              </tbody>
+            )}
           </table>
         </div>
       </div>

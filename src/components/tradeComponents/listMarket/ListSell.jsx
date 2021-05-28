@@ -8,6 +8,8 @@ import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 import { convertNumber } from "../../../assets/js";
 
+import darksell from "../../../assets/img/trade/volume/dark-sell.svg";
+
 export default function ListSell() {
   const [data, setData] = useState([]);
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -49,10 +51,14 @@ export default function ListSell() {
                 <th className="text-left font-bolder25">{pairFrom}</th>
               </tr>
             </thead>
-            <tbody>
-              {data && Array.isArray(data) && data.length > 0 ? (
-                data.map((item, index) => {
-                  return (
+
+            {data && Array.isArray(data) && data.length > 0 ? (
+              data.map((item, index) => {
+                return (
+                  <tbody
+                    className={`${mode ? "dark-sell" : "day-sell"}`}
+                    style={{ backgroundSize: "50%" }} // value based on volume sisa
+                  >
                     <tr
                       key={index}
                       style={{
@@ -95,16 +101,21 @@ export default function ListSell() {
                           : convertNumber.toRupiah(item.total)}
                       </td>
                     </tr>
-                  );
-                })
-              ) : (
+                  </tbody>
+                );
+              })
+            ) : (
+              <tbody
+              // className={`${mode ? "dark-sell" : "day-sell"}`}
+              // style={{ backgroundSize: "35%" }}
+              >
                 <tr>
                   <td className="text-left text-sell text-center" colSpan={4}>
                     No Order
                   </td>
                 </tr>
-              )}
-            </tbody>
+              </tbody>
+            )}
           </table>
         </div>
       </div>
