@@ -1,14 +1,5 @@
 const initialState = {
     loading: false,
-    price24H: {
-        Open: 0,
-        High: 0,
-        Low: 0,
-        Close: 0,
-        Change: 0,
-        Volume: 0,
-        VolumeCrypto: 0,
-    },
     PairSymbol:"",
     currencyFrom:"",
     currencyTo:"",
@@ -31,7 +22,15 @@ const initialState = {
     myFav:[],
     searchCrypto: '',
 
-
+    price24H: {
+        Open: 0,
+        High: 0,
+        Low: 0,
+        Close: 0,
+        Change: 0,
+        Volume: 0,
+        VolumeCrypto: 0,
+    },
     listingList: [],
 };
 
@@ -52,6 +51,17 @@ const pasarTradingReducer = ((state = initialState, action) => {
             return {
                 ...state, listingList: tmp
             }
+        case "RX_PAIR":
+            return {
+                ...state,
+                PairSymbol:`${data.pairFrom}/${data.pairTo}`,
+                currencyFrom:data.currencyFrom,
+                currencyTo:data.currencyTo,
+                pairFrom:data.pairFrom,
+                pairTo:data.pairTo,
+                icon: data.icon
+            }
+        
         case "SET_LOADING":
             return { ...state, loading: data};
         case "SET_PASAR_TRADING":
@@ -85,16 +95,6 @@ const pasarTradingReducer = ((state = initialState, action) => {
             return {
                 ...state,
                 OrderPending: []
-            }
-        case "RX_PAIR":
-            return {
-                ...state,
-                PairSymbol:`${data.pairFrom}/${data.pairTo}`,
-                currencyFrom:data.currencyFrom,
-                currencyTo:data.currencyTo,
-                pairFrom:data.pairFrom,
-                pairTo:data.pairTo,
-                icon: data.icon
             }
         case "SET_FORMDATASELL":
             return {

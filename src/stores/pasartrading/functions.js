@@ -72,7 +72,7 @@ export function SET_RX_FORM_DATABUY({price,amount}) {
     };
 }
 
-// Actions
+// Actions Supa
 // GET
 export const getListingSupa = async (dispatch) => {
     let { data: PairToken, error } = await supabase
@@ -95,9 +95,7 @@ export const getListingSupa = async (dispatch) => {
 export const getOneListingSupa = async (dispatch, PairSymbol) => {
     let { data: PairToken, error } = await supabase
     .from('Price')
-    .select(`
-        high, open, close, low, volumeCoin, volumePrice, change
-    `)
+    .select(`high, open, close, low, volumeCoin, volumePrice, change`)
     .eq('symbol', PairSymbol).single()
     if(PairToken) {
         dispatch({type: 'SET_PASAR_TRADING', data: {
@@ -112,7 +110,28 @@ export const getOneListingSupa = async (dispatch, PairSymbol) => {
     }
 }
 
-export function GetOrderBuyAndSell ({dispatch,pair,side,limit}) {
+export async function GetOrderBuyAndSellSupa ({dispatch,PairSymbol,side,limit}) {
+    if(side === 'BUY') {
+        let { data: PendingBuy, error } = await supabase
+        .from('PendingBuy')
+        .select(`price, amount, symbol`)
+        .order('price', { ascending: false })
+        .eq('symbol', PairSymbol).limit(limit)
+        if(!error) dispatch(PendingBuy||[])
+    } else if(side === 'SELL') {
+        let { data: PendingSell, error } = await supabase
+        .from('PendingSell')
+        .select("price, amount, symbol")
+        .order('price', { ascending: true })
+        .eq('symbol', PairSymbol).limit(limit)
+        if(!error) dispatch(PendingSell||[])
+    }
+}
+
+// Actions
+// GET
+
+export function GetOrderBuyAndSell ({dispatch,PairSymbol,side,limit}) {
     axios({
         url:`${baseUrlTrade}${baseUrlTradeVersion}/TradeOrder`,
         method:"GET",
@@ -120,7 +139,7 @@ export function GetOrderBuyAndSell ({dispatch,pair,side,limit}) {
             jwttoken:localStorage.getItem("token")
         },
         params:{
-            pair,
+            pair:PairSymbol,
             side,
             limit
         },

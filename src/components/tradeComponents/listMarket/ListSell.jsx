@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   GetOrderBuyAndSell,
+  GetOrderBuyAndSellSupa,
   SET_RX_FORM_DATABUY,
 } from "../../../stores/pasartrading/functions";
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
@@ -17,9 +18,9 @@ export default function ListSell() {
   );
   useEffect(() => {
     if (PairSymbol) {
-      GetOrderBuyAndSell({
+      GetOrderBuyAndSellSupa({
         dispatch: setData,
-        pair: PairSymbol,
+        PairSymbol: PairSymbol,
         side: "SELL",
         limit: 50,
       });
@@ -91,8 +92,8 @@ export default function ListSell() {
                         } text-left`}
                       >
                         {pairFrom === "USDT"
-                          ? item.total
-                          : convertNumber.toRupiah(item.total)}
+                          ? item.amount*item.price
+                          : convertNumber.toRupiah(item.amount*item.price)}
                       </td>
                     </tr>
                   );

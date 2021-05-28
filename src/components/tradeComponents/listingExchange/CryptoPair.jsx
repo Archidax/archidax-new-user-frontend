@@ -73,7 +73,6 @@ function CryptoPairRealtime({ item, index }) {
   const handleRowClick = () => {
     history.push(`/pasar/${item.symbol.toString().replace('/', '_')}`);
   };
-  console.log(item)
   // React.useEffect(() => {
   //   if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
   //     IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
