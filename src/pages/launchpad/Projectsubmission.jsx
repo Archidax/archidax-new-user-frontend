@@ -382,9 +382,6 @@ function LaunchpadPorto() {
                                         <p className="ci-text-white mb-0 label-title">Currency Base</p>
                                     </div>
                                     <div className="col-12">
-<<<<<<< HEAD
-                                        <Dropdown dataOptions={['BTC', 'USDT']}  searchBar={false} />
-=======
                                         <Dropdown
                                             searchBar={false}
                                             dataOptions={["USDT", "BTC"]}
@@ -392,7 +389,6 @@ function LaunchpadPorto() {
                                             onChange={setTokenCurrencyBase}
                                             classDropdown="text-white"
                                         />
->>>>>>> launchpad
                                     </div>
                                 </div>
                                 <div className="row no-gutters mb-2">
