@@ -1,13 +1,18 @@
 import React from "react";
+
+import {useSelector} from 'react-redux'
 import SliderTopGainer from "./slider/SliderTopGainer";
 import SliderTopLoser from "./slider/SliderTopLoser";
 
-export default function SliderHomepage({dataHome}){
-  let topGainer = dataHome.sort((a, b) => b.price24h_change - a.price24h_change)
-  .filter((item) => item.price24h_change > 0)||[]
+export default function SliderHomepage(){
+  const { listingList } = useSelector((state) =>
+    state ? state.pasarTradingReducer : {},
+  ); 
+  let topGainer = listingList.sort((a, b) => b.change - a.change)
+  .filter((item) => item.change > 0)||[]
 
-  let topLoser = dataHome.sort((a, b) => a.price24h_change - b.price24h_change)
-  .filter((item) => item.price24h_change < 0)||[]
+  let topLoser = listingList.sort((a, b) => a.change - b.change)
+  .filter((item) => item.change < 0)||[]
 
   return (
     <div className=" mt-4 mb-5">

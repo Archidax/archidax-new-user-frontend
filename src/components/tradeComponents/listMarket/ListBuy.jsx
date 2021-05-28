@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  GetOrderBuyAndSellSupa,
   GetOrderBuyAndSell,
   SET_RX_FORM_DATASELL,
 } from "../../../stores/pasartrading/functions";
@@ -18,9 +19,9 @@ export default function ListBuy() {
 
   useEffect(() => {
     if (PairSymbol) {
-      GetOrderBuyAndSell({
+      GetOrderBuyAndSellSupa({
         dispatch: setData,
-        pair: PairSymbol,
+        PairSymbol: PairSymbol,
         side: "BUY",
         limit: 50,
       });
@@ -94,8 +95,8 @@ export default function ListBuy() {
                         } text-left`}
                       >
                         {pairFrom === "USDT"
-                          ? item.total
-                          : convertNumber.toRupiah(item.total)}
+                          ? item.amount*item.price
+                          : convertNumber.toRupiah(item.amount*item.price)}
                       </td>
                     </tr>
                   </tbody>

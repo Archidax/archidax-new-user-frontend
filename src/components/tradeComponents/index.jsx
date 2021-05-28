@@ -26,31 +26,28 @@ export default function Index() {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
-  );
+  const { listingList } = useSelector((state) => state.pasarTradingReducer);
 
   React.useEffect(() => {
-    if (symbol && Exchange.length) {
-      const dataSymbol = Exchange.find(
+    if (symbol && listingList.length) {
+      const dataSymbol = listingList.find(
         (data) => data.symbol === symbol.toString().replace("_", "/"),
       );
       if (dataSymbol) {
-        let symbolQuote = dataSymbol.symbol.split("/")[0];
-        let symbolBase = dataSymbol.symbol.split("/")[1];
+        let symbolFrom = dataSymbol.symbol.split("/")[0];
+        let symbolTo = dataSymbol.symbol.split("/")[1];
         dispatch(
           SET_RX_PAIR({
-            currencyFrom: symbolBase,
-            currencyTo: symbolQuote,
-            pairFrom: dataSymbol.base,
-            pairTo: dataSymbol.quote,
-            icon: dataSymbol.price_24hour.icon,
-            other: dataSymbol,
+            currencyFrom: symbolFrom,
+            currencyTo: symbolTo,
+            pairFrom: symbolFrom,
+            pairTo: symbolTo,
+            icon: dataSymbol.fromToken.icon,
           }),
         );
       }
     }
-  }, [symbol, dispatch, Exchange]);
+  }, [symbol, dispatch, listingList]);
 
   React.useEffect(() => {
     if (isLoginPages) {
