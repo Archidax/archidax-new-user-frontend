@@ -2,12 +2,6 @@ import React, { useRef, useState } from 'react'
 import { Dropdown } from 'react-bootstrap'
 
 function CardTeamMember({ key, removeFunc, memberDetails, data, index, setMemberDetails }) {
-    const hiddenFileInput = useRef(null)
-    const hiddenClickUpload = (e) => {
-        e.preventDefault()
-        hiddenFileInput.current.click()
-    }
-
     return (
         <div className="col-12 col-xl-12 mb-2">
 
@@ -19,7 +13,8 @@ function CardTeamMember({ key, removeFunc, memberDetails, data, index, setMember
                         </div>
                         <div className="col-12">
                             <div className="input-group ci-inputDefault-bg">
-                                <input type="text" className="form-control ci-inputDefault-bg-input ci-pd"
+                                <input type="text"
+                                    className="form-control ci-inputDefault-bg-input ci-pd"
                                     onChange={(e) => {
                                         var tmp = [...memberDetails]
                                         tmp[index].memberName = e.target.value
@@ -58,9 +53,7 @@ function CardTeamMember({ key, removeFunc, memberDetails, data, index, setMember
                             </form>
                         </div>
                         <div className="col-12 mb-2">
-                            <form
-                                className="input-group ci-inputDefault-bg"
-                            >
+                            <form className="input-group ci-inputDefault-bg">
                                 <input
                                     type="text"
                                     className="form-control ci-inputDefault-bg-input "
@@ -72,18 +65,13 @@ function CardTeamMember({ key, removeFunc, memberDetails, data, index, setMember
                                     value={data.twitter}
                                 />
                                 <div className="ci-inputDefault-bg-appendL">
-                                    <i
-                                        className={
-                                            "fab fa-twitter ci-inputDefault-bg-appendL-icon ci-text-white"
-                                        } style={{ fontSize: '30px' }}
+                                    <i className={"fab fa-twitter ci-inputDefault-bg-appendL-icon ci-text-white"} style={{ fontSize: '30px' }}
                                     ></i>
                                 </div>
                             </form>
                         </div>
                         <div className="col-12">
-                            <form
-                                className="input-group ci-inputDefault-bg"
-                            >
+                            <form className="input-group ci-inputDefault-bg" >
                                 <input
                                     type="text"
                                     className="form-control ci-inputDefault-bg-input "
@@ -126,24 +114,7 @@ function CardTeamMember({ key, removeFunc, memberDetails, data, index, setMember
                     </div>
                     <div className="col-12">
                         <div className="input-group ci-inputDefault-bg-input ci-pd p-1">
-                            <label
-                                for="inputFile"
-                                className="mb-0 ml-4"
-                                style={{
-                                    background: "#454964",
-                                    color: "white",
-                                    padding: "5px 14px",
-                                    borderRadius: "4px",
-                                }}
-                                onClick={(e) => hiddenClickUpload(e)}
-                            >
-                                Upload Image
-                                        </label>
                             <input
-                                style={{
-                                    display: "none",
-                                }}
-                                ref={hiddenFileInput}
                                 id="inputFile"
                                 type="file"
                                 accept=".png, .jpg, .jpeg"
@@ -153,16 +124,7 @@ function CardTeamMember({ key, removeFunc, memberDetails, data, index, setMember
                                     tmp[index].photo = e.target.files[0]
                                     setMemberDetails(tmp)
                                 }}
-                                // value={data.photo}
                             />
-                            {/* <div className="pl-3 unggah-flex">
-                                                <span className="ci-text-white label-title font-13">
-                                                {img ? img.name : "Belum memilih file.."}
-                                                </span>
-                                                <span className="ci-text-white mb-0 font-10">
-                                                {Translate('ue_ukuran_file')}
-                                            </span>
-                                        </div> */}
                         </div>
                     </div>
                     <div className="col-12 d-flex align-items-end flex-column justify-content-end" style={{ height: '100px' }}>
