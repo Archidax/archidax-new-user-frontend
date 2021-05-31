@@ -70,31 +70,34 @@ export default function TabsLimitMarketChat() {
                   <input
                     className="ml-3 mr-2"
                     type="radio"
-                    name="tabs"
-                    id="tab1"
+                    name="tabbuy"
+                    id="tabbuy1"
                     checked
                   />
                   <label
-                    for="tab1"
+                    for="tabbuy1"
                     className="mr-4 font-13"
                     style={{ color: mode ? "white" : "black" }}
                   >
                     Limit
                   </label>
-
-                  <input type="radio" name="tabs" id="tab2" className="mr-2" />
+                  <input
+                    type="radio"
+                    name="tabbuy"
+                    id="tabbuy2"
+                    className="mr-2"
+                  />
                   <label
-                    for="tab2"
+                    for="tabbuy2"
                     className="font-13"
                     style={{ color: mode ? "white" : "black" }}
                   >
                     Market
                   </label>
-
-                  <div class="tab content1">
+                  <div class="tabbuy content1">
                     <LimitBuy />
                   </div>
-                  <div class="tab content2">
+                  <div class="tabbuy content2">
                     <MarketBuy />
                   </div>
                 </div>
@@ -111,38 +114,43 @@ export default function TabsLimitMarketChat() {
           <div className="row col-12 m-0 p-0">
             <div className="col-lg-12 col-sm-12 col-xs-12 p-0">
               <div className={`${mode ? "bg-trade-dark" : "bg-trade"}`}>
-                {/* <div className="width-trade pt-2">
+                <div className="width-trade pt-2">
                   <input
                     className="ml-3 mr-2"
                     type="radio"
-                    name="tabs"
-                    id="tab3"
+                    name="tabsell"
+                    id="tabsell1"
                     checked
                   />
                   <label
-                    for="tab3"
+                    for="tabsell1"
                     className="mr-4 font-13"
                     style={{ color: mode ? "white" : "black" }}
                   >
                     Limit
                   </label>
 
-                  <input type="radio" name="tabs" id="tab4" className="mr-2" />
+                  <input
+                    type="radio"
+                    name="tabsell"
+                    id="tabsell2"
+                    className="mr-2"
+                  />
                   <label
-                    for="tab4"
+                    for="tabsell2"
                     className="font-13"
                     style={{ color: mode ? "white" : "black" }}
                   >
                     Market
                   </label>
 
-                  <div class="tab2 content3">
-                    <LimitBuy />
+                  <div class="tabsell content1">
+                    <LimitSell />
                   </div>
-                  <div class="tab2 content4">
-                    <MarketBuy />
+                  <div class="tabsell content2">
+                    <MarketSell />
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>

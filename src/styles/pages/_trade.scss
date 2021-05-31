@@ -173,7 +173,7 @@ $chat-color: black;
 }
 
 .height-kanan {
-  height: 380px;
+  height: 328px;
 }
 
 .border-market {
@@ -1500,18 +1500,39 @@ input:checked + .slider:before {
 }
 
 // Tabs Radio Button
-input ~ .tab {
+input ~ .tabbuy {
   display: none;
 }
-#tab1:checked ~ .tab.content1,
-#tab2:checked ~ .tab.content2 {
+#tabbuy1:checked ~ .tabbuy.content1,
+#tabbuy2:checked ~ .tabbuy.content2 {
   display: block;
 }
 
-input ~ .tab2 {
+input ~ .tabsell {
   display: none;
 }
-#tab3:checked ~ .tab.content3,
-#tab4:checked ~ .tab.content4 {
+#tabsell1:checked ~ .tabsell.content1,
+#tabsell2:checked ~ .tabsell.content2 {
   display: block;
+}
+
+// volume
+.dark-sell {
+  background: url(../../assets/img/trade/volume/dark-sell.svg);
+  background-repeat: no-repeat;
+}
+
+.day-sell {
+  background: url(../../assets/img/trade/volume/day-sell.svg);
+  background-repeat: no-repeat;
+}
+
+.dark-buy {
+  background: url(../../assets/img/trade/volume/dark-buy.svg);
+  background-repeat: no-repeat;
+}
+
+.day-buy {
+  background: url(../../assets/img/trade/volume/day-buy.svg);
+  background-repeat: no-repeat;
 }
