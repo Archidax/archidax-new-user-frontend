@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {supabase, getListingSupa, getOneListingSupa} from '../../stores'
+import { supabase, getListingSupa, getOneListingSupa } from "../../stores";
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
 
 import {
@@ -30,42 +30,44 @@ export default function Price() {
   );
   const { listingList } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
-  ); 
+  );
 
-  const listenToListing = () =>{
+  const listenToListing = () => {
     const Price = supabase
-      .from('Price')
-      .on('*', payload => {
-        dispatch({type: 'SET_UPDATELISTING', data: payload.new})
-        if(payload.new.symbol === PairSymbol) {
-          dispatch(setPasarTrading({
-            Open: payload.new.open,
-            High: payload.new.high,
-            Low: payload.new.low,
-            Close: payload.new.close,
-            Change: payload.new.change,
-            Volume: payload.new.volumePrice,
-            VolumeCrypto: payload.new.volumeCoin
-          }))
+      .from("Price")
+      .on("*", (payload) => {
+        dispatch({ type: "SET_UPDATELISTING", data: payload.new });
+        if (payload.new.symbol === PairSymbol) {
+          dispatch(
+            setPasarTrading({
+              Open: payload.new.open,
+              High: payload.new.high,
+              Low: payload.new.low,
+              Close: payload.new.close,
+              Change: payload.new.change,
+              Volume: payload.new.volumePrice,
+              VolumeCrypto: payload.new.volumeCoin,
+            }),
+          );
         }
       })
-      .subscribe()
-  }
-  
-  React.useEffect(() => {
-    getListingSupa(dispatch)
-    listenToListing()
-  },[])
+      .subscribe();
+  };
 
   React.useEffect(() => {
-    getOneListingSupa(dispatch, PairSymbol)
+    getListingSupa(dispatch);
+    listenToListing();
+  }, []);
+
+  React.useEffect(() => {
+    getOneListingSupa(dispatch, PairSymbol);
   }, [PairSymbol]);
 
   return (
     <div
       className={`${
         mode ? "bg-trade2-dark" : "bg-trade2"
-      } px-2 ptb-2-trade mt-1`}
+      } px-4 ptb-2-trade mt-1`}
       style={{ minHeight: "49vh" }}
     >
       <div className="pt-3" style={{ display: "flex", flexDirection: "row" }}>
@@ -183,7 +185,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="crypto-pairs"
                     >
-                      <CryptoPair listingList={listingList}/>
+                      <CryptoPair listingList={listingList} />
                     </div>
                     <div
                       className="tab-pane ci-dropdown-menu-TradeSymbol-scrollbar fade"
@@ -191,7 +193,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="fiat-pairs"
                     >
-                      <FiatPair listingList={listingList}/>
+                      <FiatPair listingList={listingList} />
                     </div>
                   </div>
                 </div>
@@ -201,8 +203,18 @@ export default function Price() {
         </div>
       </div>
       <div className="p-2 mt-2">
-        <div style={{ display: "flex", justifyContent: "column" }}>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
           {/* Price */}
+          <div
+            className={`${
+              mode ? "text-white" : "text-black"
+            } font-16 mr-2 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
+            style={{ marginTop: "12px" }}
+            // style={{ background: "#232323" }}
+          >
+            {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"}
+            {/* 50% */}
+          </div>
           <div
             className={`${
               mode ? "text-price-bottom-dark" : "text-price-bottom"
@@ -212,15 +224,6 @@ export default function Price() {
             {/* 5.000.000 */}
           </div>
           {/* Change */}
-          <div
-            className={`${
-              mode ? "text-white" : "text-black"
-            } font-24 ml-3 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
-            // style={{ background: "#232323" }}
-          >
-            {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"}
-            {/* 50% */}
-          </div>
         </div>
 
         <div
@@ -266,7 +269,7 @@ export default function Price() {
               } font-15`}
             >
               {price24H ? convertNumber.toRupiah(price24H.High) : 0}
-              845.000.000
+              {/* 845.000.000 */}
             </div>
           </div>
         </div>

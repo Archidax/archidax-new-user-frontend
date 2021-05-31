@@ -144,7 +144,12 @@ export default function LimitBuy() {
                 justifyContent: "center",
               }}
             >
-              <h5 className="font-14 mt-4 text-white">Limit Price : </h5>
+              <h5
+                className="font-14 mt-4"
+                style={{ color: mode ? "white" : "black" }}
+              >
+                Limit Price :{" "}
+              </h5>
             </div>
             <input
               type="text"
@@ -168,7 +173,12 @@ export default function LimitBuy() {
                 justifyContent: "center",
               }}
             >
-              <h5 className="font-14 mt-4 text-white">Amount : </h5>
+              <h5
+                className="font-14 mt-4 "
+                style={{ color: mode ? "white" : "black" }}
+              >
+                Amount :{" "}
+              </h5>
             </div>
             <input
               type="number"
@@ -209,7 +219,8 @@ export default function LimitBuy() {
                 }
               />
               <label
-                class="form-check-label font-12 text-white mt-1"
+                class="form-check-label font-12 mt-1"
+                style={{ color: mode ? "white" : "black" }}
                 for="inlineRadio1"
               >
                 25%
@@ -238,7 +249,8 @@ export default function LimitBuy() {
                 }
               />
               <label
-                class="form-check-label font-12 text-white mt-1"
+                class="form-check-label font-12  mt-1"
+                style={{ color: mode ? "white" : "black" }}
                 for="inlineRadio2"
               >
                 50%
@@ -267,7 +279,8 @@ export default function LimitBuy() {
                 }
               />
               <label
-                class="form-check-label font-12 text-white mt-1"
+                class="form-check-label font-12  mt-1"
+                style={{ color: mode ? "white" : "black" }}
                 for="inlineRadio3"
               >
                 75%
@@ -296,7 +309,8 @@ export default function LimitBuy() {
                 }
               />
               <label
-                class="form-check-label font-12 text-white mt-1"
+                class="form-check-label font-12  mt-1"
+                style={{ color: mode ? "white" : "black" }}
                 for="inlineRadio3"
               >
                 100%
@@ -313,7 +327,12 @@ export default function LimitBuy() {
                 justifyContent: "center",
               }}
             >
-              <h5 className="font-14 mt-4 text-white">Estimation : </h5>
+              <h5
+                className="font-14 mt-4 "
+                style={{ color: mode ? "white" : "black" }}
+              >
+                Estimation :{" "}
+              </h5>
             </div>
             <input
               type="number"
@@ -334,7 +353,7 @@ export default function LimitBuy() {
           <p
             className={`col-9 offset-3 p-0 mb-0 ${
               mode ? "text-price-dark" : "text-price"
-            } font-12 text-white mt-1`}
+            } font-12  mt-1`}
             style={{ marginTop: "10px" }}
           >
             Fee : Maker <span className="text-sell">0%</span> - Taker{" "}
@@ -349,7 +368,7 @@ export default function LimitBuy() {
             >
               <h5
                 className={`mb-0 font-16 ${
-                  mode ? "font-weight-bold" : "text-white font-bolder2"
+                  mode ? "font-weight-bold" : " font-bolder2"
                 }`}
               >
                 Buy
