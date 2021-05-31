@@ -46,6 +46,49 @@ function LaunchpadPorto() {
     const [tokenDistribution, setTokenDistribution] = useState(0)
     const [tokenCoinImage, setTokenCoinImage] = useState(null)
 
+
+
+    // Team
+    const [memberDetails, setMemberDetails] = useState([{
+        memberName: "",
+        position: "",
+        facebook: "",
+        twitter: "",
+        linkedin: "",
+        photo: null
+    }])
+
+    const addTeamMember = () => {
+        let form = {
+            memberName: "",
+            position: "",
+            facebook: "",
+            twitter: "",
+            linkedin: "",
+            photo: null
+        }
+        setMemberDetails([...memberDetails, form])
+    }
+
+    const removeMember = (index) => {
+        let members = [...memberDetails]
+        members.splice(index, 1)
+        setMemberDetails(members)
+    }
+
+    // Dokumen
+    const [documentWhitepaper, setDocumentWhitepaper] = useState(null)
+    const [documentImagePresentation, setDocomentImagePresentation] = useState(null)
+    const [documentExecutiveSummary, setDocumentExecutiveSummary] = useState(null)
+
+    // Social Media
+    const [smFacebook, setSmFacebook] = useState("")
+    const [smTwitter, setSmTwitter] = useState("")
+    const [smLinkedin, setSmLinkedin] = useState("")
+    const [smTelegram, setSmTelegram] = useState("")
+    const [smYoutube, setSmYoutube] = useState("")
+
+
     const submitNewCoin = () => {
         const description = draftToHtml(
             convertToRaw(editorState.getCurrentContent())
@@ -94,50 +137,19 @@ function LaunchpadPorto() {
         data.append('youtube', smYoutube)
         // data.append('official_website', description)
 
+        
+        // team
+        // data.append('team', memberDetails)
+
+        memberDetails.map(el => {
+            return data.append('team', JSON.stringify(el))
+        })
+
+        console.log(memberDetails)
         // Actions redux
         launchNewProject(data)
     }
 
-
-    // Team
-    const [memberDetails, setMemberDetails] = useState([{
-        memberName: "",
-        position: "",
-        facebook: "",
-        twitter: "",
-        linkedin: "",
-        photo: null
-    }])
-
-    const addTeamMember = () => {
-        let form = {
-            memberName: "",
-            position: "",
-            facebook: "",
-            twitter: "",
-            linkedin: "",
-            photo: null
-        }
-        setMemberDetails([...memberDetails, form])
-    }
-
-    const removeMember = (index) => {
-        let members = [...memberDetails]
-        members.splice(index, 1)
-        setMemberDetails(members)
-    }
-
-    // Dokumen
-    const [documentWhitepaper, setDocumentWhitepaper] = useState(null)
-    const [documentImagePresentation, setDocomentImagePresentation] = useState(null)
-    const [documentExecutiveSummary, setDocumentExecutiveSummary] = useState(null)
-
-    // Social Media
-    const [smFacebook, setSmFacebook] = useState("")
-    const [smTwitter, setSmTwitter] = useState("")
-    const [smLinkedin, setSmLinkedin] = useState("")
-    const [smTelegram, setSmTelegram] = useState("")
-    const [smYoutube, setSmYoutube] = useState("")
 
     return (
         <div className="panduan-pengguna">
