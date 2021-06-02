@@ -55,7 +55,7 @@ function LaunchpadPorto() {
         facebook: "",
         twitter: "",
         linkedin: "",
-        photo: null
+        photo: ""
     }])
 
     const addTeamMember = () => {
@@ -65,7 +65,7 @@ function LaunchpadPorto() {
             facebook: "",
             twitter: "",
             linkedin: "",
-            photo: null
+            photo: ""
         }
         setMemberDetails([...memberDetails, form])
     }
@@ -137,14 +137,19 @@ function LaunchpadPorto() {
         data.append('youtube', smYoutube)
         // data.append('official_website', description)
 
-        
+
         // team
         // data.append('team', memberDetails)
 
-        memberDetails.map(el => {
-            return data.append('team', JSON.stringify(el))
-        })
-
+        if (memberDetails.length > 1) {
+            memberDetails.map(el => {
+                return data.append('team', JSON.stringify(el))
+            })
+        } else {
+            // let string = JSON.stringify(memberDetails[0]);
+            // let stringified = "[" + string + "]";
+            data.append('team', JSON.stringify(memberDetails[0]))
+        }
         console.log(memberDetails)
         // Actions redux
         launchNewProject(data)
