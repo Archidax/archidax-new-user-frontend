@@ -1,9 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+// import { GetListingExchange } from "../../stores";
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
 
 import {
-  GetOrderLastPrice, GetListingExchange
+  GetOrderLastPrice,
+  GetListingExchange,
 } from "../../stores/pasartrading/functions";
 
 // Import Images
@@ -14,6 +16,7 @@ import FiatPair from "./listingExchange/FiatPair";
 import DayNight from "./daynight/DayNight";
 
 import { convertNumber } from "../../assets/js";
+import TabsChartTrade from "./TabsChartTrade";
 
 export default function Price() {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -55,7 +58,7 @@ export default function Price() {
   }, []);
 
   React.useEffect(() => {
-    dispatch(GetOrderLastPrice({pair:PairSymbol}))
+    dispatch(GetOrderLastPrice({ pair: PairSymbol }));
   }, [PairSymbol]);
 
   return (
@@ -317,6 +320,7 @@ export default function Price() {
           </div>
         </div>
       </div>
+      <TabsChartTrade />
 
       {/* <div className="row m-0">
         <div className="col-lg-11">
