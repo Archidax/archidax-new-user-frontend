@@ -10,14 +10,14 @@ import KenapaMemilihCrypto from "./components/KenapaMemilihCrypto";
 import NewsHomepage from "./components/NewsHomepage";
 import FooterHomePage from "../footerComponents/footerHomePage/FooterHomePage";
 
-import { getListingSupa } from "../../stores";
+import { GetListingExchange } from "../../stores";
 import DalamCrypto from "./components/DalamCrypto";
 
 function Home(props) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    getListingSupa(dispatch);
+    GetListingExchange(dispatch);
   }, []);
 
   return (
@@ -29,7 +29,7 @@ function Home(props) {
         />
         <BannerHomepage setLocale={props.setLocale} />
         <SliderHomepage setLocale={props.setLocale} />
-        {/* <TableHomepage setLocale={props.setLocale} /> */}
+        <TableHomepage setLocale={props.setLocale} />
         <ApaItuCrypto setLocale={props.setLocale} />
         <DalamCrypto setLocale={props.setLocale} />
         <CalculatorCrypto setLocale={props.setLocale} />

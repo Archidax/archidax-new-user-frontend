@@ -3,17 +3,10 @@ import CryptoPair from "./CryptoPair";
 import FavoritePair from "./FavoritePair";
 import FiatPair from "./FiatPair";
 import star from "../../../assets/img/trade/star.png";
-
-import { useDispatch, useSelector } from "react-redux";
-import { GetListingExchange } from "../../../stores/pasartrading/functions";
+import { useSelector } from "react-redux";
 
 export default function ListingExchange() {
   const { mode } = useSelector((state) => state.daynightReducer);
-  // const Dispatch = useDispatch();
-
-  // React.useEffect(() => {
-  //   Dispatch(GetListingExchange());
-  // }, [Dispatch]);
 
   return (
     <div className={mode ? "tabs-global-dark" : "tabs-global"}>
