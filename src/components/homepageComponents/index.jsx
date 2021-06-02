@@ -1,5 +1,5 @@
 import React from "react";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from "react-redux";
 import HeaderHomePage from "../headerComponents/headerHomePage";
 import BannerHomepage from "./components/BannerHomepage";
 import SliderHomepage from "./components/SliderHomepage";
@@ -14,11 +14,11 @@ import { getListingSupa } from "../../stores";
 import DalamCrypto from "./components/DalamCrypto";
 
 function Home(props) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    getListingSupa(dispatch)
-  },[])
+    getListingSupa(dispatch);
+  }, []);
 
   return (
     <div className="navbar-homePage">
@@ -29,7 +29,7 @@ function Home(props) {
         />
         <BannerHomepage setLocale={props.setLocale} />
         <SliderHomepage setLocale={props.setLocale} />
-        <TableHomepage setLocale={props.setLocale} />
+        {/* <TableHomepage setLocale={props.setLocale} /> */}
         <ApaItuCrypto setLocale={props.setLocale} />
         <DalamCrypto setLocale={props.setLocale} />
         <CalculatorCrypto setLocale={props.setLocale} />
