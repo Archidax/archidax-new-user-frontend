@@ -15,7 +15,6 @@ const tableHeader = [
 
 
 export default function RiwayatSetorRupiah() {
-  const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
   const riwayat = useSelector(state => state.riwayatReducer.riwayatSetorRupiah)
   const numberOfPages = useSelector(state => state.riwayatReducer.pagesRiwayatSetorRupiah)
   const dispatch = useDispatch()

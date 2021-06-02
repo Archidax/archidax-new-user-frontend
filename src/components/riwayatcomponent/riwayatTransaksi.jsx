@@ -13,7 +13,7 @@ const tableHeader = [
 
 
 export default function RiwayatTransaksi() {
-  const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
+  const { listingList } = useSelector(state => state.pasarTradingReducer)
   const riwayat = useSelector(state => state.riwayatReducer.riwayatTransaksi)
   // const numberOfPages = useSelector(state => state.riwayatReducer.pagesRiwayatTransaksi)
   const totalDocs = useSelector(state => state.riwayatReducer.totalDocsRiwayatTransaksi)
@@ -54,7 +54,7 @@ export default function RiwayatTransaksi() {
                 <select className="select w-100 h-100" onChange={(e) => setPair(e.target.value)}>
                   <option value="" selected >Semua</option>
                   {
-                    Exchange.map((el, index) => {
+                    listingList.map((el, index) => {
                       return (
                         <option key={index} value={el.symbol}>{el.symbol}</option>
                       )

@@ -22,7 +22,7 @@ export default function LimitBuy() {
   const { mode } = useSelector((state) => state.daynightReducer);
 
   const [balance, setBalance] = useState("");
-  const { PairSymbol, pairFrom } = useSelector((state) =>
+  const { PairSymbol, pairFrom,pairTo } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
 
@@ -123,7 +123,7 @@ export default function LimitBuy() {
             <div className="make-middle">
               <img src={walletlogo} width="14px" alt="walletlogo" />
               <div className="text-dgrey ml-2 font-14">
-                {pairFrom ? pairFrom : "-"}:
+                {pairTo ? pairTo : "-"}:
               </div>
               <div
                 className={`${
