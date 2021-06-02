@@ -13,7 +13,7 @@ const tableHeader = [
 
 
 export default function TableHistorySetorCrypto({ coinCode }) {
-  const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
+  const { listingList } = useSelector(state => state.pasarTradingReducer)
   const riwayat = useSelector(state => state.riwayatReducer.riwayatSetorCrypto)
   const totalDocs = useSelector(state => state.riwayatReducer.totalDocsRiwayatSetorCrypto)
   const dispatch = useDispatch()
@@ -60,7 +60,7 @@ export default function TableHistorySetorCrypto({ coinCode }) {
                     <select className="select  w-100 h-100" onChange={(e) => setSymbol(e.target.value)}>
                       <option defaultValue="BTC" selected>BTC</option>
                       {
-                        Exchange.map((el, index) => {
+                        listingList.map((el, index) => {
                           if (el.symbol.includes("/IDR")) {
                             const code = el.symbol.replace("/IDR", "")
                             if (el.initialSymbol !== "BTC") {

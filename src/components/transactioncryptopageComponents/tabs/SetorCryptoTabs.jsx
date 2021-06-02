@@ -36,12 +36,12 @@ function SetorCryptoTabs() {
     const dispatch = useDispatch()
     const history = useHistory()
     const [copied, setCopied] = useState(false)
-    const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
+    const { listingList } = useSelector(state => state.pasarTradingReducer)
     const [coinIcon, setCoinIcon] = useState(getCoinIcon("BTC"))
     const [closePrice, setClosePrice] = useState(0)
 
     useEffect(() => {
-        const found = Exchange.find(coin => coin.initialSymbol === coinCode.toUpperCase())
+        const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
         if (coinCode === "TRON") {
             history.push("/crypto/setor-crypto/TRX")
         } else if (!found) {
@@ -54,7 +54,7 @@ function SetorCryptoTabs() {
             // getPriceEstimation(found.alias, dispatch)
             // setPriceEstimation(found)
         }
-    }, [coinCode, history, dispatch, Exchange])
+    }, [coinCode, history, dispatch, listingList])
 
     // Generate Address
     const aktifkan = () => {
@@ -126,7 +126,7 @@ function SetorCryptoTabs() {
                                                     </div>
                                                 </button>
 
-                                                <DropdownCoin data={Exchange} action="setor-crypto" />
+                                                <DropdownCoin data={listingList} action="setor-crypto" />
                                             </div>
 
                                         </div>

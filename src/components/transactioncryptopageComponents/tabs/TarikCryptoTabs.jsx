@@ -26,7 +26,7 @@ function TarikCryptoTabs() {
     const [totalTerimaBersih, setTotalTerimaBersih] = useState(0)
     const [code, setCode] = useState('')
     const request_id = useSelector(state => state.kycReducer.requestId)
-    const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
+    const { listingList } = useSelector(state => state.pasarTradingReducer)
     const [, setCoinIcon] = useState(getCoinIcon("BTC"))
     const [, setClosePrice] = useState(0)
 
@@ -37,7 +37,7 @@ function TarikCryptoTabs() {
         setCustomAmount(0)
         setWithdrawAddress('')
         setTotalTerimaBersih(0)
-        const found = Exchange.find(coin => coin.initialSymbol === coinCode.toUpperCase())
+        const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
         if (coinCode === "TRON") {
             history.push("/crypto/setor-crypto/TRX")
         } else if (!found) {
@@ -52,7 +52,7 @@ function TarikCryptoTabs() {
             // getMyBalance(coinCode, dispatch)
             // getPriceEstimation(found.alias, dispatch)
         }
-    }, [coinCode,Exchange,history,dispatch])
+    }, [coinCode,listingList,history,dispatch])
 
     const setPercentAmount = (e, num) => {
         setCustomAmount(0)
@@ -110,7 +110,7 @@ function TarikCryptoTabs() {
                                                     </div>
                                                 </button>
 
-                                                <DropdownCoin data={Exchange} action="tarik-crypto" />
+                                                <DropdownCoin data={listingList} action="tarik-crypto" />
                                             </div>
 
                                         </div>
