@@ -55,7 +55,7 @@ function LaunchpadPorto() {
         facebook: "",
         twitter: "",
         linkedin: "",
-        photo: "www.hawk.kim"
+        photo: ""
     }])
 
     const addTeamMember = () => {
@@ -65,7 +65,7 @@ function LaunchpadPorto() {
             facebook: "",
             twitter: "",
             linkedin: "",
-            photo: "www.hawk.kim"
+            photo: ""
         }
         setMemberDetails([...memberDetails, form])
     }
