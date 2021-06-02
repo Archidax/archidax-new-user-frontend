@@ -3,13 +3,10 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
-
 import { convertNumber } from "../../../assets/js";
 
-export default function FavoritePair() {
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
-  );
+export default function FavoritePair({listingList}) {
+  // const { Exchange } = useSelector((state) => state.pasarTradingReducer.listingList);
   const { mode } = useSelector((state) => state.daynightReducer);
   const { myFav } = useSelector((state) => state.pasarTradingReducer);
   const { email } = useSelector((state) => state?.profileReducer);
@@ -35,10 +32,10 @@ export default function FavoritePair() {
             </thead>
             <tbody>
               {email &&
-              Exchange &&
-              Array.isArray(Exchange) &&
-              Exchange.length > 0 ? (
-                Exchange.filter((item) => {
+              listingList &&
+              Array.isArray(listingList) &&
+              listingList.length > 0 ? (
+                listingList.filter((item) => {
                   if (myFav.includes(item._id)) {
                     return item;
                   } else {

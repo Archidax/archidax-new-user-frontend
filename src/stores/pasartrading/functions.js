@@ -1,5 +1,5 @@
 import { baseAxios, supabase } from '../index'
-import { baseUrlTrade, baseUrlTradeVersion } from '../index'
+import { baseUrlTrade, baseUrlTradeVersion, baseAxiosTrading } from '../index'
 import Swal from 'sweetalert2'
 import errorHandler from '../errorHandler'
 import axios from 'axios'
@@ -26,7 +26,7 @@ export function setLoading (data) {
 }
 export function SET_RX_LISTING_EXCHANGE (data) {
     return {
-        type: "LISTING_EXCHANGE",
+        type: "SET_LISTINGLIST",
         data: data
     }
 }
@@ -334,7 +334,7 @@ export function GetListingExchange () {
                 method:"GET"
             })
             console.log(data, ",,,,,,,,,,,,,,,,,,sdadsadw")
-            // dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
+            dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
         }
         catch (err) {
             dispatch(SET_RX_LISTING_EXCHANGE([]));

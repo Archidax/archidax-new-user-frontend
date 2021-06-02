@@ -8,7 +8,8 @@ import { useHistory } from "react-router-dom";
 export default function TableHomepage() {
   const { listingList } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
-  ); 
+  );
+  console.log(listingList, "sdawdsadw")
   const history = useHistory();
 
   return (
@@ -37,6 +38,7 @@ export default function TableHomepage() {
                       `/pasar/${item.symbol.toString().replace("/", "_") }`,
                     );
                   };
+                  console.log(item)
                   return (
                     <tr
                       className="tb-border-bottom2 cursor-pointer"
@@ -52,21 +54,21 @@ export default function TableHomepage() {
                       </td>
                       <td className="text-white text-left">{item.fromToken.assetName}</td>
                       <td
-                        className={`${convertNumber.tradeUpDownChange(item.Price.change, 2)}`}
+                        className={`${item.Price?convertNumber.tradeUpDownChange(item.Price.change, 2):'-'}`}
                       >
-                        {convertNumber.tradeChange(item.Price.change, 2)}
+                        {item.Price?convertNumber.tradeChange(item.Price.change, 2):'- '}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.Price.close)}
+                        {item.Price?convertNumber.toRupiah(item.Price.close):'- '}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.Price.high)}
+                        {item.Price?convertNumber.toRupiah(item.Price.high):'- '}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.Price.low)}
+                        {item.Price?convertNumber.toRupiah(item.Price.low):'- '}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.Price.volumeCoin)}{" "}
+                        {item.Price?convertNumber.toRupiah(item.Price.volumeCoin):'- '}{" "}
                         {item.symbol ? item.symbol.split("/")[0] : null}
                       </td>
                     </tr>
