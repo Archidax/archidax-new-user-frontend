@@ -205,21 +205,21 @@ export default function Price() {
           {/* Price */}
           <div
             className={`${
-              mode ? "text-white" : "text-black"
-            } font-16 mr-2 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
-            style={{ marginTop: "12px" }}
-            // style={{ background: "#232323" }}
-          >
-            {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"}
-            {/* 50% */}
-          </div>
-          <div
-            className={`${
               mode ? "text-price-bottom-dark" : "text-price-bottom"
             } font-28`}
           >
             {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
             {/* 5.000.000 */}
+          </div>
+          <div
+            className={`${
+              mode ? "text-white" : "text-black"
+            } font-16 ml-4 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
+            style={{ marginTop: "12px" }}
+            // style={{ background: "#232323" }}
+          >
+            {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"}
+            {/* 50% */}
           </div>
           {/* Change */}
         </div>
