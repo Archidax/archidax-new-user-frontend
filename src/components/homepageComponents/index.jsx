@@ -10,14 +10,14 @@ import KenapaMemilihCrypto from "./components/KenapaMemilihCrypto";
 import NewsHomepage from "./components/NewsHomepage";
 import FooterHomePage from "../footerComponents/footerHomePage/FooterHomePage";
 
-import { getListingSupa } from "../../stores";
+import { GetListingExchange } from "../../stores";
 import DalamCrypto from "./components/DalamCrypto";
 
 function Home(props) {
   const dispatch = useDispatch()
 
   React.useEffect(() => {
-    getListingSupa(dispatch)
+    GetListingExchange(dispatch)
   },[])
 
   return (

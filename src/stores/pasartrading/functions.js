@@ -74,23 +74,23 @@ export function SET_RX_FORM_DATABUY({price,amount}) {
 
 // Actions Supa
 // GET
-export const getListingSupa = async (dispatch) => {
-    let { data: PairToken, error } = await supabase
-    .from('PairToken')
-    .select(`
-      *,
-      Price (
-        *
-      ),
-      toToken(
-        *
-      ),
-      fromToken(
-        *
-      )
-    `)
-    dispatch({type: 'SET_LISTINGLIST', data: PairToken})
-}
+// export const getListingSupa = async (dispatch) => {
+//     let { data: PairToken, error } = await supabase
+//     .from('PairToken')
+//     .select(`
+//       *,
+//       Price (
+//         *
+//       ),
+//       toToken(
+//         *
+//       ),
+//       fromToken(
+//         *
+//       )
+//     `)
+//     dispatch({type: 'SET_LISTINGLIST', data: PairToken})
+// }
 
 export const getOneListingSupa = async (dispatch, PairSymbol) => {
     let { data: PairToken, error } = await supabase
@@ -128,9 +128,9 @@ export async function GetOrderBuyAndSellSupa ({dispatch,PairSymbol,side,limit}) 
     }
 }
 
-// Actions
+// Actions MongoDB
 // GET
-
+// get all order
 export function GetOrderBuyAndSell ({dispatch,PairSymbol,side,limit}) {
     axios({
         url:`${baseUrlTrade}${baseUrlTradeVersion}/TradeOrder`,
@@ -156,7 +156,7 @@ export function GetOrderBuyAndSell ({dispatch,PairSymbol,side,limit}) {
         Popup.fire({text:Message, title: "error 404"})
     });
 }
-
+// get all order pending user
 export function GetOrderPending ({pair}) {
     return async function (dispatch) {
         try {
@@ -183,7 +183,7 @@ export function GetOrderPending ({pair}) {
         }
     }
 }
-
+// get all history order user
 export function GetHistoryOrder ({dispatch,pair}) {
     axios({
         url:`${baseUrlTrade}${baseUrlTradeVersion}/HistoryOrder`,
@@ -207,47 +207,31 @@ export function GetHistoryOrder ({dispatch,pair}) {
         Popup.fire({text:Message, title: "error 404"})
     });
 }
-
-export function getPasarTrading (dispatch) {
-    Swal.fire({
-        title: 'Loading !',
-        showConfirmButton: false,
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        onBeforeOpen: () => {
-            Swal.showLoading()
+// get order live market
+export function GetOrderLiveMarket ({dispatch,pair}) {
+    axios({
+        url:`${baseUrlTrade}${baseUrlTradeVersion}/LiveMarket`,
+        method:"GET",
+        headers:{
+            jwttoken:localStorage.getItem("token")
         },
-    });
-    baseAxios.get("/pasartading", {
-        headers: {
-            jwttoken: localStorage.getItem('token')
+        params:{
+            pair
+        },
+    }).then(({data})=>{
+        dispatch(data.market)
+    }).catch((err)=>{
+        dispatch([]);
+        let Message="";
+        if(!err.response){
+            Message=err.message;
+        }else{
+            Message=err.response.data.message;
         }
-    })
-        .then(async ({ data }) => {
-            Swal.close()
-            try {
-                dispatch(setPasarTrading(data))
-            } catch (err) {
-                console.log(err)
-            }
-        })
-        .catch(err => {
-            if(err.response){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Gagal!',
-                    text: err.response.data.message,
-                })
-            }else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Gagal!',
-                    text: "SERVER MATI!!!! HOSEA!!",
-                })
-            }
-        })
-};
-
+        Popup.fire({text:Message, title: "error 404"})
+    });
+}
+// get all chat data
 export function getChatData ({dispatch}) {
     axios({
         url:`${baseUrlTrade}${baseUrlTradeVersion}/chatting/all`,
@@ -269,30 +253,7 @@ export function getChatData ({dispatch}) {
     });
 };
 
-export function GetOrderLiveMarket ({dispatch,pair}) {
-    axios({
-        url:`${baseUrlTrade}${baseUrlTradeVersion}/LiveMarket`,
-        method:"GET",
-        headers:{
-            jwttoken:localStorage.getItem("token")
-        },
-        params:{
-            pair,
-        },
-    }).then(({data})=>{
-        dispatch(data.market)
-    }).catch((err)=>{
-        dispatch([]);
-        let Message="";
-        if(!err.response){
-            Message=err.message;
-        }else{
-            Message=err.response.data.message;
-        }
-        Popup.fire({text:Message, title: "error 404"})
-    });
-}
-
+// get specific coin price
 export function GetOrderLastPrice ({pair}) {
     return async function (dispatch) {
         try {
@@ -326,6 +287,7 @@ export function GetOrderLastPrice ({pair}) {
     }
 }
 
+// get all data pair
 export function GetListingExchange () {
     return async function (dispatch) {
         try {
@@ -333,7 +295,6 @@ export function GetListingExchange () {
                 url:`${baseUrlTrade}${baseUrlTradeVersion}/ListingExchange`,
                 method:"GET"
             })
-            console.log(data, ",,,,,,,,,,,,,,,,,,sdadsadw")
             dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
         }
         catch (err) {
@@ -346,7 +307,7 @@ export function GetListingExchange () {
 export function CancelOrderId ({id,symbol}) {
     return async function (dispatch) {
         Popup.fire({
-            text:'apakah anda yakin ingin membatalkan ?', 
+            text:'Do you want want to cancel your order ?', 
             title: "Order", 
             cancel: true,
             onClickOk: async() => {
@@ -380,7 +341,7 @@ export function CancelOrderId ({id,symbol}) {
 export function Orders ({FormData}) {
     return async function (dispatch) {
         Popup.fire({
-            text: `Apakah anda yakin ingin ${FormData.side ? FormData.side.toUpperCase()==="BUY"?"membeli":FormData.side.toUpperCase()==="SELL"?"menjual":null: null} ${FormData.symbol} dengan ${FormData.price ? 'harga '+FormData.price : 'total '+FormData.amount} ?`, 
+            text: `Do you want to ${FormData.side ? FormData.side.toUpperCase()==="BUY"?"buy":FormData.side.toUpperCase()==="SELL"?"sell":null: null} ${FormData.symbol} with ${FormData.price ? 'the price of '+FormData.price : ' for  '+FormData.amount} ?`, 
             title: "Order", 
             cancel: true,
             onClickOk: async() => {

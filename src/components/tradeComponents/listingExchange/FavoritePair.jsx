@@ -6,7 +6,6 @@ import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { convertNumber } from "../../../assets/js";
 
 export default function FavoritePair({listingList}) {
-  // const { Exchange } = useSelector((state) => state.pasarTradingReducer.listingList);
   const { mode } = useSelector((state) => state.daynightReducer);
   const { myFav } = useSelector((state) => state.pasarTradingReducer);
   const { email } = useSelector((state) => state?.profileReducer);
