@@ -5,8 +5,8 @@ import pasarlogo from "../../../assets/img/dashboard/logo/pasar.svg";
 import Translate from "../../../i18n/Translate";
 
 function CardDashboardPasarTrading() {
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER,
+  const { listingList } = useSelector(
+    (state) => state.pasarTradingReducer,
   );
 
   return (
@@ -104,8 +104,8 @@ function CardDashboardPasarTrading() {
                       {Translate('db_pasar_aksi')}
                     </th>
                   </thead>
-                  {Exchange && Exchange.length > 0 ? (
-                    <PricePasarTrading data={Exchange} />
+                  {listingList && listingList.length > 0 ? (
+                    <PricePasarTrading data={listingList} />
                   ) : (
                     <tr>
                       <td>{Translate('db_data_tidak_ditemukan')}</td>

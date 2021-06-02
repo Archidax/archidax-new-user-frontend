@@ -43,7 +43,7 @@ export default function Index() {
             currencyTo: symbolTo,
             pairFrom: symbolFrom,
             pairTo: symbolTo,
-            icon: dataSymbol.fromToken.icon,
+            icon: dataSymbol.icon,
           }),
         );
       }
