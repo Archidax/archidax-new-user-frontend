@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  GetOrderBuyAndSellSupa,
   GetOrderBuyAndSell,
   SET_RX_FORM_DATASELL,
 } from "../../../stores/pasartrading/functions";
@@ -19,7 +18,7 @@ export default function ListBuy() {
 
   useEffect(() => {
     if (PairSymbol) {
-      GetOrderBuyAndSellSupa({
+      GetOrderBuyAndSell({
         dispatch: setData,
         PairSymbol: PairSymbol,
         side: "BUY",
@@ -57,7 +56,7 @@ export default function ListBuy() {
                 return (
                   <tbody
                     className={`${mode ? "dark-buy" : "day-buy"}`}
-                    style={{ backgroundSize: "50%" }} // value based on volume sisa
+                    style={{ backgroundSize: `${(item.amount/item.stock)*100}%` }} // value based on volume sisa
                   >
                     <tr
                       key={index}
