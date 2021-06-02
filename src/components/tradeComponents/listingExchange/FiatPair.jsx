@@ -7,9 +7,6 @@ import { useHistory } from "react-router-dom";
 import { convertNumber } from "../../../assets/js";
 
 export default function FiatPair({listingList}) {
-  // const { Exchange } = useSelector(
-  //   (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
-  // );
   const { mode } = useSelector((state) => state.daynightReducer);
   return (
     <div className="">
@@ -32,14 +29,14 @@ export default function FiatPair({listingList}) {
             </thead>
             <tbody>
               {listingList.map((val, index) => {
-                if(val.toToken.symbol === "USDT"){
+                if(val.base === "USDT"){
                   return <FiatPairRealtime item={val} index={index} />
                 }
               })}
             </tbody>
             {/* <tbody>
-              {Exchange && Array.isArray(Exchange) && Exchange.length > 0 ? (
-                Exchange.filter((item) => {
+              {listingList && Array.isArray(listingList) && listingList.length > 0 ? (
+                listingList.filter((item) => {
                   if (item.base.toString().toUpperCase() === "USDT") {
                     return item;
                   } else {
@@ -93,115 +90,62 @@ function FiatPairRealtime({ item, index }) {
   //       IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
   //   }
   // }, [item, setData, PairSymbol]);
-
-  return (
-    <tr
-      onClick={handleRowClick}
-      className="cursor-pointer"
-      activeClassName="active"
-      key={index}
-    >
-      <td className="text-left d-flex">
-        <img src={item.fromToken.icon} alt="logo" className="mr-2" />
-
-        <div className={mode ? "text-price-dark" : "text-price"}>
-          {item.symbol}
-        </div>
-      </td>
-      <td
-        className={`${mode ? "text-white" : "text-black"} ${
-          convertNumber.tradeUpDownChange(
-            item.Price.change,
-            2,
-          ) === "text-price"
-            ? mode
-              ? "text-price-dark"
-              : "text-price"
-            : convertNumber.tradeUpDownChange(
-              item.Price.change,
-                2,
-              )
-        }`}
+  
+  if (item) {
+    return (
+      <tr
+        onClick={handleRowClick}
+        className="cursor-pointer"
+        activeClassName="active"
+        key={index}
       >
-        {
-          Number(item.Price.close).toLocaleString("id-ID", {
-            maximumFractionDigits: 6,
-          })}
-      </td>
-      <td
-        className={`${mode ? "text-white" : "text-black"} ${
-          convertNumber.tradeUpDownChange(
-            item.Price.change,
-            2,
-          ) === "text-price"
-            ? mode
-              ? "text-price-dark"
-              : "text-price"
-            : convertNumber.tradeUpDownChange(
-              item.Price.change,
-                2,
-              )
-        }`}
-      >
-        {convertNumber.tradeChange(item.Price.change, 2)}
-      </td>
-    </tr>
-  );
-  // if (Data) {
-  //   return (
-  //     <tr
-  //       onClick={handleRowClick}
-  //       className="cursor-pointer"
-  //       activeClassName="active"
-  //       key={index}
-  //     >
-  //       <td className="text-left d-flex">
-  //         <img src={Data.icon} alt="logo" className="mr-2" />
+        <td className="text-left d-flex">
+          <img src={item.icon} alt="logo" className="mr-2" />
 
-  //         <div className={mode ? "text-price-dark" : "text-price"}>
-  //           {Data.symbol}
-  //         </div>
-  //       </td>
-  //       <td
-  //         className={`${mode ? "text-white" : "text-black"} ${
-  //           convertNumber.tradeUpDownChange(
-  //             item.price_24hour.price24h_change,
-  //             2,
-  //           ) === "text-price"
-  //             ? mode
-  //               ? "text-price-dark"
-  //               : "text-price"
-  //             : convertNumber.tradeUpDownChange(
-  //                 item.price_24hour.price24h_change,
-  //                 2,
-  //               )
-  //         }`}
-  //       >
-  //         {item.price_24hour &&
-  //           Number(item.price_24hour.price24h_close).toLocaleString("id-ID", {
-  //             maximumFractionDigits: 6,
-  //           })}
-  //       </td>
-  //       <td
-  //         className={`${mode ? "text-white" : "text-black"} ${
-  //           convertNumber.tradeUpDownChange(
-  //             item.price_24hour.price24h_change,
-  //             2,
-  //           ) === "text-price"
-  //             ? mode
-  //               ? "text-price-dark"
-  //               : "text-price"
-  //             : convertNumber.tradeUpDownChange(
-  //                 item.price_24hour.price24h_change,
-  //                 2,
-  //               )
-  //         }`}
-  //       >
-  //         {convertNumber.tradeChange(item.price_24hour.price24h_change, 2)}
-  //       </td>
-  //     </tr>
-  //   );
-  // }
+          <div className={mode ? "text-price-dark" : "text-price"}>
+            {item.symbol}
+          </div>
+        </td>
+        <td
+          className={`${mode ? "text-white" : "text-black"} ${
+            convertNumber.tradeUpDownChange(
+              item.price_24hour.price24h_change,
+              2,
+            ) === "text-price"
+              ? mode
+                ? "text-price-dark"
+                : "text-price"
+              : convertNumber.tradeUpDownChange(
+                  item.price_24hour.price24h_change,
+                  2,
+                )
+          }`}
+        >
+          {item.price_24hour &&
+            Number(item.price_24hour.price24h_close).toLocaleString("id-ID", {
+              maximumFractionDigits: 6,
+            })}
+        </td>
+        <td
+          className={`${mode ? "text-white" : "text-black"} ${
+            convertNumber.tradeUpDownChange(
+              item.price_24hour.price24h_change,
+              2,
+            ) === "text-price"
+              ? mode
+                ? "text-price-dark"
+                : "text-price"
+              : convertNumber.tradeUpDownChange(
+                  item.price_24hour.price24h_change,
+                  2,
+                )
+          }`}
+        >
+          {convertNumber.tradeChange(item.price_24hour.price24h_change, 2)}
+        </td>
+      </tr>
+    );
+  }
 
-  // return null;
+  return null;
 }
