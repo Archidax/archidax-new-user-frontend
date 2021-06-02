@@ -1,5 +1,5 @@
 import React from "react";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from "react-redux";
 import HeaderHomePage from "../headerComponents/headerHomePage";
 import BannerHomepage from "./components/BannerHomepage";
 import SliderHomepage from "./components/SliderHomepage";
@@ -14,11 +14,11 @@ import { GetListingExchange } from "../../stores";
 import DalamCrypto from "./components/DalamCrypto";
 
 function Home(props) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    GetListingExchange(dispatch)
-  },[])
+    GetListingExchange(dispatch);
+  }, []);
 
   return (
     <div className="navbar-homePage">

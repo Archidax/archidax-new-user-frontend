@@ -1,33 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderDashboard from '../../components/headerComponents/headerDashboard';
 import imagaCoin from '../../assets/img/btcImage.png';
 import { useHistory } from 'react-router';
+import { getAllIEOProjects } from '../../stores';
+import { useDispatch } from 'react-redux';
 
 function LaunchpadHome() {
 
     const history = useHistory()
 
     const datas = [
-        {title:"BTC", button:"ACTIVE"},
-        {title:"BTC", button:"DONE"},
-        {title:"BTC", button:"ACTIVE"},
-        {title:"BTC", button:"DONE"},
-        {title:"BTC", button:"ACTIVE"},
-        {title:"BTC", button:"ACTIVE"},
-        {title:"BTC", button:"DONE"},
-        {title:"BTC", button:"ACTIVE"},
+        { title: "BTC", button: "ACTIVE" },
+        { title: "BTC", button: "DONE" },
+        { title: "BTC", button: "ACTIVE" },
+        { title: "BTC", button: "DONE" },
+        { title: "BTC", button: "ACTIVE" },
+        { title: "BTC", button: "ACTIVE" },
+        { title: "BTC", button: "DONE" },
+        { title: "BTC", button: "ACTIVE" },
     ]
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        getAllIEOProjects(dispatch)
+    }, [])
 
     return (
         <div className="wrapper">
-            <HeaderDashboard/>
+            <HeaderDashboard />
             <div className="jumbotron launchpad-banner">
                 <h3 className="text-white text-center font-24 mb-4">Archidax Launchpad</h3>
                 <div className="row d-flex justify-content-center">
                     <div className="col col-md-2">
-                        <button 
-                        onClick={() => history.push('/launchpad/project-submission')}
-                        className="ci-btn-warning w-100 py-2">Submit your project</button>
+                        <button
+                            onClick={() => history.push('/launchpad/project-submission')}
+                            className="ci-btn-warning w-100 py-2">Submit your project</button>
                     </div>
                     <div className="col col-md-2">
                         <button
@@ -57,10 +64,10 @@ function LaunchpadHome() {
                             <div className="col col-md-4 col-lg-3 mb-4">
                                 <div className="card ci-bg-primary">
                                     <div className="card-body py-0 px-0 ">
-                                        <img 
+                                        <img
                                             onClick={() => history.push('/launchpad/:index')}
                                             src={imagaCoin} alt="" className="w-100 rounded"
-                                            style={{cursor:'pointer'}}
+                                            style={{ cursor: 'pointer' }}
                                         />
                                         <div className="d-flex justify-content-between align-items-center py-3">
                                             <div className="text-white d-flex align-items-center justify-content-between">
@@ -95,7 +102,7 @@ function LaunchpadHome() {
                             </div>
                         ))
                     }
-                    
+
                 </div>
             </div>
         </div>

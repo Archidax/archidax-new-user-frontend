@@ -387,6 +387,31 @@ $chat-color: black;
   }
 }
 
+// Tabs Chart
+.tabs-volume-tab {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    background-color: $base-color-tabs-mainchart;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #08eeaa;
+    // background: $base-color-tabs-mainchart-active;
+    border-bottom: 1px solid #08eeaa;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
+  }
+}
+
 // End Tabs
 
 .make-middle {
