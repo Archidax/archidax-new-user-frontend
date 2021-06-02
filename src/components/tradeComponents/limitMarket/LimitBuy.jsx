@@ -136,17 +136,27 @@ export default function LimitBuy() {
           </div>
 
           <div className="d-flex">
-            <span
-              className={mode ? "input-label-trade-dark" : "input-label-trade"}
+            <div
+              className="col-3 p-0"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
             >
-              Limit Price
-            </span>
+              <h5
+                className="font-14 mt-4"
+                style={{ color: mode ? "white" : "black" }}
+              >
+                Limit Price :{" "}
+              </h5>
+            </div>
             <input
               type="text"
               id="fname"
               name="fname"
               placeholder="0"
-              className={`col-12 py-2 mt-3 ${
+              className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
               // value={parseFixedNumber(inputPrice)}
@@ -155,19 +165,27 @@ export default function LimitBuy() {
             ></input>
           </div>
           <div className="d-flex">
-            <span
-              className={
-                mode ? "input-label-trade2-dark" : "input-label-trade2"
-              }
+            <div
+              className="col-3 p-0"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
             >
-              Total Amount
-            </span>
+              <h5
+                className="font-14 mt-4 "
+                style={{ color: mode ? "white" : "black" }}
+              >
+                Amount :{" "}
+              </h5>
+            </div>
             <input
               type="number"
               id="fname"
               name="fname"
               placeholder="0"
-              className={`col-12 py-2 mt-3 ${
+              className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
@@ -176,78 +194,146 @@ export default function LimitBuy() {
           </div>
           <div
             id={mode ? "grid-trade-percent-dark" : "grid-trade-percent"}
-            className="text-center mt-3"
+            className="text-center mt-3 col-9 offset-3"
           >
-            <button
-              type="button"
-              onClick={() =>
-                setInputAmount(
-                  PercentMath({
-                    select: 0,
-                    value: balance,
-                  }).result,
-                )
-              }
+            <div
+              class="form-check form-check-inline"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              25%
-            </button>
-            <button
-              type="button"
-              onClick={() =>
-                setInputAmount(
-                  PercentMath({
-                    select: 1,
-                    value: balance,
-                  }).result,
-                )
-              }
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                onClick={() =>
+                  setInputAmount(
+                    PercentMath({
+                      select: 0,
+                      value: balance,
+                    }).result,
+                  )
+                }
+              />
+              <label
+                class="form-check-label font-12 mt-1"
+                style={{ color: mode ? "white" : "black" }}
+                for="inlineRadio1"
+              >
+                25%
+              </label>
+            </div>
+            <div
+              class="form-check form-check-inline"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              50%
-            </button>
-            <button
-              type="button"
-              onClick={() =>
-                setInputAmount(
-                  PercentMath({
-                    select: 2,
-                    value: balance,
-                  }).result,
-                )
-              }
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                onClick={() =>
+                  setInputAmount(
+                    PercentMath({
+                      select: 1,
+                      value: balance,
+                    }).result,
+                  )
+                }
+              />
+              <label
+                class="form-check-label font-12  mt-1"
+                style={{ color: mode ? "white" : "black" }}
+                for="inlineRadio2"
+              >
+                50%
+              </label>
+            </div>
+            <div
+              class="form-check form-check-inline"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              75%
-            </button>
-            <button
-              type="button"
-              onClick={() =>
-                setInputAmount(
-                  PercentMath({
-                    select: 3,
-                    value: balance,
-                  }).result,
-                )
-              }
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio3"
+                onClick={() =>
+                  setInputAmount(
+                    PercentMath({
+                      select: 2,
+                      value: balance,
+                    }).result,
+                  )
+                }
+              />
+              <label
+                class="form-check-label font-12  mt-1"
+                style={{ color: mode ? "white" : "black" }}
+                for="inlineRadio3"
+              >
+                75%
+              </label>
+            </div>
+            <div
+              class="form-check form-check-inline"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              100%
-            </button>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio3"
+                onClick={() =>
+                  setInputAmount(
+                    PercentMath({
+                      select: 3,
+                      value: balance,
+                    }).result,
+                  )
+                }
+              />
+              <label
+                class="form-check-label font-12  mt-1"
+                style={{ color: mode ? "white" : "black" }}
+                for="inlineRadio3"
+              >
+                100%
+              </label>
+            </div>
           </div>
-          <p
-            className={`mb-0 ${
-              mode ? "text-price-dark" : "text-price"
-            } font-12`}
-            style={{ marginTop: "10px" }}
-          >
-            Fee : Maker <span className="text-sell">0%</span> - Taker{" "}
-            <span className="text-sell">0,25%</span>
-          </p>
+
           <div className="d-flex">
-            <span
-              className={
-                mode ? "input-label-trade3-dark" : "input-label-trade3"
-              }
+            <div
+              className="col-3 p-0"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
             >
-              Estimation
-            </span>
+              <h5
+                className="font-14 mt-4 "
+                style={{ color: mode ? "white" : "black" }}
+              >
+                Estimation :{" "}
+              </h5>
+            </div>
             <input
               type="number"
               id="fname"
@@ -258,12 +344,21 @@ export default function LimitBuy() {
                   : 0
               }
               placeholder="0"
-              className={`col-12 py-2 mt-3 ${
+              className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
               disabled
             ></input>
           </div>
+          <p
+            className={`col-9 offset-3 p-0 mb-0 ${
+              mode ? "text-price-dark" : "text-price"
+            } font-12  mt-1`}
+            style={{ marginTop: "10px" }}
+          >
+            Fee : Maker <span className="text-sell">0%</span> - Taker{" "}
+            <span className="text-sell">0,25%</span>
+          </p>
           {isLoginPages ? (
             <button
               type="submit"
@@ -273,14 +368,14 @@ export default function LimitBuy() {
             >
               <h5
                 className={`mb-0 font-16 ${
-                  mode ? "font-weight-bold" : "text-white font-bolder2"
+                  mode ? "font-weight-bold" : " font-bolder2"
                 }`}
               >
                 Buy
               </h5>
             </button>
           ) : (
-            <div className="text-center bg-loginfirst col-12 mt-3">
+            <div className="text-center bg-loginfirst col-9 offset-3 mt-4">
               <h5 className="mb-0 font-13 font-weight-bold">
                 <Link to="/login" className="mr-2">
                   Login
