@@ -13,7 +13,7 @@ const tableHeader = [
 ];
 
 export default function RiwayatTarikRupiah() {
-  const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
+  const { listingList } = useSelector(state => state.pasarTradingReducer)
   const riwayat = useSelector(state => state.riwayatReducer.riwayatTarikRupiah)
   const totalDocs = useSelector(state => state.riwayatReducer.totalDocsRiwayatTarikRupiah)
   const dispatch = useDispatch()
