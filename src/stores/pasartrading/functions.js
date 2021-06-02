@@ -92,41 +92,41 @@ export function SET_RX_FORM_DATABUY({price,amount}) {
 //     dispatch({type: 'SET_LISTINGLIST', data: PairToken})
 // }
 
-export const getOneListingSupa = async (dispatch, PairSymbol) => {
-    let { data: PairToken, error } = await supabase
-    .from('Price')
-    .select(`high, open, close, low, volumeCoin, volumePrice, change`)
-    .eq('symbol', PairSymbol).single()
-    if(PairToken) {
-        dispatch({type: 'SET_PASAR_TRADING', data: {
-            Open: PairToken.open,
-            High: PairToken.high,
-            Low: PairToken.low,
-            Close: PairToken.close,
-            Change: PairToken.change,
-            Volume: PairToken.volumePrice,
-            VolumeCrypto: PairToken.volumeCoin
-        }})
-    }
-}
+// export const getOneListingSupa = async (dispatch, PairSymbol) => {
+//     let { data: PairToken, error } = await supabase
+//     .from('Price')
+//     .select(`high, open, close, low, volumeCoin, volumePrice, change`)
+//     .eq('symbol', PairSymbol).single()
+//     if(PairToken) {
+//         dispatch({type: 'SET_PASAR_TRADING', data: {
+//             Open: PairToken.open,
+//             High: PairToken.high,
+//             Low: PairToken.low,
+//             Close: PairToken.close,
+//             Change: PairToken.change,
+//             Volume: PairToken.volumePrice,
+//             VolumeCrypto: PairToken.volumeCoin
+//         }})
+//     }
+// }
 
-export async function GetOrderBuyAndSellSupa ({dispatch,PairSymbol,side,limit}) {
-    if(side === 'BUY') {
-        let { data: PendingBuy, error } = await supabase
-        .from('PendingBuy')
-        .select(`price, amount, symbol`)
-        .order('price', { ascending: false })
-        .eq('symbol', PairSymbol).limit(limit)
-        if(!error) dispatch(PendingBuy||[])
-    } else if(side === 'SELL') {
-        let { data: PendingSell, error } = await supabase
-        .from('PendingSell')
-        .select("price, amount, symbol")
-        .order('price', { ascending: true })
-        .eq('symbol', PairSymbol).limit(limit)
-        if(!error) dispatch(PendingSell||[])
-    }
-}
+// export async function GetOrderBuyAndSellSupa ({dispatch,PairSymbol,side,limit}) {
+//     if(side === 'BUY') {
+//         let { data: PendingBuy, error } = await supabase
+//         .from('PendingBuy')
+//         .select(`price, amount, symbol`)
+//         .order('price', { ascending: false })
+//         .eq('symbol', PairSymbol).limit(limit)
+//         if(!error) dispatch(PendingBuy||[])
+//     } else if(side === 'SELL') {
+//         let { data: PendingSell, error } = await supabase
+//         .from('PendingSell')
+//         .select("price, amount, symbol")
+//         .order('price', { ascending: true })
+//         .eq('symbol', PairSymbol).limit(limit)
+//         if(!error) dispatch(PendingSell||[])
+//     }
+// }
 
 // Actions MongoDB
 // GET
@@ -265,13 +265,13 @@ export function GetOrderLastPrice ({pair}) {
                 },
             })
             dispatch(setPasarTrading({
-                Open:data.open,
-                High:data.high,
-                Low:data.low,
-                Close:data.close,
-                Change:data.change,
-                Volume:data.volumePrice,
-                VolumeCrypto:data.volumeCoin,
+                Open:data.price_24hours.price24h_open,
+                High:data.price_24hours.price24h_high,
+                Low:data.price_24hours.price24h_low,
+                Close:data.price_24hours.price24h_close,
+                Change:data.price_24hours.price24h_change,
+                Volume:data.price_24hours.price24h_priceVolume,
+                VolumeCrypto:data.price_24hours.price24h_volume,
             }));
         } catch (err) {
             dispatch(setPasarTrading({
