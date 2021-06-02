@@ -333,8 +333,7 @@ export function GetListingExchange () {
                 url:`${baseUrlTrade}${baseUrlTradeVersion}/ListingExchange`,
                 method:"GET"
             })
-            console.log(data, ",,,,,,,,,,,,,,,,,,sdadsadw")
-            // dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
+            dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
         }
         catch (err) {
             dispatch(SET_RX_LISTING_EXCHANGE([]));
