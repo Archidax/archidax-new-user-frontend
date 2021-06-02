@@ -1,11 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GetListingExchange} from "../../stores";
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
 
 import {
-  GetOrderLastPrice,
-  setPasarTrading,
+  GetOrderLastPrice, GetListingExchange
 } from "../../stores/pasartrading/functions";
 
 // Import Images
@@ -25,10 +23,7 @@ export default function Price() {
     props === "d-none" ? setShowDropdown("d-block") : setShowDropdown("d-none");
   };
 
-  const { PairSymbol, icon, price24H } = useSelector((state) =>
-    state ? state.pasarTradingReducer : {},
-  );
-  const { listingList } = useSelector((state) =>
+  const { PairSymbol, icon, price24H, listingList } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
   );
 
@@ -59,9 +54,9 @@ export default function Price() {
     // listenToListing();
   }, []);
 
-  // React.useEffect(() => {
-  //   getOneListingSupa(dispatch, PairSymbol);
-  // }, [PairSymbol]);
+  React.useEffect(() => {
+    dispatch(GetOrderLastPrice({pair:PairSymbol}))
+  }, [PairSymbol]);
 
   return (
     <div
