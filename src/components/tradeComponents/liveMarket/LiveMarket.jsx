@@ -13,9 +13,9 @@ export default function LiveMarket() {
   const { mode } = useSelector((state) => state.daynightReducer);
   const [Data, setData] = React.useState([]);
 
-  // React.useEffect(() => {
-  //   GetOrderLiveMarket({ dispatch: setData, pair: PairSymbol });
-  // }, [setData, PairSymbol]);
+  React.useEffect(() => {
+    GetOrderLiveMarket({ dispatch: setData, pair: PairSymbol });
+  }, [setData, PairSymbol]);
 
   React.useEffect(() => {
     if (IoWebSocketTrade && IoWebSocketTrade.connected && PairSymbol) {
