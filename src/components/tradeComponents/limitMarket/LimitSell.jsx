@@ -21,7 +21,7 @@ export default function Limitsell() {
   const { mode } = useSelector((state) => state.daynightReducer);
 
   const [balance, setBalance] = useState("");
-  const { PairSymbol, pairTo } = useSelector((state) =>
+  const { PairSymbol, pairFrom } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
   const { username } = useSelector((state) =>
@@ -78,28 +78,28 @@ export default function Limitsell() {
       );
     }
     if (assets) {
-      const temp = assets.find((item) => item.type === pairTo);
+      const temp = assets.find((item) => item.type === pairFrom);
       if (temp) {
         setBalance(temp.balance);
       } else {
         setBalance(0);
       }
     }
-  }, [price, dispatch, amount, pairTo, assets]);
+  }, [price, dispatch, amount, pairFrom, assets]);
 
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && pairTo && username) {
-      IoWebSocketTrade.on(`WalletBalance-${username}-${pairTo}`, (data) => {
+    if (IoWebSocketTrade && IoWebSocketTrade.connected && pairFrom && username) {
+      IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
         if (data) {
           setBalance(data.balance);
         }
       });
       return () =>
         IoWebSocketTrade.removeEventListener(
-          `WalletBalance-${username}-${pairTo}`,
+          `WalletBalance-${username}-${pairFrom}`,
         );
     }
-  }, [setBalance, pairTo, username]);
+  }, [setBalance, pairFrom, username]);
 
   return (
     <div
@@ -116,7 +116,7 @@ export default function Limitsell() {
             </div>
             <div className="make-middle">
               <img src={walletlogo} alt="walletlogo" width="14px" />
-              <div className="text-dgrey ml-2 font-14">{pairTo}:</div>
+              <div className="text-dgrey ml-2 font-14">{pairFrom}:</div>
               <div
                 className={`${
                   mode ? "text-price-dark" : "text-price"
