@@ -12,6 +12,7 @@ import FooterHomePage from "../footerComponents/footerHomePage/FooterHomePage";
 
 import { GetListingExchange } from "../../stores";
 import DalamCrypto from "./components/DalamCrypto";
+import InfoNews from "./components/infonews/InfoNews";
 
 function Home(props) {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function Home(props) {
           bg_normal="bg-header-homepage"
         />
         <BannerHomepage setLocale={props.setLocale} />
+        <InfoNews />
         <SliderHomepage setLocale={props.setLocale} />
         <TableHomepage setLocale={props.setLocale} />
         <ApaItuCrypto setLocale={props.setLocale} />
