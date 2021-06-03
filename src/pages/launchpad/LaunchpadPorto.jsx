@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Jumbotron } from 'react-bootstrap'
 import FooterHomePage from '../../components/footerComponents/footerHomePage/FooterHomePage'
 import HeaderHomePage from '../../components/headerComponents/headerHomePage'
@@ -27,8 +27,25 @@ import linkedinwarna from '../../assets/img/launchpad/linkedin-warna.svg'
 import telegramwarna from '../../assets/img/launchpad/telegram-warna.svg'
 import youtubewarna from '../../assets/img/launchpad/youtube-warna.svg'
 import dokumen from '../../assets/img/launchpad/dokumen.svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router'
+import { getMyIEOPortfolio } from '../../stores'
 
 function LaunchpadPorto() {
+    const projects = useSelector(state => state.launchpadReducer.myIEOPortfolio)
+    const [view, setView] = useState([])
+    const history = useHistory()
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        getMyIEOPortfolio(dispatch)
+    }, [])
+
+    useEffect(() => {
+        setView(projects.all)
+    }, [projects])
+
+
     const teams = [
         {
             img: 'https://picsum.photos/200',

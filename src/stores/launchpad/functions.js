@@ -35,11 +35,37 @@ export const launchNewProject = (data) => {
 export const getAllIEOProjects = (dispatch) => {
     axios({
         method: "GET",
-        url: `${baseUrlTrade}/api/v1/launchpad/IEO/create`,
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/readAll`,
         headers: { jwttoken: localStorage.getItem('token') }
     })
-        .then(data => {
-            dispatch({ type: "ALL_IEO_PROJECTS", data: data })
+        .then(({ data }) => {
+            dispatch({ type: "ALL_IEO_PROJECTS", data: data.data })
+        })
+        .catch(err => errorHandler(err))
+}
+
+export const getMyIEOPortfolio = (dispatch) => {
+    axios({
+        method: "GET",
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/portofolio`,
+        headers: { jwttoken: localStorage.getItem('token') }
+    })
+        .then(({ data }) => {
+            dispatch({ type: "MY_IEO_PORTFOLIO", data: data.data })
+        })
+        .catch(err => errorHandler(err))
+}
+
+export const getIEOProjectById = (id, dispatch) => {
+    console.log("masuk")
+    axios({
+        method: "GET",
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/detail?id=${id}`,
+        headers: { jwttoken: localStorage.getItem('token') }
+    })
+        .then(({ data }) => {
+            console.log(data.data)
+            dispatch({ type: "IEO_DETAILS", data: data.data })
         })
         .catch(err => errorHandler(err))
 }
