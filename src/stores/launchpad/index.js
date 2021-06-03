@@ -1,5 +1,7 @@
 const initialState = {
-    allIEOProjects: []
+    allIEOProjects: [],
+    myIEOPortfolio: [],
+    IEODetails: null
 
 }
 
@@ -9,7 +11,17 @@ const launchpadReducer = ((state = initialState, action) => {
         case "ALL_IEO_PROJECTS":
             return {
                 ...state,
-                allProjects: data
+                allIEOProjects: data
+            }
+        case "MY_IEO_PORTFOLIO":
+            return {
+                ...state,
+                myIEOPortfolio: data
+            }
+        case "IEO_DETAILS":
+            return {
+                ...state,
+                IEODetails: data
             }
         default:
             return state;
