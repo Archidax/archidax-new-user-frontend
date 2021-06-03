@@ -201,7 +201,7 @@ export default function Price() {
         </div>
       </div>
       <div className="p-2 mt-2">
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div style={{ display: "flex", justifyContent: "flex-start" }}>
           {/* Price */}
           <div
             className={`${
@@ -214,7 +214,7 @@ export default function Price() {
           <div
             className={`${
               mode ? "text-white" : "text-black"
-            } font-20 ml-4 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
+            } font-20 ml-2 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
             style={{ marginTop: "20px" }}
             // style={{ background: "#232323" }}
           >
