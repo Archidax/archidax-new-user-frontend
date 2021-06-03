@@ -29,7 +29,7 @@ function Home(props) {
           bg_normal="bg-header-homepage"
         />
         <BannerHomepage setLocale={props.setLocale} />
-        <InfoNews />
+        <InfoNews setLocale={props.setLocale} />
         <SliderHomepage setLocale={props.setLocale} />
         <TableHomepage setLocale={props.setLocale} />
         <ApaItuCrypto setLocale={props.setLocale} />
