@@ -94,7 +94,7 @@ export default function Price() {
                   className="mr-2"
                 />
                 <p
-                  className="mb-0"
+                  className="mb-0 font-22"
                   style={{
                     color: mode ? "white" : "white",
                     fontWeight: mode ? 600 : 600,
@@ -205,21 +205,21 @@ export default function Price() {
           {/* Price */}
           <div
             className={`${
+              mode ? "text-price-bottom-dark" : "text-price-bottom"
+            } font-36`}
+          >
+            {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+            {/* 5.000.000 */}
+          </div>
+          <div
+            className={`${
               mode ? "text-white" : "text-black"
-            } font-16 mr-2 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
-            style={{ marginTop: "12px" }}
+            } font-20 ml-4 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
+            style={{ marginTop: "20px" }}
             // style={{ background: "#232323" }}
           >
             {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"}
             {/* 50% */}
-          </div>
-          <div
-            className={`${
-              mode ? "text-price-bottom-dark" : "text-price-bottom"
-            } font-28`}
-          >
-            {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
-            {/* 5.000.000 */}
           </div>
           {/* Change */}
         </div>
@@ -294,7 +294,6 @@ export default function Price() {
               } font-15 `}
             >
               {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
-              {/* 30.652.175.748 */}
             </div>
           </div>
           {/* Low */}
@@ -315,7 +314,6 @@ export default function Price() {
               } font-15`}
             >
               {price24H ? convertNumber.toRupiah(price24H.Low) : 0}
-              {/* 840.000.000 */}
             </div>
           </div>
         </div>

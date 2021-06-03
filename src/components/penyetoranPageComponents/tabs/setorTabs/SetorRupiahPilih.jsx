@@ -93,7 +93,7 @@ function SetorRupiahPilih() {
                     </div>
                 </div>
                 <div className="row d-flex flex-direction m-0 px-0 justify-content-end pt-2">
-                    <button className="ci-btn-warning ci-md mt-3 px-4 py-2" disabled={!nominal && !customNominal ? true : false} onClick={() => lanjutkan()}>Continue</button>
+                    <button className="ci-btn-warning ci-md mt-3 px-4 py-2" disabled={!!!nominal && !!!customNominal || !!!metodePembayaran ? true : false} onClick={() => lanjutkan()}>Lanjutkan</button>
                 </div>
             </div>
             <div style={langkah === 2 ? { display: "block" } : { display: "none" }}>

@@ -1,18 +1,13 @@
-import React from "react";
-
-import {useSelector} from 'react-redux'
+import React,{useEffect,useState} from "react";
 import SliderTopGainer from "./slider/SliderTopGainer";
 import SliderTopLoser from "./slider/SliderTopLoser";
+import { HomeMarket } from "../../../stores";
 
 export default function SliderHomepage(){
-  const { listingList } = useSelector((state) =>
-    state ? state.pasarTradingReducer : {},
-  ); 
-  let topGainer = listingList.sort((a, b) => b.change - a.change)
-  .filter((item) => item.change > 0)||[]
-
-  let topLoser = listingList.sort((a, b) => a.change - b.change)
-  .filter((item) => item.change < 0)||[]
+  const [data,setData]=useState(null)
+  useEffect(() => {
+    HomeMarket(setData)
+  }, [])
 
   return (
     <div className=" mt-4 mb-5">
@@ -54,9 +49,9 @@ export default function SliderHomepage(){
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            {topGainer && Array.isArray(topGainer) && topGainer.length > 0 ? (
+            {data&&data.topGainer&&Array.isArray(data.topGainer)&&data.topGainer.length ? (
               <SliderTopGainer
-                dataHome={topGainer}
+                dataHome={data.topGainer}
               />
             ) : (
               <div>
@@ -70,9 +65,9 @@ export default function SliderHomepage(){
             role="tabpanel"
             aria-labelledby="pills-profile-tab"
           >
-            {topLoser && Array.isArray(topLoser) && topLoser.length > 0 ? (
+            {data&&data.topLoser&&Array.isArray(data.topLoser)&&data.topLoser.length ? (
               <SliderTopLoser
-                dataHome={topLoser}
+                dataHome={data.topLoser}
               />
             ) : (
               <div>

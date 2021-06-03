@@ -401,9 +401,9 @@ $chat-color: black;
   }
 
   .nav .nav-item .nav-link.active {
-    color: #08eeaa;
+    color: #178d6a;
     // background: $base-color-tabs-mainchart-active;
-    border-bottom: 1px solid #08eeaa;
+    border-bottom: 1px solid #178d6a;
     border-radius: 0px;
     height: 40px;
     font-size: 14px;
@@ -1416,14 +1416,14 @@ input:checked + .slider:before {
 @media (min-width: 750px) {
   .list-coin-responsive {
     padding: 0px 0px;
-    width: 80%;
+    width: 100%;
   }
 }
 
 @media (min-width: 1024px) {
   .list-coin-responsive {
     padding: 0px 0px;
-    width: 80%;
+    width: 100%;
   }
 }
 

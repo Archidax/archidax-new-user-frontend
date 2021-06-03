@@ -571,7 +571,7 @@
 
 @media (min-width: 1024px) {
   .min-h-65-r {
-    min-height: 65vh;
+    min-height: 55vh;
     padding-top: 2vh;
   }
 }
@@ -628,5 +628,251 @@
 @media (min-width: 1024px) {
   .width-responsive-logo-footer {
     width: 180px;
+  }
+}
+
+// Info News
+.font-archidax {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.font-archidax2 {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.font-archidax3 {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.font-header2 {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: #aeb4ce;
+}
+
+.font-price {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.make-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.make-center2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bg-archidax {
+  background-color: rgb(11, 12, 34);
+}
+
+.bg-archidax2 {
+  background-color: #151933;
+}
+
+.bg-archidax-gradient {
+  background-image: radial-gradient(
+    rgb(24, 38, 70),
+    rgb(11, 14, 33),
+    rgb(11, 12, 34)
+  );
+}
+
+.bg-archidax-yellow {
+  background-color: #e9d16f;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.text-gold-archidax {
+  color: rgb(231, 207, 109);
+}
+
+.text-gray-archidax {
+  color: #aeb4ce;
+}
+
+.text-yellow-archidax {
+  color: #bdaa16;
+}
+
+.text-buy {
+  color: #1ecab8;
+}
+
+.text-sell {
+  color: #f1646c;
+}
+
+// PRICE TABLE
+
+.price-title {
+  color: #e9d16f;
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.price-gold {
+  color: #e9d16f;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.price-up {
+  color: #1ecab8;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.price-down {
+  color: #f1646c;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.price-normal {
+  color: #ffffff;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.logo-db {
+  height: 26px;
+  margin-right: 10px;
+}
+
+.button-primary {
+  color: white;
+  background-color: #4d79f6;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 13px;
+  margin: 0px 5px;
+}
+
+.button-danger {
+  color: white;
+  background-color: #f1646c;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 13px;
+  margin: 0px 5px;
+}
+
+.button-estimated-dashboard {
+  background: #e9d16f;
+  padding: 5px 15px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  position: absolute;
+  right: 35px;
+  bottom: 20px;
+  border: none;
+}
+
+// INFO AND ANNOUNCEMENT
+
+.announcement-homepage {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.tabs-announcements-homepage {
+  padding-left: 0px;
+  padding-right: 0px;
+  align-items: center;
+}
+
+.announcements-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bg-news1 {
+  background-image: url(../../assets/img/homepage/infonews/frame4.png);
+  background-size: cover;
+}
+
+.bg-news2 {
+  background-image: url(../../assets/img/homepage/infonews/frame5.png);
+  background-size: cover;
+}
+
+.bg-news3 {
+  background-image: url(../../assets/img/homepage/infonews/frame6.png);
+  background-size: cover;
+}
+
+.bg-news4 {
+  background-image: url(../../assets/img/homepage/infonews/frame7.png);
+  background-size: cover;
+}
+
+// overflow
+#overflowTest {
+  width: 100%;
+  height: 150px;
+  overflow: auto;
+}
+
+// Tabs Chart
+.tabs-info-news {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #f9ba42;
+    // background: $base-color-tabs-mainchart-active;
+    border-bottom: 1px solid #f9ba42;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
   }
 }

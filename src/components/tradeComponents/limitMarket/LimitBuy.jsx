@@ -152,14 +152,14 @@ export default function LimitBuy() {
               </h5>
             </div>
             <input
-              type="text"
+              type="number"
               id="fname"
               name="fname"
               placeholder="0"
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
-              // value={parseFixedNumber(inputPrice)}
+              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
               value={inputPrice}
               onChange={(e) => setInputPrice(e.target.value)}
             ></input>
@@ -189,7 +189,10 @@ export default function LimitBuy() {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
-              onChange={(e) => setInputAmount(e.target.value)}
+              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+              onChange={(e) => {
+                setInputAmount(e.target.value)
+              }}
             ></input>
           </div>
           <div
