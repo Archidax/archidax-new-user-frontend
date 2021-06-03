@@ -142,6 +142,7 @@ export default function MarketSell() {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
+              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
               onChange={(e) => setInputAmount(e.target.value)}
             ></input>
           </div>
