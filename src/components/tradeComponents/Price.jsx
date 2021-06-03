@@ -294,7 +294,6 @@ export default function Price() {
               } font-15 `}
             >
               {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
-              {/* 30.652.175.748 */}
             </div>
           </div>
           {/* Low */}
@@ -315,7 +314,6 @@ export default function Price() {
               } font-15`}
             >
               {price24H ? convertNumber.toRupiah(price24H.Low) : 0}
-              {/* 840.000.000 */}
             </div>
           </div>
         </div>

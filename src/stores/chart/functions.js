@@ -17,9 +17,9 @@ export function HomeMarket (cb) {
     headers:{
       jwttoken:localStorage.getItem("token")
     },
-  }).then((response)=>{
-    if(response.data && response.data.chartData) {
-      cb(response.data.chartData);
+  }).then(({data})=>{
+    if(data && data.data) {
+      cb(data.data);
     }
   })
 }
