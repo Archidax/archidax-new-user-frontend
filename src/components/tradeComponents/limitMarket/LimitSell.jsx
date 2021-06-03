@@ -143,14 +143,14 @@ export default function Limitsell() {
               </h5>
             </div>
             <input
-              type="text"
+              type="number"
               id="fname"
               name="fname"
               placeholder="0"
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
-              // value={parseFixedNumber(inputPrice)}
+              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
               value={inputPrice}
               onChange={(e) => setInputPrice(e.target.value)}
             ></input>
@@ -179,6 +179,7 @@ export default function Limitsell() {
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
+              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
               value={inputAmount}
               onChange={(e) => setInputAmount(e.target.value)}
             ></input>
