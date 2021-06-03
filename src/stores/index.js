@@ -74,12 +74,12 @@ export const baseUrlTradeVersion='/api/v1';
 
 export const baseAxios = axios.create({ 
     baseURL: baseUrl,
-    timeout: 10000,
+    // timeout: 10000,
 });
 
 export const baseAxiosTrading = axios.create({ 
     baseURL: baseUrlTrade+baseUrlTradeVersion,
-    timeout: 10000,
+    // timeout: 10000,
 });
 
 const rootReducer = combineReducers({
