@@ -20,7 +20,7 @@ export default function ListBuy() {
     if (PairSymbol) {
       GetOrderBuyAndSell({
         dispatch: setData,
-        pair: PairSymbol,
+        PairSymbol: PairSymbol,
         side: "BUY",
         limit: 50,
       });
@@ -46,14 +46,18 @@ export default function ListBuy() {
               <tr className={mode ? "text-price2-dark" : "text-price2"}>
                 <th className="text-left font-bolder25">Price</th>
                 {/* <th className="text-left font-bolder25">Jumlah</th> */}
-                <th className="text-left font-bolder25">{pairTo}</th>
                 <th className="text-left font-bolder25">{pairFrom}</th>
+                <th className="text-left font-bolder25">{pairTo}</th>
               </tr>
             </thead>
-            <tbody>
-              {data && Array.isArray(data) && data.length > 0 ? (
-                data.map((item, index) => {
-                  return (
+
+            {data && Array.isArray(data) && data.length > 0 ? (
+              data.map((item, index) => {
+                return (
+                  <tbody
+                    className={`${mode ? "dark-buy" : "day-buy"}`}
+                    style={{ backgroundSize: `${(item.amount/item.stock)*100}%` }} // value based on volume sisa
+                  >
                     <tr
                       key={index}
                       style={{ cursor: "pointer" }}
@@ -90,20 +94,25 @@ export default function ListBuy() {
                         } text-left`}
                       >
                         {pairFrom === "USDT"
-                          ? item.total
-                          : convertNumber.toRupiah(item.total)}
+                          ? item.amount*item.price
+                          : convertNumber.toRupiah(item.amount*item.price)}
                       </td>
                     </tr>
-                  );
-                })
-              ) : (
+                  </tbody>
+                );
+              })
+            ) : (
+              <tbody
+              // className={`${mode ? "dark-buy" : "day-buy"}`}
+              // style={{ backgroundSize: "50%" }}
+              >
                 <tr>
                   <td className="text-success text-center" colSpan={4}>
                     No Order
                   </td>
                 </tr>
-              )}
-            </tbody>
+              </tbody>
+            )}
           </table>
         </div>
       </div>

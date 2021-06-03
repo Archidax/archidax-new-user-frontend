@@ -26,31 +26,30 @@ export default function Index() {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
-  );
+  const { listingList } = useSelector((state) => state.pasarTradingReducer);
 
   React.useEffect(() => {
-    if (symbol && Exchange.length) {
-      const dataSymbol = Exchange.find(
-        (data) => data.symbol === symbol.toString().replace("_", "/"),
+    if (symbol && listingList.length) {
+      const dataSymbol = listingList.find(
+        (data) => data.symbol === symbol.toString(),
       );
+      
       if (dataSymbol) {
-        let symbolQuote = dataSymbol.symbol.split("/")[0];
-        let symbolBase = dataSymbol.symbol.split("/")[1];
+        let symbolFrom = dataSymbol.symbol.split("/")[0];
+        let symbolTo = dataSymbol.symbol.split("/")[1];
         dispatch(
           SET_RX_PAIR({
-            currencyFrom: symbolBase,
-            currencyTo: symbolQuote,
-            pairFrom: dataSymbol.base,
-            pairTo: dataSymbol.quote,
-            icon: dataSymbol.price_24hour.icon,
-            other: dataSymbol,
+            currencyFrom: symbolFrom,
+            currencyTo: symbolTo,
+            pairFrom: symbolFrom,
+            pairTo: symbolTo,
+            icon: dataSymbol.icon,
           }),
         );
       }
+
     }
-  }, [symbol, dispatch, Exchange]);
+  }, [symbol, dispatch, listingList]);
 
   React.useEffect(() => {
     if (isLoginPages) {
@@ -62,15 +61,15 @@ export default function Index() {
   return (
     <div className={mode ? "body-trade2-dark" : "body-trade2"}>
       {/* <div> */}
-      <div className="width-chart2">
+      <div className="width-chart2" style={{ paddingBottom: "1px" }}>
         <div className="row">
           <div className="col-3 p-0">
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "45vh",
-                background: "black",
-                border: "1px solid white",
+                minHeight: "50vh",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
               }}
             >
               <Price />
@@ -78,9 +77,9 @@ export default function Index() {
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "48.8vh",
-                background: "black",
-                border: "1px solid white",
+                minHeight: "43.8vh",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
               }}
             >
               <LimitMarketChat />
@@ -92,8 +91,8 @@ export default function Index() {
                 className="col-12 p-0"
                 style={{
                   minHeight: "53vh",
-                  background: "black",
-                  border: "1px solid white",
+                  background: mode ? "black" : "white",
+                  border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
                 <ChartTrade />
@@ -103,9 +102,9 @@ export default function Index() {
               <div
                 className="col-4 p-0"
                 style={{
-                  minHeight: "33vh",
-                  background: "black",
-                  border: "1px solid white",
+                  minHeight: "32vh",
+                  background: mode ? "black" : "white",
+                  border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
                 <ListSell />
@@ -113,9 +112,9 @@ export default function Index() {
               <div
                 className="col-4 p-0"
                 style={{
-                  minHeight: "33vh",
-                  background: "black",
-                  border: "1px solid white",
+                  minHeight: "32vh",
+                  background: mode ? "black" : "white",
+                  border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
                 <ListBuy />
@@ -123,9 +122,9 @@ export default function Index() {
               <div
                 className="col-4 p-0"
                 style={{
-                  minHeight: "33vh",
-                  background: "black",
-                  border: "1px solid white",
+                  minHeight: "32vh",
+                  background: mode ? "black" : "white",
+                  border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
                 <LiveMarket />

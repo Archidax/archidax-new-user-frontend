@@ -57,10 +57,11 @@ export default function LiveMarket() {
                 {/* <th className="text-right">Waktu</th> */}
               </tr>
             </thead>
-            <tbody>
-              {Data && Array.isArray(Data) && Data.length > 0 ? (
-                Data.map((item) => {
-                  return (
+
+            {Data && Array.isArray(Data) && Data.length > 0 ? (
+              Data.map((item) => {
+                return (
+                  <tbody>
                     <tr
                       data-toggle="tooltip"
                       data-placement="top"
@@ -99,21 +100,29 @@ export default function LiveMarket() {
                           : "-"}
                       </td>
                     </tr>
-                  );
-                })
-              ) : (
+                  </tbody>
+                );
+              })
+            ) : (
+              <tbody>
                 <tr>
+                  <td className=""></td>
                   <td
                     className={`${
                       mode ? "text-price-dark" : "text-price"
-                    } text-left text-right mt-5 pt-3`}
-                    colSpan={2}
+                    } text-center`}
                   >
                     No Orders
                   </td>
+                  {/* <td className="text-price text-right">{item.total?Number(item.total<1)?Number(item.total).toFixed(8):Number(item.total).toLocaleString().split(",")[0]:0}</td> */}
+                  <td
+                    className={`${
+                      mode ? "text-price-dark" : "text-price"
+                    } text-right`}
+                  ></td>
                 </tr>
-              )}
-            </tbody>
+              </tbody>
+            )}
           </table>
         </div>
       </div>

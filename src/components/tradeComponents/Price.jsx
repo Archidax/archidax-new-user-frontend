@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+// import { GetListingExchange } from "../../stores";
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
 
 import {
   GetOrderLastPrice,
-  setPasarTrading,
+  GetListingExchange,
 } from "../../stores/pasartrading/functions";
 
 // Import Images
@@ -16,6 +16,7 @@ import FiatPair from "./listingExchange/FiatPair";
 import DayNight from "./daynight/DayNight";
 
 import { convertNumber } from "../../assets/js";
+import TabsChartTrade from "./TabsChartTrade";
 
 export default function Price() {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -25,19 +26,47 @@ export default function Price() {
     props === "d-none" ? setShowDropdown("d-block") : setShowDropdown("d-none");
   };
 
-  const { PairSymbol, icon, price24H } = useSelector((state) =>
+  const { PairSymbol, icon, price24H, listingList } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
   );
 
+  // const listenToListing = () => {
+  //   const Price = supabase
+  //     .from("Price")
+  //     .on("*", (payload) => {
+  //       dispatch({ type: "SET_UPDATELISTING", data: payload.new });
+  //       if (payload.new.symbol === PairSymbol) {
+  //         dispatch(
+  //           setPasarTrading({
+  //             Open: payload.new.open,
+  //             High: payload.new.high,
+  //             Low: payload.new.low,
+  //             Close: payload.new.close,
+  //             Change: payload.new.change,
+  //             Volume: payload.new.volumePrice,
+  //             VolumeCrypto: payload.new.volumeCoin,
+  //           }),
+  //         );
+  //       }
+  //     })
+  //     .subscribe();
+  // };
+
+  React.useEffect(() => {
+    GetListingExchange(dispatch);
+    // listenToListing();
+  }, []);
+
   React.useEffect(() => {
     dispatch(GetOrderLastPrice({ pair: PairSymbol }));
-  }, [dispatch, PairSymbol]);
+  }, [PairSymbol]);
 
   return (
     <div
       className={`${
         mode ? "bg-trade2-dark" : "bg-trade2"
-      } px-2 ptb-2-trade mt-2`}
+      } px-4 ptb-2-trade mt-1`}
+      style={{ minHeight: "49vh" }}
     >
       <div className="pt-3" style={{ display: "flex", flexDirection: "row" }}>
         <div
@@ -65,7 +94,7 @@ export default function Price() {
                   className="mr-2"
                 />
                 <p
-                  className="mb-0"
+                  className="mb-0 font-22"
                   style={{
                     color: mode ? "white" : "white",
                     fontWeight: mode ? 600 : 600,
@@ -146,7 +175,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="favorite-tabs"
                     >
-                      <FavoritePair />
+                      <FavoritePair listingList={listingList} />
                     </div>
                     <div
                       className="tab-pane ci-dropdown-menu-TradeSymbol-scrollbar fade show active"
@@ -154,7 +183,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="crypto-pairs"
                     >
-                      <CryptoPair />
+                      <CryptoPair listingList={listingList} />
                     </div>
                     <div
                       className="tab-pane ci-dropdown-menu-TradeSymbol-scrollbar fade"
@@ -162,7 +191,7 @@ export default function Price() {
                       role="tabpanel"
                       aria-labelledby="fiat-pairs"
                     >
-                      <FiatPair />
+                      <FiatPair listingList={listingList} />
                     </div>
                   </div>
                 </div>
@@ -172,26 +201,27 @@ export default function Price() {
         </div>
       </div>
       <div className="p-2 mt-2">
-        <div style={{ display: "flex", justifyContent: "column" }}>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
           {/* Price */}
           <div
             className={`${
               mode ? "text-price-bottom-dark" : "text-price-bottom"
-            } font-28`}
+            } font-36`}
           >
-            {/* {price24H ? convertNumber.toRupiah(price24H.Close) : 0} */}
-            5.000.000
+            {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+            {/* 5.000.000 */}
           </div>
-          {/* Change */}
           <div
             className={`${
               mode ? "text-white" : "text-black"
-            } font-24 ml-3 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
+            } font-20 ml-4 ${convertNumber.tradeUpDownChange(price24H.Change)}`}
+            style={{ marginTop: "20px" }}
             // style={{ background: "#232323" }}
           >
-            {/* {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"} */}
-            50%
+            {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"}
+            {/* 50% */}
           </div>
+          {/* Change */}
         </div>
 
         <div
@@ -215,8 +245,8 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15`}
             >
-              {/* {price24H ? convertNumber.toRupiah(price24H.Volume) : 0} */}
-              30.652.175.748
+              {price24H ? convertNumber.toRupiah(price24H.Volume) : 0}
+              {/* 30.652.175.748 */}
             </div>
           </div>
           {/* High */}
@@ -236,8 +266,8 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15`}
             >
-              {/* {price24H ? convertNumber.toRupiah(price24H.High) : 0} */}
-              845.000.000
+              {price24H ? convertNumber.toRupiah(price24H.High) : 0}
+              {/* 845.000.000 */}
             </div>
           </div>
         </div>
@@ -263,8 +293,8 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15 `}
             >
-              {/* {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0} */}
-              30.652.175.748
+              {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
+              {/* 30.652.175.748 */}
             </div>
           </div>
           {/* Low */}
@@ -284,12 +314,13 @@ export default function Price() {
                 mode ? "text-price-bottom-dark" : "text-price-bottom"
               } font-15`}
             >
-              {/* {price24H ? convertNumber.toRupiah(price24H.Low) : 0} */}
-              840.000.000
+              {price24H ? convertNumber.toRupiah(price24H.Low) : 0}
+              {/* 840.000.000 */}
             </div>
           </div>
         </div>
       </div>
+      <TabsChartTrade />
 
       {/* <div className="row m-0">
         <div className="col-lg-11">

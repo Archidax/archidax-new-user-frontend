@@ -1,10 +1,14 @@
 import React from "react";
+import {useSelector} from 'react-redux'
 
 import { convertNumber } from "../../../../assets/js";
 
 import { useHistory } from "react-router-dom";
 
-export default function TableHomepage({dataHome}) {
+export default function TableHomepage() {
+  const { listingList } = useSelector((state) =>
+    state ? state.pasarTradingReducer : {},
+  );
   const history = useHistory();
 
   return (
@@ -24,10 +28,10 @@ export default function TableHomepage({dataHome}) {
               </tr>
             </thead>
             <tbody>
-              {dataHome &&
-              Array.isArray(dataHome) &&
-              dataHome.length > 0 ? (
-                dataHome.map((item) => {
+              {listingList &&
+              Array.isArray(listingList) &&
+              listingList.length > 0 ? (
+                listingList.map((item) => {
                   const handleRowClick = (row) => {
                     history.push(
                       `/pasar/${item.symbol.toString().replace("/", "_") }`,
@@ -48,21 +52,21 @@ export default function TableHomepage({dataHome}) {
                       </td>
                       <td className="text-white text-left">{item.assetName}</td>
                       <td
-                        className={`${convertNumber.tradeUpDownChange(item.price24h_change, 2)}`}
+                        className={`${item.price_24hour?convertNumber.tradeUpDownChangeHomepage(item.price_24hour.price24h_change, 2):'-'}`}
                       >
-                        {convertNumber.tradeChange(item.price24h_change, 2)}
+                        {item.price_24hour?convertNumber.tradeChange(item.price_24hour.price24h_change, 2):'- '}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_close)}
+                        {item.price_24hour?convertNumber.toRupiah(item.price_24hour.price24h_close):'- '}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_high)}
+                        {item.price_24hour?convertNumber.toRupiah(item.price_24hour.price24h_high):'- '}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_low)}
+                        {item.price_24hour?convertNumber.toRupiah(item.price_24hour.price24h_low):'- '}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_volume)}{" "}
+                        {item.price_24hour?convertNumber.toRupiah(item.price_24hour.price24h_volume):'- '}{" "}
                         {item.symbol ? item.symbol.split("/")[0] : null}
                       </td>
                     </tr>

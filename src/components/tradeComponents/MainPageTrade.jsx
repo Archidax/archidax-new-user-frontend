@@ -7,9 +7,7 @@ import PriceUSDT from "./card/PriceUSDT";
 function MainPageTrade() {
   const { email } = useSelector((state) => state?.profileReducer);
   const { myFav } = useSelector((state) => state.pasarTradingReducer);
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
-  );
+  const { listingList } = useSelector((state) => state.pasarTradingReducer);
 
   return (
     <div
@@ -52,7 +50,7 @@ function MainPageTrade() {
               >
                 BTC
               </button>
-              {/* <button
+              <button
                 className="nav-link ci-btn-trade px-2 py-3 font-responsive-trade-page font-bold"
                 id="USDT-tab"
                 data-toggle="tab"
@@ -63,7 +61,7 @@ function MainPageTrade() {
                 style={{ width: "110px" }}
               >
                 USDT
-              </button> */}
+              </button>
             </div>
           </div>
         </div>
@@ -78,8 +76,8 @@ function MainPageTrade() {
             >
               <PriceIDR
                 exchange={
-                  Exchange && Exchange instanceof Array && Exchange.length > 0
-                    ? Exchange.filter((item) => {
+                  listingList && listingList instanceof Array && listingList.length > 0
+                    ? listingList.filter((item) => {
                         if (item.base.toString().toUpperCase() === "BTC") {
                           return item;
                         } else {
@@ -99,10 +97,10 @@ function MainPageTrade() {
               <PriceFav
                 exchange={
                   email &&
-                  Exchange &&
-                  Exchange instanceof Array &&
-                  Exchange.length > 0
-                    ? Exchange.filter((item) => {
+                  listingList &&
+                  listingList instanceof Array &&
+                  listingList.length > 0
+                    ? listingList.filter((item) => {
                         if (myFav.includes(item._id)) {
                           return item;
                         } else {
@@ -121,8 +119,8 @@ function MainPageTrade() {
             >
               <PriceUSDT
                 exchange={
-                  Exchange && Exchange instanceof Array && Exchange.length > 0
-                    ? Exchange.filter((item) => {
+                  listingList && listingList instanceof Array && listingList.length > 0
+                    ? listingList.filter((item) => {
                         if (item.base.toString().toUpperCase() === "USDT") {
                           return item;
                         } else {

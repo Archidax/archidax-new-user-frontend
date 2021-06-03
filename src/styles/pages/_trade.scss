@@ -173,7 +173,7 @@ $chat-color: black;
 }
 
 .height-kanan {
-  height: 360px;
+  height: 328px;
 }
 
 .border-market {
@@ -323,6 +323,10 @@ $chat-color: black;
   width: 85%;
   margin: auto;
 }
+.width-trade2 {
+  width: 95%;
+  margin: auto;
+}
 
 // Tabs
 // Global
@@ -380,6 +384,31 @@ $chat-color: black;
     border-radius: 0px;
     height: 40px;
     font-size: 14px;
+  }
+}
+
+// Tabs Chart
+.tabs-volume-tab {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    background-color: $base-color-tabs-mainchart;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #178d6a;
+    // background: $base-color-tabs-mainchart-active;
+    border-bottom: 1px solid #178d6a;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
   }
 }
 
@@ -453,7 +482,7 @@ $chat-color: black;
 
 .input-label-trade {
   position: absolute;
-  top: 45px;
+  top: 39px;
   left: 60px;
   background: $base-color1;
   color: $price-text;
@@ -465,7 +494,7 @@ $chat-color: black;
 }
 .input-label-trade-dark {
   position: absolute;
-  top: 45px;
+  top: 39px;
   left: 60px;
   background: #0d0d0d;
   color: $price-text-dark;
@@ -478,7 +507,7 @@ $chat-color: black;
 
 .input-label-trade2 {
   position: absolute;
-  top: 105px;
+  top: 97px;
   left: 60px;
   background: $base-color1;
   color: $price-text;
@@ -490,7 +519,7 @@ $chat-color: black;
 }
 .input-label-trade2-dark {
   position: absolute;
-  top: 105px;
+  top: 97px;
   left: 60px;
   background: #0d0d0d;
   color: $price-text-dark;
@@ -503,7 +532,7 @@ $chat-color: black;
 
 .input-label-trade3 {
   position: absolute;
-  top: 250px;
+  top: 235px;
   left: 60px;
   background: $base-color1;
   color: $price-text;
@@ -515,7 +544,7 @@ $chat-color: black;
 }
 .input-label-trade3-dark {
   position: absolute;
-  top: 250px;
+  top: 235px;
   left: 60px;
   background: #0d0d0d;
   color: $price-text-dark;
@@ -690,7 +719,7 @@ $chat-color: black;
 }
 .table-wrapper3 {
   overflow-y: auto;
-  height: 260px;
+  height: 266px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -716,7 +745,7 @@ $chat-color: black;
 }
 .table-wrapper3-dark {
   overflow-y: auto;
-  height: 260px;
+  height: 266px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -1387,14 +1416,14 @@ input:checked + .slider:before {
 @media (min-width: 750px) {
   .list-coin-responsive {
     padding: 0px 0px;
-    width: 80%;
+    width: 100%;
   }
 }
 
 @media (min-width: 1024px) {
   .list-coin-responsive {
     padding: 0px 0px;
-    width: 80%;
+    width: 100%;
   }
 }
 
@@ -1493,4 +1522,42 @@ input:checked + .slider:before {
 
 .nav-trade-full {
   background-color: #00688f;
+}
+
+// Tabs Radio Button
+input ~ .tabbuy {
+  display: none;
+}
+#tabbuy1:checked ~ .tabbuy.content1,
+#tabbuy2:checked ~ .tabbuy.content2 {
+  display: block;
+}
+
+input ~ .tabsell {
+  display: none;
+}
+#tabsell1:checked ~ .tabsell.content1,
+#tabsell2:checked ~ .tabsell.content2 {
+  display: block;
+}
+
+// volume
+.dark-sell {
+  background: url(../../assets/img/trade/volume/dark-sell.svg);
+  background-repeat: no-repeat;
+}
+
+.day-sell {
+  background: url(../../assets/img/trade/volume/day-sell.svg);
+  background-repeat: no-repeat;
+}
+
+.dark-buy {
+  background: url(../../assets/img/trade/volume/dark-buy.svg);
+  background-repeat: no-repeat;
+}
+
+.day-buy {
+  background: url(../../assets/img/trade/volume/day-buy.svg);
+  background-repeat: no-repeat;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import HeaderHomePage from "../headerComponents/headerHomePage";
 import BannerHomepage from "./components/BannerHomepage";
 import SliderHomepage from "./components/SliderHomepage";
@@ -9,16 +10,16 @@ import KenapaMemilihCrypto from "./components/KenapaMemilihCrypto";
 import NewsHomepage from "./components/NewsHomepage";
 import FooterHomePage from "../footerComponents/footerHomePage/FooterHomePage";
 
-import { HomeMarket } from "../../stores/chart/functions";
+import { GetListingExchange } from "../../stores";
 import DalamCrypto from "./components/DalamCrypto";
+import InfoNews from "./components/infonews/InfoNews";
 
 function Home(props) {
-  let [MarketData, setMarketData] = React.useState([]);
+  const dispatch = useDispatch();
+
   React.useEffect(() => {
-    HomeMarket((Market) => {
-      setMarketData(Market);
-    });
-  }, [setMarketData]);
+    GetListingExchange(dispatch);
+  }, []);
 
   return (
     <div className="navbar-homePage">
@@ -28,8 +29,9 @@ function Home(props) {
           bg_normal="bg-header-homepage"
         />
         <BannerHomepage setLocale={props.setLocale} />
-        <SliderHomepage setLocale={props.setLocale} dataHome={MarketData} />
-        <TableHomepage setLocale={props.setLocale} dataHome={MarketData} />
+        <InfoNews />
+        <SliderHomepage setLocale={props.setLocale} />
+        <TableHomepage setLocale={props.setLocale} />
         <ApaItuCrypto setLocale={props.setLocale} />
         <DalamCrypto setLocale={props.setLocale} />
         <CalculatorCrypto setLocale={props.setLocale} />
