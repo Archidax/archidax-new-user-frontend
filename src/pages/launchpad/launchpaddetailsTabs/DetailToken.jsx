@@ -1,52 +1,54 @@
 import React from 'react'
+import moment from 'moment'
+import { convertNumber } from '../../../assets/js'
 
-function DetailToken() {
+function DetailToken({ data }) {
     return (
         <div className="container-fluid">
             <div className="row no-gutters mb-2">
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Name</label>
-                    <p className="text-white font-roboto font-16 mb-0">Hosea Tirtajaya</p>
+                    <p className="text-white font-roboto font-16 mb-0">{data.asset_name}</p>
                 </div>
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Website Project</label>
-                    <p className="text-white font-roboto font-16 mb-0">https://wave.org/</p>
+                    <p className="text-white font-roboto font-16 mb-0">{data.project_website}</p>
                 </div>
             </div>
             <div className="row no-gutters mb-2">
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Waktu Mulai Penjualan Token</label>
-                    <p className="text-white font-roboto font-16 mb-0">22 Januari 2021, 09:00 </p>
+                    <p className="text-white font-roboto font-16 mb-0">{moment(data.start_sale_time).format('LLL')}</p>
                 </div>
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Waktu Akhir Penjualan Token</label>
-                    <p className="text-white font-roboto font-16 mb-0">30 Januari 2021, 09:00 </p>
+                    <p className="text-white font-roboto font-16 mb-0">{moment(data.end_sale_time).format('LLL')}</p>
                 </div>
             </div>
             <div className="row no-gutters mb-2">
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Pasokan Token</label>
-                    <p className="text-white font-roboto font-16 mb-0">100.000.000</p>
+                    <p className="text-white font-roboto font-16 mb-0">{convertNumber.toMoney(data.token_supply)}</p>
                 </div>
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">harga Token</label>
-                    <p className="text-white font-roboto font-16 mb-0">Rp. 10.000</p>
+                    <p className="text-white font-roboto font-16 mb-0">{data.token_price}</p>
                 </div>
             </div>
             <div className="row no-gutters mb-2">
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Jumlah Pembelian Minimum</label>
-                    <p className="text-white font-roboto font-16 mb-0">0</p>
+                    <p className="text-white font-roboto font-16 mb-0">{data.minimum_purchase_amount}</p>
                 </div>
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Protocol Token</label>
-                    <p className="text-white font-roboto font-16 mb-0">Lainnya</p>
+                    <p className="text-white font-roboto font-16 mb-0">{data.token_protocol}</p>
                 </div>
             </div>
             <div className="row no-gutters mb-2">
                 <div className="col-12 col-md-12">
                     <label className="text-gold font-roboto font-14 mb-0">Distribusi Token</label>
-                    <p className="text-white font-roboto font-16 mb-0 text-justify">Total – 10,000,000,000 (100%) Public Sale – 5,500,000,000 (55%) Private Sale – 2,000,000,000 (20%) Management – 875,000,000 (8.75%) Development – 625,000,000 (6.25%) Marketing – 500,000,000 (5%) Contributors – 250,000,000 (2.5%) Rewards – 250,000,000 (2.5%)</p>
+                    <p className="text-white font-roboto font-16 mb-0 text-justify">{data.token_distribution}</p>
                 </div>
             </div>
         </div>

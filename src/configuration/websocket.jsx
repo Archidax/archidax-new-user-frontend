@@ -16,14 +16,21 @@ export default function WsComponent(props){
 
     useEffect(() => {
         if(email){
-            IoWebSocket(email).on('Notification', (data) => {
-                dispatch({
-                    type: "NEW_NOTIFICATION",
-                    data: data.data
-                })
+            IoWebSocket(email).on('ArchidaxSocketEvent', (data) => {
+                switch(data.type){
+                    case 'NOTIFICATION':
+                        dispatch({
+                            type: "NEW_NOTIFICATION",
+                            data: data.data
+                        })
+                        break;
+                    default:
+                        break;
+
+                }
             })
         }
-        return () => IoWebSocket(email).removeListener('Notification')
+        return () => IoWebSocket(email).removeListener('ArchidaxSocketEvent')
     },[email,dispatch])
     
     return (

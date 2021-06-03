@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 // Import Pages
 import LaunchpadHome from './LaunchpadHome'
 import LaunchpadDetail from './LaunchpadDetail'
-import LaunchpadPorto from './launchpadporto'
+import LaunchpadPorto from './LaunchpadPorto'
 import LaunchpadSub from './Projectsubmission'
 
 function LaunchpadPages() {
