@@ -145,8 +145,9 @@ export default function Index() {
                 >
                   <div class="" id="headingTwo">
                     <div
-                      className="py-1"
-                      style={{ background: mode ? "#232323" : "#00688f" }}
+                      className={
+                        mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
+                      }
                     >
                       <th
                         className="collapsed text-gold font-15 mb-0"
@@ -176,8 +177,9 @@ export default function Index() {
                 >
                   <div class="" id="headingThree">
                     <div
-                      className="py-1"
-                      style={{ background: mode ? "#232323" : "#00688f" }}
+                      className={
+                        mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
+                      }
                     >
                       <th
                         className="collapsed text-gold font-15 mb-0"
