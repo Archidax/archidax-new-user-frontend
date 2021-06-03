@@ -126,7 +126,7 @@ function FiatPairRealtime({ item, index }) {
                 )
           }`}
         >
-          {Data.price_24hour &&
+          {Data &&
             Number(Data.price24h_close).toLocaleString("id-ID", {
               maximumFractionDigits: 6,
             })}
