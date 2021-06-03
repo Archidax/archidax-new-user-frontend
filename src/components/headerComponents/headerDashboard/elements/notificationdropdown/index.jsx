@@ -23,7 +23,7 @@ function NotificationDropdownHeader() {
 
   const { mode } = useSelector((state) => state.daynightReducer);
   const [loading, setLoading] = useState(false);
-  const [mode2, setMode2] = useState(Translate('hd_semua'));
+  const [mode2, setMode2] = useState('hd_semua');
   const [filteredNotification, setFilteredNotification] = useState([]);
   const [loadingDelete, setLoadingDelete] = useState(null);
   const [showDelete, setShowDelete] = useState("");
@@ -49,8 +49,8 @@ function NotificationDropdownHeader() {
   };
 
   const toggleMode2 = (e) => {
-    preventDropdownClose(e);
-    setMode2(mode2 === Translate('hd_semua') ? Translate('hd_baru') : Translate('hd_semua'));
+    preventDropdownClose(e)
+    setMode2(mode2 === 'hd_semua' ? 'hd_baru' : 'hd_semua')
   };
 
   const handleReadAll = (e) => {
@@ -71,7 +71,7 @@ function NotificationDropdownHeader() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (mode2 === "Baru") {
+    if (mode2 === "hd_baru") {
       setFilteredNotification(notifications);
     } else {
       let selected = notifications.filter((item) => item.read === false);
@@ -124,7 +124,7 @@ function NotificationDropdownHeader() {
                 className="btn btn-sm col-2 py-2 text-center"
               >
                 <p className="text-secondary font-weight-bold mb-0 lable-title font-11">
-                  {mode2}
+                  {Translate(mode2)}
                 </p>
               </div>
             </div>
@@ -201,7 +201,7 @@ function NotificationDropdownHeader() {
                   </div>
                 );
               })}
-              {hasNext && mode2 !== "Semua" && (
+              {hasNext && mode2 !== "hd_semua" && (
                 <button
                   onClick={(e) => handleReadMore(e)}
                   className="btn btn-dark btn-sm col-12 col-md-12"

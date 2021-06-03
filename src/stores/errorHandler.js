@@ -22,11 +22,14 @@ export default function errorHandler(err, func){
                 }
             })
         } else if(err.response.status === 404){
+            console.log(err.response)
             Popup.fire({
                 title: 'Gagal!',
-                text: "Server sedang sibuk!",
+                text: err.response.data && err.response.data.message ? err.response.data.message : "Server sedang sibuk!",
                 onClickOk: () => {
-                    window.open(window.location.origin+"/404","_self")
+                    if(!err.response.data){
+                        window.open(window.location.origin+"/404","_self")
+                    }
                 }
             })
         }
@@ -37,8 +40,7 @@ export default function errorHandler(err, func){
                 onClickOk: func ? func : undefined
             })
         }
-    }
-    else {
+    } else {
         Popup.fire({
             title: 'Gagal!',
             text: "Server Timeout!",
