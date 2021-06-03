@@ -5,11 +5,11 @@ import axios from 'axios'
 
 export const launchNewProject = (data) => {
     Popup.showLoading()
-    // console.log("msuk", data)
-    // // Display the key/value pairs
-    // for (var pair of data.entries()) {
-    //     console.log(pair[0] + ', ' + pair[1]);
-    // }
+    console.log("msuk", data)
+    // Display the key/value pairs
+    for (var pair of data.entries()) {
+        console.log(pair[0] + ', ' + pair[1]);
+    }
     axios({
         method: "POST",
         url: `${baseUrlTrade}/api/v1/launchpad/IEO/create`,
@@ -39,6 +39,7 @@ export const getAllIEOProjects = (dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
+            console.log(data.data, "<<")
             dispatch({ type: "ALL_IEO_PROJECTS", data: data.data })
         })
         .catch(err => errorHandler(err))
@@ -64,7 +65,7 @@ export const getIEOProjectById = (id, dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            console.log(data.data)
+            console.log(data.data, ">>")
             dispatch({ type: "IEO_DETAILS", data: data.data })
         })
         .catch(err => errorHandler(err))

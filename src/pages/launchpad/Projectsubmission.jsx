@@ -14,6 +14,7 @@ import Dropdown from '../../components/dropdown'
 import { industries, protocols } from '../../assets/launchpad'
 import { launchNewProject } from '../../stores';
 import CardTeamMember from './CardTeamMember';
+import Phase from './Phase';
 
 function LaunchpadPorto() {
     // Project Introduction
@@ -46,7 +47,34 @@ function LaunchpadPorto() {
     const [tokenDistribution, setTokenDistribution] = useState(0)
     const [tokenCoinImage, setTokenCoinImage] = useState(null)
 
+    // Phase
+    const [buyingCurrency, setBuyingCurrency] = useState("")
+    const [phaseDetails, setPhaseDetails] = useState([{
+        startDate: "",
+        endDate: "",
+        amount: "",
+        minimumBuy: 0,
+        price: 0,
+        coin: ""
+    }])
 
+    const addPhase = () => {
+        let form = {
+            startDate: "",
+            endDate: "",
+            amount: "",
+            minimumBuy: 0,
+            price: 0,
+            coin: ""
+        }
+        setPhaseDetails([...phaseDetails, form])
+    }
+
+    const removePhase = (index) => {
+        let phases = [...phaseDetails]
+        phases.splice(index, 1)
+        setPhaseDetails(phases)
+    }
 
     // Team
     const [memberDetails, setMemberDetails] = useState([{
@@ -115,11 +143,13 @@ function LaunchpadPorto() {
         data.append('amount_circulating_supply', tokenAmountCircSupply)
         data.append('currency_base', tokenCurrencyBase)
         data.append('currency_quote', tokenCurrencyQuote)
-        data.append('start_sale_time', tokenSaleStartTime)
-        data.append('end_sale_time', tokenSaleEndTime)
-        data.append('token_supply', tokenSupply)
-        data.append('token_price', tokenPrice)
-        data.append('minimum_purchase_amount', tokenMinimumPurchaseAmount)
+
+        // data.append('start_sale_time', tokenSaleStartTime)
+        // data.append('end_sale_time', tokenSaleEndTime)
+        // data.append('token_supply', tokenSupply)
+        // data.append('token_price', tokenPrice)
+        // data.append('minimum_purchase_amount', tokenMinimumPurchaseAmount)
+
         data.append('token_protocol', tokenProtokol)
         data.append('token_distribution', tokenDistribution)
         data.append('files', tokenCoinImage)
@@ -135,22 +165,28 @@ function LaunchpadPorto() {
         data.append('linkedin', smLinkedin)
         data.append('telegram', smTelegram)
         data.append('youtube', smYoutube)
-        // data.append('official_website', description)
-
 
         // team
-        // data.append('team', memberDetails)
-
         if (memberDetails.length > 1) {
             memberDetails.map(el => {
                 return data.append('team', JSON.stringify(el))
             })
         } else {
-            // let string = JSON.stringify(memberDetails[0]);
-            // let stringified = "[" + string + "]";
             data.append('team', JSON.stringify(memberDetails[0]))
         }
         console.log(memberDetails)
+
+
+        // phase
+        if (phaseDetails.length > 1) {
+            phaseDetails.map(el => {
+                return data.append('phase_details', JSON.stringify(el))
+            })
+        } else {
+            data.append('phase_details', JSON.stringify(phaseDetails[0]))
+        }
+        console.log(memberDetails)
+
         // Actions redux
         launchNewProject(data)
     }
@@ -180,7 +216,7 @@ function LaunchpadPorto() {
                                 <p style={{
                                     fontWeight: '800',
                                     letterSpacing: "1px"
-                                }} className="ci-text-white font-roboto font-18 mb-2">Project Introduction</p>
+                                }} className="ci-text-white font-roboto font-18 mb-2 text-gold">Project Introduction</p>
                             </div>
                         </div>
                         <form enctype="multipart/form-data">
@@ -305,7 +341,7 @@ function LaunchpadPorto() {
                                 <p style={{
                                     fontWeight: '800',
                                     letterSpacing: "1px"
-                                }} className="ci-text-white font-roboto font-18 mb-2">Token Detail</p>
+                                }} className="ci-text-white font-roboto font-18 mb-2 text-gold">Token Detail</p>
                             </div>
                         </div>
                         <div className="row no-gutters">
@@ -394,7 +430,10 @@ function LaunchpadPorto() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row no-gutters mb-2">
+                                
+                            </div>
+                            <div className="col-12 col-lg-6 pl-2">
+                            <div className="row no-gutters mb-2">
                                     <div className="col-12 d-flex align-items-center">
                                         <p className="ci-text-white mb-0 label-title">Currency Base</p>
                                     </div>
@@ -440,78 +479,7 @@ function LaunchpadPorto() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-12 col-lg-6 pl-2">
-                                <div className="row no-gutters mb-2">
-                                    <div className="col-12 d-flex align-items-center">
-                                        <p className="ci-text-white mb-0 label-title">Token Sale Start-Time</p>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="input-group ci-inputDefault-bg">
-                                            <input
-                                                type="datetime-local"
-                                                className="form-control ci-inputDefault-bg-input ci-pd"
-                                                onChange={(e) => setTokenSaleStartTime(e.target.value)}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row no-gutters mb-2">
-                                    <div className="col-12 d-flex align-items-center">
-                                        <p className="ci-text-white mb-0 label-title">Token Sale End-Time</p>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="input-group ci-inputDefault-bg">
-                                            <input
-                                                type="datetime-local"
-                                                className="form-control ci-inputDefault-bg-input ci-pd"
-                                                onChange={(e) => setTokenSaleEndTime(e.target.value)}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row no-gutters mb-2">
-                                    <div className="col-12 d-flex align-items-center">
-                                        <p className="ci-text-white mb-0 label-title">Token Supply</p>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="input-group ci-inputDefault-bg">
-                                            <input
-                                                type="number"
-                                                className="form-control ci-inputDefault-bg-input ci-pd"
-                                                onChange={(e) => setTokenSupply(e.target.value)}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row no-gutters mb-2">
-                                    <div className="col-12 d-flex align-items-center">
-                                        <p className="ci-text-white mb-0 label-title">Token Price</p>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="input-group ci-inputDefault-bg">
-                                            <input
-                                                type="number"
-                                                className="form-control ci-inputDefault-bg-input ci-pd"
-                                                onChange={(e) => setTokenPrice(e.target.value)}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row no-gutters mb-2">
-                                    <div className="col-12 d-flex align-items-center">
-                                        <p className="ci-text-white mb-0 label-title">Minimum Purchase Amount</p>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="input-group ci-inputDefault-bg">
-                                            <input
-                                                type="number"
-                                                className="form-control ci-inputDefault-bg-input ci-pd"
-                                                onChange={(e) => setTokenMinimumPurchaseAmount(e.target.value)}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
+            
                                 <div className="row no-gutters mb-2">
                                     <div className="col-12 d-flex align-items-center">
                                         <p className="ci-text-white mb-0 label-title">Token Protocol</p>
@@ -526,14 +494,7 @@ function LaunchpadPorto() {
                                         />
                                     </div>
                                 </div>
-                                {/* <div className="row no-gutters mb-2">
-                                    <div className="col-12 d-flex align-items-center">
-                                        <p className="ci-text-white mb-0 label-title">Token Distribution</p>
-                                    </div>
-                                    <div className="col-12">
-                                        <Dropdown searchBar={false} />
-                                    </div>
-                                </div> */}
+            
                                 <div className="row no-gutters mb-2">
                                     <div className="col-12 d-flex align-items-center">
                                         <p className="ci-text-white mb-0 label-title">Token Distribution</p>
@@ -552,11 +513,48 @@ function LaunchpadPorto() {
 
                     </div>
                 </div>
+
+                <div className="row no-gutters mt-3">
+                    <div className="row no-gutters mb-2">
+                        <div className="col-12 d-flex align-items-center">
+                            <p style={{
+                                fontWeight: '800',
+                                letterSpacing: "1px"
+                            }} className="ci-text-white font-roboto font-18 mb-2 text-gold">Phase</p>
+                        </div>
+                    </div>
+
+                    {
+                        phaseDetails.map((el, index) => {
+                            return <Phase
+                                key={index}
+                                removeFunc={() => removePhase(index)}
+                                phaseDetails={phaseDetails}
+                                setPhaseDetails={setPhaseDetails}
+                                index={index}
+                                data={el}
+                                buyingCurrency={buyingCurrency}
+                                setBuyingCurrency={setBuyingCurrency}
+                            />
+                        })
+                    }
+
+                    <div className="col-12 no-gutters mt-2">
+                        <div className="row mt-2">
+                            <div className="col-12 d-flex justify-content-end">
+                                <button
+                                    onClick={() => addPhase()}
+                                    className="ci-btn-custom-1 py-1">
+                                    Add Phase <i className="fas fa-plus ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="row no-gutters">
                     <div className="row no-gutters mb-2">
-                        <div style={{
-                            borderBottom: '1px solid white'
-                        }} className="col-12 d-flex align-items-center">
+                        <div className="col-12 d-flex align-items-center">
                             <p style={{
                                 fontWeight: '800',
                                 letterSpacing: "1px"
@@ -601,7 +599,7 @@ function LaunchpadPorto() {
                                         <p style={{
                                             fontWeight: '800',
                                             letterSpacing: "1px"
-                                        }} className="ci-text-white font-roboto font-18 mb-2">Dokumen</p>
+                                        }} className="ci-text-white font-roboto font-18 mb-2 text-gold">Dokumen</p>
                                     </div>
                                 </div>
                                 <div className="input-group ci-inputDefault-bg-input ci-pd p-1 mb-2">
@@ -667,7 +665,7 @@ function LaunchpadPorto() {
                                         <p style={{
                                             fontWeight: '800',
                                             letterSpacing: "1px"
-                                        }} className="ci-text-white font-roboto font-18 mb-2">Social Media</p>
+                                        }} className="ci-text-white font-roboto font-18 mb-2 text-gold">Social Media</p>
                                     </div>
                                 </div>
                                 <div className="row">
