@@ -31,9 +31,8 @@ export default function Index() {
   React.useEffect(() => {
     if (symbol && listingList.length) {
       const dataSymbol = listingList.find(
-        (data) => data.symbol === symbol.toString(),
+        (data) => data.symbol === symbol.split("_").join("/").toString(),
       );
-      
       if (dataSymbol) {
         let symbolFrom = dataSymbol.symbol.split("/")[0];
         let symbolTo = dataSymbol.symbol.split("/")[1];
