@@ -7,34 +7,37 @@ import {
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 import { convertNumber } from "../../../assets/js";
+import { useParams } from "react-router";
 
 export default function ListBuy() {
+  const {symbol}=useParams();
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const { mode } = useSelector((state) => state.daynightReducer);
-  const { PairSymbol, pairTo, pairFrom } = useSelector((state) =>
+  const { pairTo, pairFrom } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
-  // console.log(PairSymbol,"<<,")
+  
   React.useEffect(() => {
-    if (PairSymbol) {
+    if (symbol) {
+      let Symbols=symbol.replace("_","/");
       GetOrderBuyAndSell({
         dispatch: setData,
-        PairSymbol: PairSymbol,
+        PairSymbol: Symbols,
         side: "BUY",
         limit: 50,
       });
+      if (IoWebSocketTrade && IoWebSocketTrade.connected) {
+        IoWebSocketTrade.removeEventListener(`OrderBuy-${Symbols}`);
+        IoWebSocketTrade.on(`OrderBuy-${Symbols}`, (data) => {
+          if(data){
+            setData(data);
+          }
+        });
+        return () => IoWebSocketTrade.removeEventListener(`OrderBuy-${Symbols}`);
+      }
     }
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && PairSymbol) {
-      IoWebSocketTrade.removeEventListener(`OrderBuy-${PairSymbol}`);
-      IoWebSocketTrade.on(`OrderBuy-${PairSymbol}`, (data) => {
-        if(data){
-          setData(data);
-        }
-      });
-      return () => IoWebSocketTrade.removeEventListener(`OrderBuy-${PairSymbol}`);
-    }
-  }, [PairSymbol,setData]);
+  }, [symbol,setData]);
 
   return (
     <div>
