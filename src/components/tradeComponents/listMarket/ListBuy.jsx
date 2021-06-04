@@ -28,11 +28,13 @@ export default function ListBuy() {
     if (IoWebSocketTrade && IoWebSocketTrade.connected && PairSymbol) {
       IoWebSocketTrade.removeEventListener(`OrderBuy-${PairSymbol}`);
       IoWebSocketTrade.on(`OrderBuy-${PairSymbol}`, (data) => {
-        setData(data);
+        if(data){
+          setData(data);
+        }
       });
       return () => IoWebSocketTrade.removeEventListener(`OrderBuy-${PairSymbol}`);
     }
-  }, [PairSymbol]);
+  }, [PairSymbol,setData]);
 
   return (
     <div>
