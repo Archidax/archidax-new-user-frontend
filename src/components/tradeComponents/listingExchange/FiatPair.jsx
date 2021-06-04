@@ -73,7 +73,6 @@ function FiatPairRealtime({ item, index }) {
     if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
       IoWebSocketTrade.removeAllListeners(`Prices-${Data.symbol}`);
       IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
-        console.log("prices",data);
         if (data) {
           setData(data);
         }
