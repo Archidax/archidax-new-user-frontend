@@ -69,12 +69,8 @@ export default function Price() {
     >
       <div className="px-3">
         <div className="pt-3" style={{ display: "flex", flexDirection: "row" }}>
-          <div
-            class="ci-dropdown list-coin-responsive"
-            // style={{
-            //   width: "80%",
-            // }}
-          >
+          {/* dropdown price */}
+          <div class="ci-dropdown list-coin-responsive">
             <button
               className="ci-dropdown-btn ci-dropdown-btn-TradeSymbol py-2 ci-md w-100"
               type="button"
