@@ -56,6 +56,12 @@ function NotificationDropdownHeader() {
   const handleReadAll = (e) => {
     preventDropdownClose(e);
     readAllNotifications(dispatch);
+    if (mode2 === "hd_baru") {
+      setFilteredNotification(notifications);
+    } else {
+      let selected = notifications.filter((item) => item.read === false);
+      setFilteredNotification(selected);
+    }
   };
 
   const handleReadMore = (e) => {

@@ -11,6 +11,8 @@ import {
 } from "../../../../../stores";
 import { parseDate, parseTime } from "../../../../../helpers";
 
+import Translate from '../../../../../i18n/Translate';
+
 function NotificationDropdownHeader() {
   const { notifications, hasNext, unreads } = useSelector(
     (state) => state.notificationReducer,
@@ -21,7 +23,7 @@ function NotificationDropdownHeader() {
 
   const { mode } = useSelector((state) => state.daynightReducer);
   const [loading, setLoading] = useState(false);
-  const [mode2, setMode2] = useState("Semua");
+  const [mode2, setMode2] = useState('hd_semua');
   const [filteredNotification, setFilteredNotification] = useState([]);
   const [loadingDelete, setLoadingDelete] = useState(null);
   const [showDelete, setShowDelete] = useState("");
@@ -48,12 +50,18 @@ function NotificationDropdownHeader() {
 
   const toggleMode2 = (e) => {
     preventDropdownClose(e);
-    setMode2(mode2 === "Semua" ? "Baru" : "Semua");
+    setMode2(mode2 === 'hd_semua' ? 'hd_baru' : 'hd_semua')
   };
 
   const handleReadAll = (e) => {
     preventDropdownClose(e);
     readAllNotifications(dispatch);
+    if (mode2 === "hd_baru") {
+      setFilteredNotification(notifications);
+    } else {
+      let selected = notifications.filter((item) => item.read === false);
+      setFilteredNotification(selected);
+    }
   };
 
   const handleReadMore = (e) => {
@@ -69,7 +77,7 @@ function NotificationDropdownHeader() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (mode2 === "Baru") {
+    if (mode2 === "hd_baru") {
       setFilteredNotification(notifications);
     } else {
       let selected = notifications.filter((item) => item.read === false);
@@ -114,7 +122,7 @@ function NotificationDropdownHeader() {
             <div className="row">
               <div className="col py-2">
                 <p className="text-dark font-weight-bold mb-0 lable-title font-12">
-                  NOTIFIKASI
+                  {Translate('hd_notifikasi')}
                 </p>
               </div>
               <div
@@ -122,7 +130,7 @@ function NotificationDropdownHeader() {
                 className="btn btn-sm col-2 py-2 text-center"
               >
                 <p className="text-secondary font-weight-bold mb-0 lable-title font-11">
-                  {mode2}
+                  {Translate(mode2)}
                 </p>
               </div>
             </div>
@@ -152,7 +160,7 @@ function NotificationDropdownHeader() {
                       <div>
                         {!items.read && (
                           <span className="counter text-white rounded bg-danger mr-2">
-                            Baru
+                          {Translate('hd_baru')}
                           </span>
                         )}
                         {showDelete === itemIndex ? (
@@ -213,7 +221,7 @@ function NotificationDropdownHeader() {
                     </div>
                   ) : (
                     <p className="text-white font-14 text-center lable-title mb-0">
-                      Lihat lebih banyak
+                    {Translate('hd_lebih_banyak')}
                     </p>
                   )}
                 </button>
@@ -223,7 +231,7 @@ function NotificationDropdownHeader() {
             <div className="row py-3 px-0 m-0 col-12">
               <div className="col-12 col-md-12">
                 <p className="text-white font-14 text-center lable-title mb-0">
-                  Tidak ada notifikasi baru
+                  {Translate('hd_tidak_ada_notifikasi_baru')}
                 </p>
               </div>
             </div>
@@ -239,7 +247,7 @@ function NotificationDropdownHeader() {
               <div className="row">
                 <div className="col-12 col-md-12 py-2 text-center">
                   <p className="text-dark font-weight-bold mb-0 lable-title font-12">
-                    Mark all as read
+                    {Translate('hd_tandai_semua_telah_dibaca')}
                   </p>
                 </div>
               </div>
