@@ -32,14 +32,20 @@ export const launchNewProject = (data) => {
         })
 }
 
-export const getAllIEOProjects = (dispatch) => {
+export const getAllIEOProjects = (filter, dispatch) => {
+    let url
+    if(!filter) {
+        url = `${baseUrlTrade}/api/v1/launchpad/IEO/readAll`
+    } else {
+        url = `${baseUrlTrade}/api/v1/launchpad/IEO/readAll?filter=${filter.toUpperCase()}`
+    }
     axios({
         method: "GET",
-        url: `${baseUrlTrade}/api/v1/launchpad/IEO/readAll`,
+        url: url,
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            console.log(data.data, "<<")
+            console.log(data, "<<")
             dispatch({ type: "ALL_IEO_PROJECTS", data: data.data })
         })
         .catch(err => errorHandler(err))
@@ -58,7 +64,6 @@ export const getMyIEOPortfolio = (dispatch) => {
 }
 
 export const getIEOProjectById = (id, dispatch) => {
-    console.log("masuk")
     axios({
         method: "GET",
         url: `${baseUrlTrade}/api/v1/launchpad/IEO/detail?id=${id}`,
@@ -67,6 +72,32 @@ export const getIEOProjectById = (id, dispatch) => {
         .then(({ data }) => {
             console.log(data.data, ">>")
             dispatch({ type: "IEO_DETAILS", data: data.data })
+        })
+        .catch(err => errorHandler(err))
+}
+
+
+export const getUserBalance = () => {
+    axios({
+        method: "GET",
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/detail?id`,
+        headers: { jwttoken: localStorage.getItem('token') }
+    })
+        .then(({ data }) => {
+            console.log(data.data, ">>")
+        })
+        .catch(err => errorHandler(err))
+}
+
+export const buyIEOCoin = (data, dispatch) => {
+    console.log("masuk")
+    axios({
+        method: "POST",
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/detail`,
+        headers: { jwttoken: localStorage.getItem('token') }
+    })
+        .then(({ data }) => {
+            console.log(data.data, ">>")
         })
         .catch(err => errorHandler(err))
 }

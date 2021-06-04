@@ -3,21 +3,6 @@ import { Jumbotron } from 'react-bootstrap'
 import FooterHomePage from '../../components/footerComponents/footerHomePage/FooterHomePage'
 import HeaderHomePage from '../../components/headerComponents/headerHomePage'
 
-// Import Content
-// import MemahamiApaituCrypto from './content/MemahamiApaituCrypto'
-// import KeuntunganCrypto from './content/KeuntunganCrypto'
-// import PersiapanTrading from './content/PersiapanTrading'
-// import MariMemulai from './content/MariMemulai'
-// import MengaktifkanGoogleAuthenticator from './content/MengaktifkanGoogleAuthenticator'
-// import DepositdanPenarikanRupiah from './content/DepositdanPenarikanRupiah'
-// import DepositdanPenarikanKripto from './content/DepositdanPenarikanKripto'
-// import MetodeInstanLimit from './content/MetodeInstanLimit'
-
-// Import Components
-// import NavListPanduan from './NavList'
-// import DropdownListPanduan from './DropdownList'
-// import HelpNav from './HelpNav'
-
 import fb_grey from '../../assets/img/launchpad/fb_grey.svg'
 import twitter_grey from '../../assets/img/launchpad/twitter_grey.svg'
 import linkedin_grey from '../../assets/img/launchpad/linkedin_grey.svg'
@@ -29,7 +14,6 @@ import youtubewarna from '../../assets/img/launchpad/youtube-warna.svg'
 import dokumen from '../../assets/img/launchpad/dokumen.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
-import { getMyIEOPortfolio } from '../../stores'
 
 function LaunchpadPorto() {
     const projects = useSelector(state => state.launchpadReducer.myIEOPortfolio)

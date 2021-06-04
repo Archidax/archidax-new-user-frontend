@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Import Tabs
 import FooterHomePage from '../../components/footerComponents/footerHomePage/FooterHomePage'
@@ -15,10 +15,11 @@ import UsdTabsForm from './launchpaddetailForm/UsdTabsForm'
 import UsdtTabsForm from './launchpaddetailForm/UsdtTabsForm'
 import WavesTabsForm from './launchpaddetailForm/WavesTabsForm'
 import { Link, useHistory, useParams } from 'react-router-dom'
-import { getIEOProjectById } from '../../stores'
+import { buyIEOCoin, getIEOProjectById, getUserBalance } from '../../stores'
 import { useDispatch, useSelector } from 'react-redux'
 
 import HTMLParse from 'html-react-parser'
+import BuyingForm from './launchpaddetailForm/BuyingForm'
 
 
 function LaunchpadDetail({ data }) {
@@ -26,14 +27,37 @@ function LaunchpadDetail({ data }) {
     const { id } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
+
+    // Get Details
     useEffect(() => {
         getIEOProjectById(id, dispatch)
-        // if (!id) {
-        //     history.push('/launchpad')
-        // } else {
-        //     getIEOProjectById(id, dispatch)
-        // }
+        // getUserBalance()
     }, [])
+
+    // Handle Buying Coin
+    const [price, setPrice] = useState(0)
+    const [coin, setCoin] = useState("")
+    const [amount, setAmount] = useState(0)
+    const [total, setTotal] = useState("")
+    const [coinPair, setCoinPair] = useState("")
+    const [pricePerPair, setPricePerPair] = useState("")
+    const [pricePercentage, setPricePercentage] = useState(0)
+
+    // Buy
+    const buy = () => {
+        const data = {
+            coin,
+            amount,
+            total,
+            coinPair,
+            pricePerPair
+        }
+        // buyIEOCoin(data)
+    }
+
+    // handle dynamic input
+
+
     return (
         <div className="panduan-pengguna">
             <HeaderHomePage />
@@ -59,23 +83,24 @@ function LaunchpadDetail({ data }) {
                                 <div className="row no-gutters mt-4 ">
                                     <div className="col-12">
                                         <p className="text-gold mb-0 font-roboto font-16">Project Introduction</p>
+                                        <h1 className="text-danger">{amount}</h1>
                                         <article className="artikel ci-text-white font-11 mt-2 text-justify" style={{ letterSpacing: "0.8px" }}>
                                             {/* {parse()} */}
                                             <h3 className="label-title text-gold my-1">Name: {detail.asset_name}</h3>
                                             <h3 className="label-title text-gold">Industry: {detail.industry}</h3>
                                             <div className="label-title">
-                                                {
+                                                {/* {
                                                     HTMLParse(detail.project_detail)
-                                                }
+                                                } */}
                                             </div>
                                         </article>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="col-12 col-xl-6 mt-sm-0 mt-3">
+                            <div className="col-12 col-xl-6 mt-sm-0 mt-3 ">
 
-                                <ul
+                                {/* <ul
                                     className="nav nav-pills mb-0 font-14"
                                     id="pills-tab"
                                     role="tablist"
@@ -90,6 +115,7 @@ function LaunchpadDetail({ data }) {
                                             aria-controls="pills-ethLaunchpad"
                                             aria-selected="true"
                                             style={{ borderRadius: "6px 0px 0px 0px", padding: "20px 0" }}
+                                            onClick={() => setCoinPair("ETH")}
                                         >
                                             ETH
                                 </a>
@@ -104,6 +130,7 @@ function LaunchpadDetail({ data }) {
                                             aria-controls="pills-wavesLaunchpad"
                                             aria-selected="false"
                                             style={{ borderRadius: "0px 0px 0px 0px", padding: "20px 0" }}
+                                            onClick={() => setCoinPair("WAVES")}
                                         >
                                             WAVES
                                 </a>
@@ -118,6 +145,7 @@ function LaunchpadDetail({ data }) {
                                             aria-controls="pills-usdLaunchpad"
                                             aria-selected="false"
                                             style={{ borderRadius: "0px 0px 0px 0px", padding: "20px 0" }}
+                                            onClick={() => setCoinPair("USD")}
                                         >
                                             USD
                                 </a>
@@ -132,11 +160,12 @@ function LaunchpadDetail({ data }) {
                                             aria-controls="pills-usdtLaunchpad"
                                             aria-selected="false"
                                             style={{ borderRadius: "0px 6px 0px 0px", padding: "20px 0" }}
+                                            onClick={() => setCoinPair("USDT")}
                                         >
                                             USDT
-                                </a>
+                                        </a>
                                     </li>
-                                </ul>
+                                </ul> */}
                                 <div className="row justify-content-center">
                                     <div className="col-12 col-md-12">
                                         <div className="card ci-customCard-1" style={{ borderRadius: "0px 0px 6px 6px" }}>
@@ -149,7 +178,17 @@ function LaunchpadDetail({ data }) {
                                                         role="tabpanel"
                                                         aria-labelledby="eth-tabs"
                                                     >
-                                                        <EthTabsForm />
+                                                        <BuyingForm
+                                                            coinPair="ETH"
+                                                            amount={amount}
+                                                            setAmount={setAmount}
+                                                            total={total}
+                                                            setTotal={setTotal}
+                                                            pricePercentage={pricePercentage}
+                                                            setPricePercentage={setPricePercentage}
+                                                            price={price}
+                                                            setPrice={setPrice}
+                                                        />
                                                     </div>
                                                     <div
                                                         className="tab-pane fade"
@@ -157,7 +196,17 @@ function LaunchpadDetail({ data }) {
                                                         role="tabpanel"
                                                         aria-labelledby="waves-tabs"
                                                     >
-                                                        <WavesTabsForm />
+                                                        <BuyingForm
+                                                            coinPair="WAVES"
+                                                            amount={amount}
+                                                            setAmount={setAmount}
+                                                            total={total}
+                                                            setTotal={setTotal}
+                                                            pricePercentage={pricePercentage}
+                                                            setPricePercentage={setPricePercentage}
+                                                            price={price}
+                                                            setPrice={setPrice}
+                                                        />
                                                     </div>
                                                     <div
                                                         className="tab-pane fade"
@@ -165,7 +214,17 @@ function LaunchpadDetail({ data }) {
                                                         role="tabpanel"
                                                         aria-labelledby="usd-tabs"
                                                     >
-                                                        <UsdTabsForm />
+                                                        <BuyingForm
+                                                            coinPair="USD"
+                                                            amount={amount}
+                                                            setAmount={setAmount}
+                                                            total={total}
+                                                            setTotal={setTotal}
+                                                            pricePercentage={pricePercentage}
+                                                            setPricePercentage={setPricePercentage}
+                                                            price={price}
+                                                            setPrice={setPrice}
+                                                        />
                                                     </div>
                                                     <div
                                                         className="tab-pane fade"
@@ -173,7 +232,17 @@ function LaunchpadDetail({ data }) {
                                                         role="tabpanel"
                                                         aria-labelledby="usdt-tabs"
                                                     >
-                                                        <UsdtTabsForm />
+                                                        <BuyingForm
+                                                            coinPair="USDT"
+                                                            amount={amount}
+                                                            setAmount={setAmount}
+                                                            total={total}
+                                                            setTotal={setTotal}
+                                                            pricePercentage={pricePercentage}
+                                                            setPricePercentage={setPricePercentage}
+                                                            price={price}
+                                                            setPrice={setPrice}
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -245,7 +314,7 @@ function LaunchpadDetail({ data }) {
                                                 role="tabpanel"
                                                 aria-labelledby="detail-token-tabs"
                                             >
-                                                <DetailToken/>
+                                                <DetailToken />
                                             </div>
                                             <div
                                                 className="tab-pane fade"
@@ -261,7 +330,7 @@ function LaunchpadDetail({ data }) {
                                                 role="tabpanel"
                                                 aria-labelledby="my-trades"
                                             >
-                                                <MyTrades data={detail}/>
+                                                <MyTrades data={detail} />
                                             </div>
                                         </div>
 
