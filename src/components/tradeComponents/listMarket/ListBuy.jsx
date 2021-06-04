@@ -58,6 +58,7 @@ export default function ListBuy() {
                     className={`${mode ? "dark-buy" : "day-buy"}`}
                     style={{
                       backgroundSize: `${(item.amount / item.stock) * 100}%`,
+                      backgroundRepeat: "repeat-y",
                     }} // value based on volume sisa
                   >
                     <tr
