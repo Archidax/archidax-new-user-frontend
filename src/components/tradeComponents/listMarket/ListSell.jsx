@@ -17,7 +17,8 @@ export default function ListSell() {
   const { PairSymbol, pairTo, pairFrom } = useSelector(
     (state) => state.pasarTradingReducer,
   );
-  useEffect(() => {
+  
+  React.useEffect(() => {
     if (PairSymbol) {
       GetOrderBuyAndSell({
         dispatch: setData,
@@ -26,17 +27,14 @@ export default function ListSell() {
         limit: 50,
       });
     }
-  }, [setData, PairSymbol]);
-
-  React.useEffect(() => {
     if (IoWebSocketTrade && IoWebSocketTrade.connected && PairSymbol) {
+      IoWebSocketTrade.removeEventListener(`OrderSell-${PairSymbol}`);
       IoWebSocketTrade.on(`OrderSell-${PairSymbol}`, (data) => {
         setData(data);
       });
-      return () =>
-        IoWebSocketTrade.removeEventListener(`OrderSell-${PairSymbol}`);
+      return () => IoWebSocketTrade.removeEventListener(`OrderSell-${PairSymbol}`);
     }
-  }, [setData, PairSymbol]);
+  }, [PairSymbol]);
 
   return (
     <div>

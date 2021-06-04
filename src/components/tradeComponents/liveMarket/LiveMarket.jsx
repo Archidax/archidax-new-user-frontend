@@ -14,18 +14,17 @@ export default function LiveMarket() {
   const [Data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    GetOrderLiveMarket({ dispatch: setData, pair: PairSymbol });
-  }, [setData, PairSymbol]);
-
-  React.useEffect(() => {
+    if(PairSymbol){
+      GetOrderLiveMarket({ dispatch: setData, pair: PairSymbol });
+    }
     if (IoWebSocketTrade && IoWebSocketTrade.connected && PairSymbol) {
+      IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
       IoWebSocketTrade.on(`OrderMatch-${PairSymbol}`, (data) => {
         setData(data);
       });
-      return () =>
-        IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
+      return () => IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
     }
-  }, [PairSymbol, setData]);
+  }, [PairSymbol]);
 
   return (
     <div>
