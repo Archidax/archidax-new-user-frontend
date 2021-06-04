@@ -747,7 +747,8 @@ $chat-color: black;
 }
 .table-wrapper3-dark {
   overflow-y: auto;
-  height: 266px;
+  // height: 266px;
+  height: 367px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -1329,6 +1330,45 @@ $chat-color: black;
     }
   }
 }
+
+// listing exchange
+.ci-dropdown-menu-TradeSymbol2 {
+  background: lighten($color: rgb(13, 13, 13), $amount: 5);
+  margin-top: 8px;
+  width: 360px;
+  border: none;
+  &-scrollbar {
+    max-height: 600px;
+    overflow-x: auto;
+    border-radius: 6px;
+    .table-wrapper4 {
+      background: $base-color-table-dropdown;
+    }
+    /* width */
+    &::-webkit-scrollbar {
+      width: 5px;
+      display: none;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 8px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background-color: #f9ba42 !important;
+      border-radius: 8px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #aeb4ce;
+    }
+  }
+}
+
 .ci-dropdown-toggle-custom::after {
   content: none !important;
 }
