@@ -22,7 +22,7 @@ export default function LimitBuy() {
   const { mode } = useSelector((state) => state.daynightReducer);
 
   const [balance, setBalance] = useState("");
-  const { PairSymbol, pairFrom,pairTo } = useSelector((state) =>
+  const { PairSymbol, pairFrom, pairTo } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
 
@@ -152,14 +152,14 @@ export default function LimitBuy() {
               </h5>
             </div>
             <input
-              type="text"
+              type="number"
               id="fname"
               name="fname"
               placeholder="0"
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
-              // value={parseFixedNumber(inputPrice)}
+              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
               value={inputPrice}
               onChange={(e) => setInputPrice(e.target.value)}
             ></input>
@@ -189,7 +189,10 @@ export default function LimitBuy() {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
-              onChange={(e) => setInputAmount(e.target.value)}
+              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+              onChange={(e) => {
+                setInputAmount(e.target.value)
+              }}
             ></input>
           </div>
           <div
@@ -203,20 +206,20 @@ export default function LimitBuy() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onClick={() =>
+                setInputAmount(
+                  PercentMath({
+                    select: 0,
+                    value: balance,
+                  }).result,
+                )
+              }
             >
               <input
                 class="form-check-input"
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio1"
-                onClick={() =>
-                  setInputAmount(
-                    PercentMath({
-                      select: 0,
-                      value: balance,
-                    }).result,
-                  )
-                }
               />
               <label
                 class="form-check-label font-12 mt-1"
@@ -233,20 +236,20 @@ export default function LimitBuy() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onClick={() =>
+                setInputAmount(
+                  PercentMath({
+                    select: 1,
+                    value: balance,
+                  }).result,
+                )
+              }
             >
               <input
                 class="form-check-input"
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio2"
-                onClick={() =>
-                  setInputAmount(
-                    PercentMath({
-                      select: 1,
-                      value: balance,
-                    }).result,
-                  )
-                }
               />
               <label
                 class="form-check-label font-12  mt-1"
@@ -263,20 +266,20 @@ export default function LimitBuy() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onClick={() =>
+                setInputAmount(
+                  PercentMath({
+                    select: 2,
+                    value: balance,
+                  }).result,
+                )
+              }
             >
               <input
                 class="form-check-input"
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio3"
-                onClick={() =>
-                  setInputAmount(
-                    PercentMath({
-                      select: 2,
-                      value: balance,
-                    }).result,
-                  )
-                }
               />
               <label
                 class="form-check-label font-12  mt-1"
@@ -293,25 +296,25 @@ export default function LimitBuy() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onClick={() =>
+                setInputAmount(
+                  PercentMath({
+                    select: 3,
+                    value: balance,
+                  }).result,
+                )
+              }
             >
               <input
                 class="form-check-input"
                 type="radio"
                 name="inlineRadioOptions"
-                id="inlineRadio3"
-                onClick={() =>
-                  setInputAmount(
-                    PercentMath({
-                      select: 3,
-                      value: balance,
-                    }).result,
-                  )
-                }
+                id="inlineRadio4"
               />
               <label
                 class="form-check-label font-12  mt-1"
                 style={{ color: mode ? "white" : "black" }}
-                for="inlineRadio3"
+                for="inlineRadio4"
               >
                 100%
               </label>

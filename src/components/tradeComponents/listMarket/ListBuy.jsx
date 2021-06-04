@@ -56,7 +56,9 @@ export default function ListBuy() {
                 return (
                   <tbody
                     className={`${mode ? "dark-buy" : "day-buy"}`}
-                    style={{ backgroundSize: `${(item.amount/item.stock)*100}%` }} // value based on volume sisa
+                    style={{
+                      backgroundSize: `${(item.amount / item.stock) * 100}%`,
+                    }} // value based on volume sisa
                   >
                     <tr
                       key={index}
@@ -94,8 +96,8 @@ export default function ListBuy() {
                         } text-left`}
                       >
                         {pairFrom === "USDT"
-                          ? item.amount*item.price
-                          : convertNumber.toRupiah(item.amount*item.price)}
+                          ? item.amount * item.price
+                          : convertNumber.toRupiah(item.amount * item.price)}
                       </td>
                     </tr>
                   </tbody>

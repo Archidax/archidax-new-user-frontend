@@ -48,6 +48,7 @@ $base-color3-dark: black;
 $base-color4-dark: white;
 $base-color5-dark: #f9ba42;
 $base-color6-dark: black;
+$base-color-alt: #131722;
 $base-color-table-dropdown-dark: #0c0c0c;
 $base-color-tabs-global-dark: black;
 $base-color-tabs-global-active-dark: #0c0c0c;
@@ -212,7 +213,8 @@ $chat-color: black;
   background-color: $base-color2;
 }
 .bg-trade3-dark {
-  background-color: $base-color2-dark;
+  // background-color: $base-color2-dark;
+  background-color: #131722;
 }
 .bg-trade4 {
   background-color: $base-color3;
@@ -320,7 +322,7 @@ $chat-color: black;
 }
 
 .width-trade {
-  width: 85%;
+  width: 90%;
   margin: auto;
 }
 .width-trade2 {
@@ -648,7 +650,7 @@ $chat-color: black;
 .table-wrapper2-dark th {
   position: sticky;
   top: 0;
-  background-color: $tab-header-dark !important;
+  background-color: $base-color-alt !important;
 }
 
 /* A bit more styling to make it look better */
@@ -689,7 +691,7 @@ $chat-color: black;
   }
 
   th {
-    background: $base-color2-dark;
+    background: $base-color-alt;
   }
 
   th {

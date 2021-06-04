@@ -106,6 +106,7 @@ export default function SliderTopGainer({ dataHome }) {
     ),
   };
 
+  console.log(dataHome)
   return (
     <Slider {...settings}>
       {dataHome &&
@@ -118,7 +119,7 @@ export default function SliderTopGainer({ dataHome }) {
                 <div className="row">
                   <div className="col-6">
                     <img
-                      src={item.Price.icon}
+                      src={item.icon}
                       alt="icon"
                       style={{
                         width: "55px",
@@ -131,10 +132,9 @@ export default function SliderTopGainer({ dataHome }) {
                       series={[
                         {
                           type: "line",
-                          data:
-                            item.chart.price && item.chart.price.length > 1
-                              ? item.chart.price
-                              : [],
+                          data: item.chart.price && item.chart.price.length > 1
+                            ? item.chart.price
+                            : [],
                         },
                       ]}
                       type="line"

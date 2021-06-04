@@ -1,10 +1,12 @@
 import React from "react";
+import DepthChart from "./chart/DepthChart";
+import VolumeChart from "./chart/VolumeChart";
 
 export default function TabsChartTrade() {
   return (
     <div className="mt-2">
       <div className="tabs-volume-tab">
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills mb-3 px-4" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
             <a
               class="nav-link active"
@@ -39,7 +41,7 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            ...
+            <VolumeChart />
           </div>
           <div
             class="tab-pane fade"
@@ -47,7 +49,7 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-profile-tab"
           >
-            ...
+            <DepthChart />
           </div>
         </div>
       </div>
