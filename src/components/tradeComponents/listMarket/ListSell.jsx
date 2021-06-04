@@ -55,7 +55,9 @@ export default function ListSell() {
                 return (
                   <tbody
                     className={`${mode ? "dark-sell" : "day-sell"}`}
-                    style={{ backgroundSize: `${(item.amount/item.stock)*100}%` }} // value based on volume sisa
+                    style={{
+                      backgroundSize: `${(item.amount / item.stock) * 100}%`,
+                    }} // value based on volume sisa
                   >
                     <tr
                       key={index}
@@ -95,8 +97,8 @@ export default function ListSell() {
                         } text-left`}
                       >
                         {pairFrom === "USDT"
-                          ? item.amount*item.price
-                          : convertNumber.toRupiah(item.amount*item.price)}
+                          ? item.amount * item.price
+                          : convertNumber.toRupiah(item.amount * item.price)}
                       </td>
                     </tr>
                   </tbody>

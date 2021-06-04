@@ -61,7 +61,7 @@ export default function Index() {
       {/* <div> */}
       <div className="width-chart2" style={{ paddingBottom: "1px" }}>
         <div className="row">
-          <div className="col-sm-2half p-0">
+          <div className="col-sm-first">
             <div
               className="col-12 p-0"
               style={{
@@ -75,15 +75,15 @@ export default function Index() {
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "43.8vh",
+                minHeight: "30vh",
                 background: mode ? "black" : "white",
                 border: mode ? "1px solid black" : "1px solid grey",
               }}
             >
-              <LimitMarketChat />
+              <LiveMarket />
             </div>
           </div>
-          <div className="col-sm-9half">
+          <div className="col-sm-second">
             <div className="row">
               <div
                 className="col-12 p-0"
@@ -98,7 +98,7 @@ export default function Index() {
             </div>
             <div className="row ">
               <div
-                className="col-4 p-0"
+                className="col-6 p-0"
                 style={{
                   minHeight: "32vh",
                   background: mode ? "black" : "white",
@@ -108,7 +108,7 @@ export default function Index() {
                 <ListSell />
               </div>
               <div
-                className="col-4 p-0"
+                className="col-6 p-0"
                 style={{
                   minHeight: "32vh",
                   background: mode ? "black" : "white",
@@ -116,16 +116,6 @@ export default function Index() {
                 }}
               >
                 <ListBuy />
-              </div>
-              <div
-                className="col-4 p-0"
-                style={{
-                  minHeight: "32vh",
-                  background: mode ? "black" : "white",
-                  border: mode ? "1px solid black" : "1px solid grey",
-                }}
-              >
-                <LiveMarket />
               </div>
             </div>
             <div className="row">
@@ -200,130 +190,31 @@ export default function Index() {
               </div>
             </div>
           </div>
+          <div className="col-sm-third p-0 mt-1">
+            <div
+              className="col-12 p-0"
+              style={{
+                minHeight: "50vh",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
+              }}
+            >
+              {/* <Price /> */}
+              <ListingExchange />
+            </div>
+            <div
+              className="col-12 p-0"
+              style={{
+                minHeight: "43.8vh",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
+              }}
+            >
+              <LimitMarketChat />
+            </div>
+          </div>
         </div>
       </div>
-      {/* <div className="width-chart">
-        <div className="row">
-          <div className="col-12 p-0">
-            <Price />
-          </div>
-        </div>
-        <div className="row mb-1">
-          <div className="col-lg-7 col-xs-12 col-sm-12">
-            <div className="row">
-              <div
-                className={`col-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div
-                  className={`${mode ? "dummy-card-dark" : "dummy-card3"}`}
-                  style={{ height: "449px" }}
-                >
-                  <ChartTrade />
-                </div>
-              </div>
-              <div
-                className={`col-lg-6 col-sm-12 col-xs-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div style={{ height: "30px" }}>
-                  <h6
-                    className={`mb-0 ${mode ? "text-gold" : "text-black"} px-3`}
-                  >
-                    Market Sell
-                  </h6>
-                </div>
-                <div
-                  className={mode ? "dummy-card2-dark" : "dummy-card3"}
-                  style={{ height: "310px" }}
-                >
-                  <ListSell />
-                </div>
-              </div>
-              <div
-                className={`col-lg-6 col-sm-12 col-xs-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div style={{ height: "30px" }}>
-                  <h6
-                    className={`mb-0 ${mode ? "text-gold" : "text-black"} px-3`}
-                  >
-                    Market Buy
-                  </h6>
-                </div>
-                <div
-                  className={mode ? "dummy-card2-dark" : "dummy-card3"}
-                  style={{ height: "310px" }}
-                >
-                  <ListBuy />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-5 col-xs-12 col-sm-12">
-            <div className="row">
-              <div
-                className={`col-lg-6 col-sm-12 col-xs-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div className={mode ? "dummy-card2-dark" : "dummy-card2"}>
-                  <ListingExchange />
-                </div>
-              </div>
-              <div
-                className={`col-lg-6 col-sm-12 col-xs-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div className={mode ? "dummy-card2-dark" : "dummy-card3"}>
-                  <LiveMarket />
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              <div
-                className={`col-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div
-                  className={`${
-                    mode ? "dummy-card2-dark" : "dummy-card3"
-                  } height-limit-chat`}
-                >
-                  <LimitMarketChat />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <ProtectedPagePasar>
-          <div className="row">
-            <div className="col-12 p-1">
-              <h6 className={`${mode ? "text-gold" : "text-black"} px-3 mb-0`}>
-                Order Pending
-              </h6>
-              <OrderPending />
-            </div>
-          </div>
-          <div className="row mt-1 mb-2">
-            <div className="col-12 p-1">
-              <h6 className={`${mode ? "text-gold" : "text-black"} px-3`}>
-                Order History
-              </h6>
-              <OrderHistory />
-            </div>
-          </div>
-        </ProtectedPagePasar>
-      </div>
-      <div>
-        <PernyataanResikoTrade />
-      </div> */}
     </div>
   );
 }
