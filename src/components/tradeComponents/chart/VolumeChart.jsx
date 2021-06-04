@@ -56,7 +56,7 @@ export default function VolumeChart() {
     return (
         <div>
             { depthData &&
-                <ZingChart data={depthData} className="mt-3"></ZingChart>
+                <ZingChart data={depthData} height='300px'></ZingChart>
             }
         </div>
     )

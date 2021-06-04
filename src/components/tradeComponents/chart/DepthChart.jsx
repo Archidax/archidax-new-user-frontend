@@ -13,13 +13,13 @@ export default function DepthChart() {
             type: "depth",
             options: {
               palette: ["#1db01d", "#FF6675"],
-              currency: "IDR ",
+              currency: "USDT ",
               // curency diganti
               title: {
                 color: "white",
               },
               subtitle: {
-                text: "BTC/IDR",
+                text: "BTC/USDT",
                 // symbol diganti
                 fontSize: "22px",
                 color: "white",
@@ -131,7 +131,7 @@ export default function DepthChart() {
     return (
         <div>
             { depthData &&
-                <ZingChart data={depthData} className="mt-3"></ZingChart>
+                <ZingChart data={depthData} height='300px'></ZingChart>
             }
         </div>
     )
