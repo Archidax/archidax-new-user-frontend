@@ -245,7 +245,7 @@ function LaunchpadDetail({ data }) {
                                                 role="tabpanel"
                                                 aria-labelledby="detail-token-tabs"
                                             >
-                                                <DetailToken data={detail} />
+                                                <DetailToken/>
                                             </div>
                                             <div
                                                 className="tab-pane fade"

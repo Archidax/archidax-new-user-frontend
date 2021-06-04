@@ -1,8 +1,11 @@
 import React from 'react'
 import moment from 'moment'
 import { convertNumber } from '../../../assets/js'
+import { useSelector } from 'react-redux'
 
-function DetailToken({ data }) {
+function DetailToken() {
+    const data = useSelector(state => state.launchpadReducer.IEODetails)
+
     return (
         <div className="container-fluid">
             <div className="row no-gutters mb-2">

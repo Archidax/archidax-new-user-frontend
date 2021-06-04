@@ -88,7 +88,12 @@ export default function Limitsell() {
   }, [price, dispatch, amount, pairFrom, assets]);
 
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && pairFrom && username) {
+    if (
+      IoWebSocketTrade &&
+      IoWebSocketTrade.connected &&
+      pairFrom &&
+      username
+    ) {
       IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
         if (data) {
           setBalance(data.balance);
@@ -195,15 +200,13 @@ export default function Limitsell() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onClick={() => setInputAmount(Number(25 / 100) * Number(balance))}
             >
               <input
                 class="form-check-input"
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio1"
-                onClick={() =>
-                  setInputAmount(Number(25 / 100) * Number(balance))
-                }
               />
               <label
                 class="form-check-label font-12 mt-1"
@@ -220,15 +223,13 @@ export default function Limitsell() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onClick={() => setInputAmount(Number(50 / 100) * Number(balance))}
             >
               <input
                 class="form-check-input"
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio2"
-                onClick={() =>
-                  setInputAmount(Number(50 / 100) * Number(balance))
-                }
               />
               <label
                 class="form-check-label font-12  mt-1"
@@ -245,15 +246,13 @@ export default function Limitsell() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onClick={() => setInputAmount(Number(75 / 100) * Number(balance))}
             >
               <input
                 class="form-check-input"
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio3"
-                onClick={() =>
-                  setInputAmount(Number(75 / 100) * Number(balance))
-                }
               />
               <label
                 class="form-check-label font-12  mt-1"
@@ -270,15 +269,15 @@ export default function Limitsell() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onClick={() =>
+                setInputAmount(Number(100 / 100) * Number(balance))
+              }
             >
               <input
                 class="form-check-input"
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio3"
-                onClick={() =>
-                  setInputAmount(Number(100 / 100) * Number(balance))
-                }
               />
               <label
                 class="form-check-label font-12  mt-1"
@@ -336,7 +335,7 @@ export default function Limitsell() {
           {isLoginPages ? (
             <button
               type="submit"
-              className={`text-center text-price col-9 offset-3 py-2 mt-3 ${
+              className={`text-center text-price col-12 py-2 mt-3 ${
                 mode ? "bg-sell-dark" : "bg-sell"
               }`}
             >
@@ -349,7 +348,7 @@ export default function Limitsell() {
               </h5>
             </button>
           ) : (
-            <div className="text-center bg-loginfirst col-9 offset-3 mt-3">
+            <div className="text-center bg-loginfirst col-12 mt-3">
               <h5 className="mb-0 font-13 font-weight-bold">
                 <Link to="/login" className="mr-2">
                   Login

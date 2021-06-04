@@ -46,7 +46,6 @@ export default function Index() {
           }),
         );
       }
-
     }
   }, [symbol, dispatch, listingList]);
 
@@ -62,7 +61,7 @@ export default function Index() {
       {/* <div> */}
       <div className="width-chart2" style={{ paddingBottom: "1px" }}>
         <div className="row">
-          <div className="col-3 p-0">
+          <div className="col-sm-2half p-0">
             <div
               className="col-12 p-0"
               style={{
@@ -84,7 +83,7 @@ export default function Index() {
               <LimitMarketChat />
             </div>
           </div>
-          <div className="col-9">
+          <div className="col-sm-9half">
             <div className="row">
               <div
                 className="col-12 p-0"
@@ -145,8 +144,9 @@ export default function Index() {
                 >
                   <div class="" id="headingTwo">
                     <div
-                      className="py-1"
-                      style={{ background: mode ? "#232323" : "#00688f" }}
+                      className={
+                        mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
+                      }
                     >
                       <th
                         className="collapsed text-gold font-15 mb-0"
@@ -176,8 +176,9 @@ export default function Index() {
                 >
                   <div class="" id="headingThree">
                     <div
-                      className="py-1"
-                      style={{ background: mode ? "#232323" : "#00688f" }}
+                      className={
+                        mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
+                      }
                     >
                       <th
                         className="collapsed text-gold font-15 mb-0"
