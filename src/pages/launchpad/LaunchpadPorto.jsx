@@ -37,13 +37,13 @@ function LaunchpadPorto() {
     const history = useHistory()
 
     const dispatch = useDispatch()
-    useEffect(() => {
-        getMyIEOPortfolio(dispatch)
-    }, [])
+    // useEffect(() => {
+    //     getMyIEOPortfolio(dispatch)
+    // }, [])
 
-    useEffect(() => {
-        setView(projects.all)
-    }, [projects])
+    // useEffect(() => {
+    //     setView(projects.all)
+    // }, [projects])
 
 
     const teams = [
