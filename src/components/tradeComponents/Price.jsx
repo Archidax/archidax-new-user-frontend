@@ -9,6 +9,7 @@ import {
 } from "../../stores/pasartrading/functions";
 
 // Import Images
+import logocoin from "../../assets/img/iconsCoin/BitcoinCoin.png";
 import star from "../../assets/img/trade/star.png";
 import FavoritePair from "./listingExchange/FavoritePair";
 import CryptoPair from "./listingExchange/CryptoPair";
@@ -66,14 +67,10 @@ export default function Price() {
       className={`${mode ? "bg-trade2-dark" : "bg-trade2"} ptb-2-trade mt-1`}
       style={{ maxHeight: "49vh" }}
     >
-      <div className="px-4 ">
+      <div className="px-3">
         <div className="pt-3" style={{ display: "flex", flexDirection: "row" }}>
-          <div
-            class="ci-dropdown list-coin-responsive"
-            // style={{
-            //   width: "80%",
-            // }}
-          >
+          {/* dropdown price */}
+          <div class="ci-dropdown list-coin-responsive">
             <button
               className="ci-dropdown-btn ci-dropdown-btn-TradeSymbol py-2 ci-md w-100"
               type="button"
@@ -200,27 +197,40 @@ export default function Price() {
           </div>
         </div>
         <div className="p-2 mt-2">
-          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
             {/* Price */}
-            <div
-              className={`${
-                mode ? "text-price-bottom-dark" : "text-price-bottom"
-              } font-36`}
-            >
-              {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
-              {/* 5.000.000 */}
+            <div style={{ display: "flex", marginTop: "11px" }}>
+              <div
+                className={`${
+                  mode ? "text-price-bottom-dark" : "text-price-bottom"
+                } font-22`}
+              >
+                BITCOIN/<span className="font-14">USDT</span>
+              </div>
             </div>
-            <div
-              className={`${
-                mode ? "text-white" : "text-black"
-              } font-20 ml-2 ${convertNumber.tradeUpDownChange(
-                price24H.Change,
-              )}`}
-              style={{ marginTop: "20px" }}
-              // style={{ background: "#232323" }}
-            >
-              {price24H ? convertNumber.tradeChange(price24H.Change) : 0 + "%"}
-              {/* 50% */}
+            <div style={{ display: "flex" }}>
+              <div
+                className={`${
+                  mode ? "text-price-bottom-dark" : "text-price-bottom"
+                } font-32`}
+              >
+                {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+                {/* 5.000.000 */}
+              </div>
+              <div
+                className={`${
+                  mode ? "text-white" : "text-black"
+                } font-16 ml-1 ${convertNumber.tradeUpDownChange(
+                  price24H.Change,
+                )}`}
+                style={{ marginTop: "18px" }}
+                // style={{ background: "#232323" }}
+              >
+                {price24H
+                  ? convertNumber.tradeChange(price24H.Change)
+                  : 0 + "%"}
+                {/* 50% */}
+              </div>
             </div>
             {/* Change */}
           </div>
