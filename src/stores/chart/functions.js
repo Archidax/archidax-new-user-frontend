@@ -1,4 +1,4 @@
-import { baseUrlTrade, baseUrlTradeVersion, baseUrl } from '../index'
+import { baseUrlTrade, baseUrlTradeVersion, baseUrl, baseAxiosTrading } from '../index'
 import axios from 'axios'
 // import Popup from '../../components/popUps'
 import errorHandler from '../errorHandler'
@@ -34,6 +34,17 @@ export function ChartWallet (cb) {
   }).then(({data})=>{
     if(data) {
       cb(data.tradeData);
+    }
+  }).catch(errorHandler)
+}
+
+export function getChartDepth (market_pair, depth, setDepthData) {
+	baseAxiosTrading({
+    url:`/depthChart?market_pair=${market_pair}&depth=${depth}`,
+    method:"GET",
+  }).then(({data})=>{
+    if(data) {
+      setDepthData(data)
     }
   }).catch(errorHandler)
 }

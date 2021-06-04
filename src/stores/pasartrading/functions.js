@@ -239,6 +239,7 @@ export function GetListingExchange () {
                 url:`${baseUrlTrade}${baseUrlTradeVersion}/ListingExchange`,
                 method:"GET"
             })
+            console.log(data, "sdwadsw")
             dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
         }
         catch (err) {
