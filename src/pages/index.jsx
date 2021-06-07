@@ -18,6 +18,7 @@ import GAuth from "./gauth/GAuth";
 import PerjanjianPengguna from "./perjanjianpengguna";
 import BeliCrypto from "./belicrypto";
 import PengajuanKoin from "./pengajuanKoin";
+import EmailVerification from "./emailverification";
 
 // Footer Page
 import SyaratPengguna from "../pages/footercontent/SyaratPengguna";
@@ -172,6 +173,9 @@ export default function MainPages() {
             </Route>
             <Route path="/launchpad">
               <LaunchpadPages />
+            </Route>
+            <Route path="/email/verify/:key">
+              <EmailVerification />
             </Route>
             <ProtectedRoute path="/">
               <RouteDashboardPage setLocale={setLocale} />
