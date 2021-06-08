@@ -6,9 +6,10 @@ import ZingChart from "zingchart-react";
 
 export default function DepthChart() {
   let [depthData, setDepthData] = useState(null);
+  let [isLoading, setIsLoading] = useState(false);
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
 
-  const setting = {
+  const optionChart = {
     backgroundColor: "transparent transparent",
     height: "280px",
     type: "depth",
@@ -42,13 +43,15 @@ export default function DepthChart() {
   }
 
   useEffect(() => {
-    getChartDepth(PairSymbol, 30, setDepthData);
+    setIsLoading(true)
+    getChartDepth(PairSymbol, 30, setDepthData, setIsLoading);
   }, [PairSymbol]);
 
   return (
     <div>
-      {depthData&&
-        <ZingChart data={setting} className="mt-3"></ZingChart>
+      {isLoading&&!depthData?
+        <h1>loading...</h1>:
+        <ZingChart data={optionChart} className="mt-3"></ZingChart>
       }
     </div>
   );

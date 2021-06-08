@@ -1,6 +1,4 @@
-import { baseAxios, supabase } from '../index'
 import { baseUrlTrade, baseUrlTradeVersion, baseAxiosTrading } from '../index'
-import Swal from 'sweetalert2'
 import errorHandler from '../errorHandler'
 import axios from 'axios'
 import Popup from '../../components/popUps'
@@ -239,7 +237,6 @@ export function GetListingExchange () {
                 url:`${baseUrlTrade}${baseUrlTradeVersion}/ListingExchange`,
                 method:"GET"
             })
-            console.log(data, "sdwadsw")
             dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
         }
         catch (err) {
