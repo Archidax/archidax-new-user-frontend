@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 import logo from "../../../assets/img/logoArchidax.png";
 import giflogo from "../../../assets/img/header/headerhomepage/blip.gif";
 import Flags from "../headerDashboard/elements/flagsdropdown";
@@ -12,7 +12,9 @@ function HeaderHomePage(props) {
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-light bg-transparent px-5 py-3 font-roboto ${props.bg_normal}`} >
+    <nav
+      className={`navbar navbar-expand-lg navbar-light bg-transparent px-5 py-3 font-roboto ${props.bg_normal}`}
+    >
       <Link to="/home">
         <a
           className="navbar-brand"
@@ -49,7 +51,11 @@ function HeaderHomePage(props) {
           <li className="nav-item mx-2">
             <a
               className="nav-link text-white font-18 text-center"
-              href={PairSymbol?`/pasar/${PairSymbol.toString().replace('/', '_')}`:'/pasar/BTC_USDT'}
+              href={
+                PairSymbol
+                  ? `/pasar/${PairSymbol.toString().replace("/", "_")}`
+                  : "/pasar/BTC_USDT"
+              }
             >
               {Translate("hh_pasar")}
             </a>
@@ -78,14 +84,14 @@ function HeaderHomePage(props) {
               }}
             >
               {/* {Translate("hh_forum")} */}
-              <div>{Translate('hh_panduan_pemuala')}</div>
+              <div>{Translate("hh_panduan_pemuala")}</div>
               <div style={{ position: "absolute", right: "-10px", top: "0px" }}>
                 <img src={giflogo} alt="giflogo" style={{ width: "17px" }} />
               </div>
             </a>
           </li>
           <li className="nav-item mx-2">
-          {/* <li className="nav-item mx-2">
+            {/* <li className="nav-item mx-2">
             <a
               className="nav-link text-white font-18 text-center"
               href={"/panduan-copy-trade"}

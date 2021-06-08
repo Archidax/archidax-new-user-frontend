@@ -198,3 +198,16 @@ export const deactiveSebenarnya = (dispatch, id, cb) => {
     })
     .catch(errorHandler)
 }
+
+export const verifyEmail = (key, history) => {
+    baseAxios({
+        method: "GET",
+        url: `/api/auth/verify/${key}`
+    })
+    .then((dataIp) => {
+        history.push('/login')
+    })
+    .catch(err => {
+        history.push('/')
+    })
+}
