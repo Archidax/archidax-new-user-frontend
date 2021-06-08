@@ -24,7 +24,6 @@ import BuyingForm from './launchpaddetailForm/BuyingForm'
 
 function LaunchpadDetail({ data }) {
     const detail = useSelector(state => state.launchpadReducer.IEODetails)
-    const userBalance = useSelector(state => state.launchpadReducer.IEODetails)
     const { id } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
@@ -113,17 +112,18 @@ function LaunchpadDetail({ data }) {
                                                         role="tabpanel"
                                                         aria-labelledby="eth-tabs"
                                                     >
-                                                        <h4 className="text-danger">{`Price: ${price}`}{`Amount: ${amount}`}{`Total: ${total}`}</h4>
+                                                        {/* <h4 className="text-danger">{`Price: ${price}`}{`Amount: ${amount}`}{`Total: ${total}`}</h4> */}
 
                                                         <BuyingForm
-                                                            coinPair="ETH"
+                                                            coin={detail.currency_quote}
+                                                            coinPair={detail.currency_base}
                                                             amount={amount}
                                                             setAmount={setAmount}
                                                             total={total}
                                                             setTotal={setTotal}
                                                             pricePercentage={pricePercentage}
                                                             setPricePercentage={setPricePercentage}
-                                                            price={price}
+                                                            price={detail.phase_details.token_price}
                                                             setPrice={setPrice}
                                                             balance={balance}
                                                             buy={buy}

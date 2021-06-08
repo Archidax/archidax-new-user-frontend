@@ -72,7 +72,17 @@ export const getIEOProjectByPhaseId = (idPhase, dispatch, history) => {
         .then(({ data }) => {
             console.log(data, "<<<<")
             dispatch({ type: "IEO_DETAILS", data: data.data[0] })
-            
+            axios({
+                method: "GET",
+                url: `${baseUrlTrade}/api/v1/launchpad/IEO/getbalance?base=${data.data[0].currency_base.toUpperCase()}&quote=${data.data[0].currency_quote.toUpperCase()}`,
+                headers: { jwttoken: localStorage.getItem('token') }
+            })
+                .then(({ data }) => {
+                    console.log(data, "<<bal")
+                    dispatch({ type: "IEO_USER_BALANCE", data: data })
+                })
+                .catch(err => console.log(err))
+
         })
         .catch(err => history.push('/launchpad'))
 }
