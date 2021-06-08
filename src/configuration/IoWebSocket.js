@@ -1,6 +1,6 @@
 import Io from "socket.io-client";
 
-import {baseUrlTrade, baseUrl} from "../stores/index";
+import { baseUrlTrade, baseUrl } from "../stores/index";
 
 export let IoWebSocketTrade=Io(baseUrlTrade,{
     path:"/realtime",

@@ -5,30 +5,30 @@ import Popup from '../../components/popUps'
 import { baseUrl } from '../index'
 import axios from 'axios'
 
-export const logout = (dispatch) => {
+export const logout = (dispatch, iosocket, email) => {
     dispatch({ type: "CLEAN_KYC" })
     dispatch({ type: "CLEAN_PROFILE" })
     dispatch({ type: "CLEAN_AUTH" })
     dispatch({ type: "GAUTH_STATUS", data: false })
     dispatch({ type: "LOGIN_GAUTH", data: false })
     localStorage.removeItem("token")
-//     axios({
-//         method: "PATCH",
-//         url: `${baseUrl}/users/logout`,
-//         headers: { jwttoken: localStorage.getItem('token') }
-//     })
-//         .then(data => {
-//             console.log(data, "<<<<<<<<<<logout")
-//             dispatch({ type: "CLEAN_KYC" })
-//             dispatch({ type: "CLEAN_PROFILE" })
-//             dispatch({ type: "CLEAN_AUTH" })
-//             dispatch({ type: "GAUTH_STATUS", data: false })
-//             dispatch({ type: "LOGIN_GAUTH", data: false })
-//         })
-//         .catch(err => console.log(err))
-// }
-
-
+    if(iosocket && email){
+        iosocket(email).emit('logout')
+    }
+    // axios({
+    //     method: "PATCH",
+    //     url: `${baseUrl}/users/logout`,
+    //     headers: { jwttoken: localStorage.getItem('token') }
+    // })
+    //     .then(data => {
+    //         console.log(data, "<<<<<<<<<<logout")
+    //         dispatch({ type: "CLEAN_KYC" })
+    //         dispatch({ type: "CLEAN_PROFILE" })
+    //         dispatch({ type: "CLEAN_AUTH" })
+    //         dispatch({ type: "GAUTH_STATUS", data: false })
+    //         dispatch({ type: "LOGIN_GAUTH", data: false })
+    //     })
+    //     .catch(err => console.log(err))
 }
 
 export const getIpUser = (dispatch) => {
@@ -208,6 +208,6 @@ export const verifyEmail = (key, history) => {
         history.push('/login?emailverified')
     })
     .catch(err => {
-        history.push('/home')
+        history.push('/homes')
     })
 }
