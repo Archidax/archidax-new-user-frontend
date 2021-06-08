@@ -4,7 +4,7 @@ import {
   GetOrderBuyAndSell,
   SET_RX_FORM_DATASELL,
 } from "../../../stores/pasartrading/functions";
-import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
+import { IoWebSocketTrade, IoWebSocket } from "../../../configuration/IoWebSocket";
 
 import { convertNumber } from "../../../assets/js";
 import { useParams } from "react-router";
@@ -27,15 +27,13 @@ export default function ListBuy() {
         side: "BUY",
         limit: 50,
       });
-      if (IoWebSocketTrade && IoWebSocketTrade.connected) {
-        IoWebSocketTrade.removeEventListener(`OrderBuy-${Symbols}`);
-        IoWebSocketTrade.on(`OrderBuy-${Symbols}`, (data) => {
-          if(data){
-            setData(data);
-          }
-        });
-        return () => IoWebSocketTrade.removeEventListener(`OrderBuy-${Symbols}`);
-      }
+      IoWebSocketTrade.removeEventListener(`OrderBuy-${Symbols}`);
+      IoWebSocketTrade.on(`OrderBuy-${Symbols}`, (data) => {
+        if(data){
+          setData(data);
+        }
+      });
+      // return () => IoWebSocketTrade.removeEventListener(`OrderBuy-${Symbols}`);
     }
   }, [symbol,setData]);
 

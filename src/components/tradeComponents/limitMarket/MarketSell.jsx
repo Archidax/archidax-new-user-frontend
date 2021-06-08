@@ -21,7 +21,7 @@ export default function MarketSell() {
   const { mode } = useSelector((state) => state.daynightReducer);
 
   const [balance, setBalance] = useState("");
-  const { PairSymbol, pairTo, price24H } = useSelector((state) =>
+  const { PairSymbol, pairFrom, price24H } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
   const { username } = useSelector((state) =>
@@ -67,28 +67,28 @@ export default function MarketSell() {
       );
     }
     if (assets) {
-      const temp = assets.find((item) => item.type === pairTo);
+      const temp = assets.find((item) => item.type === pairFrom);
       if (temp) {
         setBalance(temp.balance);
       } else {
         setBalance(0);
       }
     }
-  }, [dispatch, amount, assets, pairTo, price]);
+  }, [dispatch, amount, assets, pairFrom, price]);
 
-  React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && pairTo && username) {
-      IoWebSocketTrade.on(`WalletBalance-${username}-${pairTo}`, (data) => {
-        if (data) {
-          setBalance(data.balance);
-        }
-      });
-      return () =>
-        IoWebSocketTrade.removeEventListener(
-          `WalletBalance-${username}-${pairTo}`,
-        );
-    }
-  }, [setBalance, pairTo, username]);
+  // React.useEffect(() => {
+  //   if (IoWebSocketTrade && IoWebSocketTrade.connected && pairTo && username) {
+  //     IoWebSocketTrade.on(`WalletBalance-${username}-${pairTo}`, (data) => {
+  //       if (data) {
+  //         setBalance(data.balance);
+  //       }
+  //     });
+  //     return () =>
+  //       IoWebSocketTrade.removeEventListener(
+  //         `WalletBalance-${username}-${pairTo}`,
+  //       );
+  //   }
+  // }, [setBalance, pairTo, username]);
 
   return (
     <div
@@ -114,7 +114,7 @@ export default function MarketSell() {
                 width="14px"
               />
               <div className="text-dgrey ml-2 font-14 font-bolder2">
-                {pairTo}:
+                {pairFrom}:
               </div>
               <div
                 className={`${

@@ -17,13 +17,13 @@ export default function LiveMarket() {
     if(PairSymbol){
       GetOrderLiveMarket({ dispatch: setData, pair: PairSymbol });
     }
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && PairSymbol) {
-      IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
-      IoWebSocketTrade.on(`OrderMatch-${PairSymbol}`, (data) => {
-        setData(data);
-      });
-      return () => IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
-    }
+    IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
+    IoWebSocketTrade.on(`OrderMatch-${PairSymbol}`, (data) => {
+      setData(data);
+    });
+    // if (IoWebSocketTrade && IoWebSocketTrade.connected && PairSymbol) {
+    // }
+    return () => IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
   }, [PairSymbol]);
 
   return (
