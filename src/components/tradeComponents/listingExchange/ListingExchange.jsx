@@ -19,7 +19,38 @@ export default function ListingExchange() {
           className={mode ? "bg-trade3-dark" : "bg-trade3"}
           style={{ padding: "9px 16px" }}
         >
-          <th className="text-gold font-14 mb-0 ">Listing Exchange</th>
+          <th
+            className="text-gold font-14 mb-0 "
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <div>
+              <i
+                class="fa fa-th-list"
+                aria-hidden="true"
+                aria-hidden="true"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Listing Exchange"
+              ></i>
+              {/* Listing Exchange */}
+            </div>
+            <div>
+              <i
+                class="fa fa-newspaper-o mx-3"
+                aria-hidden="true"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="News"
+              ></i>
+              <i
+                class="fa fa-comments"
+                aria-hidden="true"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Chat"
+              ></i>
+            </div>
+          </th>
         </div>
         <ul
           className="nav nav-pills mb-0 font-14"

@@ -139,7 +139,7 @@ export default function Index() {
                       <div
                         className="col-6 p-0"
                         style={{
-                          minHeight: "32vh",
+                          minHeight: "26vh",
                           background: mode ? "black" : "white",
                           border: mode ? "1px solid black" : "1px solid grey",
                         }}
@@ -149,7 +149,7 @@ export default function Index() {
                       <div
                         className="col-6 p-0"
                         style={{
-                          minHeight: "32vh",
+                          minHeight: "26vh",
                           background: mode ? "black" : "white",
                           border: mode ? "1px solid black" : "1px solid grey",
                         }}
@@ -230,7 +230,7 @@ export default function Index() {
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "50vh",
+                minHeight: "49.8vh",
                 background: mode ? "black" : "white",
                 border: mode ? "1px solid black" : "1px solid grey",
               }}

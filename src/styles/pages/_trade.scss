@@ -48,7 +48,7 @@ $base-color3-dark: black;
 $base-color4-dark: white;
 $base-color5-dark: #f9ba42;
 $base-color6-dark: black;
-$base-color-alt: #131722;
+$base-color-alt: #283148;
 $base-color-table-dropdown-dark: #0c0c0c;
 $base-color-tabs-global-dark: black;
 $base-color-tabs-global-active-dark: #0c0c0c;
@@ -616,7 +616,7 @@ $chat-color: black;
 .table-wrapper2,
 .table-wrapper2-dark {
   overflow-y: auto;
-  height: 307px;
+  height: 270px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -651,6 +651,7 @@ $chat-color: black;
   position: sticky;
   top: 0;
   background-color: $base-color-alt !important;
+  // warna table market list
 }
 
 /* A bit more styling to make it look better */
