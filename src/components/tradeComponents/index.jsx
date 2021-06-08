@@ -96,34 +96,69 @@ export default function Index() {
                 <ChartTrade />
               </div>
             </div>
-            <div className="row ">
-              <div
-                className="col-6 p-0"
-                style={{
-                  minHeight: "32vh",
-                  background: mode ? "black" : "white",
-                  border: mode ? "1px solid black" : "1px solid grey",
-                }}
-              >
-                <ListSell />
-              </div>
-              <div
-                className="col-6 p-0"
-                style={{
-                  minHeight: "32vh",
-                  background: mode ? "black" : "white",
-                  border: mode ? "1px solid black" : "1px solid grey",
-                }}
-              >
-                <ListBuy />
-              </div>
-            </div>
+
             <div className="row">
               <div
                 class="accordion col-12 p-0"
                 id="accordionExample"
-                style={{ margin: "2px 1px" }}
+                style={{ margin: "0px 1px" }}
               >
+                <div
+                  class=""
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  style={{ marginTop: "2px" }}
+                >
+                  <div class="" id="headingOne">
+                    <div
+                      className={
+                        mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
+                      }
+                    >
+                      <th
+                        className="collapsed text-gold font-15 mb-0"
+                        style={{ padding: "2px 12px" }}
+                      >
+                        Market List
+                      </th>
+                    </div>
+                  </div>
+                  <div
+                    id="collapseOne"
+                    class="collapse show"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordionExample"
+                  >
+                    <div
+                      className="row"
+                      style={{ width: "100%", margin: "0px" }}
+                    >
+                      <div
+                        className="col-6 p-0"
+                        style={{
+                          minHeight: "32vh",
+                          background: mode ? "black" : "white",
+                          border: mode ? "1px solid black" : "1px solid grey",
+                        }}
+                      >
+                        <ListSell />
+                      </div>
+                      <div
+                        className="col-6 p-0"
+                        style={{
+                          minHeight: "32vh",
+                          background: mode ? "black" : "white",
+                          border: mode ? "1px solid black" : "1px solid grey",
+                        }}
+                      >
+                        <ListBuy />
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   class=""
                   type="button"
@@ -131,6 +166,7 @@ export default function Index() {
                   data-target="#collapseTwo"
                   aria-expanded="false"
                   aria-controls="collapseTwo"
+                  style={{ marginTop: "2px" }}
                 >
                   <div class="" id="headingTwo">
                     <div
