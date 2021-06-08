@@ -7,10 +7,15 @@ import profilelogo from "../../../../../assets/img/header/headerdashboard/profil
 import keamananlogo from "../../../../../assets/img/header/headerdashboard/keamanan.svg";
 import riwayatlogo from "../../../../../assets/img/header/headerdashboard/riwayat.svg";
 import Translate from "../../../../../i18n/Translate";
+import { IoWebSocket } from "../../../../../configuration/IoWebSocket";
 
 function ProfileDropdown() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profileReducer);
+
+  const logoutUser = () => {
+    logout(dispatch, IoWebSocket, profile.email);
+  }
   return (
     <div className="btn-group ml-3 d-sm-flex d-none">
       <div
@@ -85,9 +90,7 @@ function ProfileDropdown() {
         </div>
         <div className="dropdown-item ci-dropdown-menu-profile-item pt-3 pb-3">
           <div
-            onClick={async () => {
-              logout(dispatch);
-            }}
+            onClick={async () => logoutUser()}
             className="row ci-link-dropdownHeader-logout"
           >
             <div className="col-auto align-self-center">
