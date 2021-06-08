@@ -43,6 +43,7 @@ export function getChartDepth (market_pair, depth, setDepthData, setIsLoading) {
     url:`/depthChart?market_pair=${market_pair}&depth=${depth}`,
     method:"GET",
   }).then(({data})=>{
+    console.log(data, 'success get chart depth data')
     if(data) {
       setDepthData(data)
     }
@@ -59,6 +60,7 @@ export function getVolumeChart (market_pair, depth, setVolumeChart, setIsLoading
     url:`/volumeChart?symbol=${market_pair}&depth=${depth}`,
     method:"GET",
   }).then(({data})=>{
+    console.log(data, 'success get chart volume data')
     if(data) {
       setVolumeChart(data)
     }

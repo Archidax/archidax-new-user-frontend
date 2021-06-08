@@ -26,7 +26,7 @@ export default function VolumeChart() {
     series: [
       {
         // values: [38, 42, 46, 44, 42, 44, 46, 48, 52, 50, 56, 60],
-        values: volumeData?volumeData:[],
+        values: volumeData?volumeData.volumeChart:[],
         "background-color":
           "#26A69A #26A69A" /* Single color or gradient (2 colors) */,
         "alpha-area": 0.15 /* Shaded region transparency */,
@@ -59,10 +59,12 @@ export default function VolumeChart() {
     },
   }
   
-  useEffect(() => {
-    setIsLoading(true)
-    getVolumeChart(PairSymbol, 30, setVolumeData, setIsLoading);
-  }, [PairSymbol]);
+  // useEffect(() => {
+  //   setIsLoading(true)
+  //   getVolumeChart(PairSymbol, 48, setVolumeData, setIsLoading);
+  // }, [PairSymbol]);
+
+  // console.log(volumeData, "sdadsdaw")
 
   return (
     <div>

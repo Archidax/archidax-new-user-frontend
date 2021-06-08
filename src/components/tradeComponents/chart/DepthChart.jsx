@@ -42,10 +42,11 @@ export default function DepthChart() {
     ],
   }
 
-  useEffect(() => {
-    setIsLoading(true)
-    getChartDepth(PairSymbol, 30, setDepthData, setIsLoading);
-  }, [PairSymbol]);
+  // useEffect(() => {
+  //   setIsLoading(true)
+  //   getChartDepth(PairSymbol, 30, setDepthData, setIsLoading);
+  //   console.log('jalan')
+  // }, [PairSymbol]);
 
   return (
     <div>
