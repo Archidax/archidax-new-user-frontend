@@ -50,6 +50,7 @@ function LaunchpadPorto() {
     // Phase
     const [buyingCurrency, setBuyingCurrency] = useState("")
     const [phaseDetails, setPhaseDetails] = useState([{
+        phase: "",
         startDate: "",
         endDate: "",
         amount: "",
@@ -60,6 +61,7 @@ function LaunchpadPorto() {
 
     const addPhase = () => {
         let form = {
+            phase: "",
             startDate: "",
             endDate: "",
             amount: "",
@@ -143,13 +145,6 @@ function LaunchpadPorto() {
         data.append('amount_circulating_supply', tokenAmountCircSupply)
         data.append('currency_base', tokenCurrencyBase)
         data.append('currency_quote', tokenCurrencyQuote)
-
-        // data.append('start_sale_time', tokenSaleStartTime)
-        // data.append('end_sale_time', tokenSaleEndTime)
-        // data.append('token_supply', tokenSupply)
-        // data.append('token_price', tokenPrice)
-        // data.append('minimum_purchase_amount', tokenMinimumPurchaseAmount)
-
         data.append('token_protocol', tokenProtokol)
         data.append('token_distribution', tokenDistribution)
         data.append('files', tokenCoinImage)
@@ -178,12 +173,23 @@ function LaunchpadPorto() {
 
 
         // phase
-        if (phaseDetails.length > 1) {
-            phaseDetails.map(el => {
+        let phaseDetails2 = phaseDetails.map((el, index) => {
+            return {
+                phase_number: String(index+1),
+                startDate: el.startDate,
+                endDate: el.endDate,
+                amount: el.amount,
+                minimumBuy: el.minimumBuy,
+                price: el.price,
+                coin: el.coin
+            }
+        })
+        if (phaseDetails2.length > 1) {
+            phaseDetails2.map(el => {
                 return data.append('phase_details', JSON.stringify(el))
             })
         } else {
-            data.append('phase_details', JSON.stringify(phaseDetails[0]))
+            data.append('phase_details', JSON.stringify(phaseDetails2[0]))
         }
         console.log(memberDetails)
 
@@ -316,7 +322,7 @@ function LaunchpadPorto() {
                                         </div>
                                         <div className="col-12">
                                             <Editor
-                                                toolbarStyle={{ marginBottom: "0px", paddingTop: "16px", borderRadius: "8px 8px 0 0", background: "#07081b", border: "none" }}
+                                                toolbarStyle={{ marginBottom: "0px", paddingTop: "16px", borderRadius: "8px 8px 0 0", background: "#07081b", border: "1px" }}
                                                 editorState={editorState}
                                                 toolbarClassName="mt-1 pb-3"
                                                 wrapperClassName="demo-wrapper"

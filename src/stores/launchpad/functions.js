@@ -32,15 +32,21 @@ export const launchNewProject = (data) => {
         })
 }
 
-export const getAllIEOProjects = (dispatch) => {
+export const getAllIEOProjects = (filter, dispatch) => {
+    let url
+    if (!filter) {
+        url = `${baseUrlTrade}/api/v1/launchpad/IEO/readAll`
+    } else {
+        url = `${baseUrlTrade}/api/v1/launchpad/IEO/readAll?filter=${filter.toUpperCase()}`
+    }
     axios({
         method: "GET",
-        url: `${baseUrlTrade}/api/v1/launchpad/IEO/readAll`,
+        url: url,
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            console.log(data.data, "<<")
             dispatch({ type: "ALL_IEO_PROJECTS", data: data.data })
+            console.log(data.data, "<<")
         })
         .catch(err => errorHandler(err))
 }
@@ -57,16 +63,46 @@ export const getMyIEOPortfolio = (dispatch) => {
         .catch(err => errorHandler(err))
 }
 
-export const getIEOProjectById = (id, dispatch) => {
-    console.log("masuk")
+export const getIEOProjectByPhaseId = (idPhase, dispatch, history) => {
     axios({
         method: "GET",
-        url: `${baseUrlTrade}/api/v1/launchpad/IEO/detail?id=${id}`,
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/detail?idPhase=${idPhase}`,
+        headers: { jwttoken: localStorage.getItem('token') }
+    })
+        .then(({ data }) => {
+            console.log(data, "<<<<")
+            dispatch({ type: "IEO_DETAILS", data: data.data[0] })
+            
+        })
+        .catch(err => history.push('/launchpad'))
+}
+
+
+export const getUserBalance = () => {
+    axios({
+        method: "GET",
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/detail?id`,
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
             console.log(data.data, ">>")
-            dispatch({ type: "IEO_DETAILS", data: data.data })
         })
         .catch(err => errorHandler(err))
 }
+
+export const buyIEOCoin = (id, data, dispatch) => {
+    console.log("masuk", data)
+    axios({
+        method: "POST",
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/buycoin/${id}`,
+        headers: { jwttoken: localStorage.getItem('token') },
+        data: data
+    })
+        .then(({ data }) => {
+            console.log(data, ">>")
+        })
+        .catch(err => errorHandler(err))
+}
+
+
+
