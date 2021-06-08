@@ -19,6 +19,9 @@ import DayNight from "./daynight/DayNight";
 import { convertNumber } from "../../assets/js";
 import TabsChartTrade from "./TabsChartTrade";
 
+import arrowup from "../../assets/img/trade/arrow_atas.svg";
+import arrowdown from "../../assets/img/trade/arrow_bawah.svg";
+
 export default function Price() {
   const { mode } = useSelector((state) => state.daynightReducer);
   const [showDropdown, setShowDropdown] = React.useState("d-none");
@@ -205,7 +208,7 @@ export default function Price() {
                   mode ? "text-price-bottom-dark" : "text-price-bottom"
                 } font-22`}
               >
-                {PairSymbol?PairSymbol:null}
+                {PairSymbol ? PairSymbol : null}
               </div>
             </div>
             <div style={{ display: "flex" }}>
@@ -231,6 +234,10 @@ export default function Price() {
                   : 0 + "%"}
                 {/* 50% */}
               </div>
+              <img
+                src={arrowup}
+                style={{ width: "18px", marginTop: "9px", marginLeft: "7px" }}
+              />
             </div>
             {/* Change */}
           </div>

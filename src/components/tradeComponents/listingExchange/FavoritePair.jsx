@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { convertNumber } from "../../../assets/js";
 
-export default function FavoritePair({listingList}) {
+export default function FavoritePair({ listingList }) {
   const { mode } = useSelector((state) => state.daynightReducer);
   const { myFav } = useSelector((state) => state.pasarTradingReducer);
   const { email } = useSelector((state) => state?.profileReducer);
@@ -26,7 +26,7 @@ export default function FavoritePair({listingList}) {
               <tr className={mode ? "text-price-dark" : "text-price"}>
                 <th className="text-left">Pair</th>
                 <th className="text-left">Price</th>
-                <th className="text-left">%</th>
+                <th className="text-left">Change</th>
               </tr>
             </thead>
             <tbody>
@@ -34,15 +34,17 @@ export default function FavoritePair({listingList}) {
               listingList &&
               Array.isArray(listingList) &&
               listingList.length > 0 ? (
-                listingList.filter((item) => {
-                  if (myFav.includes(item._id)) {
-                    return item;
-                  } else {
-                    return null;
-                  }
-                }).map((item, index) => {
-                  return <FavoritePairRealtime item={item} index={index} />;
-                })
+                listingList
+                  .filter((item) => {
+                    if (myFav.includes(item._id)) {
+                      return item;
+                    } else {
+                      return null;
+                    }
+                  })
+                  .map((item, index) => {
+                    return <FavoritePairRealtime item={item} index={index} />;
+                  })
               ) : (
                 <div className="text-center p-2">No Data</div>
               )}
@@ -60,7 +62,7 @@ function FavoritePairRealtime({ item, index }) {
   const { mode } = useSelector((state) => state.daynightReducer);
 
   const handleRowClick = () => {
-    history.push(`/pasar/${item.symbol.toString().replace('/', '_')}`);
+    history.push(`/pasar/${item.symbol.toString().replace("/", "_")}`);
   };
 
   React.useEffect(() => {
@@ -69,8 +71,7 @@ function FavoritePairRealtime({ item, index }) {
         setData(data);
       }
     });
-    return () =>
-      IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
+    return () => IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
     // if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
     // }
   }, [item, setData]);
