@@ -21,7 +21,7 @@ export default function ListSell() {
   );
   
   React.useEffect(() => {
-    if (symbol) {
+    if (symbol&&IoWebSocketTrade) {
       let Symbols=symbol.replace("_","/");
       GetOrderBuyAndSell({
         dispatch: setData,
@@ -35,8 +35,6 @@ export default function ListSell() {
           setData(data);
         }
       });
-      // if (IoWebSocketTrade && IoWebSocketTrade.connected && Symbols) {
-      // }
       return () => IoWebSocketTrade.removeEventListener(`OrderSell-${Symbols}`);
     }
   }, [symbol]);

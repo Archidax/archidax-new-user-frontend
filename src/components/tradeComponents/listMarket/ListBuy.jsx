@@ -19,7 +19,7 @@ export default function ListBuy() {
   );
   
   React.useEffect(() => {
-    if (symbol) {
+    if (symbol&&IoWebSocketTrade) {
       let Symbols=symbol.replace("_","/");
       GetOrderBuyAndSell({
         dispatch: setData,
