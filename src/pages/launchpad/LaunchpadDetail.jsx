@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Import Tabs
 import FooterHomePage from '../../components/footerComponents/footerHomePage/FooterHomePage'
@@ -15,29 +15,55 @@ import UsdTabsForm from './launchpaddetailForm/UsdTabsForm'
 import UsdtTabsForm from './launchpaddetailForm/UsdtTabsForm'
 import WavesTabsForm from './launchpaddetailForm/WavesTabsForm'
 import { Link, useHistory, useParams } from 'react-router-dom'
-import { getIEOProjectById } from '../../stores'
+import { buyIEOCoin, getIEOProjectByPhaseId, getUserBalance } from '../../stores'
 import { useDispatch, useSelector } from 'react-redux'
 
 import HTMLParse from 'html-react-parser'
+import BuyingForm from './launchpaddetailForm/BuyingForm'
 
 
 function LaunchpadDetail({ data }) {
     const detail = useSelector(state => state.launchpadReducer.IEODetails)
+    const userBalance = useSelector(state => state.launchpadReducer.IEODetails)
     const { id } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
+
+    // Get Details
     useEffect(() => {
-        getIEOProjectById(id, dispatch)
-        // if (!id) {
-        //     history.push('/launchpad')
-        // } else {
-        //     getIEOProjectById(id, dispatch)
-        // }
+        getIEOProjectByPhaseId(id, dispatch, history)
+        // getUserBalance()
     }, [])
+
+    // Handle Buying Coin
+    const [price, setPrice] = useState(100)
+    const [coin, setCoin] = useState("")
+    const [amount, setAmount] = useState(0)
+    const [total, setTotal] = useState(0)
+    const [coinPair, setCoinPair] = useState("")
+    const [pricePerPair, setPricePerPair] = useState("")
+    const [pricePercentage, setPricePercentage] = useState(0)
+
+    // User Balance
+    const [balance, setBalance] = useState(1000)
+
+    // Buy
+    const buy = () => {
+        const data = {
+            amount,
+            total,
+            type: detail.currency_base,
+            price: detail.price
+        }
+        buyIEOCoin(id, data, dispatch)
+    }
+
+    // handle dynamic input
+
+
     return (
         <div className="panduan-pengguna">
             <HeaderHomePage />
-
             {
                 detail && (
                     <div className="container mt-5 mb-5">
@@ -64,79 +90,17 @@ function LaunchpadDetail({ data }) {
                                             <h3 className="label-title text-gold my-1">Name: {detail.asset_name}</h3>
                                             <h3 className="label-title text-gold">Industry: {detail.industry}</h3>
                                             <div className="label-title">
-                                                {
+                                                {/* {
                                                     HTMLParse(detail.project_detail)
-                                                }
+                                                } */}
                                             </div>
                                         </article>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="col-12 col-xl-6 mt-sm-0 mt-3">
+                            <div className="col-12 col-xl-6 mt-sm-0 mt-3 ">
 
-                                <ul
-                                    className="nav nav-pills mb-0 font-14"
-                                    id="pills-tab"
-                                    role="tablist"
-                                >
-                                    <li className="nav-item col-3 p-0">
-                                        <a
-                                            className="nav-link text-center ci-tabs-launchpad font-weight-bold active"
-                                            id="eth-tabs"
-                                            data-toggle="pill"
-                                            href="#pills-ethLaunchpad"
-                                            role="tab"
-                                            aria-controls="pills-ethLaunchpad"
-                                            aria-selected="true"
-                                            style={{ borderRadius: "6px 0px 0px 0px", padding: "20px 0" }}
-                                        >
-                                            ETH
-                                </a>
-                                    </li>
-                                    <li className="nav-item col-3 p-0">
-                                        <a
-                                            className="nav-link text-center ci-tabs-launchpad font-weight-bold"
-                                            id="waves-tabs"
-                                            data-toggle="pill"
-                                            href="#pills-wavesLaunchpad"
-                                            role="tab"
-                                            aria-controls="pills-wavesLaunchpad"
-                                            aria-selected="false"
-                                            style={{ borderRadius: "0px 0px 0px 0px", padding: "20px 0" }}
-                                        >
-                                            WAVES
-                                </a>
-                                    </li>
-                                    <li className="nav-item col-3 p-0">
-                                        <a
-                                            className="nav-link text-center ci-tabs-launchpad font-weight-bold"
-                                            id="usd-tabs"
-                                            data-toggle="pill"
-                                            href="#pills-usdLaunchpad"
-                                            role="tab"
-                                            aria-controls="pills-usdLaunchpad"
-                                            aria-selected="false"
-                                            style={{ borderRadius: "0px 0px 0px 0px", padding: "20px 0" }}
-                                        >
-                                            USD
-                                </a>
-                                    </li>
-                                    <li className="nav-item col-3 p-0">
-                                        <a
-                                            className="nav-link text-center ci-tabs-launchpad font-weight-bold"
-                                            id="usdt-tabs"
-                                            data-toggle="pill"
-                                            href="#pills-usdtLaunchpad"
-                                            role="tab"
-                                            aria-controls="pills-usdtLaunchpad"
-                                            aria-selected="false"
-                                            style={{ borderRadius: "0px 6px 0px 0px", padding: "20px 0" }}
-                                        >
-                                            USDT
-                                </a>
-                                    </li>
-                                </ul>
                                 <div className="row justify-content-center">
                                     <div className="col-12 col-md-12">
                                         <div className="card ci-customCard-1" style={{ borderRadius: "0px 0px 6px 6px" }}>
@@ -149,31 +113,21 @@ function LaunchpadDetail({ data }) {
                                                         role="tabpanel"
                                                         aria-labelledby="eth-tabs"
                                                     >
-                                                        <EthTabsForm />
-                                                    </div>
-                                                    <div
-                                                        className="tab-pane fade"
-                                                        id="pills-wavesLaunchpad"
-                                                        role="tabpanel"
-                                                        aria-labelledby="waves-tabs"
-                                                    >
-                                                        <WavesTabsForm />
-                                                    </div>
-                                                    <div
-                                                        className="tab-pane fade"
-                                                        id="pills-usdLaunchpad"
-                                                        role="tabpanel"
-                                                        aria-labelledby="usd-tabs"
-                                                    >
-                                                        <UsdTabsForm />
-                                                    </div>
-                                                    <div
-                                                        className="tab-pane fade"
-                                                        id="pills-usdtLaunchpad"
-                                                        role="tabpanel"
-                                                        aria-labelledby="usdt-tabs"
-                                                    >
-                                                        <UsdtTabsForm />
+                                                        <h4 className="text-danger">{`Price: ${price}`}{`Amount: ${amount}`}{`Total: ${total}`}</h4>
+
+                                                        <BuyingForm
+                                                            coinPair="ETH"
+                                                            amount={amount}
+                                                            setAmount={setAmount}
+                                                            total={total}
+                                                            setTotal={setTotal}
+                                                            pricePercentage={pricePercentage}
+                                                            setPricePercentage={setPricePercentage}
+                                                            price={price}
+                                                            setPrice={setPrice}
+                                                            balance={balance}
+                                                            buy={buy}
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -245,7 +199,7 @@ function LaunchpadDetail({ data }) {
                                                 role="tabpanel"
                                                 aria-labelledby="detail-token-tabs"
                                             >
-                                                <DetailToken/>
+                                                <DetailToken />
                                             </div>
                                             <div
                                                 className="tab-pane fade"
@@ -261,7 +215,7 @@ function LaunchpadDetail({ data }) {
                                                 role="tabpanel"
                                                 aria-labelledby="my-trades"
                                             >
-                                                <MyTrades data={detail}/>
+                                                <MyTrades data={detail} />
                                             </div>
                                         </div>
 
@@ -279,25 +233,31 @@ function LaunchpadDetail({ data }) {
                                             <p className="mb-2 font-roboto font-16 text-gold">Dokumen</p>
                                             <div className="row mb-4">
                                                 <div className="col-12 col-md-4">
-                                                    <button style={{
-                                                        backgroundColor: 'transparent',
-                                                        border: '1px solid white',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 font-12 mr-2 p-2">Whitepaper</button>
+                                                    <a href={detail.doc_whitepaper} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: 'transparent',
+                                                            border: '1px solid white',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 font-12 mr-2 p-2">Whitepaper</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-4">
-                                                    <button style={{
-                                                        backgroundColor: 'transparent',
-                                                        border: '1px solid white',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 font-12 p-2">Presentasi</button>
+                                                    <a href={detail.doc_presentation} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: 'transparent',
+                                                            border: '1px solid white',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 font-12 p-2">Presentasi</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-4">
-                                                    <button style={{
-                                                        backgroundColor: 'transparent',
-                                                        border: '1px solid white',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 font-12 p-2">Ringkasan Berita</button>
+                                                    <a href={detail.doc_executiveSummary} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: 'transparent',
+                                                            border: '1px solid white',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 font-12 p-2">Ringkasan Berita</button>
+                                                    </a>
                                                 </div>
                                             </div>
 

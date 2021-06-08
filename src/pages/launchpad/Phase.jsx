@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { baseUrlTrade } from '../../stores'
-import axios from 'axios'
 import Dropdown from '../../components/dropdown'
 
-function Phase({ key, removeFunc, phaseDetails, data, index, setPhaseDetails, buyingCurrency, setBuyingCurrency }) {
+function Phase({ key, removeFunc, phaseDetails, data, index, setPhaseDetails }) {
     const [coin, setCoin] = useState("")
 
     useEffect(() => {
@@ -16,6 +14,9 @@ function Phase({ key, removeFunc, phaseDetails, data, index, setPhaseDetails, bu
         <div className="col-12 col-xl-12 mb-2">
             <form enctype="multipart/form-data">
                 <div className="row no-gutters p-2 border rounded">
+                    <div className="col-12 pr-2">
+                        <h3 className="my-3 font-15 font-bold text-gold">Phase <span>{index+1}</span></h3>
+                    </div>
                     <div className="col-12 col-lg-6 pr-2">
                         <div className="row no-gutters mb-2">
                             <div className="col-12 d-flex align-items-center">
