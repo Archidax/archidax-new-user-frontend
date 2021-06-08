@@ -57,6 +57,7 @@ export default function ListSell() {
                     className={`${mode ? "dark-sell" : "day-sell"}`}
                     style={{
                       backgroundSize: `${(item.amount / item.stock) * 100}%`,
+                      backgroundRepeat: "repeat-y",
                     }} // value based on volume sisa
                   >
                     <tr
