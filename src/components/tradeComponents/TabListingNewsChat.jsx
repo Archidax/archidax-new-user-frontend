@@ -54,8 +54,8 @@ export default function TabListingNewsCHat() {
           <div>
             <ListingExchange />
           </div>
-          <div>Tai 1</div>
-          <div>Tai 2</div>
+          <div>Test 1</div>
+          <div>Test 2</div>
         </div>
       </div>
     </div>

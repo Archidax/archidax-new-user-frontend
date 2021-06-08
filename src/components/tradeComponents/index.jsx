@@ -123,7 +123,7 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Market List
+                        Order Book
                       </th>
                     </div>
                   </div>
@@ -179,7 +179,7 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order Pending
+                        Order Pending{" "}
                       </th>
                     </div>
                   </div>
