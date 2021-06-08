@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 import LaunchpadHome from './LaunchpadHome'
 import LaunchpadDetail from './LaunchpadDetail'
 import LaunchpadPorto from './LaunchpadPorto'
+import LaunchpadPortoDetail from './LaunchpadPortoDetail'
 import LaunchpadSub from './Projectsubmission'
 
 function LaunchpadPages() {
@@ -14,6 +15,7 @@ function LaunchpadPages() {
                 <Route path="/launchpad" component={LaunchpadHome} exact/>
                 <Route path="/launchpad/project-submission" component={LaunchpadSub} exact/>
                 <Route path="/launchpad/my-portofolio" component={LaunchpadPorto} exact/>
+                <Route path="/launchpad/my-portofolio/:code" component={LaunchpadPortoDetail} exact/>
                 <Route path="/launchpad/:id" component={LaunchpadDetail}/>
             </Switch>
         </>

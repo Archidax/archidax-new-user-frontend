@@ -23,6 +23,7 @@ function LaunchpadHome() {
     const dispatch = useDispatch()
     useEffect(() => {
         getAllIEOProjects(filter, dispatch)
+        setView(projects)
     }, [filter])
 
     useEffect(() => {
@@ -63,21 +64,21 @@ function LaunchpadHome() {
                     </div>
                 </div>
                 <div className="row py-2">
-                    {
-                        view?.map((data, index) => (
+                    {view &&
+                        view.map((data, index) => (
                             <div className="col col-md-4 col-lg-3 mb-4">
-                                <div className="card ci-bg-primary">
+                                <div className="card ci-bg-primary p-2">
                                     <div className="card-body py-0 px-0 ">
                                         <img
-                                            onClick={() => history.push(`/launchpad/${data._id._id}`)}
+                                            onClick={() => history.push(`/launchpad/${data._id.phaseId}`)}
                                             src={data.coin_image} alt="" className="w-100 rounded"
                                             style={{ cursor: 'pointer' }}
                                         />
                                         <div className="d-flex justify-content-between align-items-center py-3">
                                             {/* <p className="text-danger">{JSON.stringify(data)}</p> */}
                                             <div className="text-white d-flex align-items-center justify-content-between">
-                                                <h3 className="font-17 mb-0">{data.asset_name}</h3>
-                                                <h4 className="font-15 mb-0 font-bolder3 ml-4">{data.asset_name}</h4>
+                                                <h3 className="font-15 mb-0">{data.asset_name} <span className="font-13 mb-0 font-bolder3 ml-1">{`(Phase ${data.phase_number})`}</span></h3>
+
                                             </div>
                                             <button className={`${data.active === "ACTIVE" ? "ci-btn-success" : data.active === "PENDING" ? "ci-btn-danger" : "ci-btn-warning"} font-12`}>{data.active}</button>
                                         </div>
@@ -87,11 +88,11 @@ function LaunchpadHome() {
                                         <div className="row mb-2">
                                             <div className="col-12 col-md-12 d-flex align-items-center justify-content-between">
                                                 <p className="mb-0 font-14 text-secondary">Symbol</p>
-                                                <p className="mb-0 font-14 text-white">{data.initial_symbol}</p>
+                                                <p className="mb-0 font-14 text-white">{data.currency_quote}</p>
                                             </div>
                                             <div className="col-12 col-md-12 d-flex align-items-center justify-content-between">
                                                 <p className="mb-0 font-14 text-secondary">Currency</p>
-                                                <p className="mb-0 font-14 text-white">{data.coin_selected}</p>
+                                                <p className="mb-0 font-14 text-white">{data.currency_base}</p>
                                             </div>
                                             <div className="col-12 col-md-12 d-flex align-items-center justify-content-between">
                                                 <p className="mb-0 font-14 text-secondary">Stock</p>

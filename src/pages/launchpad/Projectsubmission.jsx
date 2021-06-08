@@ -175,7 +175,7 @@ function LaunchpadPorto() {
         // phase
         let phaseDetails2 = phaseDetails.map((el, index) => {
             return {
-                phase: `Phase ${index+1}`,
+                phase_number: String(index+1),
                 startDate: el.startDate,
                 endDate: el.endDate,
                 amount: el.amount,
@@ -322,7 +322,7 @@ function LaunchpadPorto() {
                                         </div>
                                         <div className="col-12">
                                             <Editor
-                                                toolbarStyle={{ marginBottom: "0px", paddingTop: "16px", borderRadius: "8px 8px 0 0", background: "#07081b", border: "none" }}
+                                                toolbarStyle={{ marginBottom: "0px", paddingTop: "16px", borderRadius: "8px 8px 0 0", background: "#07081b", border: "1px" }}
                                                 editorState={editorState}
                                                 toolbarClassName="mt-1 pb-3"
                                                 wrapperClassName="demo-wrapper"

@@ -1,16 +1,20 @@
 import React from 'react'
 
-function BuyingForm({ coinPair, balance, amount, setAmount, total, setTotal, pricePercentage, setPricePercentage, price, setPrice }) {
-
-    const handleChange = (e) => {
+function BuyingForm({ coin, buy, coinPair, balance, amount, setAmount, total, setTotal, pricePercentage, setPricePercentage, price, setPrice }) {
+    const setByAmount = (e) => {
         setAmount(e.target.value)
         setTotal(e.target.value * price)
     }
 
+    const setByTotal = (e) => {
+        setTotal(e.target.value)
+        setAmount(e.target.value / price)
+    }
+
     const setAmountByPercentage = (percent) => {
         const decimal = percent / 100
-        setAmount(balance * decimal)
-        setTotal(balance * decimal * price)
+        setTotal(balance * decimal)
+        setAmount(balance * decimal / price)
     }
 
     return (
@@ -21,7 +25,7 @@ function BuyingForm({ coinPair, balance, amount, setAmount, total, setTotal, pri
                 </div>
                 <div className="col-12 col-md-6 text-left text-sm-right">
                     <label className="text-gold font-roboto font-14 mb-0">Balance</label>
-                    <p className="text-white font-roboto font-16 mb-0">100 {coinPair}</p>
+                    <p className="text-white font-roboto font-16 mb-0">{balance} {coinPair}</p>
                 </div>
             </div>
 
@@ -36,7 +40,7 @@ function BuyingForm({ coinPair, balance, amount, setAmount, total, setTotal, pri
                             className="form-control ci-inputDefault-border-input"
                             placeholder="Input Price" aria-label="Username" aria-describedby="basic-addon1"
                             style={{ paddingLeft: "62px" }}
-                            onChange={(e) => handleChange(e)}
+                            value={price}
                         />
                         <div className="ci-inputDefault-border-appendR">
                             <label className="text-gold font-roboto font-14 mb-0 ci-inputDefault-border-appendL-icon">{coinPair}</label>
@@ -95,10 +99,11 @@ function BuyingForm({ coinPair, balance, amount, setAmount, total, setTotal, pri
                             className="form-control ci-inputDefault-border-input"
                             placeholder="Input Amount" aria-label="Username" aria-describedby="basic-addon1"
                             style={{ paddingLeft: "62px" }}
-                            onChange={(e) => handleChange(e)}
+                            onChange={(e) => setByAmount(e)}
+                            value={amount}
                         />
                         <div className="ci-inputDefault-border-appendR">
-                            <label className="text-gold font-roboto font-12 mb-0 ci-inputDefault-border-appendL-icon">MICIN</label>
+                            <label className="text-gold font-roboto font-12 mb-0 ci-inputDefault-border-appendL-icon">{coin}</label>
                         </div>
                     </div>
                 </div>
@@ -114,7 +119,8 @@ function BuyingForm({ coinPair, balance, amount, setAmount, total, setTotal, pri
                             type="number"
                             className="form-control ci-inputDefault-border-input"
                             placeholder="Input Total" aria-label="Username" aria-describedby="basic-addon1" style={{ paddingLeft: "62px" }}
-                            onChange={(e) => handleChange(e)}
+                            onChange={(e) => setByTotal(e)}
+                            value={total}
                         />
                         <div className="ci-inputDefault-border-appendR">
                             <label className="text-gold font-roboto font-14 mb-0 ci-inputDefault-border-appendL-icon">{coinPair}</label>
@@ -127,7 +133,7 @@ function BuyingForm({ coinPair, balance, amount, setAmount, total, setTotal, pri
                 <div className="col-12 col-md-12">
                     <div className="card ci-customCard-1">
                         <div className="card-body py-3" style={{ background: "#2C355A", borderRadius: "6px" }}>
-                            <label className="text-white font-roboto font-14 mb-0 ci-inputDefault-border-appendL-icon">You will receive: <span className="text-gold font-roboto font-14 mb-0 mx-2">20</span> MICIN</label>
+                            <label className="text-white font-roboto font-14 mb-0 ci-inputDefault-border-appendL-icon">You will receive: <span className="text-gold font-roboto font-14 mb-0 mx-2">{amount}</span> {coin}</label>
                         </div>
                     </div>
                 </div>
@@ -159,9 +165,10 @@ function BuyingForm({ coinPair, balance, amount, setAmount, total, setTotal, pri
                 </div>
             </div>
 
+
             <div className="row no-gutters my-3">
                 <div className="col-12 col-md-12">
-                    <button className="ci-btn-warning ci-md w-100 font-weight-bold" style={{ background: "#f9ba42", borderRadius: "8px" }} disabled>Buy</button>
+                    <button className="ci-btn-warning ci-md w-100 font-weight-bold" style={{ background: "#f9ba42", borderRadius: "8px" }} onClick={() => buy()}>Buy</button>
                 </div>
             </div>
         </div>
