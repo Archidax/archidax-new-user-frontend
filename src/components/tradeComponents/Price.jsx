@@ -205,7 +205,7 @@ export default function Price() {
                   mode ? "text-price-bottom-dark" : "text-price-bottom"
                 } font-22`}
               >
-                BITCOIN/<span className="font-14">USDT</span>
+                {PairSymbol?PairSymbol:null}
               </div>
             </div>
             <div style={{ display: "flex" }}>

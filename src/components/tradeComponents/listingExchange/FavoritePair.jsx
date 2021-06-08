@@ -64,15 +64,15 @@ function FavoritePairRealtime({ item, index }) {
   };
 
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-      IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
-        if (data) {
-          setData(data);
-        }
-      });
-      return () =>
-        IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
-    }
+    IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
+      if (data) {
+        setData(data);
+      }
+    });
+    return () =>
+      IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
+    // if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
+    // }
   }, [item, setData]);
 
   if (Data) {

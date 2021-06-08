@@ -59,10 +59,10 @@ export default function VolumeChart() {
     },
   }
   
-  // useEffect(() => {
-  //   setIsLoading(true)
-  //   getVolumeChart(PairSymbol, 48, setVolumeData, setIsLoading);
-  // }, [PairSymbol]);
+  useEffect(() => {
+    setIsLoading(true)
+    getVolumeChart(PairSymbol, 48, setVolumeData, setIsLoading);
+  }, [PairSymbol]);
 
   // console.log(volumeData, "sdadsdaw")
 

@@ -18,7 +18,7 @@ import { SET_RX_PAIR } from "../../stores/pasartrading/functions";
 import { getMyAssets } from "../../stores/wallet/functions";
 import { readMe } from "../../stores/kyc/functions";
 
-import ProtectedPagePasar from "./card/HalamanLoginPasar";
+// import ProtectedPagePasar from "./card/HalamanLoginPasar";
 
 export default function Index() {
   let history = useHistory();
