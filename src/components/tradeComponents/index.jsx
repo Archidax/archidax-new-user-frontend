@@ -7,6 +7,7 @@ import LiveMarket from "./liveMarket/LiveMarket";
 import ChartTrade from "./chart/index";
 import LimitMarketChat from "./limitMarket/TabsLimitMarketChat";
 import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
+import TabListingNewsChat from "../tradeComponents/TabListingNewsChat";
 
 import OrderPending from "./orderPendingHistory/OrderPending";
 import OrderHistory from "./orderPendingHistory/OrderHistory";
@@ -236,7 +237,8 @@ export default function Index() {
               }}
             >
               {/* <Price /> */}
-              <ListingExchange />
+              {/* <ListingExchange /> */}
+              <TabListingNewsChat />
             </div>
             <div
               className="col-12 p-0"
