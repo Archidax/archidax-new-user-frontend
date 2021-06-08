@@ -6,7 +6,7 @@ import ListingExchange from "./listingExchange/ListingExchange";
 import LiveMarket from "./liveMarket/LiveMarket";
 import ChartTrade from "./chart/index";
 import LimitMarketChat from "./limitMarket/TabsLimitMarketChat";
-import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
+// import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
 
 import OrderPending from "./orderPendingHistory/OrderPending";
 import OrderHistory from "./orderPendingHistory/OrderHistory";
@@ -17,7 +17,7 @@ import { SET_RX_PAIR } from "../../stores/pasartrading/functions";
 import { getMyAssets } from "../../stores/wallet/functions";
 import { readMe } from "../../stores/kyc/functions";
 
-import ProtectedPagePasar from "./card/HalamanLoginPasar";
+// import ProtectedPagePasar from "./card/HalamanLoginPasar";
 
 export default function Index() {
   let history = useHistory();
@@ -179,7 +179,7 @@ export default function Index() {
                         style={{ padding: "2px 12px" }}
                       >
                         Order Pending
-                      </th>
+                        </th>
                     </div>
                   </div>
                   <div
@@ -188,7 +188,7 @@ export default function Index() {
                     aria-labelledby="headingTwo"
                     data-parent="#accordionExample"
                   >
-                    <OrderPending />
+                      <OrderPending />
                   </div>
                 </div>
                 <div
@@ -211,7 +211,7 @@ export default function Index() {
                         style={{ padding: "2px 12px" }}
                       >
                         Order History
-                      </th>
+                        </th>
                     </div>
                   </div>
                   <div
@@ -219,8 +219,8 @@ export default function Index() {
                     class="collapse"
                     aria-labelledby="headingThree"
                     data-parent="#accordionExample"
-                  >
-                    <OrderHistory />
+                  > 
+                      <OrderHistory />
                   </div>
                 </div>
               </div>

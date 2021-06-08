@@ -65,11 +65,13 @@ export default function MarketBuy() {
         }),
       );
     }
-    if (pairFrom.toString().toUpperCase() === "IDR") {
-      saldo ? setBalance(saldo) : setBalance(0);
-    } else {
-      const UsdtBalance = assets.find((el) => el.type === "USDT");
-      setBalance(UsdtBalance ? UsdtBalance.balance : 0);
+    if (assets) {
+      const temp = assets.find((item) => item.type === pairFrom);
+      if (temp) {
+        setBalance(temp.balance);
+      } else {
+        setBalance(0);
+      }
     }
   }, [amount, dispatch, saldo, pairFrom, assets, price]);
 
