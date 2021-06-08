@@ -1,4 +1,4 @@
-import { baseUrlTrade, baseUrlTradeVersion, baseUrl } from '../index'
+import { baseUrlTrade, baseUrlTradeVersion, baseUrl, baseAxiosTrading } from '../index'
 import axios from 'axios'
 // import Popup from '../../components/popUps'
 import errorHandler from '../errorHandler'
@@ -36,4 +36,37 @@ export function ChartWallet (cb) {
       cb(data.tradeData);
     }
   }).catch(errorHandler)
+}
+
+export function getChartDepth (market_pair, depth, setDepthData, setIsLoading) {
+	baseAxiosTrading({
+    url:`/depthChart?market_pair=${market_pair}&depth=${depth}`,
+    method:"GET",
+  }).then(({data})=>{
+    console.log(data, 'success get chart depth data')
+    if(data) {
+      setDepthData(data)
+    }
+    setIsLoading(false)
+  }).catch((err) => {
+    setIsLoading(false)
+    console.log(err.response, 'error get chart depth data')
+  })
+}
+
+
+export function getVolumeChart (market_pair, depth, setVolumeChart, setIsLoading) {
+	baseAxiosTrading({
+    url:`/volumeChart?symbol=${market_pair}&depth=${depth}`,
+    method:"GET",
+  }).then(({data})=>{
+    console.log(data, 'success get chart volume data')
+    if(data) {
+      setVolumeChart(data)
+    }
+    setIsLoading(false)
+  }).catch((err) => {
+    setIsLoading(false)
+    console.log(err.response, 'error get chart volume data')
+  })
 }
