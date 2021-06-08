@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 
 import {IoWebSocketTrade, IoWebSocket} from "./IoWebSocket";
+import { logout } from '../stores'
 
 export default function WsComponent(props){
 
@@ -23,6 +24,10 @@ export default function WsComponent(props){
                             type: "NEW_NOTIFICATION",
                             data
                         })
+                        break;
+                    case 'LOGOUT':
+                        console.log('received logout code')
+                        logout(dispatch)
                         break;
                     default:
                         break;
