@@ -70,29 +70,29 @@ function CryptoPairRealtime({ item, index }) {
     history.push(`/pasar/${Data.symbol.toString().replace('/', '_')}`);
   };
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-      IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
-      IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
-        if (data) {
-          setData(data);
-        }
-        if (PairSymbol === data.symbol) {
-          dispatch(
-            setPasarTrading({
-              Open: data.price24h_open,
-              High: data.price24h_high,
-              Low: data.price24h_low,
-              Close: data.price24h_close,
-              Change: data.price24h_change,
-              Volume: data.price24h_priceVolume,
-              VolumeCrypto: data.price24h_volume,
-            }),
-          );
-        }
-      });
-      return () => {
-      IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);}
-    }
+    IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+    IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
+      if (data) {
+        setData(data);
+      }
+      if (PairSymbol === data.symbol) {
+        dispatch(
+          setPasarTrading({
+            Open: data.price24h_open,
+            High: data.price24h_high,
+            Low: data.price24h_low,
+            Close: data.price24h_close,
+            Change: data.price24h_change,
+            Volume: data.price24h_priceVolume,
+            VolumeCrypto: data.price24h_volume,
+          }),
+        );
+      }
+    });
+    return () => {
+    IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);}
+    // if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
+    // }
   }, [item,PairSymbol]);
   
   if (Data) {

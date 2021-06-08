@@ -1,6 +1,4 @@
-import { baseAxios, supabase } from '../index'
 import { baseUrlTrade, baseUrlTradeVersion, baseAxiosTrading } from '../index'
-import Swal from 'sweetalert2'
 import errorHandler from '../errorHandler'
 import axios from 'axios'
 import Popup from '../../components/popUps'
@@ -218,15 +216,7 @@ export function GetOrderLastPrice ({pair}) {
                 VolumeCrypto:data.price_24hours.price24h_volume,
             }));
         } catch (err) {
-            dispatch(setPasarTrading({
-                Open:0,
-                High:0,
-                Low:0,
-                Close:0,
-                Change:0,
-                Volume:0,
-                VolumeCrypto:0,
-            }));
+            console.log(err)
         }
     }
 }

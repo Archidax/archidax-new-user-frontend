@@ -80,32 +80,35 @@ export default function LimitBuy() {
         }),
       );
     }
-    if (pairFrom.toString().toUpperCase() === "IDR") {
-      saldo ? setBalance(saldo) : setBalance(0);
-    } else {
-      const UsdtBalance = assets.find((el) => el.type === "USDT");
-      setBalance(UsdtBalance ? UsdtBalance.balance : 0);
+    console.log(assets, pairFrom);
+    if (assets) {
+      const temp = assets.find((item) => item.type === pairTo);
+      if (temp) {
+        setBalance(temp.balance);
+      } else {
+        setBalance(0);
+      }
     }
-  }, [price, dispatch, amount, saldo, pairFrom, assets]);
+  }, [price, dispatch, amount, saldo, pairTo, assets]);
 
-  React.useEffect(() => {
-    if (
-      IoWebSocketTrade &&
-      IoWebSocketTrade.connected &&
-      pairFrom &&
-      username
-    ) {
-      IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-        if (data) {
-          setBalance(data.balance);
-        }
-      });
-      return () =>
-        IoWebSocketTrade.removeEventListener(
-          `WalletBalance-${username}-${pairFrom}`,
-        );
-    }
-  }, [setBalance, pairFrom, username]);
+  // React.useEffect(() => {
+  //   if (
+  //     IoWebSocketTrade &&
+  //     IoWebSocketTrade.connected &&
+  //     pairFrom &&
+  //     username
+  //   ) {
+  //     IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
+  //       if (data) {
+  //         setBalance(data.balance);
+  //       }
+  //     });
+  //     return () =>
+  //       IoWebSocketTrade.removeEventListener(
+  //         `WalletBalance-${username}-${pairFrom}`,
+  //       );
+  //   }
+  // }, [setBalance, pairFrom, username]);
 
   return (
     <div

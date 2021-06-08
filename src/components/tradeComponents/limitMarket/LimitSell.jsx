@@ -87,24 +87,24 @@ export default function Limitsell() {
     }
   }, [price, dispatch, amount, pairFrom, assets]);
 
-  React.useEffect(() => {
-    if (
-      IoWebSocketTrade &&
-      IoWebSocketTrade.connected &&
-      pairFrom &&
-      username
-    ) {
-      IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-        if (data) {
-          setBalance(data.balance);
-        }
-      });
-      return () =>
-        IoWebSocketTrade.removeEventListener(
-          `WalletBalance-${username}-${pairFrom}`,
-        );
-    }
-  }, [setBalance, pairFrom, username]);
+  // React.useEffect(() => {
+  //   if (
+  //     IoWebSocketTrade &&
+  //     IoWebSocketTrade.connected &&
+  //     pairFrom &&
+  //     username
+  //   ) {
+  //     IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
+  //       if (data) {
+  //         setBalance(data.balance);
+  //       }
+  //     });
+  //     return () =>
+  //       IoWebSocketTrade.removeEventListener(
+  //         `WalletBalance-${username}-${pairFrom}`,
+  //       );
+  //   }
+  // }, [setBalance, pairFrom, username]);
 
   return (
     <div

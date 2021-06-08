@@ -20,7 +20,7 @@ export default function MarketBuy() {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
   const [balance, setBalance] = useState("");
-  const { PairSymbol, pairFrom, price24H } = useSelector((state) =>
+  const { PairSymbol, pairFrom, pairTo, price24H } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
   const { username } = useSelector((state) =>
@@ -65,32 +65,34 @@ export default function MarketBuy() {
         }),
       );
     }
-    if (pairFrom.toString().toUpperCase() === "IDR") {
-      saldo ? setBalance(saldo) : setBalance(0);
-    } else {
-      const UsdtBalance = assets.find((el) => el.type === "USDT");
-      setBalance(UsdtBalance ? UsdtBalance.balance : 0);
+    if (assets) {
+      const temp = assets.find((item) => item.type === pairTo);
+      if (temp) {
+        setBalance(temp.balance);
+      } else {
+        setBalance(0);
+      }
     }
-  }, [amount, dispatch, saldo, pairFrom, assets, price]);
+  }, [amount, dispatch, saldo, pairTo, assets, price]);
 
-  React.useEffect(() => {
-    if (
-      IoWebSocketTrade &&
-      IoWebSocketTrade.connected &&
-      pairFrom &&
-      username
-    ) {
-      IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-        if (data) {
-          setBalance(data.balance);
-        }
-      });
-      return () =>
-        IoWebSocketTrade.removeEventListener(
-          `WalletBalance-${username}-${pairFrom}`,
-        );
-    }
-  }, [setBalance, pairFrom, username]);
+  // React.useEffect(() => {
+  //   if (
+  //     IoWebSocketTrade &&
+  //     IoWebSocketTrade.connected &&
+  //     pairFrom &&
+  //     username
+  //   ) {
+  //     IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
+  //       if (data) {
+  //         setBalance(data.balance);
+  //       }
+  //     });
+  //     return () =>
+  //       IoWebSocketTrade.removeEventListener(
+  //         `WalletBalance-${username}-${pairFrom}`,
+  //       );
+  //   }
+  // }, [setBalance, pairFrom, username]);
 
   return (
     <div
@@ -112,7 +114,7 @@ export default function MarketBuy() {
                 width="14px"
               />
               <div className="text-dgrey ml-2 font-14 font-bolder2">
-                {pairFrom ? pairFrom : "-"}:
+                {pairTo ? pairTo : "-"}:
               </div>
               <div
                 className={`${
