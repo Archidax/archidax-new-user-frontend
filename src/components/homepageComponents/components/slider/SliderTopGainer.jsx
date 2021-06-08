@@ -106,7 +106,6 @@ export default function SliderTopGainer({ dataHome }) {
     ),
   };
 
-  console.log(dataHome)
   return (
     <Slider {...settings}>
       {dataHome &&
