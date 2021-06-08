@@ -205,9 +205,9 @@ export const verifyEmail = (key, history) => {
         url: `/api/auth/verify/${key}`
     })
     .then((dataIp) => {
-        history.push('/login')
+        history.push('/login?emailverified')
     })
     .catch(err => {
-        history.push('/')
+        history.push('/home')
     })
 }
