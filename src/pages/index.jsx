@@ -50,7 +50,7 @@ import { GetListingExchange, setMyFav } from "../stores/pasartrading/functions";
 import KeuanganPage from "./keuangan";
 
 export default function MainPages() {
-  const [locale, setLocale] = React.useState("");
+  const [locale, setLocale] = React.useState(LOCALES.ENGLISH);
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
   const { email } = useSelector((state) => state?.profileReducer);
   const dispatch = useDispatch();
@@ -66,27 +66,38 @@ export default function MainPages() {
   }, [email, dispatch, isLoginAccount]);
 
   useEffect(() => {
-    if (localStorage.getItem('language')) {
-      if (localStorage.getItem('language') === "ID") {
-        setLocale(LOCALES.INDONESIA);
-      } else {
+    // if (localStorage.getItem('language')) {
+    //   if (localStorage.getItem('language') === "ID") {
+    //     setLocale(LOCALES.INDONESIA);
+    //   } else {
+    //     setLocale(LOCALES.ENGLISH);
+    //   }
+    // } else {
+    //   axios
+    //     .get("https://ipclient.herokuapp.com/")
+    //     .then(({ data }) => {
+    //       if (data.country === "ID") {
+    //         localStorage.setItem('language', "ID")
+    //         setLocale(LOCALES.INDONESIA);
+    //       } else {
+    //         localStorage.setItem('language', "EN")
+    //         setLocale(LOCALES.ENGLISH);
+    //       }
+    //     })
+    //     .catch((err) => { });
+    // }
+    if (!localStorage.getItem('language')) {
+      localStorage.setItem('language', "EN")
+      setLocale(LOCALES.ENGLISH);
+    } else {
+      if(localStorage.getItem('language') === 'EN'){
         setLocale(LOCALES.ENGLISH);
       }
-    } else {
-      axios
-        .get("https://ipclient.herokuapp.com/")
-        .then(({ data }) => {
-          if (data.country === "ID") {
-            localStorage.setItem('language', "ID")
-            setLocale(LOCALES.INDONESIA);
-          } else {
-            localStorage.setItem('language', "EN")
-            setLocale(LOCALES.ENGLISH);
-          }
-        })
-        .catch((err) => { });
+      if(localStorage.getItem('language') === 'ID'){
+        setLocale(LOCALES.INDONESIA);
+      }
     }
-  }, []);
+  }, [localStorage.getItem('language')]);
 
   return (
     <>

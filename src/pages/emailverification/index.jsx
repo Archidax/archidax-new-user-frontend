@@ -12,7 +12,11 @@ function EmailVerification() {
     const history = useHistory()
 
     useEffect(() => {
-        verifyEmail(key, history)
+        if(key){
+            verifyEmail(key, history)
+        } else {
+            history.replace('/')
+        }
     },[])
 
     return (
