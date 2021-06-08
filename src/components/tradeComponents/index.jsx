@@ -104,16 +104,15 @@ export default function Index() {
                 id="accordionExample"
                 style={{ margin: "0px 1px" }}
               >
-                <div
-                  class=""
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseOne"
-                  aria-expanded="false"
-                  aria-controls="collapseOne"
-                  style={{ marginTop: "2px" }}
-                >
-                  <div class="" id="headingOne">
+                <div style={{ marginTop: "2px" }}>
+                  <div
+                    id="headingOne"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="false"
+                    aria-controls="collapseOne"
+                  >
                     <div
                       className={
                         mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
@@ -160,16 +159,16 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <div
-                  class=""
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                  style={{ marginTop: "2px" }}
-                >
-                  <div class="" id="headingTwo">
+                <div style={{ marginTop: "2px" }}>
+                  <div
+                    class=""
+                    id="headingTwo"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
                     <div
                       className={
                         mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
@@ -192,16 +191,15 @@ export default function Index() {
                     <OrderPending />
                   </div>
                 </div>
-                <div
-                  class=""
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                  style={{ marginTop: "2px" }}
-                >
-                  <div class="" id="headingThree">
+                <div style={{ marginTop: "2px" }}>
+                  <div
+                    id="headingThree"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
                     <div
                       className={
                         mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
