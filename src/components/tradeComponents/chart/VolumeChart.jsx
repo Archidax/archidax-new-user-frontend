@@ -6,6 +6,7 @@ import ZingChart from "zingchart-react";
 
 export default function VolumeChart() {
   let [volumeData, setVolumeData] = useState(null);
+  console.log(volumeData, "sdadwd")
   let [isLoading, setIsLoading] = useState(false);
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
 
@@ -35,11 +36,15 @@ export default function VolumeChart() {
     "scale-x": {
       "line-color": "none",
       item: {
-        visible: false,
+        visible: true,
       },
       tick: {
         "line-color": "none",
       },
+      transform: { /* Converts your Unix timestamp to a human readable format. */
+        type: "date", /* Set your transform type to "date". */
+        all: "%H.%i" /* Specify your date/time format, using tokens. */
+      }
     },
     "scale-y": {
       "line-color": "none",
