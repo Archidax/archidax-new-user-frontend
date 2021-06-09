@@ -90,10 +90,8 @@ function FiatPairRealtime({ item, index }) {
       }
     });
     return () => IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
-    // if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-    // }
-  }, [item, PairSymbol]);
-
+  }, [item,PairSymbol]);
+  
   if (Data) {
     return (
       <tr
