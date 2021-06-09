@@ -89,10 +89,7 @@ function CryptoPairRealtime({ item, index }) {
         );
       }
     });
-    return () => {
-    IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);}
-    // if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-    // }
+    return () => {IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);}
   }, [item,PairSymbol]);
   
   if (Data) {

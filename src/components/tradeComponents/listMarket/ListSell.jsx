@@ -29,12 +29,12 @@ export default function ListSell() {
         side: "SELL",
         limit: 50,
       });
-      IoWebSocketTrade.removeEventListener(`OrderSell-${Symbols}`);
-      IoWebSocketTrade.on(`OrderSell-${Symbols}`, (data) => {
-        if(data){
-          setData(data);
-        }
-      });
+        IoWebSocketTrade.removeEventListener(`OrderSell-${Symbols}`);
+        IoWebSocketTrade.on(`OrderSell-${Symbols}`, (data) => {
+          if(data){
+            setData(data);
+          }
+        });
       return () => IoWebSocketTrade.removeEventListener(`OrderSell-${Symbols}`);
     }
   }, [symbol]);
