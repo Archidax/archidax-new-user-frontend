@@ -19,7 +19,7 @@ export default function TabListingNewsCHat() {
           style={{ padding: "0px" }}
         >
           <div className="tabs-global-dark2">
-            <ul class="nav nav-pills " id="pills-tab" role="tablist">
+            <ul class="nav nav-pills mx-2" id="pills-tab" role="tablist">
               <li class="nav-item px-0 mx-2">
                 <a
                   class="nav-link active p-0 m-0"
@@ -58,6 +58,8 @@ export default function TabListingNewsCHat() {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
+                    position: "absolute",
+                    right: "55px",
                   }}
                 >
                   <i
