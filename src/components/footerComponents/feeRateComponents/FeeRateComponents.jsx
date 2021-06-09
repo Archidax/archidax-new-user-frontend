@@ -16,8 +16,16 @@ import unilogo from "../../../assets/img/feelogo/Uniswap_UNI.svg";
 import usdtlogo from "../../../assets/img/feelogo/Tether_USDT.svg";
 import waveslogo from "../../../assets/img/feelogo/Waves_WAVES.svg";
 import xlmlogo from "../../../assets/img/feelogo/Stellar_XLM.svg";
-
+// import readXlsxFile from 'read-excel-file'
+// import Excel from '../../../assets/SCHEDULE_FEE.xlsx'
 export default function FeeRateComponents() {
+
+  // React.useEffect(() => {
+  //   console.log("AAAA")
+  //   readXlsxFile(Excel,{ sheet: 1 }).then((rows) => {
+  //     console.log(rows)
+  //   })
+  // }, [])
   return (
     <>
       <div className="feesbanners">
