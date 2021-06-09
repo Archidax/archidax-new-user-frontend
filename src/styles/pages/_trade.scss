@@ -369,6 +369,23 @@ $chat-color: black;
   }
 }
 
+//
+.tabs-global-dark2 {
+  .nav .nav-item .nav-link {
+    background: transparent;
+    color: #f9ba42;
+    border-radius: 0px;
+    font-size: 16px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #f9ba42;
+    background: transparent;
+    border-radius: 0px;
+    font-size: 16px;
+  }
+}
+
 // Time Price
 .tabs-mainchart {
   .nav .nav-item .nav-link {
