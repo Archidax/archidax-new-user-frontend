@@ -21,27 +21,27 @@ function DetailToken() {
             <div className="row no-gutters mb-2">
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Waktu Mulai Penjualan Token</label>
-                    <p className="text-white font-roboto font-16 mb-0">{moment(data.start_sale_time).format('LLL')}</p>
+                    <p className="text-white font-roboto font-16 mb-0">{moment(data.phase_details.start_sale_time).format('LLL')}</p>
                 </div>
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Waktu Akhir Penjualan Token</label>
-                    <p className="text-white font-roboto font-16 mb-0">{moment(data.end_sale_time).format('LLL')}</p>
+                    <p className="text-white font-roboto font-16 mb-0">{moment(data.phase_details.end_sale_time).format('LLL')}</p>
                 </div>
             </div>
             <div className="row no-gutters mb-2">
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Pasokan Token</label>
-                    <p className="text-white font-roboto font-16 mb-0">{convertNumber.toMoney(data.token_supply)}</p>
+                    <p className="text-white font-roboto font-16 mb-0">{convertNumber.toMoney(data.phase_details.amount)}</p>
                 </div>
                 <div className="col-12 col-md-6">
-                    <label className="text-gold font-roboto font-14 mb-0">harga Token</label>
-                    <p className="text-white font-roboto font-16 mb-0">{data.token_price}</p>
+                    <label className="text-gold font-roboto font-14 mb-0">Harga Token</label>
+                    <p className="text-white font-roboto font-16 mb-0">{data.phase_details.token_price}</p>
                 </div>
             </div>
             <div className="row no-gutters mb-2">
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Jumlah Pembelian Minimum</label>
-                    <p className="text-white font-roboto font-16 mb-0">{data.minimum_purchase_amount}</p>
+                    <p className="text-white font-roboto font-16 mb-0">{data.phase_details.minimum_purchase_amount}</p>
                 </div>
                 <div className="col-12 col-md-6">
                     <label className="text-gold font-roboto font-14 mb-0">Protocol Token</label>

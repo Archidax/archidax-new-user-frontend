@@ -15,12 +15,6 @@ export default function ListingExchange() {
   return (
     <div className={mode ? "tabs-global-dark" : "tabs-global"}>
       <div className="col-12 col-md-12 p-0">
-        <div
-          className={mode ? "bg-trade3-dark" : "bg-trade3"}
-          style={{ padding: "9px 16px" }}
-        >
-          <th className="text-gold font-14 mb-0 ">Listing Exchange</th>
-        </div>
         <ul
           className="nav nav-pills mb-0 font-14"
           id="pills-tab"

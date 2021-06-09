@@ -6,7 +6,8 @@ import ListingExchange from "./listingExchange/ListingExchange";
 import LiveMarket from "./liveMarket/LiveMarket";
 import ChartTrade from "./chart/index";
 import LimitMarketChat from "./limitMarket/TabsLimitMarketChat";
-// import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
+import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
+import TabListingNewsChat from "../tradeComponents/TabListingNewsChat";
 
 import OrderPending from "./orderPendingHistory/OrderPending";
 import OrderHistory from "./orderPendingHistory/OrderHistory";
@@ -103,16 +104,15 @@ export default function Index() {
                 id="accordionExample"
                 style={{ margin: "0px 1px" }}
               >
-                <div
-                  class=""
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseOne"
-                  aria-expanded="false"
-                  aria-controls="collapseOne"
-                  style={{ marginTop: "2px" }}
-                >
-                  <div class="" id="headingOne">
+                <div style={{ marginTop: "2px" }}>
+                  <div
+                    id="headingOne"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="false"
+                    aria-controls="collapseOne"
+                  >
                     <div
                       className={
                         mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
@@ -122,7 +122,7 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Market List
+                        Order Book
                       </th>
                     </div>
                   </div>
@@ -139,7 +139,7 @@ export default function Index() {
                       <div
                         className="col-6 p-0"
                         style={{
-                          minHeight: "32vh",
+                          minHeight: "26vh",
                           background: mode ? "black" : "white",
                           border: mode ? "1px solid black" : "1px solid grey",
                         }}
@@ -149,7 +149,7 @@ export default function Index() {
                       <div
                         className="col-6 p-0"
                         style={{
-                          minHeight: "32vh",
+                          minHeight: "26vh",
                           background: mode ? "black" : "white",
                           border: mode ? "1px solid black" : "1px solid grey",
                         }}
@@ -159,16 +159,16 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <div
-                  class=""
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                  style={{ marginTop: "2px" }}
-                >
-                  <div class="" id="headingTwo">
+                <div style={{ marginTop: "2px" }}>
+                  <div
+                    class=""
+                    id="headingTwo"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
                     <div
                       className={
                         mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
@@ -178,8 +178,8 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order Pending
-                        </th>
+                        Order Pending{" "}
+                      </th>
                     </div>
                   </div>
                   <div
@@ -188,19 +188,18 @@ export default function Index() {
                     aria-labelledby="headingTwo"
                     data-parent="#accordionExample"
                   >
-                      <OrderPending />
+                    <OrderPending />
                   </div>
                 </div>
-                <div
-                  class=""
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                  style={{ marginTop: "2px" }}
-                >
-                  <div class="" id="headingThree">
+                <div style={{ marginTop: "2px" }}>
+                  <div
+                    id="headingThree"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
                     <div
                       className={
                         mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
@@ -211,7 +210,7 @@ export default function Index() {
                         style={{ padding: "2px 12px" }}
                       >
                         Order History
-                        </th>
+                      </th>
                     </div>
                   </div>
                   <div
@@ -219,8 +218,8 @@ export default function Index() {
                     class="collapse"
                     aria-labelledby="headingThree"
                     data-parent="#accordionExample"
-                  > 
-                      <OrderHistory />
+                  >
+                    <OrderHistory />
                   </div>
                 </div>
               </div>
@@ -230,13 +229,14 @@ export default function Index() {
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "50vh",
+                minHeight: "49.8vh",
                 background: mode ? "black" : "white",
                 border: mode ? "1px solid black" : "1px solid grey",
               }}
             >
               {/* <Price /> */}
-              <ListingExchange />
+              {/* <ListingExchange /> */}
+              <TabListingNewsChat />
             </div>
             <div
               className="col-12 p-0"

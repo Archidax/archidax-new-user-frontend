@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-function BuyingForm({ coin, buy, coinPair, balance, amount, setAmount, total, setTotal, pricePercentage, setPricePercentage, price, setPrice }) {
+function BuyingForm({ coin, buy, coinPair, balance, amount, setAmount, total, setTotal, price }) {
+    const userBalance = useSelector(state => state.launchpadReducer.userBalance)
+
     const setByAmount = (e) => {
         setAmount(e.target.value)
         setTotal(e.target.value * price)
@@ -13,8 +16,8 @@ function BuyingForm({ coin, buy, coinPair, balance, amount, setAmount, total, se
 
     const setAmountByPercentage = (percent) => {
         const decimal = percent / 100
-        setTotal(balance * decimal)
-        setAmount(balance * decimal / price)
+        setTotal(userBalance.baseBalance.balance * decimal)
+        setAmount(userBalance.baseBalance.balance * decimal / price)
     }
 
     return (
@@ -25,7 +28,7 @@ function BuyingForm({ coin, buy, coinPair, balance, amount, setAmount, total, se
                 </div>
                 <div className="col-12 col-md-6 text-left text-sm-right">
                     <label className="text-gold font-roboto font-14 mb-0">Balance</label>
-                    <p className="text-white font-roboto font-16 mb-0">{balance} {coinPair}</p>
+                    <p className="text-white font-roboto font-16 mb-0">{userBalance.baseBalance ? userBalance.baseBalance.balance : 0 } {coinPair}</p>
                 </div>
             </div>
 
