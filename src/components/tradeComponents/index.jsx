@@ -27,6 +27,8 @@ export default function Index() {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
+  const Order = useSelector((state) => state ? state?.pasarTradingReducer : {});
+
   const { listingList } = useSelector((state) => state.pasarTradingReducer);
 
   React.useEffect(() => {
@@ -178,8 +180,10 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order Pending{" "}
-                      </th>
+                        Order Pending ({
+                          Order&&Order.OrderPending&&Array.isArray(Order.OrderPending)?Order.OrderPending.length:0
+                        })
+                        </th>
                     </div>
                   </div>
                   <div
