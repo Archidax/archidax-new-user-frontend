@@ -6,6 +6,7 @@ import { convertNumber } from "../../../../assets/js";
 import { useHistory } from "react-router-dom";
 
 export default function TableHomepage() {
+
   const { listingList } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
   );

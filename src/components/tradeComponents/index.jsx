@@ -54,8 +54,8 @@ export default function Index() {
 
   React.useEffect(() => {
     if (isLoginPages) {
-      getMyAssets(dispatch);
       readMe(dispatch, history);
+      getMyAssets(dispatch);
     }
   }, [isLoginPages, dispatch, history]);
 
