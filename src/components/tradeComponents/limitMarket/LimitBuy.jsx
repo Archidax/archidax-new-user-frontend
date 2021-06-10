@@ -80,9 +80,10 @@ export default function LimitBuy() {
         }),
       );
     }
-    console.log(assets, pairFrom);
+    console.log(assets);
     if (assets) {
-      const temp = assets.find((item) => item.type === pairTo);
+      const temp = assets&&Array.isArray(assets)&&assets.find((item) => item.type === pairTo);
+      console.log(pairTo);
       if (temp) {
         setBalance(temp.balance);
       } else {
