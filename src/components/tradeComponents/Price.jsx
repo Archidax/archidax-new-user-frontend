@@ -183,7 +183,7 @@ export default function Price() {
               <div
                 className={`${
                   mode ? "text-price-bottom-dark" : "text-price-bottom"
-                } font-22`}
+                } font-22 `}
               >
                 {PairSymbol ? PairSymbol : null}
               </div>
