@@ -42,7 +42,6 @@ function Flags(props) {
       localStorage.setItem('language', 'EN')
     }
   };
-
   return (
     <div className="btn-group d-sm-flex d-none ml-3 mr-3">
       <div
@@ -69,7 +68,7 @@ function Flags(props) {
             <div className="row">
               <div className="col-12 col-md-12 py-2">
                 <p className="text-dark font-weight-bold mb-0 lable-title font-12">
-                  Pilih Bahasa
+                  {flag === "flag-icon-id" ? "Pilih Bahasa": "Choose Language"}
                 </p>
               </div>
             </div>

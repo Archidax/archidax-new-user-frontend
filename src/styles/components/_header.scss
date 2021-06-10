@@ -100,6 +100,7 @@
 /* END PROFILE DROPDOWN */
 
 /* WALLETS DROPDOWN */
+
 .ci-dropdown-btn-wallets {
   // background-color: lighten(#151933, 5);
   background-color: transparent;
@@ -124,7 +125,7 @@
   // width: 300px;
   border: none;
   &-scrollbar {
-    width: 340px;
+    width: 470px;
     max-height: 200px;
     overflow-x: auto;
   }
@@ -145,6 +146,7 @@
     overflow-x: auto;
   }
 }
+
 
 /* NOTIFICATION DROPDOWN */
 .ci-dropdown-notification {

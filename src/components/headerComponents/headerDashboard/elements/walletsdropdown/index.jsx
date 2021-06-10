@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import walletIcon from "../../../../../assets/affiliasi/wallet-icon.svg";
 import EthCoin from "../../../../../assets/img/iconsCoin/EtheriumCoin.png";
 import IDRlogo from "../../../../../assets/img/Rp.svg";
+import USDlogo from "../../../../../assets/img/usd_logo.svg";
 import { 
   // useDispatch, 
   useSelector 
@@ -76,7 +77,7 @@ function WalletsDropdownHeader() {
             {/* IDR */}
             <div className="row align-items-center my-2">
               <div className="col-2 col-md-2">
-                <img src={IDRlogo} className="img-fluid" alt="IDR" width={35} />
+                <img src={USDlogo} className="img-fluid" alt="IDR" width={24} />
               </div>
 
               <div className="col-4 col-md-4">
