@@ -1,9 +1,9 @@
 const initialState = {
     allIEOProjects: [],
-    myIEOPortfolio: [],
+    myIEOPortfolio: null,
     IEODetails: null,
-    userBalance: 0
-
+    userBalance: 0,
+    myIEOPortfoliodDetails: null
 }
 
 const launchpadReducer = ((state = initialState, action) => {
@@ -18,6 +18,11 @@ const launchpadReducer = ((state = initialState, action) => {
             return {
                 ...state,
                 myIEOPortfolio: data
+            }
+        case "MY_IEO_PORTFOLIO_DETAILS":
+            return {
+                ...state,
+                myIEOPortfoliodDetails: data
             }
         case "IEO_DETAILS":
             return {
