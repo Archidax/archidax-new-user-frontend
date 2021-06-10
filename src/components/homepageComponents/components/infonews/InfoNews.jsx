@@ -11,12 +11,11 @@ export default function InfoNews() {
   const dispatch = useDispatch()
   const dataNewNews = useSelector((state) => state.beritaReducer.Recent);
   React.useEffect(() => {
-    if(!dataNewNews){
+    if(dataNewNews.length === 0){
       beritaRecent(dispatch);
     }
   }, [dispatch]);
 
-  console.log(dataNewNews)
   return (
     <div className="bg-archidax card-body pt-2 font-archidax3">
       <div
