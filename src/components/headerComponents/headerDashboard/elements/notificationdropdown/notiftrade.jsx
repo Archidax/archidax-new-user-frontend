@@ -29,7 +29,7 @@ function NotificationDropdownHeader() {
   const [showDelete, setShowDelete] = useState("");
 
   const handleShowDelete = (itemIndex) => {
-    setShowDelete(itemIndex);
+    // setShowDelete(itemIndex);
   };
 
   const clearShowDelete = () => {

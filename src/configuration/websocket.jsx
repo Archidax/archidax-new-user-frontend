@@ -26,7 +26,6 @@ export default function WsComponent(props){
                         })
                         break;
                     case 'LOGOUT':
-                        console.log('received logout code')
                         logout(dispatch)
                         break;
                     default:
@@ -34,6 +33,8 @@ export default function WsComponent(props){
 
                 }
             })
+        } else {
+            IoWebSocket(email).removeListener('ArchidaxSocketEvent')
         }
         return () => IoWebSocket(email).removeListener('ArchidaxSocketEvent')
     },[email,dispatch])
