@@ -12,14 +12,15 @@ export const getLanguageFromURL = () => {
 
 export function HomeMarket (cb) {
 	axios({
-    url:`${baseUrlTrade}${baseUrlTradeVersion}/Home/Market`,
+    url:`${baseUrlTrade}${baseUrlTradeVersion}/ListingExchangeChart`,
     method:"GET",
     headers:{
       jwttoken:localStorage.getItem("token")
     },
   }).then(({data})=>{
-    if(data && data.data) {
-      cb(data.data);
+    if(data && data.chartData) {
+      // console.log(data.chartData, "Sdawdsdw")
+      cb(data.chartData);
     }
   })
 }
