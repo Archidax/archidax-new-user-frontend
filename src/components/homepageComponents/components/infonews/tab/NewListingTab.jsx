@@ -7,7 +7,7 @@ export default function NewListingTab({dataNewNews}) {
     <div className="col-12 p-0 font-archidax2" style={{ fontSize: "14px" }}>
       <div id="overflowTest">
         {
-          dataNewNews.map((val, index) => {
+          dataNewNews.length && dataNewNews.map((val, index) => {
             if(val.category === "Berita"){
               return (
                 <div onClick={e => {
