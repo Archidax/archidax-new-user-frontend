@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getChartDepth } from '../../../stores'
+import { getChartDepth } from "../../../stores";
 import "zingchart/es6";
 import ZingChart from "zingchart-react";
-import {IoWebSocketCronjob} from '../../../configuration/IoWebSocket'
+import { IoWebSocketCronjob } from "../../../configuration/IoWebSocket";
 
 export default function DepthChart() {
   let [depthData, setDepthData] = useState(null);
-  const { PairSymbol, price24H } = useSelector((state) => state.pasarTradingReducer);
+  const { PairSymbol, price24H } = useSelector(
+    (state) => state.pasarTradingReducer,
+  );
 
   const optionChart = {
     backgroundColor: "transparent transparent",
-    height: "280px",
+    height: "170px",
     type: "depth",
     options: {
       palette: ["#1db01d", "#FF6675"],
       currency: `${PairSymbol.split("/")[1]}`,
       // curency diganti
       title: {
-        visible: false
+        visible: false,
       },
       subtitle: {
-        visible: false
+        visible: false,
       },
       labels: {
         cost: "Total",
@@ -33,17 +35,47 @@ export default function DepthChart() {
         visible: false,
       },
     },
+    "scale-x": {
+      "line-color": "none",
+      item: {
+        visible: true,
+      },
+      tick: {
+        "line-color": "none",
+      },
+    },
+    "scale-y": {
+      "line-color": "none",
+      item: {
+        visible: false,
+      },
+      tick: {
+        "line-color": "none",
+      },
+    },
+    "scale-y-2": {
+      "line-color": "none",
+      item: {
+        visible: false,
+      },
+      tick: {
+        "line-color": "none",
+      },
+    },
     series: [
       {
-        values: depthData?depthData.bids:[],
+        values: depthData ? depthData.bids : [],
         text: "Amount Bid",
       },
       {
-        values: depthData?depthData.asks:[],
+        values: depthData ? depthData.asks : [],
         text: "Amount Ask",
       },
     ],
-  }
+    plotarea: {
+      margin: "10 30",
+    },
+  };
 
   // useEffect(() => {
   //   IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
@@ -61,11 +93,11 @@ export default function DepthChart() {
 
   return (
     <div>
-      {
-        depthData?
-        <ZingChart data={optionChart} className="mt-3"></ZingChart>:
-          <h1>no data</h1>
-      }
+      {depthData ? (
+        <ZingChart data={optionChart} className="mt-3"></ZingChart>
+      ) : (
+        <h1>no data</h1>
+      )}
     </div>
   );
 }
