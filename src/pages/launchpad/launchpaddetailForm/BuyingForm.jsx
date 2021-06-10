@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-function BuyingForm({ coin, buy, coinPair, balance, amount, setAmount, total, setTotal, price }) {
+function BuyingForm({ status, coin, buy, coinPair, balance, amount, setAmount, total, setTotal, price }) {
     const userBalance = useSelector(state => state.launchpadReducer.userBalance)
 
     const setByAmount = (e) => {
@@ -171,7 +171,7 @@ function BuyingForm({ coin, buy, coinPair, balance, amount, setAmount, total, se
 
             <div className="row no-gutters my-3">
                 <div className="col-12 col-md-12">
-                    <button className="ci-btn-warning ci-md w-100 font-weight-bold" style={{ background: "#f9ba42", borderRadius: "8px" }} onClick={() => buy()}>Buy</button>
+                    <button className={`${status.toUpperCase() === "ACTIVE" ? "ci-btn-success" : "btn-secondary"}  ci-md w-100 font-weight-bold`} disabled={status.toUpperCase() !== "ACTIVE" ? true : false} style={{borderRadius: "8px" }} onClick={() => buy()}>{status.toUpperCase() !== "ACTIVE" ? status.toUpperCase() : "BUY"}</button>
                 </div>
             </div>
         </div>

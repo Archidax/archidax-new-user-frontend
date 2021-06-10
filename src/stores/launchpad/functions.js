@@ -51,14 +51,28 @@ export const getAllIEOProjects = (filter, dispatch) => {
         .catch(err => errorHandler(err))
 }
 
-export const getMyIEOPortfolio = (dispatch) => {
+export const getMyIEOPortfolio = (dispatch, search) => {
     axios({
         method: "GET",
-        url: `${baseUrlTrade}/api/v1/launchpad/IEO/portofolio`,
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/portofolio?page=1&limit=10&search=${search ? search.toUpperCase() : ""}`,
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            dispatch({ type: "MY_IEO_PORTFOLIO", data: data.data })
+            console.log(data, "<<<")
+            dispatch({ type: "MY_IEO_PORTFOLIO", data: data })
+        })
+        .catch(err => errorHandler(err))
+}
+
+export const getMyIEOPortfolioDetails = (idCoin, dispatch) => {
+    axios({
+        method: "GET",
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/portofolio/history?page=1&limit=10&idCoin=${idCoin}`,
+        headers: { jwttoken: localStorage.getItem('token') }
+    })
+        .then(({ data }) => {
+            console.log(data, "<<<")
+            dispatch({ type: "MY_IEO_PORTFOLIO_DETAILS", data: data })
         })
         .catch(err => errorHandler(err))
 }
@@ -101,7 +115,6 @@ export const getUserBalance = () => {
 }
 
 export const buyIEOCoin = (id, data, dispatch) => {
-    console.log("masuk", data)
     axios({
         method: "POST",
         url: `${baseUrlTrade}/api/v1/launchpad/IEO/buycoin/${id}`,
@@ -110,9 +123,15 @@ export const buyIEOCoin = (id, data, dispatch) => {
     })
         .then(({ data }) => {
             console.log(data, ">>")
+            Popup.fire({
+                title: "Success!",
+                text: data.message
+            })
         })
         .catch(err => errorHandler(err))
 }
+
+
 
 
 

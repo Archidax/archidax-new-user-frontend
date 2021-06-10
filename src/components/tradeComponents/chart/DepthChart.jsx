@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import { getChartDepth } from '../../../stores'
 import "zingchart/es6";
 import ZingChart from "zingchart-react";
+import {IoWebSocketCronjob} from '../../../configuration/IoWebSocket'
 
 export default function DepthChart() {
   let [depthData, setDepthData] = useState(null);
-  let [isLoading, setIsLoading] = useState(false);
-  const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
+  const { PairSymbol, price24H } = useSelector((state) => state.pasarTradingReducer);
 
   const optionChart = {
     backgroundColor: "transparent transparent",
@@ -15,19 +15,22 @@ export default function DepthChart() {
     type: "depth",
     options: {
       palette: ["#1db01d", "#FF6675"],
-      currency: `${depthData?PairSymbol.split("/")[1]:'-'}`,
+      currency: `${PairSymbol.split("/")[1]}`,
       // curency diganti
       title: {
-        color: "white",
+        visible: false
       },
       subtitle: {
-        text: depthData?PairSymbol:'-',
-        // symbol diganti
-        fontSize: "14px",
-        color: "white",
+        visible: false
       },
       labels: {
         cost: "Total",
+      },
+      "button-zoomout": {
+        visible: false,
+      },
+      "button-zoomin": {
+        visible: false,
       },
     },
     series: [
@@ -42,17 +45,26 @@ export default function DepthChart() {
     ],
   }
 
+  // useEffect(() => {
+  //   IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
+  //   IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
+  //     if(data) {
+  //       setDepthData(data)
+  //     }
+  //     return () => {IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);}
+  //   })
+  // }, [PairSymbol])
+
   useEffect(() => {
-    setIsLoading(true)
-    getChartDepth(PairSymbol, 30, setDepthData, setIsLoading);
-    console.log('jalan')
+    getChartDepth(PairSymbol, 30, setDepthData);
   }, [PairSymbol]);
 
   return (
     <div>
-      {isLoading&&!depthData?
-        <h1>loading...</h1>:
-        <ZingChart data={optionChart} className="mt-3"></ZingChart>
+      {
+        depthData?
+        <ZingChart data={optionChart} className="mt-3"></ZingChart>:
+          <h1>no data</h1>
       }
     </div>
   );
