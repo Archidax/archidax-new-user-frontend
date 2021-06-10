@@ -72,6 +72,7 @@ function FiatPairRealtime({ item, index }) {
   React.useEffect(() => {
     IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
     IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
+      console.log(data);
       if (data) {
         setData(data);
       }
