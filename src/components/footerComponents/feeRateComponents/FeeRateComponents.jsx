@@ -16,8 +16,12 @@ import unilogo from "../../../assets/img/feelogo/Uniswap_UNI.svg";
 import usdtlogo from "../../../assets/img/feelogo/Tether_USDT.svg";
 import waveslogo from "../../../assets/img/feelogo/Waves_WAVES.svg";
 import xlmlogo from "../../../assets/img/feelogo/Stellar_XLM.svg";
-
+// import Excel from '../../../assets/SCHEDULE_FEE.xlsx'
 export default function FeeRateComponents() {
+
+  React.useEffect(() => {
+   
+  }, [])
   return (
     <>
       <div className="feesbanners">
@@ -56,9 +60,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">ERC-20</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.25</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 "></td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -69,9 +73,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">ERC-20</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">50</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 "></td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -82,7 +86,7 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">BNB</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.2</td>
               <td class="col-2 ">Free</td>
               <td class="col-2 ">0.01 BNB</td>
             </tr>
@@ -95,11 +99,11 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">BTC</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.0007</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 "> BTC</td>
+              <td class="col-2 ">0.0005 BTC</td>
             </tr>
-            <tr class="d-flex">
+            {/* <tr class="d-flex">
               <td class="col-2 ">
                 <img src={bttlogo} alt="bttlogo" className="mr-2" />
                 BTT
@@ -111,7 +115,7 @@ export default function FeeRateComponents() {
               <td class="col-2 ">0.001</td>
               <td class="col-2 ">Free</td>
               <td class="col-2 "></td>
-            </tr>
+            </tr> */}
             <tr class="d-flex">
               <td class="col-2 ">
                 <img src={cgoldlogo} alt="cgoldlogo" className="mr-2" />
@@ -121,9 +125,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">TRC-20</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.1</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 ">0.01 CGOLD</td>
+              <td class="col-2 ">0.002 CGOLD</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -134,9 +138,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">ERC-20</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">30</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 "></td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -147,9 +151,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">ETH</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.02</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 ">Fee Dinamis</td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -160,9 +164,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">ERC-20</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.3</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 "></td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -173,9 +177,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">LTC</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.05</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 ">0.02 LTC</td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -186,9 +190,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">ERC-20</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.5</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 "></td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -199,9 +203,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">TRON</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">30</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 ">1 TRX</td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -212,9 +216,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">ERC-20</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.5</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 "></td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -225,9 +229,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">TRC-20</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">10</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 "></td>
+              <td class="col-2 ">Equal to ETH</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -238,9 +242,9 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">WAVES</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">0.3</td>
               <td class="col-2 ">Free</td>
-              <td class="col-2 ">0.05 Waves</td>
+              <td class="col-2 ">0.045 Waves</td>
             </tr>
             <tr class="d-flex">
               <td class="col-2 ">
@@ -251,7 +255,7 @@ export default function FeeRateComponents() {
               <td class="col-2 ">
                 <span className="jaringan-bg">XLM</span>
               </td>
-              <td class="col-2 ">0.001</td>
+              <td class="col-2 ">20</td>
               <td class="col-2 ">Free</td>
               <td class="col-2 ">0.0001 XLM</td>
             </tr>

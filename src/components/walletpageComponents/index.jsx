@@ -26,7 +26,7 @@ function Wallet() {
                 </div>
 
                 <div className="row">
-                  {/* lagi bug ya, nnti dlu */}
+                  {/* <h3 style={{color: 'white'}}>lagi bug ya, nnti dlu, tertanda HAKIM</h3> */}
                   <NilaiAsset />
                 </div>
               </div>

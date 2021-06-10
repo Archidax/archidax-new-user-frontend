@@ -5,8 +5,17 @@ import Slider2Announcement from "./Slider2Announcement";
 import ActivityTabInfo from "./tab/ActivityTabInfo";
 import ImportantNoticeTab from "./tab/ImportantNoticeTab";
 import NewListingTab from "./tab/NewListingTab";
-
+import {useDispatch, useSelector} from 'react-redux'
+import { beritaRecent } from "../../../../stores/berita/functions";
 export default function InfoNews() {
+  const dispatch = useDispatch()
+  const dataNewNews = useSelector((state) => state.beritaReducer.Recent);
+  React.useEffect(() => {
+    if(dataNewNews.length === 0){
+      beritaRecent(dispatch);
+    }
+  }, [dispatch]);
+
   return (
     <div className="bg-archidax card-body pt-2 font-archidax3">
       <div
@@ -86,7 +95,7 @@ export default function InfoNews() {
                   role="tabpanel"
                   aria-labelledby="pills-activity-tab"
                 >
-                  <ActivityTabInfo />
+                  <ActivityTabInfo dataNewNews={dataNewNews}/>
                 </div>
                 <div
                   class="tab-pane fade"
@@ -94,7 +103,7 @@ export default function InfoNews() {
                   role="tabpanel"
                   aria-labelledby="pills-Important-Notice-tab"
                 >
-                  <ImportantNoticeTab />
+                  <ImportantNoticeTab dataNewNews={dataNewNews} />
                 </div>
                 <div
                   class="tab-pane fade"
@@ -102,7 +111,7 @@ export default function InfoNews() {
                   role="tabpanel"
                   aria-labelledby="pills-New-Listing-tab"
                 >
-                  <NewListingTab />
+                  <NewListingTab dataNewNews={dataNewNews} />
                 </div>
               </div>
             </div>
