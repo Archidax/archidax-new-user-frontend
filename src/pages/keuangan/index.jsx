@@ -3,7 +3,7 @@ import CopyrightDashboard from '../../components/footerComponents/copyrightCompo
 import HeaderHomePage from '../../components/headerComponents/headerHomePage'
 import ContentKeuangan from './ContentKeuangan'
 
-function KeuanganPage() {
+function KeuanganPage() {    
     return (
         <div className="keuangan">
             <div className='ci-bg-primary'>
