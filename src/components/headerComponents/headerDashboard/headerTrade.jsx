@@ -61,6 +61,16 @@ function HeaderDashboard(props) {
                 </Link>
               </li>
             </ProtectedPagePasar2>
+            <li class="nav-item mx-2">
+              <Link to="/launchpad">
+                <h6 className="mb-0 font-16">Launchpad</h6>
+              </Link>
+            </li>
+            <li class="nav-item mx-2">
+              <Link to="/funding">
+                <h6 className="mb-0 font-16">Funding</h6>
+              </Link>
+            </li>
           </ul>
           <ProtectedPagePasar>
             <form class="form-inline my-2 my-lg-0">

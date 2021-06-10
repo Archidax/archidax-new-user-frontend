@@ -8,7 +8,7 @@ import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { convertNumber } from "../../../assets/js";
 import { setPasarTrading } from "../../../stores/pasartrading/functions";
 
-export default function CryptoPair({listingList}) {
+export default function CryptoPair({ listingList }) {
   const { mode } = useSelector((state) => state.daynightReducer);
   return (
     <div className="">
@@ -26,12 +26,12 @@ export default function CryptoPair({listingList}) {
               <tr className={mode ? "text-price-dark" : "text-price"}>
                 <th className="text-left">Pair</th>
                 <th className="text-left">Price</th>
-                <th className="text-left">%</th>
+                <th className="text-left">Change</th>
               </tr>
             </thead>
             <tbody>
               {listingList.map((val, index) => {
-                if(val.base === "BTC"){
+                if (val.base === "BTC") {
                   return <CryptoPairRealtime item={val} index={index} />;
                 }
               })}
@@ -67,7 +67,7 @@ function CryptoPairRealtime({ item, index }) {
   const [Data, setData] = React.useState(item.price_24hour);
 
   const handleRowClick = () => {
-    history.push(`/pasar/${Data.symbol.toString().replace('/', '_')}`);
+    history.push(`/pasar/${Data.symbol.toString().replace("/", "_")}`);
   };
   React.useEffect(() => {
     IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
@@ -89,10 +89,7 @@ function CryptoPairRealtime({ item, index }) {
         );
       }
     });
-    return () => {
-    IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);}
-    // if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-    // }
+    return () => {IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);}
   }, [item,PairSymbol]);
   
   if (Data) {
@@ -112,17 +109,12 @@ function CryptoPairRealtime({ item, index }) {
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${
-            convertNumber.tradeUpDownChange(
-              Data.price24h_change,
-              2,
-            ) === "text-price"
+            convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+            "text-price"
               ? mode
                 ? "text-price-dark"
                 : "text-price"
-              : convertNumber.tradeUpDownChange(
-                  Data.price24h_change,
-                  2,
-                )
+              : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
           }`}
         >
           {Data &&
@@ -132,17 +124,12 @@ function CryptoPairRealtime({ item, index }) {
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${
-            convertNumber.tradeUpDownChange(
-              Data.price24h_change,
-              2,
-            ) === "text-price"
+            convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+            "text-price"
               ? mode
                 ? "text-price-dark"
                 : "text-price"
-              : convertNumber.tradeUpDownChange(
-                  Data.price24h_change,
-                  2,
-                )
+              : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
           }`}
         >
           {convertNumber.tradeChange(Data.price24h_change, 2)}

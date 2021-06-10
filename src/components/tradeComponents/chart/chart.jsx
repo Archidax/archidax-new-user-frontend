@@ -38,7 +38,7 @@ export default function TradeChartCard(props) {
       ],
       enabled_features: [
         // "study_templates",
-        'hide_left_toolbar_by_default',
+        // 'hide_left_toolbar_by_default',
       ],
       // toolbar_bg: '#f4f7f9',
       fullscreen: props.fullscreen,

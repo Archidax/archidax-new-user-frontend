@@ -72,7 +72,7 @@ function NilaiAsset() {
               </div>
             </div>
             <div className="col-12 col-md-4">
-              <div className="row">
+              {/* <div className="row">
                 <div className="col-12">
                   <Link to={`/wallet/deposit`}>
                     <button className="w-100 ci-btn-custom-1 pr-2 py-2 ci-button-setor-tarik text-white ci-bg-success">
@@ -83,7 +83,7 @@ function NilaiAsset() {
                     </button>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
