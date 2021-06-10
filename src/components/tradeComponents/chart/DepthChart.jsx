@@ -19,15 +19,23 @@ export default function DepthChart() {
       // curency diganti
       title: {
         color: "white",
+        visible: false,
       },
       subtitle: {
         text: depthData ? PairSymbol : "-",
         // symbol diganti
         fontSize: "14px",
         color: "white",
+        visible: false,
       },
       labels: {
         cost: "Total",
+      },
+      "button-zoomout": {
+        visible: false,
+      },
+      "button-zoomin": {
+        visible: false,
       },
     },
     "scale-x": {

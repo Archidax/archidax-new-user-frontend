@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 export default function Chat() {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
-  const {mode} = useSelector(state => state.daynightReducer)
+  const { mode } = useSelector((state) => state.daynightReducer);
   let [Messages, setMessages] = useState([]);
   let [inputMessage, setInputMessage] = useState("");
   let [showEmoji, setShowEmoji] = useState("d-none");
@@ -73,7 +73,7 @@ export default function Chat() {
         let dataTemp = [data, ...Messages].filter((item, index) => index < 100);
         setMessages(dataTemp);
       });
-      return ()=>IoWebSocketTrade.removeEventListener(`Chatting`);
+      return () => IoWebSocketTrade.removeEventListener(`Chatting`);
     }
   }, [setMessages, Messages]);
 
@@ -108,7 +108,9 @@ export default function Chat() {
                   >
                     <div className="col-12 p-0 pb-1 d-flex align-items-center">
                       <button
-                        className={`btn p-0 ${mode ? "chat-text-color-dark" : "chat-text-color"}`}
+                        className={`btn p-0 ${
+                          mode ? "chat-text-color-dark" : "chat-text-color"
+                        }`}
                         onClick={() =>
                           setInputMessage(
                             (inputMessage += " @" + item.user.username + " "),
@@ -158,7 +160,7 @@ export default function Chat() {
                   onChange={(e) => setInputMessage(e.target.value)}
                   disabled={isLoading ? true : false}
                   required
-                  style={{border: "1px solid #161616" }}
+                  style={{ border: "1px solid #161616" }}
                 />
                 {isLoading ? (
                   <div>

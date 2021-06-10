@@ -38,26 +38,26 @@ export default function OrderPending() {
           <table>
             <thead className="">
               <tr className="text-white">
-                <th className="text-left">Waktu</th>
-                <th className="text-left">Pasangan</th>
-                <th className="text-left">Tipe Order</th>
+                <th className="text-left">Time</th>
+                <th className="text-left">Pair</th>
+                <th className="text-left">Order Type</th>
                 <th className="text-left">
-                  Harga (
+                  Price (
                   {PairSymbol ? PairSymbol.toString().split("/")[1] : null})
                 </th>
                 <th className="text-left">
-                  Jumlah (
+                  Amount (
                   {PairSymbol ? PairSymbol.toString().split("/")[0] : null})
                 </th>
                 <th className="text-left">
-                  Terjual/Terbeli (
+                  Sold/Buy (
                   {PairSymbol ? PairSymbol.toString().split("/")[0] : null})
                 </th>
                 <th className="text-left">
                   Total (
                   {PairSymbol ? PairSymbol.toString().split("/")[1] : null})
                 </th>
-                <th className="text-left">Aksi Order</th>
+                <th className="text-left">Action</th>
               </tr>
             </thead>
             <tbody>
