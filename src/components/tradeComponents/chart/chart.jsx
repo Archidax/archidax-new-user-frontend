@@ -98,7 +98,6 @@ export default function TradeChartCard(props) {
         .chart()
         .onIntervalChanged()
         .subscribe(null, function (interval, obj) {
-          console.log("interval", interval);
           if (interval === 15) obj.timeframe = "1D";
           if (interval === 30) obj.timeframe = "7D";
           if (interval === 180) obj.timeframe = "30D";
