@@ -38,7 +38,7 @@ export function ChartWallet (cb) {
   }).catch(errorHandler)
 }
 
-export function getChartDepth (market_pair, depth, setDepthData, setIsLoading) {
+export function getChartDepth (market_pair, depth, setDepthData) {
 	baseAxiosTrading({
     url:`/depthChart?market_pair=${market_pair}&depth=${depth}`,
     method:"GET",
@@ -51,9 +51,7 @@ export function getChartDepth (market_pair, depth, setDepthData, setIsLoading) {
         asks: []
       })
     }
-    setIsLoading(false)
   }).catch((err) => {
-    setIsLoading(false)
     setDepthData(null)
   })
 }
@@ -65,11 +63,9 @@ export function getVolumeChart (market_pair, depth, setVolumeChart, setIsLoading
     method:"GET",
   }).then(({data})=>{
     if(data) {
-      setVolumeChart(data)
+      setVolumeChart(data.volumeChart)
     }
-    setIsLoading(false)
   }).catch((err) => {
-    setIsLoading(false)
     console.log(err.response, 'error get chart volume data')
   })
 }

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import "zingchart/es6";
 import { getVolumeChart } from '../../../stores'
 import ZingChart from "zingchart-react";
+import {IoWebSocketCronjob} from '../../../configuration/IoWebSocket'
 
 export default function VolumeChart() {
   let [volumeData, setVolumeData] = useState(null);
@@ -26,7 +27,7 @@ export default function VolumeChart() {
     series: [
       {
         // values: [38, 42, 46, 44, 42, 44, 46, 48, 52, 50, 56, 60],
-        values: volumeData?volumeData.volumeChart:[],
+        values: volumeData?volumeData:[],
         "background-color":
           "#26A69A #26A69A" /* Single color or gradient (2 colors) */,
         "alpha-area": 0.15 /* Shaded region transparency */,
@@ -62,18 +63,27 @@ export default function VolumeChart() {
       margin: "0 0",
     },
   }
+
+  // useEffect(() => {
+  //   const symbol = PairSymbol
+  //   IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
+  //   IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
+  //     console.log(symbol, "2222222222")
+  //     if(data) {
+  //       setVolumeData(data)
+  //     }
+  //     return () => {IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);}
+  //   })
+  // }, [PairSymbol])
   
   useEffect(() => {
-    setIsLoading(true)
-    getVolumeChart(PairSymbol, 48, setVolumeData, setIsLoading);
+    getVolumeChart(PairSymbol, 48, setVolumeData);
   }, [PairSymbol]);
 
-  // console.log(volumeData, "sdadsdaw")
 
   return (
     <div>
-      { isLoading&&!volumeData?
-        <h1>loading...</h1>:
+      { volumeData&&
         <ZingChart data={optionChart} className="mt-3"></ZingChart>
       }
     </div>
