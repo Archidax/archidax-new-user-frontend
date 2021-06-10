@@ -36,11 +36,11 @@ export default function TradeChartCard(props) {
         // "mouse_wheel_scale",
         // "left_toolbar"
       ],
-      enabled_features: [
-        // "study_templates",
-        'hide_left_toolbar_by_default',
-      ],
-      // toolbar_bg: '#f4f7f9',
+      // enabled_features: [
+      //   // "study_templates",
+      //   'hide_left_toolbar_by_default',
+      // ],
+      toolbar_bg: '#140f0f',
       fullscreen: props.fullscreen,
       autosize: props.autosize,
       theme: props.theme,
@@ -56,8 +56,8 @@ export default function TradeChartCard(props) {
       overrides: {
         // "mainSeriesProperties.showCountdown": true,
         "paneProperties.background": mode ? 'black':"#ffffff",
-        "paneProperties.vertGridProperties.color": "#363c4e",
-        // "paneProperties.horzGridProperties.color": "#363c4e",
+        "paneProperties.vertGridProperties.color": "black",
+        // "paneProperties.horzGridProperties.color": "black",
         "symbolWatermarkProperties.transparency": 90,
         "scalesProperties.textColor": "#AAA",
         "mainSeriesProperties.candleStyle.wickUpColor": "#336854",
