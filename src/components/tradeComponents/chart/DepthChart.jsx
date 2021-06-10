@@ -7,7 +7,7 @@ import ZingChart from "zingchart-react";
 export default function DepthChart() {
   let [depthData, setDepthData] = useState(null);
   let [isLoading, setIsLoading] = useState(false);
-  const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
+  const { PairSymbol, price24H } = useSelector((state) => state.pasarTradingReducer);
 
   const optionChart = {
     backgroundColor: "transparent transparent",
@@ -15,19 +15,22 @@ export default function DepthChart() {
     type: "depth",
     options: {
       palette: ["#1db01d", "#FF6675"],
-      currency: `${depthData?PairSymbol.split("/")[1]:'-'}`,
+      currency: `${PairSymbol.split("/")[1]}`,
       // curency diganti
       title: {
-        color: "white",
+        visible: false
       },
       subtitle: {
-        text: depthData?PairSymbol:'-',
-        // symbol diganti
-        fontSize: "14px",
-        color: "white",
+        visible: false
       },
       labels: {
         cost: "Total",
+      },
+      "button-zoomout": {
+        visible: false,
+      },
+      "button-zoomin": {
+        visible: false,
       },
     },
     series: [
@@ -45,14 +48,15 @@ export default function DepthChart() {
   useEffect(() => {
     setIsLoading(true)
     getChartDepth(PairSymbol, 30, setDepthData, setIsLoading);
-    console.log('jalan')
   }, [PairSymbol]);
 
   return (
     <div>
-      {isLoading&&!depthData?
+      {!isLoading?
         <h1>loading...</h1>:
-        <ZingChart data={optionChart} className="mt-3"></ZingChart>
+        depthData?
+        <ZingChart data={optionChart} className="mt-3"></ZingChart>:
+          <h1>no data</h1>
       }
     </div>
   );

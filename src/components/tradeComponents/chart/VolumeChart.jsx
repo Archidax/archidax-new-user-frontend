@@ -6,7 +6,6 @@ import ZingChart from "zingchart-react";
 
 export default function VolumeChart() {
   let [volumeData, setVolumeData] = useState(null);
-  console.log(volumeData, "sdadwd")
   let [isLoading, setIsLoading] = useState(false);
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
 
