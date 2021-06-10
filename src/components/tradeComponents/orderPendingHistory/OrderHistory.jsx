@@ -10,6 +10,8 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { convertNumber } from "../../../assets/js";
 
+import noorder from "../../../assets/img/trade/no_order.svg";
+
 export default function OrderPending() {
   const { mode } = useSelector((state) => state.daynightReducer);
 
@@ -146,7 +148,7 @@ export default function OrderPending() {
                   className="text-white text-left text-center mt-5 pt-3"
                   colSpan={7}
                 >
-                  No Orders
+                  <img src={noorder} width="100px" className="mt-4" />
                 </td>
               </tr>
             )}

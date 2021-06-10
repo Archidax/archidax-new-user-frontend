@@ -12,6 +12,8 @@ import {
 import { convertNumber } from "../../../assets/js";
 import BtnAlertCancelAll from "./BtnCncelAll";
 
+import noorder from "../../../assets/img/trade/no_order.svg";
+
 export default function OrderPending() {
   const { mode } = useSelector((state) => state.daynightReducer);
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
@@ -153,7 +155,7 @@ export default function OrderPending() {
                     className="text-white text-left text-center mt-5 pt-3"
                     colSpan={8}
                   >
-                    No Orders
+                    <img src={noorder} width="100px" className="mt-4" />
                   </td>
                 </tr>
               )}

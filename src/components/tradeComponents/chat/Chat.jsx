@@ -82,7 +82,7 @@ export default function Chat() {
       <div
         style={{
           background: "transparent",
-          height: "300px",
+          height: "368px",
           borderRadius: "5px",
         }}
         className="m-1"
@@ -91,7 +91,7 @@ export default function Chat() {
           style={{
             overflow: "scroll",
             transform: "scale(1, -1)",
-            height: "300px",
+            height: "370px",
           }}
           className="px-2 chat-field"
         >
@@ -108,8 +108,10 @@ export default function Chat() {
                   >
                     <div className="col-12 p-0 pb-1 d-flex align-items-center">
                       <button
-                        className={`btn p-0 ${
-                          mode ? "chat-text-color-dark" : "chat-text-color"
+                        className={`btn p-0 font-14 ${
+                          mode
+                            ? "chat-text-color-dark chatcolor"
+                            : "chat-text-color"
                         }`}
                         onClick={() =>
                           setInputMessage(
