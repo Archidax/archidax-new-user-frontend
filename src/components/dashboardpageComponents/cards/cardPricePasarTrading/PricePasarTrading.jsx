@@ -7,7 +7,7 @@ import Translate from "../../../../i18n/Translate";
 
 function PricePasarTrading({ data }) {
   const { assets } = useSelector((state) => state.walletReducer );
-  let filteredAssets = assets.filter(el => el.balance > 0)||[]  
+  let filteredAssets = assets&&Array.isArray(assets)&&assets.filter(el => el.balance > 0)||[]  
   
   let history = useHistory();
 
@@ -19,7 +19,7 @@ function PricePasarTrading({ data }) {
           return filteredAssets.some(el => el.type === a.initialSymbol) ? -1 : filteredAssets.some(el => el.type === b.initialSymbol) ? 1 : 0
         }).map((el, index) => {
           let symbolQuote = el.symbol.split("/")[0];
-          let est = assets.find(ele => ele.type === el.initialSymbol)
+          let est = assets&&Array.isArray(assets)&&assets.find(ele => ele.type === el.initialSymbol)
           return (
             <tr key={index} style={{ height: "45px" }}>
               <td className="ci-verti-align-middle text-white text-center font-14">

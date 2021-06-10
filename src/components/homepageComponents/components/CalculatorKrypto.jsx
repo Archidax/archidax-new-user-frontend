@@ -1,5 +1,5 @@
 import React from "react";
-import Translate from "../../../i18n/Translate";
+// import Translate from "../../../i18n/Translate";
 import Calculator from "./calculator/CalculatorAsetHomepage";
 
 export default function apaItuCrypto() {

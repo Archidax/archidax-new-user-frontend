@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import axios from "axios";
 
 // Import Page
 import HomePage from "./homepage";
@@ -61,8 +60,8 @@ export default function MainPages() {
         const data = JSON.parse(localStorage.getItem("myFav"));
         dispatch(setMyFav(data[email] || []));
       }
-      dispatch(GetListingExchange());
     }
+    dispatch(GetListingExchange());
   }, [email, dispatch, isLoginAccount]);
 
   useEffect(() => {

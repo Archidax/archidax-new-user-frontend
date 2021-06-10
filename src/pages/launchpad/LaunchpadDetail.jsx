@@ -10,17 +10,11 @@ import MyTrades from './launchpaddetailsTabs/MyTrades'
 import Tim from './launchpaddetailsTabs/Tim'
 
 // Import Tabs Content Form
-import EthTabsForm from './launchpaddetailForm/EthTabsForm'
-import UsdTabsForm from './launchpaddetailForm/UsdTabsForm'
-import UsdtTabsForm from './launchpaddetailForm/UsdtTabsForm'
-import WavesTabsForm from './launchpaddetailForm/WavesTabsForm'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { buyIEOCoin, getIEOProjectByPhaseId, getUserBalance } from '../../stores'
 import { useDispatch, useSelector } from 'react-redux'
 
-import HTMLParse from 'html-react-parser'
 import BuyingForm from './launchpaddetailForm/BuyingForm'
-
 
 function LaunchpadDetail({ data }) {
     const detail = useSelector(state => state.launchpadReducer.IEODetails)
@@ -52,13 +46,10 @@ function LaunchpadDetail({ data }) {
             amount,
             total,
             type: detail.currency_base,
-            price: detail.price
+            price: detail.phase_details.token_price
         }
-        buyIEOCoin(id, data, dispatch)
+        buyIEOCoin(detail._id, data, dispatch)
     }
-
-    // handle dynamic input
-
 
     return (
         <div className="panduan-pengguna">
@@ -112,7 +103,6 @@ function LaunchpadDetail({ data }) {
                                                         role="tabpanel"
                                                         aria-labelledby="eth-tabs"
                                                     >
-                                                        {/* <h4 className="text-danger">{`Price: ${price}`}{`Amount: ${amount}`}{`Total: ${total}`}</h4> */}
 
                                                         <BuyingForm
                                                             coin={detail.currency_quote}
@@ -127,6 +117,7 @@ function LaunchpadDetail({ data }) {
                                                             setPrice={setPrice}
                                                             balance={balance}
                                                             buy={buy}
+                                                            status={detail.phase_details.active}
                                                         />
                                                     </div>
                                                 </div>
