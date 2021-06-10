@@ -310,8 +310,8 @@ export default function Limitsell() {
               id="fname"
               name="fname"
               value={
-                Number.isFinite(inputAmount / inputPrice)
-                  ? Number(inputAmount / inputPrice)
+                Number.isFinite(inputAmount * inputPrice)
+                  ? Number(inputAmount * inputPrice)
                   : 0
               }
               placeholder="0"
