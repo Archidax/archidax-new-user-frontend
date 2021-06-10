@@ -45,15 +45,16 @@ export default function DepthChart() {
     ],
   }
 
-  // useEffect(() => {
-  //   IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
-  //   IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
-  //     if(data) {
-  //       setDepthData(data)
-  //     }
-  //     return () => {IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);}
-  //   })
-  // }, [PairSymbol])
+  useEffect(() => {
+    if(PairSymbol&&IoWebSocketCronjob){
+      IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
+        if(data) {
+          setDepthData(data)
+        }
+      })
+    }
+    return () => IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`)
+  }, [PairSymbol])
 
   useEffect(() => {
     getChartDepth(PairSymbol, 30, setDepthData);

@@ -64,17 +64,15 @@ export default function VolumeChart() {
     },
   }
 
-  // useEffect(() => {
-  //   const symbol = PairSymbol
-  //   IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
-  //   IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
-  //     console.log(symbol, "2222222222")
-  //     if(data) {
-  //       setVolumeData(data)
-  //     }
-  //     return () => {IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);}
-  //   })
-  // }, [PairSymbol])
+  useEffect(() => {
+    IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
+    IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
+      if(data) {
+        setVolumeData(data)
+      }
+    })
+    return () => {IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);}
+  }, [PairSymbol])
   
   useEffect(() => {
     getVolumeChart(PairSymbol, 48, setVolumeData);
