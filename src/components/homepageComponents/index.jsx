@@ -6,8 +6,8 @@ import SliderHomepage from "./components/SliderHomepage";
 import TableHomepage from "./components/TableHomepage";
 import ApaItuCrypto from "./components/ApaItuCrypto";
 import CalculatorCrypto from "./components/CalculatorKrypto";
-import KenapaMemilihCrypto from "./components/KenapaMemilihCrypto";
-import NewsHomepage from "./components/NewsHomepage";
+// import KenapaMemilihCrypto from "./components/KenapaMemilihCrypto";
+// import NewsHomepage from "./components/NewsHomepage";
 import FooterHomePage from "../footerComponents/footerHomePage/FooterHomePage";
 
 import { GetListingExchange } from "../../stores";
@@ -19,7 +19,7 @@ function Home(props) {
 
   React.useEffect(() => {
     GetListingExchange(dispatch);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="navbar-homePage">

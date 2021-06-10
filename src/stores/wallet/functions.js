@@ -11,7 +11,9 @@ export const getMyAssets = (dispatch) => {
     .then(({ data }) => {
         dispatch({ type: "SET_ASSETS", data: data })
     })
-    .catch(errorHandler)
+    .catch((err)=>{
+        dispatch({ type: "SET_ASSETS", data: [] });
+    });
 }
 
 export const getMyProfit = (initialSymbol, dateFrom, dateTo, cb, isLoading) => {
