@@ -1,6 +1,6 @@
 import React from "react";
 import {useHistory} from 'react-router-dom'
-
+import moment from "moment";
 export default function NewListingTab({dataNewNews}) {
   const history = useHistory()
   return (
@@ -10,14 +10,17 @@ export default function NewListingTab({dataNewNews}) {
           dataNewNews.map((val, index) => {
             if(val.category === "Berita"){
               return (
-                <div className="col-12 px-0 py-2 announcements-content w-100">
+                <div onClick={e => {
+                  history.push(`/berita/${val.slug}`)
+                }} 
+                className="col-12 px-0 py-2 announcements-content">
                   <a onClick={e => {
                     e.preventDefault()
-                    history.push(`/berita/${val.slug}`)
-                  }} className="text-white w-70">
-                    {val.title}
+                  }} style={{width: "80%"}} className="text-white">
+                    <span style={{cursor: "pointer"}} >{val.title}</span>
                   </a>
-                  <div className="mr-2">({new Date(val.updatedAt).getDate()} - {new Date(val.updatedAt).getMonth()+1})</div>
+                  <div className="mr-2">{
+                  moment(val.updatedAt).format("DD MMMM YYYY",)}</div>
                 </div>
               )
             }

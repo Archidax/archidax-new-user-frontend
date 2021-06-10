@@ -96,7 +96,7 @@ export default function InfoNews() {
                   role="tabpanel"
                   aria-labelledby="pills-activity-tab"
                 >
-                  <ActivityTabInfo />
+                  <ActivityTabInfo dataNewNews={dataNewNews}/>
                 </div>
                 <div
                   class="tab-pane fade"
@@ -104,7 +104,7 @@ export default function InfoNews() {
                   role="tabpanel"
                   aria-labelledby="pills-Important-Notice-tab"
                 >
-                  <ImportantNoticeTab />
+                  <ImportantNoticeTab dataNewNews={dataNewNews} />
                 </div>
                 <div
                   class="tab-pane fade"
