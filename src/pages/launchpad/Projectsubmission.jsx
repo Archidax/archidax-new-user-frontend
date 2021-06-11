@@ -193,6 +193,11 @@ function LaunchpadPorto() {
         }
         console.log(memberDetails)
 
+
+        // let startTime = new Date(phaseDetails2[0].startDate)
+        // let startFormat = `${startTime.getFullYear()}-0${startTime.getMonth() + 1}-${startTime.getDate()} ${startTime.getHours()}:${startTime.getMinutes()}`;
+        // console.log(startFormat, "<<startformat")
+
         // Actions redux
         launchNewProject(data)
     }
