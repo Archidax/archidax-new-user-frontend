@@ -31,7 +31,7 @@ export default class Slider1Announcement extends Component {
         </div>
         <div>
           <div className="bg-news">
-            <img src={banner2} alt="" />
+            <img src={banner1} alt="" />
           </div>
         </div>
       </Slider>
