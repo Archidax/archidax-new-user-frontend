@@ -28,12 +28,12 @@ export default function InfoNews() {
           <div className="mb-2">
             <h4>Announcements</h4>
           </div>
-          <div className="row">
-            <div className="col-6 pt-3">
+          <div className="row no-gutters">
+            <div className="col-6 pt-3 pr-1">
               <Slider1Announcement />
               {/* <img src={bnbbanner} width="100%" /> */}
             </div>
-            <div className="col-6 pt-3">
+            <div className="col-6 pt-3 pl-1">
               <Slider2Announcement />
               {/* <img src={wavesbanner} width="100%" /> */}
             </div>
@@ -62,7 +62,7 @@ export default function InfoNews() {
                     aria-controls="pills-activity"
                     aria-selected="true"
                   >
-                    New Listing
+                    News
                   </a>
                 </li>
                 <li class="nav-item col px-0">
@@ -75,7 +75,7 @@ export default function InfoNews() {
                     aria-controls="pills-Important-Notice"
                     aria-selected="false"
                   >
-                    Important Notice
+                    Announcemet
                   </a>
                 </li>
                 <li class="nav-item col px-0">
@@ -88,7 +88,7 @@ export default function InfoNews() {
                     aria-controls="pills-New-Listing"
                     aria-selected="false"
                   >
-                    Activity
+                    Article
                   </a>
                 </li>
               </ul>

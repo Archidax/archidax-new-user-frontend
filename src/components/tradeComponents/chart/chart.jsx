@@ -36,10 +36,10 @@ export default function TradeChartCard(props) {
         // "mouse_wheel_scale",
         // "left_toolbar"
       ],
-      // enabled_features: [
-      //   // "study_templates",
-      //   'hide_left_toolbar_by_default',
-      // ],
+      enabled_features: [
+        // "study_templates",
+        // 'hide_left_toolbar_by_default',
+      ],
       toolbar_bg: '#140f0f',
       fullscreen: props.fullscreen,
       autosize: props.autosize,
