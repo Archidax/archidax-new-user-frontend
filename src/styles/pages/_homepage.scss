@@ -826,12 +826,16 @@
 }
 
 .bg-news1 {
-  background-image: url(../../assets/img/homepage/infonews/frame4.png);
-  background-size: cover;
+  // background-image: url(../../assets/img/bnb.jpg);
+  // background-size: cover;
+}
+.bg-news img {
+  width: 100%;
+  height: auto
 }
 
 .bg-news2 {
-  background-image: url(../../assets/img/homepage/infonews/frame5.png);
+  background-image: url(../../assets/img/waves.jpg);
   background-size: cover;
 }
 

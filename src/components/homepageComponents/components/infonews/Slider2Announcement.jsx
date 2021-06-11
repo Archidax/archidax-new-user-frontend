@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import banner1 from '../../../../assets/img/bnb.jpg'
+import banner2 from '../../../../assets/img/waves.jpg'
 
-export default class Slider2Announcement extends Component {
+export default class Slider1Announcement extends Component {
   render() {
     const settings = {
       dots: false,
@@ -18,74 +20,18 @@ export default class Slider2Announcement extends Component {
       //   console.log("after change", currentSlide);
       // },
       autoplay: true,
-      autoplaySpeed: 4500,
+      autoplaySpeed: 4000,
     };
     return (
       <Slider {...settings}>
         <div>
-          <div className="bg-news3 px-4 py-3">
-            <h6>Copy Trading</h6>
-            <h5>Trade like a Pro</h5>
-            <h6 className="mb-0">Follow Your Favorite Trader</h6>
-            <h6>with One-Click</h6>
-            <button className="mt-3 px-3 py-1" style={{ border: "none" }}>
-              Join Now
-            </button>
+          <div className="bg-news">
+            <img src={banner2} alt="" />
           </div>
         </div>
         <div>
-          <div className="bg-news4 px-4 py-3">
-            <h6>Copy Trading</h6>
-            <h5>Trade like a Pro</h5>
-            <h6 className="mb-0">Follow Your Favorite Trader</h6>
-            <h6>with One-Click</h6>
-            <button className="mt-3 px-3 py-1" style={{ border: "none" }}>
-              Join Now
-            </button>
-          </div>
-        </div>
-        <div>
-          <div className="bg-news1 px-4 py-3">
-            <h6>Copy Trading</h6>
-            <h5>Trade like a Pro</h5>
-            <h6 className="mb-0">Follow Your Favorite Trader</h6>
-            <h6>with One-Click</h6>
-            <button className="mt-3 px-3 py-1" style={{ border: "none" }}>
-              Join Now
-            </button>
-          </div>
-        </div>
-        <div>
-          <div className="bg-news2 px-4 py-3">
-            <h6>Copy Trading</h6>
-            <h5>Trade like a Pro</h5>
-            <h6 className="mb-0">Follow Your Favorite Trader</h6>
-            <h6>with One-Click</h6>
-            <button className="mt-3 px-3 py-1" style={{ border: "none" }}>
-              Join Now
-            </button>
-          </div>
-        </div>
-        <div>
-          <div className="bg-news3 px-4 py-3">
-            <h6>Copy Trading</h6>
-            <h5>Trade like a Pro</h5>
-            <h6 className="mb-0">Follow Your Favorite Trader</h6>
-            <h6>with One-Click</h6>
-            <button className="mt-3 px-3 py-1" style={{ border: "none" }}>
-              Join Now
-            </button>
-          </div>
-        </div>
-        <div>
-          <div className="bg-news4 px-4 py-3">
-            <h6>Copy Trading</h6>
-            <h5>Trade like a Pro</h5>
-            <h6 className="mb-0">Follow Your Favorite Trader</h6>
-            <h6>with One-Click</h6>
-            <button className="mt-3 px-3 py-1" style={{ border: "none" }}>
-              Join Now
-            </button>
+          <div className="bg-news">
+            <img src={banner2} alt="" />
           </div>
         </div>
       </Slider>
