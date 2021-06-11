@@ -9,7 +9,7 @@ function ContentKeuangan() {
     let [MarketData, setMarketData] = React.useState([]);
     React.useEffect(() => {
         HomeMarket((Market) => {
-            Market.length&&setMarketData(Market.filter(el => {return el.symbol.split("/")[1] === "IDR"}));
+            Market.length&&setMarketData(Market.filter(el => {return el.symbol.split("/")[1] === "USDT"}));
         });
     }, [setMarketData]);
     

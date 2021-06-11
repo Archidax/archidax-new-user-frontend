@@ -16,7 +16,7 @@ export default function BannerHomepage() {
         <source src={video1} type="video/mp4" />
       </video>
       <div className="content-home">
-        <div className="min-h-65-r pt-5 pb-4 ">
+        <div className="min-h-65-r pt-4 pb-4 ">
           <div className="container-homepage">
             <div className="row banner-padding-responsive">
               <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
