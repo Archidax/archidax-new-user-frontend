@@ -3,7 +3,7 @@ import Translate from "../../../i18n/Translate";
 
 export default function apaItuCrypto() {
   return (
-    <div className="bg-apa-itu">
+    <div className="bg-apa-itu ">
       <div className="container">
         <div
           className="p-4 text-center"

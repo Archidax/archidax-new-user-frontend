@@ -8,15 +8,16 @@ import group from "../../../assets/img/homepage/logoOrg/group.png";
 import video1 from "../../../assets/video/bg_homepage1.mp4";
 
 import Translate from "../../../i18n/Translate";
+import HeaderHomePage from "../../headerComponents/headerHomePage";
 
 export default function BannerHomepage() {
   return (
     <div>
-      <video id="homepageVideo" autoPlay loop muted style={{ height: "56vh" }}>
+      <video id="homepageVideo" autoPlay loop muted>
         <source src={video1} type="video/mp4" />
       </video>
       <div className="content-home">
-        <div className="min-h-65-r pt-4 pb-4 ">
+        <div className="min-h-65-r pt-3 pb-5 ">
           <div className="container-homepage">
             <div className="row banner-padding-responsive">
               <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
