@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import banner1 from '../../../../assets/img/bnb.jpg'
 import banner2 from '../../../../assets/img/waves.jpg'
+import banner3 from '../../../../assets/img/sushiswap.png'
+import banner4 from '../../../../assets/img/ltc.png'
 
 export default class Slider1Announcement extends Component {
   render() {
@@ -32,6 +34,16 @@ export default class Slider1Announcement extends Component {
         <div>
           <div className="bg-news">
             <img src={banner2} alt="" />
+          </div>
+        </div>
+        <div>
+          <div className="bg-news">
+            <img src={banner3} alt="" />
+          </div>
+        </div>
+        <div>
+          <div className="bg-news">
+            <img src={banner4} alt="" />
           </div>
         </div>
       </Slider>
