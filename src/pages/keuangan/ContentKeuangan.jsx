@@ -2,17 +2,18 @@ import React from 'react';
 import CardKeuangan from './CardKeuangan';
 import SliderKeuangan from './SliderKeuangan';
 import TableKeuangan from './table';
+import Popup from '../../components/popUps'
 
 import { HomeMarket } from "../../stores/chart/functions";
 
 function ContentKeuangan() {
-    let [MarketData, setMarketData] = React.useState([]);
+    let [MarketData, setMarketData] = React.useState(null);
     React.useEffect(() => {
         HomeMarket((Market) => {
             Market.length&&setMarketData(Market.filter(el => {return el.symbol.split("/")[1] === "USDT"}));
         });
     }, [setMarketData]);
-    
+
     return (
         <div className="container-fluid keuangan pt-4">
             <CardKeuangan MarketData={MarketData}/>
@@ -24,10 +25,10 @@ function ContentKeuangan() {
                     <SliderKeuangan MarketData={MarketData}/>
                 </div>
             </div>
-            
             <TableKeuangan MarketData={MarketData}/>
         </div>
     )
+    
 }
 
 export default ContentKeuangan

@@ -163,12 +163,12 @@ export default function MainPages() {
             <Route path="/gauth">
               <GAuth />
             </Route>
-            <Route path={`/chart/:pair`}>
+            {/* <Route path={`/chart/:pair`}>
               <AdvanceChart />
-            </Route>
-            <Route path={`/marketdepth/:symbol`}>
+            </Route> */}
+            {/* <Route path={`/marketdepth/:symbol`}>
               <DepthChart />
-            </Route>
+            </Route> */}
             <Route path={"/pasar/:symbol"}>
               <Pasar />
             </Route>
