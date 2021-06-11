@@ -1,11 +1,10 @@
 import React from 'react';
 import {convertNumber} from '../../../assets/js'
+import ReactLoading from 'react-loading';
 
 function Table24Jam({MarketData}) {
 
-    const tableHeader = [
-        "Rank", "Nama Koin", "Harga Terakhir", "Volume",
-      ];
+    const tableHeader = [ "Rank", "Nama Koin", "Harga Terakhir", "Volume" ];
 
     return (
         <div>
@@ -25,8 +24,8 @@ function Table24Jam({MarketData}) {
                     </thead>
                     <tbody>
                     {
-                        MarketData&&MarketData.length&&MarketData.sort((a, b) => b.price24h_priceVolume - a.price24h_priceVolume)
-                        .map((item, index) => {
+                        MarketData?
+                        MarketData.length&&MarketData.sort((a, b) => b.price24h_priceVolume - a.price24h_priceVolume).map((item, index) => {
                         return (
                             <tr key={index} className="table-row-custom">
                                 <td className="font-12">#{index+1}</td>
@@ -40,7 +39,10 @@ function Table24Jam({MarketData}) {
                                 </td>
                             </tr>
                         )
-                        })
+                        }):
+                        <>
+                            <ReactLoading type={'spin'} color={'#ffffff'} height={'60%'} width={'60%'} />
+                        </>
                     }
                     </tbody>
                 </table>
