@@ -5,18 +5,19 @@ import Slider2Announcement from "./Slider2Announcement";
 import ActivityTabInfo from "./tab/ActivityTabInfo";
 import ImportantNoticeTab from "./tab/ImportantNoticeTab";
 import NewListingTab from "./tab/NewListingTab";
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { beritaRecent } from "../../../../stores/berita/functions";
+import bnbbanner from "../../../../assets/img/homepage/announcements/bnb.jpg";
+import wavesbanner from "../../../../assets/img/homepage/announcements/waves.jpg";
 export default function InfoNews() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const dataNewNews = useSelector((state) => state.beritaReducer.Recent);
   React.useEffect(() => {
-    if(!dataNewNews){
+    if (dataNewNews.length === 0) {
       beritaRecent(dispatch);
     }
   }, [dispatch]);
 
-  console.log(dataNewNews)
   return (
     <div className="bg-archidax card-body pt-2 font-archidax3">
       <div
@@ -30,9 +31,11 @@ export default function InfoNews() {
           <div className="row">
             <div className="col-6 pt-3">
               <Slider1Announcement />
+              {/* <img src={bnbbanner} width="100%" /> */}
             </div>
             <div className="col-6 pt-3">
               <Slider2Announcement />
+              {/* <img src={wavesbanner} width="100%" /> */}
             </div>
           </div>
         </div>
@@ -59,7 +62,7 @@ export default function InfoNews() {
                     aria-controls="pills-activity"
                     aria-selected="true"
                   >
-                    Activity
+                    New Listing
                   </a>
                 </li>
                 <li class="nav-item col px-0">
@@ -85,7 +88,7 @@ export default function InfoNews() {
                     aria-controls="pills-New-Listing"
                     aria-selected="false"
                   >
-                    New Listing
+                    Activity
                   </a>
                 </li>
               </ul>
@@ -96,7 +99,7 @@ export default function InfoNews() {
                   role="tabpanel"
                   aria-labelledby="pills-activity-tab"
                 >
-                  <ActivityTabInfo dataNewNews={dataNewNews}/>
+                  <NewListingTab dataNewNews={dataNewNews} />
                 </div>
                 <div
                   class="tab-pane fade"
@@ -112,7 +115,7 @@ export default function InfoNews() {
                   role="tabpanel"
                   aria-labelledby="pills-New-Listing-tab"
                 >
-                  <NewListingTab dataNewNews={dataNewNews} />
+                  <ActivityTabInfo dataNewNews={dataNewNews} />
                 </div>
               </div>
             </div>

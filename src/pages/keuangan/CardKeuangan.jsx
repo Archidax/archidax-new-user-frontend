@@ -10,11 +10,11 @@ import { convertNumber } from '../../assets/js'
 
 
 function CardKeuangan({MarketData}) {
-    let bitCoin = MarketData.find(el => { return el.symbol === "BTC/IDR" })
-    let ethereum = MarketData.find(el => { return el.symbol === "ETH/IDR" })
-    let Bnb = MarketData.find(el => { return el.symbol === "BNB/IDR" })
-    let cgold = MarketData.find(el => { return el.symbol === "CGOLD/IDR" })
-    let waves = MarketData.find(el => { return el.symbol === "WAVES/IDR" })
+    let bitCoin = MarketData.find(el => { return el.symbol === "BTC/USDT" })
+    let ethereum = MarketData.find(el => { return el.symbol === "ETH/USDT" })
+    let Bnb = MarketData.find(el => { return el.symbol === "BNB/USDT" })
+    let cgold = MarketData.find(el => { return el.symbol === "CGOLD/USDT" })
+    let waves = MarketData.find(el => { return el.symbol === "WAVES/USDT" })
     return (
         <div className="row">
             <div className="col-12 col-md-3">
