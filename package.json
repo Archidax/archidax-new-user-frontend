@@ -21,6 +21,7 @@
     "intl-messageformat-parser": "^6.4.4",
     "js-file-download": "^0.4.12",
     "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
     "node-sass": "^4.14.1",
     "npm": "^7.5.4",
     "pure-react-carousel": "^1.27.6",
