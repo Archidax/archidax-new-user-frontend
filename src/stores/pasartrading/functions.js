@@ -229,10 +229,10 @@ export function GetListingExchange () {
                 url:`${baseUrlTrade}${baseUrlTradeVersion}/ListingExchange`,
                 method:"GET"
             })
-            console.log(data,"DATA <<<<<");
+            // console.log(data,"DATA <<<<<");
             dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
         }catch (err) {
-            console.log(err," DATA <<<<< error");
+            // console.log(err," DATA <<<<< error");
             dispatch(SET_RX_LISTING_EXCHANGE([]));
         }
     }
