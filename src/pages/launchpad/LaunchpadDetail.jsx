@@ -15,6 +15,7 @@ import { buyIEOCoin, getIEOProjectByPhaseId, getUserBalance } from '../../stores
 import { useDispatch, useSelector } from 'react-redux'
 
 import BuyingForm from './launchpaddetailForm/BuyingForm'
+import HTMLParse from 'html-react-parser'
 
 function LaunchpadDetail({ data }) {
     const detail = useSelector(state => state.launchpadReducer.IEODetails)
@@ -80,9 +81,9 @@ function LaunchpadDetail({ data }) {
                                             <h3 className="label-title text-gold my-1">Name: {detail.asset_name}</h3>
                                             <h3 className="label-title text-gold">Industry: {detail.industry}</h3>
                                             <div className="label-title">
-                                                {/* {
+                                                {
                                                     HTMLParse(detail.project_detail)
-                                                } */}
+                                                }
                                             </div>
                                         </article>
                                     </div>
