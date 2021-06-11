@@ -34,31 +34,8 @@ export default function Price() {
     state ? state.pasarTradingReducer : {},
   );
 
-  // const listenToListing = () => {
-  //   const Price = supabase
-  //     .from("Price")
-  //     .on("*", (payload) => {
-  //       dispatch({ type: "SET_UPDATELISTING", data: payload.new });
-  //       if (payload.new.symbol === PairSymbol) {
-  //         dispatch(
-  //           setPasarTrading({
-  //             Open: payload.new.open,
-  //             High: payload.new.high,
-  //             Low: payload.new.low,
-  //             Close: payload.new.close,
-  //             Change: payload.new.change,
-  //             Volume: payload.new.volumePrice,
-  //             VolumeCrypto: payload.new.volumeCoin,
-  //           }),
-  //         );
-  //       }
-  //     })
-  //     .subscribe();
-  // };
-
   React.useEffect(() => {
     GetListingExchange(dispatch);
-    // listenToListing();
   }, []);
 
   React.useEffect(() => {
@@ -206,7 +183,7 @@ export default function Price() {
               <div
                 className={`${
                   mode ? "text-price-bottom-dark" : "text-price-bottom"
-                } font-22`}
+                } font-22 `}
               >
                 {PairSymbol ? PairSymbol : null}
               </div>

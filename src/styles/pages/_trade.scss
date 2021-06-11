@@ -87,7 +87,7 @@ $price-text: black;
 $price-text2: white;
 $tab-header: #00688f;
 $tab-hover: rgba(232, 232, 232, 1);
-$chat-bg: rgba(189, 189, 189, 0.3);
+$chat-bg: black;
 $chat-color: black;
 
 :root {
@@ -366,6 +366,23 @@ $chat-color: black;
     border-radius: 0px;
     height: 40px;
     font-size: 14px;
+  }
+}
+
+//
+.tabs-global-dark2 {
+  .nav .nav-item .nav-link {
+    background: transparent;
+    color: #f9ba42;
+    border-radius: 0px;
+    font-size: 16px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #f9ba42;
+    background: transparent;
+    border-radius: 0px;
+    font-size: 16px;
   }
 }
 

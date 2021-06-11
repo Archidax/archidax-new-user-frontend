@@ -30,10 +30,10 @@ function SliderKeuangan({MarketData}) {
                   cursor: "pointer",
                   display:'flex'
                 }}
-              >
-                <img src={item.icon} alt="" width={32}/>
-                <p className="font-14 mb-0 ml-2">{item.initialSymbol} tertinggi {convertNumber.toRupiah(item.price24h_high)} terendah {convertNumber.toRupiah(item.price24h_low)} harga terakhir {convertNumber.toRupiah(item.price24h_close)} ({convertNumber.tradeChange(item.price24h_change, 2)})</p>
-              </div>
+                >
+                  <img src={item.icon} alt="" width={32}/>
+                  <p className="font-14 mb-0 ml-2">{item.initialSymbol} tertinggi {convertNumber.toRupiah(item.price24h_high)} terendah {convertNumber.toRupiah(item.price24h_low)} harga terakhir {convertNumber.toRupiah(item.price24h_close)} ({convertNumber.tradeChange(item.price24h_change, 2)})</p>
+                </div>
               </div>
             )
           })
