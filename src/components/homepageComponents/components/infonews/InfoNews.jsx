@@ -28,12 +28,12 @@ export default function InfoNews() {
           <div className="mb-2">
             <h4>Announcements</h4>
           </div>
-          <div className="row">
-            <div className="col-6 pt-3">
+          <div className="row no-gutters">
+            <div className="col-6 pt-3 pr-1">
               <Slider1Announcement />
               {/* <img src={bnbbanner} width="100%" /> */}
             </div>
-            <div className="col-6 pt-3">
+            <div className="col-6 pt-3 pl-1">
               <Slider2Announcement />
               {/* <img src={wavesbanner} width="100%" /> */}
             </div>
