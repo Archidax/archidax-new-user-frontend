@@ -119,7 +119,7 @@ export default {
         // Section1 
         db_terverifikasi: "Verified",
         db_menunggu_verifikasi: "Waiting for Verification ",
-        db_belum_verifikasi: "Haven't Verified ",
+        db_belum_verifikasi: "Unverified ",
         db_ip: "IP Address",
         db_terakhir: "Last Online",
         db_google: "Google Authenticator",

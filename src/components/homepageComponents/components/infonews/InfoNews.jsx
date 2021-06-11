@@ -62,7 +62,7 @@ export default function InfoNews() {
                     aria-controls="pills-activity"
                     aria-selected="true"
                   >
-                    New Listing
+                    News
                   </a>
                 </li>
                 <li class="nav-item col px-0">
@@ -75,7 +75,7 @@ export default function InfoNews() {
                     aria-controls="pills-Important-Notice"
                     aria-selected="false"
                   >
-                    Important Notice
+                    Announcemet
                   </a>
                 </li>
                 <li class="nav-item col px-0">
@@ -88,7 +88,7 @@ export default function InfoNews() {
                     aria-controls="pills-New-Listing"
                     aria-selected="false"
                   >
-                    Activity
+                    Article
                   </a>
                 </li>
               </ul>
