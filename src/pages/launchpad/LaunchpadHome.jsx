@@ -100,11 +100,12 @@ function LaunchpadHome() {
                                             </div>
                                             <div className="col-12 col-md-12 text-white d-flex align-items-center justify-content-between">
                                                 <p className="mb-0 font-14 text-secondary">Start Date</p>
-                                                <p className="mb-0 font-14 ci-text-up">{moment(data.start_sale_time).format('LLL')}</p>
+                                                {/* <p className="mb-0 font-14 ci-text-up"> {moment(data.start_sale_time).format('YYYY-MM-DD hh:mm')}</p> */}
+                                                <p className="mb-0 font-14 ci-text-up"> {moment(data.start_sale_time).local().format('YYYY-MM-DD hh:mm')}</p>
                                             </div>
                                             <div className="col-12 col-md-12 text-white d-flex align-items-center justify-content-between">
                                                 <p className="mb-0 font-14 text-secondary">End Date</p>
-                                                <p className="mb-0 font-14 ci-text-down">{moment(data.end_sale_time).format('LLL')}</p>
+                                                <p className="mb-0 font-14 ci-text-down">{moment(data.end_sale_time).local().format('YYYY-MM-DD hh:mm')}</p>
                                             </div>
                                         </div>
                                     </div>
