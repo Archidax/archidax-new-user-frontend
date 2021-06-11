@@ -11,6 +11,8 @@ function TableTopGainer({MarketData}) {
         <div>
             <h3 className="font-14 text-gold"><img src={panahGain} alt="" width={10}/> Top Gainer</h3>
             <div className="table-responsive table-keuangan">
+            {
+                MarketData?
                 <table className="table table-hover">
                     <thead>
                     <tr>
@@ -25,7 +27,6 @@ function TableTopGainer({MarketData}) {
                     </thead>
                     <tbody>
                     {
-                        MarketData?
                         MarketData.length&&MarketData.sort((a, b) => b.price24h_change - a.price24h_change)
                         .map((item, index) => {
                             return (
@@ -38,13 +39,16 @@ function TableTopGainer({MarketData}) {
                                     <td className={`font-12 ${convertNumber.tradeUpDownChange(item.price24h_change, 2)}`}>{convertNumber.tradeChange(item.price24h_change, 2)}</td>
                                 </tr>
                             )
-                        }):
-                        <>
-                            <ReactLoading type={'spin'} color={'#ffffff'} height={'30%'} width={'30%'} />
-                        </>
+                        })
                     }
                     </tbody>
-                </table>
+                </table>:
+                <>  
+                    <div style={{width: "100%", height: "200px"}} className="d-flex justify-content-center align-items-center">
+                        <ReactLoading type={'spin'} color={'#ffffff'} height={'50px'} width={'50px'} />
+                    </div>
+                </>
+            }
             </div>
         </div>
     )
