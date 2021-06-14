@@ -90,7 +90,7 @@ export const convertNumber = {
             } else if(Number(Number(change).toFixed(digits||2))<0){
                 return "text-danger";
             } else{
-                return "";
+                return "text-white";
             }
         }
     },
@@ -113,8 +113,10 @@ export const convertNumber = {
                 return trueCond;
             } else if(Number(Number(change).toFixed(digits||2))<0){
                 return falseCond;
-            } else{
-                return zeroCond;
+            } else {
+                if(zeroCond) {
+                    return zeroCond;
+                }
             }
         }
     },

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Chart from "./chart";
 import { useSelector } from "react-redux";
 import { baseUrlTrade, baseUrlTradeVersion } from "../../../stores/index";
-// import { useParamsAsState } from "../../../../helpers/routetostate";
 
 export default function TradeChart() {
   const { mode } = useSelector((state) => state.daynightReducer);

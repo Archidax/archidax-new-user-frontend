@@ -42,13 +42,13 @@ function CardDashboardWallets() {
                 {Translate('db_estimasi_nilai_aset')}
               </h6>
               <p className="font-15" style={{ fontWeight: "bold" }}>
-                Rp.{convertNumber.toMoney(Math.round(est))}
+                USDT {convertNumber.toMoney(Math.round(est))}
               </p>
             </div>
             <div className="col">
               <h6 className="font-bold font-12 text-gold mb-0">Saldo</h6>
               <p className="font-15" style={{ fontWeight: "bold" }}>
-                Rp.{convertNumber.toMoney(Math.round(saldo))}
+                USDT {convertNumber.toMoney(Math.round(saldo))}
               </p>
             </div>
           </div>

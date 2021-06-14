@@ -21,25 +21,25 @@ export default function InfoNews() {
   return (
     <div className="bg-archidax card-body pt-2 font-archidax3">
       <div
-        className="bg-archidax row col-10 offset-1"
+        className="bg-archidax row col-lg-10 offset-lg-1 col-sm-12"
         // style={{ minHeight: "40vh", width: "80%", margin: "auto" }}
       >
-        <div className="col-7 card-body text-white">
-          <div className="mb-2">
+        <div className="col-lg-7 col-sm-12 card-body text-white">
+          <div className="mx-3 mb-2">
             <h4>Announcements</h4>
           </div>
-          <div className="row">
-            <div className="col-6 pt-3">
+          <div className="row no-gutters">
+            <div className="col-lg-6 col-sm-12 pt-3">
               <Slider1Announcement />
               {/* <img src={bnbbanner} width="100%" /> */}
             </div>
-            <div className="col-6 pt-3">
+            <div className="col-lg-6 col-sm-12 pt-3">
               <Slider2Announcement />
               {/* <img src={wavesbanner} width="100%" /> */}
             </div>
           </div>
         </div>
-        <div className="col-5 card-body text-white">
+        <div className="col-lg-5 col-sm-12 card-body text-white">
           <div className="announcement-homepage mb-2">
             <h4 className="font-archidax2">News</h4>
             {/* <h6 style={{ fontSize: "12px", marginLeft: "20px" }}>More</h6> */}

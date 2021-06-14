@@ -10,21 +10,21 @@ import { convertNumber } from '../../assets/js'
 
 
 function CardKeuangan({MarketData}) {
-    let bitCoin = MarketData.find(el => { return el.symbol === "BTC/USDT" })
-    let ethereum = MarketData.find(el => { return el.symbol === "ETH/USDT" })
-    let Bnb = MarketData.find(el => { return el.symbol === "BNB/USDT" })
-    let cgold = MarketData.find(el => { return el.symbol === "CGOLD/USDT" })
-    let waves = MarketData.find(el => { return el.symbol === "WAVES/USDT" })
+    let bitCoin = MarketData?MarketData.find(el => { return el.initialSymbol === "BTC" }):null
+    let ethereum = MarketData?MarketData.find(el => { return el.initialSymbol === "ETH" }):null
+    let Bnb = MarketData?MarketData.find(el => { return el.initialSymbol === "BNB" }):null
+    let cgold = MarketData?MarketData.find(el => { return el.initialSymbol === "CGOLD" }):null
+    let waves = MarketData?MarketData.find(el => { return el.initialSymbol === "WAVES" }):null
     return (
         <div className="row">
             <div className="col-12 col-md-3">
                 <div className="card ci-customCard-1 h-100">
                     <div className="card-body py-0 px-0 card-keuangan">
-                        <ChartKeuangan height={315} dataChart={bitCoin&&bitCoin.chart?bitCoin.chart:null} dataChange={bitCoin&&bitCoin.price24h_change||null}/>                        
+                        <ChartKeuangan height={315} dataChart={bitCoin?bitCoin.chart:null} dataChange={bitCoin&&bitCoin.price24h_change||0}/>                        
                         <div className="px-3 card-text-keuangan">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center">
-                                    <img src={bitCoin?.icon} alt="..." width={32}/>
+                                    {bitCoin&&<img src={bitCoin?.icon} alt="..." width={32}/>}
                                     <h3 className="font-16 ci-text-white ml-2">{bitCoin?bitCoin.assetName:"-"}</h3>
                                 </div>
                                 <div className="d-flex justify-content-between">
@@ -78,11 +78,11 @@ function CardKeuangan({MarketData}) {
                     <div className="col-12 pb-2">
                         <div className="card ci-customCard-1 h-100">
                             <div className="card-body py-0 px-0 card-keuangan">
-                                <ChartKeuangan height={150} dataChart={ethereum&&ethereum.chart?ethereum.chart:null} dataChange={ethereum&&ethereum.price24h_change||null}/>
+                                <ChartKeuangan height={150} dataChart={ethereum?ethereum.chart:null} dataChange={ethereum&&ethereum.price24h_change||0}/>
                                 <div className="px-3 card-text-keuangan" >
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="d-flex align-items-center">
-                                            <img src={ethereum?.icon} alt="..." width={32}/>
+                                            {ethereum&&<img src={ethereum?.icon} alt="..." width={32}/>}
                                             <h3 className="font-16 ci-text-white ml-2">{ethereum?ethereum.assetName:"-"}</h3>
                                         </div>
                                         <div className="d-flex justify-content-between">
@@ -134,11 +134,11 @@ function CardKeuangan({MarketData}) {
                     <div className="col-12 pt-2">
                         <div className="card ci-customCard-1 h-100">
                             <div className="card-body py-0 px-0 card-keuangan">
-                                <ChartKeuangan height={150} dataChart={Bnb&&Bnb.chart?Bnb.chart:null} dataChange={Bnb&&Bnb.price24h_change||null}/>
+                                <ChartKeuangan height={150} dataChart={Bnb?Bnb.chart:null} dataChange={Bnb&&Bnb.price24h_change||0}/>
                                 <div className="px-3 card-text-keuangan" >
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="d-flex align-items-center">
-                                            <img src={Bnb?.icon} alt="..." width={32}/>
+                                            {Bnb&&<img src={Bnb?.icon} alt="..." width={32}/>}
                                             <h3 className="font-16 ci-text-white ml-2">{Bnb?Bnb.assetName:"-"}</h3>
                                         </div>
                                         <div className="d-flex justify-content-between">
@@ -192,11 +192,11 @@ function CardKeuangan({MarketData}) {
             <div className="col-12 col-md-3">
                 <div className="card ci-customCard-1 h-100">
                     <div className="card-body  py-0 px-0 card-keuangan">
-                        <ChartKeuangan height={315} dataChart={cgold&&cgold.chart?cgold.chart:null} dataChange={cgold&&cgold.price24h_change||null}/>
+                        <ChartKeuangan height={315} dataChart={cgold?cgold.chart:null} dataChange={cgold&&cgold.price24h_change||0}/>
                         <div className="px-3 card-text-keuangan" >
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center">
-                                    <img src={cgold?.icon} alt="..." width={32}/>
+                                    {cgold&&<img src={cgold?.icon} alt="..." width={32}/>}
                                     <h3 className="font-16 ci-text-white ml-2">{cgold?cgold.assetName:"-"}</h3>
                                 </div>
                                 <div className="d-flex justify-content-between">
@@ -248,11 +248,11 @@ function CardKeuangan({MarketData}) {
             <div className="col col-md-3">
                 <div className="card ci-customCard-1 h-100">
                     <div className="card-body  py-0 px-0 card-keuangan" >
-                        <ChartKeuangan height={315} dataChart={waves&&waves.chart?waves.chart:null} dataChange={waves&&waves.price24h_change||null}/>
+                        <ChartKeuangan height={315} dataChart={waves?waves.chart:null} dataChange={waves&&waves.price24h_change||0}/>
                         <div className="px-3 card-text-keuangan" >
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center">
-                                    <img src={waves?.icon} alt="..." width={32}/>
+                                    {waves&&<img src={waves?.icon} alt="..." width={32}/>}
                                     <h3 className="font-16 ci-text-white ml-2">{waves?waves.assetName:"-"}</h3>
                                 </div>
                                 <div className="d-flex justify-content-between">

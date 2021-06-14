@@ -4,6 +4,7 @@ import { getLanguageFromURL } from "../../../stores/chart/functions";
 
 export default function TradeChartCard(props) {
   const {mode} = useSelector(state => state.daynightReducer);
+  console.log(props, "sdasdwasdw")
   
   React.useEffect(() => {
     const widgetOptions = {
@@ -36,11 +37,11 @@ export default function TradeChartCard(props) {
         // "mouse_wheel_scale",
         // "left_toolbar"
       ],
-      enabled_features: [
-        // "study_templates",
-        // 'hide_left_toolbar_by_default',
-      ],
-      toolbar_bg: '#140f0f',
+      // enabled_features: [
+      //   // "study_templates",
+      //   // 'hide_left_toolbar_by_default',
+      // ],
+      toolbar_bg: mode ? '#140f0f': '#ffffff',
       fullscreen: props.fullscreen,
       autosize: props.autosize,
       theme: props.theme,

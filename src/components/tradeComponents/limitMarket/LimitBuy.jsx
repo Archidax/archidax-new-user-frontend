@@ -80,7 +80,6 @@ export default function LimitBuy() {
         }),
       );
     }
-    console.log(assets, pairFrom);
     if (assets) {
       const temp = assets.find((item) => item.type === pairTo);
       if (temp) {
@@ -90,25 +89,6 @@ export default function LimitBuy() {
       }
     }
   }, [price, dispatch, amount, saldo, pairTo, assets]);
-
-  // React.useEffect(() => {
-  //   if (
-  //     IoWebSocketTrade &&
-  //     IoWebSocketTrade.connected &&
-  //     pairFrom &&
-  //     username
-  //   ) {
-  //     IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-  //       if (data) {
-  //         setBalance(data.balance);
-  //       }
-  //     });
-  //     return () =>
-  //       IoWebSocketTrade.removeEventListener(
-  //         `WalletBalance-${username}-${pairFrom}`,
-  //       );
-  //   }
-  // }, [setBalance, pairFrom, username]);
 
   return (
     <div

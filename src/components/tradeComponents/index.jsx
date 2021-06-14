@@ -61,7 +61,6 @@ export default function Index() {
 
   return (
     <div className={mode ? "body-trade2-dark" : "body-trade2"}>
-      {/* <div> */}
       <div className="width-chart2" style={{ paddingBottom: "1px" }}>
         <div className="row">
           <div className="col-sm-first">
