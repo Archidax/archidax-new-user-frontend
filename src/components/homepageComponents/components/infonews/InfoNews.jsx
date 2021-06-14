@@ -25,9 +25,15 @@ export default function InfoNews() {
         // style={{ minHeight: "40vh", width: "80%", margin: "auto" }}
       >
         <div className="col-lg-7 col-sm-12 card-body text-white">
-          <div className="mx-3 mb-2">
+          <div className="mx-3 mb-2 pt-2">
             <h4>Announcements</h4>
-          </div>
+          </div>{" "}
+          <hr
+            style={{
+              border: "1px solid rgba(249,186,66, 0.4)",
+              margin: "10px 12px 4px 12px",
+            }}
+          />
           <div className="row no-gutters">
             <div className="col-lg-6 col-sm-12 pt-3">
               <Slider1Announcement />
@@ -41,20 +47,19 @@ export default function InfoNews() {
         </div>
         <div className="col-lg-5 col-sm-12 card-body text-white">
           <div className="announcement-homepage mb-2">
-            <h4 className="font-archidax2">News</h4>
+            {/* <h4 className="font-archidax2">News</h4> */}
             {/* <h6 style={{ fontSize: "12px", marginLeft: "20px" }}>More</h6> */}
           </div>
-          <div className="mt-3">
+          <div className="">
             <div className="tabs-info-news">
               <ul
                 class="nav nav-pills mb-2 mx-1 row"
                 id="pills-tab"
                 role="tablist"
-                style={{ fontSize: "15px" }}
               >
                 <li class="nav-item col px-0">
                   <a
-                    class="nav-link active"
+                    class="nav-link font-16 active"
                     id="pills-activity-tab"
                     data-toggle="pill"
                     href="#pills-activity"
@@ -62,12 +67,13 @@ export default function InfoNews() {
                     aria-controls="pills-activity"
                     aria-selected="true"
                   >
+                    <i class="fa fa-newspaper-o mr-1" aria-hidden="true"></i>{" "}
                     News
                   </a>
                 </li>
                 <li class="nav-item col px-0">
                   <a
-                    class="nav-link"
+                    class="nav-link font-16"
                     id="pills-Important-Notice-tab"
                     data-toggle="pill"
                     href="#pills-Important-Notice"
@@ -75,12 +81,13 @@ export default function InfoNews() {
                     aria-controls="pills-Important-Notice"
                     aria-selected="false"
                   >
+                    <i class="fa fa-bullhorn mr-1" aria-hidden="true"></i>
                     Announcemet
                   </a>
                 </li>
                 <li class="nav-item col px-0">
                   <a
-                    class="nav-link"
+                    class="nav-link font-16"
                     id="pills-New-Listing-tab"
                     data-toggle="pill"
                     href="#pills-New-Listing"
@@ -88,6 +95,10 @@ export default function InfoNews() {
                     aria-controls="pills-New-Listing"
                     aria-selected="false"
                   >
+                    <i
+                      class="fa fa-pencil-square-o mr-1"
+                      aria-hidden="true"
+                    ></i>
                     Article
                   </a>
                 </li>

@@ -14,14 +14,15 @@ export default function LiveMarket() {
   const [Data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    if(PairSymbol&&IoWebSocketTrade){
+    if (PairSymbol && IoWebSocketTrade) {
       GetOrderLiveMarket({ dispatch: setData, pair: PairSymbol });
       IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
       IoWebSocketTrade.on(`OrderMatch-${PairSymbol}`, (data) => {
         setData(data);
       });
     }
-    return () => IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
+    return () =>
+      IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
   }, [PairSymbol]);
 
   return (
@@ -30,7 +31,22 @@ export default function LiveMarket() {
         className={mode ? "bg-trade3-dark" : "bg-trade3"}
         style={{ padding: "9px 16px" }}
       >
-        <th className="text-gold font-14 mb-0 ">Live Market</th>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <th className="text-gold font-14 mb-0">Live Market</th>
+          <div>
+            <i class="fa fa-bar-chart text-success mx-1" aria-hidden="true"></i>
+
+            <i class="fa fa-bar-chart text-danger mx-1" aria-hidden="true"></i>
+
+            <i class="fa fa-bar-chart text-gold mx-1" aria-hidden="true"></i>
+          </div>
+        </div>
       </div>
 
       <div
