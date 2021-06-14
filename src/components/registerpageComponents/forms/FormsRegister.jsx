@@ -118,7 +118,7 @@ function FormsRegister({ navigation }) {
                           <div className="ci-inputDefault-border-appendL">
                               <i data-feather="user" className="fas fa-phone-alt ci-inputDefault-border-appendL-icon text-white"></i>
                           </div>
-                          <input value={phone} onChange={e => setPhone(e.target.value)} type="number" className="form-control ci-inputDefault-border-input" placeholder="0812xxxxxxxx" name="phone" required=""/>
+                          <input value={phone} onChange={e => setPhone(e.target.value)} type="number" className="form-control ci-inputDefault-border-input" placeholder="23231244" name="phone" required=""/>
                       </div>
                   </div>
               </div>
@@ -130,7 +130,7 @@ function FormsRegister({ navigation }) {
                           <div className="ci-inputDefault-border-appendL">
                               <i data-feather="key" className="fas fa-key ci-inputDefault-border-appendL-icon text-white"></i>
                           </div>
-                          <input value={password} onChange={e => setPassword(e.target.value)} type={`${eyes.typeInputs}`} className="form-control ci-inputDefault-border-input" placeholder="Kata Sandi" required=""/>
+                          <input value={password} onChange={e => setPassword(e.target.value)} type={`${eyes.typeInputs}`} className="form-control ci-inputDefault-border-input" placeholder="Password" required=""/>
                           <div className="ci-inputDefault-border-appendR" onClick={onSeenPassword} style={{cursor: "pointer"}}>
                               <i data-feather="key" className={`${eyes.iconsEyes} ci-inputDefault-border-appendR-icon text-white`}></i>
                           </div>
