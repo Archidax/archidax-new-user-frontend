@@ -67,7 +67,7 @@ export default function RiwayatOrder() {
             <div className="row h-100">
               <div className="col-12 col-md-4 select-wrapper">
                 <select className="select w-100 h-100" onChange={(e) => setPair(e.target.value)}>
-                  <option value="" selected >Semua</option>
+                  <option value="" selected >All</option>
                   {
                     listingList.map((el, index) => {
                       return (
@@ -79,25 +79,25 @@ export default function RiwayatOrder() {
               </div>
               <div className="col-12 col-md-4 select-wrapper">
                 <select className="select w-100 h-100" onChange={(e) => setMonth(e.target.value)}>
-                  <option value="" selected >Semua</option>
-                  <option value="1"> Januari</option>
-                  <option value="2">Februari</option>
-                  <option value="3">Maret</option>
+                  <option value="" selected >All</option>
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
                   <option value="4">April</option>
-                  <option value="5">Mei</option>
-                  <option value="6">Juni</option>
-                  <option value="7">Juli</option>
-                  <option value="8">Agustus</option>
+                  <option value="5">May</option>
+                  <option value="6">June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
                   <option value="9">September</option>
-                  <option value="10">Oktober</option>
+                  <option value="10">October</option>
                   <option value="11">November</option>
-                  <option value="12">Desember</option>
+                  <option value="12">December</option>
                 </select>
               </div>
               <div className="col-12 col-md-4 select-wrapper">
                 <select className="select w-100 h-100" onChange={(e) => setYear(e.target.value)}>
-                  <option value="" selected >Semua</option>
-                  <option value="2021"> 2021</option>
+                  <option value="" selected >All</option>
+                  <option value="2021">2021</option>
                   <option value="2022">2022</option>
                   <option value="2023">2023</option>
                   <option value="2024">2024</option>
@@ -141,18 +141,19 @@ export default function RiwayatOrder() {
             <tbody>
               {
                 riwayat.map((data, index) => {
+                  console.log(data.type_transaction)
                   return (
                     <tr key={index} className="table-row-custom">
                       <td className="font-12">{moment(data.createdAt).format("YYYY-MM-DD HH:mm:ss")}</td>
                       <td className="font-12">{data.symbol}</td>
                       <td className="font-12">{data.side === "BUY" ? <span className="text-success">BUY</span> : <span className="text-danger">SELL</span>}</td>
                       <td className="font-12">{Number.isInteger(data.stock) ? data.stock : data.stock.toFixed(9)}</td>
-                      <td className="font-12">{convertNumber.toMoney(Math.floor(data.price), "Rp.")}</td>
-                      <td className="font-12">{convertNumber.toMoney(Math.floor(data.total), "Rp.")}</td>
+                      <td className="font-12">{convertNumber.toMoney(Math.floor(data.price), "USDT")}</td>
+                      <td className="font-12">{convertNumber.toMoney(Math.floor(data.total), "USDT")}</td>
                       <td className="font-12">{data.stock - data.amount}</td>
                       <td className="font-12">{data.type_transaction === "BUAT ORDER" ?
-                        <span className="text-success">{data.type_transaction}</span> :
-                        <span className="text-danger">{data.type_transaction}</span>}</td>
+                        <span className="text-success">CREATE ORDER</span> :
+                        <span className="text-danger">CANCEL ORDER</span>}</td>
                     </tr>
                   )
                 })
@@ -166,7 +167,7 @@ export default function RiwayatOrder() {
           <div className="data-kosong-wrapper">
             <div className="data-kosong align-items-center">
               <img src={file} alt="file" />
-              <p className="font-12 m-3">Tidak ada data</p>
+              <p className="font-12 m-3">No Data</p>
             </div>
           </div>
           :
