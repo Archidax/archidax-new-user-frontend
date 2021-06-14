@@ -40,6 +40,31 @@ function HeaderHomePage(props) {
 
       <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0 mx-5">
+          {/* <div class="dropdown">
+            <a
+              class="btn dropdown-toggle"
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa fa-bars text-white" aria-hidden="true"></i>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">
+                Action
+              </a>
+              <a class="dropdown-item" href="#">
+                Another action
+              </a>
+              <a class="dropdown-item" href="#">
+                Something else here
+              </a>
+            </div>
+          </div> */}
           <li className="nav-item active mx-2">
             <a
               className="nav-link text-white font-18 text-center text-center"

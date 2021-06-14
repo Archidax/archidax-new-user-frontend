@@ -79,6 +79,7 @@ export default function DepthChart() {
 
   useEffect(() => {
     if(PairSymbol&&IoWebSocketCronjob){
+      getChartDepth(PairSymbol, 30, setDepthData);
       IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
         if(data) {
           setDepthData(data)
@@ -87,10 +88,6 @@ export default function DepthChart() {
     }
     return () => IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`)
   }, [PairSymbol])
-
-  useEffect(() => {
-    getChartDepth(PairSymbol, 30, setDepthData);
-  }, [PairSymbol]);
 
   return (
     <div>

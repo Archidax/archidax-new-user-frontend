@@ -4,12 +4,10 @@ import {convertNumber} from '../../../assets/js'
 
 
 function ChartKeuangan(props) {
-    console.log(props.dataChart, "sdwadsd")
     const data = {
         series: [{
             name: 'series1',
-            // data: props.dataChart&&props.dataChart.volumePrice.length?props.dataChart.volumePrice:[]
-            data: []
+            data: props.dataChart?props.dataChart.volumePrice:[]
           }],
         options: {
             chart: {
@@ -36,8 +34,7 @@ function ChartKeuangan(props) {
                     show:false,
                 },
                 type: 'datetime',
-                // categories: props.dataChart&&props.dataChart.date.length?props.dataChart.date:[]
-                categories: []
+                categories: props.dataChart?props.dataChart.date:[]
             },
             yaxis : {
                 labels : {

@@ -16,6 +16,9 @@ import { launchNewProject } from '../../stores';
 import CardTeamMember from './CardTeamMember';
 import Phase from './Phase';
 
+
+import momentTZ from 'moment-timezone'
+
 function LaunchpadPorto() {
     // Project Introduction
     const [projectName, setProjectName] = useState("")
@@ -176,8 +179,8 @@ function LaunchpadPorto() {
         let phaseDetails2 = phaseDetails.map((el, index) => {
             return {
                 phase_number: String(index+1),
-                startDate: el.startDate,
-                endDate: el.endDate,
+                startDate: momentTZ.tz(el.startDate, "Asia/Singapore").format(),
+                endDate: momentTZ.tz(el.endDate, "Asia/Singapore").format(),
                 amount: el.amount,
                 minimumBuy: el.minimumBuy,
                 price: el.price,
@@ -191,7 +194,7 @@ function LaunchpadPorto() {
         } else {
             data.append('phase_details', JSON.stringify(phaseDetails2[0]))
         }
-        console.log(memberDetails)
+        console.log(phaseDetails2, "<<phase")
 
 
         // let startTime = new Date(phaseDetails2[0].startDate)
