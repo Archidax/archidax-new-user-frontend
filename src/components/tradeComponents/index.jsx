@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Price from "./Price";
 import ListBuy from "./listMarket/ListBuy";
 import ListSell from "./listMarket/ListSell";
@@ -31,7 +31,7 @@ export default function Index() {
 
   const { listingList } = useSelector((state) => state.pasarTradingReducer);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (symbol && listingList.length) {
       const dataSymbol = listingList.find(
         (data) => data.symbol === symbol.split("_").join("/").toString(),
@@ -52,7 +52,7 @@ export default function Index() {
     }
   }, [symbol, dispatch, listingList]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isLoginPages) {
       readMe(dispatch, history);
       getMyAssets(dispatch);
