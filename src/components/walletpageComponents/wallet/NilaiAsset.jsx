@@ -51,7 +51,7 @@ function NilaiAsset() {
                     {Translate('wal_estimasi_nilai_aset')}
                   </span>
                   <h5 className="text-white mb-0 font-bold font-17">
-                    Rp.{convertNumber.toRupiah(est)}
+                    USDT {convertNumber.toRupiah(est)}
                   </h5>
                   {
                     btcPrice?
@@ -66,7 +66,7 @@ function NilaiAsset() {
                 <div className="col-12 col-md-6 my-1 mb-3">
                   <span className="font-12 text-gold font-bold">Saldo</span>
                   <h5 className="text-white mb-0 font-bold font-17">
-                    Rp.{convertNumber.toRupiah(saldo)}
+                    USDT {convertNumber.toRupiah(saldo)}
                   </h5>
                 </div>
               </div>
