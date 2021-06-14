@@ -48,7 +48,7 @@ function CardDashboardWallets() {
             <div className="col">
               <h6 className="font-bold font-12 text-gold mb-0">Saldo</h6>
               <p className="font-15" style={{ fontWeight: "bold" }}>
-                USDT{convertNumber.toMoney(Math.round(saldo))}
+                USDT {convertNumber.toMoney(Math.round(saldo))}
               </p>
             </div>
           </div>
