@@ -369,6 +369,26 @@ $chat-color: black;
   }
 }
 
+.tabs-global-dark2-buy-sell {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    // background-color: $base-color-tabs-global-dark;
+    background-color: #131722;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #fff;
+    background: $base-color-tabs-global-active-dark;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
 //
 .tabs-global-dark2 {
   .nav .nav-item .nav-link {

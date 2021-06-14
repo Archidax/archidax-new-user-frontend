@@ -1,12 +1,11 @@
 import React from "react";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 
 import { convertNumber } from "../../../../assets/js";
 
 import { useHistory } from "react-router-dom";
 
 export default function TableHomepage() {
-
   const { listingList } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
   );
@@ -21,7 +20,7 @@ export default function TableHomepage() {
               <tr className="text-white">
                 <th className="text-left">Symbol Coin</th>
                 <th className="text-left">Coin Name</th>
-                <th className="text-left">Percentage</th>
+                <th className="text-left">Change</th>
                 <th className="text-left">Price (24 Hours)</th>
                 <th className="text-left">High (24 Hours)</th>
                 <th className="text-left">Low (24 Hours)</th>
@@ -35,7 +34,7 @@ export default function TableHomepage() {
                 listingList.map((item) => {
                   const handleRowClick = (row) => {
                     history.push(
-                      `/pasar/${item.symbol.toString().replace("/", "_") }`,
+                      `/pasar/${item.symbol.toString().replace("/", "_")}`,
                     );
                   };
                   return (
@@ -53,21 +52,49 @@ export default function TableHomepage() {
                       </td>
                       <td className="text-white text-left">{item.assetName}</td>
                       <td
-                        className={`${item.price_24hour?convertNumber.tradeUpDownChangeHomepage(item.price_24hour.price24h_change, 2):'-'}`}
+                        className={`${
+                          item.price_24hour
+                            ? convertNumber.tradeUpDownChangeHomepage(
+                                item.price_24hour.price24h_change,
+                                2,
+                              )
+                            : "-"
+                        }`}
                       >
-                        {item.price_24hour?convertNumber.tradeChange(item.price_24hour.price24h_change, 2):'- '}
+                        {item.price_24hour
+                          ? convertNumber.tradeChange(
+                              item.price_24hour.price24h_change,
+                              2,
+                            )
+                          : "- "}
                       </td>
                       <td className="text-white text-left">
-                        {item.price_24hour?convertNumber.toRupiah(item.price_24hour.price24h_close):'- '}
+                        {item.price_24hour
+                          ? convertNumber.toRupiah(
+                              item.price_24hour.price24h_close,
+                            )
+                          : "- "}
                       </td>
                       <td className="text-white text-left">
-                        {item.price_24hour?convertNumber.toRupiah(item.price_24hour.price24h_high):'- '}
+                        {item.price_24hour
+                          ? convertNumber.toRupiah(
+                              item.price_24hour.price24h_high,
+                            )
+                          : "- "}
                       </td>
                       <td className="text-white text-left">
-                        {item.price_24hour?convertNumber.toRupiah(item.price_24hour.price24h_low):'- '}
+                        {item.price_24hour
+                          ? convertNumber.toRupiah(
+                              item.price_24hour.price24h_low,
+                            )
+                          : "- "}
                       </td>
                       <td className="text-white text-left">
-                        {item.price_24hour?convertNumber.toRupiah(item.price_24hour.price24h_volume):'- '}{" "}
+                        {item.price_24hour
+                          ? convertNumber.toRupiah(
+                              item.price_24hour.price24h_volume,
+                            )
+                          : "- "}{" "}
                         {item.symbol ? item.symbol.split("/")[0] : null}
                       </td>
                     </tr>

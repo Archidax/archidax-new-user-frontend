@@ -17,7 +17,7 @@ export default function BtnAlertCancelAll() {
   return (
     <div className="text-gold mx-1">
       <button onClick={OrderCncel} className="btn text-danger">
-        <i className="fa fa-times" /> Batalkan Semua
+        <i className="fa fa-times" /> Cancel All Order
       </button>
     </div>
   );
