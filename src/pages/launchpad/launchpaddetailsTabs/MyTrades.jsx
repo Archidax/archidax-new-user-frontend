@@ -20,7 +20,7 @@ function MyTrades() {
         if (IEO._id) {
             getMyIEOPortfolioDetails(IEO._id, dispatch)
         }
-    }, [])
+    }, [IEO])
 
     return (
         <>
