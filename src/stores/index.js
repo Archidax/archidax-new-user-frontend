@@ -26,6 +26,7 @@ import tarikCryptoReducer from './tarikcrypto'
 import affiliasiReducer from './affiliasi'
 import daynightReducer from './daynight'
 import launchpadReducer from './launchpad'
+import dynamicPageReducer from './dynamicPage'
 
 const supabaseUrl = 'https://wmxeonvmtnxajofwqpcb.supabase.co'
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyMTkyNDQ4MCwiZXhwIjoxOTM3NTAwNDgwfQ.nx_o1P4GYwrChkA77SS0uOfdQkiDM3mGVE2h6UoT2_E"
@@ -103,7 +104,8 @@ const rootReducer = combineReducers({
     tarikCryptoReducer,
     affiliasiReducer,
     daynightReducer,
-    launchpadReducer
+    launchpadReducer,
+    dynamicPageReducer
 });
 
 export default function ReduxState(props) {

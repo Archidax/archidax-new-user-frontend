@@ -47,6 +47,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { GetListingExchange, setMyFav } from "../stores/pasartrading/functions";
 import KeuanganPage from "./keuangan";
+import DynamicPage from "./dynamicPage";
+import { getAllDynamicPages } from "../stores/dynamicPage/functions";
 
 export default function MainPages() {
   const [locale, setLocale] = React.useState(LOCALES.ENGLISH);
@@ -63,6 +65,10 @@ export default function MainPages() {
     }
     dispatch(GetListingExchange());
   }, [email, dispatch, isLoginAccount]);
+
+  useEffect(() => {
+    getAllDynamicPages(dispatch)
+  },[dispatch])
 
   useEffect(() => {
     // if (localStorage.getItem('language')) {
@@ -186,6 +192,9 @@ export default function MainPages() {
             </Route>
             <Route path="/email/verify/:key">
               <EmailVerification />
+            </Route>
+            <Route path="/pages/:category/:pageSlug">
+                <DynamicPage />
             </Route>
             <ProtectedRoute path="/">
               <RouteDashboardPage setLocale={setLocale} />
