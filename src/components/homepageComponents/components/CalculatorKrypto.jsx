@@ -18,7 +18,7 @@ export default function apaItuCrypto() {
             // data-aos-duration="1000"
           >
             <h2 className="text-homepage-yellow font-apa-itu-responsive">
-              Calculator Aset Crypto
+              Price Converter
             </h2>
             <Calculator />
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
-import ReactLoading from 'react-loading';
+import ReactLoading from "react-loading";
 import { convertNumber } from "../../assets/js";
 
 import {
@@ -38,7 +38,7 @@ export default function Price() {
   }, []);
 
   React.useEffect(() => {
-    if(PairSymbol) {
+    if (PairSymbol) {
       dispatch(GetOrderLastPrice({ pair: PairSymbol }));
     }
   }, [PairSymbol]);
@@ -61,7 +61,7 @@ export default function Price() {
               }}
               onClick={() => handleShowDropdown(showDropdown)}
             >
-              {PairSymbol?
+              {PairSymbol ? (
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="text-left mr-2 d-flex align-items-center">
                     <img
@@ -84,13 +84,19 @@ export default function Price() {
                   <div className="icons">
                     <i className="fas fa-sort-down d-flex justify-content-center"></i>
                   </div>
-                </div> : 
+                </div>
+              ) : (
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="text-left mr-2 d-flex align-items-center">
-                    <ReactLoading type={'spin'} color={'#ffffff'} height={'40px'} width={'33px'} />
+                    <ReactLoading
+                      type={"spin"}
+                      color={"#ffffff"}
+                      height={"40px"}
+                      width={"33px"}
+                    />
                   </div>
                 </div>
-              }
+              )}
             </button>
             <div
               className={`ci-dropdown-menu-TradeSymbol ${showDropdown} pt-0`}
@@ -184,8 +190,7 @@ export default function Price() {
             </div>
           </div>
         </div>
-        {
-          PairSymbol&&
+        {PairSymbol && (
           <div className="p-2 mt-2">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               {/* Price */}
@@ -218,13 +223,27 @@ export default function Price() {
                     ? convertNumber.tradeChange(price24H.Change)
                     : 0 + "%"}
                 </div>
-                {
-                  price24H&&
-                  Number(price24H.Change).toFixed(2)>0?
-                    <img src={arrowup} style={{ width: "18px", marginTop: "9px", marginLeft: "7px" }} />:
-                    Number(price24H.Change).toFixed(2)<0&&
-                    <img src={arrowdown} style={{ width: "18px", marginTop: "9px", marginLeft: "7px" }} />
-                }
+                {price24H && Number(price24H.Change).toFixed(2) > 0 ? (
+                  <img
+                    src={arrowup}
+                    style={{
+                      width: "18px",
+                      marginTop: "9px",
+                      marginLeft: "7px",
+                    }}
+                  />
+                ) : (
+                  Number(price24H.Change).toFixed(2) < 0 && (
+                    <img
+                      src={arrowdown}
+                      style={{
+                        width: "18px",
+                        marginTop: "9px",
+                        marginLeft: "7px",
+                      }}
+                    />
+                  )
+                )}
               </div>
             </div>
 
@@ -241,8 +260,8 @@ export default function Price() {
                     mode ? "text-price-top-dark" : "text-price-top"
                   } font-15 mr-2`}
                 >
-                  Volume {PairSymbol ? PairSymbol.toString().split("/")[1] : null}{" "}
-                  :
+                  Volume{" "}
+                  {PairSymbol ? PairSymbol.toString().split("/")[1] : null} :
                 </div>
                 {/* Volume IDR */}
                 <div
@@ -290,8 +309,8 @@ export default function Price() {
                     mode ? "text-price-top-dark" : "text-price-top"
                   } font-15 mr-2`}
                 >
-                  Volume {PairSymbol ? PairSymbol.toString().split("/")[0] : null}{" "}
-                  :
+                  Volume{" "}
+                  {PairSymbol ? PairSymbol.toString().split("/")[0] : null} :
                 </div>
                 <div
                   className={`${
@@ -323,7 +342,7 @@ export default function Price() {
               </div>
             </div>
           </div>
-        }
+        )}
       </div>
       <div>
         <TabsChartTrade />
