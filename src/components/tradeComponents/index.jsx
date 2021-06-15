@@ -218,7 +218,7 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order History
+                        Order History (0)
                       </th>
                     </div>
                   </div>
