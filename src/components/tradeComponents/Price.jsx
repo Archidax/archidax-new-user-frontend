@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { GetListingExchange } from "../../stores";
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
+import ReactLoading from "react-loading";
+import { convertNumber } from "../../assets/js";
 
 import {
   GetOrderLastPrice,
@@ -15,12 +16,10 @@ import FavoritePair from "./listingExchange/FavoritePair";
 import CryptoPair from "./listingExchange/CryptoPair";
 import FiatPair from "./listingExchange/FiatPair";
 import DayNight from "./daynight/DayNight";
-
-import { convertNumber } from "../../assets/js";
-import TabsChartTrade from "./TabsChartTrade";
-
 import arrowup from "../../assets/img/trade/arrow_atas.svg";
 import arrowdown from "../../assets/img/trade/arrow_bawah.svg";
+
+import TabsChartTrade from "./TabsChartTrade";
 
 export default function Price() {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -34,35 +33,14 @@ export default function Price() {
     state ? state.pasarTradingReducer : {},
   );
 
-  // const listenToListing = () => {
-  //   const Price = supabase
-  //     .from("Price")
-  //     .on("*", (payload) => {
-  //       dispatch({ type: "SET_UPDATELISTING", data: payload.new });
-  //       if (payload.new.symbol === PairSymbol) {
-  //         dispatch(
-  //           setPasarTrading({
-  //             Open: payload.new.open,
-  //             High: payload.new.high,
-  //             Low: payload.new.low,
-  //             Close: payload.new.close,
-  //             Change: payload.new.change,
-  //             Volume: payload.new.volumePrice,
-  //             VolumeCrypto: payload.new.volumeCoin,
-  //           }),
-  //         );
-  //       }
-  //     })
-  //     .subscribe();
-  // };
-
   React.useEffect(() => {
     GetListingExchange(dispatch);
-    // listenToListing();
   }, []);
 
   React.useEffect(() => {
-    dispatch(GetOrderLastPrice({ pair: PairSymbol }));
+    if (PairSymbol) {
+      dispatch(GetOrderLastPrice({ pair: PairSymbol }));
+    }
   }, [PairSymbol]);
 
   return (
@@ -83,29 +61,42 @@ export default function Price() {
               }}
               onClick={() => handleShowDropdown(showDropdown)}
             >
-              <div className="d-flex justify-content-between align-items-center">
-                <div className="text-left mr-2 d-flex align-items-center">
-                  <img
-                    src={icon}
-                    alt="icon"
-                    width="33px"
-                    height="40px"
-                    className="mr-2"
-                  />
-                  <p
-                    className="mb-0 font-22"
-                    style={{
-                      color: mode ? "white" : "white",
-                      fontWeight: mode ? 600 : 600,
-                    }}
-                  >
-                    {PairSymbol ? PairSymbol : "-"}
-                  </p>
+              {PairSymbol ? (
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="text-left mr-2 d-flex align-items-center">
+                    <img
+                      src={icon}
+                      alt="icon"
+                      width="33px"
+                      height="40px"
+                      className="mr-2"
+                    />
+                    <p
+                      className="mb-0 font-22"
+                      style={{
+                        color: mode ? "white" : "white",
+                        fontWeight: mode ? 600 : 600,
+                      }}
+                    >
+                      {PairSymbol ? PairSymbol : "-"}
+                    </p>
+                  </div>
+                  <div className="icons">
+                    <i className="fas fa-sort-down d-flex justify-content-center"></i>
+                  </div>
                 </div>
-                <div className="icons">
-                  <i className="fas fa-sort-down d-flex justify-content-center"></i>
+              ) : (
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="text-left mr-2 d-flex align-items-center">
+                    <ReactLoading
+                      type={"spin"}
+                      color={"#ffffff"}
+                      height={"40px"}
+                      width={"33px"}
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
             </button>
             <div
               className={`ci-dropdown-menu-TradeSymbol ${showDropdown} pt-0`}
@@ -199,145 +190,159 @@ export default function Price() {
             </div>
           </div>
         </div>
-        <div className="p-2 mt-2">
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            {/* Price */}
-            <div style={{ display: "flex", marginTop: "11px" }}>
-              <div
-                className={`${
-                  mode ? "text-price-bottom-dark" : "text-price-bottom"
-                } font-22`}
-              >
-                {PairSymbol ? PairSymbol : null}
+        {PairSymbol && (
+          <div className="p-2 mt-2">
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              {/* Price */}
+              <div style={{ display: "flex", marginTop: "11px" }}>
+                <div
+                  className={`${
+                    mode ? "text-price-bottom-dark" : "text-price-bottom"
+                  } font-22 `}
+                >
+                  {PairSymbol ? PairSymbol : null}
+                </div>
+              </div>
+              <div style={{ display: "flex" }}>
+                <div
+                  className={`${
+                    mode ? "text-price-bottom-dark" : "text-price-bottom"
+                  } font-32`}
+                >
+                  {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+                </div>
+                <div
+                  className={`${
+                    mode ? "text-white" : "text-black"
+                  } font-16 ml-1 ${convertNumber.tradeUpDownChange(
+                    price24H.Change,
+                  )}`}
+                  style={{ marginTop: "18px" }}
+                >
+                  {price24H
+                    ? convertNumber.tradeChange(price24H.Change)
+                    : 0 + "%"}
+                </div>
+                {price24H && Number(price24H.Change).toFixed(2) > 0 ? (
+                  <img
+                    src={arrowup}
+                    style={{
+                      width: "18px",
+                      marginTop: "9px",
+                      marginLeft: "7px",
+                    }}
+                  />
+                ) : (
+                  Number(price24H.Change).toFixed(2) < 0 && (
+                    <img
+                      src={arrowdown}
+                      style={{
+                        width: "18px",
+                        marginTop: "9px",
+                        marginLeft: "7px",
+                      }}
+                    />
+                  )
+                )}
               </div>
             </div>
-            <div style={{ display: "flex" }}>
-              <div
-                className={`${
-                  mode ? "text-price-bottom-dark" : "text-price-bottom"
-                } font-32`}
-              >
-                {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
-                {/* 5.000.000 */}
-              </div>
-              <div
-                className={`${
-                  mode ? "text-white" : "text-black"
-                } font-16 ml-1 ${convertNumber.tradeUpDownChange(
-                  price24H.Change,
-                )}`}
-                style={{ marginTop: "18px" }}
-                // style={{ background: "#232323" }}
-              >
-                {price24H
-                  ? convertNumber.tradeChange(price24H.Change)
-                  : 0 + "%"}
-                {/* 50% */}
-              </div>
-              <img
-                src={arrowup}
-                style={{ width: "18px", marginTop: "9px", marginLeft: "7px" }}
-              />
-            </div>
-            {/* Change */}
-          </div>
 
-          <div
-            className="mt-3"
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
             <div
-              className=""
+              className="mt-3"
               style={{ display: "flex", justifyContent: "space-between" }}
             >
               <div
-                className={`${
-                  mode ? "text-price-top-dark" : "text-price-top"
-                } font-15 mr-2`}
+                className=""
+                style={{ display: "flex", justifyContent: "space-between" }}
               >
-                Volume {PairSymbol ? PairSymbol.toString().split("/")[1] : null}{" "}
-                :
+                <div
+                  className={`${
+                    mode ? "text-price-top-dark" : "text-price-top"
+                  } font-15 mr-2`}
+                >
+                  Volume{" "}
+                  {PairSymbol ? PairSymbol.toString().split("/")[1] : null} :
+                </div>
+                {/* Volume IDR */}
+                <div
+                  className={`${
+                    mode ? "text-price-bottom-dark" : "text-price-bottom"
+                  } font-15`}
+                >
+                  {price24H ? convertNumber.toRupiah(price24H.Volume) : 0}
+                  {/* 30.652.175.748 */}
+                </div>
               </div>
-              {/* Volume IDR */}
+              {/* High */}
               <div
-                className={`${
-                  mode ? "text-price-bottom-dark" : "text-price-bottom"
-                } font-15`}
+                className=""
+                style={{ display: "flex", justifyContent: "space-between" }}
               >
-                {price24H ? convertNumber.toRupiah(price24H.Volume) : 0}
-                {/* 30.652.175.748 */}
+                <div
+                  className={`${
+                    mode ? "text-price-top-dark" : "text-price-top"
+                  } font-15 mr-2`}
+                >
+                  High :
+                </div>
+                <div
+                  className={`${
+                    mode ? "text-price-bottom-dark" : "text-price-bottom"
+                  } font-15`}
+                >
+                  {price24H ? convertNumber.toRupiah(price24H.High) : 0}
+                </div>
               </div>
             </div>
-            {/* High */}
-            <div
-              className=""
-              style={{ display: "flex", justifyContent: "space-between" }}
-            >
-              <div
-                className={`${
-                  mode ? "text-price-top-dark" : "text-price-top"
-                } font-15 mr-2`}
-              >
-                High :
-              </div>
-              <div
-                className={`${
-                  mode ? "text-price-bottom-dark" : "text-price-bottom"
-                } font-15`}
-              >
-                {price24H ? convertNumber.toRupiah(price24H.High) : 0}
-                {/* 845.000.000 */}
-              </div>
-            </div>
-          </div>
 
-          <div
-            className="mt-2"
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
-            {/* Volume BTC */}
             <div
-              className=""
+              className="mt-2"
               style={{ display: "flex", justifyContent: "space-between" }}
             >
+              {/* Volume BTC */}
               <div
-                className={`${
-                  mode ? "text-price-top-dark" : "text-price-top"
-                } font-15 mr-2`}
+                className=""
+                style={{ display: "flex", justifyContent: "space-between" }}
               >
-                Volume {PairSymbol ? PairSymbol.toString().split("/")[0] : null}{" "}
-                :
+                <div
+                  className={`${
+                    mode ? "text-price-top-dark" : "text-price-top"
+                  } font-15 mr-2`}
+                >
+                  Volume{" "}
+                  {PairSymbol ? PairSymbol.toString().split("/")[0] : null} :
+                </div>
+                <div
+                  className={`${
+                    mode ? "text-price-bottom-dark" : "text-price-bottom"
+                  } font-15 `}
+                >
+                  {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
+                </div>
               </div>
+              {/* Low */}
               <div
-                className={`${
-                  mode ? "text-price-bottom-dark" : "text-price-bottom"
-                } font-15 `}
+                className=""
+                style={{ display: "flex", justifyContent: "space-between" }}
               >
-                {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
-              </div>
-            </div>
-            {/* Low */}
-            <div
-              className=""
-              style={{ display: "flex", justifyContent: "space-between" }}
-            >
-              <div
-                className={`${
-                  mode ? "text-price-top-dark" : "text-price-top"
-                } font-15 mr-2`}
-              >
-                Low :
-              </div>
-              <div
-                className={`${
-                  mode ? "text-price-bottom-dark" : "text-price-bottom"
-                } font-15`}
-              >
-                {price24H ? convertNumber.toRupiah(price24H.Low) : 0}
+                <div
+                  className={`${
+                    mode ? "text-price-top-dark" : "text-price-top"
+                  } font-15 mr-2`}
+                >
+                  Low :
+                </div>
+                <div
+                  className={`${
+                    mode ? "text-price-bottom-dark" : "text-price-bottom"
+                  } font-15`}
+                >
+                  {price24H ? convertNumber.toRupiah(price24H.Low) : 0}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
       <div>
         <TabsChartTrade />

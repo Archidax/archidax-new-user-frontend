@@ -8,6 +8,9 @@ import {
 } from "../../../stores/errorHandler";
 import PopUps from "../../popUps";
 import SyaratdanKetentuanComponents from "../../syaratpengguna/SyaratPenggunaComponents";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 
 function FormsRegister({ navigation }) {
   const dispatch = useDispatch();
@@ -82,7 +85,6 @@ function FormsRegister({ navigation }) {
       register(dispatch, tmp, history);
     }
   };
-
   return (
     <>
       <form className="ci-registerForm mt-4">
@@ -115,14 +117,17 @@ function FormsRegister({ navigation }) {
                   <div className="form-group mb-2">
                       <label className="font-14 text-white mb-0">Phone Number</label>
                       <div className="input-group ci-inputDefault-border">
-                          <div className="ci-inputDefault-border-appendL">
-                              <i data-feather="user" className="fas fa-phone-alt ci-inputDefault-border-appendL-icon text-white"></i>
-                          </div>
-                          <input value={phone} onChange={e => setPhone(e.target.value)} type="number" className="form-control ci-inputDefault-border-input" placeholder="0812xxxxxxxx" name="phone" required=""/>
+                      <PhoneInput
+                        inputClass="form-control ci-inputDefault-border-input w-100"
+                        placeholder="Enter phone number with its country code"
+                        value={phone}
+                        onChange={e => {
+                          setPhone(e)
+                        }}/>
                       </div>
                   </div>
               </div>
-
+              
               <div className="col-lg-12">
                   <div className="form-group mb-2">
                       <label className="font-14 text-white mb-0">Password</label>
@@ -130,7 +135,7 @@ function FormsRegister({ navigation }) {
                           <div className="ci-inputDefault-border-appendL">
                               <i data-feather="key" className="fas fa-key ci-inputDefault-border-appendL-icon text-white"></i>
                           </div>
-                          <input value={password} onChange={e => setPassword(e.target.value)} type={`${eyes.typeInputs}`} className="form-control ci-inputDefault-border-input" placeholder="Kata Sandi" required=""/>
+                          <input value={password} onChange={e => setPassword(e.target.value)} type={`${eyes.typeInputs}`} className="form-control ci-inputDefault-border-input" placeholder="Password" required=""/>
                           <div className="ci-inputDefault-border-appendR" onClick={onSeenPassword} style={{cursor: "pointer"}}>
                               <i data-feather="key" className={`${eyes.iconsEyes} ci-inputDefault-border-appendR-icon text-white`}></i>
                           </div>

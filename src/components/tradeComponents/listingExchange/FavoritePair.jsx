@@ -72,8 +72,6 @@ function FavoritePairRealtime({ item, index }) {
       }
     });
     return () => IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
-    // if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-    // }
   }, [item, setData]);
 
   if (Data) {

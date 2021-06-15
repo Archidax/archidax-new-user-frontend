@@ -17,13 +17,13 @@ import DalamCrypto from "./components/DalamCrypto";
 import InfoNews from "./components/infonews/InfoNews";
 
 function Home(props) {
-
   return (
     <div className="navbar-homePage">
       <div className="navbar-top">
         <HeaderHomePage
           setLocale={props.setLocale}
-          bg_normal="bg-header-homepage"
+          bg_normal="bg-header-homepage2"
+          // bg_normal="bg-overlay-homepage"
         />
         <BannerHomepage setLocale={props.setLocale} />
         <InfoNews setLocale={props.setLocale} />

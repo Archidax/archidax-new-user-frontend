@@ -7,15 +7,16 @@ import Translate from "../../../i18n/Translate";
 
 export default function DalamCrypto() {
   return (
-    <div className="col-lg-8 offset-lg-2 py-5">
-      <div>
-        <h4 className="text-homepage-yellow">{Translate("hkmc_title")}</h4>
-      </div>
-      <div className="col-lg-6 px-0 mt-4">
-        <p className="text-white font-16">{Translate("hkmc_text1")}</p>
-        <p className="text-white font-16">{Translate("hkmc_text2")}</p>
-      </div>
-      <div className="mt-4" style={{ display: "flex" }}>
+    <div className="bg-archidax">
+      <div className="col-lg-8 offset-lg-2 py-5">
+        <div>
+          <h4 className="text-homepage-yellow">{Translate("hkmc_title")}</h4>
+        </div>
+        <div className="col-lg-6 px-0 mt-4">
+          <p className="text-white font-16">{Translate("hkmc_text1")}</p>
+          <p className="text-white font-16">{Translate("hkmc_text2")}</p>
+        </div>
+        {/* <div className="mt-4" style={{ display: "flex" }}>
         <div
           class="nav flex-column nav-pills py-3"
           id="v-pills-tab"
@@ -220,6 +221,7 @@ export default function DalamCrypto() {
             </div>
           </div>
         </div>
+      </div> */}
       </div>
     </div>
   );

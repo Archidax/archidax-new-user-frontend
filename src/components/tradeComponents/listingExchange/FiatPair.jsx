@@ -70,27 +70,28 @@ function FiatPairRealtime({ item, index }) {
   };
 
   React.useEffect(() => {
-    IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
-    IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
-      console.log(data);
-      if (data) {
-        setData(data);
-      }
-      if (PairSymbol === data.symbol) {
-        dispatch(
-          setPasarTrading({
-            Open: data.price24h_open,
-            High: data.price24h_high,
-            Low: data.price24h_low,
-            Close: data.price24h_close,
-            Change: data.price24h_change,
-            Volume: data.price24h_priceVolume,
-            VolumeCrypto: data.price24h_volume,
-          }),
-        );
-      }
-    });
-    return () => IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+    if(PairSymbol) {
+      IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+      IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
+        if (data) {
+          setData(data);
+        }
+        if (PairSymbol === data.symbol) {
+          dispatch(
+            setPasarTrading({
+              Open: data.price24h_open,
+              High: data.price24h_high,
+              Low: data.price24h_low,
+              Close: data.price24h_close,
+              Change: data.price24h_change,
+              Volume: data.price24h_priceVolume,
+              VolumeCrypto: data.price24h_volume,
+            }),
+          );
+        }
+      });
+      return () => IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+    }
   }, [item,PairSymbol]);
   
   if (Data) {

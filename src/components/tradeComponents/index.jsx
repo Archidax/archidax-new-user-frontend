@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Price from "./Price";
 import ListBuy from "./listMarket/ListBuy";
 import ListSell from "./listMarket/ListSell";
@@ -27,11 +27,13 @@ export default function Index() {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const Order = useSelector((state) => state ? state?.pasarTradingReducer : {});
+  const Order = useSelector((state) =>
+    state ? state?.pasarTradingReducer : {},
+  );
 
   const { listingList } = useSelector((state) => state.pasarTradingReducer);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (symbol && listingList.length) {
       const dataSymbol = listingList.find(
         (data) => data.symbol === symbol.split("_").join("/").toString(),
@@ -52,7 +54,7 @@ export default function Index() {
     }
   }, [symbol, dispatch, listingList]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isLoginPages) {
       readMe(dispatch, history);
       getMyAssets(dispatch);
@@ -61,7 +63,6 @@ export default function Index() {
 
   return (
     <div className={mode ? "body-trade2-dark" : "body-trade2"}>
-      {/* <div> */}
       <div className="width-chart2" style={{ paddingBottom: "1px" }}>
         <div className="row">
           <div className="col-sm-first">
@@ -180,10 +181,14 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order Pending ({
-                          Order&&Order.OrderPending&&Array.isArray(Order.OrderPending)?Order.OrderPending.length:0
-                        })
-                        </th>
+                        Order Pending (
+                        {Order &&
+                        Order.OrderPending &&
+                        Array.isArray(Order.OrderPending)
+                          ? Order.OrderPending.length
+                          : 0}
+                        )
+                      </th>
                     </div>
                   </div>
                   <div

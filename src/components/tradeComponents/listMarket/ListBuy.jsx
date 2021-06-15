@@ -27,15 +27,15 @@ export default function ListBuy() {
         side: "BUY",
         limit: 50,
       });
-        IoWebSocketTrade.removeEventListener(`OrderBuy-${Symbols}`);
-        IoWebSocketTrade.on(`OrderBuy-${Symbols}`, (data) => {
-          if(data){
-            setData(data);
-          }
-        });
+      IoWebSocketTrade.removeEventListener(`OrderBuy-${Symbols}`);
+      IoWebSocketTrade.on(`OrderBuy-${Symbols}`, (data) => {
+        if(data){
+          setData(data);
+        }
+      });
       return () => IoWebSocketTrade.removeEventListener(`OrderBuy-${Symbols}`);
     }
-  }, [symbol,setData]);
+  }, [symbol]);
 
   return (
     <div>

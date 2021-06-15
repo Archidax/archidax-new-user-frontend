@@ -1,8 +1,6 @@
 import { baseUrlTrade, baseUrlTradeVersion, baseUrl, baseAxiosTrading } from '../index'
 import axios from 'axios'
-// import Popup from '../../components/popUps'
 import errorHandler from '../errorHandler'
-// import index from '../../pages/voucherpage'
 
 export const getLanguageFromURL = () => {
 	const regex = new RegExp('[\\?&]lang=([^&#]*)');
@@ -12,15 +10,19 @@ export const getLanguageFromURL = () => {
 
 export function HomeMarket (cb) {
 	axios({
-    url:`${baseUrlTrade}${baseUrlTradeVersion}/Home/Market`,
+    url:`${baseUrlTrade}${baseUrlTradeVersion}/ListingExchangeChart`,
     method:"GET",
     headers:{
       jwttoken:localStorage.getItem("token")
     },
   }).then(({data})=>{
-    if(data && data.data) {
-      cb(data.data);
+    if(data && data.chartData) {
+      cb(data.chartData);
+    } else {
+      cb([]);
     }
+  }).catch(err=>{
+    cb([]);
   })
 }
 
@@ -43,6 +45,7 @@ export function getChartDepth (market_pair, depth, setDepthData) {
     url:`/depthChart?market_pair=${market_pair}&depth=${depth}`,
     method:"GET",
   }).then(({data})=>{
+    console.log(data, market_pair)
     if(data) {
       setDepthData(data)
     } else {

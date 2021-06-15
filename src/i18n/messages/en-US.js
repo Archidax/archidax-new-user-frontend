@@ -119,7 +119,7 @@ export default {
         // Section1 
         db_terverifikasi: "Verified",
         db_menunggu_verifikasi: "Waiting for Verification ",
-        db_belum_verifikasi: "Haven't Verified ",
+        db_belum_verifikasi: "Unverified ",
         db_ip: "IP Address",
         db_terakhir: "Last Online",
         db_google: "Google Authenticator",
@@ -203,7 +203,7 @@ export default {
         vc_format_voucher: "Voucher format",
         vc_jika_anda: "If you already have a voucher code, please enter the code below to withdraw the voucher into a balance at Archidax",
         vc_apabila_anda: "If you don't have a voucher code, you can get it by buying a voucher at several online changers",
-        vc_nominal_rupiah: "Nominal Rupiah",
+        vc_nominal_rupiah: "Amount USDT",
 
         // Voucher Khusus
         vc_khusus: "Special Voucher",
@@ -224,7 +224,7 @@ export default {
         vc_tidak_ada_data: "No data",
         vc_export: "Export to CSV",
         vc_text_redeem : "You can redeem the voucher code that you have by entering the voucher code in the form above",
-        vc_text_maks_penarikan : "The maximum voucher withdrawal is Rp. 250,000,000 per day",
+        vc_text_maks_penarikan : "The maximum voucher withdrawal is 25.000 USDT per day",
         vc_text_penarikan : "Vouchers per day are accumulated with the total withdrawal of Rupiah",
         vc_sudah_dikonfirmasi : "It's been confirmed",
         vc_load_more : "Load More Data",
