@@ -18,20 +18,23 @@ export default function NewsTrade() {
       <h5 className="mb-0" style={{ color: "#f9ba42" }}>
         News
       </h5>
-      <div id="overflowTestChatTrade">
+      <div id="overflowTestChatTrade" className="mt-1">
         {console.log(dataNewNews)}
         {dataNewNews.length !== 0 &&
           dataNewNews.map((val, index) => {
-            if (val.category === "Berita") {
+            if (val.category === "Berita" || "Pengunguman" || "Artikel") {
               return (
                 <div
                   onClick={(e) => {
                     history.push(`/berita/${val.slug}`);
                   }}
-                  className="col-12 px-0 py-2 announcements-content"
+                  className="col-12 px-0 pt-2 announcements-content"
                   style={{ cursor: "pointer" }}
                 >
-                  <img src={val.img_news} style={{ height: "80px" }} />
+                  <img
+                    src={val.img_news}
+                    style={{ height: "70px", width: "100px" }}
+                  />
                   <div className="ml-2">
                     <a
                       onClick={(e) => {
