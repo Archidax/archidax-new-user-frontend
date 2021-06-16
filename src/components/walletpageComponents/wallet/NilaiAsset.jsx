@@ -64,7 +64,7 @@ function NilaiAsset() {
                   }
                 </div>
                 <div className="col-12 col-md-6 my-1 mb-3">
-                  <span className="font-12 text-gold font-bold">Saldo</span>
+                  <span className="font-12 text-gold font-bold">Balance</span>
                   <h5 className="text-white mb-0 font-bold font-17">
                     USDT {convertNumber.toRupiah(saldo)}
                   </h5>

@@ -19,8 +19,8 @@ export default function index() {
           <a className="nav-item nav-link nav-link-custom" id="nav-transaksi-tab" data-toggle="tab" href="#nav-transaksi" role="tab" aria-controls="nav-transaksi" aria-selected="false">{Translate('rw_transaksi')}</a>
           <a className="nav-item nav-link nav-link-custom" id="nav-setorKripto-tab" data-toggle="tab" href="#nav-setorKripto" role="tab" aria-controls="nav-setorKripto" aria-selected="false">{Translate('rw_setor_kripto')}</a>
           <a className="nav-item nav-link nav-link-custom" id="nav-tarikKripto-tab" data-toggle="tab" href="#nav-tarikKripto" role="tab" aria-controls="nav-tarikKripto" aria-selected="false">{Translate('rw_tarik_kripto')}</a>
-          <a className="nav-item nav-link nav-link-custom" id="nav-setorRupiah-tab" data-toggle="tab" href="#nav-setorRupiah" role="tab" aria-controls="nav-setorRupiah" aria-selected="false">{Translate('rw_setor_usd')}</a>
-          <a className="nav-item nav-link nav-link-custom" id="nav-tarikRupiah-tab" data-toggle="tab" href="#nav-tarikRupiah" role="tab" aria-controls="nav-tarikRupiah" aria-selected="false">{Translate('rw_tarik_usd')}</a>
+          {/* <a className="nav-item nav-link nav-link-custom" id="nav-setorRupiah-tab" data-toggle="tab" href="#nav-setorRupiah" role="tab" aria-controls="nav-setorRupiah" aria-selected="false">{Translate('rw_setor_usd')}</a>
+          <a className="nav-item nav-link nav-link-custom" id="nav-tarikRupiah-tab" data-toggle="tab" href="#nav-tarikRupiah" role="tab" aria-controls="nav-tarikRupiah" aria-selected="false">{Translate('rw_tarik_usd')}</a> */}
           <a className="nav-item nav-link nav-link-custom" id="nav-mutasi-tab" data-toggle="tab" href="#nav-mutasi" role="tab" aria-controls="nav-mutasi" aria-selected="false">{Translate('rw_mutasi')}</a>
         </div>
       </nav>
