@@ -46,8 +46,13 @@ export default function FooterHomePage() {
         <div className="">
           <div className="container">
             <div
-              className="pt-4 pb-5"
-              style={{ display: "flex", justifyContent: "center" }}
+              className="pt-4"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                position: "relative",
+                top: "-90px",
+              }}
             >
               <img src={logofooter} />
             </div>
