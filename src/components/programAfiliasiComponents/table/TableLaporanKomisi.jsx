@@ -4,18 +4,18 @@ import Translate from '../../../i18n/Translate'
 import TidakAdaData from '../datas/TidakAdaData'
 
 const months = [
-    { name: "Januari", value: "1" },
-    { name: "Februari", value: "2" },
-    { name: "Maret", value: "3" },
+    { name: "January", value: "1" },
+    { name: "February", value: "2" },
+    { name: "March", value: "3" },
     { name: "April", value: "4" },
-    { name: "Mei", value: "5" },
-    { name: "Juni", value: "6" },
-    { name: "Juli", value: "7" },
-    { name: "Agustus", value: "8" },
+    { name: "May", value: "5" },
+    { name: "June", value: "6" },
+    { name: "July", value: "7" },
+    { name: "August", value: "8" },
     { name: "September", value: "9" },
-    { name: "Oktober", value: "10" },
+    { name: "October", value: "10" },
     { name: "November", value: "11" },
-    { name: "Desember", value: "12" },
+    { name: "December", value: "12" },
 ]
 
 const years = [
@@ -37,7 +37,7 @@ function TableLaporanKomisi() {
                     <div className="row d-flex">
                         <div className="col-12 col-md-4 m-0 my-1">
                             <select onChange={(e) => setMonth(e.target.value)} className="w-100 border-0 py-2 px-3 font-12 ci-bg-secondary text-white">
-                                <option value="" selected>Semua</option>
+                                <option value="" selected>All</option>
                                 {
                                     months.map(month => {
                                         return (
@@ -50,7 +50,7 @@ function TableLaporanKomisi() {
 
                         <div className="col-12 col-md-4 m-0 my-1">
                             <select onChange={(e) => setYear(e.target.value)} className="w-100 border-0 py-2 px-3 font-12 ci-bg-secondary text-white">
-                                <option value="" selected>Semua</option>
+                                <option value="" selected>All</option>
                                 {
                                     years.map(year => {
                                         return (
