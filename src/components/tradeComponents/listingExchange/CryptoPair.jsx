@@ -121,7 +121,7 @@ function CryptoPairRealtime({ item, index }) {
         >
           {Data &&
             Number(Data.price24h_close).toLocaleString("id-ID", {
-              maximumFractionDigits: 6,
+              maximumFractionDigits: 8,
             })}
         </td>
         <td

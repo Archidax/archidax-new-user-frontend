@@ -99,7 +99,7 @@ export default function Index() {
                   border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
-                {/* <ChartTrade /> */}
+                <ChartTrade />
               </div>
             </div>
 

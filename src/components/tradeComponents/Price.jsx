@@ -216,7 +216,7 @@ export default function Price() {
                   } font-24`}
                   style={{ marginTop: "3px" }}
                 >
-                  {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+                  {price24H ? convertNumber.toRupiah(price24H.Close,"CRYPTO") : 0}
                 </div>
                 <div
                   className={`${

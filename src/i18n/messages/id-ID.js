@@ -151,7 +151,11 @@ export default {
         db_saldo: "Saldo",
         db_aset_crypto: "Aset Crypto",
         db_selengkapnya: "Selengkapnya",
-
+        db_saldoactive: "Salso Aktif",
+        db_frozenbalance: "Saldo Beku",
+        db_asset_estimate: "Estimasi aset (USDT)",
+        db_harap_setor: "Harap setorkan aset Anda ke alamat berikut :",
+        pilih: "Pilih..",
         // Wallet
         // Section1
         wal_nilai_aset: "Nilai Aset",
