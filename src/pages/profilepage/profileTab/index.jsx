@@ -21,7 +21,7 @@ export default function ProfileTab(){
   const [lang, setLang] = useState(profile.bahasa);
   const [subs, setSubs] = useState(profile.langganan);
   const [zone, setZone] = useState(profile.timezone);
-  const opsiSubs = [{val: false, text:"Tidak Berlangganan"}, {val: true, text:"Berlangganan"}];
+  const opsiSubs = [{val: false, text:"Unsubscribe"}, {val: true, text:"Subscribe"}];
   const sendImage = (img) => {
     const formData = new FormData();
     formData.append("file", img);
