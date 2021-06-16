@@ -99,7 +99,7 @@ export default function Index() {
                   border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
-                <ChartTrade />
+                {/* <ChartTrade /> */}
               </div>
             </div>
 
@@ -220,7 +220,7 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order History
+                        Order History (0)
                       </th>
                     </div>
                   </div>

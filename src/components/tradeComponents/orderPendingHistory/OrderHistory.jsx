@@ -2,6 +2,7 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
+import "moment/locale/id";
 import moment from "moment";
 
 import { GetHistoryOrder } from "../../../stores/pasartrading/functions";

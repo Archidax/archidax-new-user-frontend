@@ -6,10 +6,7 @@ import { GetOrderLiveMarket } from "../../../stores/pasartrading/functions";
 
 import { convertNumber } from "../../../assets/js";
 
-import moment from "moment";
-import "moment/locale/id";
-
-export default function LiveMarket() {
+export default function LiveMarketBuy() {
   const { PairSymbol } = useSelector((state) =>
     state ? state?.pasarTradingReducer : {},
   );
@@ -72,7 +69,7 @@ export default function LiveMarket() {
                             : "text-white"
                         } text-left`}
                       >
-                        {item.price ? convertNumber.toRupiah(item.price,"CRYPTO") : 0}
+                        {item.price ? convertNumber.toRupiah(item.price) : 0}
                       </td>
                       <td
                         className={`${
@@ -89,7 +86,9 @@ export default function LiveMarket() {
                           mode ? "text-price-dark" : "text-price"
                         } text-right`}
                       >
-                        {moment(item.createdAt).format("HH:MM:SS")}
+                        {item.createdAt
+                          ? new Date(item.createdAt).toLocaleTimeString("id-ID")
+                          : "-"}
                       </td>
                     </tr>
                   </tbody>
