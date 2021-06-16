@@ -174,7 +174,7 @@ export default {
         wal_explorer: "Explorer",
         wal_saldo_aktif: "Saldo Aktif",
         wal_saldo_beku: "Saldo Beku",
-        wal_estimasi_nilai_idr: "Estimasi Aset (IDR)",
+        wal_estimasi_nilai_idr: "Estimasi Aset (USDT)",
         wal_status: "Status",
         wal_aksi: "Aksi",
         wal_setor: "Setor",

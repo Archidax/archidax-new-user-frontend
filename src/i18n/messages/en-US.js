@@ -183,7 +183,7 @@ export default {
         wal_explorer: "Explorer",
         wal_saldo_aktif: "Active balance",
         wal_saldo_beku: "Frozen Balance ",
-        wal_estimasi_nilai_idr: "Estimated Assets (IDR)",
+        wal_estimasi_nilai_idr: "Estimated Assets (USDT)",
         wal_status: "Status",
         wal_aksi: "Action",
         wal_setor: "Deposit ",
