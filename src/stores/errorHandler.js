@@ -2,7 +2,6 @@ import Popup from '../components/popUps'
 
 export default function errorHandler(err, func){
     Popup.close()
-    console.log(err,"<<<<ERROR>>>>")
     if(err.response){
         if(err.response.status === 401){
             Popup.fire({
@@ -15,7 +14,7 @@ export default function errorHandler(err, func){
             })
         }else if(err.response.status === 403){
             Popup.fire({
-                title: 'Akses tidak diizinkan !',
+                title: 'Access prohibited!',
                 text: err.response.data.message,
                 onClickOk: () => {
                     window.open(window.location.origin,"_self")
@@ -25,7 +24,7 @@ export default function errorHandler(err, func){
             console.log(err.response)
             Popup.fire({
                 title: 'Failed!',
-                text: err.response.data && err.response.data.message ? err.response.data.message : "Server sedang sibuk!",
+                text: err.response.data && err.response.data.message ? err.response.data.message : "Server busy!",
                 onClickOk: () => {
                     if(!err.response.data){
                         window.open(window.location.origin+"/404","_self")
@@ -54,7 +53,7 @@ export const imageSizeError = (img, size, func) => {
         if(img.size > size){
             Popup.fire({
                 title: "Warning!",
-                text: `Ukuran file max. ${size/1000} kB`
+                text: `Max. file size ${size/1000} kB`
             })
             return true
         }else {
@@ -66,7 +65,7 @@ export const imageSizeError = (img, size, func) => {
     } else {
         Popup.fire({
             title: "Warning!",
-            text: `File tidak ditemukan`
+            text: `File not found`
         })
     }
 }
@@ -76,7 +75,7 @@ export const emailFormatError = (email, func) => {
     if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)){
         Popup.fire({
             title: "Warning!",
-            text: "Format email yang anda masukan tidak valid!"
+            text: "Email format is not valid!"
         })
         return true
     }else {
@@ -92,7 +91,7 @@ export const telefonFormatError = (num, func) => {
     if(num.length < 7 || num.length > 12){
         Popup.fire({
             title: "Warning!",
-            text: "Nomor telefon yang anda masukan tidak valid!"
+            text: "Your phone number is not valid!"
         })
         return true
     }else {
@@ -107,7 +106,7 @@ export const idCardFormatError = (id, func) => {
     if(id.length < 8 || id.length > 16){
         Popup.fire({
             title: "Warning!",
-            text: "Nomor identitas yang anda masukan tidak valid!"
+            text: "Your identity Number is not valid!"
         })
         return true
     }else {
@@ -122,7 +121,7 @@ export const kodePosFormatError = (id, func) => {
     if(id.length !== 5){
         Popup.fire({
             title: "Warning!",
-            text: "Kode pos yang anda masukan tidak valid!"
+            text: "ZIP Code is not valid!"
         })
         return true
     }else {
