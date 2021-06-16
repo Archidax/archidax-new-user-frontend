@@ -81,7 +81,7 @@ export default function LiveMarket() {
                     <tr
                       data-toggle="tooltip"
                       data-placement="top"
-                      title={convertNumber.toRupiah(item.price * item.amount)}
+                      title={convertNumber.toRupiah(item.price * item.amount,"CRYPTO")}
                     >
                       <td
                         className={`${

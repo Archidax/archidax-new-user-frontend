@@ -209,7 +209,7 @@ export default function Price() {
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
                   } font-32`}
                 >
-                  {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+                  {price24H ? convertNumber.toRupiah(price24H.Close,"CRYPTO") : 0}
                 </div>
                 <div
                   className={`${
