@@ -12,27 +12,14 @@ export const convertNumber = {
 
     toRupiah:(balance,type)=>{
         if(typeof(balance)==="number"&&balance>0){
-            if(balance&&balance<1){
-                if(balance.toString().length>=10){
-                    return Number(balance).toFixed(8);
-                }else{
-                    return Number(balance);
-                }
-            }else if(balance&&balance>1&&balance<100){
-                if(balance.toString().length>=10){
-                    return Number(balance).toFixed(8);
-                }else{
-                    return Number(balance);
-                }
-            }else{
-                if(String(balance).includes(".")&&type&&type.toUpperCase()==="CRYPTO"){
-                    return Number(balance);
-                }else{
-                    return Number(balance).toLocaleString("id-ID").split(",")[0];
+            if(!Number.isSafeInteger(balance)){
+                if(type&&type.toUpperCase()==="CRYPTO"){
+                    return parseFloat(parseFloat(balance).toFixed(8));
                 }
             }
+            return parseInt(balance).toLocaleString("id-ID");
         }else{
-            return 0;
+            return parseInt(0);
         }
     },
 
