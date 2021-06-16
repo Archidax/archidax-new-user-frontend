@@ -208,6 +208,6 @@ export const verifyEmail = (key, history) => {
         history.push('/login?emailverified')
     })
     .catch(err => {
-        history.push('/homes')
+        history.push('/home')
     })
 }

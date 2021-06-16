@@ -26,6 +26,7 @@ import tarikCryptoReducer from './tarikcrypto'
 import affiliasiReducer from './affiliasi'
 import daynightReducer from './daynight'
 import launchpadReducer from './launchpad'
+import dynamicPageReducer from './dynamicPage'
 
 const supabaseUrl = 'https://wmxeonvmtnxajofwqpcb.supabase.co'
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyMTkyNDQ4MCwiZXhwIjoxOTM3NTAwNDgwfQ.nx_o1P4GYwrChkA77SS0uOfdQkiDM3mGVE2h6UoT2_E"
@@ -54,11 +55,11 @@ export * from './chart/functions'
 
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
-// export const baseUrl = 'http://localhost:8000';
 export const baseUrl = 'https://dev.archidax.net';
+// export const baseUrl = 'http://localhost:8000';
 ///////////////////////////////////////////////////////////////
-// export const baseUserSocketUrl = 'http://localhost:8000'
 export const baseUserSocketUrl = 'https://dev.archidax.net';
+// export const baseUserSocketUrl = 'http://localhost:8000'
 ///////////////////////////////////////////////////////////////
 // export const baseUrlTrade = 'https://trade.archidax.net';
 // export const baseUrlTrade = 'https://trade.archidax.net';
@@ -73,6 +74,8 @@ export const baseUrlTrade='http://localhost:2021';
 // export const baseUrlTrade = 'https://trade.archidax.net';
 export const baseUrlCronjob='http://localhost:2022';
 export const baseUrlTradeVersion='/api/v1';
+///////////////////////////////////////////////////////////////
+export const baseUrlCronjob='http://localhost:2022';
 ///////////////////////////////////////////////////////////////
 
 export const baseAxios = axios.create({ 
@@ -103,7 +106,8 @@ const rootReducer = combineReducers({
     tarikCryptoReducer,
     affiliasiReducer,
     daynightReducer,
-    launchpadReducer
+    launchpadReducer,
+    dynamicPageReducer
 });
 
 export default function ReduxState(props) {

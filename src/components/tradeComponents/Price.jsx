@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IoWebSocketTrade } from "../../configuration/IoWebSocket";
-import ReactLoading from 'react-loading';
+import ReactLoading from "react-loading";
 import { convertNumber } from "../../assets/js";
 
 import {
@@ -38,7 +38,7 @@ export default function Price() {
   }, []);
 
   React.useEffect(() => {
-    if(PairSymbol) {
+    if (PairSymbol) {
       dispatch(GetOrderLastPrice({ pair: PairSymbol }));
     }
   }, [PairSymbol]);
@@ -61,7 +61,7 @@ export default function Price() {
               }}
               onClick={() => handleShowDropdown(showDropdown)}
             >
-              {PairSymbol?
+              {PairSymbol ? (
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="text-left mr-2 d-flex align-items-center">
                     <img
@@ -84,13 +84,19 @@ export default function Price() {
                   <div className="icons">
                     <i className="fas fa-sort-down d-flex justify-content-center"></i>
                   </div>
-                </div> : 
+                </div>
+              ) : (
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="text-left mr-2 d-flex align-items-center">
-                    <ReactLoading type={'spin'} color={'#ffffff'} height={'40px'} width={'33px'} />
+                    <ReactLoading
+                      type={"spin"}
+                      color={"#ffffff"}
+                      height={"40px"}
+                      width={"33px"}
+                    />
                   </div>
                 </div>
-              }
+              )}
             </button>
             <div
               className={`ci-dropdown-menu-TradeSymbol ${showDropdown} pt-0`}
@@ -184,16 +190,21 @@ export default function Price() {
             </div>
           </div>
         </div>
-        {
-          PairSymbol&&
+        {PairSymbol && (
           <div className="p-2 mt-2">
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                textAlign: "end",
+              }}
+            >
               {/* Price */}
               <div style={{ display: "flex", marginTop: "11px" }}>
                 <div
                   className={`${
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-22 `}
+                  } font-18 `}
                 >
                   {PairSymbol ? PairSymbol : null}
                 </div>
@@ -202,29 +213,44 @@ export default function Price() {
                 <div
                   className={`${
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-32`}
+                  } font-24`}
+                  style={{ marginTop: "3px" }}
                 >
                   {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
                 </div>
                 <div
                   className={`${
                     mode ? "text-white" : "text-black"
-                  } font-16 ml-1 ${convertNumber.tradeUpDownChange(
+                  } font-14 ml-1 ${convertNumber.tradeUpDownChange(
                     price24H.Change,
                   )}`}
-                  style={{ marginTop: "18px" }}
+                  style={{ marginTop: "14px" }}
                 >
                   {price24H
                     ? convertNumber.tradeChange(price24H.Change)
                     : 0 + "%"}
                 </div>
-                {
-                  price24H&&
-                  Number(price24H.Change).toFixed(2)>0?
-                    <img src={arrowup} style={{ width: "18px", marginTop: "9px", marginLeft: "7px" }} />:
-                    Number(price24H.Change).toFixed(2)<0&&
-                    <img src={arrowdown} style={{ width: "18px", marginTop: "9px", marginLeft: "7px" }} />
-                }
+                {price24H && Number(price24H.Change).toFixed(2) > 0 ? (
+                  <img
+                    src={arrowup}
+                    style={{
+                      width: "18px",
+                      marginTop: "9px",
+                      marginLeft: "7px",
+                    }}
+                  />
+                ) : (
+                  Number(price24H.Change).toFixed(2) < 0 && (
+                    <img
+                      src={arrowdown}
+                      style={{
+                        width: "18px",
+                        marginTop: "9px",
+                        marginLeft: "7px",
+                      }}
+                    />
+                  )
+                )}
               </div>
             </div>
 
@@ -241,8 +267,8 @@ export default function Price() {
                     mode ? "text-price-top-dark" : "text-price-top"
                   } font-15 mr-2`}
                 >
-                  Volume {PairSymbol ? PairSymbol.toString().split("/")[1] : null}{" "}
-                  :
+                  Volume{" "}
+                  {PairSymbol ? PairSymbol.toString().split("/")[1] : null} :
                 </div>
                 {/* Volume IDR */}
                 <div
@@ -290,8 +316,8 @@ export default function Price() {
                     mode ? "text-price-top-dark" : "text-price-top"
                   } font-15 mr-2`}
                 >
-                  Volume {PairSymbol ? PairSymbol.toString().split("/")[0] : null}{" "}
-                  :
+                  Volume{" "}
+                  {PairSymbol ? PairSymbol.toString().split("/")[0] : null} :
                 </div>
                 <div
                   className={`${
@@ -323,7 +349,7 @@ export default function Price() {
               </div>
             </div>
           </div>
-        }
+        )}
       </div>
       <div>
         <TabsChartTrade />

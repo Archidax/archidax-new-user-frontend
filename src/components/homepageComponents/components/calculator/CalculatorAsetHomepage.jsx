@@ -67,10 +67,10 @@ export default function CalculatorAsetHomepage() {
         key.includes(activePairFrom),
       );
       temp.map((pair) => {
-        if(activePairFrom === pair.split('/')[0]){
-          result.push({symbol: pair.split("/")[1]})
+        if (activePairFrom === pair.split("/")[0]) {
+          result.push({ symbol: pair.split("/")[1] });
         }
-      })
+      });
       // temp.forEach((pair) => {
       //   if (!result.some((el) => el.symbol === pair.split("/")[1])) {
       //     result.push({ symbol: pair.split("/")[1] });
@@ -91,11 +91,12 @@ export default function CalculatorAsetHomepage() {
   }, []);
 
   useEffect(() => {
-    setFromText('');
-    setToText('');
+    setFromText("");
+    setToText("");
     if (pricePairs) {
-      let temp = Object.keys(pricePairs).filter((key) =>
-        key.includes(activePairFrom) && key.split('/')[0] === activePairFrom
+      let temp = Object.keys(pricePairs).filter(
+        (key) =>
+          key.includes(activePairFrom) && key.split("/")[0] === activePairFrom,
       );
       setActivePairTo(temp.length ? temp[0].split("/")[1] : "USDT");
     }
@@ -106,7 +107,7 @@ export default function CalculatorAsetHomepage() {
       <div>
         <div>
           <h6 className="text-center text-white font-apa-itu-responsive2">
-            Update Terakhir:{" "}
+            Last Update :{" "}
             <span>
               {`${nowDate.getUTCFullYear()}-${
                 nowDate.getMonth() + 1
@@ -123,7 +124,10 @@ export default function CalculatorAsetHomepage() {
                   class="form-control font-calculator"
                   placeholder="0"
                   value={fromText}
-                  disabled={!!!pricePairs || !!!pricePairs[activePairFrom+'/'+activePairTo]}
+                  disabled={
+                    !!!pricePairs ||
+                    !!!pricePairs[activePairFrom + "/" + activePairTo]
+                  }
                   onChange={(e) => handleFromChange(e.target.value)}
                 />
               </div>
@@ -145,7 +149,10 @@ export default function CalculatorAsetHomepage() {
                   class="form-control border-0 font-calculator"
                   placeholder="0"
                   value={toText}
-                  disabled={!!!pricePairs || !!!pricePairs[activePairFrom+'/'+activePairTo]}
+                  disabled={
+                    !!!pricePairs ||
+                    !!!pricePairs[activePairFrom + "/" + activePairTo]
+                  }
                   onChange={(e) => handleToChange(e.target.value)}
                 />
               </div>

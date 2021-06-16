@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState  } from "react";
 import { Route, Switch } from "react-router-dom";
 
 // Import Page
@@ -47,12 +47,15 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { GetListingExchange, setMyFav } from "../stores/pasartrading/functions";
 import KeuanganPage from "./keuangan";
+import DynamicPage from "./dynamicPage";
+import { getAllDynamicPages } from "../stores/dynamicPage/functions";
 
 export default function MainPages() {
-  const [locale, setLocale] = React.useState(LOCALES.ENGLISH);
+  const dispatch = useDispatch();
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
   const { email } = useSelector((state) => state?.profileReducer);
-  const dispatch = useDispatch();
+  const [locale, setLocale] = useState(LOCALES.ENGLISH);
+  const [flag, setFlag] = useState("flag-icon-id");
 
   useEffect(() => {
     if (isLoginAccount) {
@@ -63,6 +66,10 @@ export default function MainPages() {
     }
     dispatch(GetListingExchange());
   }, [email, dispatch, isLoginAccount]);
+
+  useEffect(() => {
+    getAllDynamicPages(dispatch)
+  },[dispatch])
 
   useEffect(() => {
     // if (localStorage.getItem('language')) {
@@ -98,13 +105,31 @@ export default function MainPages() {
     }
   }, [localStorage.getItem('language')]);
 
+
+  useEffect(() => {
+    switch (locale) {
+      case LOCALES.INDONESIA:
+        setFlag("flag-icon-id");
+        break;
+      case LOCALES.ENGLISH:
+        setFlag("flag-icon-us");
+        break;
+      case LOCALES.VIETNAM:
+        setFlag("flag-icon-vn");
+        break;
+      default:
+        setFlag("flag-icon-us");
+    }
+    localStorage.setItem("CryptoIndexLocale", locale);
+  }, [locale])
+
   return (
     <>
       <I18nProvider locale={locale}>
         <ScrollToTop>
           <Switch>
             <Route path="/home">
-              <HomePage setLocale={setLocale} />
+              <HomePage flag={flag} setLocale={setLocale} />
             </Route>
             <Route path="/deactivate">
               <Deactivate />
@@ -187,8 +212,11 @@ export default function MainPages() {
             <Route path="/email/verify/:key">
               <EmailVerification />
             </Route>
+            <Route path="/pages/:category/:pageSlug">
+                <DynamicPage />
+            </Route>
             <ProtectedRoute path="/">
-              <RouteDashboardPage setLocale={setLocale} />
+              <RouteDashboardPage flag={flag} locale={locale} setLocale={setLocale} />
             </ProtectedRoute>
             {/* <ProtectedRoute path="/dashboard">
                 <Dashboard />

@@ -128,6 +128,10 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
+.bg-overlay-homepage2 {
+  background: rgba(0, 0, 0, 0.4);
+}
+
 // Banner
 
 //
@@ -866,6 +870,12 @@
   overflow: auto;
 }
 
+#overflowTestChatTrade {
+  width: 100%;
+  height: 376px;
+  overflow: auto;
+}
+
 // Tabs Chart
 .tabs-info-news {
   .nav .nav-item .nav-link {
@@ -882,7 +892,7 @@
   .nav .nav-item .nav-link.active {
     color: #f9ba42;
     // background: $base-color-tabs-mainchart-active;
-    border-bottom: 1px solid #f9ba42;
+    border-bottom: 1px solid rgba(249, 186, 66, 0.6);
     border-radius: 0px;
     height: 40px;
     font-size: 14px;

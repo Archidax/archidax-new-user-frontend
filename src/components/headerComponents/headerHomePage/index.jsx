@@ -9,6 +9,7 @@ import Translate from "../../../i18n/Translate";
 
 function HeaderHomePage(props) {
   // eslint-disable-next-line
+  const { flag } = props
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
 
   return (
@@ -127,7 +128,7 @@ function HeaderHomePage(props) {
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
-          <Flags setLocale={props.setLocale} />
+          <Flags flag={flag} setLocale={props.setLocale} />
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item mx-2">
               <a

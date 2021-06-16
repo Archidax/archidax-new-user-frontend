@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 export default function TabsLimitMarketChat() {
   const { mode } = useSelector((state) => state.daynightReducer);
   return (
-    <div className={mode ? "tabs-global-dark" : "tabs-global"}>
+    <div className={mode ? "tabs-global-dark2-buy-sell" : "tabs-global"}>
       <ul
         className={`${
           mode ? "nav-trade-full-dark" : "nav-trade-full"

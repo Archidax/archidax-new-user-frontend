@@ -4,7 +4,7 @@ import Calculator from "./calculator/CalculatorAsetHomepage";
 
 export default function apaItuCrypto() {
   return (
-    <div className="bg-archidax">
+    <div className="bg-archidax" style={{ paddingBottom: "80px" }}>
       <div className="mt-hp-r">
         <hr
           style={{ border: "1px solid rgba(249,186,66,0.5)", width: "50%" }}
@@ -18,7 +18,7 @@ export default function apaItuCrypto() {
             // data-aos-duration="1000"
           >
             <h2 className="text-homepage-yellow font-apa-itu-responsive">
-              Calculator Aset Crypto
+              Price Converter
             </h2>
             <Calculator />
           </div>

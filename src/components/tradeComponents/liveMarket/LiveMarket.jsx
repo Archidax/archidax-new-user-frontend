@@ -6,6 +6,9 @@ import { GetOrderLiveMarket } from "../../../stores/pasartrading/functions";
 
 import { convertNumber } from "../../../assets/js";
 
+import moment from "moment";
+import "moment/locale/id";
+
 export default function LiveMarket() {
   const { PairSymbol } = useSelector((state) =>
     state ? state?.pasarTradingReducer : {},
@@ -14,25 +17,19 @@ export default function LiveMarket() {
   const [Data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    if(PairSymbol&&IoWebSocketTrade){
+    if (PairSymbol && IoWebSocketTrade) {
       GetOrderLiveMarket({ dispatch: setData, pair: PairSymbol });
       IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
       IoWebSocketTrade.on(`OrderMatch-${PairSymbol}`, (data) => {
         setData(data);
       });
     }
-    return () => IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
+    return () =>
+      IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
   }, [PairSymbol]);
 
   return (
     <div>
-      <div
-        className={mode ? "bg-trade3-dark" : "bg-trade3"}
-        style={{ padding: "9px 16px" }}
-      >
-        <th className="text-gold font-14 mb-0 ">Live Market</th>
-      </div>
-
       <div
         className={
           mode ? "outter-table-wrapper3-dark" : "outter-table-wrapper3"
@@ -75,7 +72,7 @@ export default function LiveMarket() {
                             : "text-white"
                         } text-left`}
                       >
-                        {item.price ? convertNumber.toRupiah(item.price) : 0}
+                        {item.price ? convertNumber.toRupiah(item.price,"CRYPTO") : 0}
                       </td>
                       <td
                         className={`${
@@ -92,9 +89,7 @@ export default function LiveMarket() {
                           mode ? "text-price-dark" : "text-price"
                         } text-right`}
                       >
-                        {item.createdAt
-                          ? new Date(item.createdAt).toLocaleTimeString("id-ID")
-                          : "-"}
+                        {moment(item.createdAt).format("HH:MM:SS")}
                       </td>
                     </tr>
                   </tbody>
