@@ -59,44 +59,16 @@ import axios from "axios";
 // import PasarHomePage from "../tradepage/PasarPage";
 // import BasicChart from "../../components/tradeComponents/basicChart/BasicChart";
 
-function RouteDashboardPage() {
+function RouteDashboardPage(props) {
+  const { flag, locale, setLocale } = props
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
-
-  const [locale, setLocale] = React.useState(
-    localStorage.CryptoIndexLocale ? localStorage.CryptoIndexLocale : "",
-  );
-  const [flag, setFlag] = useState("flag-icon-id");
+  const loading = useSelector((state) => state.loadingReducer);
   const history = useHistory();
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.loadingReducer);
 
-  const [activeSidebar, setActiveSidebar] = React.useState("");
-  // const [notactiveSidebar, setnotActiveSidebar] = React.useState("active");
+  const [activeSidebar, setActiveSidebar] = useState("");
+  // const [notactiveSidebar, setnotActiveSidebar] = useState("active");
   const { email } = useSelector((state) => state?.profileReducer);
-
-  useEffect(() => {
-    if (localStorage.getItem('language')) {
-      if (localStorage.getItem('language') === "ID") {
-        setLocale(LOCALES.INDONESIA);
-      } else {
-        setLocale(LOCALES.ENGLISH);
-      }
-    } else {
-      axios
-        .get("https://ipclient.herokuapp.com/")
-        .then(({ data }) => {
-          if (data.country === "ID") {
-            localStorage.setItem('language', "ID")
-            setLocale(LOCALES.INDONESIA);
-          } else {
-            localStorage.setItem('language', "EN")
-            setLocale(LOCALES.ENGLISH);
-          }
-        })
-        .catch((err) => { });
-    }
-
-  }, []);
 
   const onClickActiveSidebar = () => {
     if (activeSidebar === "") {
@@ -118,23 +90,6 @@ function RouteDashboardPage() {
       );
     }
   };
-
-  useEffect(() => {
-    switch (locale) {
-      case LOCALES.INDONESIA:
-        setFlag("flag-icon-id");
-        break;
-      case LOCALES.ENGLISH:
-        setFlag("flag-icon-us");
-        break;
-      case LOCALES.VIETNAM:
-        setFlag("flag-icon-vn");
-        break;
-      default:
-        setFlag("flag-icon-id");
-    }
-    localStorage.setItem("CryptoIndexLocale", locale);
-  }, [locale]);
 
   useEffect(() => {
     if (isLoginAccount) {
