@@ -28,16 +28,16 @@ function KonfirmasiOTP(props) {
                         </div>
                         <div className="col-12 col-md-3 pl-1">
                             <button className="ci-btnOL-warning w-100 h-100">
-                                Kirim Pin
+                                Send Pin
                             </button>
                         </div>
                     </div>
                     <div className="row mt-4 d-flex justify-content-center">
                         <div className="col-12 col-md-4 d-flex justify-content-center">
-                            <button onClick={() => props.sendPin()} className="ci-btn-warning ci-lg w-100">Kirim</button>
+                            <button onClick={() => props.sendPin()} className="ci-btn-warning ci-lg w-100">Send</button>
                         </div>
                         <div className="col-12 col-md-4 d-flex justify-content-center">
-                            <button onClick={() => props.setShowPopupKonfirmasiOTP(false)} className="ci-btn-danger ci-lg w-100">Batal</button>
+                            <button onClick={() => props.setShowPopupKonfirmasiOTP(false)} className="ci-btn-danger ci-lg w-100">Cancel</button>
                         </div>
                     </div>
                 </div>
