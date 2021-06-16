@@ -156,8 +156,11 @@ export default {
         db_saldo: "Balance",
         db_aset_crypto: "Crypto Assets",
         db_selengkapnya: "More Details",
-
-
+        db_saldoactive: "Active Balance",
+        db_frozenbalance: "Frozen Balance",
+        db_asset_estimate: "Asset Estimation (USDT)",
+        db_harap_setor: "Please deposit your asset to the following address :",
+        pilih: "Choose..",
         saldo: 'Balance',
         selengkapnya: "View More",
 

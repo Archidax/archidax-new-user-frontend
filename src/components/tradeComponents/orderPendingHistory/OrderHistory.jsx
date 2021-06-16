@@ -129,7 +129,7 @@ export default function OrderPending(props) {
                         mode ? "text-price-dark" : "text-price"
                       } text-left`}
                     >
-                      {convertNumber.toRupiah(item.price)}
+                      {convertNumber.toRupiah(item.price,"CRYPTO")}
                     </td>
                     <td
                       className={`${
@@ -143,7 +143,7 @@ export default function OrderPending(props) {
                         mode ? "text-price-dark" : "text-price"
                       } text-left`}
                     >
-                      {convertNumber.toRupiah(item.total)}
+                      {convertNumber.toRupiah(item.total,"CRYPTO")}
                     </td>
                   </tr>
                 );
