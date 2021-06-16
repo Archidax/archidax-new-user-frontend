@@ -78,9 +78,7 @@ export default function ListBuy() {
                           mode ? "text-success" : "text-success font-bolder25"
                         } text-left`}
                       >
-                        {pairFrom === "USDT"
-                          ? item.price
-                          : convertNumber.toRupiah(item.price)}
+                          {convertNumber.toRupiah(item.price,"CRYPTO")}
                       </td>
                       <td
                         className={`${
@@ -96,9 +94,7 @@ export default function ListBuy() {
                           mode ? "text-price-dark" : "text-price font-bolder25"
                         } text-left`}
                       >
-                        {pairFrom === "USDT"
-                          ? item.amount * item.price
-                          : convertNumber.toRupiah(item.amount * item.price)}
+                        {convertNumber.toRupiah(item.amount * item.price,"CRYPTO")}
                       </td>
                     </tr>
                   </tbody>

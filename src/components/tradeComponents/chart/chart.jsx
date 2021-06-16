@@ -112,7 +112,7 @@ export default function TradeChartCard(props) {
         tvWidget = null;
       }
     };
-  }, [props, mode]);
+  }, [props]);
 
   return <div id={props.containerId} className={"TVChartContainer h-100"} />;
 }
