@@ -21,6 +21,7 @@ function Home(props) {
     <div className="navbar-homePage">
       <div className="navbar-top">
         <HeaderHomePage
+          flag={props.flag}
           setLocale={props.setLocale}
           bg_normal="bg-header-homepage2"
           // bg_normal="bg-overlay-homepage"

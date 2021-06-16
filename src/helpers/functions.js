@@ -26,7 +26,7 @@ export const errHandler = (err, func) => {
             // history.replace('/login')
         }else {
             Popup.fire({
-                title: "Gagal!",
+                title: "Failed!",
                 text: err.response.data.message,
                 onClickOk: func ? func : undefined
             })
@@ -35,7 +35,7 @@ export const errHandler = (err, func) => {
         // localStorage.removeItem('token')
         // window.open("http://localhost:3000/404","_self")
         // Popup.fire({
-        //     title: 'Gagal!',
+        //     title: 'Failed!',
         //     text: "Server sedang sibuk!",
         //     onClickOk: () => 
         // })

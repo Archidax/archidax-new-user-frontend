@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { generateAddress, getMyBalance } from '../../../stores';
 import ReactQRCode from 'react-qr-code'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-
+import Translate from "../../../i18n/Translate";
 // Instruksi
 import AOAInstructions from './setorinstructions/AOAInstructions'
 import BNBInstructions from './setorinstructions/BNBInstructions'
@@ -133,7 +133,7 @@ function SetorCryptoTabs() {
                                         <div className="col-12 col-md-8">
                                             <div className="row">
                                                 <div className="col-5">
-                                                    <p className="mb-2 mt-2 text-white">Saldo Aktif</p>
+                                                    <p className="mb-2 mt-2 text-white">{Translate('db_saldoactive')}</p>
                                                 </div>
                                                 <div className="col-7">
                                                     <p className="text-right mb-2 mt-2 text-white">{coinDetails.balance} {coinCode}</p>
@@ -141,7 +141,7 @@ function SetorCryptoTabs() {
                                             </div>
                                             <div className="row">
                                                 <div className="col-5">
-                                                    <p className="mb-2 mt-2 text-white">Saldo Beku</p>
+                                                    <p className="mb-2 mt-2 text-white">{Translate('db_frozenbalance')}</p>
                                                 </div>
                                                 <div className="col-7">
                                                     <p className="text-right mb-2 mt-2 text-white">{coinDetails.frozen_balance} {coinCode}</p>
@@ -149,10 +149,10 @@ function SetorCryptoTabs() {
                                             </div>
                                             <div className="row">
                                                 <div className="col-5">
-                                                    <p className="mb-2 mt-2 text-white">Estimasi Rupiah</p>
+                                                    <p className="mb-2 mt-2 text-white">{Translate('db_asset_estimate')}</p>
                                                 </div>
                                                 <div className="col-7">
-                                                    <p className="text-right mb-2 mt-2 text-white">{convertNumber.toMoney(closePrice * coinDetails.balance, "Rp.")}</p>
+                                                    <p className="text-right mb-2 mt-2 text-white">{convertNumber.toMoney(closePrice * coinDetails.balance, "USDT ")}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -181,7 +181,7 @@ function SetorCryptoTabs() {
                                                     </div>
 
                                                     <div className="col-12 col-md-10">
-                                                        <label for="address" className="font-14 col-form-label text-left">Harap setorkan aset Anda ke alamat berikut :</label>
+                                                        <label for="address" className="font-14 col-form-label text-left">{Translate('db_harap_setor')}</label>
                                                         <div className="input-group ci-inputDefault-bg">
                                                             <input type="text" className="form-control ci-inputDefault-bg-input font-13" id="address" placeholder={coinDetails.address} disabled />
                                                             <div className="ci-inputDefault-bg-appendR d-block justify-content-center p-1">

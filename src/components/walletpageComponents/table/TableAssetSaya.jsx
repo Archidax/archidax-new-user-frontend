@@ -144,7 +144,7 @@ function TableAssetSaya() {
                             items.detail_crypto&&!items.detail_crypto.in_repair?"text-success":"text-white"
                           }`}>
                             <i className="fas fa-circle fa-xs"></i>
-                            {items.detail_crypto ? !items.detail_crypto.in_repair ? ' Aktif' : ' Dalam Perbaikan' : ' Dalam Perbaikan'}
+                            {items.detail_crypto ? !items.detail_crypto.in_repair ? ' Active' : ' Under Maintenance' : ' Under Maintenance'}
                           </td>
                           {
                             items.detail_crypto ? !items.detail_crypto.in_repair
@@ -184,8 +184,8 @@ function TableAssetSaya() {
                                   </div>
                                 </div>
                               </td>
-                              : <td className="ci-verti-align-middle text-white">Maaf, koin sedang dalam perbaikan</td>
-                            : <td className="ci-verti-align-middle text-white">Maaf, koin sedang dalam perbaikan</td>
+                              : <td className="ci-verti-align-middle text-white">Sorry, Coin is under Maintenance</td>
+                            : <td className="ci-verti-align-middle text-white">Sorry, Coin is under Maintenance</td>
                           }
                         </tr>
                       );
