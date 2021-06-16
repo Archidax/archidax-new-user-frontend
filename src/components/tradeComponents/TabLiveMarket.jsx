@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Chat from "./chat/Chat";
 import NewsTrade from "../homepageComponents/components/infonews/tab/NewsTrade";
 import LiveMarket from "./liveMarket/LiveMarket";
+import LiveMarketBuy from "./liveMarket/LiveMarketBuy";
+import LiveMarketSell from "./liveMarket/LiveMarketSell";
 
 export default function TabLiveMarket() {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -129,7 +131,7 @@ export default function TabLiveMarket() {
             role="tabpanel"
             aria-labelledby="pills-buy-market-tab"
           >
-            Test1
+            <LiveMarketBuy />
           </div>
           <div
             class="tab-pane fade"
@@ -137,7 +139,7 @@ export default function TabLiveMarket() {
             role="tabpanel"
             aria-labelledby="pills-sell-market-tab"
           >
-            Test2
+            <LiveMarketSell />
           </div>
         </div>
       </div>
