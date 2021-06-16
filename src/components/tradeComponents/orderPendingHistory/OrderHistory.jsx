@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { useSelector } from "react-redux";
 
@@ -13,7 +13,8 @@ import { convertNumber } from "../../../assets/js";
 
 import noorder from "../../../assets/img/trade/no_order.svg";
 
-export default function OrderPending() {
+export default function OrderPending(props) {
+  const { setHistoryLength } = props
   const { mode } = useSelector((state) => state.daynightReducer);
 
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
@@ -21,14 +22,18 @@ export default function OrderPending() {
     state ? state?.pasarTradingReducer : {},
   );
 
-  const [Data, setData] = React.useState([]);
-  const [, setCopy] = React.useState(false);
+  const [Data, setData] = useState([]);
+  const [, setCopy] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isLoginPages) {
       GetHistoryOrder({ dispatch: setData, pair: PairSymbol });
     }
   }, [setData, PairSymbol, isLoginPages]);
+
+  useEffect(() => {
+    setHistoryLength(Data.length)
+  },[Data])
 
   return (
     <div className="outter-table-wrapper6">
