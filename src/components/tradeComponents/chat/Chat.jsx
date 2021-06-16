@@ -68,14 +68,14 @@ export default function Chat() {
   }, [setMessages]);
 
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected) {
+    if (IoWebSocketTrade) {
+      IoWebSocketTrade.removeEventListener(`Chatting`);
       IoWebSocketTrade.on(`Chatting`, (data) => {
-        let dataTemp = [data, ...Messages].filter((item, index) => index < 100);
-        setMessages(dataTemp);
+        setMessages(data);
       });
       return () => IoWebSocketTrade.removeEventListener(`Chatting`);
     }
-  }, [setMessages, Messages]);
+  }, []);
 
   return (
     <div className={mode ? "bg-trade2-dark" : "bg-trade2"}>
