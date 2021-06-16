@@ -28,7 +28,7 @@ function KonfirmasiOTP(props) {
                         </div>
                         <div className="col-12 col-md-3 pl-1">
                             <button className="ci-btnOL-warning w-100 h-100">
-                                Kirim Pin
+                                Send Pin
                             </button>
                         </div>
                     </div>

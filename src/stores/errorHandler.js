@@ -6,7 +6,7 @@ export default function errorHandler(err, func){
     if(err.response){
         if(err.response.status === 401){
             Popup.fire({
-                title: "Gagal!",
+                title: "Failed!",
                 text: err.response.data.message,
                 onClickOk: () => {
                     localStorage.removeItem('token')
@@ -24,7 +24,7 @@ export default function errorHandler(err, func){
         } else if(err.response.status === 404){
             console.log(err.response)
             Popup.fire({
-                title: 'Gagal!',
+                title: 'Failed!',
                 text: err.response.data && err.response.data.message ? err.response.data.message : "Server sedang sibuk!",
                 onClickOk: () => {
                     if(!err.response.data){
@@ -35,14 +35,14 @@ export default function errorHandler(err, func){
         }
         else {
             Popup.fire({
-                title: "Gagal!",
+                title: "Failed!",
                 text: err.response.data.message,
                 onClickOk: func ? func : undefined
             })
         }
     } else {
         Popup.fire({
-            title: 'Gagal!',
+            title: 'Failed!',
             text: "Server Timeout!",
         })
     }
