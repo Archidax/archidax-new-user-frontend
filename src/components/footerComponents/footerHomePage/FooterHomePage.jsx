@@ -40,9 +40,11 @@ export default function FooterHomePage() {
   };
 
   return (
-    <div>
+    <div className="footer-luar">
       {/* <!-- Footer --> */}
-      <footer className="bg-homepage2">
+      <div className="bg-homepage2" style={{ minHeight: "500px" }}></div>
+      <div className="footer-dalam"></div>
+      <div className="footer-dalam2">
         <div className="">
           <div className="container">
             <div
@@ -120,38 +122,6 @@ export default function FooterHomePage() {
                     <></>
                   )}
                 </ul>
-
-                {/* <ul className="list-unstyled mb-0">
-                <li className="mb-3">
-                  <a href="/syarat-pengguna" className="text-lg-footer font-14">
-                    {Translate("f2_syarat")}
-                  </a>
-                </li>
-                <li className="mb-3">
-                  <a
-                    href="/kebijakan-privasi"
-                    className="text-lg-footer font-14"
-                  >
-                    {Translate("f2_privasi")}
-                  </a>
-                </li>
-                <li className="mb-3">
-                  <a
-                    href="kebijakan-KYC-AML"
-                    className="text-lg-footer font-14"
-                  >
-                    {Translate("f2_kyc")}
-                  </a>
-                </li>
-                <li className="mb-3">
-                  <a
-                    href="/perjanjian-pengguna"
-                    className="text-lg-footer font-14"
-                  >
-                    {Translate("f2_pernjanjian")}
-                  </a>
-                </li>
-              </ul> */}
               </div>
               <div className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2">
                 <h6 className="text-uppercase font-weight-bold mb-4 text-gold">
@@ -180,12 +150,6 @@ export default function FooterHomePage() {
                       Agency & Partnership
                     </a>
                   </li>
-                  {/* <li className="mb-3">
-                  <a href="/merchant" className="text-lg-footer font-14">
-                    {Translate("f3_merchant")}
-                  </a>
-                </li> */}
-
                   <li className="mb-3">
                     <a href="/buy-crypto" className="text-lg-footer font-14">
                       {Translate("f3_beli")}
@@ -325,7 +289,7 @@ export default function FooterHomePage() {
             </div>
           </div>
         </div>
-      </footer>
+      </div>
       {/* <!-- End --> */}
     </div>
   );

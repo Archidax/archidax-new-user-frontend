@@ -13,9 +13,7 @@ export const convertNumber = {
     toRupiah:(balance,type)=>{
         if(typeof(balance)==="number"&&balance>0){
             if(!Number.isSafeInteger(balance)){
-                if(type&&type.toUpperCase()==="CRYPTO"){
-                    return parseFloat(parseFloat(balance).toFixed(8));
-                }
+                return parseFloat(parseFloat(balance).toFixed(8));
             }
             return parseInt(balance).toLocaleString("id-ID");
         }else{

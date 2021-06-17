@@ -177,7 +177,7 @@ function NilaiAsset() {
                           value={initialSymbol} onChange={ (e) => {setInitialSymbol(e.target.value)} }
                         >
                           <option selected value="" disabled>
-                            Pilih...
+                          {/* {Translate('pilih')} */}Choose...
                           </option>
                           {
                             assets.map((el, index) => {

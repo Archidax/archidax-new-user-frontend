@@ -62,17 +62,17 @@ function FormPengajuanKoin() {
         const formData = new FormData()
         if (!dataIcon&&!dataWhitePaper) {
             Popup.fire({
-                title: "Gagal !",
+                title: "Fail !",
                 text: "Please input icon file and whitepaper file."
             })
         } else if(!dataIcon) {
             Popup.fire({
-                title: "Gagal !",
+                title: "Fail !",
                 text: "Please input your icon file."
             })
         } else if(!dataWhitePaper) {
             Popup.fire({
-                title: "Gagal !",
+                title: "Fail !",
                 text: "please input your whitepaper data."
             })
         } else {
