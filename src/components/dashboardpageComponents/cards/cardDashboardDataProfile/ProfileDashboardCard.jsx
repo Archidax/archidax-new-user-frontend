@@ -6,7 +6,7 @@ import googlelogo from "../../../../assets/img/dashboard/logo/google.png";
 import keylogo from "../../../../assets/img/dashboard/logo/key.png";
 import dateFormat from "dateformat";
 import Translate from "../../../../i18n/Translate";
-
+import defaultpp from "../../../../assets/img/default_PP.png";
 function ProfileDashboardCard() {
   const history = useHistory();
   const profile = useSelector((state) => state.profileReducer);
@@ -29,7 +29,7 @@ function ProfileDashboardCard() {
               boxShadow: "2px 1px 11px 0px rgba(0,0,0,0.75)",
             }}
             className="img-fluid"
-            src={profile.foto ? profile.foto : photoProfile}
+            src={profile.foto ? profile.foto : defaultpp}
             alt="img"
           />
         </div>

@@ -76,7 +76,7 @@ function CryptoPairRealtime({ item, index }) {
         if (data) {
           setData(data);
         }
-        if (PairSymbol === data.symbol) {
+        if (data&&PairSymbol === data.symbol) {
           dispatch(
             setPasarTrading({
               Open: data.price24h_open,
@@ -121,7 +121,7 @@ function CryptoPairRealtime({ item, index }) {
         >
           {Data &&
             Number(Data.price24h_close).toLocaleString("id-ID", {
-              maximumFractionDigits: 6,
+              maximumFractionDigits: 8,
             })}
         </td>
         <td

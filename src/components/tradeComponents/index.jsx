@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import Price from "./Price";
 import ListBuy from "./listMarket/ListBuy";
 import ListSell from "./listMarket/ListSell";
-import ListingExchange from "./listingExchange/ListingExchange";
+// import ListingExchange from "./listingExchange/ListingExchange";
 import LiveMarket from "./liveMarket/LiveMarket";
 import ChartTrade from "./chart/index";
 import LimitMarketChat from "./limitMarket/TabsLimitMarketChat";
-import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
+// import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
 import TabListingNewsChat from "../tradeComponents/TabListingNewsChat";
+import TabLiveMarket from "./TabLiveMarket";
 
 import OrderPending from "./orderPendingHistory/OrderPending";
 import OrderHistory from "./orderPendingHistory/OrderHistory";
@@ -84,7 +85,8 @@ export default function Index() {
                 border: mode ? "1px solid black" : "1px solid grey",
               }}
             >
-              <LiveMarket />
+              {/* <LiveMarket /> */}
+              <TabLiveMarket />
             </div>
           </div>
           <div className="col-sm-second">
@@ -218,7 +220,7 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order History
+                        Order History (0)
                       </th>
                     </div>
                   </div>

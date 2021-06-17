@@ -12,27 +12,12 @@ export const convertNumber = {
 
     toRupiah:(balance,type)=>{
         if(typeof(balance)==="number"&&balance>0){
-            if(balance&&balance<1){
-                if(balance.toString().length>=10){
-                    return Number(balance).toFixed(8);
-                }else{
-                    return Number(balance);
-                }
-            }else if(balance&&balance>1&&balance<100){
-                if(balance.toString().length>=10){
-                    return Number(balance).toFixed(8);
-                }else{
-                    return Number(balance);
-                }
-            }else{
-                if(String(balance).includes(".")&&type&&type.toUpperCase()==="CRYPTO"){
-                    return Number(balance);
-                }else{
-                    return Number(balance).toLocaleString("id-ID").split(",")[0];
-                }
+            if(!Number.isSafeInteger(balance)){
+                return parseFloat(parseFloat(balance).toFixed(8));
             }
+            return parseInt(balance).toLocaleString("id-ID");
         }else{
-            return 0;
+            return parseInt(0);
         }
     },
 
@@ -47,13 +32,13 @@ export const convertNumber = {
 
     toBillion : (num, digits) => {
         let si = [
-            { value: 1, symbol: "" },
-            { value: 1E3, symbol: " Rb" },
-            { value: 1E6, symbol: " Jt" },
-            { value: 1E9, symbol: " M" },
-            { value: 1E12, symbol: " T" },
-            { value: 1E15, symbol: " P" },
-            { value: 1E18, symbol: " E" }
+            { value: 1, symbol: " USDT" },
+            { value: 1E3, symbol: " USDT" },
+            { value: 1E6, symbol: " Mil. USDT" },
+            { value: 1E9, symbol: " Bil. USDT" },
+            { value: 1E12, symbol: " Tril. USDT" },
+            // { value: 1E15, symbol: " P" },
+            // { value: 1E18, symbol: " E" }
           ];
         let rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
         let i;

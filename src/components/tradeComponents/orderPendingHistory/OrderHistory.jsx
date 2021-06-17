@@ -2,6 +2,7 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
+import "moment/locale/id";
 import moment from "moment";
 
 import { GetHistoryOrder } from "../../../stores/pasartrading/functions";
@@ -123,7 +124,7 @@ export default function OrderPending() {
                         mode ? "text-price-dark" : "text-price"
                       } text-left`}
                     >
-                      {convertNumber.toRupiah(item.price)}
+                      {convertNumber.toRupiah(item.price,"CRYPTO")}
                     </td>
                     <td
                       className={`${
@@ -137,7 +138,7 @@ export default function OrderPending() {
                         mode ? "text-price-dark" : "text-price"
                       } text-left`}
                     >
-                      {convertNumber.toRupiah(item.total)}
+                      {convertNumber.toRupiah(item.total,"CRYPTO")}
                     </td>
                   </tr>
                 );

@@ -3,6 +3,7 @@ import ListingExchange from "./listingExchange/ListingExchange";
 
 import { useSelector, useDispatch } from "react-redux";
 import Chat from "./chat/Chat";
+import NewsTrade from "../homepageComponents/components/infonews/tab/NewsTrade";
 
 export default function TabListingNewsCHat() {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -57,11 +58,11 @@ export default function TabListingNewsCHat() {
               <li class="nav-item px-0 mx-2">
                 <a
                   class="nav-link p-0 m-0"
-                  id="pills-Important-Notice-tab"
+                  id="pills-News-Trade-tab"
                   data-toggle="pill"
-                  href="#pills-Important-Notice"
+                  href="#pills-News-Trade"
                   role="tab"
-                  aria-controls="pills-Important-Notice"
+                  aria-controls="pills-News-Trade"
                   aria-selected="false"
                   style={{
                     display: "flex",
@@ -118,11 +119,11 @@ export default function TabListingNewsCHat() {
           </div>
           <div
             class="tab-pane fade"
-            id="pills-Important-Notice"
+            id="pills-News-Trade"
             role="tabpanel"
-            aria-labelledby="pills-Important-Notice-tab"
+            aria-labelledby="pills-News-Trade-tab"
           >
-            Test 1
+            <NewsTrade />
           </div>
           <div
             class="tab-pane fade"

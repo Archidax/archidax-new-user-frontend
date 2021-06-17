@@ -14,6 +14,41 @@
 
 .bg-homepage2 {
   background-color: #151933;
+  // background-color: transparent;
+}
+
+.bg-homepage2-transform {
+  background-color: #151933;
+  transform: skewY(-10deg);
+  // position: absolute;
+  top: 0;
+}
+
+.footer-luar {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  // border: 3px solid #73ad21;
+}
+
+.footer-dalam {
+  position: absolute;
+  top: -100px;
+  right: 0;
+  width: 100%;
+  height: 400px;
+  // border: 3px solid #73ad21;
+  background-color: #151933;
+  transform: skewY(-3deg);
+}
+.footer-dalam2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 400px;
+  // border: 3px solid #73ad21;
+  background-color: #151933;
 }
 
 .bg-homepage-banner {
@@ -350,16 +385,16 @@
   text-align: center;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
   .font-50-reponsive {
-    font-size: 55px;
+    font-size: 35px;
     text-align: left;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1500px) {
   .font-50-reponsive {
-    font-size: 50px;
+    font-size: 55px;
     text-align: left;
   }
 }
@@ -416,6 +451,41 @@
 @media (min-width: 1024px) {
   .image-bapepti-height {
     height: 75px;
+  }
+}
+
+// News Info Responsive
+// Banner
+.banner-news-responsive {
+  width: 95%;
+  margin: auto;
+}
+
+@media (min-width: 1000px) {
+  .banner-news-responsive {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1500px) {
+  .banner-news-responsive {
+    width: 95%;
+    margin: auto;
+  }
+}
+// Title News
+.font-responsive-news-right {
+  font-size: 16px;
+}
+
+@media (min-width: 1000px) {
+  .font-responsive-news-right {
+  }
+}
+
+@media (min-width: 1500px) {
+  .font-responsive-news-right {
   }
 }
 
@@ -643,6 +713,26 @@
   }
 }
 
+.bg-height-footer {
+  height: 1000px;
+}
+
+@media (min-width: 750px) {
+  .bg-height-footer {
+    height: 1000px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bg-height-footer {
+    height: 500px;
+  }
+}
+
+.image-responsive {
+  width: 0px;
+}
+
 // Info News
 .font-archidax {
   font-family: "Open Sans", sans-serif;
@@ -837,6 +927,12 @@
   justify-content: space-between;
 }
 
+.announcements-content-trade {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+}
+
 .bg-news1 {
   // background-image: url(../../assets/img/bnb.jpg);
   // background-size: cover;
@@ -870,6 +966,12 @@
   overflow: auto;
 }
 
+#overflowTestChatTrade {
+  width: 100%;
+  height: 376px;
+  overflow: auto;
+}
+
 // Tabs Chart
 .tabs-info-news {
   .nav .nav-item .nav-link {
@@ -899,6 +1001,7 @@
   position: fixed;
   top: 0vh;
   z-index: -1;
+  width: 100%;
   // width: 2000px;
   // height: 800px;
 
