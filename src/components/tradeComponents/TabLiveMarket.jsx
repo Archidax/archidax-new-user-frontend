@@ -46,7 +46,7 @@ export default function TabLiveMarket() {
                   <th className="text-gold font-14 mb-0">Live Market</th>
                 </a>
               </li>
-              <li class="nav-item px-0 mx-2">
+              {/* <li class="nav-item px-0 mx-2">
                 <a
                   class="nav-link active p-0 m-0"
                   id="pills-combine-tab"
@@ -112,7 +112,8 @@ export default function TabLiveMarket() {
                     aria-hidden="true"
                   ></i>
                 </a>
-              </li>
+              </li> */}
+            
             </ul>
           </div>
         </div>
@@ -125,7 +126,7 @@ export default function TabLiveMarket() {
           >
             <LiveMarket />
           </div>
-          <div
+          {/* <div
             class="tab-pane fade"
             id="pills-buy-market"
             role="tabpanel"
@@ -140,7 +141,7 @@ export default function TabLiveMarket() {
             aria-labelledby="pills-sell-market-tab"
           >
             <LiveMarketSell />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
