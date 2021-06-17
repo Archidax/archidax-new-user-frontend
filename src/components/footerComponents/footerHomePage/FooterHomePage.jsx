@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../../assets/img/logoArchidax.png";
-// import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Translate from "../../../i18n/Translate";
 
 import axios from "axios";
@@ -115,12 +115,13 @@ export default function FooterHomePage() {
                             dynamicPages[categories].map((page, pageIndex) => {
                               return (
                                 <li className="mb-3" key={pageIndex}>
-                                  <a
+                                  <Link to={`/pages/${page.category}/${page.pageSlug}`} >{toTitleCase(page.pageName)}</Link>
+                                  {/* <a
                                     href={`/pages/${page.category}/${page.pageSlug}`}
                                     className="text-lg-footer font-14"
                                   >
                                     {toTitleCase(page.pageName)}
-                                  </a>
+                                  </a> */}
                                 </li>
                               )
                             })
