@@ -386,7 +386,23 @@ $chat-color: black;
     border-radius: 0px;
     height: 40px;
     font-size: 14px;
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid #f9ba42;
+    position: relative;
+    height: 40px !important;
+    width: 100% !important;
+  }
+
+  .nav .nav-item .nav-link.active::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 45%;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-top: solid 10px #f9ba42;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent;
   }
 }
 

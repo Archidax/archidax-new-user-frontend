@@ -63,6 +63,7 @@ export default function TabsLimitMarketChat() {
         } nav nav-pills mb-0 font-14`}
         id="pills-tab"
         role="tablist"
+        style={{ height: "50px" }}
       >
         <li className="nav-item col-6 p-0">
           <a
