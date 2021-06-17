@@ -59,7 +59,7 @@ export default function InfoNews() {
               >
                 <li class="nav-item col px-0">
                   <a
-                    class="nav-link font-16 active"
+                    class="nav-link active"
                     id="pills-activity-tab"
                     data-toggle="pill"
                     href="#pills-activity"
@@ -73,7 +73,7 @@ export default function InfoNews() {
                 </li>
                 <li class="nav-item col px-0">
                   <a
-                    class="nav-link font-16"
+                    class="nav-link"
                     id="pills-Important-Notice-tab"
                     data-toggle="pill"
                     href="#pills-Important-Notice"
@@ -87,7 +87,7 @@ export default function InfoNews() {
                 </li>
                 <li class="nav-item col px-0">
                   <a
-                    class="nav-link font-16"
+                    class="nav-link"
                     id="pills-New-Listing-tab"
                     data-toggle="pill"
                     href="#pills-New-Listing"
