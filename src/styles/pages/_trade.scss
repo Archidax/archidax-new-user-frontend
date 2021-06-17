@@ -902,7 +902,7 @@ $chat-color: black;
 }
 .table-wrapper4 {
   overflow-y: auto;
-  height: 339px;
+  height: 370px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -928,7 +928,7 @@ $chat-color: black;
 }
 .table-wrapper4-dark {
   overflow-y: auto;
-  height: 339px;
+  height: 370px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -1355,7 +1355,7 @@ $chat-color: black;
   width: 360px;
   border: none;
   &-scrollbar {
-    max-height: 300px;
+    max-height: 370px;
     overflow-x: auto;
     border-radius: 6px;
     .table-wrapper4 {

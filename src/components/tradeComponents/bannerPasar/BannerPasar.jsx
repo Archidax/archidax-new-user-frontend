@@ -8,9 +8,9 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 
-import banner1 from "../../../assets/img/trade/banner/bannerasal1.png";
-import banner2 from "../../../assets/img/trade/banner/bannerasal2.png";
-import banner3 from "../../../assets/img/trade/banner/bannerasal3.png";
+import banner1 from "../../../assets/img/trade/banner/banner1.png";
+import banner2 from "../../../assets/img/trade/banner/banner2.png";
+import banner3 from "../../../assets/img/trade/banner/banner3.png";
 
 export default class extends React.Component {
   render() {
