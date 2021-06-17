@@ -56,6 +56,7 @@ import SetorKonfirmasi from "../../components/penyetoranPageComponents/tabs/seto
 import { I18nProvider, LOCALES } from "../../i18n";
 import CopyrightDashboard from "../../components/footerComponents/copyrightComponents/CopyrightDashboard";
 import axios from "axios";
+import LaunchpadPartner from "../launchpadPartner";
 // import PasarHomePage from "../tradepage/PasarPage";
 // import BasicChart from "../../components/tradeComponents/basicChart/BasicChart";
 
@@ -192,6 +193,9 @@ function RouteDashboardPage(props) {
             </Route>
             <Route path={`/verification/waiting`}>
               <VerificationWaiting />
+            </Route>
+            <Route path={`/launchpad-partner`}>
+              <LaunchpadPartner />
             </Route>
             <Route exact path="/">
               <Dashboard />
