@@ -19,7 +19,6 @@ export default function MarketSell({balanceAsset}) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const [balance,] = useState(balanceAsset);
   const { PairSymbol, pairFrom, price24H } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
@@ -95,7 +94,7 @@ export default function MarketSell({balanceAsset}) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span>{convertNumber.toRupiah(balance, "CRYPTO")}</span>
+                <span>{convertNumber.toRupiah(balanceAsset, "CRYPTO")}</span>
               </div>
             </div>
           </div>
@@ -130,7 +129,7 @@ export default function MarketSell({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 0,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -143,7 +142,7 @@ export default function MarketSell({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 1,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -156,7 +155,7 @@ export default function MarketSell({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 2,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -169,7 +168,7 @@ export default function MarketSell({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 3,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }

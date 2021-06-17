@@ -30,8 +30,8 @@ export default function TabsLimitMarketChat() {
       let tempPairTo = assets.find((item) => item.type === pairTo);
       if(tempPairFrom&&tempPairTo){
         setBalancePair({
-          pairFrom:tempPairFrom.balance,
-          pairTo:tempPairTo.balance,
+          pairFrom:tempPairTo.balance,
+          pairTo:tempPairFrom.balance,
         });
       }
     }

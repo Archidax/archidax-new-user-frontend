@@ -18,7 +18,6 @@ export default function Limitsell({balanceAsset}) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const [balance,] = useState(balanceAsset);
   const { PairSymbol, pairFrom } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
@@ -100,7 +99,7 @@ export default function Limitsell({balanceAsset}) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span>{convertNumber.toRupiah(balance, "CRYPTO")}</span>
+                <span>{convertNumber.toRupiah(balanceAsset, "CRYPTO")}</span>
               </div>
             </div>
           </div>
@@ -173,7 +172,7 @@ export default function Limitsell({balanceAsset}) {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              onClick={() => setInputAmount(Number(25 / 100) * Number(balance))}
+              onClick={() => setInputAmount(Number(25 / 100) * Number(balanceAsset))}
             >
               <input
                 class="form-check-input"
@@ -196,7 +195,7 @@ export default function Limitsell({balanceAsset}) {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              onClick={() => setInputAmount(Number(50 / 100) * Number(balance))}
+              onClick={() => setInputAmount(Number(50 / 100) * Number(balanceAsset))}
             >
               <input
                 class="form-check-input"
@@ -219,7 +218,7 @@ export default function Limitsell({balanceAsset}) {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              onClick={() => setInputAmount(Number(75 / 100) * Number(balance))}
+              onClick={() => setInputAmount(Number(75 / 100) * Number(balanceAsset))}
             >
               <input
                 class="form-check-input"
@@ -243,7 +242,7 @@ export default function Limitsell({balanceAsset}) {
                 alignItems: "center",
               }}
               onClick={() =>
-                setInputAmount(Number(100 / 100) * Number(balance))
+                setInputAmount(Number(100 / 100) * Number(balanceAsset))
               }
             >
               <input
