@@ -1,14 +1,14 @@
 import React from 'react';
 import {convertNumber} from '../../../assets/js'
 import ReactLoading from 'react-loading';
-
+import Translate from "../../../i18n/Translate";
 function Table24Jam({MarketData}) {
 
-    const tableHeader = [ "Rank", "Nama Koin", "Harga Terakhir", "Volume" ];
+    const tableHeader = [ "Rank", "Coin Name", "Last Price", "Volume" ];
 
     return (
         <div>
-            <h3 className="font-14 text-gold">Top coin berdasarkan volume 24 jam terakhir</h3>
+            <h3 className="font-14 text-gold">{Translate('top_coin')}</h3>
             <div className="table-responsive table-keuangan">
             {
                 MarketData?

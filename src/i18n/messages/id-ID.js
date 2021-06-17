@@ -63,6 +63,11 @@ export default {
         f2_pernjanjian: "Perjanjian Pengguna",
         f2_hubungi_kami : "Hubungi Kami",
 
+        lowest: "Terendah",
+        highest: "Tertinggi",
+        last_price: "Harga Terakhir",
+        top_coin: "Top coin berdasarkan volume 24 jam terakhir",
+
         // Footer3
         f3_layanan: "LAYANAN",
         f3_api: "API & Dokumentasi",

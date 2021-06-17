@@ -161,7 +161,7 @@ function BuyingForm({ status, coin, buy, coinPair, balance, amount, setAmount, t
                         <div className="custom-control custom-switch switch-secondary">
                             <input type="checkbox" className="custom-control-input" id="customSwitch_2" />
                             <label className="font-12 custom-control-label text-muted text-white" for="customSwitch_2">
-                                I am not a citizen and/or resident of FATF blacklist countries and/or countries not recognized by the Estonia/EU.
+                                I am not a citizen and/or resident of FATF blacklist countries and/or countries not recognized by BVI.
                             </label>
                         </div>
                     </div>

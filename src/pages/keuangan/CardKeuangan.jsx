@@ -7,7 +7,7 @@ import logoLtc from '../../assets/img/feelogo/Litecoin_LTC.svg';
 import logoCodeo from '../../assets/img/feelogo/Cgold_CGOLD.svg';
 import logoWaves from '../../assets/img/feelogo/Waves_WAVES.svg'
 import { convertNumber } from '../../assets/js'
-
+import Translate from "../../i18n/Translate";
 
 function CardKeuangan({MarketData}) {
     let bitCoin = MarketData?MarketData.find(el => { return el.initialSymbol === "BTC" }):null
@@ -51,7 +51,7 @@ function CardKeuangan({MarketData}) {
                                 <div className="col-12">
                                     <div className="row">
                                         <div className="col col-md-4">
-                                            <h6 className="ci-text-white font-12 ">Terendah</h6>
+                                            <h6 className="ci-text-white font-12 ">{Translate('lowest')}</h6>
                                         </div>
                                         <div className="col">
                                             <h6 className="ci-text-white font-12 ">: {bitCoin?convertNumber.toRupiah(bitCoin.price24h_low):"-"}</h6>
@@ -61,7 +61,7 @@ function CardKeuangan({MarketData}) {
                                 <div className="col-12">
                                     <div className="row">
                                         <div className="col col-md-4">
-                                            <h6 className="ci-text-white font-12 ">Tertinggi</h6>
+                                            <h6 className="ci-text-white font-12 ">{Translate('heighest')}</h6>
                                         </div>
                                         <div className="col">
                                             <h6 className="ci-text-white font-12 ">: {bitCoin?convertNumber.toRupiah(bitCoin.price24h_high):"-"}</h6>
@@ -109,7 +109,7 @@ function CardKeuangan({MarketData}) {
                                         <div className="col-12">
                                             <div className="row">
                                                 <div className="col col-md-4">
-                                                    <h6 className="ci-text-white font-12 ">Terendah</h6>
+                                                    <h6 className="ci-text-white font-12 ">{Translate('lowest')}</h6>
                                                 </div>
                                                 <div className="col">
                                                     <h6 className="ci-text-white font-12 ">: {ethereum?convertNumber.toRupiah(ethereum.price24h_low):"-"}</h6>
@@ -119,7 +119,7 @@ function CardKeuangan({MarketData}) {
                                         <div className="col-12">
                                             <div className="row">
                                                 <div className="col col-md-4">
-                                                    <h6 className="ci-text-white font-12 ">Tertinggi</h6>
+                                                    <h6 className="ci-text-white font-12 ">{Translate('heighest')}</h6>
                                                 </div>
                                                 <div className="col">
                                                     <h6 className="ci-text-white font-12 ">: {ethereum?convertNumber.toRupiah(ethereum.price24h_high):"-"}</h6>
@@ -165,7 +165,7 @@ function CardKeuangan({MarketData}) {
                                         <div className="col-12">
                                             <div className="row">
                                                 <div className="col col-md-4">
-                                                    <h6 className="ci-text-white font-12 ">Terendah</h6>
+                                                    <h6 className="ci-text-white font-12 ">{Translate('lowest')}</h6>
                                                 </div>
                                                 <div className="col">
                                                     <h6 className="ci-text-white font-12 ">: {Bnb?convertNumber.toRupiah(Bnb.price24h_low):"-"}</h6>
@@ -175,7 +175,7 @@ function CardKeuangan({MarketData}) {
                                         <div className="col-12">
                                             <div className="row">
                                                 <div className="col col-md-4">
-                                                    <h6 className="ci-text-white font-12 ">Tertinggi</h6>
+                                                    <h6 className="ci-text-white font-12 ">{Translate('heighest')}</h6>
                                                 </div>
                                                 <div className="col">
                                                     <h6 className="ci-text-white font-12 ">: {Bnb?convertNumber.toRupiah(Bnb.price24h_high):"-"}</h6>
@@ -223,7 +223,7 @@ function CardKeuangan({MarketData}) {
                                 <div className="col-12">
                                     <div className="row">
                                         <div className="col col-md-4">
-                                            <h6 className="ci-text-white font-12 ">Terendah</h6>
+                                            <h6 className="ci-text-white font-12 ">{Translate('lowest')}</h6>
                                         </div>
                                         <div className="col">
                                             <h6 className="ci-text-white font-12 ">: {cgold?convertNumber.toRupiah(cgold.price24h_low):"-"}</h6>
@@ -233,7 +233,7 @@ function CardKeuangan({MarketData}) {
                                 <div className="col-12">
                                     <div className="row">
                                         <div className="col col-md-4">
-                                            <h6 className="ci-text-white font-12 ">Tertinggi</h6>
+                                            <h6 className="ci-text-white font-12 ">{Translate('heighest')}</h6>
                                         </div>
                                         <div className="col">
                                             <h6 className="ci-text-white font-12 ">: {cgold?convertNumber.toRupiah(cgold.price24h_high):"-"}</h6>
@@ -279,7 +279,7 @@ function CardKeuangan({MarketData}) {
                                 <div className="col-12">
                                     <div className="row">
                                         <div className="col col-md-4">
-                                            <h6 className="ci-text-white font-12 ">Terendah</h6>
+                                            <h6 className="ci-text-white font-12 ">{Translate('lowest')}</h6>
                                         </div>
                                         <div className="col">
                                             <h6 className="ci-text-white font-12 ">: {waves?convertNumber.toRupiah(waves.price24h_low):"-"}</h6>
@@ -289,7 +289,7 @@ function CardKeuangan({MarketData}) {
                                 <div className="col-12">
                                     <div className="row">
                                         <div className="col col-md-4">
-                                            <h6 className="ci-text-white font-12 ">Tertinggi</h6>
+                                            <h6 className="ci-text-white font-12 ">{Translate('heighest')}</h6>
                                         </div>
                                         <div className="col">
                                             <h6 className="ci-text-white font-12 ">: {waves?convertNumber.toRupiah(waves.price24h_high):"-"}</h6>
