@@ -19,7 +19,6 @@ export default function NewsTrade() {
         News
       </h5>
       <div id="overflowTestChatTrade" className="mt-1">
-        {console.log(dataNewNews)}
         {dataNewNews.length !== 0 &&
           dataNewNews.map((val, index) => {
             if (val.category === "Berita" || "Pengunguman" || "Artikel") {

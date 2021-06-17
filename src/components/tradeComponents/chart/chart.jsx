@@ -4,7 +4,6 @@ import { getLanguageFromURL } from "../../../stores/chart/functions";
 
 export default function TradeChartCard(props) {
   const {mode} = useSelector(state => state.daynightReducer);
-  console.log(props, "sdasdwasdw")
   
   React.useEffect(() => {
     const widgetOptions = {
