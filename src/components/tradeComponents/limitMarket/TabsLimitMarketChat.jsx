@@ -53,8 +53,6 @@ export default function TabsLimitMarketChat() {
     }
   }, [pairFrom, pairTo, username,setBalancePair]);
 
-  console.log(BalancePair);
-
   return (
     <div className={mode ? "tabs-global-dark2-buy-sell" : "tabs-global"}>
       <ul
