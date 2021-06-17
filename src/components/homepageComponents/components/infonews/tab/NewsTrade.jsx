@@ -27,7 +27,7 @@ export default function NewsTrade() {
                   onClick={(e) => {
                     history.push(`/berita/${val.slug}`);
                   }}
-                  className="col-12 px-0 pt-2 announcements-content"
+                  className="col-12 px-0 pt-2 announcements-content-trade"
                   style={{ cursor: "pointer" }}
                 >
                   <img

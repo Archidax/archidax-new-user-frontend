@@ -103,8 +103,6 @@ function LaunchpadPortoDetail() {
                 </div>
             </div>
 
-
-
             <FooterHomePage />
         </div>
     )

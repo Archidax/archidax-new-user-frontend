@@ -46,7 +46,7 @@ export const getAllIEOProjects = (filter, dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            console.log(data.data, "<<")
+            // console.log(data.data, "<<")
             dispatch({ type: "ALL_IEO_PROJECTS", data: data.data })
         })
         .catch(err => errorHandler(err))
@@ -112,6 +112,7 @@ export const getUserBalance = () => {
 }
 
 export const buyIEOCoin = (id, data, dispatch) => {
+    console.log(data)
     axios({
         method: "POST",
         url: `${baseUrlTrade}/api/v1/launchpad/IEO/buycoin/${id}`,

@@ -216,7 +216,15 @@ export function GetOrderLastPrice ({pair}) {
                 VolumeCrypto:data.price_24hours.price24h_volume,
             }));
         } catch (err) {
-            console.log(err)
+            dispatch(setPasarTrading({
+                Open:0,
+                High:0,
+                Low:0,
+                Close:0,
+                Change:0,
+                Volume:0,
+                VolumeCrypto:0,
+            }));
         }
     }
 }

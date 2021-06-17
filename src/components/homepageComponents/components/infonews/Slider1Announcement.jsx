@@ -25,7 +25,7 @@ export default class Slider1Announcement extends Component {
       autoplaySpeed: 4000,
     };
     return (
-      <div style={{ width: "95%", margin: "auto" }}>
+      <div className="banner-news-responsive">
         <Slider {...settings}>
           <div>
             <div className="bg-news">

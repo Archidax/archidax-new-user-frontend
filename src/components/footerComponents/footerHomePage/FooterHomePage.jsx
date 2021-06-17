@@ -8,7 +8,7 @@ import { baseAxios, baseUrl, errorHandler } from "../../../stores";
 import popUps from "../../popUps";
 import { useSelector } from "react-redux";
 import { toTitleCase } from "../../../helpers";
-import logofooter from "../../../assets/img/logofooter.svg";
+import logofooter from "../../../assets/img/logo/footerlogo.svg";
 
 export default function FooterHomePage() {
   // const history = useHistory();
@@ -42,23 +42,25 @@ export default function FooterHomePage() {
   return (
     <div className="footer-luar">
       {/* <!-- Footer --> */}
-      <div className="bg-homepage2" style={{ minHeight: "500px" }}></div>
+      <div className="bg-homepage2 bg-height-footer"></div>
       <div className="footer-dalam"></div>
-      <div className="footer-dalam2">
+      <div className="footer-dalam">
+        <div
+          // className="pt-4"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            position: "relative",
+            top: "-110px",
+          }}
+        >
+          <img src={logofooter} style={{ width: "400px" }} />
+        </div>
+      </div>
+      <div className="footer-dalam2" style={{ marginTop: "70px" }}>
         <div className="">
           <div className="container">
-            <div
-              className="pt-4"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                position: "relative",
-                top: "-90px",
-              }}
-            >
-              <img src={logofooter} />
-            </div>
-            <div className="row">
+            <div className="row" style={{ position: "relative" }}>
               {/* <div className="col-6 col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <img
                   src={logo}
