@@ -39,7 +39,8 @@ export default function App() {
     GetPriceBTCUSD()
   }, [])
 
-  document.title = `${priceBTCTitle.toLocaleString("id-ID")} BTC/USD - Archidax`
+//   document.title = `${priceBTCTitle.toLocaleString("id-ID")} BTC/USD - Archidax`
+    document.title = `Archidax`
   
   return (
       <>
