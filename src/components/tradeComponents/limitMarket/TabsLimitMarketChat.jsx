@@ -10,8 +10,10 @@ import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 
 export default function TabsLimitMarketChat() {
-  const [BalancePairFrom,setBalancePairFrom]=React.useState(0);
-  const [BalancePairTo,setBalancePairTo]=React.useState(0);
+  const [BalancePair,setBalancePair]=React.useState({
+    pairFrom:0,
+    pairTo:0
+  });
 
   const { mode } = useSelector((state) => state.daynightReducer);
   const { pairTo,pairFrom } = useSelector((state) =>
@@ -23,36 +25,35 @@ export default function TabsLimitMarketChat() {
   );
 
   React.useEffect(()=>{
-    if (assets) {
+    if (assets&&Array.isArray(assets)) {
       let tempPairFrom = assets.find((item) => item.type === pairFrom);
-      let tempPairTo = assets&&Array.isArray(assets)&&assets.find((item) => item.type === pairTo);
+      let tempPairTo = assets.find((item) => item.type === pairTo);
       if(tempPairFrom&&tempPairTo){
-        setBalancePairFrom(tempPairFrom.balance);
-        setBalancePairTo(tempPairTo.balance);
+        setBalancePair({
+          pairFrom:tempPairFrom.balance,
+          pairTo:tempPairTo.balance,
+        });
       }
     }
-  },[setBalancePairFrom,setBalancePairTo]);
+  },[assets,setBalancePair,pairFrom,pairTo]);
 
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && pairTo && username) {
-      IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-        if (data) {
-          setBalancePairFrom(data.balance);
-        }
-      });
-      IoWebSocketTrade.on(`WalletBalanceLimit-${username}-${pairTo}`, (data) => {
-        if (data) {
-          setBalancePairTo(data.balance);
+    if (IoWebSocketTrade&& username) {
+      IoWebSocketTrade.on(`WalletBalance-${username}`, (baseBalance,quoteBalance) => {
+        if (baseBalance,quoteBalance) {
+          setBalancePair({
+            pairFrom:baseBalance.balance,
+            pairTo:quoteBalance.balance,
+          });
         }
       });
       return () =>{
-        IoWebSocketTrade.removeEventListener(
-          `WalletBalance-${username}-${pairFrom}`,
-        );
-        IoWebSocketTrade.removeEventListener(`WalletBalance-${username}-${pairTo}`);
+        IoWebSocketTrade.removeEventListener(`WalletBalance-${username}`);
       };
     }
-  }, [setBalancePairFrom,setBalancePairTo,pairFrom, pairTo, username]);
+  }, [pairFrom, pairTo, username,setBalancePair]);
+
+  console.log(BalancePair);
 
   return (
     <div className={mode ? "tabs-global-dark2-buy-sell" : "tabs-global"}>
@@ -142,10 +143,10 @@ export default function TabsLimitMarketChat() {
                     Market
                   </label>
                   <div class="tabbuy content1">
-                    <LimitBuy balanceAsset={BalancePairFrom} />
+                    <LimitBuy balanceAsset={BalancePair.pairFrom} />
                   </div>
                   <div class="tabbuy content2">
-                    <MarketBuy balanceAsset={BalancePairTo} />
+                    <MarketBuy balanceAsset={BalancePair.pairFrom} />
                   </div>
                 </div>
               </div>
@@ -192,10 +193,10 @@ export default function TabsLimitMarketChat() {
                   </label>
 
                   <div class="tabsell content1">
-                    <LimitSell balanceAsset={BalancePairFrom} />
+                    <LimitSell balanceAsset={BalancePair.pairTo} />
                   </div>
                   <div class="tabsell content2">
-                    <MarketSell balanceAsset={BalancePairTo} />
+                    <MarketSell balanceAsset={BalancePair.pairTo} />
                   </div>
                 </div>
               </div>

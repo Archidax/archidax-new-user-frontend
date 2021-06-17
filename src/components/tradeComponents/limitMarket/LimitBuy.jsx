@@ -15,20 +15,16 @@ import { convertNumber } from "../../../assets/js";
 import { Link, useParams } from "react-router-dom";
 
 export default function LimitBuy({balanceAsset}) {
+  console.log(balanceAsset,"wawan");
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   let { symbol } = useParams();
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const [balance, setBalance] = useState(balanceAsset);
   const { PairSymbol, pairTo } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
 
-  const { username } = useSelector((state) =>
-    state ? (state.profileReducer ? state.profileReducer : {}) : {},
-  );
-
-  const { saldo, assets } = useSelector((state) => state?.walletReducer);
+  const { saldo } = useSelector((state) => state?.walletReducer);
   const [inputPrice, setInputPrice] = useState("");
   const [inputAmount, setInputAmount] = useState("");
   const dispatch = useDispatch();
@@ -78,15 +74,7 @@ export default function LimitBuy({balanceAsset}) {
         }),
       );
     }
-    if (assets) {
-      const temp = assets&&Array.isArray(assets)&&assets.find((item) => item.type === pairTo);
-      if (temp) {
-        setBalance(temp.balance);
-      } else {
-        setBalance(0);
-      }
-    }
-  }, [price, dispatch, amount, saldo, pairTo, assets]);
+  }, [price, dispatch, amount, saldo, pairTo]);
 
   return (
     <div
@@ -111,7 +99,7 @@ export default function LimitBuy({balanceAsset}) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span>{convertNumber.toRupiah(balance)}</span>
+                <span>{convertNumber.toRupiah(balanceAsset)}</span>
               </div>
             </div>
           </div>
@@ -191,7 +179,7 @@ export default function LimitBuy({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 0,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -221,7 +209,7 @@ export default function LimitBuy({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 1,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -251,7 +239,7 @@ export default function LimitBuy({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 2,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -281,7 +269,7 @@ export default function LimitBuy({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 3,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
