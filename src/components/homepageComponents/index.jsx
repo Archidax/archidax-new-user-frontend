@@ -12,7 +12,7 @@ import { berita, beritaRecent } from "../../stores/berita/functions";
 // import KenapaMemilihCrypto from "./components/KenapaMemilihCrypto";
 // import NewsHomepage from "./components/NewsHomepage";
 
-import FooterHomePage from "../footerComponents/footerHomePage/FooterHomePage";
+import FooterBesideHomePage from "../footerComponents/footerHomePage/FooterBesideHomePage";
 
 // import { GetListingExchange } from "../../stores";
 import DalamCrypto from "./components/DalamCrypto";
@@ -44,7 +44,7 @@ function Home(props) {
         <CalculatorCrypto setLocale={props.setLocale} />
         {/* <KenapaMemilihCrypto setLocale={props.setLocale} /> */}
         {/* <NewsHomepage setLocale={props.setLocale} /> */}
-        <FooterHomePage setLocale={props.setLocale} />
+        <FooterBesideHomePage setLocale={props.setLocale} />
       </div>
     </div>
   );

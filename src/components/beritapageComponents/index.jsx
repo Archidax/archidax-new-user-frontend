@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Jumbotron } from "react-bootstrap";
 //import search from "../../assets/img/magnifying-glass.png";
 import Footer from "../footerComponents/footerHomePage/FooterHomePage";
@@ -12,6 +12,12 @@ import Translate from "../../i18n/Translate";
 
 export default function Index () {
   const path = useLocation()
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    berita(dispatch);
+    beritaRecent(dispatch);
+  }, [dispatch]);
 
   const dataBerita = useSelector((state) => state.beritaReducer);
 

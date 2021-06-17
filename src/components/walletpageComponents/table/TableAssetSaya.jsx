@@ -138,7 +138,7 @@ function TableAssetSaya() {
                             {convertNumber.toRupiah(items.frozen_balance)} <span className="text-white-50">{items.type}</span>
                           </td>
                           <td className="ci-verti-align-middle text-white">
-                            {items.detail_crypto ? convertNumber.toRupiah(items.balance * items.detail_crypto.price_24hour.price24h_close, "Rp." ): "0"}
+                            {items.detail_crypto ? convertNumber.toRupiah(items.balance * items.detail_crypto.price24h_close, "Rp." ): "0"}
                           </td>
                           <td className={`ci-verti-align-middle ${
                             items.detail_crypto&&!items.detail_crypto.in_repair?"text-success":"text-white"
@@ -210,7 +210,7 @@ function TableAssetSaya() {
                             {items.frozen_balance} <span className="text-white-50">{items.type}</span>
                           </td>
                           <td className="ci-verti-align-middle text-white">
-                            {items.detail_crypto ? convertNumber.toRupiah(items.balance * items.detail_crypto.price_24hour.price24h_close, "Rp." ): "0"}
+                            {items.detail_crypto ? convertNumber.toRupiah(items.balance * items.detail_crypto.price24h_close, "Rp." ): "0"}
                           </td>
                           <td className={`ci-verti-align-middle ${
                             items.detail_crypto&&!items.detail_crypto.in_repair?"text-success":"text-white"

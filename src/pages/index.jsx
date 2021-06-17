@@ -204,7 +204,7 @@ export default function MainPages() {
               <Bantuan />
             </Route>
             <Route path="/keuangan">
-              <KeuanganPage />
+              <KeuanganPage setLocale={setLocale} />
             </Route>
             <Route path="/launchpad">
               <LaunchpadPages />
