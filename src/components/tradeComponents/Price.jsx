@@ -192,13 +192,19 @@ export default function Price() {
         </div>
         {PairSymbol && (
           <div className="p-2 mt-2">
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                textAlign: "end",
+              }}
+            >
               {/* Price */}
               <div style={{ display: "flex", marginTop: "11px" }}>
                 <div
                   className={`${
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-22 `}
+                  } font-18 `}
                 >
                   {PairSymbol ? PairSymbol : null}
                 </div>
@@ -207,17 +213,18 @@ export default function Price() {
                 <div
                   className={`${
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-32`}
+                  } font-24`}
+                  style={{ marginTop: "3px" }}
                 >
-                  {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+                  {price24H ? convertNumber.toRupiah(price24H.Close,"CRYPTO") : 0}
                 </div>
                 <div
                   className={`${
                     mode ? "text-white" : "text-black"
-                  } font-16 ml-1 ${convertNumber.tradeUpDownChange(
+                  } font-14 ml-1 ${convertNumber.tradeUpDownChange(
                     price24H.Change,
                   )}`}
-                  style={{ marginTop: "18px" }}
+                  style={{ marginTop: "14px" }}
                 >
                   {price24H
                     ? convertNumber.tradeChange(price24H.Change)
