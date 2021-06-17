@@ -55,11 +55,11 @@ export * from './chart/functions'
 
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
-// export const baseUrl = 'https://dev.archidax.net';
-export const baseUrl = 'http://localhost:8000';
+export const baseUrl = 'https://dev.archidax.net';
+// export const baseUrl = 'http://localhost:8000';
 ///////////////////////////////////////////////////////////////
-// export const baseUserSocketUrl = 'https://dev.archidax.net';
-export const baseUserSocketUrl = 'http://localhost:8000'
+export const baseUserSocketUrl = 'https://dev.archidax.net';
+// export const baseUserSocketUrl = 'http://localhost:8000'
 ///////////////////////////////////////////////////////////////
 // export const baseUrlTrade = 'https://trade.archidax.net';
 // export const baseUrlTrade = 'https://trade.archidax.net';
@@ -80,9 +80,9 @@ export const baseUserSocketUrl = 'http://localhost:8000'
 // export const baseUrlTrade = 'https://trade.archidax.net';
 //  export const baseUrlTrade='http://192.168.55.127:2021';
 //  export const baseUrlTrade='http://192.168.0.161:2021';
-export const baseUrlTrade='http://localhost:2021';
-// export const baseUrlTrade = 'https://trade.archidax.net';
-export const baseUrlCronjob='http://localhost:2022';
+// export const baseUrlTrade='http://localhost:2021';
+export const baseUrlTrade = 'https://trade.archidax.net';
+export const baseUrlCronjob='http://207.148.65.43:9005';
 export const baseUrlTradeVersion='/api/v1';
 ///////////////////////////////////////////////////////////////
 
