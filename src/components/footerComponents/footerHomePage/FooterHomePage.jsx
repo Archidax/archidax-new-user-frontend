@@ -48,17 +48,17 @@ export default function FooterHomePage() {
         <div className="">
           <div className="container">
             <div
-              className="pt-4"
+              // className="pt-4"
               style={{
                 display: "flex",
                 justifyContent: "center",
                 position: "relative",
-                top: "-90px",
+                top: "-180px",
               }}
             >
-              <img src={logofooter} />
+              <img src={logofooter} style={{ width: "170px" }} />
             </div>
-            <div className="row">
+            <div className="row" style={{ position: "relative", top: "-90px" }}>
               {/* <div className="col-6 col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <img
                   src={logo}
