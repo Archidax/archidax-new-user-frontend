@@ -8,15 +8,14 @@ import { useSelector } from "react-redux";
 
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
-
 export default function TabsLimitMarketChat() {
-  const [BalancePair,setBalancePair]=React.useState({
-    pairFrom:0,
-    pairTo:0
+  const [BalancePair, setBalancePair] = React.useState({
+    pairFrom: 0,
+    pairTo: 0,
   });
 
   const { mode } = useSelector((state) => state.daynightReducer);
-  const { pairTo,pairFrom } = useSelector((state) =>
+  const { pairTo, pairFrom } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
   const { assets } = useSelector((state) => state?.walletReducer);
@@ -24,34 +23,37 @@ export default function TabsLimitMarketChat() {
     state ? (state.profileReducer ? state.profileReducer : {}) : {},
   );
 
-  React.useEffect(()=>{
-    if (assets&&Array.isArray(assets)) {
+  React.useEffect(() => {
+    if (assets && Array.isArray(assets)) {
       let tempPairFrom = assets.find((item) => item.type === pairFrom);
       let tempPairTo = assets.find((item) => item.type === pairTo);
-      if(tempPairFrom&&tempPairTo){
+      if (tempPairFrom && tempPairTo) {
         setBalancePair({
-          pairFrom:tempPairTo.balance,
-          pairTo:tempPairFrom.balance,
+          pairFrom: tempPairTo.balance,
+          pairTo: tempPairFrom.balance,
         });
       }
     }
-  },[assets,setBalancePair,pairFrom,pairTo]);
+  }, [assets, setBalancePair, pairFrom, pairTo]);
 
   React.useEffect(() => {
-    if (IoWebSocketTrade&& username) {
-      IoWebSocketTrade.on(`WalletBalance-${username}`, (baseBalance,quoteBalance) => {
-        if (baseBalance,quoteBalance) {
-          setBalancePair({
-            pairFrom:baseBalance.balance,
-            pairTo:quoteBalance.balance,
-          });
-        }
-      });
-      return () =>{
+    if (IoWebSocketTrade && username) {
+      IoWebSocketTrade.on(
+        `WalletBalance-${username}`,
+        (baseBalance, quoteBalance) => {
+          if ((baseBalance, quoteBalance)) {
+            setBalancePair({
+              pairFrom: baseBalance.balance,
+              pairTo: quoteBalance.balance,
+            });
+          }
+        },
+      );
+      return () => {
         IoWebSocketTrade.removeEventListener(`WalletBalance-${username}`);
       };
     }
-  }, [pairFrom, pairTo, username,setBalancePair]);
+  }, [pairFrom, pairTo, username, setBalancePair]);
 
   console.log(BalancePair);
 
