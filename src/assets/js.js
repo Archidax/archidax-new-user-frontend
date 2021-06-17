@@ -32,13 +32,13 @@ export const convertNumber = {
 
     toBillion : (num, digits) => {
         let si = [
-            { value: 1, symbol: "" },
-            { value: 1E3, symbol: " Rb" },
-            { value: 1E6, symbol: " Jt" },
-            { value: 1E9, symbol: " M" },
-            { value: 1E12, symbol: " T" },
-            { value: 1E15, symbol: " P" },
-            { value: 1E18, symbol: " E" }
+            { value: 1, symbol: " USDT" },
+            { value: 1E3, symbol: " USDT" },
+            { value: 1E6, symbol: " Mil. USDT" },
+            { value: 1E9, symbol: " Bil. USDT" },
+            { value: 1E12, symbol: " Tril. USDT" },
+            // { value: 1E15, symbol: " P" },
+            // { value: 1E18, symbol: " E" }
           ];
         let rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
         let i;
