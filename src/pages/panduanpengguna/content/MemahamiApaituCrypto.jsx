@@ -58,7 +58,7 @@ function MemahamiApaituCrypto() {
             </div>
             <div className="row mt-2">
                 <div className="col-12">
-                    <iframe width="100%" height="330" src="https://www.youtube.com/embed/-kenJvdKSNw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="335" src="https://www.youtube.com/embed/8NgVGnX4KOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div className="col-12 mt-2">
                     <p className="text-gray2 font-14 text-justify">Crypto or digital assets are non-physical assets that are locked using cryptographic code and have value.</p>

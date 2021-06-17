@@ -76,7 +76,7 @@ function CryptoPairRealtime({ item, index }) {
         if (data) {
           setData(data);
         }
-        if (PairSymbol === data.symbol) {
+        if (data&&PairSymbol === data.symbol) {
           dispatch(
             setPasarTrading({
               Open: data.price24h_open,

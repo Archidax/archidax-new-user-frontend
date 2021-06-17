@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Price from "./Price";
 import ListBuy from "./listMarket/ListBuy";
 import ListSell from "./listMarket/ListSell";
-import ListingExchange from "./listingExchange/ListingExchange";
+// import ListingExchange from "./listingExchange/ListingExchange";
 import LiveMarket from "./liveMarket/LiveMarket";
 import ChartTrade from "./chart/index";
 import LimitMarketChat from "./limitMarket/TabsLimitMarketChat";
-import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
+// import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
 import TabListingNewsChat from "../tradeComponents/TabListingNewsChat";
 import TabLiveMarket from "./TabLiveMarket";
 
