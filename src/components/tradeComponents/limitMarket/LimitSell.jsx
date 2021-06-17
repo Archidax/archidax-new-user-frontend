@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import selllogo from "../../../assets/img/trade/icon/arrowsell.svg";
 // import selllogo from "../../../assets/img/trade/sell.png";
 import walletlogo from "../../../assets/img/trade/wallet.png";
-// import { PercentMath } from "../helpers/trade";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Orders,
@@ -10,17 +9,16 @@ import {
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
 
-import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { convertNumber } from "../../../assets/js";
 
 import { Link, useParams } from "react-router-dom";
 
-export default function Limitsell() {
+export default function Limitsell({balanceAsset}) {
   let { symbol } = useParams();
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const [balance, setBalance] = useState("");
+  const [balance,] = useState(balanceAsset);
   const { PairSymbol, pairFrom } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
@@ -77,35 +75,10 @@ export default function Limitsell() {
         }),
       );
     }
-    if (assets) {
-      const temp = assets.find((item) => item.type === pairFrom);
-      if (temp) {
-        setBalance(temp.balance);
-      } else {
-        setBalance(0);
-      }
-    }
-  }, [price, dispatch, amount, pairFrom, assets]);
+    
+  }, [price, dispatch, amount]);
 
-  // React.useEffect(() => {
-  //   if (
-  //     IoWebSocketTrade &&
-  //     IoWebSocketTrade.connected &&
-  //     pairFrom &&
-  //     username
-  //   ) {
-  //     IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-  //       if (data) {
-  //         setBalance(data.balance);
-  //       }
-  //     });
-  //     return () =>
-  //       IoWebSocketTrade.removeEventListener(
-  //         `WalletBalance-${username}-${pairFrom}`,
-  //       );
-  //   }
-  // }, [setBalance, pairFrom, username]);
-
+  
   return (
     <div
       className={`${

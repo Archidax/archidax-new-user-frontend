@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import selllogo from "../../../assets/img/trade/sell.png";
 import buylogo2 from "../../../assets/img/trade/keranjanghitam.svg";
 import walletlogo from "../../../assets/img/trade/wallet.png";
-import walletlogo1 from "../../../assets/img/trade/wallet1.svg";
+// import walletlogo1 from "../../../assets/img/trade/wallet1.svg";
 import walletlogo2 from "../../../assets/img/trade/wallet2.svg";
 import { PercentMath } from "../helpers/trade";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,20 +12,16 @@ import {
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
 
-import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { convertNumber } from "../../../assets/js";
 import { Link } from "react-router-dom";
 
-export default function MarketSell() {
+export default function MarketSell({balanceAsset}) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const [balance, setBalance] = useState("");
+  const [balance,] = useState(balanceAsset);
   const { PairSymbol, pairFrom, price24H } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
-  );
-  const { username } = useSelector((state) =>
-    state ? (state.profileReducer ? state.profileReducer : {}) : {},
   );
   const { assets } = useSelector((state) => state?.walletReducer);
   const [inputAmount, setInputAmount] = useState("");
@@ -66,29 +62,7 @@ export default function MarketSell() {
         }),
       );
     }
-    if (assets) {
-      const temp = assets.find((item) => item.type === pairFrom);
-      if (temp) {
-        setBalance(temp.balance);
-      } else {
-        setBalance(0);
-      }
-    }
-  }, [dispatch, amount, assets, pairFrom, price]);
-
-  // React.useEffect(() => {
-  //   if (IoWebSocketTrade && IoWebSocketTrade.connected && pairTo && username) {
-  //     IoWebSocketTrade.on(`WalletBalance-${username}-${pairTo}`, (data) => {
-  //       if (data) {
-  //         setBalance(data.balance);
-  //       }
-  //     });
-  //     return () =>
-  //       IoWebSocketTrade.removeEventListener(
-  //         `WalletBalance-${username}-${pairTo}`,
-  //       );
-  //   }
-  // }, [setBalance, pairTo, username]);
+  }, [dispatch, amount, assets, price]);
 
   return (
     <div

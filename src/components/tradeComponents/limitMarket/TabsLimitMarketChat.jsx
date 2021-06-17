@@ -5,8 +5,55 @@ import LimitSell from "./LimitSell";
 import MarketBuy from "./MarketBuy";
 import MarketSell from "./MarketSell";
 import { useSelector } from "react-redux";
+
+import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
+
+
 export default function TabsLimitMarketChat() {
+  const [BalancePairFrom,setBalancePairFrom]=React.useState(0);
+  const [BalancePairTo,setBalancePairTo]=React.useState(0);
+
   const { mode } = useSelector((state) => state.daynightReducer);
+  const { pairTo,pairFrom } = useSelector((state) =>
+    state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
+  );
+  const { assets } = useSelector((state) => state?.walletReducer);
+  const { username } = useSelector((state) =>
+    state ? (state.profileReducer ? state.profileReducer : {}) : {},
+  );
+
+  React.useEffect(()=>{
+    if (assets) {
+      let tempPairFrom = assets.find((item) => item.type === pairFrom);
+      let tempPairTo = assets&&Array.isArray(assets)&&assets.find((item) => item.type === pairTo);
+      if(tempPairFrom&&tempPairTo){
+        setBalancePairFrom(tempPairFrom.balance);
+        setBalancePairTo(tempPairTo.balance);
+      }
+    }
+  },[setBalancePairFrom,setBalancePairTo]);
+
+  React.useEffect(() => {
+    if (IoWebSocketTrade && IoWebSocketTrade.connected && pairTo && username) {
+      IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
+        if (data) {
+          setBalancePairFrom(data.balance);
+        }
+      });
+      IoWebSocketTrade.on(`WalletBalanceLimit-${username}-${pairTo}`, (data) => {
+        if (data) {
+          setBalancePairTo(data.balance);
+        }
+      });
+      return () =>{
+        IoWebSocketTrade.removeEventListener(
+          `WalletBalance-${username}-${pairFrom}`,
+        );
+        IoWebSocketTrade.removeEventListener(`WalletBalance-${username}-${pairTo}`);
+      };
+    }
+  }, [setBalancePairFrom,setBalancePairTo,pairFrom, pairTo, username]);
+
   return (
     <div className={mode ? "tabs-global-dark2-buy-sell" : "tabs-global"}>
       <ul
@@ -95,10 +142,10 @@ export default function TabsLimitMarketChat() {
                     Market
                   </label>
                   <div class="tabbuy content1">
-                    <LimitBuy />
+                    <LimitBuy balanceAsset={BalancePairFrom} />
                   </div>
                   <div class="tabbuy content2">
-                    <MarketBuy />
+                    <MarketBuy balanceAsset={BalancePairTo} />
                   </div>
                 </div>
               </div>
@@ -145,10 +192,10 @@ export default function TabsLimitMarketChat() {
                   </label>
 
                   <div class="tabsell content1">
-                    <LimitSell />
+                    <LimitSell balanceAsset={BalancePairFrom} />
                   </div>
                   <div class="tabsell content2">
-                    <MarketSell />
+                    <MarketSell balanceAsset={BalancePairTo} />
                   </div>
                 </div>
               </div>

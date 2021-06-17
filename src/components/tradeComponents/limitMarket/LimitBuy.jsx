@@ -9,20 +9,18 @@ import {
   SET_RX_FORM_DATABUY,
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
-import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 import { convertNumber } from "../../../assets/js";
 
 import { Link, useParams } from "react-router-dom";
-import { parseFixedNumber } from "../../../helpers/functions";
 
-export default function LimitBuy() {
+export default function LimitBuy({balanceAsset}) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   let { symbol } = useParams();
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const [balance, setBalance] = useState("");
-  const { PairSymbol, pairFrom, pairTo } = useSelector((state) =>
+  const [balance, setBalance] = useState(balanceAsset);
+  const { PairSymbol, pairTo } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
 
