@@ -2,10 +2,10 @@ import React from 'react';
 import ReactLoading from 'react-loading';
 
 function TableFrekuensi({MarketData}) {
-    const tableHeader = [ "Nama Koin", "Freq Beli", "Freq Jual", "Total" ];
+    const tableHeader = [ "Coin Name", "Buy Freq", "Sell Freq", "Total" ];
     return (
         <div>
-            <h3 className="font-14 text-gold">Frekuensi</h3>
+            <h3 className="font-14 text-gold">Frequence</h3>
             <div className="table-responsive table-keuangan">
                 {
                     MarketData?
