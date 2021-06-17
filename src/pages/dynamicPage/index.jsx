@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 
 import FooterHomePage from "../../components/footerComponents/footerHomePage/FooterHomePage";
 import HeaderAlternate from "../../components/headerComponents/headerHomePage/HeaderAlternate";
+import LoadingPage from '../../pages/loadingpage'
 import { errHandler } from '../../helpers';
 import { baseAxios } from '../../stores';
 // import {changePass} from '../../stores'
@@ -22,6 +23,7 @@ function CustomPage() {
 
 
     useEffect(() => {
+        setLoading(true)
         if(!category || !pageSlug){
             history.push('/404')
         }
@@ -35,6 +37,7 @@ function CustomPage() {
                     content: data.page.content
                 })
             }
+            setLoading(false)
         }).catch(({response}) => {
             if(response && response.data.message === 'Page Not Found'){
                 history.push('/404')
@@ -48,29 +51,34 @@ function CustomPage() {
                 title: '',
                 content: ''
             })
+            setLoading(true)
         }
-    },[])
+    },[category, pageSlug])
 
     return (
-        <>
-            <HeaderAlternate />
-            <div className="bannersyaratdanketentuan">
-                <h4
-                    className="text-center font-40 text-gold font-weight-bold"
-                    style={{ paddingTop: "120px" }}
-                >
-                { page.title.toUpperCase() }
-                </h4>
-            </div>
-            <div className="bg-homepage pt-4 pb-5">
-                <div className="container text-white">
-                    {
-                        HtmlParser(page.content)
-                    }
+        loading ?
+            <LoadingPage />
+        :
+            <>
+                
+                <HeaderAlternate />
+                <div className="bannersyaratdanketentuan">
+                    <h4
+                        className="text-center font-40 text-gold font-weight-bold"
+                        style={{ paddingTop: "120px" }}
+                    >
+                    { page.title.toUpperCase() }
+                    </h4>
                 </div>
-            </div>
-            <FooterHomePage />
-        </>
+                <div className="bg-homepage pt-4 pb-5">
+                    <div className="container text-white">
+                        {
+                            HtmlParser(page.content)
+                        }
+                    </div>
+                </div>
+                <FooterHomePage />
+            </>
     )
 }
 
