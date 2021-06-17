@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import ads from "../../../../assets/img/homepage/banner/banner1archidax.png";
+import ads from "../../../../assets/img/homepage/banner/ARCHI_OFFICIAL.jpg";
+import ads2 from "../../../../assets/img/homepage/banner/ARCHI_BONUS.jpg"
 // import ads1 from "../../../../assets/img/homepage/banner/banner1.png";
 
 export default class SimpleSlider extends Component {
@@ -27,7 +28,7 @@ export default class SimpleSlider extends Component {
           <img src={ads} alt="logo1" style={{ width: "100%" }} />
         </div>
         <div>
-          <img src={ads} alt="logo1" style={{ width: "100%" }} />
+          <img src={ads2} alt="logo1" style={{ width: "100%" }} />
         </div>
         <div>
           <img src={ads} alt="logo1" style={{ width: "100%" }} />

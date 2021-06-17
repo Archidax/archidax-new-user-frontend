@@ -68,8 +68,8 @@ export default function MainPages() {
   }, [email, dispatch, isLoginAccount]);
 
   useEffect(() => {
-    getAllDynamicPages(dispatch)
-  },[dispatch])
+    getAllDynamicPages(dispatch, locale.split('-')[0].toUpperCase())
+  },[dispatch, locale])
 
   useEffect(() => {
     // if (localStorage.getItem('language')) {

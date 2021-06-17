@@ -4,7 +4,7 @@ import Calculator from "./calculator/CalculatorAsetHomepage";
 
 export default function apaItuCrypto() {
   return (
-    <div className="bg-archidax" style={{ paddingBottom: "80px" }}>
+    <div className="bg-archidax" style={{ paddingBottom: "220px" }}>
       <div className="mt-hp-r">
         <hr
           style={{ border: "1px solid rgba(249,186,66,0.5)", width: "50%" }}

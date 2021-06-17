@@ -19,7 +19,6 @@ export default function NewsTrade() {
         News
       </h5>
       <div id="overflowTestChatTrade" className="mt-1">
-        {console.log(dataNewNews)}
         {dataNewNews.length !== 0 &&
           dataNewNews.map((val, index) => {
             if (val.category === "Berita" || "Pengunguman" || "Artikel") {
@@ -28,7 +27,7 @@ export default function NewsTrade() {
                   onClick={(e) => {
                     history.push(`/berita/${val.slug}`);
                   }}
-                  className="col-12 px-0 pt-2 announcements-content"
+                  className="col-12 px-0 pt-2 announcements-content-trade"
                   style={{ cursor: "pointer" }}
                 >
                   <img

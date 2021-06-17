@@ -257,44 +257,54 @@ function LaunchpadDetail({ data }) {
 
                                             <div className="row justify-content-center">
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#3b5998',
-                                                        borderRadius: "4px",
-                                                        color: 'white',
-                                                        border: 'none',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">Facebook</button>
+                                                    <a href={detail.facebook} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#3b5998',
+                                                            borderRadius: "4px",
+                                                            color: 'white',
+                                                            border: 'none',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">Facebook</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#00acee',
-                                                        borderRadius: "4px",
-                                                        border: 'none',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">Twitter</button>
+                                                    <a href={detail.twitter} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#00acee',
+                                                            borderRadius: "4px",
+                                                            border: 'none',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">Twitter</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#0e76a8',
-                                                        borderRadius: "4px",
-                                                        border: 'none',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">LinkedIn</button>
+                                                    <a href={detail.linkedin} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#0e76a8',
+                                                            borderRadius: "4px",
+                                                            border: 'none',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">LinkedIn</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#0088cc',
-                                                        borderRadius: "4px",
-                                                        border: 'none',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">Telegram</button>
+                                                    <a href={detail.telegram} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#0088cc',
+                                                            borderRadius: "4px",
+                                                            border: 'none',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">Telegram</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#FF0000',
-                                                        borderRadius: "4px",
-                                                        border: 'none',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">Youtube</button>
+                                                    <a href={detail.youtube} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#FF0000',
+                                                            borderRadius: "4px",
+                                                            border: 'none',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">Youtube</button>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
