@@ -9,28 +9,22 @@ import {
   SET_RX_FORM_DATABUY,
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
-import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 import { convertNumber } from "../../../assets/js";
 
 import { Link, useParams } from "react-router-dom";
-import { parseFixedNumber } from "../../../helpers/functions";
 
-export default function LimitBuy() {
+export default function LimitBuy({balanceAsset}) {
+  console.log(balanceAsset,"wawan");
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   let { symbol } = useParams();
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const [balance, setBalance] = useState("");
-  const { PairSymbol, pairFrom, pairTo } = useSelector((state) =>
+  const { PairSymbol, pairTo } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
 
-  const { username } = useSelector((state) =>
-    state ? (state.profileReducer ? state.profileReducer : {}) : {},
-  );
-
-  const { saldo, assets } = useSelector((state) => state?.walletReducer);
+  const { saldo } = useSelector((state) => state?.walletReducer);
   const [inputPrice, setInputPrice] = useState("");
   const [inputAmount, setInputAmount] = useState("");
   const dispatch = useDispatch();
@@ -80,15 +74,7 @@ export default function LimitBuy() {
         }),
       );
     }
-    if (assets) {
-      const temp = assets&&Array.isArray(assets)&&assets.find((item) => item.type === pairTo);
-      if (temp) {
-        setBalance(temp.balance);
-      } else {
-        setBalance(0);
-      }
-    }
-  }, [price, dispatch, amount, saldo, pairTo, assets]);
+  }, [price, dispatch, amount, saldo, pairTo]);
 
   return (
     <div
@@ -113,7 +99,7 @@ export default function LimitBuy() {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span>{convertNumber.toRupiah(balance)}</span>
+                <span>{convertNumber.toRupiah(balanceAsset)}</span>
               </div>
             </div>
           </div>
@@ -193,7 +179,7 @@ export default function LimitBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 0,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -223,7 +209,7 @@ export default function LimitBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 1,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -253,7 +239,7 @@ export default function LimitBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 2,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -283,7 +269,7 @@ export default function LimitBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 3,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
