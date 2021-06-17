@@ -34,10 +34,6 @@ export default function Price() {
   );
 
   React.useEffect(() => {
-    GetListingExchange(dispatch);
-  }, []);
-
-  React.useEffect(() => {
     if (PairSymbol) {
       dispatch(GetOrderLastPrice({ pair: PairSymbol }));
     }

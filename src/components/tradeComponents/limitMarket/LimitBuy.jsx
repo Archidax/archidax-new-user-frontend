@@ -15,7 +15,6 @@ import { convertNumber } from "../../../assets/js";
 import { Link, useParams } from "react-router-dom";
 
 export default function LimitBuy({balanceAsset}) {
-  console.log(balanceAsset,"wawan");
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   let { symbol } = useParams();
   const { mode } = useSelector((state) => state.daynightReducer);
