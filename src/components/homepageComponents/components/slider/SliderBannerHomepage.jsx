@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import ads from "../../../../assets/img/homepage/banner/banner1archidax.png";
+import ads from "../../../../assets/img/homepage/banner/ARCHI_OFFICIAL.jpg";
 // import ads1 from "../../../../assets/img/homepage/banner/banner1.png";
 
 export default class SimpleSlider extends Component {
