@@ -13,14 +13,13 @@ function MyTrades() {
     const transactions = useSelector(state => state.launchpadReducer.myIEOPortfoliodDetails)
     const dispatch = useDispatch()
     const history = useHistory()
+    const { id } = useParams()
 
     const [idCoin, setIdCoin] = useState(null)
 
     useEffect(() => {
-        if (IEO._id) {
-            getMyIEOPortfolioDetails(IEO._id, dispatch)
-        }
-    }, [IEO])
+        getMyIEOPortfolioDetails(id, dispatch)
+    }, [])
 
     return (
         <>
@@ -76,26 +75,26 @@ function MyTrades() {
                                     </thead>
                                     <tbody className="mt-3">
                                         {
-                                            transactions && transactions.data && transactions.data[0] ? (transactions.data[0].data.map((el, index) => {
+                                            transactions && transactions.data && transactions.data[0] && !transactions.data[0].data ? (transactions.data[0].data.map((el, index) => {
                                                 return (
                                                     <tr style={{ height: "45px" }}>
                                                         <td className="ci-verti-align-middle text-white font-14">
-                                                            {index+1}
+                                                            {index + 1}
                                                         </td>
                                                         <td className="ci-verti-align-middle text-white font-14">
                                                             {moment(el.date).format("YYYY-MM-DD hh:mm")}
                                                         </td>
                                                         <td className="ci-verti-align-middle text-white font-14">
-                                                            {el.amount} USDT
+                                                            {el.amount} {el.currency_quote}
                                                         </td>
                                                         <td className="ci-verti-align-middle text-white font-14">
-                                                            {el.total}
-                                                    </td>
+                                                            {el.total} {el.currency_base}
+                                                        </td>
                                                     </tr>
                                                 )
                                             })) : (
-                                                <tr>
-                                                    <td colSpan="4">No Records</td>
+                                                <tr className="text-center">
+                                                    <td className="text-white text-center" colSpan="4">No Records</td>
                                                 </tr>
                                             )
                                         }
