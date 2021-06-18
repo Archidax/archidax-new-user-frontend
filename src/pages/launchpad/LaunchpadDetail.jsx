@@ -47,7 +47,8 @@ function LaunchpadDetail({ data }) {
             amount,
             total,
             type: detail.currency_base,
-            price: detail.phase_details.token_price
+            price: detail.phase_details.token_price,
+            phase_number : detail.phase_details.phase_number
         }
         buyIEOCoin(detail._id, data, dispatch)
     }
@@ -257,7 +258,7 @@ function LaunchpadDetail({ data }) {
 
                                             <div className="row justify-content-center">
                                                 <div className="col-12 col-md-2">
-                                                    <a href={detail.facebook} target="blank">
+                                                    <a href={`http://${detail.facebook}`} target="_blank">
                                                         <button style={{
                                                             backgroundColor: '#3b5998',
                                                             borderRadius: "4px",

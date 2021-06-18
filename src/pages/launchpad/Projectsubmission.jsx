@@ -782,7 +782,7 @@ function LaunchpadPorto() {
 
                 <div className="row mt-2">
                     <div className="col-12">
-                        <button className="ci-btn-warning w-100 py-1"
+                        <button className="ci-btn-warning w-100 py-1" disabled={!tokenCoinImage || !documentExecutiveSummary || !documentWhitepaper || !documentImagePresentation ? true : false}
                             onClick={() => submitNewCoin()}
                         >Submit</button>
                     </div>
