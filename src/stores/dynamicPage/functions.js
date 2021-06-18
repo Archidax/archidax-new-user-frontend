@@ -1,8 +1,8 @@
 import errorHandler from '../errorHandler'
 import { baseAxios } from '../index'
 
-export const getAllDynamicPages = (dispatch) => {
-    baseAxios.get("pages/category", {
+export const getAllDynamicPages = (dispatch,language) => {
+    baseAxios.get(`pages/category?language=${language}`, {
         }).then(({data}) => {
             dispatch({
                 type: "SET_DYNAMICPAGES", 

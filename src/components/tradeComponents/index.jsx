@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Price from "./Price";
 import ListBuy from "./listMarket/ListBuy";
 import ListSell from "./listMarket/ListSell";
@@ -10,7 +10,7 @@ import LimitMarketChat from "./limitMarket/TabsLimitMarketChat";
 import TabListingNewsChat from "../tradeComponents/TabListingNewsChat";
 import TabLiveMarket from "./TabLiveMarket";
 
-import OrderPending from "./orderPendingHistory/OrderPending";
+import OrderPendingTab from "./orderPendingHistory/OrderPending";
 import OrderHistory from "./orderPendingHistory/OrderHistory";
 
 import { useParams, useHistory } from "react-router-dom";
@@ -27,12 +27,12 @@ export default function Index() {
   const dispatch = useDispatch();
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
+  const [historyLength, setHistoryLength] = useState(0)
+  // const Order = useSelector((state) =>
+  //   state ? state?.pasarTradingReducer : {},
+  // );
 
-  const Order = useSelector((state) =>
-    state ? state?.pasarTradingReducer : {},
-  );
-
-  const { listingList } = useSelector((state) => state.pasarTradingReducer);
+  const { listingList, OrderPending } = useSelector((state) => state.pasarTradingReducer);
 
   useEffect(() => {
     if (symbol && listingList.length) {
@@ -89,6 +89,7 @@ export default function Index() {
               <TabLiveMarket />
             </div>
           </div>
+
           <div className="col-sm-second">
             <div className="row">
               <div
@@ -184,11 +185,12 @@ export default function Index() {
                         style={{ padding: "2px 12px" }}
                       >
                         Order Pending (
-                        {Order &&
+                        {/* {Order &&
                         Order.OrderPending &&
                         Array.isArray(Order.OrderPending)
                           ? Order.OrderPending.length
-                          : 0}
+                          : 0} */}
+                          { OrderPending.length }
                         )
                       </th>
                     </div>
@@ -199,7 +201,7 @@ export default function Index() {
                     aria-labelledby="headingTwo"
                     data-parent="#accordionExample"
                   >
-                    <OrderPending />
+                    <OrderPendingTab />
                   </div>
                 </div>
                 <div style={{ marginTop: "2px" }}>
@@ -220,7 +222,7 @@ export default function Index() {
                         className="collapsed text-gold font-15 mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order History (0)
+                        Order History ({historyLength})
                       </th>
                     </div>
                   </div>
@@ -230,7 +232,7 @@ export default function Index() {
                     aria-labelledby="headingThree"
                     data-parent="#accordionExample"
                   >
-                    <OrderHistory />
+                    <OrderHistory setHistoryLength={setHistoryLength} />
                   </div>
                 </div>
               </div>
@@ -240,7 +242,7 @@ export default function Index() {
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "49.8vh",
+                minHeight: "48.8vh",
                 background: mode ? "black" : "white",
                 border: mode ? "1px solid black" : "1px solid grey",
               }}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from "react-slick";
 import {convertNumber} from '../../assets/js'
-
+import Translate from "../../i18n/Translate";
 function SliderKeuangan({MarketData}) {
   let whiteList=["BTC","ETH","BNB","CGOLD","WAVES"]
   let WalletCoin=MarketData?MarketData.filter((el)=>whiteList.includes(el.initialSymbol)?el:null):null
@@ -32,7 +32,7 @@ function SliderKeuangan({MarketData}) {
                 }}
                 >
                   <img src={item.icon} alt="" width={32}/>
-                  <p className="font-14 mb-0 ml-2">{item.initialSymbol} tertinggi {convertNumber.toRupiah(item.price24h_high)} terendah {convertNumber.toRupiah(item.price24h_low)} harga terakhir {convertNumber.toRupiah(item.price24h_close)} ({convertNumber.tradeChange(item.price24h_change, 2)})</p>
+                  <p className="font-14 mb-0 ml-2">{item.initialSymbol} {Translate('highest')} {convertNumber.toRupiah(item.price24h_high)}, {Translate('lowest')} {convertNumber.toRupiah(item.price24h_low)}, {Translate('last_price')} {convertNumber.toRupiah(item.price24h_close)} ({convertNumber.tradeChange(item.price24h_change, 2)})</p>
                 </div>
               </div>
             )

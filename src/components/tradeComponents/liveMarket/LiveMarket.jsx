@@ -24,8 +24,7 @@ export default function LiveMarket() {
         setData(data);
       });
     }
-    return () =>
-      IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
+    return () =>IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
   }, [PairSymbol]);
 
   return (

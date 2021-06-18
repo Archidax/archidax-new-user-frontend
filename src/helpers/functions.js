@@ -26,7 +26,7 @@ export const errHandler = (err, func) => {
             // history.replace('/login')
         }else {
             Popup.fire({
-                title: "Failed!",
+                title: "Error",
                 text: err.response.data.message,
                 onClickOk: func ? func : undefined
             })

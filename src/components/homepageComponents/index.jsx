@@ -1,22 +1,31 @@
-import React from "react";
-// import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import HeaderHomePage from "../headerComponents/headerHomePage";
 import BannerHomepage from "./components/BannerHomepage";
 import SliderHomepage from "./components/SliderHomepage";
 import TableHomepage from "./components/TableHomepage";
 import ApaItuCrypto from "./components/ApaItuCrypto";
 import CalculatorCrypto from "./components/CalculatorKrypto";
+import { berita, beritaRecent } from "../../stores/berita/functions";
 
 // import KenapaMemilihCrypto from "./components/KenapaMemilihCrypto";
 // import NewsHomepage from "./components/NewsHomepage";
 
-import FooterHomePage from "../footerComponents/footerHomePage/FooterHomePage";
+import FooterBesideHomePage from "../footerComponents/footerHomePage/FooterBesideHomePage";
 
 // import { GetListingExchange } from "../../stores";
 import DalamCrypto from "./components/DalamCrypto";
 import InfoNews from "./components/infonews/InfoNews";
 
 function Home(props) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    berita(dispatch);
+    beritaRecent(dispatch);
+  }, [dispatch]);
+
   return (
     <div className="navbar-homePage">
       <div className="navbar-top">
@@ -35,7 +44,7 @@ function Home(props) {
         <CalculatorCrypto setLocale={props.setLocale} />
         {/* <KenapaMemilihCrypto setLocale={props.setLocale} /> */}
         {/* <NewsHomepage setLocale={props.setLocale} /> */}
-        <FooterHomePage setLocale={props.setLocale} />
+        <FooterBesideHomePage setLocale={props.setLocale} />
       </div>
     </div>
   );

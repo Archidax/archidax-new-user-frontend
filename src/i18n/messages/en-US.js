@@ -51,8 +51,10 @@ export default {
         // Footer3
         // Footer4
         // Footer5
-
-
+        lowest: "Lowest",
+        highest: "Highest",
+        last_price: "Last Price",
+        top_coin: "Top Coin Based On Volume in last 24H",
         // Footer
         // Footer1
         f1_tentang: "ABOUT US",

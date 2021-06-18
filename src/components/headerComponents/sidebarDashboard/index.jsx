@@ -15,6 +15,7 @@ import bantuanIcon from "../../../assets/affiliasi/bitcoin-icon.svg";
 import affiliasiIcon from "../../../assets/affiliasi/affiliasi-icon.svg";
 import blogIcon from "../../../assets/affiliasi/blog-icon.svg";
 import walletIcon from "../../../assets/affiliasi/wallet-icon.svg";
+import LaunchpadIcon from "../../../assets/affiliasi/launchpad-icon.svg";
 
 // Import redux
 import { logout } from "../../../stores";
@@ -130,6 +131,18 @@ export default function SidebarDashboard(props) {
                   >
                     <img src={bantuanIcon} alt="bantuanIcon" className="mr-3" />
                     {Translate('si_bantuan')}
+                  </span>
+                </Link>
+              </div>
+              <div className="nav-item">
+                <Link className={`ci-nav-link`} to={`/launchpad-partner`}>
+                  <span
+                    className={`ci-spanText pt-2 pb-2 pl-3 font-14 ${
+                      locationSidebar.pathname === "/launchpad-partner" ? "active" : ""
+                    }`}
+                  >
+                    <img src={LaunchpadIcon} alt="LaunchpadIcon" className="mr-3" />
+                    {Translate('Launchpad Partner')}
                   </span>
                 </Link>
               </div>
