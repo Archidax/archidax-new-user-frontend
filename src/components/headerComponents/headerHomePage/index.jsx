@@ -9,7 +9,7 @@ import Translate from "../../../i18n/Translate";
 
 function HeaderHomePage(props) {
   // eslint-disable-next-line
-  const { flag } = props
+  const { flag } = props;
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
 
   return (
@@ -97,6 +97,15 @@ function HeaderHomePage(props) {
               href={"/keuangan"}
             >
               {Translate("hh_keuangan")}
+            </a>
+          </li>
+          <li className="nav-item mx-2 nav-keuangan">
+            <a
+              className="nav-link text-white font-18 text-center"
+              href={"/launchpad"}
+            >
+              {/* {Translate("hh_keuangan")} */}
+              Launchpad
             </a>
           </li>
           <li className="nav-item mx-2">

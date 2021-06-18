@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "zingchart/es6";
-import { getVolumeChart } from '../../../stores'
+import { getVolumeChart } from "../../../stores";
 import ZingChart from "zingchart-react";
-import {IoWebSocketCronjob} from '../../../configuration/IoWebSocket'
+import { IoWebSocketCronjob } from "../../../configuration/IoWebSocket";
 
 export default function VolumeChart() {
   let [volumeData, setVolumeData] = useState(null);
@@ -13,7 +13,7 @@ export default function VolumeChart() {
   const optionChart = {
     backgroundColor: "transparent",
     type: "area",
-    height: "180px",
+    height: "160px",
     plot: {
       "active-area": true /* Extends the tooltip's active area to the shaded region */,
       color: "#26A69A",
@@ -27,7 +27,7 @@ export default function VolumeChart() {
     series: [
       {
         // values: [38, 42, 46, 44, 42, 44, 46, 48, 52, 50, 56, 60],
-        values: volumeData?volumeData:[],
+        values: volumeData ? volumeData : [],
         "background-color":
           "#26A69A #26A69A" /* Single color or gradient (2 colors) */,
         "alpha-area": 0.15 /* Shaded region transparency */,
@@ -41,10 +41,11 @@ export default function VolumeChart() {
       tick: {
         "line-color": "none",
       },
-      transform: { /* Converts your Unix timestamp to a human readable format. */
-        type: "date", /* Set your transform type to "date". */
-        all: "%H.%i" /* Specify your date/time format, using tokens. */
-      }
+      transform: {
+        /* Converts your Unix timestamp to a human readable format. */
+        type: "date" /* Set your transform type to "date". */,
+        all: "%H.%i" /* Specify your date/time format, using tokens. */,
+      },
     },
     "scale-y": {
       "line-color": "none",
@@ -60,28 +61,30 @@ export default function VolumeChart() {
       },
     },
     plotarea: {
-      margin: "0 0",
+      margin: "10 10",
     },
-  }
+  };
 
   useEffect(() => {
-    if(PairSymbol) {
+    if (PairSymbol) {
       getVolumeChart(PairSymbol, 48, setVolumeData);
       IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
       IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
-        if(data) {
-          setVolumeData(data)
+        if (data) {
+          setVolumeData(data);
         }
-      })
-      return () => {IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);}
+      });
+      return () => {
+        IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
+      };
     }
-  }, [PairSymbol])
+  }, [PairSymbol]);
 
   return (
     <div>
-      { volumeData&&
+      {volumeData && (
         <ZingChart data={optionChart} className="mt-3"></ZingChart>
-      }
+      )}
     </div>
   );
 }
