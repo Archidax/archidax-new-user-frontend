@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import Translate from "../../i18n/Translate";
 import TabsProjectDetail from "./tabs/TabsProjectDetail";
 import TabsSubscription from "./tabs/TabsSubscription";
@@ -7,6 +8,20 @@ function LaunchpadPartnerDetail() {
   return (
     <>
         <div className="container-fluid" style={{minHeight: '50vh'}}>
+            <div className="row mt-4 no-gutters">
+                <div className="col-12 col-md-12">
+                    <Link to="/launchpad-partner">
+                        <button
+                            className="ci-btn-custom-1 py-1"
+                            style={{ borderRadius: "2px", minWidth: "100px" }}
+                        >
+                            <i className="fas fa-arrow-left mr-2"/>
+                            {Translate('Back')}
+                        </button>
+                    </Link>
+                </div>
+            </div>
+
             <div className="row mt-4">
                 <div className="col-12 col-md-12">
                     <div className="container-fluid">
@@ -45,33 +60,24 @@ function LaunchpadPartnerDetail() {
                 </div>
             </div>
                     
-            <div className="row mt-4">
+            <div className="row mt-4 mb-5">
                 <div className="col-12 col-md-12">
-                    <div
-                        className="card"
-                        style={{ borderRadius: "0px", background: "transparent", border: "4px solid #1C233F" }}
-                    >
-                        <div className="card-body">
-                            <div className="container-fluid">
-                                <div className="tab-content" id="myTabContent">
-                                    <div
-                                        className="tab-pane fade show active"
-                                        id="Subscription"
-                                        role="tabpanel"
-                                        aria-labelledby="Subscription-tab"
-                                    >
-                                        <TabsSubscription />
-                                    </div>
-                                    <div
-                                        className="tab-pane fade"
-                                        id="ProjectDetail"
-                                        role="tabpanel"
-                                        aria-labelledby="ProjectDetail-tab"
-                                    >
-                                        <TabsProjectDetail />
-                                    </div>
-                                </div>
-                            </div>
+                    <div className="tab-content" id="myTabContent">
+                        <div
+                            className="tab-pane fade show active"
+                            id="Subscription"
+                            role="tabpanel"
+                            aria-labelledby="Subscription-tab"
+                        >
+                            <TabsSubscription />
+                        </div>
+                        <div
+                            className="tab-pane fade"
+                            id="ProjectDetail"
+                            role="tabpanel"
+                            aria-labelledby="ProjectDetail-tab"
+                        >
+                            <TabsProjectDetail />
                         </div>
                     </div>
                 </div>
