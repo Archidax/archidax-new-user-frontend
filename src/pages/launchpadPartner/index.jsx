@@ -3,6 +3,8 @@ import React from "react";
 // Import Images
 import bgImg from '../../assets/img/dashboard/bannerLaunchpad.png'
 import Translate from "../../i18n/Translate";
+import TablePast from "./table/TablePast";
+import TableRunning from "./table/TableRunning";
 
 function LaunchpadPartner() {
 
@@ -36,7 +38,7 @@ function LaunchpadPartner() {
         </div>
       </div>
 
-      <div className="container-fluid">
+      <div className="container-fluid" style={{minHeight: '50vh'}}>
         <div className="row mt-4">
           <div className="col-12 col-md-12">
             <div className="container-fluid">
@@ -87,7 +89,7 @@ function LaunchpadPartner() {
                       role="tabpanel"
                       aria-labelledby="setor-tab"
                     >
-                      {/* <TableLaporanKomisi /> */}
+                      <TableRunning />
                     </div>
                     <div
                       className="tab-pane fade"
@@ -95,7 +97,7 @@ function LaunchpadPartner() {
                       role="tabpanel"
                       aria-labelledby="tarik-tab"
                     >
-                      {/* <TableDaftarAffiliasi /> */}
+                      <TablePast />
                     </div>
                   </div>
                 </div>
