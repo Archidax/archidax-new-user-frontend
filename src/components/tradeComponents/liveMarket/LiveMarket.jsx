@@ -24,17 +24,22 @@ export default function LiveMarket() {
         setData(data);
       });
     }
-    return () =>IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
+    return () =>
+      IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
   }, [PairSymbol]);
 
   return (
     <div>
       <div
         className={
-          mode ? "outter-table-wrapper3-dark" : "outter-table-wrapper3"
+          mode ? "outter-table-wrapper3-dark " : "outter-table-wrapper3"
         }
       >
-        <div class={mode ? "table-wrapper3-dark" : "table-wrapper3"}>
+        <div
+          class={
+            mode ? "table-wrapper3-dark lmh-resp" : "table-wrapper3 lmh-resp"
+          }
+        >
           <table>
             <thead className="">
               <tr className={mode ? "text-price-dark" : "text-price"}>
@@ -58,7 +63,10 @@ export default function LiveMarket() {
                     <tr
                       data-toggle="tooltip"
                       data-placement="top"
-                      title={convertNumber.toRupiah(item.price * item.amount,"CRYPTO")}
+                      title={convertNumber.toRupiah(
+                        item.price * item.amount,
+                        "CRYPTO",
+                      )}
                     >
                       <td
                         className={`${
@@ -71,7 +79,9 @@ export default function LiveMarket() {
                             : "text-white"
                         } text-left`}
                       >
-                        {item.price ? convertNumber.toRupiah(item.price,"CRYPTO") : 0}
+                        {item.price
+                          ? convertNumber.toRupiah(item.price, "CRYPTO")
+                          : 0}
                       </td>
                       <td
                         className={`${

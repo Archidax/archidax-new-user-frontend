@@ -11,7 +11,7 @@ export default function DepthChart() {
     (state) => state.pasarTradingReducer,
   );
 
-  const optionChart = {
+  let optionChart = {
     backgroundColor: "transparent transparent",
     height: "170px",
     type: "depth",
@@ -62,16 +62,6 @@ export default function DepthChart() {
         "line-color": "none",
       },
     },
-    series: [
-      {
-        values: depthData ? depthData.bids : [],
-        text: "Amount Bid",
-      },
-      {
-        values: depthData ? depthData.asks : [],
-        text: "Amount Ask",
-      },
-    ],
     plotarea: {
       margin: "10 30",
     },
@@ -79,7 +69,7 @@ export default function DepthChart() {
 
   useEffect(() => {
     if(PairSymbol&&IoWebSocketCronjob){
-      getChartDepth(PairSymbol, 30, setDepthData);
+      getChartDepth(PairSymbol, 50, setDepthData);
       IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
         if(data) {
           setDepthData(data)
@@ -91,8 +81,17 @@ export default function DepthChart() {
 
   return (
     <div>
-      {depthData ? (
-        <ZingChart data={optionChart} className="mt-3"></ZingChart>
+      {depthData&&depthData.asks.length&&depthData.bids.length ? (
+        <ZingChart data={optionChart} series={[
+          {
+            values: depthData ? depthData.bids : [],
+            text: "Amount Bid",
+          },
+          {
+            values: depthData ? depthData.asks : [],
+            text: "Amount Ask",
+          }
+        ]} className="mt-3"></ZingChart>
       ) : (
         <h1>no data</h1>
       )}

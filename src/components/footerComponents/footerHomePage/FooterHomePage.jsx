@@ -105,12 +105,6 @@ export default function FooterHomePage() {
                             return (
                               <li className="mb-3" key={pageIndex}>
                                 <Link to={`/pages/${page.category}/${page.pageSlug}`} >{toTitleCase(page.pageName)}</Link>
-                                {/* <a
-                                  href={`/pages/${page.category}/${page.pageSlug}`}
-                                  className="text-lg-footer font-14"
-                                >
-                                  {toTitleCase(page.pageName)}
-                                </a> */}
                               </li>
                             )
                           })

@@ -14,7 +14,7 @@ import { convertNumber } from "../../../assets/js";
 
 import { Link, useParams } from "react-router-dom";
 
-export default function LimitBuy({balanceAsset}) {
+export default function LimitBuy({ balanceAsset }) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   let { symbol } = useParams();
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -90,13 +90,13 @@ export default function LimitBuy({balanceAsset}) {
             </div>
             <div className="make-middle">
               <img src={walletlogo} width="14px" alt="walletlogo" />
-              <div className="text-dgrey ml-2 font-14">
+              <div className="text-dgrey ml-2 lmt-font">
                 {pairTo ? pairTo : "-"}:
               </div>
               <div
                 className={`${
                   mode ? "text-price-dark" : "text-price"
-                } ml-2 font-14`}
+                } ml-2 lmt-font`}
               >
                 <span>{convertNumber.toRupiah(balanceAsset)}</span>
               </div>
@@ -113,7 +113,7 @@ export default function LimitBuy({balanceAsset}) {
               }}
             >
               <h5
-                className="font-14 mt-4"
+                className="lmt-font mt-4"
                 style={{ color: mode ? "white" : "black" }}
               >
                 Limit Price :{" "}
@@ -142,7 +142,7 @@ export default function LimitBuy({balanceAsset}) {
               }}
             >
               <h5
-                className="font-14 mt-4 "
+                className="lmt-font mt-4 "
                 style={{ color: mode ? "white" : "black" }}
               >
                 Amount :{" "}
@@ -157,9 +157,11 @@ export default function LimitBuy({balanceAsset}) {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
-              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+              onKeyDown={(evt) =>
+                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
+              }
               onChange={(e) => {
-                setInputAmount(e.target.value)
+                setInputAmount(e.target.value);
               }}
             ></input>
           </div>
@@ -299,7 +301,7 @@ export default function LimitBuy({balanceAsset}) {
               }}
             >
               <h5
-                className="font-14 mt-4 "
+                className="lmt-font mt-4 "
                 style={{ color: mode ? "white" : "black" }}
               >
                 Estimation :{" "}

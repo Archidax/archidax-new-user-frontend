@@ -44,7 +44,7 @@ export default function Price() {
       className={`${mode ? "bg-trade2-dark" : "bg-trade2"} ptb-2-trade mt-1`}
       style={{ maxHeight: "49vh" }}
     >
-      <div className="px-3">
+      <div className="padding-price-trade">
         <div className="pt-3" style={{ display: "flex", flexDirection: "row" }}>
           {/* dropdown price */}
           <div class="ci-dropdown list-coin-responsive">
@@ -68,7 +68,7 @@ export default function Price() {
                       className="mr-2"
                     />
                     <p
-                      className="mb-0 font-22"
+                      className="mb-0 price-title-trade"
                       style={{
                         color: mode ? "white" : "white",
                         fontWeight: mode ? 600 : 600,
@@ -187,64 +187,54 @@ export default function Price() {
           </div>
         </div>
         {PairSymbol && (
-          <div className="p-2 mt-2">
+          <div className="py-2 mt-2 padding-price2-trade">
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                textAlign: "end",
+                alignItems: "baseline",
               }}
             >
-              {/* Price */}
-              <div style={{ display: "flex", marginTop: "11px" }}>
-                <div
-                  className={`${
-                    mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-18 `}
-                >
-                  {PairSymbol ? PairSymbol : null}
-                </div>
-              </div>
+              {/* Pair */}
               <div style={{ display: "flex" }}>
                 <div
                   className={`${
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-24`}
-                  style={{ marginTop: "3px" }}
+                  } price-title1-trade mb-0`}
                 >
-                  {price24H ? convertNumber.toRupiah(price24H.Close,"CRYPTO") : 0}
+                  {PairSymbol ? PairSymbol : null}
                 </div>
+              </div>
+
+              {/* Last Price */}
+              <div style={{ display: "flex", alignItems: "baseline" }}>
+                <div
+                  className={`${
+                    mode ? "text-price-bottom-dark" : "text-price-bottom"
+                  } price-title2-trade mb-0`}
+                >
+                  {price24H
+                    ? convertNumber.toRupiah(price24H.Close, "CRYPTO")
+                    : 0}
+                </div>
+
+                {/* Change */}
                 <div
                   className={`${
                     mode ? "text-white" : "text-black"
-                  } font-14 ml-1 ${convertNumber.tradeUpDownChange(
+                  } price-title3-trade ml-2 mr-1 mb-0 ${convertNumber.tradeUpDownChange(
                     price24H.Change,
                   )}`}
-                  style={{ marginTop: "14px" }}
                 >
                   {price24H
                     ? convertNumber.tradeChange(price24H.Change)
                     : 0 + "%"}
                 </div>
                 {price24H && Number(price24H.Change).toFixed(2) > 0 ? (
-                  <img
-                    src={arrowup}
-                    style={{
-                      width: "18px",
-                      marginTop: "9px",
-                      marginLeft: "7px",
-                    }}
-                  />
+                  <img src={arrowup} className="width-image-trade" />
                 ) : (
                   Number(price24H.Change).toFixed(2) < 0 && (
-                    <img
-                      src={arrowdown}
-                      style={{
-                        width: "18px",
-                        marginTop: "9px",
-                        marginLeft: "7px",
-                      }}
-                    />
+                    <img src={arrowdown} className="width-image-trade" />
                   )
                 )}
               </div>
@@ -261,7 +251,7 @@ export default function Price() {
                 <div
                   className={`${
                     mode ? "text-price-top-dark" : "text-price-top"
-                  } font-15 mr-2`}
+                  } vhl-title mr-2`}
                 >
                   Volume{" "}
                   {PairSymbol ? PairSymbol.toString().split("/")[1] : null} :
@@ -270,7 +260,7 @@ export default function Price() {
                 <div
                   className={`${
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-15`}
+                  } vhl-title`}
                 >
                   {price24H ? convertNumber.toRupiah(price24H.Volume) : 0}
                   {/* 30.652.175.748 */}
@@ -284,14 +274,14 @@ export default function Price() {
                 <div
                   className={`${
                     mode ? "text-price-top-dark" : "text-price-top"
-                  } font-15 mr-2`}
+                  } vhl-title mr-2`}
                 >
                   High :
                 </div>
                 <div
                   className={`${
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-15`}
+                  } vhl-title`}
                 >
                   {price24H ? convertNumber.toRupiah(price24H.High) : 0}
                 </div>
@@ -310,7 +300,7 @@ export default function Price() {
                 <div
                   className={`${
                     mode ? "text-price-top-dark" : "text-price-top"
-                  } font-15 mr-2`}
+                  } vhl-title mr-2`}
                 >
                   Volume{" "}
                   {PairSymbol ? PairSymbol.toString().split("/")[0] : null} :
@@ -318,7 +308,7 @@ export default function Price() {
                 <div
                   className={`${
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-15 `}
+                  } vhl-title `}
                 >
                   {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
                 </div>
@@ -331,14 +321,14 @@ export default function Price() {
                 <div
                   className={`${
                     mode ? "text-price-top-dark" : "text-price-top"
-                  } font-15 mr-2`}
+                  } vhl-title mr-2`}
                 >
                   Low :
                 </div>
                 <div
                   className={`${
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
-                  } font-15`}
+                  } vhl-title`}
                 >
                   {price24H ? convertNumber.toRupiah(price24H.Low) : 0}
                 </div>

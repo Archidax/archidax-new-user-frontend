@@ -82,18 +82,16 @@ export default function Chat() {
       <div
         style={{
           background: "transparent",
-          height: "368px",
           borderRadius: "5px",
         }}
-        className="m-1"
+        className="m-1 hcr-inside"
       >
         <div
           style={{
             overflow: "scroll",
             transform: "scale(1, -1)",
-            height: "370px",
           }}
-          className="px-2 chat-field"
+          className="px-2 chat-field hcr-outside"
         >
           {Messages && Array.isArray(Messages) ? (
             Messages.sort((a, b) => a.createdAt - b.createdAt).map(
@@ -108,7 +106,7 @@ export default function Chat() {
                   >
                     <div className="col-12 p-0 pb-1 d-flex align-items-center">
                       <button
-                        className={`btn p-0 font-14 ${
+                        className={`btn p-0 font-14-tr ${
                           mode
                             ? "chat-text-color-dark chatcolor"
                             : "chat-text-color"

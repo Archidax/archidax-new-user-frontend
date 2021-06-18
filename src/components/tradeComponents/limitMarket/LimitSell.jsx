@@ -13,7 +13,7 @@ import { convertNumber } from "../../../assets/js";
 
 import { Link, useParams } from "react-router-dom";
 
-export default function Limitsell({balanceAsset}) {
+export default function Limitsell({ balanceAsset }) {
   let { symbol } = useParams();
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -74,10 +74,8 @@ export default function Limitsell({balanceAsset}) {
         }),
       );
     }
-    
   }, [price, dispatch, amount]);
 
-  
   return (
     <div
       className={`${
@@ -93,11 +91,11 @@ export default function Limitsell({balanceAsset}) {
             </div>
             <div className="make-middle">
               <img src={walletlogo} alt="walletlogo" width="14px" />
-              <div className="text-dgrey ml-2 font-14">{pairFrom}:</div>
+              <div className="text-dgrey ml-2 lmt-font">{pairFrom}:</div>
               <div
                 className={`${
                   mode ? "text-price-dark" : "text-price"
-                } ml-2 font-14`}
+                } ml-2 lmt-font`}
               >
                 <span>{convertNumber.toRupiah(balanceAsset, "CRYPTO")}</span>
               </div>
@@ -113,7 +111,7 @@ export default function Limitsell({balanceAsset}) {
               }}
             >
               <h5
-                className="font-14 mt-4"
+                className="lmt-font mt-4"
                 style={{ color: mode ? "white" : "black" }}
               >
                 Limit Price :{" "}
@@ -127,7 +125,9 @@ export default function Limitsell({balanceAsset}) {
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
-              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+              onKeyDown={(evt) =>
+                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
+              }
               value={inputPrice}
               onChange={(e) => setInputPrice(e.target.value)}
             ></input>
@@ -142,7 +142,7 @@ export default function Limitsell({balanceAsset}) {
               }}
             >
               <h5
-                className="font-14 mt-4 "
+                className="lmt-font mt-4 "
                 style={{ color: mode ? "white" : "black" }}
               >
                 Amount :{" "}
@@ -172,7 +172,9 @@ export default function Limitsell({balanceAsset}) {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              onClick={() => setInputAmount(Number(25 / 100) * Number(balanceAsset))}
+              onClick={() =>
+                setInputAmount(Number(25 / 100) * Number(balanceAsset))
+              }
             >
               <input
                 class="form-check-input"
@@ -195,7 +197,9 @@ export default function Limitsell({balanceAsset}) {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              onClick={() => setInputAmount(Number(50 / 100) * Number(balanceAsset))}
+              onClick={() =>
+                setInputAmount(Number(50 / 100) * Number(balanceAsset))
+              }
             >
               <input
                 class="form-check-input"
@@ -218,7 +222,9 @@ export default function Limitsell({balanceAsset}) {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              onClick={() => setInputAmount(Number(75 / 100) * Number(balanceAsset))}
+              onClick={() =>
+                setInputAmount(Number(75 / 100) * Number(balanceAsset))
+              }
             >
               <input
                 class="form-check-input"
@@ -271,7 +277,7 @@ export default function Limitsell({balanceAsset}) {
               }}
             >
               <h5
-                className="font-14 mt-4 "
+                className="lmt-font mt-4 "
                 style={{ color: mode ? "white" : "black" }}
               >
                 Estimation :{" "}
