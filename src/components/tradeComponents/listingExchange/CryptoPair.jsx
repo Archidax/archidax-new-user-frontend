@@ -14,7 +14,9 @@ export default function CryptoPair({ listingList }) {
     <div className="">
       <div
         className={
-          mode ? "outter-table-wrapper4-dark" : "outter-table-wrapper4"
+          mode
+            ? "outter-table-wrapper4-dark height-listing"
+            : "outter-table-wrapper4 height-listing"
         }
       >
         <div class={mode ? "table-wrapper4-dark" : "table-wrapper4"}>
@@ -70,13 +72,13 @@ function CryptoPairRealtime({ item, index }) {
     history.push(`/pasar/${Data.symbol.toString().replace("/", "_")}`);
   };
   React.useEffect(() => {
-    if(PairSymbol) {
+    if (PairSymbol) {
       IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
       IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
         if (data) {
           setData(data);
         }
-        if (data&&PairSymbol === data.symbol) {
+        if (data && PairSymbol === data.symbol) {
           dispatch(
             setPasarTrading({
               Open: data.price24h_open,
@@ -90,10 +92,12 @@ function CryptoPairRealtime({ item, index }) {
           );
         }
       });
-      return () => {IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);}
+      return () => {
+        IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+      };
     }
-  }, [item,PairSymbol]);
-  
+  }, [item, PairSymbol]);
+
   if (Data) {
     return (
       <tr

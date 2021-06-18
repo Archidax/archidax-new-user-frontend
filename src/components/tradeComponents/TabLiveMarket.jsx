@@ -43,7 +43,7 @@ export default function TabLiveMarket() {
                     justifyContent: "center",
                   }}
                 >
-                  <th className="text-gold font-14 mb-0">Live Market</th>
+                  <th className="text-gold atr-resp mb-0">Live Market</th>
                 </a>
               </li>
               {/* <li class="nav-item px-0 mx-2">
@@ -113,7 +113,6 @@ export default function TabLiveMarket() {
                   ></i>
                 </a>
               </li> */}
-            
             </ul>
           </div>
         </div>

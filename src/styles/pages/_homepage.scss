@@ -968,8 +968,16 @@
 
 #overflowTestChatTrade {
   width: 100%;
-  height: 376px;
+  height: 271px;
   overflow: auto;
+}
+
+@media (min-width: 1400px) {
+  #overflowTestChatTrade {
+    width: 100%;
+    height: 373px;
+    overflow: auto;
+  }
 }
 
 // Tabs Chart
