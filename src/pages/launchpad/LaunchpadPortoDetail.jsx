@@ -46,7 +46,7 @@ function LaunchpadPortoDetail() {
                         <div className="row d-flex justify-content-between text-white mt-3">
                             <div className="col-4 d-flex">
                                 <div className="mr-2">
-                                    <img src={transactions.data[0].coinImage} style={{ width: "45px" }} alt="logo" />
+                                    <img src={!transactions && !transactions.data ? "#" : transactions.data[0].coinImage} style={{ width: "45px" }} alt="logo" />
                                 </div>
                                 <div className="mr-4">
                                     <div className=""><span className="font-bold text-gold">{transactions.data[0].currency_quote}</span></div>
@@ -86,14 +86,14 @@ function LaunchpadPortoDetail() {
                                                 <tr>
                                                     <td>{index + 1}</td>
                                                     <td>{moment(el.date).format("YYYY-MM-DD hh:mm")}</td>
-                                                    <td>{el.amount} KBJ</td>
-                                                    <td>{el.total} USD</td>
+                                                    <td>{el.amount} {el.currency_quote}</td>
+                                                    <td>{el.total} {el.currency_base}</td>
                                                 </tr>
                                             )
                                         })
                                     ) : (
                                         <tr>
-                                            <td colSpan="4">No records</td>
+                                            <td className="text-center" colSpan="4">No records</td>
                                         </tr>
                                     )
                                 }
