@@ -4,7 +4,7 @@ import Chart from "./chart";
 import { useSelector } from "react-redux";
 import { baseUrlTrade, baseUrlTradeVersion } from "../../../stores/index";
 
-export default function TradeChart() {
+function TradeChart() {
   const { mode } = useSelector((state) => state.daynightReducer);
   const { symbol } = useParams();
 
@@ -39,3 +39,5 @@ export default function TradeChart() {
     </div>
   );
 }
+
+export default React.memo(TradeChart);

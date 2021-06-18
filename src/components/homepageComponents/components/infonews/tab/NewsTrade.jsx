@@ -30,21 +30,18 @@ export default function NewsTrade() {
                   className="col-12 px-0 pt-2 announcements-content-trade"
                   style={{ cursor: "pointer" }}
                 >
-                  <img
-                    src={val.img_news}
-                    style={{ height: "70px", width: "100px" }}
-                  />
+                  <img src={val.img_news} className="img-news-trade" />
                   <div className="ml-2">
                     <a
                       onClick={(e) => {
                         e.preventDefault();
                       }}
                       style={{ width: "80%" }}
-                      className="text-white font-14"
+                      className="text-white font-14-tr"
                     >
                       <span style={{ cursor: "pointer" }}>{val.title}</span>
                     </a>
-                    <p className="text-white font-12 mt-1">
+                    <p className="text-white date-news-trade mt-1">
                       {moment(val.updatedAt).format("DD MMMM YYYY")}
                     </p>
                   </div>
