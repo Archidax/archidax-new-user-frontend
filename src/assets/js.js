@@ -1,7 +1,7 @@
 export const convertNumber = {
 
     toMoney: (number, curr) => {
-        var formatter = new Intl.NumberFormat("ID");
+        var formatter = new Intl.NumberFormat("en-US");
           
         return curr ? curr+ " "+formatter.format(number):formatter.format(number)
     },
@@ -13,18 +13,19 @@ export const convertNumber = {
     toRupiah:(balance,type)=>{
         if(typeof(balance)==="number"&&balance>0){
             if(!Number.isSafeInteger(balance)){
-                return parseFloat(parseFloat(balance).toFixed(8));
+                let cBalance=new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
+                return parseFloat(cBalance);
             }
-            return parseInt(balance).toLocaleString("id-ID");
+            return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
         }else{
             return parseInt(0);
         }
     },
-
+    
     tradeRemaining:(stock,amount)=>{
         if(typeof(stock)==="number"&&typeof(amount)==="number"){
             let balance=Number(stock)-Number(amount);
-            return balance?Number(balance<1)?Number(balance).toFixed(10):Number(balance).toLocaleString("id-ID"):0;
+            return balance?Number(balance<1)?new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance):new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance):0;
         }else{
             return 0;
         }
@@ -106,14 +107,4 @@ export const convertNumber = {
         }
     },
 
-    tradeRemaining:(stock,amount)=>{
-        if(typeof(stock)==="number"&&typeof(amount)==="number"){
-            let balance=Number(stock)-Number(amount);
-            return balance?Number(balance<1)?Number(balance).toFixed(10):Number(balance).toLocaleString("id-ID"):0;
-        }else{
-            return 0;
-        }
-    },
-
 }
-

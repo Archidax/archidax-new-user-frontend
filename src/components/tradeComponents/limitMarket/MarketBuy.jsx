@@ -18,7 +18,6 @@ import { Link } from "react-router-dom";
 export default function MarketBuy({balanceAsset}) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
-  const [balance,] = useState(balanceAsset);
   const { PairSymbol, pairTo, price24H } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
@@ -90,7 +89,7 @@ export default function MarketBuy({balanceAsset}) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span>{convertNumber.toRupiah(balance)}</span>
+                <span>{convertNumber.toRupiah(balanceAsset)}</span>
               </div>
             </div>
           </div>
@@ -111,7 +110,7 @@ export default function MarketBuy({balanceAsset}) {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
-              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
               onChange={(e) => setInputAmount(e.target.value)}
             ></input>
           </div>
@@ -126,7 +125,7 @@ export default function MarketBuy({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 0,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -139,7 +138,7 @@ export default function MarketBuy({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 1,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -152,7 +151,7 @@ export default function MarketBuy({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 2,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -165,7 +164,7 @@ export default function MarketBuy({balanceAsset}) {
                 setInputAmount(
                   PercentMath({
                     select: 3,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }

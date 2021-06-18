@@ -156,9 +156,7 @@ export default function Limitsell({ balanceAsset }) {
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
-              onKeyDown={(evt) =>
-                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
-              }
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
               value={inputAmount}
               onChange={(e) => setInputAmount(e.target.value)}
             ></input>
