@@ -13,9 +13,10 @@ export const convertNumber = {
     toRupiah:(balance,type)=>{
         if(typeof(balance)==="number"&&balance>0){
             if(!Number.isSafeInteger(balance)){
-                return parseFloat(parseFloat(balance).toFixed(8));
+                let cBalance=new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
+                return parseFloat(cBalance);
             }
-            return parseInt(balance).toLocaleString("id-ID");
+            return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
         }else{
             return parseInt(0);
         }

@@ -127,7 +127,7 @@ export default function LimitBuy({balanceAsset}) {
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
-              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
               value={inputPrice}
               onChange={(e) => setInputPrice(e.target.value)}
             ></input>
