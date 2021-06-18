@@ -25,14 +25,12 @@ export default function TabsLimitMarketChat() {
 
   React.useEffect(() => {
     if (assets && Array.isArray(assets)) {
-      let tempPairFrom = assets.find((item) => item.type === pairFrom);
-      let tempPairTo = assets.find((item) => item.type === pairTo);
-      if (tempPairFrom && tempPairTo) {
+      let tempPairFrom = assets.find((item) => item.type === pairFrom)||0;
+      let tempPairTo = assets.find((item) => item.type === pairTo)||0;
         setBalancePair({
           pairFrom: tempPairTo.balance,
           pairTo: tempPairFrom.balance,
         });
-      }
     }
   }, [assets, setBalancePair, pairFrom, pairTo]);
 
@@ -41,7 +39,7 @@ export default function TabsLimitMarketChat() {
       IoWebSocketTrade.on(
         `WalletBalance-${username}`,
         (baseBalance, quoteBalance) => {
-          if ((baseBalance, quoteBalance)) {
+          if (baseBalance&&quoteBalance) {
             setBalancePair({
               pairFrom: baseBalance.balance,
               pairTo: quoteBalance.balance,
