@@ -7,7 +7,6 @@ import {IoWebSocketCronjob} from '../../../configuration/IoWebSocket'
 
 export default function VolumeChart() {
   let [volumeData, setVolumeData] = useState(null);
-  let [isLoading, setIsLoading] = useState(false);
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
 
   const optionChart = {

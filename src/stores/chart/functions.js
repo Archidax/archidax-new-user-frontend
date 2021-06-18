@@ -26,6 +26,24 @@ export function HomeMarket (cb) {
   })
 }
 
+export function HomeTopGainer (cb) {
+	axios({
+    url:`${baseUrlTrade}${baseUrlTradeVersion}/Home/Market`,
+    method:"GET",
+    headers:{
+      jwttoken:localStorage.getItem("token")
+    },
+  }).then(({data})=>{
+    if(data && data.data) {
+      cb(data.data);
+    } else {
+      cb([]);
+    }
+  }).catch(err=>{
+    cb([]);
+  })
+}
+
 export function ChartWallet (cb) {
 	axios({
     url:`${baseUrl}/account/estimation/chart`,
@@ -45,17 +63,16 @@ export function getChartDepth (market_pair, depth, setDepthData) {
     url:`/depthChart?market_pair=${market_pair}&depth=${depth}`,
     method:"GET",
   }).then(({data})=>{
-    console.log(data, market_pair)
     if(data) {
       setDepthData(data)
     } else {
       setDepthData({
-        bids: [],
+        pair_symbol: market_pair,
+        timestamp: Date.now(),
+        bids: [] ,
         asks: []
       })
     }
-  }).catch((err) => {
-    setDepthData(null)
   })
 }
 
@@ -68,7 +85,5 @@ export function getVolumeChart (market_pair, depth, setVolumeChart, setIsLoading
     if(data) {
       setVolumeChart(data.volumeChart)
     }
-  }).catch((err) => {
-    console.log(err.response, 'error get chart volume data')
   })
 }

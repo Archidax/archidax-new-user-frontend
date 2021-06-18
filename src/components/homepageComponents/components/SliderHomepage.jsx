@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SliderTopGainer from "./slider/SliderTopGainer";
 import SliderTopLoser from "./slider/SliderTopLoser";
-import { HomeMarket } from "../../../stores";
+import { HomeTopGainer } from "../../../stores";
 import topgainer from "../../../assets/img/homepage/slidergainerloser/topgainer_active.svg";
 import notactivegainer from "../../../assets/img/homepage/slidergainerloser/topgainer_inactive.svg";
 import toploser from "../../../assets/img/homepage/slidergainerloser/toploser_active.svg";
@@ -10,7 +10,7 @@ import notactiveloser from "../../../assets/img/homepage/slidergainerloser/toplo
 export default function SliderHomepage() {
   const [data, setData] = useState(null);
   useEffect(() => {
-    HomeMarket(setData);
+    HomeTopGainer(setData);
   }, []);
 
   return (
