@@ -14,7 +14,9 @@ export default function FavoritePair({ listingList }) {
     <div className="">
       <div
         className={
-          mode ? "outter-table-wrapper4-dark" : "outter-table-wrapper4"
+          mode
+            ? "outter-table-wrapper4-dark height-listing"
+            : "outter-table-wrapper4 height-listing"
         }
       >
         <div class={mode ? "table-wrapper4-dark" : "table-wrapper4"}>

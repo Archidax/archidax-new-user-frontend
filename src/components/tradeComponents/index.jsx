@@ -27,12 +27,14 @@ export default function Index() {
   const dispatch = useDispatch();
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
-  const [historyLength, setHistoryLength] = useState(0)
+  const [historyLength, setHistoryLength] = useState(0);
   // const Order = useSelector((state) =>
   //   state ? state?.pasarTradingReducer : {},
   // );
 
-  const { listingList, OrderPending } = useSelector((state) => state.pasarTradingReducer);
+  const { listingList, OrderPending } = useSelector(
+    (state) => state.pasarTradingReducer,
+  );
 
   useEffect(() => {
     if (symbol && listingList.length) {
@@ -95,7 +97,7 @@ export default function Index() {
               <div
                 className="col-12 p-0"
                 style={{
-                  minHeight: "53vh",
+                  minHeight: "53.5vh",
                   background: mode ? "black" : "white",
                   border: mode ? "1px solid black" : "1px solid grey",
                 }}
@@ -125,7 +127,7 @@ export default function Index() {
                       }
                     >
                       <th
-                        className="collapsed text-gold font-15 mb-0"
+                        className="collapsed text-gold atr-resp mb-0"
                         style={{ padding: "2px 12px" }}
                       >
                         Order Book
@@ -181,7 +183,7 @@ export default function Index() {
                       }
                     >
                       <th
-                        className="collapsed text-gold font-15 mb-0"
+                        className="collapsed text-gold atr-resp mb-0"
                         style={{ padding: "2px 12px" }}
                       >
                         Order Pending (
@@ -190,8 +192,7 @@ export default function Index() {
                         Array.isArray(Order.OrderPending)
                           ? Order.OrderPending.length
                           : 0} */}
-                          { OrderPending.length }
-                        )
+                        {OrderPending.length})
                       </th>
                     </div>
                   </div>
@@ -219,7 +220,7 @@ export default function Index() {
                       }
                     >
                       <th
-                        className="collapsed text-gold font-15 mb-0"
+                        className="collapsed text-gold atr-resp mb-0"
                         style={{ padding: "2px 12px" }}
                       >
                         Order History ({historyLength})
@@ -242,7 +243,7 @@ export default function Index() {
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "48.8vh",
+                minHeight: "42.8vh",
                 background: mode ? "black" : "white",
                 border: mode ? "1px solid black" : "1px solid grey",
               }}

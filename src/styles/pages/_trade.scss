@@ -280,12 +280,27 @@ $chat-color: black;
 
 .text-price {
   color: $price-text !important;
-  font-size: 13px;
+  font-size: 10px;
 }
 .text-price-dark {
   color: $price-text-dark !important;
-  font-size: 13px;
+  font-size: 10px;
 }
+
+@media (min-width: 1400px) {
+  .text-price {
+    color: $price-text !important;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .text-price-dark {
+    color: $price-text-dark !important;
+    font-size: 13px;
+  }
+}
+
 .text-price2 {
   color: $price-text2;
 }
@@ -319,15 +334,6 @@ $chat-color: black;
 
 .border-trade {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.width-trade {
-  width: 90%;
-  margin: auto;
-}
-.width-trade2 {
-  width: 95%;
-  margin: auto;
 }
 
 // Tabs
@@ -776,7 +782,6 @@ $chat-color: black;
 }
 .table-wrapper3 {
   overflow-y: auto;
-  height: 266px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -802,8 +807,6 @@ $chat-color: black;
 }
 .table-wrapper3-dark {
   overflow-y: auto;
-  // height: 266px;
-  height: 367px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -878,16 +881,47 @@ $chat-color: black;
   th {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 18px;
-    padding-right: 18px;
-    font-size: 13px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 10px;
   }
   td {
     padding-top: 7px;
     padding-bottom: 3px;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
     font-size: 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .table-wrapper3-dark {
+    background: $base-color1-dark;
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      background: $base-color1-dark;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    th {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      font-size: 13px;
+    }
+    td {
+      padding-top: 7px;
+      padding-bottom: 3px;
+      padding-left: 18px;
+      padding-right: 18px;
+      font-size: 12px;
+    }
   }
 }
 
@@ -902,7 +936,6 @@ $chat-color: black;
 }
 .table-wrapper4 {
   overflow-y: auto;
-  height: 370px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -928,7 +961,6 @@ $chat-color: black;
 }
 .table-wrapper4-dark {
   overflow-y: auto;
-  height: 370px;
 
   /* width */
   &::-webkit-scrollbar {
