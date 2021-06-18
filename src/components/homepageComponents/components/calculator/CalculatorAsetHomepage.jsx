@@ -100,7 +100,7 @@ export default function CalculatorAsetHomepage() {
       );
       setActivePairTo(temp.length ? temp[0].split("/")[1] : "USDT");
     }
-  }, [activePairFrom, activePairTo, pricePairs]);
+  }, [activePairFrom, pricePairs]);
 
   return (
     <div>
