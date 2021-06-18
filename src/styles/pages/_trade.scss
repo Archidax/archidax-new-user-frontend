@@ -386,7 +386,23 @@ $chat-color: black;
     border-radius: 0px;
     height: 40px;
     font-size: 14px;
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid #f9ba42;
+    position: relative;
+    height: 40px !important;
+    width: 100% !important;
+  }
+
+  .nav .nav-item .nav-link.active::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 45%;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-top: solid 10px #f9ba42;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent;
   }
 }
 
@@ -886,7 +902,7 @@ $chat-color: black;
 }
 .table-wrapper4 {
   overflow-y: auto;
-  height: 339px;
+  height: 370px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -912,7 +928,7 @@ $chat-color: black;
 }
 .table-wrapper4-dark {
   overflow-y: auto;
-  height: 339px;
+  height: 370px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -1339,7 +1355,7 @@ $chat-color: black;
   width: 360px;
   border: none;
   &-scrollbar {
-    max-height: 300px;
+    max-height: 370px;
     overflow-x: auto;
     border-radius: 6px;
     .table-wrapper4 {

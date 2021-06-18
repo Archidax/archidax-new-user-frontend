@@ -5,7 +5,7 @@ import ReactLoading from 'react-loading';
 
 function TableTopLoser({MarketData}) {
 
-    const tableHeader = [ "Nama Koin", "Harga", "Persentase" ];
+    const tableHeader = [ "Coin Name", "Price", "Change" ];
 
     return (
         <div>
