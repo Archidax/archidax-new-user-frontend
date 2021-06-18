@@ -27,7 +27,7 @@ export default function CalculatorAsetHomepage() {
             .toString()
             .replace(".", ","),
         ),
-      );
+      )
     }
   };
 
@@ -91,8 +91,6 @@ export default function CalculatorAsetHomepage() {
   }, []);
 
   useEffect(() => {
-    setFromText("");
-    setToText("");
     if (pricePairs) {
       let temp = Object.keys(pricePairs).filter(
         (key) =>
@@ -101,6 +99,24 @@ export default function CalculatorAsetHomepage() {
       setActivePairTo(temp.length ? temp[0].split("/")[1] : "USDT");
     }
   }, [activePairFrom, pricePairs]);
+
+  useEffect(() => {
+    setFromText("");
+    setToText("");
+  },[activePairFrom])
+
+  useEffect(() => {
+    setToText(
+      parseFixedNumber(
+        parseFloat(
+          fromText.replaceAll(".", "").replace(",", ".") *
+            pricePairs[`${activePairFrom}/${activePairTo}`],
+        )
+          .toString()
+          .replace(".", ","),
+      ),
+    )
+  },[activePairTo])
 
   return (
     <div>

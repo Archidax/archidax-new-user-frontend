@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 
-import {IoWebSocketTrade, IoWebSocket} from "./IoWebSocket";
+import {IoWebSocketTrade, IoUserWebSocket, IoTradeWebSocket} from "./IoWebSocket";
 import { logout } from '../stores'
 
 export default function WsComponent(props){
@@ -17,7 +17,7 @@ export default function WsComponent(props){
 
     useEffect(() => {
         if(email){
-            IoWebSocket(email).on('ArchidaxSocketEvent', ({type, data}) => {
+            IoUserWebSocket(email).on('ArchidaxSocketEvent', ({type, data}) => {
                 switch(type){
                     case 'NOTIFICATION':
                         dispatch({
@@ -34,9 +34,30 @@ export default function WsComponent(props){
                 }
             })
         } else {
-            IoWebSocket(email).removeListener('ArchidaxSocketEvent')
+            IoUserWebSocket(email).removeListener('ArchidaxSocketEvent')
         }
-        return () => IoWebSocket(email).removeListener('ArchidaxSocketEvent')
+        return () => IoUserWebSocket(email).removeListener('ArchidaxSocketEvent')
+    },[email,dispatch])
+
+    useEffect(() => {
+        if(email){
+            IoTradeWebSocket(email).on('ArchidaxSocketTradeEvent', ({type, data}) => {
+                switch(type){
+                    case 'NOTIFICATION':
+                        dispatch({
+                            type: "NEW_NOTIFICATION",
+                            data
+                        })
+                        break;
+                    default:
+                        break;
+
+                }
+            })
+        } else {
+            IoTradeWebSocket(email).removeListener('ArchidaxSocketEvent')
+        }
+        return () => IoTradeWebSocket(email).removeListener('ArchidaxSocketEvent')
     },[email,dispatch])
     
     return (
