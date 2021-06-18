@@ -120,9 +120,7 @@ function CryptoPairRealtime({ item, index }) {
           }`}
         >
           {Data &&
-            Number(Data.price24h_close).toLocaleString("id-ID", {
-              maximumFractionDigits: 8,
-            })}
+            convertNumber.toRupiah(Data.price24h_close)}
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${
