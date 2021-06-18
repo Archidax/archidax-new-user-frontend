@@ -481,11 +481,13 @@
 
 @media (min-width: 1000px) {
   .font-responsive-news-right {
+    font-size: 16px;
   }
 }
 
 @media (min-width: 1500px) {
   .font-responsive-news-right {
+    font-size: 16px;
   }
 }
 
@@ -933,10 +935,10 @@
   // justify-content: space-between;
 }
 
-.bg-news1 {
-  // background-image: url(../../assets/img/bnb.jpg);
-  // background-size: cover;
-}
+// .bg-news1 {
+//   background-image: url(../../assets/img/bnb.jpg);
+//   background-size: cover;
+// }
 .bg-news img {
   width: 100%;
   height: auto;
