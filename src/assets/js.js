@@ -13,7 +13,11 @@ export const convertNumber = {
     toRupiah:(balance,type)=>{
         if(typeof(balance)==="number"&&balance>0){
             if(!Number.isSafeInteger(balance)){
-                let cBalance=new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
+                let cBalance=new Intl.NumberFormat('en-US', { maximumSignificantDigits: 10 }).format(balance);
+                // let checkExponent=String(balance).includes("e");
+                // if(checkExponent){
+                //     return parseFloat(balance).toFixed(8);
+                // }
                 return parseFloat(cBalance);
             }
             return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
