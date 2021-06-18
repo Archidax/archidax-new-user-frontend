@@ -57,6 +57,7 @@ import { I18nProvider, LOCALES } from "../../i18n";
 import CopyrightDashboard from "../../components/footerComponents/copyrightComponents/CopyrightDashboard";
 import axios from "axios";
 import LaunchpadPartner from "../launchpadPartner";
+import LaunchpadPartnerDetail from "../launchpadPartner/LaunchpadPartnerDetail";
 // import PasarHomePage from "../tradepage/PasarPage";
 // import BasicChart from "../../components/tradeComponents/basicChart/BasicChart";
 
@@ -194,8 +195,11 @@ function RouteDashboardPage(props) {
             <Route path={`/verification/waiting`}>
               <VerificationWaiting />
             </Route>
-            <Route path={`/launchpad-partner`}>
+            <Route exact path={`/launchpad-partner`}>
               <LaunchpadPartner />
+            </Route>
+            <Route path={`/launchpad-partner/:id`}>
+              <LaunchpadPartnerDetail />
             </Route>
             <Route exact path="/">
               <Dashboard />
