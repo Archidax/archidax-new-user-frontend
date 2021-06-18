@@ -17,7 +17,7 @@ function TradeChart() {
     // datafeedUrl: 'https://demo_feed.tradingview.com',
     // symbol: 'BTCIDR',
     // datafeedUrl:'https://indodax.com/tradingview',
-    interval: "60",
+    interval: "5",
     containerId: "tv_chart_container",
     libraryPath: "/charting_library/",
     chartsStorageUrl: "https://saveload.tradingview.com",
