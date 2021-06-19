@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Price from "./Price";
 import ListBuy from "./listMarket/ListBuy";
 import ListSell from "./listMarket/ListSell";
-import ListingExchange from "./listingExchange/ListingExchange";
+// import ListingExchange from "./listingExchange/ListingExchange";
 import LiveMarket from "./liveMarket/LiveMarket";
 import ChartTrade from "./chart/index";
 import LimitMarketChat from "./limitMarket/TabsLimitMarketChat";
-import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
+// import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
 import TabListingNewsChat from "../tradeComponents/TabListingNewsChat";
+import TabLiveMarket from "./TabLiveMarket";
 
-import OrderPending from "./orderPendingHistory/OrderPending";
+import OrderPendingTab from "./orderPendingHistory/OrderPending";
 import OrderHistory from "./orderPendingHistory/OrderHistory";
 
 import { useParams, useHistory } from "react-router-dom";
@@ -26,12 +27,16 @@ export default function Index() {
   const dispatch = useDispatch();
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
+  const [historyLength, setHistoryLength] = useState(0);
+  // const Order = useSelector((state) =>
+  //   state ? state?.pasarTradingReducer : {},
+  // );
 
-  const Order = useSelector((state) => state ? state?.pasarTradingReducer : {});
+  const { listingList, OrderPending } = useSelector(
+    (state) => state.pasarTradingReducer,
+  );
 
-  const { listingList } = useSelector((state) => state.pasarTradingReducer);
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (symbol && listingList.length) {
       const dataSymbol = listingList.find(
         (data) => data.symbol === symbol.split("_").join("/").toString(),
@@ -52,7 +57,7 @@ export default function Index() {
     }
   }, [symbol, dispatch, listingList]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isLoginPages) {
       readMe(dispatch, history);
       getMyAssets(dispatch);
@@ -61,7 +66,6 @@ export default function Index() {
 
   return (
     <div className={mode ? "body-trade2-dark" : "body-trade2"}>
-      {/* <div> */}
       <div className="width-chart2" style={{ paddingBottom: "1px" }}>
         <div className="row">
           <div className="col-sm-first">
@@ -83,20 +87,22 @@ export default function Index() {
                 border: mode ? "1px solid black" : "1px solid grey",
               }}
             >
-              <LiveMarket />
+              {/* <LiveMarket /> */}
+              <TabLiveMarket />
             </div>
           </div>
+
           <div className="col-sm-second">
             <div className="row">
               <div
                 className="col-12 p-0"
                 style={{
-                  minHeight: "53vh",
+                  minHeight: "53.5vh",
                   background: mode ? "black" : "white",
                   border: mode ? "1px solid black" : "1px solid grey",
                 }}
               >
-                {/* <ChartTrade /> */}
+                <ChartTrade />
               </div>
             </div>
 
@@ -121,7 +127,7 @@ export default function Index() {
                       }
                     >
                       <th
-                        className="collapsed text-gold font-15 mb-0"
+                        className="collapsed text-gold atr-resp mb-0"
                         style={{ padding: "2px 12px" }}
                       >
                         Order Book
@@ -177,13 +183,17 @@ export default function Index() {
                       }
                     >
                       <th
-                        className="collapsed text-gold font-15 mb-0"
+                        className="collapsed text-gold atr-resp mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order Pending ({
-                          Order&&Order.OrderPending&&Array.isArray(Order.OrderPending)?Order.OrderPending.length:0
-                        })
-                        </th>
+                        Order Pending (
+                        {/* {Order &&
+                        Order.OrderPending &&
+                        Array.isArray(Order.OrderPending)
+                          ? Order.OrderPending.length
+                          : 0} */}
+                        {OrderPending.length})
+                      </th>
                     </div>
                   </div>
                   <div
@@ -192,7 +202,7 @@ export default function Index() {
                     aria-labelledby="headingTwo"
                     data-parent="#accordionExample"
                   >
-                    <OrderPending />
+                    <OrderPendingTab />
                   </div>
                 </div>
                 <div style={{ marginTop: "2px" }}>
@@ -210,10 +220,10 @@ export default function Index() {
                       }
                     >
                       <th
-                        className="collapsed text-gold font-15 mb-0"
+                        className="collapsed text-gold atr-resp mb-0"
                         style={{ padding: "2px 12px" }}
                       >
-                        Order History
+                        Order History ({historyLength})
                       </th>
                     </div>
                   </div>
@@ -223,7 +233,7 @@ export default function Index() {
                     aria-labelledby="headingThree"
                     data-parent="#accordionExample"
                   >
-                    <OrderHistory />
+                    <OrderHistory setHistoryLength={setHistoryLength} />
                   </div>
                 </div>
               </div>
@@ -233,7 +243,7 @@ export default function Index() {
             <div
               className="col-12 p-0"
               style={{
-                minHeight: "49.8vh",
+                minHeight: "42.8vh",
                 background: mode ? "black" : "white",
                 border: mode ? "1px solid black" : "1px solid grey",
               }}

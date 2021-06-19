@@ -89,13 +89,13 @@ export function GetOrderBuyAndSell ({dispatch,PairSymbol,side,limit}) {
         dispatch(data.market);
     }).catch((err)=>{
         dispatch([]);
-        let Message="";
-        if(!err.response){
-            Message=err.message;
-        }else{
-            Message=err.response.data.message;
-        }
-        Popup.fire({text:Message, title: "error 404"})
+        // let Message="";
+        // if(!err.response){
+        //     Message=err.message;
+        // }else{
+        //     Message=err.response.data.message;
+        // }
+        // Popup.fire({text:Message, title: "error 404"})
     });
 }
 // get all order pending user
@@ -115,13 +115,13 @@ export function GetOrderPending ({pair}) {
             dispatch(SET_RX_ORDER_PENDING(data.Order));
         } catch (err) {
             dispatch(SET_RX_ORDER_PENDING([]));
-            let Message="";
-            if(!err.response){
-                Message=err.message;
-            }else{
-                Message=err.response.data.message;
-            }
-            Popup.fire({text:Message, title: "error 404"})
+            // let Message="";
+            // if(!err.response){
+            //     Message=err.message;
+            // }else{
+            //     Message=err.response.data.message;
+            // }
+            // Popup.fire({text:Message, title: "error 404"})
         }
     }
 }
@@ -140,13 +140,13 @@ export function GetHistoryOrder ({dispatch,pair}) {
         dispatch(data.History);
     }).catch((err)=>{
         dispatch([]);
-        let Message="";
-        if(!err.response){
-            Message=err.message;
-        }else{
-            Message=err.response.data.message;
-        }
-        Popup.fire({text:Message, title: "error 404"})
+        // let Message="";
+        // if(!err.response){
+        //     Message=err.message;
+        // }else{
+        //     Message=err.response.data.message;
+        // }
+        // Popup.fire({text:Message, title: "error 404"})
     });
 }
 // get order live market
@@ -164,13 +164,13 @@ export function GetOrderLiveMarket ({dispatch,pair}) {
         dispatch(data.market)
     }).catch((err)=>{
         dispatch([]);
-        let Message="";
-        if(!err.response){
-            Message=err.message;
-        }else{
-            Message=err.response.data.message;
-        }
-        Popup.fire({text:Message, title: "error 404"})
+        // let Message="";
+        // if(!err.response){
+        //     Message=err.message;
+        // }else{
+        //     Message=err.response.data.message;
+        // }
+        // Popup.fire({text:Message, title: "error 404"})
     });
 }
 // get all chat data
@@ -185,13 +185,13 @@ export function getChatData ({dispatch}) {
         dispatch(data?.Message)
     }).catch((err)=>{
         dispatch([]);
-        let Message="";
-        if(!err.response){
-            Message=err.message;
-        }else{
-            Message=err.response.data.message;
-        }
-        Popup.fire({text:Message, title: "error 404"})
+        // let Message="";
+        // if(!err.response){
+        //     Message=err.message;
+        // }else{
+        //     Message=err.response.data.message;
+        // }
+        // Popup.fire({text:Message, title: "error 404"})
     });
 };
 
@@ -216,7 +216,15 @@ export function GetOrderLastPrice ({pair}) {
                 VolumeCrypto:data.price_24hours.price24h_volume,
             }));
         } catch (err) {
-            console.log(err)
+            dispatch(setPasarTrading({
+                Open:0,
+                High:0,
+                Low:0,
+                Close:0,
+                Change:0,
+                Volume:0,
+                VolumeCrypto:0,
+            }));
         }
     }
 }
@@ -231,6 +239,7 @@ export function GetListingExchange () {
             })
             dispatch(SET_RX_LISTING_EXCHANGE(data?.data));
         }catch (err) {
+            // console.log(err," DATA <<<<< error");
             dispatch(SET_RX_LISTING_EXCHANGE([]));
         }
     }

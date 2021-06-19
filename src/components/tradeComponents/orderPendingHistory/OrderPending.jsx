@@ -12,6 +12,8 @@ import {
 import { convertNumber } from "../../../assets/js";
 import BtnAlertCancelAll from "./BtnCncelAll";
 
+import noorder from "../../../assets/img/trade/no_order.svg";
+
 export default function OrderPending() {
   const { mode } = useSelector((state) => state.daynightReducer);
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
@@ -38,26 +40,26 @@ export default function OrderPending() {
           <table>
             <thead className="">
               <tr className="text-white">
-                <th className="text-left">Waktu</th>
-                <th className="text-left">Pasangan</th>
-                <th className="text-left">Tipe Order</th>
+                <th className="text-left">Time</th>
+                <th className="text-left">Pair</th>
+                <th className="text-left">Order Type</th>
                 <th className="text-left">
-                  Harga (
+                  Price (
                   {PairSymbol ? PairSymbol.toString().split("/")[1] : null})
                 </th>
                 <th className="text-left">
-                  Jumlah (
+                  Amount (
                   {PairSymbol ? PairSymbol.toString().split("/")[0] : null})
                 </th>
                 <th className="text-left">
-                  Terjual/Terbeli (
+                  Sold/Buy (
                   {PairSymbol ? PairSymbol.toString().split("/")[0] : null})
                 </th>
                 <th className="text-left">
                   Total (
                   {PairSymbol ? PairSymbol.toString().split("/")[1] : null})
                 </th>
-                <th className="text-left">Aksi Order</th>
+                <th className="text-left">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -102,7 +104,7 @@ export default function OrderPending() {
                           mode ? "text-price-dark" : "text-price"
                         } text-left`}
                       >
-                        {convertNumber.toRupiah(item.price)}
+                        {convertNumber.toRupiah(item.price,"CRYPTO")}
                       </td>
                       <td
                         className={`${
@@ -116,14 +118,14 @@ export default function OrderPending() {
                           mode ? "text-price-dark" : "text-price"
                         } text-left`}
                       >
-                        {convertNumber.tradeRemaining(item.stock, item.amount)}
+                        {convertNumber.tradeRemaining(item.stock, item.amount,"CRYPTO")}
                       </td>
                       <td
                         className={`${
                           mode ? "text-price-dark" : "text-price"
                         } text-left`}
                       >
-                        {convertNumber.toRupiah(item.total)}
+                        {convertNumber.toRupiah(item.total,"CRYPTO")}
                       </td>
                       <td
                         className={`${
@@ -153,7 +155,7 @@ export default function OrderPending() {
                     className="text-white text-left text-center mt-5 pt-3"
                     colSpan={8}
                   >
-                    No Orders
+                    <img src={noorder} width="100px" className="mt-4" />
                   </td>
                 </tr>
               )}

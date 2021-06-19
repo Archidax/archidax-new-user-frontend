@@ -138,13 +138,13 @@ function TableAssetSaya() {
                             {convertNumber.toRupiah(items.frozen_balance)} <span className="text-white-50">{items.type}</span>
                           </td>
                           <td className="ci-verti-align-middle text-white">
-                            {items.detail_crypto ? convertNumber.toRupiah(items.balance * items.detail_crypto.price_24hour.price24h_close, "Rp." ): "0"}
+                            {items.detail_crypto ? convertNumber.toRupiah(items.balance * items.detail_crypto.price24h_close, "Rp." ): "0"}
                           </td>
                           <td className={`ci-verti-align-middle ${
                             items.detail_crypto&&!items.detail_crypto.in_repair?"text-success":"text-white"
                           }`}>
                             <i className="fas fa-circle fa-xs"></i>
-                            {items.detail_crypto ? !items.detail_crypto.in_repair ? ' Aktif' : ' Dalam Perbaikan' : ' Dalam Perbaikan'}
+                            {items.detail_crypto ? !items.detail_crypto.in_repair ? ' Active' : ' Under Maintenance' : ' Under Maintenance'}
                           </td>
                           {
                             items.detail_crypto ? !items.detail_crypto.in_repair
@@ -184,8 +184,8 @@ function TableAssetSaya() {
                                   </div>
                                 </div>
                               </td>
-                              : <td className="ci-verti-align-middle text-white">Maaf, koin sedang dalam perbaikan</td>
-                            : <td className="ci-verti-align-middle text-white">Maaf, koin sedang dalam perbaikan</td>
+                              : <td className="ci-verti-align-middle text-white">Sorry, Coin is under Maintenance</td>
+                            : <td className="ci-verti-align-middle text-white">Sorry, Coin is under Maintenance</td>
                           }
                         </tr>
                       );
@@ -210,7 +210,7 @@ function TableAssetSaya() {
                             {items.frozen_balance} <span className="text-white-50">{items.type}</span>
                           </td>
                           <td className="ci-verti-align-middle text-white">
-                            {items.detail_crypto ? convertNumber.toRupiah(items.balance * items.detail_crypto.price_24hour.price24h_close, "Rp." ): "0"}
+                            {items.detail_crypto ? convertNumber.toRupiah(items.balance * items.detail_crypto.price24h_close, "Rp." ): "0"}
                           </td>
                           <td className={`ci-verti-align-middle ${
                             items.detail_crypto&&!items.detail_crypto.in_repair?"text-success":"text-white"

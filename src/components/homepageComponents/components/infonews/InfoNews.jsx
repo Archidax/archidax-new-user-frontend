@@ -5,13 +5,15 @@ import Slider2Announcement from "./Slider2Announcement";
 import ActivityTabInfo from "./tab/ActivityTabInfo";
 import ImportantNoticeTab from "./tab/ImportantNoticeTab";
 import NewListingTab from "./tab/NewListingTab";
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { beritaRecent } from "../../../../stores/berita/functions";
+import bnbbanner from "../../../../assets/img/homepage/announcements/bnb.jpg";
+import wavesbanner from "../../../../assets/img/homepage/announcements/waves.jpg";
 export default function InfoNews() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const dataNewNews = useSelector((state) => state.beritaReducer.Recent);
   React.useEffect(() => {
-    if(dataNewNews.length === 0){
+    if (dataNewNews.length === 0) {
       beritaRecent(dispatch);
     }
   }, [dispatch]);
@@ -19,34 +21,41 @@ export default function InfoNews() {
   return (
     <div className="bg-archidax card-body pt-2 font-archidax3">
       <div
-        className="bg-archidax row col-10 offset-1"
+        className="bg-archidax row col-lg-10 offset-lg-1 col-sm-12"
         // style={{ minHeight: "40vh", width: "80%", margin: "auto" }}
       >
-        <div className="col-7 card-body text-white">
-          <div className="mb-2">
+        <div className="col-lg-7 col-sm-12 card-body text-white">
+          <div className="mx-3 mb-2 pt-2">
             <h4>Announcements</h4>
-          </div>
-          <div className="row">
-            <div className="col-6 pt-3">
+          </div>{" "}
+          <hr
+            style={{
+              border: "1px solid rgba(249,186,66, 0.4)",
+              margin: "10px 12px 4px 12px",
+            }}
+          />
+          <div className="row no-gutters">
+            <div className="col-lg-6 col-sm-12 pt-3">
               <Slider1Announcement />
+              {/* <img src={bnbbanner} width="100%" /> */}
             </div>
-            <div className="col-6 pt-3">
+            <div className="col-lg-6 col-sm-12 pt-3">
               <Slider2Announcement />
+              {/* <img src={wavesbanner} width="100%" /> */}
             </div>
           </div>
         </div>
-        <div className="col-5 card-body text-white">
+        <div className="col-lg-5 col-sm-12 card-body text-white">
           <div className="announcement-homepage mb-2">
-            <h4 className="font-archidax2">News</h4>
+            {/* <h4 className="font-archidax2">News</h4> */}
             {/* <h6 style={{ fontSize: "12px", marginLeft: "20px" }}>More</h6> */}
           </div>
-          <div className="mt-3">
+          <div className="">
             <div className="tabs-info-news">
               <ul
                 class="nav nav-pills mb-2 mx-1 row"
                 id="pills-tab"
                 role="tablist"
-                style={{ fontSize: "15px" }}
               >
                 <li class="nav-item col px-0">
                   <a
@@ -58,7 +67,8 @@ export default function InfoNews() {
                     aria-controls="pills-activity"
                     aria-selected="true"
                   >
-                    Activity
+                    <i class="fa fa-newspaper-o mr-1" aria-hidden="true"></i>{" "}
+                    News
                   </a>
                 </li>
                 <li class="nav-item col px-0">
@@ -71,7 +81,8 @@ export default function InfoNews() {
                     aria-controls="pills-Important-Notice"
                     aria-selected="false"
                   >
-                    Important Notice
+                    <i class="fa fa-bullhorn mr-1" aria-hidden="true"></i>
+                    Announcemet
                   </a>
                 </li>
                 <li class="nav-item col px-0">
@@ -84,7 +95,11 @@ export default function InfoNews() {
                     aria-controls="pills-New-Listing"
                     aria-selected="false"
                   >
-                    New Listing
+                    <i
+                      class="fa fa-pencil-square-o mr-1"
+                      aria-hidden="true"
+                    ></i>
+                    Article
                   </a>
                 </li>
               </ul>
@@ -95,7 +110,7 @@ export default function InfoNews() {
                   role="tabpanel"
                   aria-labelledby="pills-activity-tab"
                 >
-                  <ActivityTabInfo dataNewNews={dataNewNews}/>
+                  <NewListingTab dataNewNews={dataNewNews} />
                 </div>
                 <div
                   class="tab-pane fade"
@@ -111,7 +126,7 @@ export default function InfoNews() {
                   role="tabpanel"
                   aria-labelledby="pills-New-Listing-tab"
                 >
-                  <NewListingTab dataNewNews={dataNewNews} />
+                  <ActivityTabInfo dataNewNews={dataNewNews} />
                 </div>
               </div>
             </div>

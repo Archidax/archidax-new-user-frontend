@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Jumbotron } from "react-bootstrap";
 //import search from "../../assets/img/magnifying-glass.png";
 import Footer from "../footerComponents/footerHomePage/FooterHomePage";

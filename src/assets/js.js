@@ -1,7 +1,7 @@
 export const convertNumber = {
 
     toMoney: (number, curr) => {
-        var formatter = new Intl.NumberFormat("ID");
+        var formatter = new Intl.NumberFormat("en-US");
           
         return curr ? curr+ " "+formatter.format(number):formatter.format(number)
     },
@@ -12,34 +12,24 @@ export const convertNumber = {
 
     toRupiah:(balance,type)=>{
         if(typeof(balance)==="number"&&balance>0){
-            if(balance&&balance<1){
-                if(balance.toString().length>=10){
-                    return Number(balance).toFixed(8);
-                }else{
-                    return Number(balance);
-                }
-            }else if(balance&&balance>1&&balance<100){
-                if(balance.toString().length>=10){
-                    return Number(balance).toFixed(8);
-                }else{
-                    return Number(balance);
-                }
-            }else{
-                if(String(balance).includes(".")&&type&&type.toUpperCase()==="CRYPTO"){
-                    return Number(balance);
-                }else{
-                    return Number(balance).toLocaleString("id-ID").split(",")[0];
-                }
+            if(!Number.isSafeInteger(balance)){
+                let cBalance=new Intl.NumberFormat('en-US', { maximumSignificantDigits: 10 }).format(balance);
+                // let checkExponent=String(balance).includes("e");
+                // if(checkExponent){
+                //     return parseFloat(balance).toFixed(8);
+                // }
+                return parseFloat(cBalance);
             }
+            return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
         }else{
-            return 0;
+            return parseInt(0);
         }
     },
-
+    
     tradeRemaining:(stock,amount)=>{
         if(typeof(stock)==="number"&&typeof(amount)==="number"){
             let balance=Number(stock)-Number(amount);
-            return balance?Number(balance<1)?Number(balance).toFixed(10):Number(balance).toLocaleString("id-ID"):0;
+            return balance?Number(balance<1)?new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance):new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance):0;
         }else{
             return 0;
         }
@@ -47,13 +37,13 @@ export const convertNumber = {
 
     toBillion : (num, digits) => {
         let si = [
-            { value: 1, symbol: "" },
-            { value: 1E3, symbol: " Rb" },
-            { value: 1E6, symbol: " Jt" },
-            { value: 1E9, symbol: " M" },
-            { value: 1E12, symbol: " T" },
-            { value: 1E15, symbol: " P" },
-            { value: 1E18, symbol: " E" }
+            { value: 1, symbol: " USDT" },
+            { value: 1E3, symbol: " USDT" },
+            { value: 1E6, symbol: " Mil. USDT" },
+            { value: 1E9, symbol: " Bil. USDT" },
+            { value: 1E12, symbol: " Tril. USDT" },
+            // { value: 1E15, symbol: " P" },
+            // { value: 1E18, symbol: " E" }
           ];
         let rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
         let i;
@@ -90,7 +80,7 @@ export const convertNumber = {
             } else if(Number(Number(change).toFixed(digits||2))<0){
                 return "text-danger";
             } else{
-                return "";
+                return "text-white";
             }
         }
     },
@@ -113,20 +103,12 @@ export const convertNumber = {
                 return trueCond;
             } else if(Number(Number(change).toFixed(digits||2))<0){
                 return falseCond;
-            } else{
-                return zeroCond;
+            } else {
+                if(zeroCond) {
+                    return zeroCond;
+                }
             }
         }
     },
 
-    tradeRemaining:(stock,amount)=>{
-        if(typeof(stock)==="number"&&typeof(amount)==="number"){
-            let balance=Number(stock)-Number(amount);
-            return balance?Number(balance<1)?Number(balance).toFixed(10):Number(balance).toLocaleString("id-ID"):0;
-        }else{
-            return 0;
-        }
-    },
-
 }
-

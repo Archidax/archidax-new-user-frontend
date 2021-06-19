@@ -29,7 +29,7 @@ function NotificationDropdownHeader() {
   const [showDelete, setShowDelete] = useState("");
 
   const handleShowDelete = (itemIndex) => {
-    setShowDelete(itemIndex);
+    // setShowDelete(itemIndex);
   };
 
   const clearShowDelete = () => {
@@ -207,7 +207,7 @@ function NotificationDropdownHeader() {
                   </div>
                 );
               })}
-              {/* {hasNext && mode2 !== "hd_semua" && (
+              {hasNext && mode2 !== "hd_semua" && (
                 <button
                   onClick={(e) => handleReadMore(e)}
                   className="btn btn-dark btn-sm col-12 col-md-12"
@@ -225,7 +225,7 @@ function NotificationDropdownHeader() {
                     </p>
                   )}
                 </button>
-              )} */}
+              )}
             </>
           ) : (
             <div className="row py-3 px-0 m-0 col-12">

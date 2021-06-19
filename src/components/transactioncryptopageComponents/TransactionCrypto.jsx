@@ -22,7 +22,7 @@ function TransactionCrypto() {
                                 }`}
                                 style={{borderRadius: "2px"}}
                             >
-                                <img src={setorIcon} alt="setorIcon" className="mr-2"/> Setor Crypto
+                                <img src={setorIcon} alt="setorIcon" className="mr-2"/> Deposit Crypto
                             </button>
                         </Link>
                         <Link className="col-6 col-md-3 ci-links" to={"/crypto/tarik-crypto/BTC"}>
@@ -32,7 +32,7 @@ function TransactionCrypto() {
                                 }`}
                                 style={{borderRadius: "2px"}}
                             >
-                                <img src={setorIcon} alt="setorIcon" style={{transform: "rotate(90deg)"}} className="mr-2"/> Tarik Crypto
+                                <img src={setorIcon} alt="setorIcon" style={{transform: "rotate(90deg)"}} className="mr-2"/> Withdraw Crypto
                             </button>
                         </Link>
                     </div>

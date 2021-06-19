@@ -6,19 +6,19 @@ import { downloadCreateVoucherHistory, getMoreVoucherHistories } from "../../../
 import TidakAdaData from "./TidakAdaVoucher/TidakAdaData";
 
 const months = [
-  "Semua",
-  "Januari",
-  "Februari",
-  "Maret",
+  "All",
+  "January",
+  "February",
+  "March",
   "April",
-  "Mei",
-  "Juni",
-  "Juli",
+  "May",
+  "June",
+  "July",
   "Agustus",
   "September",
-  "Oktober",
+  "October",
   "November",
-  "Desember",
+  "December",
 ];
 
 const years = () => {
@@ -27,7 +27,7 @@ const years = () => {
   for (let y = currentYear; y >= currentYear - 10; y--) {
     result.unshift(y)
   }
-  result.unshift("Semua");
+  result.unshift("All");
   return result;
 };
 
@@ -116,10 +116,10 @@ function RiwayatBuatVoucher() {
                   onChange={(e) => handleFilter(e, "type")}
                   className="btn text-white py-2 ci-input-select-default"
                 >
-                  <option value="">Semua</option>
-                  <option value="new">Belum dikonfirmasi</option>
-                  <option value="ready">Belum diredeem</option>
-                  <option value="done">Sudah diredeem</option>
+                 <option value="">All</option>
+                  <option value="new">Not Confirmed</option>
+                  <option value="ready">Not Redeemed</option>
+                  <option value="done">Redeemed</option>
                 </select>
               </div>
               <div className="col-12 col-md-4 my-1">

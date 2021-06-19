@@ -5,8 +5,8 @@ import Home from "../../components/homepageComponents";
 
 function HomePage(props) {
   return (
-    <div className="bg-homepage min-h-100">
-      <Home setLocale={props.setLocale} />
+    <div className="min-h-100">
+      <Home flag={props.flag} setLocale={props.setLocale} />
     </div>
   );
 }

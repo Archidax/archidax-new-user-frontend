@@ -10,6 +10,7 @@ export const launchNewProject = (data) => {
     for (var pair of data.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
     }
+
     axios({
         method: "POST",
         url: `${baseUrlTrade}/api/v1/launchpad/IEO/create`,
@@ -45,8 +46,8 @@ export const getAllIEOProjects = (filter, dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
+            // console.log(data.data, "<<")
             dispatch({ type: "ALL_IEO_PROJECTS", data: data.data })
-            console.log(data.data, "<<")
         })
         .catch(err => errorHandler(err))
 }
@@ -58,7 +59,6 @@ export const getMyIEOPortfolio = (dispatch, search) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            console.log(data, "<<<")
             dispatch({ type: "MY_IEO_PORTFOLIO", data: data })
         })
         .catch(err => errorHandler(err))
@@ -71,7 +71,6 @@ export const getMyIEOPortfolioDetails = (idCoin, dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            console.log(data, "<<<")
             dispatch({ type: "MY_IEO_PORTFOLIO_DETAILS", data: data })
         })
         .catch(err => errorHandler(err))
@@ -84,7 +83,6 @@ export const getIEOProjectByPhaseId = (idPhase, dispatch, history) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            console.log(data, "<<<<")
             dispatch({ type: "IEO_DETAILS", data: data.data[0] })
             axios({
                 method: "GET",
@@ -92,7 +90,6 @@ export const getIEOProjectByPhaseId = (idPhase, dispatch, history) => {
                 headers: { jwttoken: localStorage.getItem('token') }
             })
                 .then(({ data }) => {
-                    console.log(data, "<<bal")
                     dispatch({ type: "IEO_USER_BALANCE", data: data })
                 })
                 .catch(err => console.log(err))
@@ -115,6 +112,7 @@ export const getUserBalance = () => {
 }
 
 export const buyIEOCoin = (id, data, dispatch) => {
+    console.log(data)
     axios({
         method: "POST",
         url: `${baseUrlTrade}/api/v1/launchpad/IEO/buycoin/${id}`,
@@ -122,7 +120,6 @@ export const buyIEOCoin = (id, data, dispatch) => {
         data: data
     })
         .then(({ data }) => {
-            console.log(data, ">>")
             Popup.fire({
                 title: "Success!",
                 text: data.message

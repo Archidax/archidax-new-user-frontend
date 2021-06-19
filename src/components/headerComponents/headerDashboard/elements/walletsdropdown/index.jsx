@@ -103,7 +103,7 @@ function WalletsDropdownHeader() {
                       <div className="col-2 col-md-2">
                         <img
                           className="img-fluid"
-                          src={items.detail_crypto.price_24hour.icon}
+                          src={items.detail_crypto.icon}
                           alt="..."
                           width={35}
                         />

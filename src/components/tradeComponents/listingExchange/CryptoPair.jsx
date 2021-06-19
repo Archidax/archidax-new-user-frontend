@@ -14,7 +14,9 @@ export default function CryptoPair({ listingList }) {
     <div className="">
       <div
         className={
-          mode ? "outter-table-wrapper4-dark" : "outter-table-wrapper4"
+          mode
+            ? "outter-table-wrapper4-dark height-listing"
+            : "outter-table-wrapper4 height-listing"
         }
       >
         <div class={mode ? "table-wrapper4-dark" : "table-wrapper4"}>
@@ -70,28 +72,32 @@ function CryptoPairRealtime({ item, index }) {
     history.push(`/pasar/${Data.symbol.toString().replace("/", "_")}`);
   };
   React.useEffect(() => {
-    IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
-    IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
-      if (data) {
-        setData(data);
-      }
-      if (PairSymbol === data.symbol) {
-        dispatch(
-          setPasarTrading({
-            Open: data.price24h_open,
-            High: data.price24h_high,
-            Low: data.price24h_low,
-            Close: data.price24h_close,
-            Change: data.price24h_change,
-            Volume: data.price24h_priceVolume,
-            VolumeCrypto: data.price24h_volume,
-          }),
-        );
-      }
-    });
-    return () => {IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);}
-  }, [item,PairSymbol]);
-  
+    if (PairSymbol) {
+      IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+      IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
+        if (data) {
+          setData(data);
+        }
+        if (data && PairSymbol === data.symbol) {
+          dispatch(
+            setPasarTrading({
+              Open: data.price24h_open,
+              High: data.price24h_high,
+              Low: data.price24h_low,
+              Close: data.price24h_close,
+              Change: data.price24h_change,
+              Volume: data.price24h_priceVolume,
+              VolumeCrypto: data.price24h_volume,
+            }),
+          );
+        }
+      });
+      return () => {
+        IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+      };
+    }
+  }, [item, PairSymbol]);
+
   if (Data) {
     return (
       <tr
@@ -118,9 +124,7 @@ function CryptoPairRealtime({ item, index }) {
           }`}
         >
           {Data &&
-            Number(Data.price24h_close).toLocaleString("id-ID", {
-              maximumFractionDigits: 6,
-            })}
+            convertNumber.toRupiah(Data.price24h_close)}
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${

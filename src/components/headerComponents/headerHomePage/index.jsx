@@ -9,6 +9,7 @@ import Translate from "../../../i18n/Translate";
 
 function HeaderHomePage(props) {
   // eslint-disable-next-line
+  const { flag } = props;
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
 
   return (
@@ -40,6 +41,31 @@ function HeaderHomePage(props) {
 
       <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0 mx-5">
+          {/* <div class="dropdown">
+            <a
+              class="btn dropdown-toggle"
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa fa-bars text-white" aria-hidden="true"></i>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">
+                Action
+              </a>
+              <a class="dropdown-item" href="#">
+                Another action
+              </a>
+              <a class="dropdown-item" href="#">
+                Something else here
+              </a>
+            </div>
+          </div> */}
           <li className="nav-item active mx-2">
             <a
               className="nav-link text-white font-18 text-center text-center"
@@ -73,6 +99,15 @@ function HeaderHomePage(props) {
               {Translate("hh_keuangan")}
             </a>
           </li>
+          <li className="nav-item mx-2 nav-keuangan">
+            <a
+              className="nav-link text-white font-18 text-center"
+              href={"/launchpad"}
+            >
+              {/* {Translate("hh_keuangan")} */}
+              Launchpad
+            </a>
+          </li>
           <li className="nav-item mx-2">
             <a
               className="nav-link text-white font-18 text-center"
@@ -102,7 +137,7 @@ function HeaderHomePage(props) {
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
-          <Flags setLocale={props.setLocale} />
+          <Flags flag={flag} setLocale={props.setLocale} />
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item mx-2">
               <a

@@ -38,9 +38,9 @@ export default function TradeChartCard(props) {
       ],
       // enabled_features: [
       //   // "study_templates",
-      //   'hide_left_toolbar_by_default',
+      //   // 'hide_left_toolbar_by_default',
       // ],
-      toolbar_bg: '#140f0f',
+      toolbar_bg: mode ? '#140f0f': '#ffffff',
       fullscreen: props.fullscreen,
       autosize: props.autosize,
       theme: props.theme,
@@ -111,7 +111,7 @@ export default function TradeChartCard(props) {
         tvWidget = null;
       }
     };
-  }, [props, mode]);
+  }, [props]);
 
   return <div id={props.containerId} className={"TVChartContainer h-100"} />;
 }

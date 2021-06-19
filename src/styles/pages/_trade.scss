@@ -87,7 +87,7 @@ $price-text: black;
 $price-text2: white;
 $tab-header: #00688f;
 $tab-hover: rgba(232, 232, 232, 1);
-$chat-bg: rgba(189, 189, 189, 0.3);
+$chat-bg: black;
 $chat-color: black;
 
 :root {
@@ -280,12 +280,27 @@ $chat-color: black;
 
 .text-price {
   color: $price-text !important;
-  font-size: 13px;
+  font-size: 10px;
 }
 .text-price-dark {
   color: $price-text-dark !important;
-  font-size: 13px;
+  font-size: 10px;
 }
+
+@media (min-width: 1400px) {
+  .text-price {
+    color: $price-text !important;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .text-price-dark {
+    color: $price-text-dark !important;
+    font-size: 13px;
+  }
+}
+
 .text-price2 {
   color: $price-text2;
 }
@@ -319,15 +334,6 @@ $chat-color: black;
 
 .border-trade {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.width-trade {
-  width: 90%;
-  margin: auto;
-}
-.width-trade2 {
-  width: 95%;
-  margin: auto;
 }
 
 // Tabs
@@ -366,6 +372,60 @@ $chat-color: black;
     border-radius: 0px;
     height: 40px;
     font-size: 14px;
+  }
+}
+
+.tabs-global-dark2-buy-sell {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    // background-color: $base-color-tabs-global-dark;
+    background-color: #131722;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #fff;
+    background: $base-color-tabs-global-active-dark;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    border-bottom: 1px solid #f9ba42;
+    position: relative;
+    height: 40px !important;
+    width: 100% !important;
+  }
+
+  .nav .nav-item .nav-link.active::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 45%;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-top: solid 10px #f9ba42;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent;
+  }
+}
+
+//
+.tabs-global-dark2 {
+  .nav .nav-item .nav-link {
+    background: transparent;
+    color: #f9ba42;
+    border-radius: 0px;
+    font-size: 16px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #f9ba42;
+    background: transparent;
+    border-radius: 0px;
+    font-size: 16px;
   }
 }
 
@@ -722,7 +782,6 @@ $chat-color: black;
 }
 .table-wrapper3 {
   overflow-y: auto;
-  height: 266px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -748,8 +807,6 @@ $chat-color: black;
 }
 .table-wrapper3-dark {
   overflow-y: auto;
-  // height: 266px;
-  height: 367px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -824,16 +881,47 @@ $chat-color: black;
   th {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 18px;
-    padding-right: 18px;
-    font-size: 13px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 10px;
   }
   td {
     padding-top: 7px;
     padding-bottom: 3px;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
     font-size: 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .table-wrapper3-dark {
+    background: $base-color1-dark;
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      background: $base-color1-dark;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    th {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      font-size: 13px;
+    }
+    td {
+      padding-top: 7px;
+      padding-bottom: 3px;
+      padding-left: 18px;
+      padding-right: 18px;
+      font-size: 12px;
+    }
   }
 }
 
@@ -848,7 +936,6 @@ $chat-color: black;
 }
 .table-wrapper4 {
   overflow-y: auto;
-  height: 339px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -874,7 +961,6 @@ $chat-color: black;
 }
 .table-wrapper4-dark {
   overflow-y: auto;
-  height: 339px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -1301,7 +1387,7 @@ $chat-color: black;
   width: 360px;
   border: none;
   &-scrollbar {
-    max-height: 300px;
+    max-height: 370px;
     overflow-x: auto;
     border-radius: 6px;
     .table-wrapper4 {
@@ -1604,5 +1690,3 @@ input ~ .tabsell {
   background: url(../../assets/img/trade/volume/day-buy.svg);
   background-repeat: no-repeat;
 }
-
-// Arrow

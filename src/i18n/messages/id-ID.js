@@ -63,6 +63,11 @@ export default {
         f2_pernjanjian: "Perjanjian Pengguna",
         f2_hubungi_kami : "Hubungi Kami",
 
+        lowest: "Terendah",
+        highest: "Tertinggi",
+        last_price: "Harga Terakhir",
+        top_coin: "Top coin berdasarkan volume 24 jam terakhir",
+
         // Footer3
         f3_layanan: "LAYANAN",
         f3_api: "API & Dokumentasi",
@@ -151,7 +156,11 @@ export default {
         db_saldo: "Saldo",
         db_aset_crypto: "Aset Crypto",
         db_selengkapnya: "Selengkapnya",
-
+        db_saldoactive: "Salso Aktif",
+        db_frozenbalance: "Saldo Beku",
+        db_asset_estimate: "Estimasi aset (USDT)",
+        db_harap_setor: "Harap setorkan aset Anda ke alamat berikut :",
+        pilih: "Pilih..",
         // Wallet
         // Section1
         wal_nilai_aset: "Nilai Aset",
@@ -174,7 +183,7 @@ export default {
         wal_explorer: "Explorer",
         wal_saldo_aktif: "Saldo Aktif",
         wal_saldo_beku: "Saldo Beku",
-        wal_estimasi_nilai_idr: "Estimasi Aset (IDR)",
+        wal_estimasi_nilai_idr: "Estimasi Aset (USDT)",
         wal_status: "Status",
         wal_aksi: "Aksi",
         wal_setor: "Setor",

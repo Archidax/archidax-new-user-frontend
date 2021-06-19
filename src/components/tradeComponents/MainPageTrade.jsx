@@ -6,8 +6,7 @@ import PriceUSDT from "./card/PriceUSDT";
 
 function MainPageTrade() {
   const { email } = useSelector((state) => state?.profileReducer);
-  const { myFav } = useSelector((state) => state.pasarTradingReducer);
-  const { listingList } = useSelector((state) => state.pasarTradingReducer);
+  const { listingList, myFav } = useSelector((state) => state.pasarTradingReducer);
 
   return (
     <div

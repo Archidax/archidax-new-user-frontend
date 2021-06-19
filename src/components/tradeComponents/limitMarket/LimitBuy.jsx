@@ -9,28 +9,21 @@ import {
   SET_RX_FORM_DATABUY,
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
-import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 import { convertNumber } from "../../../assets/js";
 
 import { Link, useParams } from "react-router-dom";
-import { parseFixedNumber } from "../../../helpers/functions";
 
-export default function LimitBuy() {
+export default function LimitBuy({ balanceAsset }) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   let { symbol } = useParams();
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const [balance, setBalance] = useState("");
-  const { PairSymbol, pairFrom, pairTo } = useSelector((state) =>
+  const { PairSymbol, pairTo } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
 
-  const { username } = useSelector((state) =>
-    state ? (state.profileReducer ? state.profileReducer : {}) : {},
-  );
-
-  const { saldo, assets } = useSelector((state) => state?.walletReducer);
+  const { saldo } = useSelector((state) => state?.walletReducer);
   const [inputPrice, setInputPrice] = useState("");
   const [inputAmount, setInputAmount] = useState("");
   const dispatch = useDispatch();
@@ -80,36 +73,7 @@ export default function LimitBuy() {
         }),
       );
     }
-    console.log(assets);
-    if (assets) {
-      const temp = assets&&Array.isArray(assets)&&assets.find((item) => item.type === pairTo);
-      console.log(pairTo);
-      if (temp) {
-        setBalance(temp.balance);
-      } else {
-        setBalance(0);
-      }
-    }
-  }, [price, dispatch, amount, saldo, pairTo, assets]);
-
-  // React.useEffect(() => {
-  //   if (
-  //     IoWebSocketTrade &&
-  //     IoWebSocketTrade.connected &&
-  //     pairFrom &&
-  //     username
-  //   ) {
-  //     IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-  //       if (data) {
-  //         setBalance(data.balance);
-  //       }
-  //     });
-  //     return () =>
-  //       IoWebSocketTrade.removeEventListener(
-  //         `WalletBalance-${username}-${pairFrom}`,
-  //       );
-  //   }
-  // }, [setBalance, pairFrom, username]);
+  }, [price, dispatch, amount, saldo, pairTo]);
 
   return (
     <div
@@ -126,15 +90,15 @@ export default function LimitBuy() {
             </div>
             <div className="make-middle">
               <img src={walletlogo} width="14px" alt="walletlogo" />
-              <div className="text-dgrey ml-2 font-14">
+              <div className="text-dgrey ml-2 lmt-font">
                 {pairTo ? pairTo : "-"}:
               </div>
               <div
                 className={`${
                   mode ? "text-price-dark" : "text-price"
-                } ml-2 font-14`}
+                } ml-2 lmt-font`}
               >
-                <span>{convertNumber.toRupiah(balance)}</span>
+                <span>{convertNumber.toRupiah(balanceAsset)}</span>
               </div>
             </div>
           </div>
@@ -149,7 +113,7 @@ export default function LimitBuy() {
               }}
             >
               <h5
-                className="font-14 mt-4"
+                className="lmt-font mt-4"
                 style={{ color: mode ? "white" : "black" }}
               >
                 Limit Price :{" "}
@@ -163,7 +127,7 @@ export default function LimitBuy() {
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
-              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
               value={inputPrice}
               onChange={(e) => setInputPrice(e.target.value)}
             ></input>
@@ -178,7 +142,7 @@ export default function LimitBuy() {
               }}
             >
               <h5
-                className="font-14 mt-4 "
+                className="lmt-font mt-4 "
                 style={{ color: mode ? "white" : "black" }}
               >
                 Amount :{" "}
@@ -193,9 +157,11 @@ export default function LimitBuy() {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
-              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+              onKeyDown={(evt) =>
+                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
+              }
               onChange={(e) => {
-                setInputAmount(e.target.value)
+                setInputAmount(e.target.value);
               }}
             ></input>
           </div>
@@ -214,7 +180,7 @@ export default function LimitBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 0,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -244,7 +210,7 @@ export default function LimitBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 1,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -274,7 +240,7 @@ export default function LimitBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 2,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -304,7 +270,7 @@ export default function LimitBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 3,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -335,7 +301,7 @@ export default function LimitBuy() {
               }}
             >
               <h5
-                className="font-14 mt-4 "
+                className="lmt-font mt-4 "
                 style={{ color: mode ? "white" : "black" }}
               >
                 Estimation :{" "}

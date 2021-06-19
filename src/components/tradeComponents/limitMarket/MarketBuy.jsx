@@ -12,21 +12,15 @@ import {
 import Popup from "../../../components/popUps";
 
 import { convertNumber } from "../../../assets/js";
-import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 import { Link } from "react-router-dom";
 
-export default function MarketBuy() {
+export default function MarketBuy({balanceAsset}) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
-  const [balance, setBalance] = useState("");
-  const { PairSymbol, pairFrom, pairTo, price24H } = useSelector((state) =>
+  const { PairSymbol, pairTo, price24H } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
-  const { username } = useSelector((state) =>
-    state ? (state.profileReducer ? state.profileReducer : {}) : {},
-  );
-  const { saldo, assets } = useSelector((state) => state?.walletReducer);
   const [inputAmount, setInputAmount] = useState("");
   const dispatch = useDispatch();
   const { price, amount } = useSelector(
@@ -65,34 +59,8 @@ export default function MarketBuy() {
         }),
       );
     }
-    if (assets) {
-      const temp = assets.find((item) => item.type === pairTo);
-      if (temp) {
-        setBalance(temp.balance);
-      } else {
-        setBalance(0);
-      }
-    }
-  }, [amount, dispatch, saldo, pairTo, assets, price]);
 
-  // React.useEffect(() => {
-  //   if (
-  //     IoWebSocketTrade &&
-  //     IoWebSocketTrade.connected &&
-  //     pairFrom &&
-  //     username
-  //   ) {
-  //     IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-  //       if (data) {
-  //         setBalance(data.balance);
-  //       }
-  //     });
-  //     return () =>
-  //       IoWebSocketTrade.removeEventListener(
-  //         `WalletBalance-${username}-${pairFrom}`,
-  //       );
-  //   }
-  // }, [setBalance, pairFrom, username]);
+  }, [amount, dispatch, price]);
 
   return (
     <div
@@ -121,7 +89,7 @@ export default function MarketBuy() {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span>{convertNumber.toRupiah(balance)}</span>
+                <span>{convertNumber.toRupiah(balanceAsset)}</span>
               </div>
             </div>
           </div>
@@ -142,7 +110,7 @@ export default function MarketBuy() {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
-              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
               onChange={(e) => setInputAmount(e.target.value)}
             ></input>
           </div>
@@ -157,7 +125,7 @@ export default function MarketBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 0,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -170,7 +138,7 @@ export default function MarketBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 1,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -183,7 +151,7 @@ export default function MarketBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 2,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -196,7 +164,7 @@ export default function MarketBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 3,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }

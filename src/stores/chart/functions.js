@@ -1,8 +1,6 @@
 import { baseUrlTrade, baseUrlTradeVersion, baseUrl, baseAxiosTrading } from '../index'
 import axios from 'axios'
-// import Popup from '../../components/popUps'
 import errorHandler from '../errorHandler'
-// import index from '../../pages/voucherpage'
 
 export const getLanguageFromURL = () => {
 	const regex = new RegExp('[\\?&]lang=([^&#]*)');
@@ -12,6 +10,24 @@ export const getLanguageFromURL = () => {
 
 export function HomeMarket (cb) {
 	axios({
+    url:`${baseUrlTrade}${baseUrlTradeVersion}/ListingExchangeChart`,
+    method:"GET",
+    headers:{
+      jwttoken:localStorage.getItem("token")
+    },
+  }).then(({data})=>{
+    if(data && data.chartData) {
+      cb(data.chartData);
+    } else {
+      cb([]);
+    }
+  }).catch(err=>{
+    cb([]);
+  })
+}
+
+export function HomeTopGainer (cb) {
+	axios({
     url:`${baseUrlTrade}${baseUrlTradeVersion}/Home/Market`,
     method:"GET",
     headers:{
@@ -20,7 +36,11 @@ export function HomeMarket (cb) {
   }).then(({data})=>{
     if(data && data.data) {
       cb(data.data);
+    } else {
+      cb([]);
     }
+  }).catch(err=>{
+    cb([]);
   })
 }
 
@@ -47,12 +67,12 @@ export function getChartDepth (market_pair, depth, setDepthData) {
       setDepthData(data)
     } else {
       setDepthData({
-        bids: [],
+        pair_symbol: market_pair,
+        timestamp: Date.now(),
+        bids: [] ,
         asks: []
       })
     }
-  }).catch((err) => {
-    setDepthData(null)
   })
 }
 
@@ -65,7 +85,5 @@ export function getVolumeChart (market_pair, depth, setVolumeChart, setIsLoading
     if(data) {
       setVolumeChart(data.volumeChart)
     }
-  }).catch((err) => {
-    console.log(err.response, 'error get chart volume data')
   })
 }

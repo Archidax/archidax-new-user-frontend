@@ -15,6 +15,7 @@ import { buyIEOCoin, getIEOProjectByPhaseId, getUserBalance } from '../../stores
 import { useDispatch, useSelector } from 'react-redux'
 
 import BuyingForm from './launchpaddetailForm/BuyingForm'
+import HTMLParse from 'html-react-parser'
 
 function LaunchpadDetail({ data }) {
     const detail = useSelector(state => state.launchpadReducer.IEODetails)
@@ -80,9 +81,9 @@ function LaunchpadDetail({ data }) {
                                             <h3 className="label-title text-gold my-1">Name: {detail.asset_name}</h3>
                                             <h3 className="label-title text-gold">Industry: {detail.industry}</h3>
                                             <div className="label-title">
-                                                {/* {
+                                                {
                                                     HTMLParse(detail.project_detail)
-                                                } */}
+                                                }
                                             </div>
                                         </article>
                                     </div>
@@ -256,44 +257,54 @@ function LaunchpadDetail({ data }) {
 
                                             <div className="row justify-content-center">
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#3b5998',
-                                                        borderRadius: "4px",
-                                                        color: 'white',
-                                                        border: 'none',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">Facebook</button>
+                                                    <a href={detail.facebook} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#3b5998',
+                                                            borderRadius: "4px",
+                                                            color: 'white',
+                                                            border: 'none',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">Facebook</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#00acee',
-                                                        borderRadius: "4px",
-                                                        border: 'none',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">Twitter</button>
+                                                    <a href={detail.twitter} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#00acee',
+                                                            borderRadius: "4px",
+                                                            border: 'none',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">Twitter</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#0e76a8',
-                                                        borderRadius: "4px",
-                                                        border: 'none',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">LinkedIn</button>
+                                                    <a href={detail.linkedin} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#0e76a8',
+                                                            borderRadius: "4px",
+                                                            border: 'none',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">LinkedIn</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#0088cc',
-                                                        borderRadius: "4px",
-                                                        border: 'none',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">Telegram</button>
+                                                    <a href={detail.telegram} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#0088cc',
+                                                            borderRadius: "4px",
+                                                            border: 'none',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">Telegram</button>
+                                                    </a>
                                                 </div>
                                                 <div className="col-12 col-md-2">
-                                                    <button style={{
-                                                        backgroundColor: '#FF0000',
-                                                        borderRadius: "4px",
-                                                        border: 'none',
-                                                        color: 'white',
-                                                    }} className="font-roboto w-100 py-2 text-center font-12 m-2">Youtube</button>
+                                                    <a href={detail.youtube} target="blank">
+                                                        <button style={{
+                                                            backgroundColor: '#FF0000',
+                                                            borderRadius: "4px",
+                                                            border: 'none',
+                                                            color: 'white',
+                                                        }} className="font-roboto w-100 py-2 text-center font-12 m-2">Youtube</button>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>

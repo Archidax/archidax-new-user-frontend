@@ -2,6 +2,8 @@ import React from "react";
 import ListingExchange from "./listingExchange/ListingExchange";
 
 import { useSelector, useDispatch } from "react-redux";
+import Chat from "./chat/Chat";
+import NewsTrade from "../homepageComponents/components/infonews/tab/NewsTrade";
 
 export default function TabListingNewsCHat() {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -15,47 +17,122 @@ export default function TabListingNewsCHat() {
       <div className="col-12 col-md-12 p-0">
         <div
           className={mode ? "bg-trade3-dark" : "bg-trade3"}
-          style={{ padding: "9px 16px" }}
+          style={{ padding: "0px" }}
         >
-          <th
-            className="text-gold font-14 mb-0 "
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
-            <div>
-              <i
-                class="fa fa-th-list"
-                aria-hidden="true"
-                aria-hidden="true"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Listing Exchange"
-              ></i>
-              {/* Listing Exchange */}
-            </div>
-            <div>
-              <i
-                class="fa fa-newspaper-o mx-3"
-                aria-hidden="true"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="News"
-              ></i>
-              <i
-                class="fa fa-comments"
-                aria-hidden="true"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Chat"
-              ></i>
-            </div>
-          </th>
+          <div className="tabs-global-dark2">
+            <ul
+              class="nav nav-pills mx-2"
+              id="pills-tab"
+              role="tablist"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <li class="nav-item px-0 mx-2">
+                <a
+                  class="nav-link active p-0 m-0"
+                  id="pills-activity-tab"
+                  data-toggle="pill"
+                  href="#pills-activity"
+                  role="tab"
+                  aria-controls="pills-activity"
+                  aria-selected="true"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <i
+                    class="fa fa-th-list"
+                    aria-hidden="true"
+                    aria-hidden="true"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Listing Exchange"
+                  ></i>
+                </a>
+              </li>
+              <li class="nav-item px-0 mx-2">
+                <a
+                  class="nav-link p-0 m-0"
+                  id="pills-News-Trade-tab"
+                  data-toggle="pill"
+                  href="#pills-News-Trade"
+                  role="tab"
+                  aria-controls="pills-News-Trade"
+                  aria-selected="false"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    position: "absolute",
+                    right: "55px",
+                  }}
+                >
+                  <i
+                    class="fa fa-newspaper-o"
+                    aria-hidden="true"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="News"
+                  ></i>
+                </a>
+              </li>
+              <li class="nav-item px-0 mx-2">
+                <a
+                  class="nav-link p-0 m-0"
+                  id="pills-New-Listing-tab"
+                  data-toggle="pill"
+                  href="#pills-New-Listing"
+                  role="tab"
+                  aria-controls="pills-New-Listing"
+                  aria-selected="false"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <i
+                    class="fa fa-comments"
+                    aria-hidden="true"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Chat"
+                  ></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <div>
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-activity"
+            role="tabpanel"
+            aria-labelledby="pills-activity-tab"
+          >
             <ListingExchange />
           </div>
-          <div>Test 1</div>
-          <div>Test 2</div>
+          <div
+            class="tab-pane fade"
+            id="pills-News-Trade"
+            role="tabpanel"
+            aria-labelledby="pills-News-Trade-tab"
+          >
+            <NewsTrade />
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-New-Listing"
+            role="tabpanel"
+            aria-labelledby="pills-New-Listing-tab"
+          >
+            <Chat />
+          </div>
         </div>
       </div>
     </div>
