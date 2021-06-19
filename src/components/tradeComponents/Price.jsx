@@ -208,7 +208,8 @@ export default function Price() {
                   mode ? "text-price-bottom-dark" : "text-price-bottom"
                 } font-22`}
               >
-                {PairSymbol ? PairSymbol : null}
+                {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
+                {/* {PairSymbol ? PairSymbol : null} */}
               </div>
             </div>
             <div style={{ display: "flex" }}>
@@ -217,7 +218,6 @@ export default function Price() {
                   mode ? "text-price-bottom-dark" : "text-price-bottom"
                 } font-32`}
               >
-                {price24H ? convertNumber.toRupiah(price24H.Close) : 0}
                 {/* 5.000.000 */}
               </div>
               <div
