@@ -133,7 +133,7 @@ export default function LimitBuy({ balanceAsset }) {
               onChange={(e) => setInputPrice(e.target.value)}
             ></input> */}
             <NumberFormat 
-              prefix={pairTo ? pairTo+" : " : null}
+              // prefix={pairTo ? pairTo+" : " : null}
               thousandSeparator={true}
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
@@ -353,7 +353,7 @@ export default function LimitBuy({ balanceAsset }) {
               disabled
             ></input> */}
              <NumberFormat 
-              prefix={pairFrom?pairFrom+" : ":null}
+              // prefix={pairFrom?pairFrom+" : ":null}
               thousandSeparator={true}
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"

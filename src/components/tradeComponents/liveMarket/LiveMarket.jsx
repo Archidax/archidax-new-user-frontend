@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { GetOrderLiveMarket } from "../../../stores/pasartrading/functions";
 
+import NumberFormat from "react-number-format";
 import { convertNumber } from "../../../assets/js";
 
 import moment from "moment";
@@ -79,9 +80,7 @@ export default function LiveMarket() {
                             : "text-white"
                         } text-left`}
                       >
-                        {item.price
-                          ? convertNumber.toRupiah(item.price, "CRYPTO")
-                          : 0}
+                        <NumberFormat value={item.price?item.price:0} displayType={'text'} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
