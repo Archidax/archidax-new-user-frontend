@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import selllogo from "../../../assets/img/trade/icon/arrowsell.svg";
+import NumberFormat from "react-number-format";
 // import selllogo from "../../../assets/img/trade/sell.png";
 import walletlogo from "../../../assets/img/trade/wallet.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,13 +19,9 @@ export default function Limitsell({ balanceAsset }) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const { PairSymbol, pairFrom } = useSelector((state) =>
+  const { PairSymbol, pairFrom,pairTo } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
-  const { username } = useSelector((state) =>
-    state ? (state.profileReducer ? state.profileReducer : {}) : {},
-  );
-  const { assets } = useSelector((state) => state?.walletReducer);
   const [inputPrice, setInputPrice] = useState("");
   const [inputAmount, setInputAmount] = useState("");
   const dispatch = useDispatch();
@@ -117,7 +114,7 @@ export default function Limitsell({ balanceAsset }) {
                 Limit Price :{" "}
               </h5>
             </div>
-            <input
+            {/* <input
               type="number"
               id="fname"
               name="fname"
@@ -130,7 +127,22 @@ export default function Limitsell({ balanceAsset }) {
               }
               value={inputPrice}
               onChange={(e) => setInputPrice(e.target.value)}
-            ></input>
+            ></input> */}
+            <NumberFormat 
+              prefix={pairFrom?pairFrom+" : ":null}
+              thousandSeparator={true}
+              inputMode="decimal"
+              placeholder="0"
+              className={`col-9 py-1 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
+              value={inputPrice}
+              onValueChange={(values) => {
+                const {value} = values;
+                setInputPrice(value);
+              }}
+            />
           </div>
           <div className="d-flex">
             <div
@@ -148,7 +160,7 @@ export default function Limitsell({ balanceAsset }) {
                 Amount :{" "}
               </h5>
             </div>
-            <input
+            {/* <input
               type="number"
               id="fname"
               name="fname"
@@ -159,7 +171,21 @@ export default function Limitsell({ balanceAsset }) {
               onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
               value={inputAmount}
               onChange={(e) => setInputAmount(e.target.value)}
-            ></input>
+            ></input> */}
+            <NumberFormat
+              thousandSeparator={true}
+              inputMode="decimal"
+              placeholder="0"
+              className={`col-9 py-1 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
+              value={inputAmount}
+              onValueChange={(values) => {
+                const {value} = values;
+                setInputAmount(value);
+              }}
+            />
           </div>
           <div
             id={mode ? "grid-trade-percent-dark" : "grid-trade-percent"}
@@ -283,7 +309,7 @@ export default function Limitsell({ balanceAsset }) {
                 Estimation :{" "}
               </h5>
             </div>
-            <input
+            {/* <input
               type="number"
               id="fname"
               name="fname"
@@ -297,7 +323,22 @@ export default function Limitsell({ balanceAsset }) {
                 mode ? "border-market-dark" : "border-market"
               }`}
               disabled
-            ></input>
+            ></input> */}
+             <NumberFormat 
+              prefix={pairTo?pairTo+" : ":null}
+              thousandSeparator={true}
+              className={`col-9 py-1 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              inputMode="decimal"
+              placeholder="0"
+              value={
+                Number.isFinite(inputAmount * inputPrice)
+                  ? Number(inputAmount * inputPrice)
+                  : 0
+              }
+              disabled
+            />
           </div>
 
           <p
