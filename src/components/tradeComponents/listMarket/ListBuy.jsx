@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   GetOrderBuyAndSell,
   SET_RX_FORM_DATASELL,
 } from "../../../stores/pasartrading/functions";
-import { IoWebSocketTrade, IoWebSocket } from "../../../configuration/IoWebSocket";
+import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
+
+import NumberFormat from "react-number-format";
 
 import { convertNumber } from "../../../assets/js";
 import { useParams } from "react-router";
@@ -78,7 +80,7 @@ export default function ListBuy() {
                           mode ? "text-success" : "text-success font-bolder25"
                         } text-left`}
                       >
-                          {convertNumber.toRupiah(item.price,"CRYPTO")}
+                          <NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
@@ -94,7 +96,7 @@ export default function ListBuy() {
                           mode ? "text-price-dark" : "text-price font-bolder25"
                         } text-left`}
                       >
-                        {convertNumber.toRupiah(item.amount * item.price,"CRYPTO")}
+                        <NumberFormat value={Number((item.amount * item.price).toFixed(7))} displayType={'text'} fixedDecimalScale={true} thousandSeparator={true} />
                       </td>
                     </tr>
                   </tbody>
