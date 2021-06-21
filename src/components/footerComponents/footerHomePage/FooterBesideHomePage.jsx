@@ -78,7 +78,7 @@ export default function FooterBesideHomePage() {
                 </h6>
                 <ul className="list-unstyled mb-0">
                   <li className="mb-3">
-                    <a href="/berita" className="text-lg-footer font-14">
+                    <a href="/news" className="text-lg-footer font-14">
                       {Translate("f1_berita")}
                     </a>
                   </li>
@@ -89,7 +89,7 @@ export default function FooterBesideHomePage() {
                   </li>
                   <li className="mb-3">
                     <a
-                      href="/berita/pengumuman"
+                      href="/news/announcement"
                       className="text-lg-footer font-14"
                     >
                       {Translate("f1_pengunguman")}

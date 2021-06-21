@@ -161,7 +161,7 @@ export default function MainPages() {
             <Route path="/subscribeNews">
               <SubscribedLP />
             </Route>
-            <Route path="/berita">
+            <Route path="/news">
               <Berita />
             </Route>
             <Route path="/syarat-pengguna">
