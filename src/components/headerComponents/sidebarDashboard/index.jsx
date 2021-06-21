@@ -135,6 +135,18 @@ export default function SidebarDashboard(props) {
                 </Link>
               </div>
               <div className="nav-item">
+                <Link className={`ci-nav-link`} to={`/launchpad`}>
+                  <span
+                    className={`ci-spanText pt-2 pb-2 pl-3 font-14 ${
+                      locationSidebar.pathname === "/launchpad" ? "active" : ""
+                    }`}
+                  >
+                    <img src={LaunchpadIcon} alt="LaunchpadIcon" className="mr-3" />
+                    {Translate('Launchpad')}
+                  </span>
+                </Link>
+              </div>
+              <div className="nav-item">
                 <Link className={`ci-nav-link`} to={`/launchpad-partner`}>
                   <span
                     className={`ci-spanText pt-2 pb-2 pl-3 font-14 ${
@@ -142,7 +154,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={LaunchpadIcon} alt="LaunchpadIcon" className="mr-3" />
-                    {Translate('Launchpad Partner')}
+                    {Translate('Partner Launchpad')}
                   </span>
                 </Link>
               </div>

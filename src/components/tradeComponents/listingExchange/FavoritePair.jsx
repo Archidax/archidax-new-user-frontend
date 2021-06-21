@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { convertNumber } from "../../../assets/js";
+import NumberFormat from "react-number-format";
 
 export default function FavoritePair({ listingList }) {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -106,9 +107,8 @@ function FavoritePairRealtime({ item, index }) {
                 )
           }`}
         >
-          {Data.price24h_close
-            ? convertNumber.toRupiah(Data.price24h_close)
-            : 0}
+           {Data &&
+            <NumberFormat value={Data.price24h_close} decimalScale={8} displayType={'text'} thousandSeparator={true} />}
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${
