@@ -63,22 +63,21 @@ export const baseUserSocketUrl = 'https://dev.archidax.net';
 ///////////////////////////////////////////////////////////////
 // export const baseUrlTrade = 'https://trade.archidax.net';
 // export const baseUrlCronjob='http://localhost:2022';
-export const baseUrlCronjob='http://207.148.126.64:6969';
-// export const baseUrlTrade = 'https://trade.archidax.net';
+// export const baseUrlCronjob='http://207.148.126.64:6969';
+export const baseUrlTrade = 'https://trade.archidax.net';
+// export const baseUrlCronjob='http://207.148.126.64:6969';
 // export const baseUrlTrade = 'https://trade.archidax.net';
 //  export const baseUrlTrade='http://192.168.1.31:2021';
 //  export const baseUrlTrade='http://192.168.137.1:2021';
 // export const baseUrlTrade='http://localhost:2021';
-// export const baseUrlTrade = 'https://trade.archidax.net';
-//  export const baseUrlTrade='http://192.168.55.127:2021';
-//  export const baseUrlTrade='http://192.168.0.161:2021';
-// export const baseUrlTrade='http://localhost:2021';
-export const baseUrlTrade = 'https://trade.archidax.net';
-// export const baseUrlCronjob='http://localhost:2022';
+///////////////////////////////////////////////////////////////
+// export const baseUrlTradeSocket = 'http://localhost:2021'
+export const baseUrlTradeSocket = 'https://trade.archidax.net'
+///////////////////////////////////////////////////////////////
 export const baseUrlTradeVersion='/api/v1';
 ///////////////////////////////////////////////////////////////
-// export const baseUrlCronjob = 'http://207.148.126.64:6969'
-// export const baseUrlCronjob = 'http://localhost:6969'
+export const baseUrlCronjob = 'https://cj.archidax.net'
+// export const baseUrlCronjob = 'http://localhost:2022'
 
 export const baseAxios = axios.create({ 
     baseURL: baseUrl,
