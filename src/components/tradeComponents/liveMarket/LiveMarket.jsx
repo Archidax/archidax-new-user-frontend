@@ -80,16 +80,14 @@ export default function LiveMarket() {
                             : "text-white"
                         } text-left`}
                       >
-                        <NumberFormat value={item.price?item.price:0} displayType={'text'} thousandSeparator={true} />
+                        <NumberFormat value={item.price?item.price:0} decimalScale={8} displayType={'text'} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
                           mode ? "text-price-dark" : "text-price"
                         } text-right`}
                       >
-                        {item.amount
-                          ? convertNumber.toRupiah(item.amount, "CRYPTO")
-                          : 0}
+                           <NumberFormat value={item.amount?item.amount:0} decimalScale={8} displayType={'text'} thousandSeparator={true} />
                       </td>
                       {/* <td className="text-price text-right">{item.total?Number(item.total<1)?Number(item.total).toFixed(8):Number(item.total).toLocaleString().split(",")[0]:0}</td> */}
                       <td

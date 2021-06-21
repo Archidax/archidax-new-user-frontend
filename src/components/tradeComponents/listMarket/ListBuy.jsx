@@ -80,23 +80,21 @@ export default function ListBuy() {
                           mode ? "text-success" : "text-success font-bolder25"
                         } text-left`}
                       >
-                          <NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} />
+                          <NumberFormat value={item.price} displayType={'text'} decimalScale={8} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
                           mode ? "text-price-dark" : "text-price font-bolder25"
                         } text-left`}
                       >
-                        {item.amount
-                          ? convertNumber.toRupiah(item.amount, "CRYPTO")
-                          : 0}
+                          <NumberFormat value={convertNumber.toRupiah(item.amount)} decimalScale={8} displayType={'text'} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
                           mode ? "text-price-dark" : "text-price font-bolder25"
                         } text-left`}
                       >
-                        <NumberFormat value={Number((item.amount * item.price).toFixed(7))} displayType={'text'} fixedDecimalScale={true} thousandSeparator={true} />
+                        <NumberFormat value={Number(item.amount * item.price)} decimalScale={7} displayType={'text'} fixedDecimalScale={true} thousandSeparator={true} />
                       </td>
                     </tr>
                   </tbody>
