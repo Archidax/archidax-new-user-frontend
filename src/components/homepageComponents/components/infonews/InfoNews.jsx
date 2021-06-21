@@ -19,13 +19,13 @@ export default function InfoNews() {
   }, [dispatch]);
 
   return (
-    <div className="bg-archidax card-body pt-2 font-archidax3">
+    <div className="bg-archidax card-body pt-1 font-archidax3">
       <div
         className="bg-archidax row col-lg-10 offset-lg-1 col-sm-12"
         // style={{ minHeight: "40vh", width: "80%", margin: "auto" }}
       >
         <div className="col-lg-7 col-sm-12 card-body text-white">
-          <div className="mx-3 mb-2 pt-2">
+          <div className="mx-3 mb-2 pt-1">
             <h4>Announcements</h4>
           </div>{" "}
           <hr
@@ -46,11 +46,11 @@ export default function InfoNews() {
           </div>
         </div>
         <div className="col-lg-5 col-sm-12 card-body text-white">
-          <div className="announcement-homepage mb-2">
-            {/* <h4 className="font-archidax2">News</h4> */}
-            {/* <h6 style={{ fontSize: "12px", marginLeft: "20px" }}>More</h6> */}
-          </div>
-          <div className="">
+          {/* <div className="announcement-homepage mb-2"> */}
+          {/* <h4 className="font-archidax2">News</h4> */}
+          {/* <h6 style={{ fontSize: "12px", marginLeft: "20px" }}>More</h6> */}
+          {/* </div> */}
+          <div className="pt-1">
             <div className="tabs-info-news">
               <ul
                 class="nav nav-pills mb-2 mx-1 row"

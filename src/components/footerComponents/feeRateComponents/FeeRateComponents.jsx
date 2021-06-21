@@ -18,10 +18,7 @@ import waveslogo from "../../../assets/img/feelogo/Waves_WAVES.svg";
 import xlmlogo from "../../../assets/img/feelogo/Stellar_XLM.svg";
 // import Excel from '../../../assets/SCHEDULE_FEE.xlsx'
 export default function FeeRateComponents() {
-
-  React.useEffect(() => {
-   
-  }, [])
+  React.useEffect(() => {}, []);
   return (
     <>
       <div className="feesbanners">
@@ -35,13 +32,13 @@ export default function FeeRateComponents() {
 
       <div className="bg-homepage pt-4 pb-5">
         <div className="container">
-          <p className="p-0 text-white">
+          {/* <p className="p-0 text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
             soluta. Cupiditate omnis aut consequuntur excepturi aliquam
             necessitatibus exercitationem recusandae. Temporibus sint enim,
             placeat adipisci dicta est odit quasi, facere soluta unde possimus
             accusamus dolore consequatur deleniti repudiandae totam sed! Cumque.
-          </p>
+          </p> */}
           <table class="table mt-4" id="feerate">
             <tr class="d-flex ">
               <th class="col-2">Nama Koin</th>
