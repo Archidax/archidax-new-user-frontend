@@ -1,8 +1,49 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useSelector } from "react-redux";
+import { getChartDepth, getVolumeChart } from "../../stores";
 import DepthChart from "./chart/DepthChart";
 import VolumeChart from "./chart/VolumeChart";
+import { IoWebSocketCronjob } from '../../configuration/IoWebSocket'
 
 export default function TabsChartTrade() {
+  const [depthData, setDepthData] = useState(null)
+  const [volumeData, setVolumeData] = useState(null)
+
+  const { PairSymbol } = useSelector((state) => state.pasarTradingReducer );
+
+  useEffect(() => {
+    getChartDepth(PairSymbol, 50, (e) => {
+      setDepthData(e)
+    });
+    getVolumeChart(PairSymbol, 48, (e) => {
+      setVolumeData(e)
+    });
+  }, [PairSymbol])
+
+  useEffect(() => {
+    if(PairSymbol&&IoWebSocketCronjob){
+      IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
+      IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
+        if(data) {
+          setDepthData(data)
+        }
+      })
+    }
+    return () => IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`)
+  }, [PairSymbol])
+
+  useEffect(() => {
+    if(PairSymbol&&IoWebSocketCronjob) {
+      IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
+      IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
+        if(data) {
+          setVolumeData(data)
+        }
+      })
+    }
+    return () => {IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);}
+  }, [PairSymbol])
+
   return (
     <div className="mt-2">
       <div className="tabs-volume-tab">
@@ -41,7 +82,9 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            <VolumeChart />
+            {
+              volumeData&&<VolumeChart volumeData={volumeData}/>
+            }
           </div>
           <div
             class="tab-pane fade"
@@ -49,7 +92,7 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-profile-tab"
           >
-            <DepthChart />
+            {depthData&&<DepthChart depthData={depthData}/>}
           </div>
         </div>
       </div>

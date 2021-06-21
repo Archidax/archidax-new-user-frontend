@@ -73,17 +73,19 @@ export function getChartDepth (market_pair, depth, setDepthData) {
         asks: []
       })
     }
-  })
+  }).catch(e => console.log(e))
 }
 
 
-export function getVolumeChart (market_pair, depth, setVolumeChart, setIsLoading) {
+export function getVolumeChart (market_pair, depth, setVolumeChart) {
 	baseAxiosTrading({
     url:`/volumeChart?symbol=${market_pair}&depth=${depth}`,
     method:"GET",
   }).then(({data})=>{
     if(data) {
       setVolumeChart(data.volumeChart)
+    }else{
+      setVolumeChart([])
     }
-  })
+  }).catch(e => console.log(e))
 }

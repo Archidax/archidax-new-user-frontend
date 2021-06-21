@@ -1,6 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { createClient } from '@supabase/supabase-js'
+// import { createClient } from '@supabase/supabase-js'
 
 // Axios
 import axios from 'axios';
@@ -27,10 +27,12 @@ import affiliasiReducer from './affiliasi'
 import daynightReducer from './daynight'
 import launchpadReducer from './launchpad'
 import dynamicPageReducer from './dynamicPage'
+import partnerLaunchpadReducer from './partnerlaunchpad'
 
-const supabaseUrl = 'https://wmxeonvmtnxajofwqpcb.supabase.co'
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyMTkyNDQ4MCwiZXhwIjoxOTM3NTAwNDgwfQ.nx_o1P4GYwrChkA77SS0uOfdQkiDM3mGVE2h6UoT2_E"
-export const supabase = createClient(supabaseUrl, supabaseKey)
+
+// const supabaseUrl = 'https://wmxeonvmtnxajofwqpcb.supabase.co'
+// const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyMTkyNDQ4MCwiZXhwIjoxOTM3NTAwNDgwfQ.nx_o1P4GYwrChkA77SS0uOfdQkiDM3mGVE2h6UoT2_E"
+// export const supabase = createClient(supabaseUrl, supabaseKey)
 
 // Function
 export * from './auth/functions';
@@ -50,8 +52,7 @@ export * from './tarikcrypto/functions'
 export * from './affiliasi/functions'
 export * from './launchpad/functions'
 export * from './chart/functions'
-
-
+export * from './partnerlaunchpad/functions'
 
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
@@ -65,13 +66,13 @@ export const baseUrlTrade = 'https://trade.archidax.net';
 // export const baseUrlTrade='http://192.168.0.139:2021';
 // export const baseUrlTrade='http://localhost:2021';
 ///////////////////////////////////////////////////////////////
-export const baseUrlTradeSocket = 'https://trade.archidax.net'
 // export const baseUrlTradeSocket = 'http://localhost:2021'
+export const baseUrlTradeSocket = 'https://trade.archidax.net'
 ///////////////////////////////////////////////////////////////
 export const baseUrlTradeVersion='/api/v1';
 ///////////////////////////////////////////////////////////////
-export const baseUrlCronjob = 'http://207.148.126.64:6969'
-// export const baseUrlCronjob = 'http://localhost:6969'
+export const baseUrlCronjob = 'https://cj.archidax.net'
+// export const baseUrlCronjob = 'http://localhost:2022'
 
 export const baseAxios = axios.create({ 
     baseURL: baseUrl,
@@ -102,7 +103,8 @@ const rootReducer = combineReducers({
     affiliasiReducer,
     daynightReducer,
     launchpadReducer,
-    dynamicPageReducer
+    dynamicPageReducer,
+    partnerLaunchpadReducer
 });
 
 export default function ReduxState(props) {

@@ -71,6 +71,7 @@ export const getMyIEOPortfolioDetails = (idCoin, dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
+            console.log(data)
             dispatch({ type: "MY_IEO_PORTFOLIO_DETAILS", data: data })
         })
         .catch(err => errorHandler(err))
