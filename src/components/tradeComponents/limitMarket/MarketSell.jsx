@@ -210,7 +210,7 @@ export default function MarketSell({balanceAsset}) {
             >
               Estimation
             </span>
-            <input
+            {/* <input
               type="number"
               id="fname"
               name="fname"
@@ -219,7 +219,19 @@ export default function MarketSell({balanceAsset}) {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={parseInt(inputAmount * price24H.Close)}
-            ></input>
+            ></input> */}
+             <NumberFormat 
+              // prefix={pairTo?pairTo+" : ":null}
+              thousandSeparator={true}
+              inputMode="decimal"
+              name="estimation"
+              placeholder="0"
+              className={`col-12 py-2 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              value={parseInt(inputAmount * price24H.Close)}
+              disabled
+            />
           </div>
           {isLoginPages ? (
             <button
