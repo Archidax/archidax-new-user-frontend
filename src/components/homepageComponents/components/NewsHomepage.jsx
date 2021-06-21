@@ -101,7 +101,7 @@ export default function NewsHomepage() {
 
             return (
               <div className="px-2">
-                <Link to={`/berita/${item.slug}`} className="mt-1 mb-1 h-100">
+                <Link to={`/news/${item.slug}`} className="mt-1 mb-1 h-100">
                   <div
                     className="card h-100 ci-customCard-1"
                     style={{ overflow: "hidden", borderRadius: "8px" }}
@@ -169,7 +169,7 @@ export default function NewsHomepage() {
 
         <div className="row justify-content-end mt-3">
           <div className="col-12 col-md-3">
-            <Link to={`/berita`}>
+            <Link to={`/news`}>
               <button className="ci-btn-warning w-100 py-1">
                 Lihat Selengkapnya
               </button>

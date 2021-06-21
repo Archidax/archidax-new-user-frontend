@@ -9,7 +9,7 @@ export default function cardberita({item}) {
   // const tanggal = new Date(item.updatedAt);
   // const date = `${tanggal.getDate()}/${tanggal.getMonth()+1}/${tanggal.getFullYear()}`;
   return (
-    <Link to={{pathname:`/berita/${item.slug}`, state:{item}}} className="mt-1 mb-1">
+    <Link to={{pathname:`/news/${item.slug}`, state:{item}}} className="mt-1 mb-1">
       <div className="card h-100 ci-customCard-1" style={{overflow: "hidden", borderRadius: "8px"}}>
         <img
           src={item.img_news !== 'image' ? item.img_news : image}

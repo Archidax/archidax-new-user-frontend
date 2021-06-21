@@ -8,11 +8,11 @@ export default function NewListingTab({ dataNewNews }) {
       <div id="overflowTest">
         {dataNewNews.length !== 0 &&
           dataNewNews.map((val, index) => {
-            if (val.category === "Pengumuman") {
+            if (val.category === "Announcement") {
               return (
                 <div
                   onClick={(e) => {
-                    history.push(`/berita/${val.slug}`);
+                    history.push(`/news/${val.slug}`);
                   }}
                   className="col-12 px-0 py-2 announcements-content"
                 >
