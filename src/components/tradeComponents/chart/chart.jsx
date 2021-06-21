@@ -36,10 +36,10 @@ export default function TradeChartCard(props) {
         // "mouse_wheel_scale",
         // "left_toolbar"
       ],
-      // enabled_features: [
-      //   // "study_templates",
-      //   // 'hide_left_toolbar_by_default',
-      // ],
+      enabled_features: [
+        "study_templates",
+        // 'hide_left_toolbar_by_default',
+      ],
       toolbar_bg: mode ? '#140f0f': '#ffffff',
       fullscreen: props.fullscreen,
       autosize: props.autosize,
@@ -63,7 +63,7 @@ export default function TradeChartCard(props) {
         "mainSeriesProperties.candleStyle.wickUpColor": "#336854",
         "mainSeriesProperties.candleStyle.wickDownColor": "#7f323f",
       },
-      timezone: props.timezone
+      timezone: props.timezone,
     };
 
     let tvWidget = (window.tvWidget = new window.TradingView.widget(

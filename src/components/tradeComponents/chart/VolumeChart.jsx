@@ -3,12 +3,8 @@ import { useSelector } from "react-redux";
 import "zingchart/es6";
 import { getVolumeChart } from '../../../stores'
 import ZingChart from "zingchart-react";
-import {IoWebSocketCronjob} from '../../../configuration/IoWebSocket'
 
-export default function VolumeChart() {
-  let [volumeData, setVolumeData] = useState(null);
-  const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
-
+export default function VolumeChart({ volumeData }) {
   const optionChart = {
     backgroundColor: "transparent",
     type: "area",
@@ -63,24 +59,9 @@ export default function VolumeChart() {
     },
   }
 
-  useEffect(() => {
-    if(PairSymbol) {
-      getVolumeChart(PairSymbol, 48, setVolumeData);
-      IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
-      IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
-        if(data) {
-          setVolumeData(data)
-        }
-      })
-      return () => {IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);}
-    }
-  }, [PairSymbol])
-
   return (
     <div>
-      { volumeData&&
-        <ZingChart data={optionChart} className="mt-3"></ZingChart>
-      }
+      <ZingChart data={optionChart} className="mt-3"></ZingChart>
     </div>
   );
 }
