@@ -15,8 +15,6 @@ import { industries, protocols } from '../../assets/launchpad'
 import { launchNewProject } from '../../stores';
 import CardTeamMember from './CardTeamMember';
 import Phase from './Phase';
-
-
 import momentTZ from 'moment-timezone'
 
 function LaunchpadPorto() {
