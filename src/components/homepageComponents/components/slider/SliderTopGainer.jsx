@@ -68,6 +68,7 @@ export default function SliderTopGainer({ dataHome }) {
     speed: 10000,
     autoplay: true,
     autoplaySpeed: 1000,
+    pauseOnHover: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -113,7 +114,10 @@ export default function SliderTopGainer({ dataHome }) {
         dataHome.length > 0 &&
         dataHome.map((item) => (
           <div className="">
-            <div className="bg-homepage2 mx-2">
+            <div
+              className="mx-2"
+              style={{ borderRadius: "10px", background: "#1C2230" }}
+            >
               <div className="px-3 pt-4 pb-1">
                 <div className="row">
                   <div className="col-6">
@@ -131,9 +135,10 @@ export default function SliderTopGainer({ dataHome }) {
                       series={[
                         {
                           type: "line",
-                          data: item.chart.price && item.chart.price.length > 1
-                            ? item.chart.price
-                            : [],
+                          data:
+                            item.chart.price && item.chart.price.length > 1
+                              ? item.chart.price
+                              : [],
                         },
                       ]}
                       type="line"
