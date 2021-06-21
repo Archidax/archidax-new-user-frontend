@@ -265,7 +265,8 @@ export default function Price() {
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
                   } vhl-title`}
                 >
-                  {price24H ? convertNumber.toRupiah(price24H.Volume) : 0}
+                  {price24H &&
+                    <NumberFormat value={price24H.Volume} decimalScale={8} displayType={'text'} thousandSeparator={true} />}
                   {/* 30.652.175.748 */}
                 </div>
               </div>
@@ -286,7 +287,8 @@ export default function Price() {
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
                   } vhl-title`}
                 >
-                  {price24H ? convertNumber.toRupiah(price24H.High) : 0}
+                  {price24H &&
+                    <NumberFormat value={price24H.High} decimalScale={8} displayType={'text'} thousandSeparator={true} />}
                 </div>
               </div>
             </div>
@@ -313,7 +315,8 @@ export default function Price() {
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
                   } vhl-title `}
                 >
-                  {price24H ? convertNumber.toRupiah(price24H.VolumeCrypto) : 0}
+                  {price24H &&
+                    <NumberFormat value={price24H.VolumeCrypto} decimalScale={8} displayType={'text'} thousandSeparator={true} />}
                 </div>
               </div>
               {/* Low */}
@@ -333,7 +336,8 @@ export default function Price() {
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
                   } vhl-title`}
                 >
-                  {price24H ? convertNumber.toRupiah(price24H.Low) : 0}
+                  {price24H &&
+                    <NumberFormat value={price24H.Low} decimalScale={8} displayType={'text'} thousandSeparator={true} />}
                 </div>
               </div>
             </div>
