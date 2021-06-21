@@ -3,6 +3,10 @@ import Spotlogo from "../../../assets/img/homepage/fitur/Spot.svg";
 import Futurelogo from "../../../assets/img/homepage/fitur/Future.svg";
 import Stocklogo from "../../../assets/img/homepage/fitur/Stock.svg";
 import Leveragelogo from "../../../assets/img/homepage/fitur/Leverage.svg";
+import Fiatlogo from "../../../assets/img/homepage/fitur/Fiat.svg";
+import Volatilitylogo from "../../../assets/img/homepage/fitur/Volatility.svg";
+import Predictionlogo from "../../../assets/img/homepage/fitur/Prediction.svg";
+import Stakelogo from "../../../assets/img/homepage/fitur/Stake.svg";
 
 import coming_soonlogo from "../../../assets/img/homepage/fitur/coming_soon.svg";
 
@@ -14,7 +18,7 @@ export default function FiturHomepage() {
         <div className="row">
           {/* SPOT */}
           <div className="col">
-            <div className="card-body">
+            <div className="card-body-feature">
               <div
                 className="box-feature-hp"
                 data-toggle="modal"
@@ -34,13 +38,13 @@ export default function FiturHomepage() {
           </div>
           {/* FUTURE */}
           <div className="col">
-            <div className="card-body">
+            <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
                     <img src={Futurelogo} width="60px" />
                   </div>
-                  <h4 className="text-white">FUTURE</h4>
+                  <h4 className="text-white">LAUNCHPAD</h4>
                   <h6 className="text-content">
                     Over 40 perpetual and quarterly future markets
                   </h6>
@@ -50,13 +54,13 @@ export default function FiturHomepage() {
           </div>
           {/* STOCK */}
           <div className="col">
-            <div className="card-body">
+            <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
                     <img src={Stocklogo} width="60px" />
                   </div>
-                  <h4 className="text-white">STOCK</h4>
+                  <h4 className="text-white">DERIVATIVE MARKET</h4>
                   <h6 className="text-content">
                     Spot and futures of a wide variety of tokenized stocks
                   </h6>
@@ -66,13 +70,13 @@ export default function FiturHomepage() {
           </div>
           {/* LEVERAGE */}
           <div className="col">
-            <div className="card-body">
+            <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
                     <img src={Leveragelogo} width="60px" />
                   </div>
-                  <h4 className="text-white">LEVERAGE</h4>
+                  <h4 className="text-white">ARCHI SWAP</h4>
                   <h6 className="text-content">
                     ERC 20 assets that can give you leveraged exposured
                   </h6>
@@ -85,7 +89,7 @@ export default function FiturHomepage() {
         <div className="row">
           {/* SPOT */}
           <div className="col">
-            <div className="card-body">
+            <div className="card-body-feature">
               <div
                 className="box-feature-hp"
                 data-toggle="modal"
@@ -93,11 +97,12 @@ export default function FiturHomepage() {
               >
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Spotlogo} width="60px" />
+                    <img src={Volatilitylogo} width="60px" />
                   </div>
-                  <h4 className="text-white">SPOT</h4>
+                  <h4 className="text-white">ARCHIBOT</h4>
                   <h6 className="text-content">
-                    Over 20 spot markets available
+                    Platform that facilitates early-stage crypto projects to
+                    raise funds
                   </h6>
                 </div>
               </div>
@@ -105,15 +110,15 @@ export default function FiturHomepage() {
           </div>
           {/* FUTURE */}
           <div className="col">
-            <div className="card-body">
+            <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Futurelogo} width="60px" />
+                    <img src={Predictionlogo} width="60px" />
                   </div>
-                  <h4 className="text-white">FUTURE</h4>
+                  <h4 className="text-white">LENDMARK</h4>
                   <h6 className="text-content">
-                    Over 40 perpetual and quarterly future markets
+                    Markets on the outcome of real-world events
                   </h6>
                 </div>
               </div>
@@ -121,15 +126,15 @@ export default function FiturHomepage() {
           </div>
           {/* STOCK */}
           <div className="col">
-            <div className="card-body">
+            <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Stocklogo} width="60px" />
+                    <img src={Fiatlogo} width="60px" />
                   </div>
-                  <h4 className="text-white">STOCK</h4>
+                  <h4 className="text-white">DIGIFUND</h4>
                   <h6 className="text-content">
-                    Spot and futures of a wide variety of tokenized stocks
+                    Many currencies total available
                   </h6>
                 </div>
               </div>
@@ -137,15 +142,15 @@ export default function FiturHomepage() {
           </div>
           {/* LEVERAGE */}
           <div className="col">
-            <div className="card-body">
+            <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
-                  <div className="mb-3">
-                    <img src={Leveragelogo} width="60px" />
+                  <div className="mb-3 mt-2">
+                    <img src={Stakelogo} width="60px" />
                   </div>
-                  <h4 className="text-white">LEVERAGE</h4>
+                  <h4 className="text-white">SAFE & SECURE</h4>
                   <h6 className="text-content">
-                    ERC 20 assets that can give you leveraged exposured
+                    Earn rewards by staking digital assets
                   </h6>
                 </div>
               </div>

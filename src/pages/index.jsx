@@ -1,4 +1,4 @@
-import React, { useEffect, useState  } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 // Import Page
@@ -49,6 +49,7 @@ import { GetListingExchange, setMyFav } from "../stores/pasartrading/functions";
 import KeuanganPage from "./keuangan";
 import DynamicPage from "./dynamicPage";
 import { getAllDynamicPages } from "../stores/dynamicPage/functions";
+import DownloadPage from "./downloadpage/DownloadPage";
 
 export default function MainPages() {
   const dispatch = useDispatch();
@@ -68,8 +69,8 @@ export default function MainPages() {
   }, [email, dispatch, isLoginAccount]);
 
   useEffect(() => {
-    getAllDynamicPages(dispatch, locale.split('-')[0].toUpperCase())
-  },[dispatch, locale])
+    getAllDynamicPages(dispatch, locale.split("-")[0].toUpperCase());
+  }, [dispatch, locale]);
 
   useEffect(() => {
     // if (localStorage.getItem('language')) {
@@ -92,19 +93,18 @@ export default function MainPages() {
     //     })
     //     .catch((err) => { });
     // }
-    if (!localStorage.getItem('language')) {
-      localStorage.setItem('language', "EN")
+    if (!localStorage.getItem("language")) {
+      localStorage.setItem("language", "EN");
       setLocale(LOCALES.ENGLISH);
     } else {
-      if(localStorage.getItem('language') === 'EN'){
+      if (localStorage.getItem("language") === "EN") {
         setLocale(LOCALES.ENGLISH);
       }
-      if(localStorage.getItem('language') === 'ID'){
+      if (localStorage.getItem("language") === "ID") {
         setLocale(LOCALES.INDONESIA);
       }
     }
-  }, [localStorage.getItem('language')]);
-
+  }, [localStorage.getItem("language")]);
 
   useEffect(() => {
     switch (locale) {
@@ -121,7 +121,7 @@ export default function MainPages() {
         setFlag("flag-icon-us");
     }
     localStorage.setItem("CryptoIndexLocale", locale);
-  }, [locale])
+  }, [locale]);
 
   return (
     <>
@@ -209,14 +209,21 @@ export default function MainPages() {
             <Route path="/launchpad">
               <LaunchpadPages />
             </Route>
+            <Route path="/download">
+              <DownloadPage />
+            </Route>
             <Route path="/email/verify/:key">
               <EmailVerification />
             </Route>
             <Route path="/pages/:category/:pageSlug">
-                <DynamicPage />
+              <DynamicPage />
             </Route>
             <ProtectedRoute path="/">
-              <RouteDashboardPage flag={flag} locale={locale} setLocale={setLocale} />
+              <RouteDashboardPage
+                flag={flag}
+                locale={locale}
+                setLocale={setLocale}
+              />
             </ProtectedRoute>
             {/* <ProtectedRoute path="/dashboard">
                 <Dashboard />

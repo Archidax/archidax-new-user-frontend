@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Jumbotron } from 'react-bootstrap'
-// import FooterHomePage from '../../components/footerComponents/footerHomePage/FooterHomePage'
-// import HeaderHomePage from '../../components/headerComponents/headerHomePage'
-
+import React, { useEffect } from 'react'
 import fb_grey from '../../../assets/img/launchpad/fb_grey.svg'
 import twitter_grey from '../../../assets/img/launchpad/twitter_grey.svg'
 import linkedin_grey from '../../../assets/img/launchpad/linkedin_grey.svg'
@@ -15,81 +11,10 @@ import dokumen from '../../../assets/img/launchpad/dokumen.svg'
 import { useParams } from 'react-router'
 import { getMyLaunchpadDetail } from '../../../stores'
 import { useDispatch, useSelector } from 'react-redux'
-// import { useDispatch, useSelector } from 'react-redux'
-// import { useHistory } from 'react-router'
-
 import HTMLParse from 'html-react-parser'
 import moment from 'moment'
 
 function TabsProjectDetail() {
-    const teams = [
-        {
-            img: 'https://picsum.photos/200',
-            name: "agus salim",
-            job: 'ceo',
-            linkin: '',
-            fb: "",
-            twitter: ""
-        },
-        {
-            img: 'https://picsum.photos/200',
-            name: "agus salim",
-            job: 'ceo',
-            linkin: '',
-            fb: "",
-            twitter: ""
-        },
-        {
-            img: 'https://picsum.photos/200',
-            name: "agus salim",
-            job: 'ceo',
-            linkin: '',
-            fb: "",
-            twitter: ""
-        },
-        {
-            img: 'https://picsum.photos/200',
-            name: "agus salim",
-            job: 'ceo',
-            linkin: '',
-            fb: "",
-            twitter: ""
-        },
-        {
-            img: 'https://picsum.photos/200',
-            name: "agus salim",
-            job: 'ceo',
-            linkin: '',
-            fb: "",
-            twitter: ""
-        },
-        {
-            img: 'https://picsum.photos/200',
-            name: "agus salim",
-            job: 'ceo',
-            linkin: '',
-            fb: "",
-            twitter: ""
-        },
-        {
-            img: 'https://picsum.photos/200',
-            name: "agus salim",
-            job: 'ceo',
-            linkin: '',
-            fb: "",
-            twitter: ""
-        },
-        {
-            img: 'https://picsum.photos/200',
-            name: "agus salim",
-            job: 'ceo',
-            linkin: '',
-            fb: "",
-            twitter: ""
-        },
-    ]
-
-
     const detail = useSelector(state => state.partnerLaunchpadReducer.myLaunchpadDetail)
     const { id } = useParams()
     const dispatch = useDispatch()
