@@ -1,15 +1,30 @@
 import React, { useEffect, useState } from 'react'
-import { Jumbotron } from 'react-bootstrap'
-// import FooterHomePage from '../../components/footerComponents/footerHomePage/FooterHomePage'
-// import HeaderHomePage from '../../components/headerComponents/headerHomePage'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import EthCoin from "../../../assets/img/iconsCoin/EtheriumCoin.png";
+import { downloadMyLaunchpadSubcsription, getPartnerLaunchpadStats, getPartnerLaunchpadSubs } from '../../../stores';
 import TidakAdaData from '../datas/TidakAdaData';
-// import { useDispatch, useSelector } from 'react-redux'
-// import { useHistory } from 'react-router'
+import Pagination from 'react-js-pagination'
+import moment from 'moment'
 
 function TabsSubscription() {
+    const subs = useSelector(state => state.partnerLaunchpadReducer.myLaunchpadSubscription)
     const tableHead = ["Date", "Amount", "Total"]
+    const { id } = useParams()
+    const [page, setPage] = useState(1)
+    const [limit, setLimit] = useState(10)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        getPartnerLaunchpadStats(id, dispatch)
+    }, [])
+
+    useEffect(() => {
+        getPartnerLaunchpadSubs(id, limit, page, dispatch)
+    }, [])
+
+    const exportToCSV = () => {
+        downloadMyLaunchpadSubcsription()
+    }
 
     return (
         <>
@@ -48,29 +63,29 @@ function TabsSubscription() {
                             <p className="mb-0 font-16 text-white">Countdown :</p>
                         </div>
                         <div className="col-12 col-md-8">
-                            <div className="box" style={{display: 'grid', gridTemplateColumns: '0.25fr 0.1fr 0.25fr 0.1fr 0.25fr 0.1fr 0.25fr'}}>
-                                <div className="box-time py-1" style={{border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center'}}>
+                            <div className="box" style={{ display: 'grid', gridTemplateColumns: '0.25fr 0.1fr 0.25fr 0.1fr 0.25fr 0.1fr 0.25fr' }}>
+                                <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
                                     <p className="mb-0 font-32 font-digital">03</p>
                                     <p className="mb-0 font-16">Day</p>
                                 </div>
                                 <div className="box-time d-flex justify-content-center align-items-center">
                                     <p className="font-24 text-white mb-0">:</p>
                                 </div>
-                                <div className="box-time py-1" style={{border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center'}}>
+                                <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
                                     <p className="mb-0 font-32 font-digital">03</p>
                                     <p className="mb-0 font-16">Hour</p>
                                 </div>
                                 <div className="box-time d-flex justify-content-center align-items-center">
                                     <p className="font-24 text-white mb-0">:</p>
                                 </div>
-                                <div className="box-time py-1" style={{border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center'}}>
+                                <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
                                     <p className="mb-0 font-32 font-digital">03</p>
                                     <p className="mb-0 font-16">Min</p>
                                 </div>
                                 <div className="box-time d-flex justify-content-center align-items-center">
                                     <p className="font-24 text-white mb-0">:</p>
                                 </div>
-                                <div className="box-time py-1" style={{border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center'}}>
+                                <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
                                     <p className="mb-0 font-32 font-digital">03</p>
                                     <p className="mb-0 font-16">Sec</p>
                                 </div>
@@ -86,7 +101,7 @@ function TabsSubscription() {
             >
                 <div className="card-body">
                     <div className="container-fluid mt-2 mb-5">
-                        
+
                         <div className="row">
                             <div className="col-12 col-md-4 col-lg-4 mb-4">
                                 <div className="card-launchpad-partner">
@@ -131,7 +146,7 @@ function TabsSubscription() {
                                 <h3 className="font-18 text-white mb-0">Subscription History</h3>
                             </div>
                             <div className="col col-md-2">
-                                <button className={`ci-btn-primary w-100 py-2`} style={{background: "#2c355a"}}>
+                                <button onClick={() => downloadMyLaunchpadSubcsription(id)} className={`ci-btn-primary w-100 py-2`} style={{ background: "#2c355a" }}>
                                     Export to CSV
                                 </button>
                             </div>
@@ -153,18 +168,38 @@ function TabsSubscription() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {/* {
-                                                subs && subs.map((item, index) => {
-                                                    return (
-                                                        <tr key={index}>
-                                                            <td className="border-0 ci-text-blueLight">{moment(item.createdAt).format("DD/MM/YYYY hh:mm")}</td>
-                                                            <td className="border-0 ci-text-blueLight">{item.amount} {item.currency_quote}</td>
-                                                            <td className="border-0 ci-text-blueLight">{item.total} {item.currency_base}</td>
-                                                        </tr>
-                                                    )
-                                                })
-                                            } */}
-                                            <TidakAdaData />
+                                            {
+                                                subs ? (
+                                                    subs.data.map((item, index) => {
+                                                        return (
+                                                            <tr key={index} className="text-white">
+                                                                <td className="border-0 ci-text-blueLight">{moment(item.createdAt).format("DD/MM/YYYY hh:mm")}</td>
+                                                                <td className="border-0 ci-text-blueLight">{item.amount} {item.currency_quote}</td>
+                                                                <td className="border-0 ci-text-blueLight">{item.total} {item.currency_base}</td>
+                                                            </tr>
+                                                        )
+                                                    })
+                                                ) : <TidakAdaData />
+                                            }
+                                            {
+                                                subs && subs.data.length > 10 ?
+                                                    <Pagination
+                                                        itemClass="page-item"
+                                                        linkClass="page-link"
+                                                        activePage={page}
+                                                        itemsCountPerPage={limit}
+                                                        pageRangeDisplayed={5}
+                                                        totalItemsCount={subs.data.totalDocs}
+                                                        onChange={(e) => setPage(e)}
+                                                        prevPageText={<i class="fas fa-angle-left"></i>}
+                                                        nextPageText={<i class="fas fa-angle-right"></i>}
+                                                        firstPageText={<i class="fas fa-angle-double-left"></i>}
+                                                        lastPageText={<i class="fas fa-angle-double-right"></i>}
+                                                    />
+                                                    :
+                                                    ""
+                                            }
+
                                         </tbody>
                                     </table>
                                 </div>

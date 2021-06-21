@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import banner1 from "../../../../assets/img/bnb.jpg";
-import banner2 from "../../../../assets/img/waves.jpg";
-import banner3 from "../../../../assets/img/sushiswap.png";
-import banner4 from "../../../../assets/img/ltc.png";
+import banner6 from "../../../../assets/img/homepage/announcements/banner_listing6.png";
+import banner7 from "../../../../assets/img/homepage/announcements/banner_listing7.png";
+import banner8 from "../../../../assets/img/homepage/announcements/banner_listing8.png";
+import banner9 from "../../../../assets/img/homepage/announcements/banner_listing9.png";
+import banner10 from "../../../../assets/img/homepage/announcements/banner_listing10.png";
 
 export default class Slider1Announcement extends Component {
   render() {
@@ -29,22 +30,27 @@ export default class Slider1Announcement extends Component {
         <Slider {...settings}>
           <div>
             <div className="bg-news">
-              <img src={banner4} alt="" />
+              <img src={banner6} alt="" style={{ borderRadius: "20px" }} />
             </div>
           </div>
           <div>
             <div className="bg-news">
-              <img src={banner3} alt="" />
+              <img src={banner7} alt="" style={{ borderRadius: "20px" }} />
             </div>
           </div>
           <div>
             <div className="bg-news">
-              <img src={banner2} alt="" />
+              <img src={banner8} alt="" style={{ borderRadius: "20px" }} />
             </div>
           </div>
           <div>
             <div className="bg-news">
-              <img src={banner1} alt="" />
+              <img src={banner9} alt="" style={{ borderRadius: "20px" }} />
+            </div>
+          </div>
+          <div>
+            <div className="bg-news">
+              <img src={banner10} alt="" style={{ borderRadius: "20px" }} />
             </div>
           </div>
         </Slider>

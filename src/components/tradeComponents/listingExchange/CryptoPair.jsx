@@ -7,6 +7,7 @@ import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 import { convertNumber } from "../../../assets/js";
 import { setPasarTrading } from "../../../stores/pasartrading/functions";
+import NumberFormat from "react-number-format";
 
 export default function CryptoPair({ listingList }) {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -124,7 +125,7 @@ function CryptoPairRealtime({ item, index }) {
           }`}
         >
           {Data &&
-            convertNumber.toRupiah(Data.price24h_close)}
+            <NumberFormat value={Data.price24h_close} decimalScale={8} displayType={'text'} thousandSeparator={true} />}
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${

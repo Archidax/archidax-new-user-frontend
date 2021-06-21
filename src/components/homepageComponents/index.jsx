@@ -17,6 +17,7 @@ import FooterBesideHomePage from "../footerComponents/footerHomePage/FooterBesid
 // import { GetListingExchange } from "../../stores";
 import DalamCrypto from "./components/DalamCrypto";
 import InfoNews from "./components/infonews/InfoNews";
+import FiturHomepage from "./components/FiturHomepage";
 
 function Home(props) {
   const dispatch = useDispatch();
@@ -40,7 +41,8 @@ function Home(props) {
         <SliderHomepage setLocale={props.setLocale} />
         <TableHomepage setLocale={props.setLocale} />
         <ApaItuCrypto setLocale={props.setLocale} />
-        <DalamCrypto setLocale={props.setLocale} />
+        <FiturHomepage setLocale={props.setLocale} />
+        {/* <DalamCrypto setLocale={props.setLocale} /> */}
         <CalculatorCrypto setLocale={props.setLocale} />
         {/* <KenapaMemilihCrypto setLocale={props.setLocale} /> */}
         {/* <NewsHomepage setLocale={props.setLocale} /> */}

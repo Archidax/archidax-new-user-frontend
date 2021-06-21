@@ -27,6 +27,8 @@ import affiliasiReducer from './affiliasi'
 import daynightReducer from './daynight'
 import launchpadReducer from './launchpad'
 import dynamicPageReducer from './dynamicPage'
+import partnerLaunchpadReducer from './partnerlaunchpad'
+
 
 // const supabaseUrl = 'https://wmxeonvmtnxajofwqpcb.supabase.co'
 // const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyMTkyNDQ4MCwiZXhwIjoxOTM3NTAwNDgwfQ.nx_o1P4GYwrChkA77SS0uOfdQkiDM3mGVE2h6UoT2_E"
@@ -50,8 +52,7 @@ export * from './tarikcrypto/functions'
 export * from './affiliasi/functions'
 export * from './launchpad/functions'
 export * from './chart/functions'
-
-
+export * from './partnerlaunchpad/functions'
 
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
@@ -64,11 +65,15 @@ export const baseUserSocketUrl = 'https://dev.archidax.net';
 // export const baseUrlTrade = 'https://trade.archidax.net';
 // export const baseUrlCronjob='http://localhost:2022';
 // export const baseUrlCronjob='http://207.148.126.64:6969';
-export const baseUrlTrade = 'https://trade.archidax.net';
+// export const baseUrlTrade = 'https://trade.archidax.net';
 // export const baseUrlCronjob='http://207.148.126.64:6969';
 // export const baseUrlTrade = 'https://trade.archidax.net';
 //  export const baseUrlTrade='http://192.168.1.31:2021';
 //  export const baseUrlTrade='http://192.168.137.1:2021';
+// export const baseUrlCronjob='http://207.148.126.64:6969';
+// // export const baseUrlTrade = 'https://trade.archidax.net';
+ export const baseUrlTrade='http://192.168.0.161:2021';
+//  export const baseUrlTrade='http://192.168.0.164:2021';
 // export const baseUrlTrade='http://localhost:2021';
 ///////////////////////////////////////////////////////////////
 // export const baseUrlTradeSocket = 'http://localhost:2021'
@@ -108,7 +113,8 @@ const rootReducer = combineReducers({
     affiliasiReducer,
     daynightReducer,
     launchpadReducer,
-    dynamicPageReducer
+    dynamicPageReducer,
+    partnerLaunchpadReducer
 });
 
 export default function ReduxState(props) {
