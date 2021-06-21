@@ -18,7 +18,7 @@ function PricePasarTrading({ data }) {
         data.sort((a, b) => {
           return filteredAssets.some(el => el.type === a.initialSymbol) ? -1 : filteredAssets.some(el => el.type === b.initialSymbol) ? 1 : 0
         }).map((el, index) => {
-          let symbolQuote = el.symbol.split("/")[0];
+          // let symbolQuote = el.symbol.split("/")[0];
           let est = assets&&Array.isArray(assets)&&assets.find(ele => ele.type === el.initialSymbol)
           return (
             <tr key={index} style={{ height: "45px" }}>
@@ -37,7 +37,7 @@ function PricePasarTrading({ data }) {
                   <div className="ml-2 font-14">
                     <span className="font-bold ">{el.symbol} </span>{" "}
                     <span className="text-white-50">
-                      {symbolQuote && `(${getCoinName(symbolQuote)})`}
+                      {el.assetName}
                     </span>
                   </div>
                 </div>
