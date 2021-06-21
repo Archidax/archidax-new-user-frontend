@@ -3,12 +3,12 @@ import CryptoPair from "./CryptoPair";
 import FavoritePair from "./FavoritePair";
 import FiatPair from "./FiatPair";
 import star from "../../../assets/img/trade/star.png";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function ListingExchange() {
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const { PairSymbol, icon, price24H, listingList } = useSelector((state) =>
+  const { listingList } = useSelector((state) =>
     state ? state.pasarTradingReducer : {},
   );
 

@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import "zingchart/es6";
-import { getVolumeChart } from '../../../stores'
 import ZingChart from "zingchart-react";
 
 export default function VolumeChart({ volumeData }) {
   const optionChart = {
     backgroundColor: "transparent",
     type: "area",
-    height: "180px",
+    height: "160px",
     plot: {
       "active-area": true /* Extends the tooltip's active area to the shaded region */,
       color: "#26A69A",
@@ -22,7 +20,7 @@ export default function VolumeChart({ volumeData }) {
     series: [
       {
         // values: [38, 42, 46, 44, 42, 44, 46, 48, 52, 50, 56, 60],
-        values: volumeData?volumeData:[],
+        values: volumeData ? volumeData : [],
         "background-color":
           "#26A69A #26A69A" /* Single color or gradient (2 colors) */,
         "alpha-area": 0.15 /* Shaded region transparency */,
@@ -36,10 +34,11 @@ export default function VolumeChart({ volumeData }) {
       tick: {
         "line-color": "none",
       },
-      transform: { /* Converts your Unix timestamp to a human readable format. */
-        type: "date", /* Set your transform type to "date". */
-        all: "%H.%i" /* Specify your date/time format, using tokens. */
-      }
+      transform: {
+        /* Converts your Unix timestamp to a human readable format. */
+        type: "date" /* Set your transform type to "date". */,
+        all: "%H.%i" /* Specify your date/time format, using tokens. */,
+      },
     },
     "scale-y": {
       "line-color": "none",
@@ -55,9 +54,9 @@ export default function VolumeChart({ volumeData }) {
       },
     },
     plotarea: {
-      margin: "0 0",
+      margin: "10 10",
     },
-  }
+  };
 
   return (
     <div>
