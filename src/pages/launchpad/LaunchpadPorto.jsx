@@ -94,9 +94,6 @@ function LaunchpadPorto() {
                     </div>
                 </div>
             </div>
-
-
-
             <FooterHomePage />
         </div>
     )
