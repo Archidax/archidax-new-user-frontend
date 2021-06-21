@@ -13,6 +13,8 @@ import Popup from "../../../components/popUps";
 
 import { convertNumber } from "../../../assets/js";
 
+import NumberFormat from "react-number-format";
+
 import { Link } from "react-router-dom";
 
 export default function MarketBuy({balanceAsset}) {
@@ -89,7 +91,7 @@ export default function MarketBuy({balanceAsset}) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span>{convertNumber.toRupiah(balanceAsset)}</span>
+                <span><NumberFormat value={balanceAsset} decimalScale={8} displayType={'text'} thousandSeparator={true} /></span>
               </div>
             </div>
           </div>
@@ -102,7 +104,7 @@ export default function MarketBuy({balanceAsset}) {
             >
               Total Amount
             </span>
-            <input
+            {/* <input
               type="number"
               name="amount"
               placeholder="0"
@@ -112,7 +114,22 @@ export default function MarketBuy({balanceAsset}) {
               value={inputAmount}
               onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
               onChange={(e) => setInputAmount(e.target.value)}
-            ></input>
+            ></input> */}
+            <NumberFormat 
+              // prefix={pairFrom?pairFrom+" : ":null}
+              thousandSeparator={true}
+              inputMode="decimal"
+              placeholder="0"
+              className={`col-12 py-2 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
+              value={inputAmount}
+              onValueChange={(values) => {
+                const {value} = values;
+                setInputAmount(value);
+              }}
+            />
           </div>
 
           <div

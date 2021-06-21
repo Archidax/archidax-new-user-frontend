@@ -15,6 +15,8 @@ import Popup from "../../../components/popUps";
 import { convertNumber } from "../../../assets/js";
 import { Link } from "react-router-dom";
 
+import NumberFormat from "react-number-format";
+
 export default function MarketSell({balanceAsset}) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -94,7 +96,7 @@ export default function MarketSell({balanceAsset}) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span>{convertNumber.toRupiah(balanceAsset, "CRYPTO")}</span>
+                <span><NumberFormat value={balanceAsset} decimalScale={8} displayType={'text'} thousandSeparator={true} /></span>
               </div>
             </div>
           </div>
@@ -106,7 +108,7 @@ export default function MarketSell({balanceAsset}) {
             >
               Total Amount
             </span>
-            <input
+            {/* <input
               type="number"
               id="fname"
               name="amount"
@@ -117,7 +119,23 @@ export default function MarketSell({balanceAsset}) {
               value={inputAmount}
               onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
               onChange={(e) => setInputAmount(e.target.value)}
-            ></input>
+            ></input> */}
+            <NumberFormat 
+              // prefix={pairFrom?pairFrom+" : ":null}
+              thousandSeparator={true}
+              inputMode="decimal"
+              name="amount"
+              placeholder="0"
+              className={`col-12 py-2 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
+              value={inputAmount}
+              onValueChange={(values) => {
+                const {value} = values;
+                setInputAmount(value);
+              }}
+            />
           </div>
           <div
             id={mode ? "grid-trade-percent-dark" : "grid-trade-percent"}

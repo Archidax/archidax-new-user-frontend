@@ -99,7 +99,9 @@ export default function LimitBuy({ balanceAsset }) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 lmt-font`}
               >
-                <span>{convertNumber.toRupiah(balanceAsset)}</span>
+                <span>
+                  <NumberFormat value={balanceAsset} decimalScale={8} displayType={'text'} thousandSeparator={true} />
+                </span>
               </div>
             </div>
           </div>
