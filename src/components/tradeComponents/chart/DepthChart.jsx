@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { getChartDepth } from "../../../stores";
 import "zingchart/es6";
 import ZingChart from "zingchart-react";
-import { IoWebSocketCronjob } from "../../../configuration/IoWebSocket";
 
-export default function DepthChart() {
-  let [depthData, setDepthData] = useState(null);
-  const { PairSymbol, price24H } = useSelector(
+export default function DepthChart({ depthData }) {
+  const { PairSymbol } = useSelector(
     (state) => state.pasarTradingReducer,
   );
 
@@ -35,6 +32,16 @@ export default function DepthChart() {
         visible: false,
       },
     },
+    series: [
+      {
+        values: depthData ? depthData.bids : [],
+        text: "Amount Bid",
+      },
+      {
+        values: depthData ? depthData.asks : [],
+        text: "Amount Ask",
+      }
+    ],
     "scale-x": {
       "line-color": "none",
       item: {
@@ -67,34 +74,9 @@ export default function DepthChart() {
     },
   };
 
-  useEffect(() => {
-    if(PairSymbol&&IoWebSocketCronjob){
-      getChartDepth(PairSymbol, 50, setDepthData);
-      IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
-        if(data) {
-          setDepthData(data)
-        }
-      })
-    }
-    return () => IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`)
-  }, [PairSymbol])
-
   return (
     <div>
-      {depthData&&depthData.asks.length&&depthData.bids.length ? (
-        <ZingChart data={optionChart} series={[
-          {
-            values: depthData ? depthData.bids : [],
-            text: "Amount Bid",
-          },
-          {
-            values: depthData ? depthData.asks : [],
-            text: "Amount Ask",
-          }
-        ]} className="mt-3"></ZingChart>
-      ) : (
-        <h1>no data</h1>
-      )}
+      <ZingChart data={optionChart} className="mt-3"></ZingChart>
     </div>
   );
 }

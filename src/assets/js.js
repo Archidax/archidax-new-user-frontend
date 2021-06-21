@@ -14,9 +14,14 @@ export const convertNumber = {
         if(typeof(balance)==="number"&&balance>0){
             if(!Number.isSafeInteger(balance)){
                 let cBalance=new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
-                return parseFloat(cBalance);
+                // let checkExponent=String(balance).includes("e");
+                // if(checkExponent){
+                //     return parseFloat(balance).toFixed(8);
+                // }
+                return parseFloat(balance).toFixed(8);
             }
-            return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
+            // return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(balance);
+            return parseInt(balance);
         }else{
             return parseInt(0);
         }
