@@ -58,12 +58,11 @@ export const getPartnerLaunchpadSubs = (id, limit, page, dispatch) => {
 
 }
 
-export const downloadAllMyLaunchpad= () => {
+export const downloadMyLaunchpadSubcsription= (id) => {
     Popup.showLoading()
-    
     axios({
         method: "GET",
-        url: `${baseUrlTrade}/api/v1/launchpad/IEO/subscription/export}`,
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/subscription/export?id=${id}`,
         headers: { jwttoken: localStorage.getItem("token") },
         responseType: 'blob'
     })

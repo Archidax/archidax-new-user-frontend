@@ -8,6 +8,7 @@ import { convertNumber } from "../../assets/js";
 import moment from "moment";
 import momentTZ from "moment-timezone";
 import HTMLParse from "html-react-parser";
+import WaitingBanner from '../../assets/img/launchpad/waiting.jpg'
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -88,7 +89,7 @@ function LaunchpadHome() {
           </div>
         </div>
         <div className="row py-2">
-          {view &&
+          {view && view.length > 0 ? 
             view.map((data, index) => (
               <div className="col col-md-4 col-lg-3 mb-4">
                 <div className="card ci-bg-primary p-2">
@@ -169,7 +170,7 @@ function LaunchpadHome() {
                   </div>
                 </div>
               </div>
-            ))}
+            )) : <div><img alt="waiting" src={WaitingBanner} className="w-100"/></div>}
         </div>
       </div>
     </div>
