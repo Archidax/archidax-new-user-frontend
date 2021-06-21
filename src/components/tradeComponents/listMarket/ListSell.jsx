@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   GetOrderBuyAndSell,
@@ -9,7 +9,9 @@ import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { convertNumber } from "../../../assets/js";
 import { useParams } from "react-router";
 
-import darksell from "../../../assets/img/trade/volume/dark-sell.svg";
+import NumberFormat from "react-number-format";
+
+// import darksell from "../../../assets/img/trade/volume/dark-sell.svg";
 
 export default function ListSell() {
   const {symbol}=useParams();
@@ -82,7 +84,7 @@ export default function ListSell() {
                           mode ? "text-danger" : "text-danger font-bolder25"
                         } text-left`}
                       >
-                        {convertNumber.toRupiah(item.price,"CRYPTO")}
+                        <NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
@@ -98,7 +100,7 @@ export default function ListSell() {
                           mode ? "text-price-dark" : "text-price font-bolder25"
                         } text-left`}
                       >
-                        {convertNumber.toRupiah(item.amount * item.price,"CRYPTO")}
+                        <NumberFormat value={Number((item.amount * item.price).toFixed(7))} displayType={'text'} fixedDecimalScale={true} thousandSeparator={true} />
                       </td>
                     </tr>
                   </tbody>
