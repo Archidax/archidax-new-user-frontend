@@ -19,6 +19,8 @@ import DayNight from "./daynight/DayNight";
 import arrowup from "../../assets/img/trade/arrow_atas.svg";
 import arrowdown from "../../assets/img/trade/arrow_bawah.svg";
 
+import NumberFormat from "react-number-format";
+
 import TabsChartTrade from "./TabsChartTrade";
 
 export default function Price() {
@@ -213,9 +215,10 @@ export default function Price() {
                     mode ? "text-price-bottom-dark" : "text-price-bottom"
                   } price-title2-trade mb-0`}
                 >
-                  {price24H
+                  
+                     <NumberFormat value={price24H
                     ? convertNumber.toRupiah(price24H.Close, "CRYPTO")
-                    : 0}
+                    : 0} displayType={'text'} thousandSeparator={true} />
                 </div>
 
                 {/* Change */}

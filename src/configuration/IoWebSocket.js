@@ -11,4 +11,4 @@ export let IoWebSocketCronjob=Io(baseUrlCronjob,{
 });
 
 export const IoUserWebSocket = (email) => Io(baseUserSocketUrl, { query: `data=${email}`})
-export const IoTradeWebSocket = (email) => Io(baseUrlTradeSocket, { query: `data=${email}`, path:"/realtime"})
+export const IoTradeWebSocket = (email) => Io(baseUrlTrade, { query: `data=${email}`, path:"/realtime"})
