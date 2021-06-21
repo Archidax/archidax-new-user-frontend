@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import EthCoin from "../../../assets/img/iconsCoin/EtheriumCoin.png";
-import { downloadAllMyLaunchpad, getPartnerLaunchpadStats, getPartnerLaunchpadSubs } from '../../../stores';
+import { downloadMyLaunchpadSubcsription, getPartnerLaunchpadStats, getPartnerLaunchpadSubs } from '../../../stores';
 import TidakAdaData from '../datas/TidakAdaData';
 import Pagination from 'react-js-pagination'
 import moment from 'moment'
@@ -23,7 +23,7 @@ function TabsSubscription() {
     }, [])
 
     const exportToCSV = () => {
-        downloadAllMyLaunchpad()
+        downloadMyLaunchpadSubcsription()
     }
 
     return (
@@ -146,7 +146,7 @@ function TabsSubscription() {
                                 <h3 className="font-18 text-white mb-0">Subscription History</h3>
                             </div>
                             <div className="col col-md-2">
-                                <button onClick={() => downloadAllMyLaunchpad()} className={`ci-btn-primary w-100 py-2`} style={{ background: "#2c355a" }}>
+                                <button onClick={() => downloadMyLaunchpadSubcsription(id)} className={`ci-btn-primary w-100 py-2`} style={{ background: "#2c355a" }}>
                                     Export to CSV
                                 </button>
                             </div>
