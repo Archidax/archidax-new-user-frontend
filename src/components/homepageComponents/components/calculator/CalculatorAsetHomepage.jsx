@@ -2,24 +2,22 @@ import React, { useState, useEffect } from "react";
 import { baseAxiosTrading } from "../../../../stores";
 import { parseFixedNumber } from "../../../../helpers/functions";
 import DropdownWithLogo from "../../../dropdownLogo";
-import bitcoinIcon from "../../../../assets/img/trade/cryptologo/Bitcoin_BTC.svg"
 
 let nowDate = new Date();
 
 export default function CalculatorAsetHomepage() {
   const [fromText, setFromText] = useState("");
   const [toText, setToText] = useState("");
-  
-  const [activePairFrom, setActivePairFrom] = useState('BTC');
-  const [activePairTo, setActivePairTo] = useState('IDR');
+
+  const [activePairFrom, setActivePairFrom] = useState("CGOLD");
+  const [activePairTo, setActivePairTo] = useState("USD");
   const [pricePairs, setPricePairs] = useState(false);
   const [icons, setIcons] = useState(false);
-  
 
   const handleFromChange = (value) => {
     if (pricePairs) {
       let newValue = value.replace(/[^0-9.,]+/, "");
-      setFromText(parseFixedNumber(newValue, 18));
+      setFromText(parseFixedNumber(newValue));
       setToText(
         parseFixedNumber(
           parseFloat(
@@ -27,16 +25,16 @@ export default function CalculatorAsetHomepage() {
               pricePairs[`${activePairFrom}/${activePairTo}`],
           )
             .toString()
-            .replace(".", ","), 18
+            .replace(".", ","),
         ),
-      );
+      )
     }
   };
 
   const handleToChange = (value) => {
     if (pricePairs) {
       let newValue = value.replace(/[^0-9.,]+/, "");
-      setToText(parseFixedNumber(newValue,18));
+      setToText(parseFixedNumber(newValue));
       setFromText(
         parseFixedNumber(
           parseFloat(
@@ -44,7 +42,7 @@ export default function CalculatorAsetHomepage() {
               pricePairs[`${activePairFrom}/${activePairTo}`],
           )
             .toString()
-            .replace(".", ","), 18
+            .replace(".", ","),
         ),
       );
     }
@@ -52,10 +50,10 @@ export default function CalculatorAsetHomepage() {
 
   const fromPair = () => {
     let result = [];
-    if (pricePairs&&icons) {
+    if (pricePairs && icons) {
       Object.keys(icons).forEach((pair) => {
         if (!result.some((el) => el.symbol === pair.split("/")[0])) {
-          result.push({symbol:pair.split("/")[0],icon:icons[pair]});
+          result.push({ symbol: pair.split("/")[0], icon: icons[pair] });
         }
       });
     }
@@ -68,11 +66,16 @@ export default function CalculatorAsetHomepage() {
       let temp = Object.keys(pricePairs).filter((key) =>
         key.includes(activePairFrom),
       );
-      temp.forEach((pair) => {
-        if (!result.some((el)=>el.symbol ===pair.split("/")[1])) {
-          result.push({symbol:pair.split("/")[1]});
+      temp.map((pair) => {
+        if (activePairFrom === pair.split("/")[0]) {
+          result.push({ symbol: pair.split("/")[1] });
         }
       });
+      // temp.forEach((pair) => {
+      //   if (!result.some((el) => el.symbol === pair.split("/")[1])) {
+      //     result.push({ symbol: pair.split("/")[1] });
+      //   }
+      // });
     }
     return result;
   };
@@ -81,36 +84,50 @@ export default function CalculatorAsetHomepage() {
     baseAxiosTrading({
       method: "GET",
       url: "/home/latest",
-    })
-      .then(({ data }) => {
-        setPricePairs(data.result);
-        setIcons(data.icon);
-      })
+    }).then(({ data }) => {
+      setPricePairs(data.result);
+      setIcons(data.icon);
+    });
   }, []);
 
   useEffect(() => {
-    setFromText(0);
-    setToText(0);
-    if(pricePairs) {
-      let temp = Object.keys(pricePairs).filter((key) =>
-        key.includes(activePairFrom),
+    if (pricePairs) {
+      let temp = Object.keys(pricePairs).filter(
+        (key) =>
+          key.includes(activePairFrom) && key.split("/")[0] === activePairFrom,
       );
-      setActivePairTo(temp?temp[0].split("/")[1]:'IDR')
+      setActivePairTo(temp.length ? temp[0].split("/")[1] : "USDT");
     }
-  }, [activePairFrom,pricePairs]);
+  }, [activePairFrom, pricePairs]);
+
+  useEffect(() => {
+    setFromText("");
+    setToText("");
+  },[activePairFrom])
+
+  useEffect(() => {
+    setToText(
+      parseFixedNumber(
+        parseFloat(
+          fromText.replaceAll(".", "").replace(",", ".") *
+            pricePairs[`${activePairFrom}/${activePairTo}`],
+        )
+          .toString()
+          .replace(".", ","),
+      ),
+    )
+  },[activePairTo])
 
   return (
     <div>
       <div>
         <div>
           <h6 className="text-center text-white font-apa-itu-responsive2">
-            Update Terakhir:{" "}
+            Last Update :{" "}
             <span>
-              {
-                `${nowDate.getUTCFullYear()}-${
-                  nowDate.getMonth() + 1
-                }-${nowDate.getDate()} ${nowDate.getHours()}:${nowDate.getMinutes()}`
-              }
+              {`${nowDate.getUTCFullYear()}-${
+                nowDate.getMonth() + 1
+              }-${nowDate.getDate()} ${nowDate.getHours()}:${nowDate.getMinutes()}`}
             </span>
           </h6>
         </div>
@@ -123,12 +140,22 @@ export default function CalculatorAsetHomepage() {
                   class="form-control font-calculator"
                   placeholder="0"
                   value={fromText}
-                  disabled={!!!pricePairs}
+                  disabled={
+                    !!!pricePairs ||
+                    !!!pricePairs[activePairFrom + "/" + activePairTo]
+                  }
                   onChange={(e) => handleFromChange(e.target.value)}
                 />
               </div>
-              <div class="absolute-right" style={{right:'10px', top:'3px'}}>
-                <DropdownWithLogo value={activePairFrom} icon={bitcoinIcon} onChange={setActivePairFrom} dataOptions={fromPair()}/>
+              <div class="absolute-right" style={{ right: "10px", top: "3px" }}>
+                <DropdownWithLogo
+                  value={activePairFrom}
+                  icon={
+                    "https://storage.googleapis.com/cryptoindex/Bitcoin_BTC.svg"
+                  }
+                  onChange={setActivePairFrom}
+                  dataOptions={fromPair()}
+                />
               </div>
             </div>
             <div className="form-group col-md-6 relative-div">
@@ -138,12 +165,22 @@ export default function CalculatorAsetHomepage() {
                   class="form-control border-0 font-calculator"
                   placeholder="0"
                   value={toText}
-                  disabled={!!!pricePairs}
+                  disabled={
+                    !!!pricePairs ||
+                    !!!pricePairs[activePairFrom + "/" + activePairTo]
+                  }
                   onChange={(e) => handleToChange(e.target.value)}
                 />
               </div>
-              <div class="absolute-right " style={{right:'10px', top:'10px'}}>
-                <DropdownWithLogo value={activePairTo} onChange={setActivePairTo} dataOptions={getToPair()}/>
+              <div
+                class="absolute-right "
+                style={{ right: "10px", top: "10px" }}
+              >
+                <DropdownWithLogo
+                  value={activePairTo}
+                  onChange={setActivePairTo}
+                  dataOptions={getToPair()}
+                />
               </div>
             </div>
           </div>

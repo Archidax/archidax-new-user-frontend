@@ -1,38 +1,52 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import HeaderHomePage from "../headerComponents/headerHomePage";
 import BannerHomepage from "./components/BannerHomepage";
 import SliderHomepage from "./components/SliderHomepage";
 import TableHomepage from "./components/TableHomepage";
 import ApaItuCrypto from "./components/ApaItuCrypto";
 import CalculatorCrypto from "./components/CalculatorKrypto";
-import KenapaMemilihCrypto from "./components/KenapaMemilihCrypto";
-import NewsHomepage from "./components/NewsHomepage";
-import FooterHomePage from "../footerComponents/footerHomePage/FooterHomePage";
+import { berita, beritaRecent } from "../../stores/berita/functions";
 
-import { HomeMarket } from "../../stores/chart/functions";
+// import KenapaMemilihCrypto from "./components/KenapaMemilihCrypto";
+// import NewsHomepage from "./components/NewsHomepage";
+
+import FooterBesideHomePage from "../footerComponents/footerHomePage/FooterBesideHomePage";
+
+// import { GetListingExchange } from "../../stores";
+import DalamCrypto from "./components/DalamCrypto";
+import InfoNews from "./components/infonews/InfoNews";
+import FiturHomepage from "./components/FiturHomepage";
 
 function Home(props) {
-  let [MarketData, setMarketData] = React.useState([]);
-  React.useEffect(() => {
-    HomeMarket((Market) => {
-      setMarketData(Market);
-    });
-  }, [setMarketData]);
+  const dispatch = useDispatch();
 
-  console.log(MarketData);
+  useEffect(() => {
+    berita(dispatch);
+    beritaRecent(dispatch);
+  }, [dispatch]);
 
   return (
     <div className="navbar-homePage">
       <div className="navbar-top">
-        <HeaderHomePage setLocale={props.setLocale} />
+        <HeaderHomePage
+          flag={props.flag}
+          setLocale={props.setLocale}
+          bg_normal="bg-header-homepage2"
+          // bg_normal="bg-overlay-homepage"
+        />
         <BannerHomepage setLocale={props.setLocale} />
-        <SliderHomepage setLocale={props.setLocale} dataHome={MarketData} />
-        <TableHomepage setLocale={props.setLocale} dataHome={MarketData} />
+        <InfoNews setLocale={props.setLocale} />
+        <SliderHomepage setLocale={props.setLocale} />
+        <TableHomepage setLocale={props.setLocale} />
         <ApaItuCrypto setLocale={props.setLocale} />
+        <FiturHomepage setLocale={props.setLocale} />
+        {/* <DalamCrypto setLocale={props.setLocale} /> */}
         <CalculatorCrypto setLocale={props.setLocale} />
-        <KenapaMemilihCrypto setLocale={props.setLocale} />
-        <NewsHomepage setLocale={props.setLocale} />
-        <FooterHomePage setLocale={props.setLocale} />
+        {/* <KenapaMemilihCrypto setLocale={props.setLocale} /> */}
+        {/* <NewsHomepage setLocale={props.setLocale} /> */}
+        <FooterBesideHomePage setLocale={props.setLocale} />
       </div>
     </div>
   );

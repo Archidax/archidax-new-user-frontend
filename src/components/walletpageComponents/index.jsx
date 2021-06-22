@@ -4,33 +4,29 @@ import React from "react";
 import TableAssetSaya from "./table/TableAssetSaya";
 import NilaiAsset from "./wallet/NilaiAsset";
 
-// import bgAsset from "../../assets/img/wallet/ornamen.svg";
 import CopyrightDashboard from "../footerComponents/copyrightComponents/CopyrightDashboard";
+import Translate from "../../i18n/Translate";
 
 function Wallet() {
   return (
     <div>
-      <div className="px-3 pt-3">
+      <div className="px-3 pt-3" style={{ minHeight: "88vh" }}>
         <div className="row">
           <div className="col-12 col-md-12">
             <div className="card ci-customCard-1 bg-transparent">
               <div
                 className="card-body ci-bg-primary rounded"
-                // style={{
-                //   backgroundImage: `url(${bgAsset})`,
-                //   backgroundPosition: "right bottom",
-                //   backgroundRepeat: "no-repeat",
-                // }}
               >
                 <div className="row">
                   <div className="col-12 col-md-12">
                     <h4 className="ml-2 text-gold font-bold font-16 label-title-top">
-                      Nilai Asset
+                      {Translate('wal_nilai_aset')}
                     </h4>
                   </div>
                 </div>
 
                 <div className="row">
+                  {/* <h3 style={{color: 'white'}}>lagi bug ya, nnti dlu, tertanda HAKIM</h3> */}
                   <NilaiAsset />
                 </div>
               </div>

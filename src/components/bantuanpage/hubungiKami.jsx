@@ -5,6 +5,7 @@ import {
   GoogleMap,
   Marker,
 } from "react-google-maps";
+import Translate from "../../i18n/Translate";
 
 export default function hubungiKami() {
   const MapWithAMarker = withScriptjs(
@@ -21,11 +22,10 @@ export default function hubungiKami() {
   return (
     <div className="container hubungi-kami" style={{ minHeight: "41vh" }}>
       <h2 className="artikel-bantuan-column-title ci-text-white font-16">
-        Hubungi Kami
+        {Translate('bn_hubungi_kami')}
       </h2>
       <p className="hubungi-kami-message">
-        Bila Anda memiliki kendala, kritik maupun saran, jangan sungkan untuk
-        mengkontak kami via telepon dan e-mail:
+        {Translate('bn_text_hubungi_kami')}
       </p>
       <div className="row">
         <div className="col">
@@ -39,11 +39,11 @@ export default function hubungiKami() {
           />
         </div>
         <div className="col kolom-kontak">
-          <h6>Kontak</h6>
+          <h6>{Translate('bn_kontak')}</h6>
           <div style={{ marginBottom: "2vh" }}>
             <div className="row">
               <div className="col">
-                <p className="kontak">Telepon</p>
+                <p className="kontak">{Translate('bn_telepon')}</p>
               </div>
               <div className="col">
                 <p className="kontak-info">0811-50525588</p>
@@ -51,7 +51,7 @@ export default function hubungiKami() {
             </div>
             <div className="row ">
               <div className="col">
-                <p className="kontak">Pertanyaan Umum</p>
+                <p className="kontak">{Translate('bn_pertanyaan_umum')}</p>
               </div>
               <div className="col">
                 <p className="kontak-info">support@cryptoindex.id</p>
@@ -59,7 +59,7 @@ export default function hubungiKami() {
             </div>
             <div className="row">
               <div className="col">
-                <p className="kontak">Security Bug Report</p>
+                <p className="kontak">{Translate('bn_security_bug_report')}</p>
               </div>
               <div className="col">
                 <p className="kontak-info">bug@cryptoindex.id</p>
@@ -67,14 +67,14 @@ export default function hubungiKami() {
             </div>
             <div className="row">
               <div className="col">
-                <p className="kontak">Business Development</p>
+                <p className="kontak">{Translate('bn_business_development')}</p>
               </div>
               <div className="col">
                 <p className="kontak-info">bizdev@cryptoindex.id</p>
               </div>
             </div>
           </div>
-          <h6>Alamat</h6>
+          <h6>{Translate('bn_alamat')}</h6>
           <div>
             <li className="alamat" style={{ listStyle: "none" }}>
               <span className="font-12">KEBAYORAN BARU, JAKARTA</span>

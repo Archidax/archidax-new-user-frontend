@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 import { GetOrderLiveMarket } from "../../../stores/pasartrading/functions";
 
+import NumberFormat from "react-number-format";
 import { convertNumber } from "../../../assets/js";
+
+import moment from "moment";
+import "moment/locale/id";
 
 export default function LiveMarket() {
   const { PairSymbol } = useSelector((state) =>
@@ -14,57 +18,56 @@ export default function LiveMarket() {
   const [Data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    GetOrderLiveMarket({ dispatch: setData, pair: PairSymbol });
-  }, [setData, PairSymbol]);
-
-  React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && PairSymbol) {
+    if (PairSymbol && IoWebSocketTrade) {
+      GetOrderLiveMarket({ dispatch: setData, pair: PairSymbol });
+      IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
       IoWebSocketTrade.on(`OrderMatch-${PairSymbol}`, (data) => {
         setData(data);
       });
-      return () =>
-        IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
     }
-  }, [PairSymbol, setData]);
+    return () =>
+      IoWebSocketTrade.removeEventListener(`OrderMatch-${PairSymbol}`);
+  }, [PairSymbol]);
 
   return (
     <div>
       <div
-        className={mode ? "bg-trade3-dark" : "bg-trade3"}
-        style={{ padding: "9px 16px" }}
-      >
-        <th className="text-gold font-14 mb-0 ">Live Market</th>
-      </div>
-
-      <div
         className={
-          mode ? "outter-table-wrapper3-dark" : "outter-table-wrapper3"
+          mode ? "outter-table-wrapper3-dark " : "outter-table-wrapper3"
         }
       >
-        <div class={mode ? "table-wrapper3-dark" : "table-wrapper3"}>
+        <div
+          class={
+            mode ? "table-wrapper3-dark lmh-resp" : "table-wrapper3 lmh-resp"
+          }
+        >
           <table>
             <thead className="">
               <tr className={mode ? "text-price-dark" : "text-price"}>
                 <th className="text-left">
-                  Harga (
+                  Price (
                   {PairSymbol ? PairSymbol.toString().split("/")[1] : null})
                 </th>
                 <th className="text-right">
-                  Jumlah (
+                  Amount (
                   {PairSymbol ? PairSymbol.toString().split("/")[0] : null})
                 </th>
-                <th className="text-right">Waktu</th>
+                <th className="text-right">Time</th>
                 {/* <th className="text-right">Waktu</th> */}
               </tr>
             </thead>
-            <tbody>
-              {Data && Array.isArray(Data) && Data.length > 0 ? (
-                Data.map((item) => {
-                  return (
+
+            {Data && Array.isArray(Data) && Data.length > 0 ? (
+              Data.map((item) => {
+                return (
+                  <tbody>
                     <tr
                       data-toggle="tooltip"
                       data-placement="top"
-                      title={convertNumber.toRupiah(item.price * item.amount)}
+                      title={convertNumber.toRupiah(
+                        item.price * item.amount,
+                        "CRYPTO",
+                      )}
                     >
                       <td
                         className={`${
@@ -77,16 +80,14 @@ export default function LiveMarket() {
                             : "text-white"
                         } text-left`}
                       >
-                        {item.price ? convertNumber.toRupiah(item.price) : 0}
+                        <NumberFormat value={item.price?item.price:0} decimalScale={8} displayType={'text'} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
                           mode ? "text-price-dark" : "text-price"
                         } text-right`}
                       >
-                        {item.amount
-                          ? convertNumber.toRupiah(item.amount, "CRYPTO")
-                          : 0}
+                           <NumberFormat value={item.amount?item.amount:0} decimalScale={8} displayType={'text'} thousandSeparator={true} />
                       </td>
                       {/* <td className="text-price text-right">{item.total?Number(item.total<1)?Number(item.total).toFixed(8):Number(item.total).toLocaleString().split(",")[0]:0}</td> */}
                       <td
@@ -94,26 +95,32 @@ export default function LiveMarket() {
                           mode ? "text-price-dark" : "text-price"
                         } text-right`}
                       >
-                        {item.createdAt
-                          ? new Date(item.createdAt).toLocaleTimeString("id-ID")
-                          : "-"}
+                        {moment(item.createdAt).format("HH:MM:SS")}
                       </td>
                     </tr>
-                  );
-                })
-              ) : (
+                  </tbody>
+                );
+              })
+            ) : (
+              <tbody>
                 <tr>
+                  <td className=""></td>
                   <td
                     className={`${
                       mode ? "text-price-dark" : "text-price"
-                    } text-left text-right mt-5 pt-3`}
-                    colSpan={2}
+                    } text-center`}
                   >
                     No Orders
                   </td>
+                  {/* <td className="text-price text-right">{item.total?Number(item.total<1)?Number(item.total).toFixed(8):Number(item.total).toLocaleString().split(",")[0]:0}</td> */}
+                  <td
+                    className={`${
+                      mode ? "text-price-dark" : "text-price"
+                    } text-right`}
+                  ></td>
                 </tr>
-              )}
-            </tbody>
+              </tbody>
+            )}
           </table>
         </div>
       </div>

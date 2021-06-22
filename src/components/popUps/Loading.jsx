@@ -24,7 +24,7 @@ function LoadingPage() {
                         </div>
                         <div className="row mt-4">
                             <div className="col-12 col-md-12">
-                                <h2 className="text-white text-center mb-2">Harap Tunggu ...</h2>
+                                <h2 className="text-white text-center mb-2">Please Wait ...</h2>
                             </div>
                         </div>
                     </div>

@@ -1,28 +1,21 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
 
 // Import
 import CardDashboardDataProfile from "./cards/CardDashboardDataProfile";
 import CardDashboardPasarTrading from "./cards/CardDashboardPasarTrading";
 import CardDashboardWallets from "./cards/CardDashboardWallets";
 import SliderBannerDashboard from "./sliders/SliderBannerDashboard";
+import {GetListingExchange} from '../../stores/pasartrading/functions'
+import {useDispatch} from 'react-redux'
 
 import AdvertisingSliderDashboard from "./sliders/AdvertisingSliderDashboard";
 import CopyrightDashboard from "../footerComponents/copyrightComponents/CopyrightDashboard";
 
 function Dashboard() {
-  // const loading = useDispatch((state) => state.pasarTradingReducer.loading);
-  // const cryptoPrices = useSelector(
-  //   (state) => state.pasarTradingReducer.cryptoPrices,
-  // );
-
-  // const dispatch = useDispatch();
-  // // useEffect(() => {
-  // //   // dispatch(getPasarTrading())
-  // // }, []);
-  // // if (loading) {
-  // //     return <p>Loading...</p>
-  // // }
+  const dispatch = useDispatch()
+  React.useEffect(() => {
+    GetListingExchange(dispatch)
+  },[])
 
   return (
     <div>
@@ -48,7 +41,7 @@ function Dashboard() {
               <div className="col-12 mt-2 px-2">
                 <CardDashboardWallets />
               </div>
-              <div className="col-12 mt-2 px-2">
+              <div className="col-12 mt-2 mb-4 px-2">
                 <AdvertisingSliderDashboard />
               </div>
             </div>

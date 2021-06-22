@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import walletIcon from "../../../../../assets/affiliasi/wallet-icon.svg";
 import EthCoin from "../../../../../assets/img/iconsCoin/EtheriumCoin.png";
 import IDRlogo from "../../../../../assets/img/Rp.svg";
+import USDlogo from "../../../../../assets/img/usd_logo.svg";
 import { 
   // useDispatch, 
   useSelector 
@@ -32,7 +33,7 @@ function WalletsDropdownHeader() {
       >
         <span className="d-flex align-items-center px-4 py-1 ci-dropdown-btn-wallets-text font-12">
           <img src={walletIcon} alt="walletIcon" className="mr-3" />
-          Wallet
+          {Translate('hd_wallet')}
         </span>
       </button>
       <div
@@ -57,15 +58,15 @@ function WalletsDropdownHeader() {
                   {Translate("hd_saldo")} :{" "}
                 </h6>
                 <h6 className="text-dark mb-0 lable-title text-left font-14 font-bolder2">
-                  {convertNumber.toMoney(Math.round(saldo))},00 IDR
+                  {convertNumber.toMoney(Math.round(saldo),'$')}
                 </h6>
               </div>
               <div className="py-2">
                 <h6 className="text-dark mb-1 lable-title text-right font-13 font-bolder">
-                  Nilai Asset Estimasi :
+                  {Translate('hd_estimasi_nilai_aset')} :
                 </h6>
                 <h6 className="text-dark mb-0 lable-title text-right font-14 font-bolder2">
-                  {convertNumber.toMoney(Math.round(est))},00 IDR
+                  {convertNumber.toMoney(Math.round(est),'$')}
                 </h6>
               </div>
             </div>
@@ -76,20 +77,20 @@ function WalletsDropdownHeader() {
             {/* IDR */}
             <div className="row align-items-center my-2">
               <div className="col-2 col-md-2">
-                <img src={IDRlogo} className="img-fluid" alt="IDR" width={35} />
+                <img src={USDlogo} className="img-fluid" alt="IDR" width={24} />
               </div>
 
               <div className="col-4 col-md-4">
-                <p className="text-white lable-title mb-0">IDR</p>
+                <p className="text-white lable-title mb-0">USD</p>
               </div>
               <div className="col-3 col-md-3 pr-1">
-                <Link to={`/wallet/setor-rupiah`}>
-                  <button className="ci-btn-success ci-sm w-100">Setor</button>
+                <Link to={`/wallet/deposit`}>
+                  <button className="ci-btn-success ci-sm w-100">{Translate('hd_setor')}</button>
                 </Link>
               </div>
               <div className="col-3 col-md-3 pl-1">
-                <Link to={`/wallet/setor-rupiah`}>
-                  <button className="ci-btn-danger ci-sm w-100">Tarik</button>
+                <Link to={`/wallet/deposit`}>
+                  <button className="ci-btn-danger ci-sm w-100">{Translate('hd_tarik')}</button>
                 </Link>
               </div>
             </div>
@@ -102,7 +103,7 @@ function WalletsDropdownHeader() {
                       <div className="col-2 col-md-2">
                         <img
                           className="img-fluid"
-                          src={items.detail_crypto.price_24hour.icon}
+                          src={items.detail_crypto.icon}
                           alt="..."
                           width={35}
                         />
@@ -128,14 +129,14 @@ function WalletsDropdownHeader() {
                           className="ci-btn-success ci-sm w-100"
                           onClick={() => selectCoin(items.type)}
                         >
-                          Setor
+                          {Translate('hd_setor')}
                         </button>
                       </Link>
                     </div>
                     <div className="col-3 col-md-3 pl-1">
                       <Link to={`/crypto/tarik-crypto/${items.type}`}>
                         <button className="ci-btn-danger ci-sm w-100">
-                          Tarik
+                          {Translate('hd_tarik')}
                         </button>
                       </Link>
                     </div>

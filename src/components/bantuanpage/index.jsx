@@ -6,6 +6,7 @@ import Suggestion from "./pencarian/suggestion";
 import { baseAxios } from "../../stores";
 import { useHistory } from "react-router-dom";
 import CopyrightDashboard from "../footerComponents/copyrightComponents/CopyrightDashboard";
+import Translate from "../../i18n/Translate";
 
 export default function BantuanPage() {
   const history = useHistory();
@@ -115,10 +116,10 @@ export default function BantuanPage() {
         <Jumbotron className="banner-bantuan">
           <Container>
             <h1 className="title-banner-bantuan ci-text-white font-32">
-              Butuh Bantuan?
+              {Translate('bn_butuh_bantuan')}
             </h1>
             <p className="title-banner-p ci-text-white font-16">
-              Silahkan lakukan pencarian atau tanyakan pertanyaan Anda disini
+              {Translate('bn_text_banner')}
             </p>
             <div className="row mt-4 justify-content-center no-gutters">
               <div className="col-8 col-md-8">

@@ -7,12 +7,12 @@ import Pagination from 'react-js-pagination'
 
 
 const tableHeader = [
-    "Waktu", "Jenis", "Jumlah", "Dari", "Tujuan", "TX", "Status",
+    "Time", "Type", "Amount", "From", "To", "TX", "Status",
 ];
 
 
 export default function TableHistoryTarikCrypto() {
-    const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
+    const { listingList } = useSelector(state => state.pasarTradingReducer)
     const riwayat = useSelector(state => state.riwayatReducer.riwayatTarikCrypto)
     const numberOfPages = useSelector(state => state.riwayatReducer.pagesRiwayatTarikCrypto)
     const totalDocs = useSelector(state => state.riwayatReducer.totalDocsRiwayatTarikCrypto)
@@ -46,7 +46,7 @@ export default function TableHistoryTarikCrypto() {
             <div className="card-body">
                 <div className="row mt-2 mb-3">
                     <div className="col-12 col-md-12">
-                        <h2 className="ml-2 text-gold font-bold font-16 label-title-top my-3">Riwayat Tarik Crypto</h2>
+                        <h2 className="ml-2 text-gold font-bold font-16 label-title-top my-3">Withdraw Crypto History</h2>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@ export default function TableHistoryTarikCrypto() {
                                         <select className="select  w-100 h-100" onChange={(e) => setSymbol(e.target.value)}>
                                             <option defaultValue="BTC" selected>BTC</option>
                                             {
-                                                Exchange.map((el, index) => {
+                                                listingList.map((el, index) => {
                                                     if (el.symbol.includes("/IDR")) {
                                                         const code = el.symbol.replace("/IDR", "")
                                                         if (el.initialSymbol !== "BTC") {
@@ -74,24 +74,24 @@ export default function TableHistoryTarikCrypto() {
                                     </div>
                                     <div className="col-12 col-md-4 select-wrapper">
                                         <select className="select  w-100 h-100" onChange={(e) => setMonth(e.target.value)}>
-                                            <option value="" selected >Semua</option>
-                                            <option value="1"> Januari</option>
-                                            <option value="2">Februari</option>
-                                            <option value="3">Maret</option>
+                                            <option value="" selected >All</option>
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
                                             <option value="4">April</option>
-                                            <option value="5">Mei</option>
-                                            <option value="6">Juni</option>
-                                            <option value="7">Juli</option>
-                                            <option value="8">Agustus</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
                                             <option value="9">September</option>
-                                            <option value="10">Oktober</option>
+                                            <option value="10">October</option>
                                             <option value="11">November</option>
-                                            <option value="12">Desember</option>
+                                            <option value="12">December</option>
                                         </select>
                                     </div>
                                     <div className="col-12 col-md-4 select-wrapper">
                                         <select className="select  w-100 h-100" onChange={(e) => setYear(e.target.value)}>
-                                            <option value="" selected >Semua</option>
+                                            <option value="" selected >All</option>
                                             <option value="2021"> 2021</option>
                                             <option value="2022">2022</option>
                                             <option value="2023">2023</option>
@@ -157,7 +157,7 @@ export default function TableHistoryTarikCrypto() {
                             <div className="data-kosong-wrapper">
                                 <div className="data-kosong align-items-center">
                                     <img src={file} />
-                                    <p className="font-12 m-3">Tidak ada data</p>
+                                    <p className="font-12 m-3">No data</p>
                                 </div>
                             </div>
                             :

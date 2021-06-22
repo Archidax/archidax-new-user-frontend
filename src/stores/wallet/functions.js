@@ -3,6 +3,7 @@ import axios from 'axios'
 import errorHandler from '../errorHandler'
 
 export const getMyAssets = (dispatch) => {
+    console.log(`${baseUrl}/account/wallet/myinfo`);
     axios({
         method: "GET",
         url: `${baseUrl}/account/wallet/myinfo`,
@@ -11,7 +12,7 @@ export const getMyAssets = (dispatch) => {
     .then(({ data }) => {
         dispatch({ type: "SET_ASSETS", data: data })
     })
-    .catch(errorHandler)
+    .catch(errorHandler);
 }
 
 export const getMyProfit = (initialSymbol, dateFrom, dateTo, cb, isLoading) => {

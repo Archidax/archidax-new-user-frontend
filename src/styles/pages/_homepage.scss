@@ -2,12 +2,62 @@
   background-color: #0b0c22;
 }
 
+.bg-header-homepage {
+  box-shadow: 0px 0px 24px #151933 !important;
+  background-color: #151933 !important;
+}
+
+.bg-header-homepage2 {
+  // box-shadow: 0px 0px 24px #151933 !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
 .bg-homepage2 {
+  background-color: #151933;
+  // background-color: transparent;
+}
+
+.bg-homepage2-transform {
+  background-color: #151933;
+  transform: skewY(-10deg);
+  // position: absolute;
+  top: 0;
+}
+
+.footer-luar {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  // border: 3px solid #73ad21;
+}
+
+.footer-dalam {
+  position: absolute;
+  top: -100px;
+  right: 0;
+  width: 100%;
+  height: 400px;
+  // border: 3px solid #73ad21;
+  background-color: #151933;
+  transform: skewY(-3deg);
+}
+.footer-dalam2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 400px;
+  // border: 3px solid #73ad21;
   background-color: #151933;
 }
 
 .bg-homepage-banner {
-  background-image: url(../../assets/img/background/homepage.jpg);
+  background-image: url(../../assets/img/background/ba_archidax.png);
+  background-size: cover;
+}
+
+.bg-homepage-banner2 {
+  background-image: url(../../assets/img/gif/cewe.gif);
   background-size: cover;
 }
 
@@ -109,6 +159,14 @@
   // background-size: auto;
 }
 
+.bg-overlay-homepage {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.bg-overlay-homepage2 {
+  background: rgba(0, 0, 0, 0.4);
+}
+
 // Banner
 
 //
@@ -140,20 +198,14 @@
 // Global
 .tabs-homepage-price {
   .nav .nav-item .nav-link {
-    background: #050611;
+    background: transparent;
     // background-color: yellow;
     color: #e5e5e5;
-    border-radius: 0px;
-    height: 40px;
-    font-size: 14px;
   }
 
   .nav .nav-item .nav-link.active {
     color: #fff;
-    background: #1d2244;
-    border-radius: 0px;
-    height: 40px;
-    font-size: 14px;
+    background: transparent;
   }
 }
 
@@ -262,34 +314,34 @@
 
 // Margin
 .mb-hp-r {
-  margin-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 @media (min-width: 750px) {
   .mb-hp-r {
-    margin-bottom: 70px;
+    padding-bottom: 70px;
   }
 }
 
 @media (min-width: 1024px) {
   .mb-hp-r {
-    margin-bottom: 70px;
+    padding-bottom: 70px;
   }
 }
 
 .mt-hp-r {
-  margin-top: 5px;
+  padding-top: 5px;
 }
 
 @media (min-width: 750px) {
   .mt-hp-r {
-    margin-top: 70px;
+    padding-top: 70px;
   }
 }
 
 @media (min-width: 1024px) {
   .mt-hp-r {
-    margin-top: 70px;
+    padding-top: 70px;
   }
 }
 
@@ -333,16 +385,16 @@
   text-align: center;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
   .font-50-reponsive {
-    font-size: 55px;
+    font-size: 35px;
     text-align: left;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1500px) {
   .font-50-reponsive {
-    font-size: 50px;
+    font-size: 55px;
     text-align: left;
   }
 }
@@ -399,6 +451,43 @@
 @media (min-width: 1024px) {
   .image-bapepti-height {
     height: 75px;
+  }
+}
+
+// News Info Responsive
+// Banner
+.banner-news-responsive {
+  width: 95%;
+  margin: auto;
+}
+
+@media (min-width: 1000px) {
+  .banner-news-responsive {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1500px) {
+  .banner-news-responsive {
+    width: 95%;
+    margin: auto;
+  }
+}
+// Title News
+.font-responsive-news-right {
+  font-size: 16px;
+}
+
+@media (min-width: 1000px) {
+  .font-responsive-news-right {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .font-responsive-news-right {
+    font-size: 16px;
   }
 }
 
@@ -566,7 +655,7 @@
 
 @media (min-width: 1024px) {
   .min-h-65-r {
-    min-height: 65vh;
+    min-height: 55vh;
     padding-top: 2vh;
   }
 }
@@ -625,3 +714,322 @@
     width: 180px;
   }
 }
+
+.bg-height-footer {
+  height: 1000px;
+}
+
+@media (min-width: 750px) {
+  .bg-height-footer {
+    height: 1000px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bg-height-footer {
+    height: 500px;
+  }
+}
+
+.image-responsive {
+  width: 0px;
+}
+
+// Info News
+.font-archidax {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.font-archidax2 {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.font-archidax3 {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.font-header2 {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: #aeb4ce;
+}
+
+.font-price {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.make-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.make-center2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bg-archidax {
+  background-color: rgb(11, 12, 34);
+}
+
+.bg-archidax2 {
+  background-color: #151933;
+}
+
+.bg-archidax-gradient {
+  background-image: radial-gradient(
+    rgb(24, 38, 70),
+    rgb(11, 14, 33),
+    rgb(11, 12, 34)
+  );
+}
+
+.bg-archidax-yellow {
+  background-color: #e9d16f;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.text-gold-archidax {
+  color: rgb(231, 207, 109);
+}
+
+.text-gray-archidax {
+  color: #aeb4ce;
+}
+
+.text-yellow-archidax {
+  color: #bdaa16;
+}
+
+.text-buy {
+  color: #1ecab8;
+}
+
+.text-sell {
+  color: #f1646c;
+}
+
+// PRICE TABLE
+
+.price-title {
+  color: #e9d16f;
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.price-gold {
+  color: #e9d16f;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.price-up {
+  color: #1ecab8;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.price-down {
+  color: #f1646c;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.price-normal {
+  color: #ffffff;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.logo-db {
+  height: 26px;
+  margin-right: 10px;
+}
+
+.button-primary {
+  color: white;
+  background-color: #4d79f6;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 13px;
+  margin: 0px 5px;
+}
+
+.button-danger {
+  color: white;
+  background-color: #f1646c;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 13px;
+  margin: 0px 5px;
+}
+
+.button-estimated-dashboard {
+  background: #e9d16f;
+  padding: 5px 15px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  position: absolute;
+  right: 35px;
+  bottom: 20px;
+  border: none;
+}
+
+// INFO AND ANNOUNCEMENT
+
+.announcement-homepage {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.tabs-announcements-homepage {
+  padding-left: 0px;
+  padding-right: 0px;
+  align-items: center;
+}
+
+.announcements-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.announcements-content-trade {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+}
+
+// .bg-news1 {
+//   background-image: url(../../assets/img/bnb.jpg);
+//   background-size: cover;
+// }
+.bg-news img {
+  width: 100%;
+  height: auto;
+}
+
+.bg-news2 {
+  background-image: url(../../assets/img/waves.jpg);
+  background-size: cover;
+}
+
+.bg-news3 {
+  // background-image: url(../../assets/img/homepage/infonews/frame6.png);
+  background-image: url(../../assets/img/homepage/announcements/bnb.jpg);
+  background-size: cover;
+}
+
+.bg-news4 {
+  // background-image: url(../../assets/img/homepage/infonews/frame7.png);
+  background-image: url(../../assets/img/homepage/announcements/waves.jpg);
+  background-size: cover;
+}
+
+// overflow
+#overflowTest {
+  width: 100%;
+  height: 190px;
+  overflow: auto;
+}
+
+#overflowTestChatTrade {
+  width: 100%;
+  height: 271px;
+  overflow: auto;
+}
+
+@media (min-width: 1400px) {
+  #overflowTestChatTrade {
+    width: 100%;
+    height: 373px;
+    overflow: auto;
+  }
+}
+
+// Tabs Chart
+.tabs-info-news {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #f9ba42;
+    // background: $base-color-tabs-mainchart-active;
+    border-bottom: 1px solid rgba(249, 186, 66, 0.6);
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+  }
+}
+
+#homepageVideo {
+  position: fixed;
+  top: 0vh;
+  z-index: -1;
+  width: 100%;
+  // width: 2000px;
+  // height: 800px;
+
+  // -moz-transform: scale(1.4);
+  // -webkit-transform: scale(1.4);
+  // -o-transform: scale(1.4);
+  // -ms-transform: scale(1.4);
+  // transform: scale(1.4);
+}
+
+.content-home {
+  // position: absolute;
+  top: 100px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+  height: 56vh;
+}
+
+//

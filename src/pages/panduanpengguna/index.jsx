@@ -27,11 +27,12 @@ function PanduanPengguna() {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <h1 className="font-weight-bold text-gold">Panduan Pemula</h1>
+                            <h1 className="font-weight-bold text-gold">Beginners Guide</h1>
                         </div>
                         <div className="col-12">
                             <p>
-                                Pelajari tentang Cryptocurrency dan Tips Perdagangan
+                                Learning about Cryptocurrency and 
+                                {/* Pelajari tentang Cryptocurrency dan Tips Perdagangan */}
                             </p>
                         </div>
                     </div>

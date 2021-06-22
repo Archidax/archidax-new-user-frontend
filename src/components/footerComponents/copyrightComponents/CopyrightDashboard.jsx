@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Translate from "../../../i18n/Translate";
 
 export default function CopyrightDashboard() {
   return (
@@ -9,7 +10,7 @@ export default function CopyrightDashboard() {
           <div className="">
             <h6 className="mb-0 font-14">
               All rights reserved by{" "}
-              <span className="text-gold">Cryptoindex</span>
+              <span className="text-gold">Archidax</span>
             </h6>
           </div>
         </div>
@@ -17,17 +18,17 @@ export default function CopyrightDashboard() {
           <div className="row justify-content-sm-end justify-content-center">
             <div className="col-4 col-md-2">
               <Link to="/syara-pengguna" target="_blank">
-                <h6 className="mb-0 font-14">Syarat Pengguna</h6>
+                <h6 className="mb-0 font-14">{Translate('f2_syarat')}</h6>
               </Link>
             </div>
             <div className="col-4 col-md-2">
               <Link to="/kebijakan-privasi" target="_blank">
-                <h6 className="mb-0 font-14">Kebijakan Privasi</h6>
+                <h6 className="mb-0 font-14">{Translate('f2_privasi')}</h6>
               </Link>
             </div>
             <div className="col-4 col-md-2">
               <Link to="/hubungi-kami" target="_blank">
-                <h6 className="mb-0 font-14">Hubungi Kami</h6>
+                <h6 className="mb-0 font-14">{Translate('f2_hubungi_kami')}</h6>
               </Link>
             </div>
           </div>

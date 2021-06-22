@@ -114,7 +114,7 @@ function ChartNilaiAsset() {
       }
     },
   };
-
+  console.log(ChartData)
   return (
     <div id="chart">
       <ReactApexChart

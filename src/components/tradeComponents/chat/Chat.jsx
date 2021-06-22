@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 export default function Chat() {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
-  const {mode} = useSelector(state => state.daynightReducer)
+  const { mode } = useSelector((state) => state.daynightReducer);
   let [Messages, setMessages] = useState([]);
   let [inputMessage, setInputMessage] = useState("");
   let [showEmoji, setShowEmoji] = useState("d-none");
@@ -68,32 +68,30 @@ export default function Chat() {
   }, [setMessages]);
 
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected) {
+    if (IoWebSocketTrade) {
+      IoWebSocketTrade.removeEventListener(`Chatting`);
       IoWebSocketTrade.on(`Chatting`, (data) => {
-        let dataTemp = [data, ...Messages].filter((item, index) => index < 100);
-        setMessages(dataTemp);
+        setMessages(data);
       });
-      return ()=>IoWebSocketTrade.removeEventListener(`Chatting`);
+      return () => IoWebSocketTrade.removeEventListener(`Chatting`);
     }
-  }, [setMessages, Messages]);
+  }, []);
 
   return (
     <div className={mode ? "bg-trade2-dark" : "bg-trade2"}>
       <div
         style={{
           background: "transparent",
-          height: "300px",
           borderRadius: "5px",
         }}
-        className="m-1"
+        className="m-1 hcr-inside"
       >
         <div
           style={{
             overflow: "scroll",
             transform: "scale(1, -1)",
-            height: "300px",
           }}
-          className="px-2 chat-field"
+          className="px-2 chat-field hcr-outside"
         >
           {Messages && Array.isArray(Messages) ? (
             Messages.sort((a, b) => a.createdAt - b.createdAt).map(
@@ -108,7 +106,11 @@ export default function Chat() {
                   >
                     <div className="col-12 p-0 pb-1 d-flex align-items-center">
                       <button
-                        className={`btn p-0 ${mode ? "chat-text-color-dark" : "chat-text-color"}`}
+                        className={`btn p-0 font-14-tr ${
+                          mode
+                            ? "chat-text-color-dark chatcolor"
+                            : "chat-text-color"
+                        }`}
                         onClick={() =>
                           setInputMessage(
                             (inputMessage += " @" + item.user.username + " "),
@@ -158,7 +160,7 @@ export default function Chat() {
                   onChange={(e) => setInputMessage(e.target.value)}
                   disabled={isLoading ? true : false}
                   required
-                  style={{border: "1px solid #161616" }}
+                  style={{ border: "1px solid #161616" }}
                 />
                 {isLoading ? (
                   <div>

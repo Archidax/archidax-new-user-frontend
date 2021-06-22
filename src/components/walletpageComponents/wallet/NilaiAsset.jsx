@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { convertNumber } from "../../../assets/js";
 import { getPriceEstimation, getMyProfit } from "../../../stores";
 import dateFormat from 'dateformat'
-// import ReactLoading from "react-loading";
+import Translate from "../../../i18n/Translate";
 
 function NilaiAsset() {
   const est = useSelector((state) => state.walletReducer.est);
@@ -48,10 +48,10 @@ function NilaiAsset() {
               <div className="row">
                 <div className="col-12 col-md-6 my-1">
                   <span className="font-14 text-gold font-bold">
-                    Estimasi Nilai Aset
+                    {Translate('wal_estimasi_nilai_aset')}
                   </span>
                   <h5 className="text-white mb-0 font-bold font-17">
-                    Rp.{convertNumber.toRupiah(est)}
+                    USDT {convertNumber.toRupiah(est)}
                   </h5>
                   {
                     btcPrice?
@@ -64,26 +64,26 @@ function NilaiAsset() {
                   }
                 </div>
                 <div className="col-12 col-md-6 my-1 mb-3">
-                  <span className="font-12 text-gold font-bold">Saldo</span>
+                  <span className="font-12 text-gold font-bold">{Translate('db_saldo')}</span>
                   <h5 className="text-white mb-0 font-bold font-17">
-                    Rp.{convertNumber.toRupiah(saldo)}
+                    USDT {convertNumber.toRupiah(saldo)}
                   </h5>
                 </div>
               </div>
             </div>
             <div className="col-12 col-md-4">
-              <div className="row">
+              {/* <div className="row">
                 <div className="col-12">
-                  <Link to={`/wallet/setor-rupiah`}>
+                  <Link to={`/wallet/deposit`}>
                     <button className="w-100 ci-btn-custom-1 pr-2 py-2 ci-button-setor-tarik text-white ci-bg-success">
                       <i class="far fa-credit-card my-2 ml-2 mr-2"></i>
                       <span className="font-14 font-bold">
-                        Setor / Tarik Rupiah
+                        {Translate('wal_setor_tarik_rupiah')}
                       </span>
                     </button>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -104,7 +104,7 @@ function NilaiAsset() {
                   <div className="row">
                     <div className="col-12">
                       <h4 className="font-14 p-0 font-bold text-white mb-0">
-                        Akumulasi Profit
+                        {Translate('wal_akumulasi_profit')}
                       </h4>
                       <hr
                         style={{ borderColor: "white", marginBottom: "4px" }}
@@ -119,7 +119,7 @@ function NilaiAsset() {
                             className="font-12 mb-0 text-gold"
                             htmlFor="mulai"
                           >
-                            Tanggal Mulai
+                            {Translate('wal_tanggal_mulai')}
                           </label>
                           <input
                             type="date"
@@ -134,7 +134,7 @@ function NilaiAsset() {
                             className="font-12 mb-0 text-gold"
                             htmlFor="akhir"
                           >
-                            Tanggal Akhir
+                            {Translate('wal_tanggal_akhir')}
                           </label>
                           <input
                             type="date"
@@ -177,7 +177,7 @@ function NilaiAsset() {
                           value={initialSymbol} onChange={ (e) => {setInitialSymbol(e.target.value)} }
                         >
                           <option selected value="" disabled>
-                            Pilih...
+                          {/* {Translate('pilih')} */}Choose...
                           </option>
                           {
                             assets.map((el, index) => {
@@ -212,7 +212,7 @@ function NilaiAsset() {
                 <div className="card-body font-12">
                   <div className="row">
                     <div className="col-5">
-                      <p className="mb-2 mt-2 text-white">Maker fees</p>
+                      <p className="mb-2 mt-2 text-white">{Translate('wal_maker_fees')}</p>
                     </div>
                     <div className="col-7">
                       <p className="text-right mb-2 mt-2 text-white">0%</p>
@@ -220,7 +220,7 @@ function NilaiAsset() {
                   </div>
                   <div className="row">
                     <div className="col-5">
-                      <p className="mb-2 mt-2 text-white">Taker fees</p>
+                      <p className="mb-2 mt-2 text-white">{Translate('wal_taker_fees')}</p>
                     </div>
                     <div className="col-7">
                       <p className="text-right mb-2 mt-2 text-white">0,25%</p>
@@ -228,7 +228,7 @@ function NilaiAsset() {
                   </div>
                   <div className="row">
                     <div className="col-5">
-                      <p className="mb-2 mt-2 text-white">Trading Volume</p>
+                      <p className="mb-2 mt-2 text-white">{Translate('wal_trading_volume')}</p>
                     </div>
                     <div className="col-7">
                       <p className="text-right mb-2 mt-2 text-white">
@@ -243,7 +243,7 @@ function NilaiAsset() {
                   <div className="row">
                     <div className="col-6">
                       <p className="mb-2 mt-2 text-white">
-                        24h Withdrawal limit
+                        {Translate('wal_24h_withdrawal_limit')}
                       </p>
                     </div>
                       <div className="col-6">

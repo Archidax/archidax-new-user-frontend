@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import axios from "axios";
 
 // Import Page
 import HomePage from "./homepage";
@@ -18,6 +17,7 @@ import GAuth from "./gauth/GAuth";
 import PerjanjianPengguna from "./perjanjianpengguna";
 import BeliCrypto from "./belicrypto";
 import PengajuanKoin from "./pengajuanKoin";
+import EmailVerification from "./emailverification";
 
 // Footer Page
 import SyaratPengguna from "../pages/footercontent/SyaratPengguna";
@@ -31,6 +31,7 @@ import { I18nProvider, LOCALES } from "../i18n";
 import FeeRate from "./feeRatepage/FeeRate";
 import ScrollToTop from "../components/scrolltotop/ScrollToTop";
 import Pasar from "./tradepage";
+import LaunchpadPages from "./launchpad/index";
 
 // pasar
 // import PasarHomePage from "./pasarHomepage";
@@ -46,12 +47,16 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { GetListingExchange, setMyFav } from "../stores/pasartrading/functions";
 import KeuanganPage from "./keuangan";
+import DynamicPage from "./dynamicPage";
+import { getAllDynamicPages } from "../stores/dynamicPage/functions";
+import DownloadPage from "./downloadpage/DownloadPage";
 
 export default function MainPages() {
-  const [locale, setLocale] = React.useState("");
+  const dispatch = useDispatch();
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
   const { email } = useSelector((state) => state?.profileReducer);
-  const dispatch = useDispatch();
+  const [locale, setLocale] = useState(LOCALES.ENGLISH);
+  const [flag, setFlag] = useState("flag-icon-id");
 
   useEffect(() => {
     if (isLoginAccount) {
@@ -59,22 +64,64 @@ export default function MainPages() {
         const data = JSON.parse(localStorage.getItem("myFav"));
         dispatch(setMyFav(data[email] || []));
       }
-      dispatch(GetListingExchange());
     }
+    dispatch(GetListingExchange());
   }, [email, dispatch, isLoginAccount]);
 
   useEffect(() => {
-    axios
-      .get("https://ipclient.herokuapp.com/")
-      .then(({ data }) => {
-        if (data.country === "ID") {
-          setLocale(LOCALES.INDONESIA);
-        } else {
-          setLocale(LOCALES.ENGLISH);
-        }
-      })
-      .catch((err) => {});
-  }, []);
+    getAllDynamicPages(dispatch, locale.split("-")[0].toUpperCase());
+  }, [dispatch, locale]);
+
+  useEffect(() => {
+    // if (localStorage.getItem('language')) {
+    //   if (localStorage.getItem('language') === "ID") {
+    //     setLocale(LOCALES.INDONESIA);
+    //   } else {
+    //     setLocale(LOCALES.ENGLISH);
+    //   }
+    // } else {
+    //   axios
+    //     .get("https://ipclient.herokuapp.com/")
+    //     .then(({ data }) => {
+    //       if (data.country === "ID") {
+    //         localStorage.setItem('language', "ID")
+    //         setLocale(LOCALES.INDONESIA);
+    //       } else {
+    //         localStorage.setItem('language', "EN")
+    //         setLocale(LOCALES.ENGLISH);
+    //       }
+    //     })
+    //     .catch((err) => { });
+    // }
+    if (!localStorage.getItem("language")) {
+      localStorage.setItem("language", "EN");
+      setLocale(LOCALES.ENGLISH);
+    } else {
+      if (localStorage.getItem("language") === "EN") {
+        setLocale(LOCALES.ENGLISH);
+      }
+      if (localStorage.getItem("language") === "ID") {
+        setLocale(LOCALES.INDONESIA);
+      }
+    }
+  }, [localStorage.getItem("language")]);
+
+  useEffect(() => {
+    switch (locale) {
+      case LOCALES.INDONESIA:
+        setFlag("flag-icon-id");
+        break;
+      case LOCALES.ENGLISH:
+        setFlag("flag-icon-us");
+        break;
+      case LOCALES.VIETNAM:
+        setFlag("flag-icon-vn");
+        break;
+      default:
+        setFlag("flag-icon-us");
+    }
+    localStorage.setItem("CryptoIndexLocale", locale);
+  }, [locale]);
 
   return (
     <>
@@ -82,7 +129,7 @@ export default function MainPages() {
         <ScrollToTop>
           <Switch>
             <Route path="/home">
-              <HomePage setLocale={setLocale} />
+              <HomePage flag={flag} setLocale={setLocale} />
             </Route>
             <Route path="/deactivate">
               <Deactivate />
@@ -114,7 +161,7 @@ export default function MainPages() {
             <Route path="/subscribeNews">
               <SubscribedLP />
             </Route>
-            <Route path="/berita">
+            <Route path="/news">
               <Berita />
             </Route>
             <Route path="/syarat-pengguna">
@@ -141,12 +188,12 @@ export default function MainPages() {
             <Route path="/gauth">
               <GAuth />
             </Route>
-            <Route path={`/chart/:pair`}>
+            {/* <Route path={`/chart/:pair`}>
               <AdvanceChart />
-            </Route>
-            <Route path={`/marketdepth/:symbol`}>
+            </Route> */}
+            {/* <Route path={`/marketdepth/:symbol`}>
               <DepthChart />
-            </Route>
+            </Route> */}
             <Route path={"/pasar/:symbol"}>
               <Pasar />
             </Route>
@@ -157,10 +204,26 @@ export default function MainPages() {
               <Bantuan />
             </Route>
             <Route path="/keuangan">
-              <KeuanganPage />
+              <KeuanganPage setLocale={setLocale} />
+            </Route>
+            <Route path="/launchpad">
+              <LaunchpadPages />
+            </Route>
+            <Route path="/download">
+              <DownloadPage />
+            </Route>
+            <Route path="/email/verify/:key">
+              <EmailVerification />
+            </Route>
+            <Route path="/pages/:category/:pageSlug">
+              <DynamicPage />
             </Route>
             <ProtectedRoute path="/">
-              <RouteDashboardPage setLocale={setLocale} />
+              <RouteDashboardPage
+                flag={flag}
+                locale={locale}
+                setLocale={setLocale}
+              />
             </ProtectedRoute>
             {/* <ProtectedRoute path="/dashboard">
                 <Dashboard />

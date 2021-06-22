@@ -5,50 +5,57 @@ import kominfo from "../../../assets/img/homepage/logoOrg/Kominfo.png";
 import abi from "../../../assets/img/homepage/logoOrg/ABI.png";
 import bappebti from "../../../assets/img/homepage/logoOrg/Bappebti.png";
 import group from "../../../assets/img/homepage/logoOrg/group.png";
+import video1 from "../../../assets/video/bg_homepage1.mp4";
 
 import Translate from "../../../i18n/Translate";
+import HeaderHomePage from "../../headerComponents/headerHomePage";
 
 export default function BannerHomepage() {
   return (
-    <div className="min-h-65-r bg-homepage-banner pb-4">
-      <div className="container-homepage">
-        <div className="row banner-padding-responsive">
-          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div className="col-12 p-0">
-              <h2 className="text-white font-50-reponsive mb-4">
-                {Translate("hb_title")}
-              </h2>
-              <div className="css-typing">
-                <h4 className="text-white font-miliki mb-1">
-                  {Translate("hb_text1")}
-                </h4>
-                <h4 className="text-white font-miliki mb-4">
-                  {Translate("hb_text2")}
-                </h4>
-              </div>
-            </div>
+    <div>
+      <video id="homepageVideo" autoPlay loop muted>
+        <source src={video1} type="video/mp4" />
+      </video>
+      <div className="content-home">
+        <div className="min-h-65-r pt-3 pb-5 ">
+          <div className="container-homepage">
+            <div className="row banner-padding-responsive">
+              <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div className="col-12 p-0">
+                  <h2 className="text-white font-50-reponsive mb-4">
+                    {Translate("hb_title")}
+                  </h2>
+                  <div className="css-typing">
+                    <h4 className="text-white font-miliki mb-1">
+                      {Translate("hb_text1")}
+                    </h4>
+                    <h4 className="text-white font-miliki mb-4">
+                      {Translate("hb_text2")}
+                    </h4>
+                  </div>
+                </div>
 
-            <div className="mb-4 display-f-b">
-              <div className="btn-daftar-r">
-                <a href="/register" className="btn-daftar px-4 py-2">
-                  <h6 className="mb-0">{Translate("hb_daftar")}</h6>
-                </a>
+                <div className="mb-4 display-f-b">
+                  <div className="btn-daftar-r">
+                    <a href="/register" className="btn-daftar px-4 py-2">
+                      <h6 className="mb-0">{Translate("hb_daftar")}</h6>
+                    </a>
+                  </div>
+                  <div className="btn-masuk-r">
+                    <a href="/login" className="btn-masuk px-4 py-2">
+                      <h6 className="mb-0">{Translate("hb_masuk")}</h6>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="btn-masuk-r">
-                <a href="/login" className="btn-masuk px-4 py-2">
-                  <h6 className="mb-0">{Translate("hb_masuk")}</h6>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-5 offset-lg-1 col-xs-12 col-md-5 offset-md-1 col-sm-12 col-xs-12">
-            <div className="col-lg-11 offset-lg-1 pb-3 pl-0 pr-0 display-b-n">
-              {/* <img src={ads} alt="ads" width="100%" /> */}
-              <SliderBannerHomepage />
-            </div>
-            <div className="col-lg-11 offset-lg-1 col-xs-12 mt-4 p-0">
-              <img src={group} style={{ width: "100%" }} />
-              {/* <div
+              <div className="col-lg-5 offset-lg-1 col-xs-12 col-md-5 offset-md-1 col-sm-12 col-xs-12">
+                <div className="col-lg-11 offset-lg-1 pb-3 pl-0 pr-0 display-b-n">
+                  {/* <img src={ads} alt="ads" width="100%" /> */}
+                  <SliderBannerHomepage />
+                </div>
+                <div className="col-lg-11 offset-lg-1 col-xs-12 mt-4 p-0">
+                  {/* <img src={group} style={{ width: "100%" }} /> */}
+                  {/* <div
                 style={{
                   display: "flex",
                   // backgroundColor: "white",
@@ -94,6 +101,8 @@ export default function BannerHomepage() {
                   </a>
                 </div>
               </div> */}
+                </div>
+              </div>
             </div>
           </div>
         </div>
