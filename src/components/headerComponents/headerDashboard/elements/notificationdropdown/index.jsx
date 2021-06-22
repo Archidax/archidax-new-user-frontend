@@ -189,7 +189,7 @@ function NotificationDropdownHeader() {
                         {items.title}
                       </h6>
                       <p
-                        className={`text-secondary font-14 text-justify lable-title mb-0`}
+                        className={`${text.class} font-14 text-justify lable-title mb-0`}
                       >
                         {ReactHtmlParser(items.text)}
                       </p>

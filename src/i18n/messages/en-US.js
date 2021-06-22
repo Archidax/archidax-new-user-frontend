@@ -211,7 +211,7 @@ export default {
         vc_nominal_rupiah: "Amount USDT",
 
         // Voucher Khusus
-        vc_khusus: "Special Voucher",
+        vc_khusus: "Gift Voucher",
         vc_pin_pencairan: "PIN Redemption",
         vc_email_penerima: "Recipient's Email",
 
@@ -452,6 +452,38 @@ export default {
         ka_aktifkan_pin:"Activate PIN",
         ka_text_warning_pin:"Save and do not share your PIN code with anyone, including the Archidax support team.",
         ka_konfirmasi_pin:"Confirm Pin",
+
+        //verification page 1
+        vp1_judul: "Account Verification",
+        vp1_subjudul1: "Complete the following data as instructed.",
+        vp1_subjudul2: "You will risk account closure for invalid or inappropriate inputs.",
+        vp1_judul_group_form_formulir: "Verification Form",
+        vp1_nama_lengkap: "Full Name",
+        vp1_nama_lengkap_placeholder: "Nama Lengkap",
+        vp1_tempat_lahir: "Place of Birth",
+        vp1_tempat_lahir_placeholder: "Tempat Lahir",
+        vp1_tanggal_lahir: "Date of Birth",
+        vp1_jenis_kelamin: "Gender",
+        vp1_jenis_kelamin_pria: "Male",
+        vp1_jenis_kelamin_wanita: "Female",
+        vp1_pekerjaan: "Job",
+        vp1_pekerjaan_placeholder: "Nama Pekerjaan",
+        vp1_warga_negara: "Nationality",
+        vp1_alamat: "Address",
+        vp1_alamat_placeholder: "Alamat Domisili",
+        vp1_kode_pos_placeholder: "Kode POS",
+        vp1_judul_group_form_kartu_identitas: "Identity Card",
+        vp1_kartu_id: "ID Card / Driving License / Passport",
+        vp1_kartu_id_placeholder: "Nomer Identitas",
+        vp1_berlaku_hingga: "Valid Until",
+        vp1_berlaku_hingga_checklist: "Seumur Hidup",
+        vp1_judul_group_form_kontak: "Emergency Contact",
+        vp1_nama_kerabat: "Name of Relative",
+        vp1_nama_kerabat_placeholder: "Kontak Darurat",
+        vp1_hubungan_kerabat: "Relationship with Relative",
+        vp1_hubungan_kerabat_placeholder: "Relasi",
+        vp1_telepon: "Relative Contact Number",
+        vp1_lanjut: "Next",
 
     }
 };

@@ -25,6 +25,9 @@ export default function WsComponent(props){
                             data
                         })
                         break;
+                    case 'REFRESHTOKEN':
+                        localStorage.setItem("token", data)
+                        break
                     case 'LOGOUT':
                         logout(dispatch)
                         break;
