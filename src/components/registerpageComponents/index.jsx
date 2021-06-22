@@ -22,8 +22,8 @@ function Register() {
       <div className="row vh-100 ">
         <div className="col-12 align-self-center">
           <div className="ax-auth-page">
-            {/* <CardRegister /> */}
-            <ComingSoonRegister />
+            <CardRegister />
+            {/* <ComingSoonRegister /> */}
           </div>
         </div>
       </div>
