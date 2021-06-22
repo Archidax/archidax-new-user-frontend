@@ -56,11 +56,11 @@ export * from './partnerlaunchpad/functions'
 
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
-// export const baseUrl = 'https://dev.archidax.net';
-export const baseUrl = 'http://localhost:8000';
+export const baseUrl = 'https://dev.archidax.net';
+// export const baseUrl = 'http://localhost:8000';
 ///////////////////////////////////////////////////////////////
-// export const baseUserSocketUrl = 'https://dev.archidax.net';
-export const baseUserSocketUrl = 'http://localhost:8000'
+export const baseUserSocketUrl = 'https://dev.archidax.net';
+// export const baseUserSocketUrl = 'http://localhost:8000'
 ///////////////////////////////////////////////////////////////
 // export const baseUrlTrade = 'https://trade.archidax.net';
 // export const baseUrlCronjob='http://localhost:2022';
