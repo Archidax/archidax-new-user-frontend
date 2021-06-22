@@ -20,10 +20,7 @@ export default function InfoNews() {
 
   return (
     <div className="bg-archidax card-body pt-1 font-archidax3">
-      <div
-        className="bg-archidax row col-lg-10 offset-lg-1 col-sm-12"
-        // style={{ minHeight: "40vh", width: "80%", margin: "auto" }}
-      >
+      <div className="bg-archidax row width-homepage-info-news">
         <div className="col-lg-7 col-sm-12 card-body text-white">
           <div className="mx-3 mb-2 pt-1">
             <h4>Announcements</h4>
@@ -53,13 +50,13 @@ export default function InfoNews() {
           <div className="pt-1">
             <div className="tabs-info-news">
               <ul
-                class="nav nav-pills mb-2 mx-1 row"
+                class="nav nav-pills mb-2 mx-1 row height-homepage-info-news"
                 id="pills-tab"
                 role="tablist"
               >
                 <li class="nav-item col px-0">
                   <a
-                    class="nav-link active"
+                    class="nav-link height-homepage-info-news2 active "
                     id="pills-activity-tab"
                     data-toggle="pill"
                     href="#pills-activity"
@@ -73,7 +70,7 @@ export default function InfoNews() {
                 </li>
                 <li class="nav-item col px-0">
                   <a
-                    class="nav-link"
+                    class="nav-link height-homepage-info-news2"
                     id="pills-Important-Notice-tab"
                     data-toggle="pill"
                     href="#pills-Important-Notice"
@@ -87,7 +84,7 @@ export default function InfoNews() {
                 </li>
                 <li class="nav-item col px-0">
                   <a
-                    class="nav-link"
+                    class="nav-link height-homepage-info-news2"
                     id="pills-New-Listing-tab"
                     data-toggle="pill"
                     href="#pills-New-Listing"

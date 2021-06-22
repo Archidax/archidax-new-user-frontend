@@ -4,7 +4,7 @@ import moment from "moment";
 export default function NewListingTab({ dataNewNews }) {
   const history = useHistory();
   return (
-    <div className="col-12 p-0 font-archidax2" style={{ fontSize: "15px" }}>
+    <div className="col-12 p-0 font-archidax2 font-news-responsive">
       <div id="overflowTest">
         {dataNewNews.length !== 0 &&
           dataNewNews.map((val, index) => {
@@ -14,7 +14,7 @@ export default function NewListingTab({ dataNewNews }) {
                   onClick={(e) => {
                     history.push(`/news/${val.slug}`);
                   }}
-                  className="col-12 px-0 py-2 announcements-content"
+                  className="col-12 px-0 py-2 announcements-content "
                 >
                   <a
                     onClick={(e) => {

@@ -14,10 +14,13 @@ export default function FiturHomepage() {
   return (
     <div className="bg-archidax margin-feature-hp">
       <div className="" style={{ width: "75%", margin: "auto" }}>
+        <h2 className="text-homepage-yellow text-center font-apa-itu-responsive">
+          Archidax Features
+        </h2>
         {/* ROW 1 */}
-        <div className="row">
+        <div className="row mt-4">
           {/* SPOT */}
-          <div className="col">
+          <div className="col-lg-3 col-md-3 col-sm-12">
             <div className="card-body-feature">
               <div
                 className="box-feature-hp"
@@ -28,16 +31,17 @@ export default function FiturHomepage() {
                   <div className="mb-3">
                     <img src={Spotlogo} width="60px" />
                   </div>
-                  <h4 className="text-white">SPOT</h4>
+                  <h4 className="text-white">SPOT MARKET</h4>
                   <h6 className="text-content">
-                    Over 20 spot markets available
+                    Trade your digital assets in real time and make profits
+                    immediately
                   </h6>
                 </div>
               </div>
             </div>
           </div>
           {/* FUTURE */}
-          <div className="col">
+          <div className="col-lg-3 col-md-3 col-sm-12">
             <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
@@ -46,39 +50,41 @@ export default function FiturHomepage() {
                   </div>
                   <h4 className="text-white">LAUNCHPAD</h4>
                   <h6 className="text-content">
-                    Over 40 perpetual and quarterly future markets
+                    Participate and become an early investor on the best
+                    projects and make maximum profit
                   </h6>
                 </div>
               </div>
             </div>
           </div>
           {/* STOCK */}
-          <div className="col">
+          <div className="col-lg-3 col-md-3 col-sm-12">
             <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
                     <img src={Stocklogo} width="60px" />
                   </div>
-                  <h4 className="text-white">DERIVATIVE MARKET</h4>
+                  <h4 className="text-white">DERIVATIVE</h4>
                   <h6 className="text-content">
-                    Spot and futures of a wide variety of tokenized stocks
+                    Enjoy maximum profit both ways in both down and up crypto
+                    price conditions
                   </h6>
                 </div>
               </div>
             </div>
           </div>
           {/* LEVERAGE */}
-          <div className="col">
+          <div className="col-lg-3 col-md-3 col-sm-12">
             <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
                     <img src={Leveragelogo} width="60px" />
                   </div>
-                  <h4 className="text-white">ARCHI SWAP</h4>
+                  <h4 className="text-white">ARCHISWAP</h4>
                   <h6 className="text-content">
-                    ERC 20 assets that can give you leveraged exposured
+                    Instant and fast exchange service without having to trade
                   </h6>
                 </div>
               </div>
@@ -88,7 +94,7 @@ export default function FiturHomepage() {
         {/* ROW 2 */}
         <div className="row">
           {/* SPOT */}
-          <div className="col">
+          <div className="col-lg-3 col-md-3 col-sm-12">
             <div className="card-body-feature">
               <div
                 className="box-feature-hp"
@@ -101,15 +107,15 @@ export default function FiturHomepage() {
                   </div>
                   <h4 className="text-white">ARCHIBOT</h4>
                   <h6 className="text-content">
-                    Platform that facilitates early-stage crypto projects to
-                    raise funds
+                    An advanced trading robot with AI technology makes it easy
+                    for you to trade
                   </h6>
                 </div>
               </div>
             </div>
           </div>
           {/* FUTURE */}
-          <div className="col">
+          <div className="col-lg-3 col-md-3 col-sm-12">
             <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
@@ -118,14 +124,14 @@ export default function FiturHomepage() {
                   </div>
                   <h4 className="text-white">LENDMARK</h4>
                   <h6 className="text-content">
-                    Markets on the outcome of real-world events
+                    Peer 2 peer lending crypto with 5% to 7% potential p.a
                   </h6>
                 </div>
               </div>
             </div>
           </div>
           {/* STOCK */}
-          <div className="col">
+          <div className="col-lg-3 col-md-3 col-sm-12">
             <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
@@ -134,23 +140,25 @@ export default function FiturHomepage() {
                   </div>
                   <h4 className="text-white">DIGIFUND</h4>
                   <h6 className="text-content">
-                    Many currencies total available
+                    Loan & Credit for Property based on CryptoLoan & Credit for
+                    Property based on Crypto
                   </h6>
                 </div>
               </div>
             </div>
           </div>
           {/* LEVERAGE */}
-          <div className="col">
+          <div className="col-lg-3 col-md-3 col-sm-12">
             <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3 mt-2">
                     <img src={Stakelogo} width="60px" />
                   </div>
-                  <h4 className="text-white">SAFE & SECURE</h4>
+                  <h4 className="text-white">ARCHIRATOR</h4>
                   <h6 className="text-content">
-                    Earn rewards by staking digital assets
+                    Startup accelerators and venture capital for startups to get
+                    funding via crypto
                   </h6>
                 </div>
               </div>

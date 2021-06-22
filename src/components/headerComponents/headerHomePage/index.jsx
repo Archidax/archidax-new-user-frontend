@@ -6,6 +6,7 @@ import giflogo from "../../../assets/img/header/headerhomepage/blip.gif";
 import Flags from "../headerDashboard/elements/flagsdropdown";
 
 import Translate from "../../../i18n/Translate";
+import { Col } from "react-bootstrap";
 
 function HeaderHomePage(props) {
   // eslint-disable-next-line
@@ -14,7 +15,7 @@ function HeaderHomePage(props) {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-transparent px-5 py-3 font-roboto ${props.bg_normal}`}
+      className={`navbar navbar-expand-lg bg-transparent px-5 py-3 font-roboto ${props.bg_normal}`}
     >
       <Link to="/home">
         <a
@@ -27,16 +28,15 @@ function HeaderHomePage(props) {
         </a>
       </Link>
       <button
-        className="navbar-toggler"
+        className="navbar-toggler custom-toggler2"
         type="button"
         data-toggle="collapse"
         data-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        style={{ background: "white" }}
       >
-        <span className="navbar-toggler-icon"></span>
+        <i class="fa fa-bars" aria-hidden="true" style={{ color: "white" }}></i>
       </button>
 
       <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
