@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 // Import Card
 import CardRegister from "./cards/CardRegister";
-import ComingSoonRegister from "./cards/ComingSoonRegister";
+// import ComingSoonRegister from "./cards/ComingSoonRegister";
 
 function Register() {
   const history = useHistory();
