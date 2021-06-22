@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 // Import Card
 import CardRegister from "./cards/CardRegister";
-import ComingSoonRegister from "./cards/ComingSoonRegister";
+// import ComingSoonRegister from "./cards/ComingSoonRegister";
 
 function Register() {
   const history = useHistory();
@@ -22,8 +22,8 @@ function Register() {
       <div className="row vh-100 ">
         <div className="col-12 align-self-center">
           <div className="ax-auth-page">
-            {/* <CardRegister /> */}
-            <ComingSoonRegister />
+            <CardRegister />
+            {/* <ComingSoonRegister /> */}
           </div>
         </div>
       </div>

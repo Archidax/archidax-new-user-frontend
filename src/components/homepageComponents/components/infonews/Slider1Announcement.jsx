@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import banner1 from "../../../../assets/img/bnb.jpg";
-import banner2 from "../../../../assets/img/waves.jpg";
-import banner3 from "../../../../assets/img/sushiswap.png";
-import banner4 from "../../../../assets/img/ltc.png";
+import banner1 from "../../../../assets/img/homepage/announcements/banner_listing1.jpg";
+import banner2 from "../../../../assets/img/homepage/announcements/banner_listing2.png";
+
+import banner4 from "../../../../assets/img/homepage/announcements/banner_listing4.png";
+import banner5 from "../../../../assets/img/homepage/announcements/banner_listing5.png";
 
 export default class Slider1Announcement extends Component {
   render() {
@@ -29,22 +30,22 @@ export default class Slider1Announcement extends Component {
         <Slider {...settings}>
           <div>
             <div className="bg-news">
-              <img src={banner1} alt="" />
+              <img src={banner1} alt="" style={{ borderRadius: "20px" }} />
             </div>
           </div>
           <div>
             <div className="bg-news">
-              <img src={banner2} alt="" />
+              <img src={banner2} alt="" style={{ borderRadius: "20px" }} />
             </div>
           </div>
           <div>
             <div className="bg-news">
-              <img src={banner3} alt="" />
+              <img src={banner4} alt="" style={{ borderRadius: "20px" }} />
             </div>
           </div>
           <div>
             <div className="bg-news">
-              <img src={banner4} alt="" />
+              <img src={banner5} alt="" style={{ borderRadius: "20px" }} />
             </div>
           </div>
         </Slider>

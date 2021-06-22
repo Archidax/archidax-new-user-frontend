@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 // Import Images
 import bgImg from '../../assets/img/dashboard/bannerLaunchpad.png'
 import Translate from "../../i18n/Translate";
-import TablePast from "./table/TablePast";
-import TableRunning from "./table/TableRunning";
+import { getAllMyLaunchpad } from "../../stores";
+import TableLaunchpad from "./table/TableLaunchpad";
 
 function LaunchpadPartner() {
-
+  const [status, setStatus] = useState("ACTIVE")
+  const dispatch = useDispatch()
+  const history = useHistory()
+  useEffect(() => {
+    getAllMyLaunchpad(status, dispatch)
+  }, [status])
   return (
     <>
       <div className="container-fluid mt-3">
@@ -28,7 +35,7 @@ function LaunchpadPartner() {
                 <div className="row">
                   <div className="col-12 col-md-8">
                     <h2 className="label-title-top2">
-                      {Translate('My Launchpad Partner')}
+                      {Translate('Partner Launchpad')}
                     </h2>
                   </div>
                 </div>
@@ -38,7 +45,7 @@ function LaunchpadPartner() {
         </div>
       </div>
 
-      <div className="container-fluid" style={{minHeight: '50vh'}}>
+      <div className="container-fluid" style={{ minHeight: '50vh' }}>
         <div className="row mt-4">
           <div className="col-12 col-md-12">
             <div className="container-fluid">
@@ -56,6 +63,7 @@ function LaunchpadPartner() {
                   role="tab"
                   aria-controls="setor"
                   aria-selected="true"
+                  onClick={() => setStatus("ACTIVE")}
                 >
                   {Translate('Running')}
                 </button>
@@ -67,6 +75,7 @@ function LaunchpadPartner() {
                   role="tab"
                   aria-controls="tarik"
                   aria-selected="false"
+                  onClick={() => setStatus("DONE")}
                 >
                   {Translate('Past')}
                 </button>
@@ -89,7 +98,9 @@ function LaunchpadPartner() {
                       role="tabpanel"
                       aria-labelledby="setor-tab"
                     >
-                      <TableRunning />
+                      {
+                        status === "ACTIVE" && <TableLaunchpad/>
+                      }
                     </div>
                     <div
                       className="tab-pane fade"
@@ -97,7 +108,9 @@ function LaunchpadPartner() {
                       role="tabpanel"
                       aria-labelledby="tarik-tab"
                     >
-                      <TablePast />
+                      {
+                        status === "DONE" && <TableLaunchpad/>
+                      }
                     </div>
                   </div>
                 </div>

@@ -82,7 +82,7 @@ export default function InfoNews() {
                     aria-selected="false"
                   >
                     <i class="fa fa-bullhorn mr-1" aria-hidden="true"></i>
-                    Announcemet
+                    Announcement
                   </a>
                 </li>
                 <li class="nav-item col px-0">

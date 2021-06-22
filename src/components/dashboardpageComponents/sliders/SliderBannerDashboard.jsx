@@ -72,7 +72,7 @@ export default function SliderBannerDashboard() {
                     cursor: "pointer",
                   }}
                   onClick={() => {
-                    history.push(`/berita/${item.slug}`);
+                    history.push(`/news/${item.slug}`);
                   }}
                 >
                   <p className="m-0 font-15">{item.title}</p>
