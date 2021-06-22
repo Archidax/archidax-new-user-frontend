@@ -12,7 +12,6 @@ import {
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
 
-import { convertNumber } from "../../../assets/js";
 import { Link } from "react-router-dom";
 
 import NumberFormat from "react-number-format";
@@ -24,7 +23,6 @@ export default function MarketSell({balanceAsset}) {
   const { PairSymbol, pairFrom, price24H } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
-  const { assets } = useSelector((state) => state?.walletReducer);
   const [inputAmount, setInputAmount] = useState("");
   const dispatch = useDispatch();
   const { price, amount } = useSelector(
@@ -63,7 +61,7 @@ export default function MarketSell({balanceAsset}) {
         }),
       );
     }
-  }, [dispatch, amount, assets, price]);
+  }, [dispatch, amount, price]);
 
   return (
     <div
@@ -96,7 +94,7 @@ export default function MarketSell({balanceAsset}) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span><NumberFormat value={balanceAsset} decimalScale={8} displayType={'text'} thousandSeparator={true} /></span>
+                <span><NumberFormat value={balanceAsset||0} decimalScale={8} displayType={'text'} thousandSeparator={true} /></span>
               </div>
             </div>
           </div>
