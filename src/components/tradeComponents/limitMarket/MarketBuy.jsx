@@ -11,8 +11,6 @@ import {
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
 
-import { convertNumber } from "../../../assets/js";
-
 import NumberFormat from "react-number-format";
 
 import { Link } from "react-router-dom";
@@ -91,7 +89,7 @@ export default function MarketBuy({balanceAsset}) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span><NumberFormat value={balanceAsset} decimalScale={8} displayType={'text'} thousandSeparator={true} /></span>
+                <span><NumberFormat value={balanceAsset||0} decimalScale={8} displayType={'text'} thousandSeparator={true} /></span>
               </div>
             </div>
           </div>

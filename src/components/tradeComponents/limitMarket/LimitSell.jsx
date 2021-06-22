@@ -94,7 +94,7 @@ export default function Limitsell({ balanceAsset }) {
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 lmt-font`}
               >
-                <span><NumberFormat value={balanceAsset} decimalScale={8} displayType={'text'} thousandSeparator={true} /></span>
+                <span><NumberFormat value={balanceAsset||0} decimalScale={8} displayType={'text'} thousandSeparator={true} /></span>
               </div>
             </div>
           </div>
