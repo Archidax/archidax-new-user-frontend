@@ -17,7 +17,7 @@ export default function SliderHomepage() {
     <div className="bg-archidax">
       <div className=" pt-4 pb-5">
         <div className="container-homepage p-0">
-          <div className="tabs-homepage-price">
+          <div className="tabs-homepage-price bull-bear">
             <ul class="nav nav-pills mb-3 px-2" id="pills-tab" role="tablist">
               <li class="nav-item">
                 <a
@@ -29,7 +29,7 @@ export default function SliderHomepage() {
                   aria-controls="pills-home"
                   aria-selected="true"
                 >
-                  <img src={topgainer} width="150px" />
+                  <img src={topgainer} className="bull-bear2" />
                 </a>
               </li>
               <li class="nav-item">
@@ -42,7 +42,7 @@ export default function SliderHomepage() {
                   aria-controls="pills-profile"
                   aria-selected="false"
                 >
-                  <img src={toploser} width="150px" />
+                  <img src={toploser} className="bull-bear2" />
                 </a>
               </li>
             </ul>
