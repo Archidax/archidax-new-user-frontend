@@ -235,10 +235,10 @@ export default function FooterBesideHomePage() {
                 style={{ fontStyle: "italic" }}
               >
                 Trading digital assets (crypto) carries a high risk.
-                Considerations and decisions are in the hands of Cryptoindex
-                users not to force users to carry out buying and selling
-                activities and transactions and all buying and selling decisions
-                of your digital money assets are your own decisions and are not
+                Considerations and decisions are in the hands of Archidax users
+                not to force users to carry out buying and selling activities
+                and transactions and all buying and selling decisions of your
+                digital money assets are your own decisions and are not
                 influenced by any party.{" "}
               </p>
             </div>

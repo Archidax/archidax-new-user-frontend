@@ -19,6 +19,7 @@ import DalamCrypto from "./components/DalamCrypto";
 import InfoNews from "./components/infonews/InfoNews";
 import FiturHomepage from "./components/FiturHomepage";
 import MengapaHomepage from "./components/MengapaHomepage";
+import GadgetHomepage from "./components/GadgetHomepage";
 
 function Home(props) {
   const dispatch = useDispatch();
@@ -41,10 +42,11 @@ function Home(props) {
         <InfoNews setLocale={props.setLocale} />
         <SliderHomepage setLocale={props.setLocale} />
         <TableHomepage setLocale={props.setLocale} />
-        <ApaItuCrypto setLocale={props.setLocale} />
+        {/* <ApaItuCrypto setLocale={props.setLocale} /> */}
         <FiturHomepage setLocale={props.setLocale} />
         {/* <DalamCrypto setLocale={props.setLocale} /> */}
         <CalculatorCrypto setLocale={props.setLocale} />
+        <GadgetHomepage setLocale={props.setLocale} />
         <MengapaHomepage setLocale={props.setLocale} />
         {/* <KenapaMemilihCrypto setLocale={props.setLocale} /> */}
         {/* <NewsHomepage setLocale={props.setLocale} /> */}
