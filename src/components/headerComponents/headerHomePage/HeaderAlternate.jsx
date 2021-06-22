@@ -6,6 +6,7 @@ import Flags from "../headerDashboard/elements/flagsdropdown";
 import Translate from "../../../i18n/Translate";
 
 function HeaderAlternate(props) {
+  const { flag, setLocale } = props
   return (
     // <div style={{ background: "transparent" }}>
     //   <Link to="/login">Login</Link>
@@ -66,7 +67,7 @@ function HeaderAlternate(props) {
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
-          <Flags setLocale={props.setLocale} />
+          <Flags flag={flag} setLocale={setLocale} />
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item mx-2">
                 <a className="nav-link text-white font-18 text-center" href={"/login"}>

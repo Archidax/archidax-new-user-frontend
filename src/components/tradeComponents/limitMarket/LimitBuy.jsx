@@ -11,8 +11,6 @@ import {
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
 
-import { convertNumber } from "../../../assets/js";
-
 import { Link, useParams } from "react-router-dom";
 
 export default function LimitBuy({ balanceAsset }) {
@@ -20,7 +18,7 @@ export default function LimitBuy({ balanceAsset }) {
   let { symbol } = useParams();
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const { PairSymbol, pairTo,pairFrom } = useSelector((state) =>
+  const { PairSymbol, pairTo } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
 
@@ -100,7 +98,7 @@ export default function LimitBuy({ balanceAsset }) {
                 } ml-2 lmt-font`}
               >
                 <span>
-                  <NumberFormat value={balanceAsset} decimalScale={8} displayType={'text'} thousandSeparator={true} />
+                  <NumberFormat value={balanceAsset||0} decimalScale={8} displayType={'text'} thousandSeparator={true} />
                 </span>
               </div>
             </div>

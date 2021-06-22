@@ -10,8 +10,8 @@ import { errHandler } from '../../helpers';
 import { baseAxios } from '../../stores';
 // import {changePass} from '../../stores'
 
-function CustomPage() {
-
+function CustomPage(props) {
+    const { flag, setLocale } = props
     const { category, pageSlug } = useParams();
     const history = useHistory()
 
@@ -61,7 +61,7 @@ function CustomPage() {
         :
             <>
                 
-                <HeaderAlternate />
+                <HeaderAlternate flag={flag} setLocale={setLocale}  />
                 <div className="bannersyaratdanketentuan">
                     <h4
                         className="text-center font-40 text-gold font-weight-bold"

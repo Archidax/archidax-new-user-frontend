@@ -216,7 +216,7 @@ export default function MainPages() {
               <EmailVerification />
             </Route>
             <Route path="/pages/:category/:pageSlug">
-              <DynamicPage />
+              <DynamicPage flag={flag} setLocale={setLocale} />
             </Route>
             <ProtectedRoute path="/">
               <RouteDashboardPage
