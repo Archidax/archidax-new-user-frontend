@@ -1,12 +1,12 @@
 import React from "react";
-import Spotlogo from "../../../assets/img/homepage/fitur/Spot.svg";
-import Futurelogo from "../../../assets/img/homepage/fitur/Future.svg";
-import Stocklogo from "../../../assets/img/homepage/fitur/Stock.svg";
-import Leveragelogo from "../../../assets/img/homepage/fitur/Leverage.svg";
-import Fiatlogo from "../../../assets/img/homepage/fitur/Fiat.svg";
-import Volatilitylogo from "../../../assets/img/homepage/fitur/Volatility.svg";
-import Predictionlogo from "../../../assets/img/homepage/fitur/Prediction.svg";
-import Stakelogo from "../../../assets/img/homepage/fitur/Stake.svg";
+import spotmarketlogo from "../../../assets/img/homepage/fitur/spot_market.svg";
+import launchpadlogo from "../../../assets/img/homepage/fitur/launchpad.svg";
+import derivativelogo from "../../../assets/img/homepage/fitur/derivative.svg";
+import archiswaplogo from "../../../assets/img/homepage/fitur/archiswap.svg";
+import archibotlogo from "../../../assets/img/homepage/fitur/archibot.svg";
+import lendmarklogo from "../../../assets/img/homepage/fitur/lendmark.svg";
+import digifundlogo from "../../../assets/img/homepage/fitur/digifund.svg";
+import archiratorlogo from "../../../assets/img/homepage/fitur/archirator.svg";
 
 import coming_soonlogo from "../../../assets/img/homepage/fitur/coming_soon.svg";
 
@@ -29,7 +29,7 @@ export default function FiturHomepage() {
               >
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Spotlogo} width="60px" />
+                    <img src={spotmarketlogo} width="60px" />
                   </div>
                   <h4 className="text-white">SPOT MARKET</h4>
                   <h6 className="text-content">
@@ -46,7 +46,7 @@ export default function FiturHomepage() {
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Futurelogo} width="60px" />
+                    <img src={launchpadlogo} width="60px" />
                   </div>
                   <h4 className="text-white">LAUNCHPAD</h4>
                   <h6 className="text-content">
@@ -63,7 +63,7 @@ export default function FiturHomepage() {
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Stocklogo} width="60px" />
+                    <img src={derivativelogo} width="60px" />
                   </div>
                   <h4 className="text-white">DERIVATIVE</h4>
                   <h6 className="text-content">
@@ -80,7 +80,7 @@ export default function FiturHomepage() {
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Leveragelogo} width="60px" />
+                    <img src={archiswaplogo} width="60px" />
                   </div>
                   <h4 className="text-white">ARCHISWAP</h4>
                   <h6 className="text-content">
@@ -103,7 +103,7 @@ export default function FiturHomepage() {
               >
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Volatilitylogo} width="60px" />
+                    <img src={archibotlogo} width="60px" />
                   </div>
                   <h4 className="text-white">ARCHIBOT</h4>
                   <h6 className="text-content">
@@ -120,7 +120,7 @@ export default function FiturHomepage() {
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Predictionlogo} width="60px" />
+                    <img src={lendmarklogo} width="60px" />
                   </div>
                   <h4 className="text-white">LENDMARK</h4>
                   <h6 className="text-content">
@@ -136,7 +136,7 @@ export default function FiturHomepage() {
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3">
-                    <img src={Fiatlogo} width="60px" />
+                    <img src={digifundlogo} width="60px" />
                   </div>
                   <h4 className="text-white">DIGIFUND</h4>
                   <h6 className="text-content">
@@ -153,7 +153,7 @@ export default function FiturHomepage() {
               <div className="box-feature-hp">
                 <div className="card-body text-center">
                   <div className="mb-3 mt-2">
-                    <img src={Stakelogo} width="60px" />
+                    <img src={archiratorlogo} width="60px" />
                   </div>
                   <h4 className="text-white">ARCHIRATOR</h4>
                   <h6 className="text-content">

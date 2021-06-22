@@ -91,30 +91,31 @@ export default function FooterHomePage() {
               </li>
             </ul>
           </div>
-            {
-              Object.keys(dynamicPages).map((categories, categoryIndex) => {
-                if(dynamicPages[categories].length){
-                  return (
-                    <div key={categoryIndex} className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2">
-                      <h6 className="text-uppercase font-weight-bold mb-4 text-gold">
-                        {categories.toUpperCase()}
-                      </h6>
-                      <ul className="list-unstyled mb-0">
-                        {
-                          dynamicPages[categories].map((page, pageIndex) => {
-                            return (
-                              <li className="mb-3" key={pageIndex}>
-                                <Link to={`/pages/${page.category}/${page.pageSlug}`} >{toTitleCase(page.pageName)}</Link>
-                              </li>
-                            )
-                          })
-                        }
-                      </ul>
-                    </div>
-                  )
-                }
-              })
+          {Object.keys(dynamicPages).map((categories, categoryIndex) => {
+            if (dynamicPages[categories].length) {
+              return (
+                <div
+                  key={categoryIndex}
+                  className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2"
+                >
+                  <h6 className="text-uppercase font-weight-bold mb-4 text-gold">
+                    {categories.toUpperCase()}
+                  </h6>
+                  <ul className="list-unstyled mb-0">
+                    {dynamicPages[categories].map((page, pageIndex) => {
+                      return (
+                        <li className="mb-3" key={pageIndex}>
+                          <Link to={`/pages/${page.category}/${page.pageSlug}`}>
+                            {toTitleCase(page.pageName)}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
             }
+          })}
           <div className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2">
             <h6 className="text-uppercase font-weight-bold mb-4 text-gold">
               {Translate("f3_layanan")}
@@ -222,10 +223,10 @@ export default function FooterHomePage() {
             style={{ fontStyle: "italic" }}
           >
             Trading digital assets (crypto) carries a high risk. Considerations
-            and decisions are in the hands of Cryptoindex users not to force
-            users to carry out buying and selling activities and transactions
-            and all buying and selling decisions of your digital money assets
-            are your own decisions and are not influenced by any party.{" "}
+            and decisions are in the hands of Archidax users not to force users
+            to carry out buying and selling activities and transactions and all
+            buying and selling decisions of your digital money assets are your
+            own decisions and are not influenced by any party.{" "}
           </p>
         </div>
       </div>
