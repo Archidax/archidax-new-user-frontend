@@ -23,6 +23,7 @@ import UNIInstructions from './setorinstructions/UNIInstructions';
 
 import { useHistory, useParams } from 'react-router-dom';
 import DropdownCoin from './DropdownCoin';
+import USDTCoin from '../../../assets/img/trade/cryptologo/Tether_USDT.svg'
 
 // Coin libs
 import GenericInstructions from './setorinstructions/GenericInstructions';
@@ -40,19 +41,38 @@ function SetorCryptoTabs() {
     const [coinIcon, setCoinIcon] = useState(getCoinIcon("BTC"))
     const [closePrice, setClosePrice] = useState(0)
 
+    const assets = useSelector(state => state.walletReducer.assets)
+
     useEffect(() => {
-        const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
-        if (coinCode === "TRON") {
-            history.push("/crypto/setor-crypto/TRX")
-        } else if (!found) {
-            history.push("/crypto/setor-crypto/BTC")
+        const found = assets.find(coin => coin.type === "USDT")
+        if(found) {
+            if(found.balance !== 0) {
+                generateAddress("USDT", dispatch)
+            }
+        }
+    }, [])
+
+    useEffect(() => {
+        if(coinCode==="USDT") {
+            setClosePrice(0)
+            setCoinName("USDT Tether")
+            setCoinIcon(USDTCoin)
+            // getMyBalance(coinCode, dispatch)
         } else {
-            setClosePrice(found.price_24hour.price24h_close)
-            setCoinName(found.assetName)
-            setCoinIcon(found.icon)
-            getMyBalance(coinCode, dispatch)
-            // getPriceEstimation(found.alias, dispatch)
-            // setPriceEstimation(found)
+            const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
+            if (coinCode === "TRON") {
+                history.push("/crypto/setor-crypto/TRX")
+            } else if (!found) {
+                history.push("/crypto/setor-crypto/BTC")
+            } else {
+                setClosePrice(found.price_24hour.price24h_close)
+                setCoinName(found.assetName)
+                setCoinIcon(found.icon)
+                getMyBalance(coinCode, dispatch)
+                // setCoinName(found.name)
+                // getMyBalance(coinCode, dispatch)
+                // getPriceEstimation(found.alias, dispatch)
+            }
         }
     }, [coinCode, history, dispatch, listingList])
 

@@ -13,6 +13,8 @@ import TarikInstructions from './tarikinstructions/TarikInstructions'
 import DropdownCoin from './DropdownCoin'
 import { getCoinIcon } from '../../../helpers'
 import { convertNumber } from '../../../assets/js'
+import USDTCoin from '../../../assets/img/trade/cryptologo/Tether_USDT.svg'
+
 
 function TarikCryptoTabs() {
     const { coinCode } = useParams()
@@ -37,21 +39,28 @@ function TarikCryptoTabs() {
         setCustomAmount(0)
         setWithdrawAddress('')
         setTotalTerimaBersih(0)
-        const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
-        if (coinCode === "TRON") {
-            history.push("/crypto/setor-crypto/TRX")
-        } else if (!found) {
-            history.push("/crypto/setor-crypto/BTC")
-        } else {
-            setClosePrice(found.price_24hour.price24h_close)
-            setCoinName(found.assetName)
-            setCoinIcon(found.icon)
-            getMyBalance(coinCode, dispatch)
-
-            // setCoinName(found.name)
+        if(coinCode==="USDT") {
+            setClosePrice(0)
+            setCoinName("USDT Tether")
+            setCoinIcon(USDTCoin)
             // getMyBalance(coinCode, dispatch)
-            // getPriceEstimation(found.alias, dispatch)
+        } else {
+            const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
+            if (coinCode === "TRON") {
+                history.push("/crypto/setor-crypto/TRX")
+            } else if (!found) {
+                history.push("/crypto/setor-crypto/BTC")
+            } else {
+                setClosePrice(found.price_24hour.price24h_close)
+                setCoinName(found.assetName)
+                setCoinIcon(found.icon)
+                getMyBalance(coinCode, dispatch)
+                // setCoinName(found.name)
+                // getMyBalance(coinCode, dispatch)
+                // getPriceEstimation(found.alias, dispatch)
+            }
         }
+        
     }, [coinCode,listingList,history,dispatch])
 
     const setPercentAmount = (e, num) => {
