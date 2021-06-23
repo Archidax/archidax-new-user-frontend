@@ -4,6 +4,7 @@ import { login, generateGeetest, validateGeetest, getIpUser } from '../../../sto
 import { useDispatch, useSelector } from 'react-redux'
 import { RGCaptcha, reset } from 'react-geetest-captcha';
 
+
 function LoadingGeetest (props){
     return (
         <p className="label-title text-center" style={{
