@@ -57,3 +57,24 @@
     width: 22%;
   }
 }
+
+.card-body-dd-homepage {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  cursor: pointer;
+}
+
+.dd-homepage {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.dd-homepage:hover {
+  padding: 0.5rem;
+  background-color: rgb(185, 185, 185);
+  border-radius: 5px;
+}
