@@ -5,7 +5,17 @@ import logo from "../../../assets/img/logoArchidax.png";
 import giflogo from "../../../assets/img/header/headerhomepage/blip.gif";
 import Flags from "../headerDashboard/elements/flagsdropdown";
 
+import spotmarketlogo from "../../../assets/img/homepage/fitur/spot_market.svg";
+import launchpadlogo from "../../../assets/img/homepage/fitur/launchpad.svg";
+import derivativelogo from "../../../assets/img/homepage/fitur/derivative.svg";
+import archiswaplogo from "../../../assets/img/homepage/fitur/archiswap.svg";
+import archibotlogo from "../../../assets/img/homepage/fitur/archibot.svg";
+import lendmarklogo from "../../../assets/img/homepage/fitur/lendmark.svg";
+import digifundlogo from "../../../assets/img/homepage/fitur/digifund.svg";
+import archiratorlogo from "../../../assets/img/homepage/fitur/archirator.svg";
+
 import Translate from "../../../i18n/Translate";
+import { Col } from "react-bootstrap";
 
 function HeaderHomePage(props) {
   // eslint-disable-next-line
@@ -14,7 +24,7 @@ function HeaderHomePage(props) {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-transparent px-5 py-3 font-roboto ${props.bg_normal}`}
+      className={`navbar navbar-expand-lg bg-transparent px-5 py-3 font-roboto ${props.bg_normal}`}
     >
       <Link to="/home">
         <a
@@ -27,16 +37,15 @@ function HeaderHomePage(props) {
         </a>
       </Link>
       <button
-        className="navbar-toggler"
+        className="navbar-toggler custom-toggler2"
         type="button"
         data-toggle="collapse"
         data-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        style={{ background: "white" }}
       >
-        <span className="navbar-toggler-icon"></span>
+        <i class="fa fa-bars" aria-hidden="true" style={{ color: "white" }}></i>
       </button>
 
       <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
@@ -66,6 +75,181 @@ function HeaderHomePage(props) {
               </a>
             </div>
           </div> */}
+          <li className="nav-item active mx-2">
+            <div class="dropdown">
+              <div
+                class="dropdown-toggle nav-link text-white font-18 text-center text-center "
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fa fa-th-large mr-2" style={{ color: "#f9ba42" }}></i>
+              </div>
+              <div
+                class="dropdown-menu py-0 bg-dropdown-homepage bg-dd-homepage"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <div className="row">
+                  <div className="col">
+                    <div className="card-body-dd-homepage">
+                      <a
+                        className="d-flex justify-content-center align-items-center dd-homepage
+                       "
+                        href={"/launchpad"}
+                      >
+                        <div>
+                          <img src={spotmarketlogo} width="38px" />
+                        </div>
+                        <div className="ml-2 text-white">
+                          <h6 className="mb-0">Spot Market</h6>
+                          <p className="mb-0 font-11">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="card-body-dd-homepage">
+                      <a
+                        className="d-flex justify-content-center align-items-center dd-homepage
+                       "
+                        href={"/launchpad"}
+                      >
+                        <div>
+                          <img src={launchpadlogo} width="38px" />
+                        </div>
+                        <div className="ml-2 text-white">
+                          <h6 className="mb-0">Launchpad</h6>
+                          <p className="mb-0 font-11">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="card-body-dd-homepage">
+                      <a
+                        className="d-flex justify-content-center align-items-center dd-homepage
+                       "
+                        href={"/launchpad"}
+                      >
+                        <div>
+                          <img src={derivativelogo} width="38px" />
+                        </div>
+                        <div className="ml-2 text-white">
+                          <h6 className="mb-0">Derivative</h6>
+                          <p className="mb-0 font-11">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="card-body-dd-homepage">
+                      <a
+                        className="d-flex justify-content-center align-items-center dd-homepage
+                       "
+                        href={"/launchpad"}
+                      >
+                        <div>
+                          <img src={archiswaplogo} width="38px" />
+                        </div>
+                        <div className="ml-2 text-white">
+                          <h6 className="mb-0">Archiswap</h6>
+                          <p className="mb-0 font-11">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <div className="card-body-dd-homepage">
+                      <a
+                        className="d-flex justify-content-center align-items-center dd-homepage
+                       "
+                        href={"/launchpad"}
+                      >
+                        <div>
+                          <img src={archibotlogo} width="38px" />
+                        </div>
+                        <div className="ml-2 text-white">
+                          <h6 className="mb-0">Archibot</h6>
+                          <p className="mb-0 font-11">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="card-body-dd-homepage">
+                      <a
+                        className="d-flex justify-content-center align-items-center dd-homepage
+                       "
+                        href={"/launchpad"}
+                      >
+                        <div>
+                          <img src={lendmarklogo} width="38px" />
+                        </div>
+                        <div className="ml-2 text-white">
+                          <h6 className="mb-0">Lendmark</h6>
+                          <p className="mb-0 font-11">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="card-body-dd-homepage">
+                      <a
+                        className="d-flex justify-content-center align-items-center dd-homepage
+                       "
+                        href={"/launchpad"}
+                      >
+                        <div>
+                          <img src={digifundlogo} width="38px" />
+                        </div>
+                        <div className="ml-2 text-white">
+                          <h6 className="mb-0">Digifund</h6>
+                          <p className="mb-0 font-11">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div className="card-body-dd-homepage">
+                      <a
+                        className="d-flex justify-content-center align-items-center dd-homepage
+                       "
+                        href={"/launchpad"}
+                      >
+                        <div>
+                          <img src={archiratorlogo} width="38px" />
+                        </div>
+                        <div className="ml-2 text-white">
+                          <h6 className="mb-0">Archirator</h6>
+                          <p className="mb-0 font-11">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
           <li className="nav-item active mx-2">
             <a
               className="nav-link text-white font-18 text-center text-center"

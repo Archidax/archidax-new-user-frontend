@@ -15,7 +15,7 @@ function EmailVerification() {
         if(key){
             verifyEmail(key, history)
         } else {
-            history.replace('/')
+            history.replace('/home')
         }
     },[])
 
