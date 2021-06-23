@@ -109,7 +109,7 @@ export default function TradeChartCard(props) {
         //     // if (interval === "1D") obj.timeframe = "6M";
         //     // if (interval === "7D") obj.timeframe = "5Y";
         //   });
-        tvWidget.activeChart().createStudy('Moving Average', false, false, [5])
+        tvWidget.activeChart().createStudy('Moving Average', false, false, [5], "#FFFFFF")
         tvWidget.activeChart().createStudy('Moving Average', false, false, [25])
         tvWidget.activeChart().createStudy('Moving Average', false, false, [50])
     });
