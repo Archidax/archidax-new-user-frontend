@@ -456,7 +456,7 @@ export default {
         //verification page 1
         vp1_judul: "Account Verification",
         vp1_subjudul1: "Complete the following data as instructed.",
-        vp1_subjudul2: "You will risk account closure for invalid or inappropriate inputs.",
+        vp1_subjudul2: "You will risk account suspension for invalid or inappropriate inputs.",
         vp1_judul_group_form_formulir: "Verification Form",
         vp1_nama_lengkap: "Full Name",
         vp1_nama_lengkap_placeholder: "Nama Lengkap",
@@ -485,5 +485,22 @@ export default {
         vp1_telepon: "Relative Contact Number",
         vp1_lanjut: "Next",
 
+        //verification page 2
+        vp2_judul: "Account Verification",
+        vp2_subjudul1: "Complete the following data as instructed.",
+        vp2_subjudul2: "You will risk account suspension for invalid or inappropriate inputs.",
+        vp2_contoh_foto_benar: "ID Card sample",
+        vp2_contoh_selfie_benar: "Selfie picture sample",
+        vp2_ktp: "Id Card",
+        vp2_ktp_harus_warna: "Id card must be colored.",
+        vp2_ktp_harus_jelas: "All part of the document must be visible.",
+        vp2_ktp_harus_tegak: "Document cannot be in  tilted position.",
+        vp2_ktp_harus_terbaca: "Clean and readable document. ",
+        vp2_selfie: "Face Verification",
+        vp2_selfie_harus_menghadap_kamera: "Photo must be clear and facing straight",
+        vp2_selfie_harus_berwarna: "Photo cannot be black and white.",
+        vp2_selfie_harus_terlihat_wajah_jelas: "Clear picture of entire face (no cuts, flash, glasses, hat, mask).",
+        vp2_batalkan: "Cancel",
+        vp2_ajukan_kyc: "Apply KYC",
     }
 };

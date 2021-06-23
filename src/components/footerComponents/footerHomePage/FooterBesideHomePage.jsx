@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../../assets/img/logoArchidax.png";
-// import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Translate from "../../../i18n/Translate";
 
 import axios from "axios";
@@ -107,22 +107,33 @@ export default function FooterBesideHomePage() {
                   {Translate("f2_legal")}
                 </h6>
                 <ul className="list-unstyled mb-0">
-                  {dynamicPages && dynamicPages.legal ? (
-                    dynamicPages.legal.map((pages, pageIndex) => {
+                {
+                  Object.keys(dynamicPages).map((categories, categoryIndex) => {
+                    if (dynamicPages[categories].length) {
                       return (
-                        <li className="mb-3" key={pageIndex}>
-                          <a
-                            href={`/pages/${pages.category}/${pages.pageSlug}`}
-                            className="text-lg-footer font-14"
-                          >
-                            {toTitleCase(pages.pageName)}
-                          </a>
-                        </li>
-                      );
-                    })
-                  ) : (
-                    <></>
-                  )}
+                        <div
+                          key={categoryIndex}
+                          className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2"
+                        >
+                          <h6 className="text-uppercase font-weight-bold mb-4 text-gold">
+                            {categories.toUpperCase()}
+                          </h6>
+                          <ul className="list-unstyled mb-0">
+                            {dynamicPages[categories].map((page, pageIndex) => {
+                              return (
+                                <li className="mb-3" key={pageIndex}>
+                                  <Link to={`/pages/${page.category}/${page.pageSlug}`}>
+                                    {toTitleCase(page.pageName)}
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      )
+                    }
+                  })
+                }
                 </ul>
               </div>
               <div className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2">
