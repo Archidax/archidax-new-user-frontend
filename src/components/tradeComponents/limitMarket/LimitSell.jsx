@@ -10,9 +10,8 @@ import {
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
 
-import { convertNumber } from "../../../assets/js";
-
 import { Link, useParams } from "react-router-dom";
+import { PercentMath } from "../helpers/trade";
 
 export default function Limitsell({ balanceAsset }) {
   let { symbol } = useParams();
@@ -199,7 +198,12 @@ export default function Limitsell({ balanceAsset }) {
                 alignItems: "center",
               }}
               onClick={() =>
-                setInputAmount(Number(25 / 100) * Number(balanceAsset))
+                setInputAmount(
+                  PercentMath({
+                   select: 0,
+                   value: balanceAsset,
+                  }).result
+                )
               }
             >
               <input
@@ -224,7 +228,11 @@ export default function Limitsell({ balanceAsset }) {
                 alignItems: "center",
               }}
               onClick={() =>
-                setInputAmount(Number(50 / 100) * Number(balanceAsset))
+                setInputAmount(
+                  PercentMath({
+                  select: 1,
+                  value: balanceAsset,
+                }).result)
               }
             >
               <input
@@ -249,7 +257,11 @@ export default function Limitsell({ balanceAsset }) {
                 alignItems: "center",
               }}
               onClick={() =>
-                setInputAmount(Number(75 / 100) * Number(balanceAsset))
+                setInputAmount(
+                PercentMath({
+                  select: 2,
+                  value: balanceAsset,
+                }).result)
               }
             >
               <input
@@ -274,7 +286,10 @@ export default function Limitsell({ balanceAsset }) {
                 alignItems: "center",
               }}
               onClick={() =>
-                setInputAmount(Number(100 / 100) * Number(balanceAsset))
+                setInputAmount(PercentMath({
+                  select: 3,
+                  value: balanceAsset,
+                }).result)
               }
             >
               <input

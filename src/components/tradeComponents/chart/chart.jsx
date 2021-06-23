@@ -44,6 +44,10 @@ export default function TradeChartCard(props) {
       fullscreen: props.fullscreen,
       autosize: props.autosize,
       theme: props.theme,
+      format:"price",
+      minmov : 1, 
+      pricescale : 10000000000, 
+      minmove2 : 0,
       style: props.style,
       time_frames: [
         { text: "1d", resolution: "1D", description: "1 Day", title: "1d" },
@@ -62,6 +66,7 @@ export default function TradeChartCard(props) {
         "scalesProperties.textColor": "#AAA",
         "mainSeriesProperties.candleStyle.wickUpColor": "#336854",
         "mainSeriesProperties.candleStyle.wickDownColor": "#7f323f",
+        'mainSeriesProperties.minTick': '1000000000,1000,false'
       },
       timezone: props.timezone,
     };
@@ -94,16 +99,19 @@ export default function TradeChartCard(props) {
       // });
       // di hidden
 
-      tvWidget
-        .chart()
-        .onIntervalChanged()
-        .subscribe(null, function (interval, obj) {
-          if (interval === 15) obj.timeframe = "1D";
-          if (interval === 30) obj.timeframe = "7D";
-          if (interval === 180) obj.timeframe = "30D";
-          if (interval === "1D") obj.timeframe = "6M";
-          if (interval === "7D") obj.timeframe = "5Y";
-        });
+        // tvWidget
+        //   .chart()
+        //   .onIntervalChanged()
+        //   .subscribe(null, function (interval, obj) {
+        //     if (interval === 15) obj.timeframe = "1D";
+        //     if (interval === 30) obj.timeframe = "7D";
+        //     if (interval === 180) obj.timeframe = "30D";
+        //     // if (interval === "1D") obj.timeframe = "6M";
+        //     // if (interval === "7D") obj.timeframe = "5Y";
+        //   });
+        tvWidget.activeChart().createStudy('Moving Average', false, false, [5])
+        tvWidget.activeChart().createStudy('Moving Average', false, false, [25])
+        tvWidget.activeChart().createStudy('Moving Average', false, false, [50])
     });
     return () => {
       if (tvWidget !== null) {

@@ -29,6 +29,7 @@ function TradeChart() {
     studiesOverrides: {},
     timezone: "Asia/Jakarta",
     theme: mode ? "DARK" : "LIGHT",
+    // pricescale: Math.pow(10, 2),
   };
 
   return (
