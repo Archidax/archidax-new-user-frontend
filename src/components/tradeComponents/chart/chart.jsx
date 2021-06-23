@@ -44,6 +44,10 @@ export default function TradeChartCard(props) {
       fullscreen: props.fullscreen,
       autosize: props.autosize,
       theme: props.theme,
+      format:"price",
+      minmov : 1, 
+      pricescale : 10000000000, 
+      minmove2 : 0,
       style: props.style,
       time_frames: [
         { text: "1d", resolution: "1D", description: "1 Day", title: "1d" },
