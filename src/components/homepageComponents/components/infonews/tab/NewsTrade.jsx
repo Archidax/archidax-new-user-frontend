@@ -25,7 +25,7 @@ export default function NewsTrade() {
               return (
                 <div
                   onClick={(e) => {
-                    history.push(`/berita/${val.slug}`);
+                    history.push(`/news/${val.slug}`);
                   }}
                   className="col-12 px-0 pt-2 announcements-content-trade"
                   style={{ cursor: "pointer" }}

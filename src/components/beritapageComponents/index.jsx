@@ -54,8 +54,8 @@ export default function Index () {
         >
           <li className="nav-item">
             <Link
-              to="/berita"
-              className={`nav-link active berita-nav-item ${path === "/berita" ? "active" : ""}`}
+              to="/news"
+              className={`nav-link active berita-nav-item ${path === "/news" ? "active" : ""}`}
               id="pills-berita-tab"
               data-toggle="pill"
               role="tab"
@@ -67,8 +67,8 @@ export default function Index () {
           </li>
           <li className="nav-item">
             <Link
-              to="/berita/pengumuman"
-              className={`nav-link berita-nav-item ${path === "/berita/pengumuman" ? "active" : ""}`}
+              to="/news/announcement"
+              className={`nav-link berita-nav-item ${path === "/news/announcement" ? "active" : ""}`}
               id="pills-pengumuman-tab"
               data-toggle="pill"
               role="tab"
@@ -80,8 +80,8 @@ export default function Index () {
           </li>
           <li className="nav-item">
             <Link
-              to="/berita/artikel"
-              className={`nav-link berita-nav-item ${path === "/berita/artikel" ? "active" : ""}`}
+              to="/news/article"
+              className={`nav-link berita-nav-item ${path === "/news/artikel" ? "active" : ""}`}
               id="pills-artikel-tab"
               data-toggle="pill"
               role="tab"
@@ -94,16 +94,16 @@ export default function Index () {
         </ul>
       </div>
       <Switch>
-        <Route exact path="/berita">
+        <Route exact path="/news">
           <List title={Translate('br_berita')} data={dataBerita.Berita} />
         </Route>
-        <Route exact path="/berita/pengumuman">
+        <Route exact path="/news/announcement">
           <List title={Translate('br_pengumuman')} data={dataBerita.Pengumuman} />
         </Route>
-        <Route exact path="/berita/artikel">
+        <Route exact path="/news/article">
           <List title={Translate('br_artikel')} data={dataBerita.Artikel} />
         </Route>
-        <Route path="/berita/:slug">
+        <Route path="/news/:slug">
           <Content />
         </Route>
       </Switch>

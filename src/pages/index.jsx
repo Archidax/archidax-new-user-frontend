@@ -161,7 +161,7 @@ export default function MainPages() {
             <Route path="/subscribeNews">
               <SubscribedLP />
             </Route>
-            <Route path="/berita">
+            <Route path="/news">
               <Berita />
             </Route>
             <Route path="/syarat-pengguna">
@@ -216,7 +216,7 @@ export default function MainPages() {
               <EmailVerification />
             </Route>
             <Route path="/pages/:category/:pageSlug">
-              <DynamicPage />
+              <DynamicPage flag={flag} setLocale={setLocale} />
             </Route>
             <ProtectedRoute path="/">
               <RouteDashboardPage

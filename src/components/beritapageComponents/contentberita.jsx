@@ -89,7 +89,7 @@ export default function ContentBerita () {
           {
             Recent.length ? 
               Recent.map((news) => {
-                return <Link to={`/berita/${news.slug}`} ><p key={news._id} className="font-12 py-4 m-0" style={{borderBottom: "0.2px solid grey"}}>{news.title}</p></Link>
+                return <Link to={`/news/${news.slug}`} ><p key={news._id} className="font-12 py-4 m-0" style={{borderBottom: "0.2px solid grey"}}>{news.title}</p></Link>
               })
             :
               <p className="title-artikel ci-text-white font-12">{Translate('vc_tidak_ada_data')}</p>

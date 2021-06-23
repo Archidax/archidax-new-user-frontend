@@ -111,10 +111,10 @@ export default function SidebarDashboard(props) {
                 </Link>
               </div>
               <div className="nav-item">
-                <Link className={`ci-nav-link`} to={`/berita`}>
+                <Link className={`ci-nav-link`} to={`/news`}>
                   <span
                     className={`ci-spanText pt-2 pb-2 pl-3 font-14 ${
-                      locationSidebar.pathname === "/berita" ? "active" : ""
+                      locationSidebar.pathname === "/news" ? "active" : ""
                     }`}
                   >
                     <img src={blogIcon} alt="blogIcon" className="mr-3" />
