@@ -3,7 +3,6 @@ import axios from 'axios'
 import errorHandler from '../errorHandler'
 
 export const getMyAssets = (dispatch) => {
-    console.log(`${baseUrl}/account/wallet/myinfo`);
     axios({
         method: "GET",
         url: `${baseUrl}/account/wallet/myinfo`,
@@ -23,8 +22,9 @@ export const getMyProfit = (initialSymbol, dateFrom, dateTo, cb, isLoading) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            let {totalProfit, totalVolumeIdr, initialSymbol } = data
-            cb({totalProfit, totalVolumeIdr, initialSymbol})
+            console.log(data, "SDWDSADW")
+            let {totalProfit, totalVolumeUsdt, initialSymbol } = data
+            cb({totalProfit, totalVolumeUsdt, initialSymbol})
             isLoading(false)
         })
         .catch((err) => {
