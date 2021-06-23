@@ -18,7 +18,7 @@ import PerjanjianPengguna from "./perjanjianpengguna";
 import BeliCrypto from "./belicrypto";
 import PengajuanKoin from "./pengajuanKoin";
 import EmailVerification from "./emailverification";
-
+import LoginToken from "./loginbytoken";
 // Footer Page
 import SyaratPengguna from "../pages/footercontent/SyaratPengguna";
 
@@ -215,6 +215,10 @@ export default function MainPages() {
             <Route path="/email/verify/:key">
               <EmailVerification />
             </Route>
+            <Route path="/loginverify/:key">
+              <LoginToken />
+            </Route>
+            
             <Route path="/pages/:category/:pageSlug">
               <DynamicPage flag={flag} setLocale={setLocale} />
             </Route>

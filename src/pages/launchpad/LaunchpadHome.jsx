@@ -8,7 +8,8 @@ import { convertNumber } from "../../assets/js";
 import moment from "moment";
 import momentTZ from "moment-timezone";
 import HTMLParse from "html-react-parser";
-import WaitingBanner from '../../assets/img/launchpad/waiting.jpg'
+import WaitingBanner from "../../assets/img/launchpad/waiting.jpg";
+import HeaderHomePage from "../../components/headerComponents/headerHomePage";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -35,7 +36,8 @@ function LaunchpadHome() {
 
   return (
     <div className="wrapper">
-      <HeaderDashboard />
+      {/* <HeaderDashboard /> */}
+      <HeaderHomePage />
       <div className="jumbotron-launchpad launchpad-banner">
         <h3 className="text-white text-center font-28 mb-4">
           Archidax Launchpad
@@ -89,7 +91,7 @@ function LaunchpadHome() {
           </div>
         </div>
         <div className="row py-2">
-          {view && view.length > 0 ? 
+          {view && view.length > 0 ? (
             view.map((data, index) => (
               <div className="col col-md-4 col-lg-3 mb-4">
                 <div className="card ci-bg-primary p-2">
@@ -170,7 +172,12 @@ function LaunchpadHome() {
                   </div>
                 </div>
               </div>
-            )) : <div><img alt="waiting" src={WaitingBanner} className="w-100"/></div>}
+            ))
+          ) : (
+            <div>
+              <img alt="waiting" src={WaitingBanner} className="w-100" />
+            </div>
+          )}
         </div>
       </div>
     </div>

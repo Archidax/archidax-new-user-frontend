@@ -6,14 +6,14 @@ import { useSelector } from "react-redux";
 import { getCoinIcon, getCoinName } from "../../../helpers";
 import { convertNumber } from "../../../assets/js";
 import Translate from "../../../i18n/Translate";
-
+import imagesLoading from '../../../assets/img/cryptoIndex/logo2d.png'
 function TableAssetSaya() {
   const history = useHistory();
   const { assets } = useSelector((state) => state?.walletReducer);
   const [isEmpty, setIsEmpty] = useState(false)
   const [view, setView] = useState([])
   const [search, setSearch] = useState('')
-
+  const kyc = useSelector((state) => state.kycReducer);
   useEffect(() => {
     setView(assets);
   }, [assets]);
@@ -30,9 +30,36 @@ function TableAssetSaya() {
 
   return (
     <div
-      className="card"
+      className="card position-relative"
       style={{ backgroundColor: "#151933", border: "none" }}
     >
+      {
+        kyc && !kyc.approved_status &&
+        <div 
+        onClick={() => {
+          history.push("/verification/step1")
+        }}
+        style={{
+          height: '100%',
+          width: '100%',
+          top: 0,
+          left: 0 ,
+          backgroundColor: 'rgba(0,0,0,0.8)',
+          zIndex:99999,
+          position: 'absolute',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+          cursor: 'pointer'
+          
+        }}>
+          <img src={imagesLoading} style={{width: "100px", height: "100px"}} className="ci-loading-img mb-3" alt="Loading..."/>
+          <p className="font-roboto text-white font-24 text-center">
+            You haven't done your KYC. <br/>Please finish it to enjoy our feature!
+          </p>
+        </div>
+      }
       <div className="card-body">
         <div className="row align-items-center mb-3">
           <div className="col-6 col-md-2">

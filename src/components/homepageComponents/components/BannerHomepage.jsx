@@ -5,7 +5,7 @@ import kominfo from "../../../assets/img/homepage/logoOrg/Kominfo.png";
 import abi from "../../../assets/img/homepage/logoOrg/ABI.png";
 import bappebti from "../../../assets/img/homepage/logoOrg/Bappebti.png";
 import group from "../../../assets/img/homepage/logoOrg/group.png";
-import video1 from "../../../assets/video/bg_homepage1.mp4";
+import video1 from "../../../assets/video/old2.mp4";
 
 import Translate from "../../../i18n/Translate";
 import HeaderHomePage from "../../headerComponents/headerHomePage";

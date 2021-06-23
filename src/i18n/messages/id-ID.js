@@ -486,5 +486,23 @@ export default {
         vp1_telepon: "Nomor Telepon Darurat",
         vp1_lanjut: "Lanjut",
 
+        //verification page 2
+        vp2_judul: "Verifikasi Akun",
+        vp2_subjudul1: "Lengkapi data-data berikut sesuai dengan petunjuk di atas.",
+        vp2_subjudul2: "Kami akan menutup akun apabila mencoba mengirimkan data yang tidak serius.",
+        vp2_contoh_foto_benar: "Contoh foto dokumen yang benar",
+        vp2_contoh_selfie_benar: "Contoh foto diri yang benar",
+        vp2_ktp: "Kartu Tanda Pengenal",
+        vp2_ktp_harus_warna: "Foto kartu identitas harus berwarna.",
+        vp2_ktp_harus_jelas: "Semua bagian dokumen harus terlihat jelas.",
+        vp2_ktp_harus_tegak: "Foto kartu identitas tidak boleh miring.",
+        vp2_ktp_harus_terbaca: "Teks pada dokumen harus mudah dibaca. ",
+        vp2_selfie: "Verifikasi Wajah",
+        vp2_selfie_harus_menghadap_kamera: "Foto muka harus cerah dan jelas menghadap kamera",
+        vp2_selfie_harus_berwarna: "Foto harus berwarna.",
+        vp2_selfie_harus_terlihat_wajah_jelas: "Seluruh wajah terlihat jelas (tidak terpotong, tanpa flash, tidak menggunakan kacamata, topi, masker/cadar).",
+        vp2_batalkan: "Batalkan",
+        vp2_ajukan_kyc: "Ajukan KYC",
+
     }
 };
