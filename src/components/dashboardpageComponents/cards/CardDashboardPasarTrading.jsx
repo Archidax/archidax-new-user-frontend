@@ -3,12 +3,15 @@ import PricePasarTrading from "./cardPricePasarTrading/PricePasarTrading";
 import { useSelector } from "react-redux";
 import pasarlogo from "../../../assets/img/dashboard/logo/pasar.svg";
 import Translate from "../../../i18n/Translate";
+import imagesLoading from '../../../assets/img/cryptoIndex/logo2d.png'
+import {useHistory} from 'react-router-dom'
 
 function CardDashboardPasarTrading() {
   const { listingList } = useSelector(
     (state) => state.pasarTradingReducer,
   );
-
+  const kyc = useSelector((state) => state.kycReducer);
+  const history = useHistory()
   return (
     <div
       className="card"
@@ -18,7 +21,34 @@ function CardDashboardPasarTrading() {
         marginBottom: "12px",
       }}
     >
-      <div className="card-body">
+      <div className="card-body position-relative">
+        {
+          kyc && !kyc.approved_status &&
+          <div 
+          onClick={() => {
+            history.push("/verification/step1")
+          }}
+          style={{
+            height: '100%',
+            width: '100%',
+            top: 0,
+            left: 0 ,
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            zIndex:99999,
+            position: 'absolute',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+            cursor: 'pointer'
+            
+          }}>
+            <img src={imagesLoading} style={{width: "100px", height: "100px"}} className="ci-loading-img mb-3" alt="Loading..."/>
+            <p className="font-roboto text-white font-24 text-center">
+              You haven't done your KYC. <br/>Please finish it to enjoy our feature!
+            </p>
+          </div>
+        }
         <div className="d-flex flex-direction-row justify-content-between pl-1 pr-4 mb-2">
           <div className="d-flex flex-direction-row">
             <div
