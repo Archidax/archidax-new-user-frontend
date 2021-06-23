@@ -22,8 +22,9 @@ export const getMyProfit = (initialSymbol, dateFrom, dateTo, cb, isLoading) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            let {totalProfit, totalVolumeIdr, initialSymbol } = data
-            cb({totalProfit, totalVolumeIdr, initialSymbol})
+            console.log(data, "SDWDSADW")
+            let {totalProfit, totalVolumeUsdt, initialSymbol } = data
+            cb({totalProfit, totalVolumeUsdt, initialSymbol})
             isLoading(false)
         })
         .catch((err) => {
