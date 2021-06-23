@@ -75,6 +75,7 @@
 
 .dd-homepage:hover {
   padding: 0.7rem;
-  background-color: rgb(185, 185, 185);
+  // background-color: rgb(185, 185, 185);
+  background: rgba($color: #f9ba42, $alpha: 0.2);
   border-radius: 5px;
 }

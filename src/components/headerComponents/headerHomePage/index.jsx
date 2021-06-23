@@ -88,7 +88,7 @@ function HeaderHomePage(props) {
                 <i class="fa fa-th-large mr-2" style={{ color: "#f9ba42" }}></i>
               </div>
               <div
-                class="dropdown-menu py-0 bg-dropdown-homepage"
+                class="dropdown-menu py-0 bg-dropdown-homepage bg-dd-homepage"
                 aria-labelledby="dropdownMenuButton"
               >
                 <div className="row">
