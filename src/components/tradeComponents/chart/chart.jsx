@@ -30,7 +30,7 @@ export default function TradeChartCard(props) {
         "use_localstorage_for_settings",
         "header_interval_dialog_button",
         "header_compare",
-        "widget_logo",
+        // "widget_logo",
         "header_symbol_search",
         // "go_to_date",
         // "mouse_wheel_scale",

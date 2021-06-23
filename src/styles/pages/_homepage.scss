@@ -989,7 +989,6 @@
     background-color: transparent;
     color: #fff;
     border-radius: 0px;
-    height: 40px;
     font-size: 14px;
     text-align: center;
     font-weight: 500;
@@ -1000,7 +999,6 @@
     // background: $base-color-tabs-mainchart-active;
     border-bottom: 1px solid rgba(249, 186, 66, 0.6);
     border-radius: 0px;
-    height: 40px;
     font-size: 14px;
     text-align: center;
     font-weight: 500;
@@ -1011,7 +1009,7 @@
   position: fixed;
   top: 0vh;
   z-index: -1;
-  width: 100%;
+  // width: 100%;
   // width: 2000px;
   // height: 800px;
 
@@ -1020,6 +1018,15 @@
   // -o-transform: scale(1.4);
   // -ms-transform: scale(1.4);
   // transform: scale(1.4);
+}
+
+@media (min-width: 1400px) {
+  #homepageVideo {
+    position: fixed;
+    top: 0vh;
+    z-index: -1;
+    width: 100%;
+  }
 }
 
 .content-home {
@@ -1033,3 +1040,65 @@
 }
 
 //
+.width-homepage-info-news {
+  width: 90%;
+  margin: auto;
+}
+@media (min-width: 1024px) {
+  .width-homepage-info-news {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+.height-homepage-info-news {
+  height: 55px;
+}
+@media (min-width: 1024px) {
+  .height-homepage-info-news {
+    height: 40px;
+  }
+}
+
+.height-homepage-info-news2 {
+  height: 55px;
+}
+@media (min-width: 1024px) {
+  .height-homepage-info-news2 {
+    height: 40px;
+  }
+}
+
+.font-news-responsive {
+  font-size: 12px;
+}
+@media (min-width: 1024px) {
+  .font-news-responsive {
+    font-size: 15px;
+  }
+}
+
+// Bull Bearish
+.bull-bear {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .bull-bear {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.bull-bear2 {
+  width: 120px;
+}
+@media (min-width: 1024px) {
+  .bull-bear2 {
+    width: 150px;
+  }
+}
+
+.custom-toggler2.navbar-toggler {
+  border: 0px solid;
+}

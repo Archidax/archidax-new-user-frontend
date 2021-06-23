@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import banner1 from "../../../../assets/img/homepage/announcements/banner_listing1.jpg";
-import banner2 from "../../../../assets/img/homepage/announcements/banner_listing2.png";
+import banner2 from "../../../../assets/img/homepage/announcements/banner_listing2.jpg";
 
-import banner4 from "../../../../assets/img/homepage/announcements/banner_listing4.png";
-import banner5 from "../../../../assets/img/homepage/announcements/banner_listing5.png";
+import banner4 from "../../../../assets/img/homepage/announcements/banner_listing4.jpg";
+import banner5 from "../../../../assets/img/homepage/announcements/banner_listing5.jpg";
 
 export default class Slider1Announcement extends Component {
   render() {

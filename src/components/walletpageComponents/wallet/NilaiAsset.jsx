@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ChartNilaiAsset from "../chart/ChartNilaiAsset";
 import bgAsset from "../../../assets/img/wallet/bg-asset.png";
+import NumberFormat from "react-number-format";
 
 import { useDispatch, useSelector } from "react-redux";
 import { convertNumber } from "../../../assets/js";
@@ -164,7 +165,7 @@ function NilaiAsset() {
                       {
                         dataProfit&&
                         <div className="form-group mb-0 font-bold font-14 text-white py-1 pl-2">
-                          Rp.{convertNumber.toMoney(Math.round(dataProfit.totalProfit))}
+                          USDT <NumberFormat value={Number(dataProfit.totalProfit)} decimalScale={7} displayType={'text'} fixedDecimalScale={true} thousandSeparator={true} />
                         </div>
                       }
                     </div>
@@ -181,7 +182,7 @@ function NilaiAsset() {
                           </option>
                           {
                             assets.map((el, index) => {
-                              if(el.detail_crypto&&el.detail_crypto.active&&!el.detail_crypto.in_repair) {
+                              if(el.detail_crypto&&el.detail_crypto.active&&!el.isMaintained) {
                                 return(
                                   <option value={el.type}>{el.type}</option>
                                 )
@@ -234,9 +235,9 @@ function NilaiAsset() {
                       <p className="text-right mb-2 mt-2 text-white">
                       {
                         dataProfit?
-                          convertNumber.toRupiah(dataProfit.totalVolumeIdr)
+                          <NumberFormat value={Number(dataProfit.totalVolumeUsdt)} decimalScale={7} displayType={'text'} fixedDecimalScale={true} thousandSeparator={true} />
                         :0
-                      } IDR
+                      } USDT
                       </p>
                     </div>
                   </div>

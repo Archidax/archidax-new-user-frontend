@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import dateFormat from 'dateformat'
 import { kodePosFormatError } from '../../stores/errorHandler'
 import province from '../../pages/provinces'
+import Translate from "../../i18n/Translate";
 // const countries_code = [
 //     "+62", "+60", "+61"
 // ]
@@ -29,7 +30,7 @@ function VerificationPage1() {
         berlakuHingga: "",
         namaKerabat: "",
         hubunganKerabat: "",
-        nomorTeleponDarurat: ""
+        nomorTeleponDarurat: "+62"
     })
 
     const [provinsi, setProvinsi] = useState("")
@@ -78,36 +79,36 @@ function VerificationPage1() {
         <div className="container-fluid p-4" style={{ height: "92vh" }}>
             {/* {JSON.stringify(input)} */}
             <div className="text-white font-12 p-3" style={{ backgroundColor: "#151933", border: "none" }}>
-                <h2 className="font-14 font-bold text-gold">Verifikasi Akun</h2>
-                <div>Lengkapi data-data berikut sesuai dengan petunjuk di atas.</div>
-                <div>Kami akan menutup akun apabila mencoba mengirimkan data yang tidak serius.</div>
+                <h2 className="font-14 font-bold text-gold">{Translate('vp1_judul')}</h2>
+                <div>{Translate('vp1_subjudul1')}</div>
+                <div>{Translate('vp1_subjudul2')}</div>
                 <div className="p-5 border mt-3">
                     <div className="d-flex justify-content-center mb-5">
                         <VerificationStep step1={true} />
                     </div>
 
-                    <h3 className="font-12 font-bold text-gold">Formulir Verifikasi</h3>
+                    <h3 className="font-12 font-bold text-gold">{Translate('vp1_judul_group_form_formulir')}</h3>
 
                     {/* First Row */}
                     <div className="row">
                         <div className="col-12 col-md-6">
                             <div className="mb-3">
-                                <label for="namaLengkap" className="form-label">Nama Lengkap</label>
+                                <label for="namaLengkap" className="form-label">{Translate('vp1_nama_lengkap')}</label>
                                 <div className="input-group ci-inputDefault-bg">
-                                    <input placeholder="Nama Lengkap" onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="namaLengkap"/>
+                                    <input onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="namaLengkap"/>
                                 </div>
                             </div>
                         </div>
                         <div className="col-12 col-md-6">
                             <div className="row">
                                 <div className="col-12 col-md-6">
-                                    <label for="tempatLahir" className="form-label">Tempat Lahir</label>
+                                    <label for="tempatLahir" className="form-label">{Translate('vp1_tempat_lahir')}</label>
                                     <div className="input-group ci-inputDefault-bg">
-                                        <input placeholder="Tempat lahir" onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="tempatLahir"/>
+                                        <input onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="tempatLahir"/>
                                     </div>
                                 </div>
                                 <div className="col-12 col-md-6">
-                                    <label for="wargaNegara" className="form-label">Tanggal Lahir</label>
+                                    <label for="wargaNegara" className="form-label">{Translate('vp1_tanggal_lahir')}</label>
                                     <div className="input-group ci-inputDefault-bg">
                                         <input placeholder="Tanggal lahir" onChange={(e) => inputHandler(e)} type="date" max={dateFormat(new Date().setFullYear(new Date().getFullYear() - 17),"yyyy-mm-dd")}  className="form-control ci-inputDefault-bg-input ci-pd" name="tanggalLahir"/>
                                     </div>
@@ -120,7 +121,7 @@ function VerificationPage1() {
                     {/* Second Row */}
                     <div className="row">
                         <div className="col-12 col-md-3">
-                            <label for="tempatLahir" className="form-label">Jenis Kelamin</label>
+                            <label for="tempatLahir" className="form-label">{Translate('vp1_jenis_kelamin')}</label>
                             <div className="row m-0 no-gutters">
                                 <div className="form-check col-6">
                                     <label class="mt-2 font-roboto label-title2">
@@ -128,7 +129,7 @@ function VerificationPage1() {
                                             setInput({...input, jenisKelamin: "Laki - Laki"})
                                         }} type="radio" name="jenisKelamin" />
                                         <span class="checkmark" className="mr-2"></span>
-                                        Laki-laki
+                                        {Translate('vp1_jenis_kelamin_pria')}
                                     </label>
                                     {/* <input className="form-check-input" onChange={(e) => {
                                         setInput({...input, jenisKelamin: "Laki - Laki"})
@@ -143,7 +144,7 @@ function VerificationPage1() {
                                             setInput({...input, jenisKelamin: "Perempuan"})
                                         }} type="radio" name="jenisKelamin"/>
                                         <span class="checkmark" className="mr-2"></span>
-                                        Perempuan
+                                        {Translate('vp1_jenis_kelamin_wanita')}
                                     </label>
                                     {/* <input onChange={(e) => {
                                         setInput({...input, jenisKelamin: "Perempuan"})
@@ -155,13 +156,13 @@ function VerificationPage1() {
                             </div>
                         </div>
                         <div className="col-12 col-md-3">
-                            <label for="pekerjaan" className="form-label">Pekerjaan</label>
+                            <label for="pekerjaan" className="form-label">{Translate('vp1_pekerjaan')}</label>
                             <div className="input-group ci-inputDefault-bg">
-                                <input placeholder="Nama Pekerjaan" onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="pekerjaan"/>
+                                <input onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="pekerjaan"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-3">
-                            <label for="wargaNegara" className="form-label">Warga Negara</label>
+                            <label for="wargaNegara" className="form-label">{Translate('vp1_warga_negara')}</label>
                             <Dropdown dataOptions={countries} value={input.wargaNegara} onChange={(val) => {
                                 setInput({...input, wargaNegara: val})
                             }} searchBar={true}/>
@@ -175,12 +176,12 @@ function VerificationPage1() {
                     </div>
 
                     {/* Third Row */}
-                    <label for="namaLengkap" className="form-label">Alamat</label>
+                    <label for="namaLengkap" className="form-label">{Translate('vp1_alamat')}</label>
                     <div className="row">
                         <div className="col-12 col-md-3">
                             <div className="mb-3">
                                 <div className="input-group ci-inputDefault-bg">
-                                    <input placeholder="Alamat domisili" onChange={(e) => setJalan(e.target.value)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="jalan"/>
+                                    <input onChange={(e) => setJalan(e.target.value)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="jalan"/>
                                 </div>
                             </div>
                         </div>
@@ -201,7 +202,7 @@ function VerificationPage1() {
                                         if(e.target.value.length<=5){
                                             setKodePos(e.target.value)
                                         }
-                                    }} type="text" placeholder="Kode POS" value={kodePos} className="form-control ci-inputDefault-bg-input ci-pd" name="kodepos"/>
+                                    }} type="text" placeholder="Post Code" value={kodePos} className="form-control ci-inputDefault-bg-input ci-pd" name="kodepos"/>
                                 </div>
                             </div>
                         </div>
@@ -209,18 +210,18 @@ function VerificationPage1() {
 
                     {/* Fourth Row */}
                     <hr style={{ borderTop: "1px solid white" }} />
-                    <h3 className="font-12 font-bold text-gold">Kartu Identitas</h3>
+                    <h3 className="font-12 font-bold text-gold">{Translate('vp1_judul_group_form_kartu_identitas')}</h3>
                     <div className="row">
                         <div className="col-12 col-md-3">
-                            <label for="nomorIdentitas" className="form-label">No. KTP/SIM/Passport</label>
+                            <label for="nomorIdentitas" className="form-label">{Translate('vp1_kartu_id')}</label>
                             <div className="input-group ci-inputDefault-bg">
-                                <input placeholder="Nomer identitas" onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="nomorIdentitas"/>
+                                <input onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="nomorIdentitas"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-3">
-                            <label for="berlakuHingga" className="form-label">Berlaku Hingga</label>
+                            <label for="berlakuHingga" className="form-label">{Translate('vp1_berlaku_hingga')}</label>
                             <div className="input-group ci-inputDefault-bg">
-                                <input placeholder="Tgl. kadaluarsa" disabled={input.berlakuHingga === 'Seumur Hidup'} max={dateFormat(new Date().setFullYear(new Date().getFullYear() - 17),"yyyy-mm-dd")} value={input.berlakuHingga === "Seumur Hidup" ? "" : dateFormat(input.berlakuHingga, "yyyy-mm-dd")} onChange={(e) => {
+                                <input disabled={input.berlakuHingga === 'Seumur Hidup'} max={dateFormat(new Date().setFullYear(new Date().getFullYear() - 17),"yyyy-mm-dd")} value={input.berlakuHingga === "Seumur Hidup" ? "" : dateFormat(input.berlakuHingga, "yyyy-mm-dd")} onChange={(e) => {
                                     inputHandler(e)
                                 }} type="date" className="form-control ci-inputDefault-bg-input ci-pd" name="berlakuHingga"/>
                             </div>
@@ -234,7 +235,7 @@ function VerificationPage1() {
                                         }
                                     }} />
                                     <span class="checkmark" className="mr-2"></span>
-                                    Seumur Hidup
+                                    {Translate('vp1_berlaku_hingga_checklist')}
                                 </label>
                             </div>
                         </div>
@@ -243,28 +244,28 @@ function VerificationPage1() {
 
                     {/* Fifth Row */}
                     <hr style={{ borderTop: "1px solid white" }} />
-                    <h3 className="font-12 font-bold text-gold">Kontak Darurat</h3>
+                    <h3 className="font-12 font-bold text-gold">{Translate('vp1_judul_group_form_kontak')}</h3>
                     <div className="row">
                         <div className="col-12 col-md-3">
-                            <label for="namaKerabat" className="form-label">Nama Kerabat</label>
+                            <label for="namaKerabat" className="form-label">{Translate('vp1_nama_kerabat')}</label>
                             <div className="input-group ci-inputDefault-bg">
-                                <input placeholder="Kontak darurat" onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="namaKerabat"/>
+                                <input onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="namaKerabat"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-3">
-                            <label for="hubunganKerabat" className="form-label">Hubungan Kerabat</label>
+                            <label for="hubunganKerabat" className="form-label">{Translate('vp1_hubungan_kerabat')}</label>
                             <div className="input-group ci-inputDefault-bg">
-                                <input placeholder="Relasi" onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="hubunganKerabat"/>
+                                <input onChange={(e) => inputHandler(e)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="hubunganKerabat"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-3">
-                            <label for="hubunganKerabat" className="form-label">Nomor Telepon Darurat</label>
+                            <label for="hubunganKerabat" className="form-label">{Translate('vp1_telepon')}</label>
                             <div className="input-group ci-inputDefault-bg">
-                                <input value={"+62 - "+ input.nomorTeleponDarurat} onChange={e => {
-                                if(e.target.value === "+62 - " || !isNaN(e.target.value[e.target.value.length - 1])){
+                                <input value={input.nomorTeleponDarurat} onChange={e => {
+                                // if(e.target.value === "+62 - " || !isNaN(e.target.value[e.target.value.length - 1])){
                                     setInput({...input, nomorTeleponDarurat :e.target.value.slice(6)})
-                                }
-                            }} type="text" placeholder="Nomer telefon darurat"  className="form-control ci-inputDefault-bg-input ci-pd" name="nomorTeleponDarurat"/>
+                                // }
+                            }} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="nomorTeleponDarurat"/>
                             </div>
                         </div>
                         {/* <div className="col-12 col-md-3">
@@ -287,10 +288,10 @@ function VerificationPage1() {
                     
                     {/* Submit */}
                     <div className="m-0 d-flex justify-content-end">
-                        <button onClick={(e) => handleSubmit(e)} className="px-5 py-2 px-md-5 py-md-2 border-0 mt-3" style={{ backgroundColor: "#F9BD00" }}>Lanjut</button>
+                        <button onClick={(e) => handleSubmit(e)} className="px-5 py-2 px-md-5 py-md-2 border-0 mt-3" style={{ backgroundColor: "#F9BD00" }}>{Translate('vp1_lanjut')}</button>
                     </div>
                 </div>
-            </div>
+            </div>12
         </div>
     )
 }
