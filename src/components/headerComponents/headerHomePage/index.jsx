@@ -85,12 +85,11 @@ function HeaderHomePage(props) {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <i class="fa fa-th-large mr-2"></i>
+                <i class="fa fa-th-large mr-2" style={{ color: "#f9ba42" }}></i>
               </div>
               <div
-                class="dropdown-menu py-0"
+                class="dropdown-menu py-0 bg-dropdown-homepage"
                 aria-labelledby="dropdownMenuButton"
-                style={{ width: "1000px" }}
               >
                 <div className="row">
                   <div className="col">
@@ -103,7 +102,7 @@ function HeaderHomePage(props) {
                         <div>
                           <img src={spotmarketlogo} width="38px" />
                         </div>
-                        <div className="ml-2 text-black">
+                        <div className="ml-2 text-white">
                           <h6 className="mb-0">Spot Market</h6>
                           <p className="mb-0 font-11">
                             Lorem ipsum dolor sit amet.
@@ -122,7 +121,7 @@ function HeaderHomePage(props) {
                         <div>
                           <img src={launchpadlogo} width="38px" />
                         </div>
-                        <div className="ml-2 text-black">
+                        <div className="ml-2 text-white">
                           <h6 className="mb-0">Launchpad</h6>
                           <p className="mb-0 font-11">
                             Lorem ipsum dolor sit amet.
@@ -141,7 +140,7 @@ function HeaderHomePage(props) {
                         <div>
                           <img src={derivativelogo} width="38px" />
                         </div>
-                        <div className="ml-2 text-black">
+                        <div className="ml-2 text-white">
                           <h6 className="mb-0">Derivative</h6>
                           <p className="mb-0 font-11">
                             Lorem ipsum dolor sit amet.
@@ -160,7 +159,7 @@ function HeaderHomePage(props) {
                         <div>
                           <img src={archiswaplogo} width="38px" />
                         </div>
-                        <div className="ml-2 text-black">
+                        <div className="ml-2 text-white">
                           <h6 className="mb-0">Archiswap</h6>
                           <p className="mb-0 font-11">
                             Lorem ipsum dolor sit amet.
@@ -181,7 +180,7 @@ function HeaderHomePage(props) {
                         <div>
                           <img src={archibotlogo} width="38px" />
                         </div>
-                        <div className="ml-2 text-black">
+                        <div className="ml-2 text-white">
                           <h6 className="mb-0">Archibot</h6>
                           <p className="mb-0 font-11">
                             Lorem ipsum dolor sit amet.
@@ -200,7 +199,7 @@ function HeaderHomePage(props) {
                         <div>
                           <img src={lendmarklogo} width="38px" />
                         </div>
-                        <div className="ml-2 text-black">
+                        <div className="ml-2 text-white">
                           <h6 className="mb-0">Lendmark</h6>
                           <p className="mb-0 font-11">
                             Lorem ipsum dolor sit amet.
@@ -219,7 +218,7 @@ function HeaderHomePage(props) {
                         <div>
                           <img src={digifundlogo} width="38px" />
                         </div>
-                        <div className="ml-2 text-black">
+                        <div className="ml-2 text-white">
                           <h6 className="mb-0">Digifund</h6>
                           <p className="mb-0 font-11">
                             Lorem ipsum dolor sit amet.
@@ -238,7 +237,7 @@ function HeaderHomePage(props) {
                         <div>
                           <img src={archiratorlogo} width="38px" />
                         </div>
-                        <div className="ml-2 text-black">
+                        <div className="ml-2 text-white">
                           <h6 className="mb-0">Archirator</h6>
                           <p className="mb-0 font-11">
                             Lorem ipsum dolor sit amet.
