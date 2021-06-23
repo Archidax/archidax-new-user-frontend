@@ -25,6 +25,7 @@ import SyaratPengguna from "../pages/footercontent/SyaratPengguna";
 import ProtectedRoute from "./protectedRoute";
 // import ProtectedLogin from "./protectedLogin";
 // import ProtectedGAuth from "./protectedGAuth";
+import KeepAlive from "../configuration/keepAlive";
 
 // i18n
 import { I18nProvider, LOCALES } from "../i18n";
@@ -223,11 +224,13 @@ export default function MainPages() {
               <DynamicPage flag={flag} setLocale={setLocale} />
             </Route>
             <ProtectedRoute path="/">
-              <RouteDashboardPage
-                flag={flag}
-                locale={locale}
-                setLocale={setLocale}
-              />
+              <KeepAlive>
+                <RouteDashboardPage
+                  flag={flag}
+                  locale={locale}
+                  setLocale={setLocale}
+                />
+              </KeepAlive>
             </ProtectedRoute>
             {/* <ProtectedRoute path="/dashboard">
                 <Dashboard />
