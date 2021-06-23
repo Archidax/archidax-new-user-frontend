@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NumberFormat from "react-number-format";
-// import buylogo from "../../../assets/img/trade/buy.png";
+
 import buylogo from "../../../assets/img/trade/icon/arrowbuy.svg";
 import walletlogo from "../../../assets/img/trade/wallet.png";
 import { PercentMath } from "../helpers/trade";
