@@ -6,9 +6,9 @@ import Dropdown from '../../components/dropdown'
 import Translate from "../../i18n/Translate";
 
 // images
-import max3mb from '../../assets/img/max3mb.svg'
-import ktp from '../../assets/img/ktp.svg'
-import selfie from '../../assets/img/selfie.svg'
+import max3mb from '../../assets/img/uploadhere.svg'
+import ktp from '../../assets/img/idcard.svg'
+import selfie from '../../assets/img/pegangidcard.svg'
 import { useHistory } from 'react-router-dom'
 import {imageSizeError} from '../../stores/errorHandler'
 
@@ -74,8 +74,8 @@ function VerificationPage2() {
                                         <img src={idCardImg?  URL.createObjectURL(idCardImg) : max3mb} style={{
                                             borderRadius: "15px",
                                             backgroundColor: 'grey',
-                                            height: '180px',
-                                            width: '240px',
+                                            height: '260px',
+                                            width: '260px',
                                             objectPosition: 'center',
                                             objectFit: 'cover',
                                             cursor: 'pointer',
@@ -92,8 +92,8 @@ function VerificationPage2() {
                                         <img src={ktp} style={{
                                             borderRadius: "15px",
                                             backgroundColor: 'grey',
-                                            height: '180px',
-                                            width: '240px',
+                                            height: '260px',
+                                            width: '260px',
                                             objectPosition: 'center',
                                             objectFit: 'cover',
                                         }} alt="ktp" className="img-fluid w-100" />
@@ -120,8 +120,8 @@ function VerificationPage2() {
                                         <img src={selfieImg?  URL.createObjectURL(selfieImg) : max3mb} style={{
                                             borderRadius: "15px",
                                             backgroundColor: 'grey',
-                                            height: '180px',
-                                            width: '240px',
+                                            height: '260px',
+                                            width: '260px',
                                             objectPosition: 'center',
                                             objectFit: 'cover',
                                             cursor: 'pointer',
@@ -138,8 +138,8 @@ function VerificationPage2() {
                                         <img src={selfie} style={{
                                             borderRadius: "15px",
                                             backgroundColor: 'grey',
-                                            height: '180px',
-                                            width: '240px',
+                                            height: '260px',
+                                            width: '260px',
                                             objectPosition: 'center',
                                             objectFit: 'cover',
                                         }} alt="selfie" className="img-fluid w-100" />

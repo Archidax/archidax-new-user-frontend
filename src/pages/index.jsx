@@ -188,6 +188,7 @@ export default function MainPages() {
             <Route path="/gauth">
               <GAuth />
             </Route>
+            
             {/* <Route path={`/chart/:pair`}>
               <AdvanceChart />
             </Route> */}
