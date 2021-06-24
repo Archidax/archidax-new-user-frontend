@@ -190,8 +190,8 @@ function SetorCryptoTabs() {
                                     {
                                         coinDetails.address === null ? (
                                             <div className="text-center mt-4">
-                                                <div className="my-3 font-14">Kamu belum mengaktifkan alamat penyetoran untuk {coinName}</div>
-                                                <button className="px-5 py-3 ci-bg-secondary font-12 text-white border-0" onClick={() => aktifkan()}>Aktifkan</button>
+                                                <div className="my-3 font-14">You haven't activate deposit address for {coinName}</div>
+                                                <button className="px-5 py-3 ci-bg-secondary font-12 text-white border-0" onClick={() => aktifkan()}>Activate</button>
                                             </div>
                                         ) :
                                             (
