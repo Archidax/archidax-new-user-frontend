@@ -66,7 +66,7 @@ export default function TradeChartCard(props) {
         "scalesProperties.textColor": "#AAA",
         "mainSeriesProperties.candleStyle.wickUpColor": "#336854",
         "mainSeriesProperties.candleStyle.wickDownColor": "#7f323f",
-        'mainSeriesProperties.minTick': '1000000000,1000,false'
+        'mainSeriesProperties.minTick': '1000000000,1,false'
       },
       timezone: props.timezone,
     };
