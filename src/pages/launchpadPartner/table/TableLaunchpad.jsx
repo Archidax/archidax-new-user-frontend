@@ -21,6 +21,7 @@ function TableLaunchpad({ data }) {
                                     <th className="ci-tableHeads-custom-2 text-white">{Translate('Project Name')}</th>
                                     <th className="ci-tableHeads-custom-2 text-white">{Translate('Industry')}</th>
                                     <th className="ci-tableHeads-custom-2 text-white">{Translate('Coin Name')}</th>
+                                    <th className="ci-tableHeads-custom-2 text-white">{Translate('Round')}</th>
                                     <th className="ci-tableHeads-custom-2 text-white">{Translate('Start Time')}</th>
                                     <th className="ci-tableHeads-custom-2 text-white">{Translate('End Time')}</th>
                                     <th className="ci-tableHeads-custom-2 text-white">{Translate('Action')}</th>
@@ -34,11 +35,12 @@ function TableLaunchpad({ data }) {
                                             <td className="font-13 text-white">{el.project_name}</td>
                                             <td className="font-13 text-white">{el.industry}</td>
                                             <td className="font-13 text-white">{el.asset_name}</td>
+                                            <td className="font-13 text-white">{el.round}</td>
                                             <td className="font-13 text-white">{moment(el.start_sale_time).format("DD / MM / YY hh:mm")}</td>
                                             <td className="font-13 text-white">{moment(el.end_sale_time).format("DD / MM / YY hh:mm")}</td>
                                             <td className="font-13 text-white">
                                                 <div className="ci-asset-btn-aksi">
-                                                    <Link to={`launchpad-partner/${el._id._id}`}>
+                                                    <Link to={`launchpad-partner/${el._id._id}?round=${el.round}`}>
                                                         <button
                                                             className={`py-1 px-3 w-100 p-0 ci-btn-custom-1`}
                                                         >

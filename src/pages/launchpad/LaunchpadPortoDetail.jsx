@@ -46,7 +46,7 @@ function LaunchpadPortoDetail() {
                         <div className="row d-flex justify-content-between text-white mt-3">
                             <div className="col-4 d-flex">
                                 <div className="mr-2">
-                                    <img src={!transactions && !transactions.data ? "#" : transactions.data[0].coinImage} style={{ width: "45px" }} alt="logo" />
+                                    <img src={!transactions && !transactions.data[0] ? "#" : transactions.data[0].coinImage} style={{ width: "45px" }} alt="logo" />
                                 </div>
                                 <div className="mr-4">
                                     <div className=""><span className="font-bold text-gold">{transactions.data[0].currency_quote}</span></div>

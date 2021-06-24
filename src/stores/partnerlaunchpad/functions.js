@@ -12,6 +12,7 @@ export const getAllMyLaunchpad = (status, dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
+            console.log(data.data)
             dispatch({ type: "SET_ALL_MY_LAUNCHPAD", data: data.data })
         })
         .catch(err => errorHandler(err))
@@ -31,23 +32,24 @@ export const getMyLaunchpadDetail = (id, dispatch) => {
 }
 
 
-export const getPartnerLaunchpadStats = (idCoin, dispatch) => {
+export const getPartnerLaunchpadStats = (idCoin, round, dispatch) => {
+    console.log(round, ">>")
     axios({
         method: "GET",
-        url: `${baseUrlTrade}/api/v1/launchpad/IEO/dashboard?idCoin=${idCoin}`,
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/dashboard?id=${idCoin}&round=${round}`,
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
             console.log(data, "<<db")
-            dispatch({ type: "SET_MY_LAUNCHPAD_DETAIL", data: data.data })
+            dispatch({ type: "SET_MY_LAUNCHPAD_STATS", data: data })
         })
         .catch(err => errorHandler(err))
 }
 
-export const getPartnerLaunchpadSubs = (id, limit, page, dispatch) => {
+export const getPartnerLaunchpadSubs = (id, round, limit, page, dispatch) => {
     axios({
         method: "GET",
-        url: `${baseUrlTrade}/api/v1/launchpad/IEO/subscription?page=${page}&limit=${limit}&id=${id}`,
+        url: `${baseUrlTrade}/api/v1/launchpad/IEO/subscription?page=${page}&limit=${limit}&id=${id}&round=${round}`,
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
