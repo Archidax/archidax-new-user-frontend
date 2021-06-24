@@ -2,7 +2,10 @@ const initialState = {
     myLaunchpad: [],
     myLaunchpadDetail: null,
 
-    myLaunchpadSubscription: null
+    myLaunchpadSubscription: null,
+    myLaunchpadStats: null,
+
+    roundPrefered: null
 
 }
 
@@ -23,6 +26,18 @@ const partnerLaunchpadReducer = ((state = initialState, action) => {
             return {
                 ...state,
                 myLaunchpadSubscription: data
+            }
+        case "SET_MY_LAUNCHPAD_STATS":
+            return {
+                ...state,
+                myLaunchpadStats: data
+            }
+
+        case "SET_COIN_ROUND":
+            console.log("here")
+            return {
+                ...state,
+                roundPrefered : data
             }
         default:
             return state;
