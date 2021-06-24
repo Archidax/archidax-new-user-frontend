@@ -57,7 +57,7 @@ export const login = (dispatch, data, remember, history, ip) => {
         .then(async (response) => {
             Popup.close()
             Popup.fire({
-                title: "Berhasil!",
+                title: "Success",
                 text: response.data.message,
                 onClickOk: () => {
                     history.replace('/login')
@@ -103,7 +103,7 @@ export const register = (dispatch, data, history) => {
     baseAxios.post("/users/register", data)
         .then((response) => {
             Popup.fire({
-                title: "Berhasil",
+                title: "Success",
                 text: response.data.message,
                 onClickOk: () => {
                     history.push('/login')
