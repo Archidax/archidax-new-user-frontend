@@ -9,8 +9,10 @@ import { sendStepOne } from '../../stores'
 import { useDispatch, useSelector } from 'react-redux'
 import dateFormat from 'dateformat'
 import { kodePosFormatError } from '../../stores/errorHandler'
-import province from '../../pages/provinces'
+// import province from '../../pages/provinces'
 import Translate from "../../i18n/Translate";
+import PhoneInput from "react-phone-input-2";
+
 // const countries_code = [
 //     "+62", "+60", "+61"
 // ]
@@ -19,6 +21,7 @@ function VerificationPage1() {
     const dispatch = useDispatch()
 
     const kyc = useSelector((state) => state.kycReducer);
+
     const [input, setInput] = useState({
         namaLengkap: "",
         tempatLahir: "",
@@ -32,15 +35,11 @@ function VerificationPage1() {
         hubunganKerabat: "",
         nomorTeleponDarurat: "+62"
     })
-
     const [provinsi, setProvinsi] = useState("")
     const [kota, setKota] = useState("")
     const [jalan, setJalan] = useState("")
     const [kodePos, setKodePos] = useState("")
-
-
-    const [kotaArr, setKotaArr] = useState([])
-
+    // const [kotaArr, setKotaArr] = useState([])
 
     const inputHandler = (e) => {
         const { name, value } = e.target
@@ -48,8 +47,6 @@ function VerificationPage1() {
             ...input, [name]: value
         })
     }
-
-
 
     const history = useHistory()
     const handleSubmit = (e) => {
@@ -66,14 +63,15 @@ function VerificationPage1() {
             history.push("/verification/step2");
         }
     },[history,kyc])
-    useEffect(() => {
-        if(provinsi){
-            setKota("")
-            setKotaArr(province[provinsi])
-        }else {
-            setKotaArr([])
-        }
-    }, [provinsi])
+
+    // useEffect(() => {
+    //     if(provinsi){
+    //         setKota("")
+    //         setKotaArr(province[provinsi])
+    //     }else {
+    //         setKotaArr([])
+    //     }
+    // }, [provinsi])
 
     return (
         <div className="container-fluid p-4" style={{ height: "92vh" }}>
@@ -176,9 +174,10 @@ function VerificationPage1() {
                     </div>
 
                     {/* Third Row */}
-                    <label for="namaLengkap" className="form-label">{Translate('vp1_alamat')}</label>
+                    <label for="namaLengkap" className="form-label"></label>
                     <div className="row">
                         <div className="col-12 col-md-3">
+                            <label for="namaLengkap" className="form-label">{Translate('vp1_alamat')}</label>
                             <div className="mb-3">
                                 <div className="input-group ci-inputDefault-bg">
                                     <input onChange={(e) => setJalan(e.target.value)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="jalan"/>
@@ -187,22 +186,27 @@ function VerificationPage1() {
                         </div>
                         <div className="col-12 col-md-3">
                             <div className="mb-3">
-                                <Dropdown value={provinsi} onChange={setProvinsi} dataOptions={Object.keys(province)} searchBar={true}/>
+                                {/* <Dropdown value={provinsi} onChange={setProvinsi} dataOptions={Object.keys(province)} searchBar={true}/> */}
+                                <label for="namaLengkap" className="form-label">City</label>
+                                <input onChange={(e) => setKota(e.target.value)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="jalan"/>
                             </div>
                         </div>
                         <div className="col-12 col-md-3">
-                            <div className="mb-3">
+                            {/* <div className="mb-3">
                                 <Dropdown  value={kota} onChange={setKota} dataOptions={kotaArr} searchBar={true}/>
-                            </div>
+                            </div> */}
+                            <label for="namaLengkap" className="form-label">Region</label>
+                            <input onChange={(e) => setProvinsi(e.target.value)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="jalan"/>
                         </div>
                         <div className="col-12 col-md-3">
+                            <label for="namaLengkap" className="form-label">Postal Code</label>
                             <div className="mb-3">
                                 <div className="input-group ci-inputDefault-bg">
                                     <input onChange={(e) => {
                                         if(e.target.value.length<=5){
                                             setKodePos(e.target.value)
                                         }
-                                    }} type="text" placeholder="Post Code" value={kodePos} className="form-control ci-inputDefault-bg-input ci-pd" name="kodepos"/>
+                                    }} type="text" value={kodePos} className="form-control ci-inputDefault-bg-input ci-pd" name="kodepos"/>
                                 </div>
                             </div>
                         </div>
@@ -261,11 +265,21 @@ function VerificationPage1() {
                         <div className="col-12 col-md-3">
                             <label for="hubunganKerabat" className="form-label">{Translate('vp1_telepon')}</label>
                             <div className="input-group ci-inputDefault-bg">
-                                <input value={input.nomorTeleponDarurat} onChange={e => {
+                                <PhoneInput
+                                    country="sg"
+                                    inputClass=" ci-pd bg-dark ci-inputDefault-bg-input border-0"
+                                    placeholder="Enter phone number with its country code"
+                                    value={input.nomorTeleponDarurat}
+                                    onChange={(e) => {
+                                        setInput({...input, nomorTeleponDarurat : e });
+                                    }}
+                                />
+                                {/* <input value={input.nomorTeleponDarurat} onChange={e => {
                                 // if(e.target.value === "+62 - " || !isNaN(e.target.value[e.target.value.length - 1])){
                                     setInput({...input, nomorTeleponDarurat :e.target.value.slice(6)})
                                 // }
-                            }} type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="nomorTeleponDarurat"/>
+                                }} 
+                                type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="nomorTeleponDarurat"/> */}
                             </div>
                         </div>
                         {/* <div className="col-12 col-md-3">

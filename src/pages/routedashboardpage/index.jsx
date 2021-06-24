@@ -63,14 +63,14 @@ import LaunchpadPartnerDetail from "../launchpadPartner/LaunchpadPartnerDetail";
 
 function RouteDashboardPage(props) {
   const { flag, locale, setLocale } = props
-  const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
-  const loading = useSelector((state) => state.loadingReducer);
-  const history = useHistory();
-  const dispatch = useDispatch();
+  const isLoginAccount = useSelector((state) => state.userReducer.isLogin)
+  const loading = useSelector((state) => state.loadingReducer)
+  const history = useHistory()
+  const dispatch = useDispatch()
 
-  const [activeSidebar, setActiveSidebar] = useState("");
-  // const [notactiveSidebar, setnotActiveSidebar] = useState("active");
-  const { email } = useSelector((state) => state?.profileReducer);
+  const [activeSidebar, setActiveSidebar] = useState("")
+  // const [notactiveSidebar, setnotActiveSidebar] = useState("active")
+  const { email } = useSelector((state) => state?.profileReducer)
 
   const onClickActiveSidebar = () => {
     if (activeSidebar === "") {

@@ -12,6 +12,7 @@ export const logout = (dispatch, iosocket, email) => {
     dispatch({ type: "GAUTH_STATUS", data: false })
     dispatch({ type: "LOGIN_GAUTH", data: false })
     localStorage.removeItem("token")
+    localStorage.removeItem('lastAlive')
     if(iosocket && email){
         iosocket(email).emit('logout')
     }

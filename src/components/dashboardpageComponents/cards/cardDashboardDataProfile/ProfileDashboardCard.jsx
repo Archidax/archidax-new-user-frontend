@@ -47,6 +47,62 @@ function ProfileDashboardCard() {
               </div>
             </div>
             <div className="col-12">
+              {/* //// */}
+              {/* {
+                kyc ?
+                  kyc.approved_status ?
+                    <div
+                      style={{
+                        border: "1px solid #00A2E0",
+                        borderRadius: "4px",
+                        color: "#00A2E0",
+                        cursor: "default",
+                        padding: "2px 0",
+                        maxWidth: "150px",
+                      }}
+                      className="text-center"
+                    >
+                      <p className=" mb-0 lable-title">{Translate('db_terverifikasi')}</p>
+                    </div>
+                  :
+                    kyc.kycStatus === 2 && !kyc.approved_status && kyc.isFinish ?
+                      <div
+                        style={{
+                          border: "1px solid #F9BD00",
+                          borderRadius: "4px",
+                          color: "#F9BD00",
+                          cursor: "default",
+                          padding: "2px 0",
+                          maxWidth: "150px",
+                        }}
+                        className="text-center"
+                      >
+                        <p className=" mb-0 lable-title">{Translate('db_menunggu_verifikasi')}</p>
+                      </div>
+                    :
+                      <button
+                        onClick={() => {
+                          if (!kyc.kycStatus) {
+                            history.push("/verification/step1");
+                          } else if (kyc.kycStatus === "1") {
+                            history.push("/verification/step2");
+                          }
+                        }}
+                        className="ci-btnOL-danger w-100"
+                        style={{
+                          cursor: "pointer",
+                          padding: "2px 0",
+                          maxWidth: "150px",
+                        }}
+                      >
+                        {Translate('db_belum_verifikasi')}
+                      </button>
+                :
+                  <></>
+              } */}
+
+              {/* //// */}
+
               {kyc && kyc.approved_status ? (
                 <div
                   style={{
@@ -62,7 +118,7 @@ function ProfileDashboardCard() {
                   <p className=" mb-0 lable-title">{Translate('db_terverifikasi')}</p>
                 </div>
               ) : kyc &&
-                kyc.kycStatus === "2" &&
+                kyc.kycStatus === 2 &&
                 !kyc.approved_status &&
                 kyc.isFinish ? (
                 <div
@@ -83,7 +139,7 @@ function ProfileDashboardCard() {
                   onClick={() => {
                     if (!kyc.kycStatus) {
                       history.push("/verification/step1");
-                    } else if (kyc.kycStatus === "1") {
+                    } else if (kyc.kycStatus === 1) {
                       history.push("/verification/step2");
                     }
                   }}
@@ -97,6 +153,7 @@ function ProfileDashboardCard() {
                   {Translate('db_belum_verifikasi')}
                 </button>
               )}
+              {/* //// */}
             </div>
           </div>
           <div className="row mt-4">
