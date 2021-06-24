@@ -6,10 +6,11 @@ import VolumeChart from "./chart/VolumeChart";
 import { IoWebSocketCronjob } from "../../configuration/IoWebSocket";
 
 export default function TabsChartTrade() {
+  
   const [depthData, setDepthData] = useState(null);
   const [volumeData, setVolumeData] = useState(null);
 
-  const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
+  const { PairSymbol,price24H } = useSelector((state) => state.pasarTradingReducer);
 
   useEffect(() => {
     getChartDepth(PairSymbol, 50, (e) => {
@@ -21,10 +22,10 @@ export default function TabsChartTrade() {
   }, [PairSymbol]);
 
   useEffect(() => {
-    if (PairSymbol && IoWebSocketCronjob) {
+    if (PairSymbol && IoWebSocketCronjob && price24H.Close) {
       IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
       IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
-        if (data) {
+        if (data&&price24H.Close) {
           setDepthData(data);
         }
       });

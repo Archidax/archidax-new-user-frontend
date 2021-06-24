@@ -95,7 +95,7 @@ function HeaderHomePage(props) {
                   <div className="col">
                     <div className="card-body-dd-homepage">
                       <a
-                        className="d-flex justify-content-center align-items-center dd-homepage
+                        className="d-flex  align-items-center dd-homepage
                        "
                         href={"/launchpad"}
                       >
@@ -105,7 +105,7 @@ function HeaderHomePage(props) {
                         <div className="ml-2 text-white">
                           <h6 className="mb-0">Spot Market</h6>
                           <p className="mb-0 font-11">
-                            Lorem ipsum dolor sit amet.
+                            Earning from Spot Trading
                           </p>
                         </div>
                       </a>
@@ -114,7 +114,7 @@ function HeaderHomePage(props) {
                   <div className="col">
                     <div className="card-body-dd-homepage">
                       <a
-                        className="d-flex justify-content-center align-items-center dd-homepage
+                        className="d-flex  align-items-center dd-homepage
                        "
                         href={"/launchpad"}
                       >
@@ -123,9 +123,7 @@ function HeaderHomePage(props) {
                         </div>
                         <div className="ml-2 text-white">
                           <h6 className="mb-0">Launchpad</h6>
-                          <p className="mb-0 font-11">
-                            Lorem ipsum dolor sit amet.
-                          </p>
+                          <p className="mb-0 font-11">Invest on Best Project</p>
                         </div>
                       </a>
                     </div>
@@ -133,7 +131,7 @@ function HeaderHomePage(props) {
                   <div className="col">
                     <div className="card-body-dd-homepage">
                       <a
-                        className="d-flex justify-content-center align-items-center dd-homepage
+                        className="d-flex  align-items-center dd-homepage
                        "
                         href={"/launchpad"}
                       >
@@ -142,9 +140,7 @@ function HeaderHomePage(props) {
                         </div>
                         <div className="ml-2 text-white">
                           <h6 className="mb-0">Derivative</h6>
-                          <p className="mb-0 font-11">
-                            Lorem ipsum dolor sit amet.
-                          </p>
+                          <p className="mb-0 font-11">Get Maximum Profit</p>
                         </div>
                       </a>
                     </div>
@@ -152,7 +148,7 @@ function HeaderHomePage(props) {
                   <div className="col">
                     <div className="card-body-dd-homepage">
                       <a
-                        className="d-flex justify-content-center align-items-center dd-homepage
+                        className="d-flex  align-items-center dd-homepage
                        "
                         href={"/launchpad"}
                       >
@@ -162,7 +158,7 @@ function HeaderHomePage(props) {
                         <div className="ml-2 text-white">
                           <h6 className="mb-0">Archiswap</h6>
                           <p className="mb-0 font-11">
-                            Lorem ipsum dolor sit amet.
+                            Fast and reliable exchanges
                           </p>
                         </div>
                       </a>
@@ -173,7 +169,7 @@ function HeaderHomePage(props) {
                   <div className="col">
                     <div className="card-body-dd-homepage">
                       <a
-                        className="d-flex justify-content-center align-items-center dd-homepage
+                        className="d-flex  align-items-center dd-homepage
                        "
                         href={"/launchpad"}
                       >
@@ -183,7 +179,7 @@ function HeaderHomePage(props) {
                         <div className="ml-2 text-white">
                           <h6 className="mb-0">Archibot</h6>
                           <p className="mb-0 font-11">
-                            Lorem ipsum dolor sit amet.
+                            Smart & Inteligence Trading Robot
                           </p>
                         </div>
                       </a>
@@ -192,7 +188,7 @@ function HeaderHomePage(props) {
                   <div className="col">
                     <div className="card-body-dd-homepage">
                       <a
-                        className="d-flex justify-content-center align-items-center dd-homepage
+                        className="d-flex  align-items-center dd-homepage
                        "
                         href={"/launchpad"}
                       >
@@ -202,7 +198,7 @@ function HeaderHomePage(props) {
                         <div className="ml-2 text-white">
                           <h6 className="mb-0">Lendmark</h6>
                           <p className="mb-0 font-11">
-                            Lorem ipsum dolor sit amet.
+                            Peer 2 Peer Crypto Lending
                           </p>
                         </div>
                       </a>
@@ -211,7 +207,7 @@ function HeaderHomePage(props) {
                   <div className="col">
                     <div className="card-body-dd-homepage">
                       <a
-                        className="d-flex justify-content-center align-items-center dd-homepage
+                        className="d-flex  align-items-center dd-homepage
                        "
                         href={"/launchpad"}
                       >
@@ -220,9 +216,7 @@ function HeaderHomePage(props) {
                         </div>
                         <div className="ml-2 text-white">
                           <h6 className="mb-0">Digifund</h6>
-                          <p className="mb-0 font-11">
-                            Lorem ipsum dolor sit amet.
-                          </p>
+                          <p className="mb-0 font-11">Crypto Loan & Credit</p>
                         </div>
                       </a>
                     </div>
@@ -230,7 +224,7 @@ function HeaderHomePage(props) {
                   <div className="col">
                     <div className="card-body-dd-homepage">
                       <a
-                        className="d-flex justify-content-center align-items-center dd-homepage
+                        className="d-flex  align-items-center dd-homepage
                        "
                         href={"/launchpad"}
                       >
@@ -240,7 +234,7 @@ function HeaderHomePage(props) {
                         <div className="ml-2 text-white">
                           <h6 className="mb-0">Archirator</h6>
                           <p className="mb-0 font-11">
-                            Lorem ipsum dolor sit amet.
+                            Blockchain Industry Accelerator
                           </p>
                         </div>
                       </a>

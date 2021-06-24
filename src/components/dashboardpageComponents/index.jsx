@@ -31,7 +31,8 @@ function Dashboard() {
               <div className="col-12 col-sm-12 col-xs-12 mt-3 px-2">
                 <CardDashboardDataProfile />
               </div>
-              <div className="col-12 col-sm-12 col-xs-12 mt-3 px-2">
+              <div  className="col-12 col-sm-12 col-xs-12 mt-3 px-2">
+                
                 <CardDashboardPasarTrading />
               </div>
             </div>
