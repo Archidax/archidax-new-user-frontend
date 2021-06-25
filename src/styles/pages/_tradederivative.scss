@@ -1,8 +1,6 @@
 .container-tradeDerivative {
     padding: 8px;
-    height: 94vh;
-    display: grid;
-    grid-row-gap: 8px;
+    display: block;
     grid-template-rows: 0.1fr 1.9fr;
     // TRAFIC TRADE DERIVATIVE
     .traficTradeDerivative {
@@ -10,6 +8,7 @@
         grid-template-columns: 1.6fr 0.4fr;
         grid-column-gap: 8px;
         align-items: center;
+        margin-bottom: 6px;
         .traficTradeDerivative-left {
             display: grid;
             grid-template-columns: 0.3fr 0.2fr 1.5fr;
@@ -455,7 +454,6 @@
         // END CONTENT RIGHT
     }
     // END MAIN CONTENT TRADE DERIVATIVE
-
 }
 
 .groupInputTradeDerivative {

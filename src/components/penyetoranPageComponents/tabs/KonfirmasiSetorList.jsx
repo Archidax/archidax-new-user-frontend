@@ -95,7 +95,7 @@ function KonfirmasiSetorList() {
 
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid" style={{minHeight: "94vh"}}>
             <div className="row border-top mt-3 border-warning">
                 <div className="container-fluid p-3 text-white font-12 ci-bg-primary my-4">
                     <h2 className="mb-4 label-title-top">Deposit Confirmation</h2>
