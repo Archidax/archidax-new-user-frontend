@@ -50,6 +50,7 @@ const profileEmergencyReducer = ((state = initialState, action) => {
                 limit: "",
             
                 requestId: "",
+                
             }
         case "CHANGE_EMERGENCY":
             return {
@@ -77,7 +78,7 @@ const profileEmergencyReducer = ((state = initialState, action) => {
                 alamat: data.street,
                 provinsi: data.provinces,
                 kota: data.districtOrCity,
-                kodePos: data.zipcode
+                kodePos: data.zipcode,
             };
         default : 
             return state;

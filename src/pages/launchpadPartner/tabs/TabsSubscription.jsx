@@ -84,13 +84,13 @@ function TabsSubscription() {
                         <div className="card ci-customCard-1 my-1">
                             <div className="card-body p-2 d-flex justify-content-around align-items-center">
                                 <img src={EthCoin} alt="..." width="40" height="40" />
-                                <span className="mb-0 text-white font-weight-bold">{subs && subs.dashboard.length ? subs.dashboard[0].symbol : ""}</span>
+                                <span className="mb-0 text-white font-weight-bold">{subs && subs.dashboard && subs.dashboard.length ? subs.dashboard[0].symbol : ""}</span>
                             </div>
                         </div>
                         <div className="card ci-customCard-1 my-1">
                             <div className="card-body p-2 d-flex justify-content-around align-items-center">
                                 <span className="mb-0 text-white font-14">Round : </span>
-                                <span className="mb-0 text-white font-weight-bold font-22">{subs && subs.dashboard.length ? subs.dashboard[0].round : ""}</span>
+                                <span className="mb-0 text-white font-weight-bold font-22">{subs && subs.dashboard && subs.dashboard.length ? subs.dashboard[0].round : ""}</span>
                             </div>
                         </div>
                         <div className="card ci-customCard-1 my-1">
