@@ -18,7 +18,7 @@ function Dashboard() {
   },[])
 
   return (
-    <div>
+    <div className="h-100">
       <div className="pt-0 pt-md-3 px-3">
         <div className="row d-none d-md-block">
           <div className="col-12 col-md-12">
