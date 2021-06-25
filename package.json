@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@amcharts/amcharts4": "^4.10.20",
     "@develoka/angka-rupiah-js": "^1.0.1",
     "@paypal/react-paypal-js": "^6.0.0",
     "@supabase/supabase-js": "^1.12.0",

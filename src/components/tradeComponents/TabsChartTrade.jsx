@@ -21,32 +21,33 @@ export default function TabsChartTrade() {
     });
   }, [PairSymbol]);
 
-  // useEffect(() => {
-  //   if (PairSymbol && IoWebSocketCronjob && price24H.Close) {
-  //     IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
-  //     IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
-  //       if (data&&price24H.Close) {
-  //         setDepthData(data);
-  //       }
-  //     });
-  //   }
-  //   return () =>
-  //     IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
-  // }, [PairSymbol]);
+  useEffect(() => {
+    if (PairSymbol && IoWebSocketCronjob && price24H.Close) {
+      IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
+      IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
+        if (data&&price24H.Close) {
+          console.log(data, "sdawd")
+          setDepthData(data);
+        }
+      });
+    }
+    return () =>
+      IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
+  }, [PairSymbol]);
 
-  // useEffect(() => {
-  //   if (PairSymbol && IoWebSocketCronjob) {
-  //     IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
-  //     IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
-  //       if (data) {
-  //         setVolumeData(data);
-  //       }
-  //     });
-  //   }
-  //   return () => {
-  //     IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
-  //   };
-  // }, [PairSymbol]);
+  useEffect(() => {
+    if (PairSymbol && IoWebSocketCronjob) {
+      IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
+      IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
+        if (data) {
+          setVolumeData(data);
+        }
+      });
+    }
+    return () => {
+      IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
+    };
+  }, [PairSymbol]);
 
   return (
     <div className="mt-2">
@@ -86,7 +87,7 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            {volumeData && <VolumeChart volumeData={volumeData} />}
+            {volumeData && volumeData.length && <VolumeChart volumeData={volumeData} />}
           </div>
           <div
             class="tab-pane fade"

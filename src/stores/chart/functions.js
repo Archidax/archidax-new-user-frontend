@@ -69,8 +69,7 @@ export function getChartDepth (market_pair, depth, setDepthData) {
       setDepthData({
         pair_symbol: market_pair,
         timestamp: Date.now(),
-        bids: [] ,
-        asks: []
+        data: []
       })
     }
   }).catch(e => console.log(e))
