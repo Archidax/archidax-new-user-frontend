@@ -24,7 +24,7 @@ function HeaderDashboard(props) {
   return (
     <>
       <nav
-        className={`col-12 p-1 ${
+        className={`col-12 navbar-trade p-1 ${
           mode ? "navbar-dark bg-header-dark" : "bg-header"
         } navbar navbar-expand-lg py-1 px-4`}
       >
