@@ -58,7 +58,7 @@ export * from './partnerlaunchpad/functions'
 ///////////////////////////////////////////////////////////////
 export const baseUrl = 'https://dev.archidax.net';
 // export const baseUrl = 'http://localhost:8000';
-// export const baseUrl = 'http://192.168.0.161:8000'; Punya tatag nih
+// export const baseUrl = 'http://192.168.0.161:8000'; 
 ///////////////////////////////////////////////////////////////
 export const baseUserSocketUrl = 'https://dev.archidax.net';
 // export const baseUserSocketUrl = 'http://localhost:8000'
