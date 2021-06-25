@@ -33,39 +33,13 @@ import { convertNumber } from '../../../assets/js';
 function SetorCryptoTabs() {
     const coinDetails = useSelector(state => state.setorCryptoReducer.coinDetails)
     const { coinCode } = useParams()
-    const [coinName, setCoinName] = useState("")
     const dispatch = useDispatch()
     const history = useHistory()
     const [copied, setCopied] = useState(false)
-    const { listingList } = useSelector(state => state.pasarTradingReducer)
+    const { listingList } = useSelector(state => state.pasarTradingReducer
+        )
     const [coinIcon, setCoinIcon] = useState(getCoinIcon("BTC"))
     const [closePrice, setClosePrice] = useState(0)
-
-    // useEffect(() => {
-    //     if (coinCode === "USDT") {
-    //         setClosePrice(0)
-    //         setCoinName("USDT Tether")
-    //         setCoinIcon(USDTCoin)
-    //         // getMyBalance(coinCode, dispatch)
-    //     } else {
-    //         const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
-    //         if (coinCode === "TRON") {
-    //             history.push("/crypto/setor-crypto/TRX")
-    //         } else if (!found) {
-    //             history.push("/crypto/setor-crypto/BTC")
-    //         } else {
-    //             setClosePrice(found.price_24hour.price24h_close)
-    //             setCoinName(found.assetName)
-    //             setCoinIcon(found.icon)
-    //             getMyBalance(coinCode, dispatch)
-    //             // setCoinName(found.name)
-    //             // getMyBalance(coinCode, dispatch)
-    //             // getPriceEstimation(found.alias, dispatch)
-    //         }
-    //     }
-    // }, [coinCode, history, dispatch, listingList])
-
-
     useEffect(() => {
         getMyAssets(dispatch)
     }, [coinCode])
@@ -112,7 +86,6 @@ function SetorCryptoTabs() {
     }
     
     const assets = useSelector(state => state.walletReducer.assets)
-    // const [address, setAddress] = useState("")
     const [coinSelected, setCoinSelected] =useState(null)
     useEffect(() => {
         // setAddress("")
@@ -149,7 +122,7 @@ function SetorCryptoTabs() {
                                                         </div>
                                                         <div className="col-7 flex-column text-left">
                                                             <span className="font-14 font-weight-bold mb-0">{coinCode}</span>
-                                                            <span className="font-12">{coinName}</span>
+                                                            <span className="font-12">{!coinSelected ? "" : coinSelected.detail_crypto.assetName}</span>
                                                         </div>
                                                     </div>
                                                 </button>
@@ -164,7 +137,7 @@ function SetorCryptoTabs() {
                                                     <p className="mb-2 mt-2 text-white">{Translate('db_saldoactive')}</p>
                                                 </div>
                                                 <div className="col-7">
-                                                    <p className="text-right mb-2 mt-2 text-white">{coinDetails.balance} {coinCode}</p>
+                                                    <p className="text-right mb-2 mt-2 text-white">{!coinSelected ? 0 : coinSelected.balance} {coinCode}</p>
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -172,7 +145,7 @@ function SetorCryptoTabs() {
                                                     <p className="mb-2 mt-2 text-white">{Translate('db_frozenbalance')}</p>
                                                 </div>
                                                 <div className="col-7">
-                                                    <p className="text-right mb-2 mt-2 text-white">{coinDetails.frozen_balance} {coinCode}</p>
+                                                    <p className="text-right mb-2 mt-2 text-white">{!coinSelected ? 0 : coinSelected.frozen_balance} {coinCode}</p>
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -180,7 +153,7 @@ function SetorCryptoTabs() {
                                                     <p className="mb-2 mt-2 text-white">{Translate('db_asset_estimate')}</p>
                                                 </div>
                                                 <div className="col-7">
-                                                    <p className="text-right mb-2 mt-2 text-white">{convertNumber.toMoney(closePrice * coinDetails.balance, "USDT ")}</p>
+                                                    <p className="text-right mb-2 mt-2 text-white">{convertNumber.toMoney(!coinSelected ? 0 : coinSelected.detail_crypto.price24h_close * coinSelected.balance, "USDT ")}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -198,7 +171,7 @@ function SetorCryptoTabs() {
                                     {
                                         coinSelected === null  ? (
                                             <div className="text-center mt-4">
-                                                <div className="my-3 font-14">You haven't activate deposit address for {coinName}</div>
+                                                <div className="my-3 font-14">You haven't activated deposit address for {coinCode}</div>
                                                 <button className="px-5 py-3 ci-bg-secondary font-12 text-white border-0" onClick={() => aktifkan()}>Activate</button>
                                             </div>
                                         ) :
@@ -214,7 +187,7 @@ function SetorCryptoTabs() {
                                                             <input type="text" className="form-control ci-inputDefault-bg-input font-13" id="address" placeholder={coinSelected.Address} disabled />
                                                             <div className="ci-inputDefault-bg-appendR d-block justify-content-center p-1">
                                                                 <CopyToClipboard
-                                                                    text={coinDetails.address}
+                                                                    text={coinSelected.Address}
                                                                     onCopy={() => {
                                                                         setCopied(true)
                                                                         setTimeout(() => {
