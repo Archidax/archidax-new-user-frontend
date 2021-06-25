@@ -7,71 +7,74 @@ export default function DepthChart({ depthData }) {
   const { PairSymbol, price24H } = useSelector(
     (state) => state.pasarTradingReducer,
   );
-    let optionChart = {
-      backgroundColor: "transparent transparent",
-      height: "170px",
-      type: "depth",
-      options: {
-        palette: ["#1db01d", "#FF6675"],
-        currency: `${PairSymbol.split("/")[1]}`,
-        // curency diganti
-        title: {
-          visible: false,
-        },
-        subtitle: {
-          visible: false,
-        },
-        labels: {
-          cost: "Total",
-        },
-        "button-zoomout": {
-          visible: false,
-        },
-        "button-zoomin": {
-          visible: false,
-        },
+  console.log(depthData, PairSymbol)
+  let optionChart = {
+    backgroundColor: "transparent transparent",
+    height: "170px",
+    type: "depth",
+    options: {
+      palette: ["#1db01d", "#FF6675"],
+      currency: `${PairSymbol.split("/")[1]}`,
+      // curency diganti
+      title: {
+        visible: false,
       },
-      series: [
-        {
-          "values": depthData.bids?depthData.bids:[],
-          "text": "bids"
-        },
-        {
-          "values": depthData.asks?depthData.asks:[],
-          "text": "ask"
-        }
-      ],
-      "scale-x": {
+      subtitle: {
+        visible: false,
+      },
+      labels: {
+        cost: "Total",
+      },
+      "button-zoomout": {
+        visible: false,
+      },
+      "button-zoomin": {
+        visible: false,
+      },
+    },
+    series: [
+      {
+        decimals: 8,
+        "values": depthData.bids?depthData.bids:[],
+        "text": "bids",
+      },
+      {
+        decimals: 8,
+        "values": depthData.asks?depthData.asks:[],
+        "text": "ask",
+      }
+    ],
+    "scale-x": {
+      "line-color": "none",
+      item: {
+        visible: true,
+      },
+      tick: {
         "line-color": "none",
-        item: {
-          visible: true,
-        },
-        tick: {
-          "line-color": "none",
-        }
+      }
+    },
+    "scale-y": {
+      "line-color": "none",
+      item: {
+        visible: false,
       },
-      "scale-y": {
+      tick: {
         "line-color": "none",
-        item: {
-          visible: false,
-        },
-        tick: {
-          "line-color": "none",
-        },
       },
-      "scale-y-2": {
+    },
+    "scale-y-2": {
+      "line-color": "none",
+      item: {
+        visible: false,
+      },
+      tick: {
         "line-color": "none",
-        item: {
-          visible: false,
-        },
-        tick: {
-          "line-color": "none",
-        },
       },
-      plotarea: {
-        margin: "10 30",
-      },
-    };
+    },
+    plotarea: {
+      margin: "10 30",
+    },
+  };
 
   return (
     <div>

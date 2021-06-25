@@ -10,7 +10,7 @@ export default function TabsChartTrade() {
   const [depthData, setDepthData] = useState(null);
   const [volumeData, setVolumeData] = useState(null);
 
-  const { PairSymbol,price24H } = useSelector((state) => state.pasarTradingReducer);
+  const { PairSymbol, price24H } = useSelector((state) => state.pasarTradingReducer);
 
   useEffect(() => {
     getChartDepth(PairSymbol, 50, (e) => {
@@ -21,32 +21,32 @@ export default function TabsChartTrade() {
     });
   }, [PairSymbol]);
 
-  useEffect(() => {
-    if (PairSymbol && IoWebSocketCronjob && price24H.Close) {
-      IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
-      IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
-        if (data&&price24H.Close) {
-          setDepthData(data);
-        }
-      });
-    }
-    return () =>
-      IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
-  }, [PairSymbol]);
+  // useEffect(() => {
+  //   if (PairSymbol && IoWebSocketCronjob && price24H.Close) {
+  //     IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
+  //     IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
+  //       if (data&&price24H.Close) {
+  //         setDepthData(data);
+  //       }
+  //     });
+  //   }
+  //   return () =>
+  //     IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
+  // }, [PairSymbol]);
 
-  useEffect(() => {
-    if (PairSymbol && IoWebSocketCronjob) {
-      IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
-      IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
-        if (data) {
-          setVolumeData(data);
-        }
-      });
-    }
-    return () => {
-      IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
-    };
-  }, [PairSymbol]);
+  // useEffect(() => {
+  //   if (PairSymbol && IoWebSocketCronjob) {
+  //     IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
+  //     IoWebSocketCronjob.on(`VolumeChart-${PairSymbol}`, (data) => {
+  //       if (data) {
+  //         setVolumeData(data);
+  //       }
+  //     });
+  //   }
+  //   return () => {
+  //     IoWebSocketCronjob.removeEventListener(`VolumeChart-${PairSymbol}`);
+  //   };
+  // }, [PairSymbol]);
 
   return (
     <div className="mt-2">
@@ -75,7 +75,7 @@ export default function TabsChartTrade() {
               aria-controls="pills-profile"
               aria-selected="false"
             >
-              Depth
+              Depth 
             </a>
           </li>
         </ul>

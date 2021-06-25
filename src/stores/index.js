@@ -57,23 +57,23 @@ export * from './partnerlaunchpad/functions'
 // Base URLgoit
 ///////////////////////////////////////////////////////////////
 // export const baseUrl = 'http://192.168.0.161:8000'; Punya tatag nih
-export const baseUrl = 'https://dev.archidax.net';
-// export const baseUrl = 'http://localhost:8000';
+// export const baseUrl = 'https://dev.archidax.net';
+export const baseUrl = 'http://localhost:8000';
 ///////////////////////////////////////////////////////////////
-export const baseUserSocketUrl = 'https://dev.archidax.net';
-// export const baseUserSocketUrl = 'http://localhost:8000'
+// export const baseUserSocketUrl = 'https://dev.archidax.net';
+export const baseUserSocketUrl = 'http://localhost:8000'
 ///////////////////////////////////////////////////////////////
-export const baseUrlTrade = 'https://trade.archidax.net';
+// export const baseUrlTrade = 'https://trade.archidax.net';
 //  export const baseUrlTrade='http://192.168.1.31:2021';
-// export const baseUrlTrade='http://localhost:2021';
+export const baseUrlTrade='http://localhost:2021';
 ///////////////////////////////////////////////////////////////
-// export const baseUrlTradeSocket = 'http://localhost:2021'
-export const baseUrlTradeSocket = 'https://trade.archidax.net'
+export const baseUrlTradeSocket = 'http://localhost:2021'
+// export const baseUrlTradeSocket = 'https://trade.archidax.net'
 ///////////////////////////////////////////////////////////////
 export const baseUrlTradeVersion='/api/v1';
 ///////////////////////////////////////////////////////////////
-export const baseUrlCronjob = 'https://cj.archidax.net'
-// export const baseUrlCronjob = 'http://localhost:2022'
+// export const baseUrlCronjob = 'https://cj.archidax.net'
+export const baseUrlCronjob = 'http://localhost:2022'
 
 export const baseAxios = axios.create({ 
     baseURL: baseUrl,
