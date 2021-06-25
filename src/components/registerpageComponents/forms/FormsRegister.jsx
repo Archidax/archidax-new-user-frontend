@@ -11,6 +11,7 @@ import SyaratdanKetentuanComponents from "../../syaratpengguna/SyaratPenggunaCom
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
+
 function FormsRegister({ navigation }) {
   const dispatch = useDispatch();
   const [phone, setPhone] = useState("");
@@ -80,7 +81,6 @@ function FormsRegister({ navigation }) {
             email,
             password,
           };
-      console.log(tmp, "<<<<<<<<<");
       register(dispatch, tmp, history);
     }
   };
@@ -180,9 +180,25 @@ function FormsRegister({ navigation }) {
                   ></i>
                 </div>
               </div>
+              <div className="mt-2">
+                <div className="row no-gutters d-flex justify-content-between w-100">
+                  {
+                    [...Array(5)].map(() => {
+                      return <div className="col-2 w-100">
+                        <div style={{
+                          width: "100%",
+                          height: "4px",
+                          backgroundColor: 'red'
+                        }} />
+                      </div>
+                    })
+                  }
+                 
+                </div>
+              </div>
             </div>
           </div>
-
+          
           <div className="col-lg-12">
             <div className="form-group mb-2">
               <label className="font-14 text-white mb-0">
