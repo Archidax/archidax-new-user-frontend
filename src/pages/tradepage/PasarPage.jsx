@@ -8,9 +8,9 @@ export default function PasarPage() {
   const dispatch = useDispatch();
   // const [search, setSearch] = useState('');
   
-  useEffect(() => {
-    GetListingExchange(dispatch)
-  },[])
+  // useEffect(() => {
+  //   GetListingExchange(dispatch)
+  // },[])
   
   // useEffect(() => {
   //   dispatch({

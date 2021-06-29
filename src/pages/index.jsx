@@ -56,6 +56,7 @@ import DownloadPage from "./downloadpage/DownloadPage";
 export default function MainPages() {
   const dispatch = useDispatch();
   const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
+  const { listingList } = useSelector((state) => state.pasarTradingReducer)
   const { email } = useSelector((state) => state?.profileReducer);
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
   const [flag, setFlag] = useState("flag-icon-id");
@@ -67,7 +68,9 @@ export default function MainPages() {
         dispatch(setMyFav(data[email] || []));
       }
     }
-    dispatch(GetListingExchange());
+    if(!listingList.length){
+      dispatch(GetListingExchange());
+    }
   }, [email, dispatch, isLoginAccount]);
 
   useEffect(() => {

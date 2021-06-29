@@ -13,9 +13,9 @@ import CopyrightDashboard from "../footerComponents/copyrightComponents/Copyrigh
 
 function Dashboard() {
   const dispatch = useDispatch()
-  React.useEffect(() => {
-    GetListingExchange(dispatch)
-  },[])
+  // React.useEffect(() => {
+  //     GetListingExchange(dispatch)
+  // },[])
 
   return (
     <div className="h-100">

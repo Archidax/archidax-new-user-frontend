@@ -60,7 +60,7 @@ export default function Index() {
   useEffect(() => {
     if (isLoginPages) {
       readMe(dispatch, history);
-      getMyAssets(dispatch);
+      // getMyAssets(dispatch);
     }
   }, [isLoginPages, dispatch, history]);
 

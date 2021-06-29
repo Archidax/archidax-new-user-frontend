@@ -73,7 +73,7 @@ function NotificationDropdownHeader() {
   };
 
   useEffect(() => {
-    getNotifications(dispatch);
+    // getNotifications(dispatch);
   }, [dispatch]);
 
   useEffect(() => {

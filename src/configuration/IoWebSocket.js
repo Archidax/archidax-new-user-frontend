@@ -1,3 +1,4 @@
+import { createContext } from "react";
 import Io from "socket.io-client";
 
 import { baseUrlTrade, baseUserSocketUrl, baseUrlTradeSocket , baseUrlCronjob } from "../stores/index";
@@ -10,5 +11,6 @@ export let IoWebSocketCronjob=Io(baseUrlCronjob,{
     path:"/realtime",
 });
 
-export const IoUserWebSocket = (email) => Io(baseUserSocketUrl, { query: `data=${email}`})
-export const IoTradeWebSocket = (email) => Io(baseUrlTrade, { query: `data=${email}`, path:"/realtime"})
+const IoUserWebSocket = (email) => Io(baseUserSocketUrl, { query: `data=${email}`})
+export const IoUserWebSocketContext = createContext({ IoUserWebSocket })
+export const IoTradeWebSocket = (email) => Io(baseUrlTradeSocket, { query: `data=${email}`, path:"/realtime"})
