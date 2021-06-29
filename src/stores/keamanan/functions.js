@@ -144,7 +144,7 @@ export const getAndSaveIP = (dispatch) => {
         url: `https://ipclient.herokuapp.com/`
     })
         .then(dataIp => {
-            console.log(dataIp.data, "<<<<<<IPuser")
+            // console.log(dataIp.data, "<<<<<<IPuser")
             dispatch({
                 type: "USER_IP", data: {
                     ip: dataIp.data.ip,
@@ -160,7 +160,7 @@ export const getAndSaveIP = (dispatch) => {
                 headers: { jwttoken: localStorage.getItem('token') }
             })
                 .then(saveIp => {
-                    console.log(saveIp, "<<<<<<<auto save ip")
+                    // console.log(saveIp, "<<<<<<<auto save ip")
                     
                 })
                 .catch(err => console.log(err))

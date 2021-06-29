@@ -243,7 +243,7 @@ export const verifyLogin = (dispatch, data, remember, history, ip) => {
                         headers: { jwttoken: response.data.token }
                     })
                     .then(data => {
-                        console.log(data, "<< dont have gauth but ip is saved")
+                        // console.log(data, "<< dont have gauth but ip is saved")
                     })
                     history.replace("/")
                 }

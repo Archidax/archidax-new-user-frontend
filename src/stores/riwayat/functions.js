@@ -53,7 +53,6 @@ export const getRiwayatSetorCrypto = (dispatch, page, limit, symbol, month, year
         headers: { jwttoken: localStorage.getItem("token") }
     })
         .then(({ data }) => {
-            console.log(data, "<<<riwayatsetorcrypto")
             dispatch({ type: "SET_DATA_RIWAYAT_SETOR_CRYPTO", data: data.data })
             dispatch({ type: "SET_TOTALDOCS_DATA_RIWAYAT_SETOR_CRYPTO", data: data.totalDocs })
             popUps.close()
@@ -72,7 +71,6 @@ export const getRiwayatTarikCrypto = (dispatch, page, limit, symbol, month, year
         headers: { jwttoken: localStorage.getItem("token") }
     })
         .then(({ data }) => {
-            console.log(data, "<<<riwayattarikcrypto")
             dispatch({ type: "SET_DATA_RIWAYAT_TARIK_CRYPTO", data: data.data })
             dispatch({ type: "SET_TOTALDOCS_DATA_RIWAYAT_TARIK_CRYPTO", data: data.totalDocs })
             popUps.close()
