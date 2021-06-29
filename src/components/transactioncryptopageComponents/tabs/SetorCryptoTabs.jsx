@@ -94,7 +94,7 @@ function SetorCryptoTabs() {
         if (found) {
             setCoinSelected(found)
         }
-        console.log(found, "<<<adr")
+        // console.log(found, "<<<adr")
     }, [coinCode, assets])
 
     return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
 // Import Images
@@ -10,8 +10,14 @@ import TableLaunchpad from "./table/TableLaunchpad";
 
 function LaunchpadPartner() {
   const [status, setStatus] = useState("ACTIVE")
+  const { isPartner } = useSelector(state => state.profileReducer)
   const dispatch = useDispatch()
   const history = useHistory()
+
+  useEffect(() => {
+    if(!isPartner) history.push('/')
+  }, [])
+
   useEffect(() => {
     getAllMyLaunchpad(status, dispatch)
   }, [status])
@@ -99,7 +105,7 @@ function LaunchpadPartner() {
                       aria-labelledby="setor-tab"
                     >
                       {
-                        status === "ACTIVE" && <TableLaunchpad/>
+                        status === "ACTIVE" && <TableLaunchpad />
                       }
                     </div>
                     <div
@@ -109,7 +115,7 @@ function LaunchpadPartner() {
                       aria-labelledby="tarik-tab"
                     >
                       {
-                        status === "DONE" && <TableLaunchpad/>
+                        status === "DONE" && <TableLaunchpad />
                       }
                     </div>
                   </div>

@@ -21,7 +21,7 @@ export const getMyBalance = (coin, dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            console.log(data, `<<< ${coin} balance`)
+            // console.log(data, `<<< ${coin} balance`)
             if (coin === "BTC") {
                 if (data.user === null) {
                     dispatch({
