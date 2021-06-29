@@ -38,9 +38,9 @@ export default function TelefonTab(){
     });
   };
   
-  useEffect(() => {
-    getStatus(dispatch);
-  }, [dispatch]);
+  // useEffect(() => {
+  //   getStatus(dispatch);
+  // }, [dispatch]);
 
   return loading.telefonVerification ? (
     <Waiting />

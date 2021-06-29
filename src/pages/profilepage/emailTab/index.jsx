@@ -41,9 +41,9 @@ export default function EmailRequestTab () {
     }
 
 
-    useEffect(() => {
-       getStatus(dispatch)
-    }, [dispatch])
+    // useEffect(() => {
+    //    getStatus(dispatch)
+    // }, [dispatch])
 
     return (
         loading.emailVerification ? 

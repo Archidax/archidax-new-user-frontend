@@ -17,6 +17,7 @@ export const getNotifications = (dispatch) => {
             console.log(err)
         })
 }
+
 export const setReadNotifications = async (dispatch, data, history) => {
     if(!data.read){
         await baseAxios.get(`/users/notification/read/${data._id}`, {

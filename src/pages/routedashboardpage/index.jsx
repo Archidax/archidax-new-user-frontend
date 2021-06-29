@@ -50,7 +50,7 @@ import Protectedkyc from "./protectedkyc";
 import LoadingPage from "../../pages/loadingpage";
 // import _404Page from "../404page";
 
-import { readMe, getStatus } from "../../stores";
+import { readMe, getStatus, getNotifications, initLoad } from "../../stores";
 import SetorKonfirmasi from "../../components/penyetoranPageComponents/tabs/setorTabs/SetorKonfirmasi";
 
 import { I18nProvider, LOCALES } from "../../i18n";
@@ -95,16 +95,21 @@ function RouteDashboardPage(props) {
 
   useEffect(() => {
     if (isLoginAccount) {
-      if (localStorage.getItem("myFav") && email) {
-        const data = JSON.parse(localStorage.getItem("myFav"));
-        dispatch(setMyFav(data[email] || []));
+      if(email){
+        if (localStorage.getItem("myFav")) {
+          const data = JSON.parse(localStorage.getItem("myFav"));
+          dispatch(setMyFav(data[email] || []));
+        }
+      } else {
+        getNotifications(dispatch)
+        getStatus(dispatch, history)
+        getMyAssets(dispatch)
+        readMe(dispatch, history);
+        initLoad()
       }
-      readMe(dispatch, history);
-      getStatus(dispatch, history);
-      dispatch(GetListingExchange());
-      getMyAssets(dispatch);
-    }
-  }, [history, email, dispatch, isLoginAccount]);
+      // dispatch(GetListingExchange());
+    } 
+  }, [email, isLoginAccount]);
 
   let match = useRouteMatch({
     path: "/pasar/:symbol",
