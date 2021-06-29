@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
 // Import Card
@@ -8,13 +8,19 @@ import CardLogin from "./cards/CardLogin";
 function Login() {
     const history = useHistory()
     
-    const { isLogin } = useSelector((state) => state.userReducer)
+    // const { isLogin } = useSelector((state) => state.userReducer)
+
+    // useEffect(() => {
+    //     if(isLogin){
+    //         history.replace("/")
+    //     }
+    // }, [isLogin])
 
     useEffect(() => {
-        if(isLogin){
+        if(localStorage.getItem('token')){
             history.replace("/")
         }
-    }, [isLogin])
+    }, [localStorage.getItem('token')])
     
     return (
         <div className="container-fluid ax-account-body ax-accountbg-login">

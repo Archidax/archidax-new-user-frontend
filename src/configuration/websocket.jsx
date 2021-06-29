@@ -1,10 +1,12 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useContext } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 
-import {IoWebSocketTrade, IoUserWebSocket, IoTradeWebSocket} from "./IoWebSocket";
+import { IoWebSocketTrade, IoUserWebSocketContext, IoTradeWebSocket } from "./IoWebSocket";
 import { logout } from '../stores'
 
 export default function WsComponent(props){
+
+    const { IoUserWebSocket } = useContext(IoUserWebSocketContext)
 
     const { email } = useSelector((state) => state.profileReducer)
     const dispatch = useDispatch()
@@ -18,7 +20,6 @@ export default function WsComponent(props){
                 })
                 break;
             case 'REFRESHTOKEN':
-                console.log('dapet token baru cuy')
                 localStorage.setItem("token", data)
                 break
             case 'LOGOUT':
@@ -27,7 +28,7 @@ export default function WsComponent(props){
             default:
                 break;
         }
-    })
+    },[])
 
     useEffect(()=>{
         if(IoWebSocketTrade&&IoWebSocketTrade.connected){
@@ -38,8 +39,6 @@ export default function WsComponent(props){
     useEffect(() => {
         if(email){
             IoUserWebSocket(email).on('ArchidaxSocketEvent', socketFn)
-        } else {
-            IoUserWebSocket(email).removeListener('ArchidaxSocketEvent', socketFn)
         }
         return () => IoUserWebSocket(email).removeListener('ArchidaxSocketEvent', socketFn)
     },[email,dispatch])
@@ -66,8 +65,8 @@ export default function WsComponent(props){
     },[email,dispatch])
     
     return (
-        <React.Fragment>
+        <IoUserWebSocketContext.Provider value={IoUserWebSocket}>
             {props.children}
-        </React.Fragment>
+        </IoUserWebSocketContext.Provider>
     )
 }

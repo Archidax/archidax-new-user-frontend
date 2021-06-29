@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../../../../../stores";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,15 +7,17 @@ import profilelogo from "../../../../../assets/img/header/headerdashboard/profil
 import keamananlogo from "../../../../../assets/img/header/headerdashboard/keamanan.svg";
 import riwayatlogo from "../../../../../assets/img/header/headerdashboard/riwayat.svg";
 import Translate from "../../../../../i18n/Translate";
-import { IoUserWebSocket } from "../../../../../configuration/IoWebSocket";
+import { IoUserWebSocketContext } from "../../../../../configuration/IoWebSocket";
 
 function ProfileDropdown() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profileReducer);
+  const { IoUserWebSocket } = useContext(IoUserWebSocketContext)
 
   const logoutUser = () => {
     logout(dispatch, IoUserWebSocket, profile.email);
   }
+  
   return (
     <div className="btn-group ml-3 d-sm-flex d-none">
       <div

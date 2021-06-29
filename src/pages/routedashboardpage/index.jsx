@@ -101,11 +101,11 @@ function RouteDashboardPage(props) {
           dispatch(setMyFav(data[email] || []));
         }
       } else {
-        getNotifications(dispatch)
-        getStatus(dispatch, history)
-        getMyAssets(dispatch)
-        readMe(dispatch, history);
-        initLoad()
+        // getNotifications(dispatch)
+        // getStatus(dispatch, history)
+        // getMyAssets(dispatch)
+        // readMe(dispatch, history);
+        initLoad(dispatch)
       }
       // dispatch(GetListingExchange());
     } 

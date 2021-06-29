@@ -220,7 +220,7 @@ export const verifyEmail = (key, history) => {
     })
 }
 export const verifyLogin = (dispatch, data, remember, history, ip) => {
-    Popup.showLoading()
+    // Popup.showLoading()
     baseAxios.post('/users/login/token', {token: data})
         .then(async (response) => {
             try {
@@ -250,6 +250,8 @@ export const verifyLogin = (dispatch, data, remember, history, ip) => {
             }
             catch (err) {
                 console.log(err)
+            } finally {
+                // Popup.close()
             }
         })
         .catch(err => {

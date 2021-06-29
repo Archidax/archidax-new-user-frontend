@@ -1,15 +1,16 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 
 import { logout } from '../stores'
 import Popup from '../components/popUps'
-import { IoUserWebSocket } from "./IoWebSocket";
+import { IoUserWebSocketContext } from "./IoWebSocket";
 
 export default function KeepAlive(props){
 
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
+    const IoUserWebSocket = useContext(IoUserWebSocketContext)
     const { email } = useSelector((state) => state.profileReducer)
 
     const [isAlive, setAlive] = useState(false)
@@ -27,9 +28,9 @@ export default function KeepAlive(props){
             localStorage.removeItem('lastAlive')
             Popup.fire({
                 title: "System Message",
-                text: 'You have been idle for the last 1 hours and for security reassons we have logged you out. \nPlease log in again',
+                text: 'You have been idle for some time and for security reasons we have logged you out. \nPlease log in again',
                 onClickOk: () => {
-                    logout(dispatch, IoUserWebSocket, email)
+                    logout(dispatch, null, email)
                     // history.replace('/home')
                 }
             })
@@ -72,6 +73,8 @@ export default function KeepAlive(props){
             document.addEventListener("keydown", hadActivity, true)
         } else {
             clearTimeout(timer)
+            document.removeEventListener("mousemove", hadActivity, true)
+            document.removeEventListener("keydown", hadActivity, true)
         }
 
         return () => {
@@ -80,7 +83,7 @@ export default function KeepAlive(props){
             document.removeEventListener("keydown", hadActivity, true)
         }
 
-    },[isAlive])
+    },[isAlive, isInactive])
         
     return (
         <>
