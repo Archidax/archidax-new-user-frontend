@@ -14,13 +14,12 @@ import DropdownCoin from './DropdownCoin'
 import { getCoinIcon } from '../../../helpers'
 import { convertNumber } from '../../../assets/js'
 import USDTCoin from '../../../assets/img/trade/cryptologo/Tether_USDT.svg'
-
+import { fees } from '../../../assets/fee'
 
 function TarikCryptoTabs() {
     const { coinCode } = useParams()
     const coinDetails = useSelector(state => state.setorCryptoReducer.coinDetails)
     const coinPrice = useSelector(state => state.tarikCryptoReducer.coinPrice)
-    const [coinName, setCoinName] = useState("")
     const [amount, setAmount] = useState(0)
     const [customAmount, setCustomAmount] = useState(0)
     const [withdrawAddress, setWithdrawAddress] = useState('')
@@ -29,17 +28,21 @@ function TarikCryptoTabs() {
     const [code, setCode] = useState('')
     const request_id = useSelector(state => state.kycReducer.requestId)
     const { listingList } = useSelector(state => state.pasarTradingReducer)
-    const [, setCoinIcon] = useState(getCoinIcon("BTC"))
-    const [, setClosePrice] = useState(0)
 
+
+    const [coinName, setCoinName] = useState("")
+    const [coinIcon, setCoinIcon] = useState(getCoinIcon("BTC"))
+    const [closePrice, setClosePrice] = useState(0)
     const dispatch = useDispatch()
     const history = useHistory()
+
+    // starting
     useEffect(() => {
         setAmount(0)
         setCustomAmount(0)
         setWithdrawAddress('')
         setTotalTerimaBersih(0)
-        if(coinCode==="USDT") {
+        if (coinCode === "USDT") {
             setClosePrice(0)
             setCoinName("USDT Tether")
             setCoinIcon(USDTCoin)
@@ -55,29 +58,61 @@ function TarikCryptoTabs() {
                 setCoinName(found.assetName)
                 setCoinIcon(found.icon)
                 getMyBalance(coinCode, dispatch)
-                // setCoinName(found.name)
-                // getMyBalance(coinCode, dispatch)
-                // getPriceEstimation(found.alias, dispatch)
             }
+            // console.log(found, "found")
         }
-        
-    }, [coinCode,listingList,history,dispatch])
 
+    }, [coinCode, listingList, history, dispatch])
+
+    const bal = 100
     const setPercentAmount = (e, num) => {
         setCustomAmount(0)
         e.preventDefault()
-        setAmount(coinDetails.balance * (num / 100))
+        setAmount(bal * (num / 100))
+        // setAmount(coinDetails.balance * (num / 100))
     }
 
+
+    // Fee withdraw depends on coin
+    const [feeWD, setFeeWD] = useState({
+        coin: null,
+        minimumWithdraw: 0,
+        feeWithdraw: 0,
+        ETHNetwork: true
+    })
     useEffect(() => {
-        if (customAmount !== 0) {
-            setTotalTerimaBersih(customAmount * coinPrice - 25000)
+        const found = fees.find(el => el.coin === coinCode)
+        console.log(found, "<<fee")
+        if (found) setFeeWD(found)
+    }, [coinCode])
+
+
+    // Olah data
+    useEffect(() => {
+        // ETH Network
+        if (feeWD.ETHNetwork) {
+            if (customAmount !== 0) {
+                let archidaxFee = customAmount * (0.5 / 100)
+                console.log(customAmount - archidaxFee, closePrice)
+                setTotalTerimaBersih((customAmount - archidaxFee) * closePrice)
+            } else {
+                let archidaxFee = amount * (0.5 / 100)
+                setTotalTerimaBersih((amount - archidaxFee) * closePrice)
+            }
         } else {
-            setTotalTerimaBersih(amount * coinPrice - 25000)
+            // Others
+            if (customAmount !== 0) {
+                let archidaxFee = customAmount * (0.5 / 100)
+                setTotalTerimaBersih((customAmount - (feeWD.feeWithdraw + archidaxFee)) * closePrice)
+            } else {
+                let archidaxFee = amount * (0.5 / 100)
+                setTotalTerimaBersih((amount - (feeWD.feeWithdraw + archidaxFee)) * closePrice)
+            }
         }
-    }, [amount, customAmount,coinPrice])
+    }, [amount, customAmount, closePrice])
 
 
+    // Kirim
     const kirim = (e) => {
         e.preventDefault()
         const data = {
@@ -91,6 +126,10 @@ function TarikCryptoTabs() {
 
     return (
         <div className="container-fluid">
+            {/* <h1 className="text-danger">{bal}</h1>
+            <h1 className="text-danger">{customAmount}</h1>
+            <h1 className="text-danger">{amount}</h1>
+            <h1 className="text-danger">{totalTerimaBersih}</h1> */}
             <div className="row border-top mt-3 border-warning">
                 <div className="dol-12 col-md-12 p-0">
                     <h3 className="ml-2 text-gold font-bold font-16 label-title-top my-4">Withdraw Crypto</h3>
@@ -145,12 +184,12 @@ function TarikCryptoTabs() {
                                                     <p className="mb-2 mt-2 text-white">Estimated USDT</p>
                                                 </div>
                                                 <div className="col-7">
-                                                    <p className="text-right mb-2 mt-2 text-white">{convertNumber.toMoney(coinPrice * coinDetails.balance, "Rp.")}</p>
+                                                    <p className="text-right mb-2 mt-2 text-white">{coinPrice * coinDetails.balance} USDT</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="col-12 col-md-12 mt-4">
-                                            <TarikInstructions />
+                                            <TarikInstructions feeWD={feeWD} />
                                         </div>
                                     </div>
                                 </div>
@@ -209,7 +248,7 @@ function TarikCryptoTabs() {
                                             <label for="Biaya_penarikan" className="font-14 col-12 col-md-4 col-form-label">Withdraw Fee</label>
                                             <div className="col-12 col-md-8">
                                                 <div className="input-group ci-inputDefault-bg">
-                                                    <input type="number" className="form-control ci-inputDefault-bg-input ci-pd" id="Biaya_penarikan" placeholder="25.000" disabled />
+                                                    <input type="number" className="form-control ci-inputDefault-bg-input ci-pd" id="Biaya_penarikan" placeholder={`${feeWD && feeWD.ETHNetwork ? "ETH gas fee will be deducted from amount you will receive" : `${feeWD.feeWithdraw} ${feeWD.coin}`}`} disabled />
                                                 </div>
                                             </div>
                                         </div>
@@ -217,7 +256,7 @@ function TarikCryptoTabs() {
                                             <label for="Total_terima_bersih" className="font-14 col-12 col-md-4 col-form-label">Total Received</label>
                                             <div className="col-12 col-md-8">
                                                 <div className="input-group ci-inputDefault-bg">
-                                                    <input type="number" className="form-control ci-inputDefault-bg-input ci-pd" id="Total_terima_bersih" placeholder={totalTerimaBersih > 25000 ? convertNumber.toMoney(totalTerimaBersih, "Rp.") : "Minimal penarikan Rp.100.000"} disabled />
+                                                    <input type="number" className="form-control ci-inputDefault-bg-input ci-pd" id="Total_terima_bersih" placeholder={totalTerimaBersih > 0 ? `${totalTerimaBersih} USDT` : `0 USDT`} disabled />
                                                 </div>
                                             </div>
                                         </div>
