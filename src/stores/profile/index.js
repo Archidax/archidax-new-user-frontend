@@ -17,6 +17,8 @@ const initialState = {
     ip: "",
     lastOnline: "",
 
+    isPartner: false
+
 
 };
 
@@ -79,7 +81,8 @@ const profileEmergencyReducer = ((state = initialState, action) => {
                 foto: data.avatar,
                 langganan: data.langganan,
                 bahasa: data.bahasa,
-                timezone: data.timezone
+                timezone: data.timezone,
+                isPartner: data.isPartner
             }
         default : 
             return state;

@@ -1,29 +1,79 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 import EthCoin from "../../../assets/img/iconsCoin/EtheriumCoin.png";
 import { downloadMyLaunchpadSubcsription, getPartnerLaunchpadStats, getPartnerLaunchpadSubs } from '../../../stores';
 import TidakAdaData from '../datas/TidakAdaData';
 import Pagination from 'react-js-pagination'
 import moment from 'moment'
+import Countdown from 'react-countdown'
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 function TabsSubscription() {
     const subs = useSelector(state => state.partnerLaunchpadReducer.myLaunchpadSubscription)
+    const stats = useSelector(state => state.partnerLaunchpadReducer.myLaunchpadStats)
+
     const tableHead = ["Date", "Amount", "Total"]
     const { id } = useParams()
     const [page, setPage] = useState(1)
     const [limit, setLimit] = useState(10)
     const dispatch = useDispatch()
+
+    const query = useQuery();
+    const round = query.get("round");
+    console.log(round, "round")
     useEffect(() => {
-        getPartnerLaunchpadStats(id, dispatch)
+        getPartnerLaunchpadStats(id, round, dispatch)
     }, [])
 
     useEffect(() => {
-        getPartnerLaunchpadSubs(id, limit, page, dispatch)
+        getPartnerLaunchpadSubs(id, round, limit, page, dispatch)
     }, [])
 
     const exportToCSV = () => {
         downloadMyLaunchpadSubcsription()
+    }
+
+    const renderCountdown = ({ days, hours, minutes, seconds, completed }) => {
+        return (
+            <div className="row">
+                <div className="col-12 col-md-4 d-flex align-items-center">
+                    <p className="mb-0 font-16 text-white">Countdown :</p>
+                </div>
+                <div className="col-12 col-md-8">
+                    <div className="box" style={{ display: 'grid', gridTemplateColumns: '0.25fr 0.1fr 0.25fr 0.1fr 0.25fr 0.1fr 0.25fr' }}>
+                        <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
+                            <p className="mb-0 font-32 font-digital">{days}</p>
+                            <p className="mb-0 font-16">Day</p>
+                        </div>
+                        <div className="box-time d-flex justify-content-center align-items-center">
+                            <p className="font-24 text-white mb-0">:</p>
+                        </div>
+                        <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
+                            <p className="mb-0 font-32 font-digital">{hours}</p>
+                            <p className="mb-0 font-16">Hour</p>
+                        </div>
+                        <div className="box-time d-flex justify-content-center align-items-center">
+                            <p className="font-24 text-white mb-0">:</p>
+                        </div>
+                        <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
+                            <p className="mb-0 font-32 font-digital">{minutes}</p>
+                            <p className="mb-0 font-16">Min</p>
+                        </div>
+                        <div className="box-time d-flex justify-content-center align-items-center">
+                            <p className="font-24 text-white mb-0">:</p>
+                        </div>
+                        <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
+                            <p className="mb-0 font-32 font-digital">{seconds}</p>
+                            <p className="mb-0 font-16">Sec</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
     }
 
     return (
@@ -34,64 +84,38 @@ function TabsSubscription() {
                         <div className="card ci-customCard-1 my-1">
                             <div className="card-body p-2 d-flex justify-content-around align-items-center">
                                 <img src={EthCoin} alt="..." width="40" height="40" />
-                                <span className="mb-0 text-white font-weight-bold">ETH</span>
+                                <span className="mb-0 text-white font-weight-bold">{subs && subs.dashboard && subs.dashboard.length ? subs.dashboard[0].symbol : ""}</span>
                             </div>
                         </div>
                         <div className="card ci-customCard-1 my-1">
                             <div className="card-body p-2 d-flex justify-content-around align-items-center">
                                 <span className="mb-0 text-white font-14">Round : </span>
-                                <span className="mb-0 text-white font-weight-bold font-22">1</span>
+                                <span className="mb-0 text-white font-weight-bold font-22">{subs && subs.dashboard && subs.dashboard.length ? subs.dashboard[0].round : ""}</span>
                             </div>
                         </div>
                         <div className="card ci-customCard-1 my-1">
                             <div className="card-body p-2 d-flex justify-content-around align-items-center">
                                 <span className="mb-0 text-white font-18 testis">Price : </span>
-                                <span className="mb-0 text-white font-weight-bold font-18">0.875</span>
+                                <span className="mb-0 text-white font-weight-bold font-18">{subs && subs.dashboard.length ? subs.dashboard[0].price : ""}</span>
                             </div>
                         </div>
                         <div className="card ci-customCard-1 my-1">
                             <div className="card-body p-2 d-flex justify-content-around align-items-center">
                                 <span className="mb-0 text-white font-14">Status : </span>
-                                <span className="mb-0 text-white font-weight-bold font-18">Pending</span>
+                                <span className="mb-0 text-white font-weight-bold font-18">{subs && subs.dashboard.length ? subs.dashboard[0].status : ""}</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-12 col-md-4">
-                    <div className="row">
-                        <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="mb-0 font-16 text-white">Countdown :</p>
-                        </div>
-                        <div className="col-12 col-md-8">
-                            <div className="box" style={{ display: 'grid', gridTemplateColumns: '0.25fr 0.1fr 0.25fr 0.1fr 0.25fr 0.1fr 0.25fr' }}>
-                                <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
-                                    <p className="mb-0 font-32 font-digital">03</p>
-                                    <p className="mb-0 font-16">Day</p>
-                                </div>
-                                <div className="box-time d-flex justify-content-center align-items-center">
-                                    <p className="font-24 text-white mb-0">:</p>
-                                </div>
-                                <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
-                                    <p className="mb-0 font-32 font-digital">03</p>
-                                    <p className="mb-0 font-16">Hour</p>
-                                </div>
-                                <div className="box-time d-flex justify-content-center align-items-center">
-                                    <p className="font-24 text-white mb-0">:</p>
-                                </div>
-                                <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
-                                    <p className="mb-0 font-32 font-digital">03</p>
-                                    <p className="mb-0 font-16">Min</p>
-                                </div>
-                                <div className="box-time d-flex justify-content-center align-items-center">
-                                    <p className="font-24 text-white mb-0">:</p>
-                                </div>
-                                <div className="box-time py-1" style={{ border: '1px solid #FFFFFF', borderRadius: '8px', color: 'white', textAlign: 'center' }}>
-                                    <p className="mb-0 font-32 font-digital">03</p>
-                                    <p className="mb-0 font-16">Sec</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {
+                        subs && (
+                            <Countdown
+                                date={subs && subs.dashboard.length ? subs.dashboard[0].end_sale : "2045-07-18T03:30:00.000Z"}
+                                renderer={renderCountdown}
+                            />
+                        )
+                    }
                 </div>
             </div>
 
@@ -108,7 +132,7 @@ function TabsSubscription() {
                                     <div className="card-body">
                                         <h3 className="font-16 my-2 text-white">Total Participants</h3>
                                         <div className="d-flex align-items-center justify-content-between my-2">
-                                            <h3 className="mb-0 font-24 text-white">600</h3>
+                                            <h3 className="mb-0 font-24 text-white">{stats ? stats.totalUsers : 0}</h3>
                                             <img src={EthCoin} alt="" width={35} />
                                         </div>
                                         <h3 className="font-16 my-2 font-normal text-white">Users</h3>
@@ -120,7 +144,7 @@ function TabsSubscription() {
                                     <div className="card-body">
                                         <h3 className="font-16 my-2 text-white ">Total Sales</h3>
                                         <div className="d-flex align-items-center justify-content-between  my-2 ">
-                                            <h3 className="mb-0 font-24 text-white">10.000</h3>
+                                            <h3 className="mb-0 font-24 text-white">{stats ? stats.totalUsers : 0}</h3>
                                             <img src={EthCoin} alt="" width={35} />
                                         </div>
                                         <h3 className="font-16 my-2 font-normal text-white">USD</h3>
@@ -132,7 +156,7 @@ function TabsSubscription() {
                                     <div className="card-body">
                                         <h3 className="font-16 my-2 text-white ">Achieve</h3>
                                         <div className="d-flex align-items-center justify-content-between  my-2 ">
-                                            <h3 className="mb-0 font-24 text-white">20%</h3>
+                                            <h3 className="mb-0 font-24 text-white">{stats ? stats.achieve : 0}%</h3>
                                             <img src={EthCoin} alt="" width={35} />
                                         </div>
                                         <h3 className="font-16 my-2 font-normal text-white">Percentage</h3>

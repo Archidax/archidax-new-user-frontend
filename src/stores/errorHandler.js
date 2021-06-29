@@ -88,7 +88,7 @@ export const emailFormatError = (email, func) => {
 
 export const telefonFormatError = (num, func) => {
     Popup.close()
-    if(num.length < 7 || num.length > 12){
+    if(num.length < 7){
         Popup.fire({
             title: "Warning!",
             text: "Your phone number is not valid!"

@@ -59,10 +59,11 @@ export default function TableHistorySetorCrypto({ coinCode }) {
                   <div className="col-12 col-md-4 select-wrapper">
                     <select className="select  w-100 h-100" onChange={(e) => setSymbol(e.target.value)}>
                       <option defaultValue="BTC" selected>BTC</option>
+                      <option value="USDT" selected>USDT</option>
                       {
                         listingList.map((el, index) => {
-                          if (el.symbol.includes("/IDR")) {
-                            const code = el.symbol.replace("/IDR", "")
+                          if (el.symbol.includes("/USDT")) {
+                            const code = el.symbol.replace("/USDT", "")
                             if (el.initialSymbol !== "BTC") {
                               return (
                                 <option key={index} value={code}>{code}</option>

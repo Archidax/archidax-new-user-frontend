@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { register } from "../../../stores";
 import { useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ import PopUps from "../../popUps";
 import SyaratdanKetentuanComponents from "../../syaratpengguna/SyaratPenggunaComponents";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+
 
 function FormsRegister({ navigation }) {
   const dispatch = useDispatch();
@@ -68,22 +69,35 @@ function FormsRegister({ navigation }) {
     } else {
       let tmp = ref
         ? {
-            noTlp: phone,
-            username,
-            email,
-            password,
-            ref: ref ? ref : "",
-          }
+          noTlp: phone,
+          username,
+          email,
+          password,
+          ref: ref ? ref : "",
+        }
         : {
-            noTlp: phone,
-            username,
-            email,
-            password,
-          };
+          noTlp: phone,
+          username,
+          email,
+          password,
+        };
       console.log(tmp, "<<<<<<<<<");
       register(dispatch, tmp, history);
     }
   };
+
+  const [acceptablePassword, setAcceptablePassword] = useState(true)
+  let mediumStrengthRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
+  useEffect(() => {
+    setAcceptablePassword(false)
+    const differentWithUsername = password.includes(username)
+    console.log(differentWithUsername, "<<<uniq")
+    const result = mediumStrengthRegex.test(password)
+    if (result && !differentWithUsername) {
+      setAcceptablePassword(true)
+    }
+  }, [password])
+
   return (
     <>
       <form className="ci-registerForm mt-4">
@@ -180,8 +194,34 @@ function FormsRegister({ navigation }) {
                   ></i>
                 </div>
               </div>
+              {/* <div className="mt-2">
+                <div className="row no-gutters d-flex justify-content-between w-100">
+                  {
+                    [...Array(5)].map(() => {
+                      return <div className="col-2 w-100">
+                        <div style={{
+                          width: "100%",
+                          height: "4px",
+                          backgroundColor: 'red'
+                        }} />
+                      </div>
+                    })
+                  }
+                 
+                </div>
+              </div> */}
             </div>
           </div>
+
+          {
+            !acceptablePassword && (
+              <div className="col-lg-12">
+                <div className="form-group mb-2 rounded text-white py-1 px-3 font-12" style={{ backgroundColor: "rgba(225,225,0,0.3)" }}>
+                  Password must contains at least 1 uppercase, 1 lowercase or 1 special character, 8 characters length and must not contain your username.
+                  </div>
+              </div>
+            )
+          }
 
           <div className="col-lg-12">
             <div className="form-group mb-2">
@@ -261,7 +301,8 @@ function FormsRegister({ navigation }) {
                   phone &&
                   username &&
                   password === password2 &&
-                  checkAgree
+                  checkAgree &&
+                  acceptablePassword
                 )
               }
             >

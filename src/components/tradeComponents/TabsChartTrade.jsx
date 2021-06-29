@@ -10,7 +10,7 @@ export default function TabsChartTrade() {
   const [depthData, setDepthData] = useState(null);
   const [volumeData, setVolumeData] = useState(null);
 
-  const { PairSymbol,price24H } = useSelector((state) => state.pasarTradingReducer);
+  const { PairSymbol, price24H } = useSelector((state) => state.pasarTradingReducer);
 
   useEffect(() => {
     getChartDepth(PairSymbol, 50, (e) => {
@@ -26,6 +26,7 @@ export default function TabsChartTrade() {
       IoWebSocketCronjob.removeEventListener(`DepthChart-${PairSymbol}`);
       IoWebSocketCronjob.on(`DepthChart-${PairSymbol}`, (data) => {
         if (data&&price24H.Close) {
+          console.log(data, "sdawd")
           setDepthData(data);
         }
       });
@@ -75,7 +76,7 @@ export default function TabsChartTrade() {
               aria-controls="pills-profile"
               aria-selected="false"
             >
-              Depth
+              Depth 
             </a>
           </li>
         </ul>
@@ -86,7 +87,7 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            {volumeData && <VolumeChart volumeData={volumeData} />}
+            {volumeData && volumeData.length && <VolumeChart volumeData={volumeData} />}
           </div>
           <div
             class="tab-pane fade"

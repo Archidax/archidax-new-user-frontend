@@ -40,6 +40,7 @@ import PanduanPengguna from "./panduanpengguna";
 import PanduanCopyTrade from "./panduanCopyTrade";
 import DepthChart from "./depthChartpage/index";
 import AdvanceChart from "../components/tradeComponents/chart/index";
+import TradeDerevativePage from "./tradeDerevativePage";
 import SubscribedLP from "../components/beritapageComponents/SubscribedLP";
 import KebijakanKYCAML from "./listfooterpage/KebijakanKYCAML";
 import DepositAndWithdrawal from "./listfooterpage/DepositAndWithdrawal";
@@ -192,6 +193,7 @@ export default function MainPages() {
             <Route path="/gauth">
               <GAuth />
             </Route>
+            
             {/* <Route path={`/chart/:pair`}>
               <AdvanceChart />
             </Route> */}
@@ -200,6 +202,9 @@ export default function MainPages() {
             </Route> */}
             <Route path={"/pasar/:symbol"}>
               <Pasar />
+            </Route>
+            <Route path={"/pasar-derevative/:symbol"}>
+              <TradeDerevativePage />
             </Route>
             <Route path={`/pengajuan-koin`}>
               <PengajuanKoin />

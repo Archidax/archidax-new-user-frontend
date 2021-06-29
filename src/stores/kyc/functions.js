@@ -10,7 +10,6 @@ export const readMe = (dispatch, history) => {
         }
     })
     .then((response) => {
-        
         if(response.data.kyc){
             dispatch({type: "SET_KYCSTATUS", data: response.data.kyc})
         }else{
