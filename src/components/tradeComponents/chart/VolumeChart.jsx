@@ -19,7 +19,6 @@ export default function VolumeChart({ volumeData }) {
     },
     series: [
       {
-        // values: [38, 42, 46, 44, 42, 44, 46, 48, 52, 50, 56, 60],
         values: volumeData ? volumeData : [],
         "background-color":
           "#26A69A #26A69A" /* Single color or gradient (2 colors) */,
