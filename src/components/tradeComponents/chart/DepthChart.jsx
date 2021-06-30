@@ -69,7 +69,6 @@ export default function DepthChart({ depthData }) {
     coba.cursor = new am4charts.XYCursor();
     
     chart.current = coba;
-    console.log(coba)
 
     return () => {
       coba.dispose();
