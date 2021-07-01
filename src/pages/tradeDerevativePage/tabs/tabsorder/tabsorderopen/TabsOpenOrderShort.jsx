@@ -1,4 +1,7 @@
 import React from 'react'
+import OpenShortConditional from './tabsorderopenshort/OpenShortConditional'
+import OpenShortLimit from './tabsorderopenshort/OpenShortLimit'
+import OpenShortMarket from './tabsorderopenshort/OpenShortMarket'
 
 function TabsOpenOrderShort() {
     return (
@@ -16,13 +19,13 @@ function TabsOpenOrderShort() {
             </div>
             <div className="tab-content tabContent-orderOpenLongShort mt-2" id="myTabContent">
                 <div className="tab-pane fade show active" id="tradeDerivativeOrderOpenShortLimit" role="tabpanel" aria-labelledby="tradeDerivativeOrderOpenShortLimit-tab">
-                    Open Short Limit
+                    <OpenShortLimit />
                 </div>
                 <div className="tab-pane fade" id="tradeDerivativeOrderOpenShortMarket" role="tabpanel" aria-labelledby="tradeDerivativeOrderOpenShortMarket-tab">
-                    Open Short Market
+                    <OpenShortMarket />
                 </div>
                 <div className="tab-pane fade" id="tradeDerivativeOrderOpenShortConditional" role="tabpanel" aria-labelledby="tradeDerivativeOrderOpenShortConditional-tab">
-                    Open Short Conditional
+                    <OpenShortConditional />
                 </div>
             </div>
         </React.Fragment>
