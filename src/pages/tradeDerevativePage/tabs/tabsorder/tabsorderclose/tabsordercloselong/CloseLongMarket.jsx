@@ -1,7 +1,7 @@
 import React from 'react'
 import Popup from '../../../../../../components/popUps'
 
-function OpenLongMarket() {
+function CloseLongMarket() {
     return (
         <React.Fragment>
             <form className="mt-3">
@@ -139,4 +139,4 @@ function OpenLongMarket() {
     )
 }
 
-export default OpenLongMarket
+export default CloseLongMarket
