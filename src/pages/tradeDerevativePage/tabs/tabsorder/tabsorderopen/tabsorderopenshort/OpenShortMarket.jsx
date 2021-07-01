@@ -1,7 +1,7 @@
 import React from 'react'
 import Popup from '../../../../../../components/popUps'
 
-function OpenLongMarket() {
+function OpenShortMarket() {
     return (
         <React.Fragment>
             <form className="mt-3">
@@ -83,11 +83,11 @@ function OpenLongMarket() {
 
                 {/* Button  */}
                 <div className="form-group">
-                    <div className="btn ax-bg-success ci-btn-success w-100" style={{borderRadius: "2px"}} onClick={() => Popup.fire({
+                    <div className="btn ax-bg-danger ci-btn-danger w-100" style={{borderRadius: "2px"}} onClick={() => Popup.fire({
                         title: "COMING SOON!!!",
                         text: "Coming soon to Archidax."
                     })}>
-                        Buy
+                        Sell
                     </div>
                 </div>
             </form>
@@ -139,4 +139,4 @@ function OpenLongMarket() {
     )
 }
 
-export default OpenLongMarket
+export default OpenShortMarket

@@ -4,7 +4,7 @@ import LayananAktif from "./LayananAktif";
 
 function Keamanan() {
   return (
-    <div className="ci-customCard-1">
+    <div className="ci-customCard-1" style={{height: "94vh"}}>
       <div className="row no-gutters p-4 text-white">
         <div className="col-12 col-lg-4">
           <KeamananPanel />

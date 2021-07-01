@@ -1,7 +1,9 @@
 import React from 'react'
+import OpenLongConditional from './tabsorderopenlong/OpenLongConditional'
 
 // Import Tabs
 import OpenLongLimit from './tabsorderopenlong/OpenLongLimit'
+import OpenLongMarket from './tabsorderopenlong/OpenLongMarket'
 
 function TabsOpenOrderLong() {
     return (
@@ -22,10 +24,10 @@ function TabsOpenOrderLong() {
                     <OpenLongLimit />
                 </div>
                 <div className="tab-pane fade" id="tradeDerivativeOrderOpenLongMarket" role="tabpanel" aria-labelledby="tradeDerivativeOrderOpenLongMarket-tab">
-                    Open Long Market
+                    <OpenLongMarket />
                 </div>
                 <div className="tab-pane fade" id="tradeDerivativeOrderOpenLongConditional" role="tabpanel" aria-labelledby="tradeDerivativeOrderOpenLongConditional-tab">
-                    Open Long Conditional
+                    <OpenLongConditional />
                 </div>
             </div>
         </React.Fragment>

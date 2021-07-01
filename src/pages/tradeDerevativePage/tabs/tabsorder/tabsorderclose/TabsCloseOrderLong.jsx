@@ -1,5 +1,10 @@
 import React from 'react'
 
+// Import Tabs
+import CloseLongConditional from './tabsordercloselong/CloseLongConditional'
+import CloseLongLimit from './tabsordercloselong/CloseLongLimit'
+import CloseLongMarket from './tabsordercloselong/CloseLongMarket'
+
 function TabsCloseOrderLong() {
     return (
         <React.Fragment>
@@ -16,13 +21,13 @@ function TabsCloseOrderLong() {
             </div>
             <div className="tab-content tabContent-orderCloseLongShort mt-2" id="myTabContent">
                 <div className="tab-pane fade show active" id="tradeDerivativeOrderCloseLongLimit" role="tabpanel" aria-labelledby="tradeDerivativeOrderCloseLongLimit-tab">
-                    Close Long Limit
+                    <CloseLongLimit />
                 </div>
                 <div className="tab-pane fade" id="tradeDerivativeOrderCloseLongMarket" role="tabpanel" aria-labelledby="tradeDerivativeOrderCloseLongMarket-tab">
-                    Close Long Market
+                    <CloseLongMarket />
                 </div>
                 <div className="tab-pane fade" id="tradeDerivativeOrderCloseLongConditional" role="tabpanel" aria-labelledby="tradeDerivativeOrderCloseLongConditional-tab">
-                    Close Long Conditional
+                    <CloseLongConditional />
                 </div>
             </div>
         </React.Fragment>

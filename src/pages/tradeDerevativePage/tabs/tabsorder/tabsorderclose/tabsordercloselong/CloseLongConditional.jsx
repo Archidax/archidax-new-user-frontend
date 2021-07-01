@@ -1,17 +1,17 @@
 import React from 'react'
 import Popup from '../../../../../../components/popUps'
 
-function OpenLongMarket() {
+function CloseLongConditional() {
     return (
         <React.Fragment>
             <form className="mt-3">
                 <div className="rowLable my-2">
-                    <label className="text-white mb-0">Price</label>
+                    <label className="text-white mb-0">Trigger Price</label>
                 </div>
                 <div className="rowFormGroupTradeDerivative">
                     <div className="formGroupTradeDerivative-left">
                         <div className="input-group groupInputTradeDerivative">
-                            <input type="text" className="groupInputTradeDerivative-input px-2 py-2 w-100 pr-5 ci-pd" placeholder="Place order at best mark" disabled/>
+                            <input type="text" className="groupInputTradeDerivative-input px-2 py-2 w-100 pr-5 ci-pd" placeholder="" disabled/>
                         </div>
                     </div>
                     <div className="formGroupTradeDerivative-right">
@@ -21,6 +21,18 @@ function OpenLongMarket() {
                             <option value="opel">Opel</option>
                             <option value="audi">Audi</option>
                         </select>
+                    </div>
+                </div>
+
+                <div className="rowLable my-2 d-flex justify-content-between">
+                    <label className="text-white mb-0">Strike Price</label>
+                </div>
+
+                <div className="form-group">
+                    <div className="formGroupTradeDerivative-left">
+                        <div className="input-group groupInputTradeDerivative">
+                            <input type="text" className="groupInputTradeDerivative-input px-2 py-2 w-100 pr-5 ci-pd" placeholder="USD | Market Price" disabled/>
+                        </div>
                     </div>
                 </div>
 
@@ -139,4 +151,4 @@ function OpenLongMarket() {
     )
 }
 
-export default OpenLongMarket
+export default CloseLongConditional
