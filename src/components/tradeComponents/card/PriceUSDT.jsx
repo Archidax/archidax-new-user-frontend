@@ -120,7 +120,7 @@ function PriceUSDT({ exchange }) {
                       </div>
                     </td>
                   )}
-                  <tp
+                  <td
                     className="ci-verti-align-middle text-white tp-tb d-flex"
                     onClick={() => handleClick(el.symbol.toString().replace("/", "_"))}
                     style={{ cursor: "pointer" }}
@@ -131,7 +131,7 @@ function PriceUSDT({ exchange }) {
                       height={20}
                     />
                     <div className="ml-2">{el.symbol}</div>
-                  </tp>
+                  </td>
                   <td
                     className="ci-verti-align-middle text-white font-responsive-trade-page"
                     onClick={() => handleClick(el.symbol.toString().replace("/", "_"))}

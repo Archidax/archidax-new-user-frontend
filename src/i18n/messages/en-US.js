@@ -116,6 +116,7 @@ export default {
         si_program: "Affiliate Program",
         si_berita: "News",
         si_bantuan: "Help",
+        si_launchpad: "Launchpad",
 
  
         // Section1 

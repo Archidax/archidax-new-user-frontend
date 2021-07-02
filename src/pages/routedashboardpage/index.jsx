@@ -121,7 +121,7 @@ function RouteDashboardPage(props) {
     <LoadingPage />
   ) : (
     <div className="wrapper">
-      <I18nProvider locale={locale}>
+      {/* <I18nProvider locale={locale}> */}
         <Sidebar onClickActiveSidebar={onClickActiveSidebar} />
         <Switch>
           {/* <Dashboard /> */}
@@ -212,7 +212,7 @@ function RouteDashboardPage(props) {
             <CopyrightDashboard />
           </div>
         </Switch>
-      </I18nProvider>
+      {/* </I18nProvider> */}
       {/* <Footer /> */}
     </div>
   );
