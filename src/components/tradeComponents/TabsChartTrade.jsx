@@ -86,7 +86,8 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            {volumeData && volumeData.length ? <VolumeChart volumeData={volumeData} /> : <></>}
+            <VolumeChart />
+            {/* {volumeData && volumeData.length ? <VolumeChart volumeData={volumeData} /> : <></>} */}
           </div>
           <div
             class="tab-pane fade"
@@ -94,7 +95,8 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-profile-tab"
           >
-            {depthData ? <DepthChart depthData={depthData} /> : <></>}
+            <DepthChart />
+            {/* {depthData ? <DepthChart depthData={depthData} /> : <></>} */}
           </div>
         </div>
       </div>
