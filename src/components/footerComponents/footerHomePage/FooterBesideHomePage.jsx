@@ -184,6 +184,14 @@ export default function FooterBesideHomePage() {
                       {Translate("f3_panduan")}
                     </a>
                   </li>
+                  <li className="mb-3">
+                    <a
+                      href="/bounty-program"
+                      className="text-lg-footer font-14"
+                    >
+                      Bounty Program
+                    </a>
+                  </li>
                 </ul>
               </div>
               {/* {!isLogin && ( */}

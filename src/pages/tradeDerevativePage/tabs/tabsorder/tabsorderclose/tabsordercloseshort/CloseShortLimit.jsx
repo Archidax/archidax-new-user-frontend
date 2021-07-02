@@ -1,7 +1,7 @@
 import React from 'react'
 import Popup from '../../../../../../components/popUps'
 
-function OpenLongMarket() {
+function CloseShortLimit() {
     return (
         <React.Fragment>
             <form className="mt-3">
@@ -11,12 +11,15 @@ function OpenLongMarket() {
                 <div className="rowFormGroupTradeDerivative">
                     <div className="formGroupTradeDerivative-left">
                         <div className="input-group groupInputTradeDerivative">
-                            <input type="text" className="groupInputTradeDerivative-input px-2 py-2 w-100 pr-5 ci-pd" placeholder="Place order at best mark" disabled/>
+                            <input type="text" className="groupInputTradeDerivative-input px-2 py-2 w-100 pr-5 ci-pd" placeholder="" disabled/>
+                            <div className="groupInputTradeDerivative-appendR" style={{cursor: "pointer"}}>
+                                <span className="groupInputTradeDerivative-appendR-icon font-16 text-white pr-3">USDT</span>
+                            </div>
                         </div>
                     </div>
                     <div className="formGroupTradeDerivative-right">
                         <select name="cars" id="cars" className="selectTradeDerivative">
-                            <option value="volvo">125X</option>
+                            <option value="volvo">Volvo</option>
                             <option value="saab">Saab</option>
                             <option value="opel">Opel</option>
                             <option value="audi">Audi</option>
@@ -25,7 +28,7 @@ function OpenLongMarket() {
                 </div>
 
                 <div className="rowLable my-2 d-flex justify-content-between">
-                    <label className="text-white mb-0">Buy Size</label>
+                    <label className="text-white mb-0">Buy Price</label>
                     <label className="text-white mb-0">Available : -- (Count)</label>
                 </div>
 
@@ -83,11 +86,11 @@ function OpenLongMarket() {
 
                 {/* Button  */}
                 <div className="form-group">
-                    <div className="btn ax-bg-success ci-btn-success w-100" style={{borderRadius: "2px"}} onClick={() => Popup.fire({
+                    <div className="btn ax-bg-danger ci-btn-danger w-100" style={{borderRadius: "2px"}} onClick={() => Popup.fire({
                         title: "COMING SOON!!!",
                         text: "Coming soon to Archidax."
                     })}>
-                        Buy
+                        Sell
                     </div>
                 </div>
             </form>
@@ -139,4 +142,4 @@ function OpenLongMarket() {
     )
 }
 
-export default OpenLongMarket
+export default CloseShortLimit

@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 // Import Page
 import HomePage from "./homepage";
+import BountyPage from "./bountypage";
 import Deactivate from "./deactivate";
 import RouteDashboardPage from "./routedashboardpage";
 import LoginPage from "./loginpage";
@@ -139,6 +140,9 @@ export default function MainPages() {
             <Route path="/deactivate">
               <Deactivate />
             </Route>
+            <Route path="/bounty-program">
+              <BountyPage/>
+            </Route>
             <Route path="/login">
               <LoginPage />
             </Route>
@@ -203,7 +207,7 @@ export default function MainPages() {
             <Route path={"/pasar/:symbol"}>
               <Pasar />
             </Route>
-            <Route path={"/pasar-derevative/:symbol"}>
+            <Route path={"/pasar-derivative/:symbol"}>
               <TradeDerevativePage />
             </Route>
             <Route path={`/pengajuan-koin`}>

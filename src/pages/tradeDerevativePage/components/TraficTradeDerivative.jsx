@@ -2,14 +2,21 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { GetOrderLastPrice } from '../../../stores';
 
+// Import Loader
+import ReactLoading from 'react-loading'
+
 // Import Images
 import star from "../../../assets/img/trade/star.png";
 import FavoritePair from '../../../components/tradeComponents/listingExchange/FavoritePair';
 import CryptoPair from '../../../components/tradeComponents/listingExchange/CryptoPair';
 import FiatPair from '../../../components/tradeComponents/listingExchange/FiatPair';
 
-function TraficTradeDerivative({handleShowDropdown, showDropdown, mode}) {
+function TraficTradeDerivative({mode}) {
     const dispatch = useDispatch();
+    const [showDropdown, setShowDropdown] = React.useState("d-none");
+    const handleShowDropdown = (props) => {
+      props === "d-none" ? setShowDropdown("d-block") : setShowDropdown("d-none");
+    };
 
     const { PairSymbol, icon, price24H, listingList } = useSelector((state) =>
         state ? state.pasarTradingReducer : {},
@@ -35,7 +42,7 @@ function TraficTradeDerivative({handleShowDropdown, showDropdown, mode}) {
                             }}
                             onClick={() => handleShowDropdown(showDropdown)}
                         >
-                            {/* {PairSymbol ? ( */}
+                            {PairSymbol ? (
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div className="text-left mr-2 d-flex align-items-center">
                                         <img
@@ -52,7 +59,7 @@ function TraficTradeDerivative({handleShowDropdown, showDropdown, mode}) {
                                                 fontWeight: 600,
                                             }}
                                         >
-                                            {/* {PairSymbol ? PairSymbol : "-"} */}
+                                            {PairSymbol ? PairSymbol : "-"}
                                             -
                                         </p>
                                     </div>
@@ -60,7 +67,7 @@ function TraficTradeDerivative({handleShowDropdown, showDropdown, mode}) {
                                         <i className="fas fa-sort-down d-flex justify-content-center"></i>
                                     </div>
                                 </div>
-                            {/* ) : (
+                            ) : (
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div className="text-left mr-2 d-flex align-items-center">
                                         <ReactLoading
@@ -71,7 +78,7 @@ function TraficTradeDerivative({handleShowDropdown, showDropdown, mode}) {
                                         />
                                     </div>
                                 </div>
-                            )} */}
+                            )}
                         </button>
                         <div
                             className={`ci-dropdown-menu-TradeSymbol ${showDropdown} pt-0`}

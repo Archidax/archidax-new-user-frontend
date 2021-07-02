@@ -11,14 +11,14 @@ $theme-YellowBase-BackgroundDefault: #e7cf6d;
 $theme-GreyBase-BackgroundDefault: #aeb4ce;
 
 // Font type
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
-@import url("react-bootstrap-table-next/dist/react-bootstrap-table2.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+@import url('react-bootstrap-table-next/dist/react-bootstrap-table2.min.css');
 @font-face {
-  font-family: "Digital-7";
-  src: url("../assets/font/digital-7.woff2");
+  font-family: 'Digital-7';
+  src: url('../assets/font/digital-7.woff2');
 }
 .font-digital {
-  font-family: "Digital-7";
+  font-family: 'Digital-7';
   line-height: 25px;
 }
 
@@ -58,57 +58,58 @@ li {
 }
 
 /* Components */
-@import "./components/header";
-@import "./components/sidenav";
-@import "./components/button";
-@import "./components/input";
-@import "./components/checkonof";
-@import "./components/hr";
-@import "./components/customcard";
-@import "./components/icon";
-@import "./components/table";
-@import "./components/smspopup";
-@import "./components/card";
-@import "./components/apipopup";
-@import "./components/ubahPassword";
-@import "./components//limitakun";
-@import "./components/popup";
-@import "./components/animation";
-@import "./components/banner";
+@import './components/header';
+@import './components/sidenav';
+@import './components/button';
+@import './components/input';
+@import './components/checkonof';
+@import './components/hr';
+@import './components/customcard';
+@import './components/icon';
+@import './components/table';
+@import './components/smspopup';
+@import './components/card';
+@import './components/apipopup';
+@import './components/ubahPassword';
+@import './components//limitakun';
+@import './components/popup';
+@import './components/animation';
+@import './components/banner';
 
 /* Helpers */
-@import "./helpers/container";
-@import "./helpers/fontSizes";
-@import "./helpers/fontColors";
-@import "./helpers/fontTypes";
-@import "./helpers/backgroundColors";
-@import "./helpers/avatar";
-@import "./helpers/trackScrollbar";
-@import "./helpers/layout";
-@import "./helpers/paddingSizes";
+@import './helpers/container';
+@import './helpers/fontSizes';
+@import './helpers/fontColors';
+@import './helpers/fontTypes';
+@import './helpers/backgroundColors';
+@import './helpers/avatar';
+@import './helpers/trackScrollbar';
+@import './helpers/layout';
+@import './helpers/paddingSizes';
 
 /* Pages */
-@import "./pages/loadingPage";
-@import "./pages/homepage";
-@import "./pages/beritapage";
-@import "./pages/panduanpenggunapage";
-@import "./pages/trade";
-@import "./pages/profilepage";
-@import "./pages/voucher";
-@import "./pages/bantuanpage";
-@import "./pages/privasipage";
-@import "./pages/manajemenapipage";
-@import "./pages/riwayat";
-@import "./pages/feeRate";
-@import "./pages/auth";
-@import "./pages/dashboard";
-@import "./pages/loginregister";
-@import "./pages/404page";
-@import "./pages/pengajuanKoin";
-@import "./pages/keuanganpage";
-@import "./pages/launchpadHome";
-@import "./pages/traderesponsive";
+@import './pages/loadingPage';
+@import './pages/homepage';
+@import './pages/beritapage';
+@import './pages/panduanpenggunapage';
+@import './pages/trade';
+@import './pages/profilepage';
+@import './pages/voucher';
+@import './pages/bantuanpage';
+@import './pages/privasipage';
+@import './pages/manajemenapipage';
+@import './pages/riwayat';
+@import './pages/feeRate';
+@import './pages/auth';
+@import './pages/dashboard';
+@import './pages/loginregister';
+@import './pages/404page';
+@import './pages/pengajuanKoin';
+@import './pages/keuanganpage';
+@import './pages/launchpadHome';
+@import './pages/traderesponsive';
+@import './pages/bountypage';
 
 /* Pages-2 */
-@import "./pages/homepage/fiturpage";
-@import "./pages/tradederivative";
+@import './pages/homepage/fiturpage';
+@import './pages/tradederivative';

@@ -10,7 +10,7 @@ import Translate from '../../i18n/Translate';
 
 export default function index() {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{height: "94vh"}}>
       <h2 className="title-riwayat mb-2">{Translate('rw_riwayat')}</h2>
       <div className="lines-header mb-3" style={{width: "40px", height: "2px", background: "#F9BA42"}}></div>
       <nav>
