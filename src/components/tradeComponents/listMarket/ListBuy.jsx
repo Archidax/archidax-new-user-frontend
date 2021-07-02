@@ -80,7 +80,7 @@ export default function ListBuy() {
                           mode ? "text-success" : "text-success font-bolder25"
                         } text-left`}
                       >
-                          <NumberFormat value={item.price} displayType={'text'} decimalScale={8} thousandSeparator={true} />
+                          <NumberFormat value={item.price} displayType={'text'} decimalScale={15} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
