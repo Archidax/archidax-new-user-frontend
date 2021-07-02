@@ -124,7 +124,7 @@ function FiatPairRealtime({ item, index }) {
           }`}
         >
           {Data &&
-            <NumberFormat value={Data.price24h_close} decimalScale={8} displayType={'text'} thousandSeparator={true} />}
+            <NumberFormat value={Data.price24h_close} decimalScale={15} displayType={'text'} thousandSeparator={true} />}
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${

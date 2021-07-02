@@ -134,6 +134,7 @@ export default function LimitBuy({ balanceAsset }) {
             ></input> */}
             <NumberFormat 
               // prefix={pairTo ? pairTo+" : " : null}
+              decimalScale={8}
               thousandSeparator={true}
               className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"

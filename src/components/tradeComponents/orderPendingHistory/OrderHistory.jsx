@@ -9,7 +9,7 @@ import { GetHistoryOrder } from "../../../stores/pasartrading/functions";
 
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-import { convertNumber } from "../../../assets/js";
+import NumberFormat from "react-number-format";
 
 import noorder from "../../../assets/img/trade/no_order.svg";
 
@@ -129,21 +129,21 @@ export default function OrderPending(props) {
                         mode ? "text-price-dark" : "text-price"
                       } text-left`}
                     >
-                      {convertNumber.toRupiah(item.price,"CRYPTO")}
+                      <NumberFormat value={item.price} displayType={'text'} decimalScale={15} thousandSeparator={true} />
                     </td>
                     <td
                       className={`${
                         mode ? "text-price-dark" : "text-price"
                       } text-left`}
                     >
-                      {convertNumber.toRupiah(item.amount, "CRYPTO")}
+                      <NumberFormat value={item.amount} displayType={'text'} decimalScale={8} thousandSeparator={true} />
                     </td>
                     <td
                       className={`${
                         mode ? "text-price-dark" : "text-price"
                       } text-left`}
                     >
-                      {convertNumber.toRupiah(item.total,"CRYPTO")}
+                      <NumberFormat value={item.total} displayType={'text'} decimalScale={8} thousandSeparator={true} />
                     </td>
                   </tr>
                 );

@@ -12,6 +12,8 @@ import {
 import { convertNumber } from "../../../assets/js";
 import BtnAlertCancelAll from "./BtnCncelAll";
 
+import NumberFormat from "react-number-format";
+
 import noorder from "../../../assets/img/trade/no_order.svg";
 
 export default function OrderPending() {
@@ -104,7 +106,7 @@ export default function OrderPending() {
                           mode ? "text-price-dark" : "text-price"
                         } text-left`}
                       >
-                        {convertNumber.toRupiah(item.price,"CRYPTO")}
+                        <NumberFormat value={item.price} displayType={'text'} decimalScale={15} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
@@ -118,14 +120,14 @@ export default function OrderPending() {
                           mode ? "text-price-dark" : "text-price"
                         } text-left`}
                       >
-                        {convertNumber.tradeRemaining(item.stock, item.amount,"CRYPTO")}
+                        <NumberFormat value={convertNumber.tradeRemaining(item.stock, item.amount,"CRYPTO")} displayType={'text'} decimalScale={8} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
                           mode ? "text-price-dark" : "text-price"
                         } text-left`}
                       >
-                        {convertNumber.toRupiah(item.total,"CRYPTO")}
+                        <NumberFormat value={item.total} displayType={'text'} decimalScale={8} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${

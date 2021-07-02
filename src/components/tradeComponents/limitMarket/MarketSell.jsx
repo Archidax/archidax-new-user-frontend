@@ -220,6 +220,7 @@ export default function MarketSell({balanceAsset}) {
             ></input> */}
              <NumberFormat 
               // prefix={pairTo?pairTo+" : ":null}
+              decimalScale={8}
               thousandSeparator={true}
               inputMode="decimal"
               name="estimation"
@@ -227,7 +228,7 @@ export default function MarketSell({balanceAsset}) {
               className={`col-12 py-2 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
-              value={parseInt(inputAmount * price24H.Close)}
+              value={inputAmount * price24H.Close}
               disabled
             />
           </div>
