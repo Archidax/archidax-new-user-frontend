@@ -21,7 +21,7 @@ export default function CalculatorAsetHomepage() {
       setToText(
         parseFixedNumber(
           parseFloat(
-            newValue.replaceAll(".", "").replace(",", ".") *
+            newValue.replace(/\./g, "").replace(",", ".") *
               pricePairs[`${activePairFrom}/${activePairTo}`],
           )
             .toString()
@@ -38,7 +38,7 @@ export default function CalculatorAsetHomepage() {
       setFromText(
         parseFixedNumber(
           parseFloat(
-            newValue.replaceAll(".", "").replace(",", ".") /
+            newValue.replace(/\./g, "").replace(",", ".") /
               pricePairs[`${activePairFrom}/${activePairTo}`],
           )
             .toString()
@@ -109,7 +109,7 @@ export default function CalculatorAsetHomepage() {
     setToText(
       parseFixedNumber(
         parseFloat(
-          fromText.replaceAll(".", "").replace(",", ".") *
+          fromText.replace(/\./, "").replace(",", ".") *
             pricePairs[`${activePairFrom}/${activePairTo}`],
         )
           .toString()
