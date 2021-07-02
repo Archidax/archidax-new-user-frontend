@@ -66,7 +66,7 @@ export default function SliderBannerDashboard() {
         <Slider>
           {dataNewNews?.map((item, index) => {
             return (
-              <Slide index={index}>
+              <Slide index={index} key={index}>
                 <div
                   style={{
                     cursor: "pointer",

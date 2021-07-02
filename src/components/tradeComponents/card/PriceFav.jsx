@@ -65,14 +65,14 @@ function PriceFav({ exchange }) {
             {exchange.map((el, index) => {
               return (
                 <tr key={index}>
-                  <tp
+                  <td
                     className="ci-verti-align-middle text-white tp-tb d-flex"
                     onClick={() => handleClick(el.symbol.toString().replace("/", "_"))}
                     style={{ cursor: "pointer" }}
                   >
                     <img src={el.price_24hour.icon} alt="icons" height={20} />
                     <div className="ml-2">{el.symbol}</div>
-                  </tp>
+                  </td>
                   <td
                     className="ci-verti-align-middle text-white"
                     onClick={() => handleClick(el.symbol.toString().replace("/", "_"))}

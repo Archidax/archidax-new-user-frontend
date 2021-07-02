@@ -135,7 +135,7 @@ export default function SidebarDashboard(props) {
                       }`}
                   >
                     <img src={LaunchpadIcon} alt="LaunchpadIcon" className="mr-3" />
-                    {Translate('Launchpad')}
+                    {Translate('si_launchpad')}
                   </span>
                 </Link>
               </div>

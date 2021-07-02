@@ -114,6 +114,7 @@ export default {
         si_program: "Program Afiliasi",
         si_berita: "Berita",
         si_bantuan: "Bantuan",
+        si_launchpad: "Launchpad",
 
         // Section1 
         db_terverifikasi: "Terverifikasi",
