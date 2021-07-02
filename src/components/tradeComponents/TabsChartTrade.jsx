@@ -13,12 +13,14 @@ export default function TabsChartTrade() {
   const { PairSymbol, price24H } = useSelector((state) => state.pasarTradingReducer);
 
   useEffect(() => {
-    getChartDepth(PairSymbol, 50, (e) => {
-      setDepthData(e);
-    });
-    getVolumeChart(PairSymbol, 48, (e) => {
-      setVolumeData(e);
-    });
+    if(PairSymbol){
+      getChartDepth(PairSymbol, 50, (e) => {
+        setDepthData(e);
+      });
+      getVolumeChart(PairSymbol, 48, (e) => {
+        setVolumeData(e);
+      });
+    }
   }, [PairSymbol]);
 
   useEffect(() => {
