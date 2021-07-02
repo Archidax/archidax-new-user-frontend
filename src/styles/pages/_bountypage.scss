@@ -9,3 +9,117 @@
   padding: 6rem 2rem;
   margin-bottom: 2rem;
 }
+
+.banner-blue {
+  background-image: url(../../assets/img/bounty/bluebg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+.banner-green {
+  background-image: url(../../assets/img/bounty/greenbg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 2;
+}
+.info {
+  font-size: 1.5em;
+}
+
+table {
+  border-collapse: inherit;
+  border-spacing: 0 15px;
+}
+.text-bold {
+  font-weight: 600;
+}
+
+.card-style {
+  border: 2px solid #4580d6;
+}
+
+.v1 {
+  border-left: 4px solid #4580d6;
+  height: 100px;
+}
+
+.icon-schedule {
+  position: absolute;
+  background-color: #4580d6;
+  width: 50px;
+  height: 50px;
+  left: 300px;
+  bottom: -90px;
+}
+
+.img-center {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+// all card
+.font-xs {
+  font-size: 0.7em;
+}
+
+.card-twitter {
+  background-image: url(../../assets/img/bounty/bg-twittercampaign.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #0b0c22;
+  width: 293px;
+  height: 390px;
+  border-radius: 8px;
+}
+
+.card-facebook {
+  background-image: url(../../assets/img/bounty/bg-facebookcampaign.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 293px;
+  height: 390px;
+  border-radius: 8px;
+}
+.card-telegram {
+  background-image: url(../../assets/img/bounty/bg-telegramcampaign.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 293px;
+  height: 390px;
+  border-radius: 8px;
+}
+.card-translations {
+  background-image: url(../../assets/img/bounty/bg-translationscampaign.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 293px;
+  height: 390px;
+  border-radius: 8px;
+}
+.card-contentblog {
+  background-image: url(../../assets/img/bounty/bg-contentblogcampaign.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 293px;
+  height: 390px;
+  border-radius: 8px;
+}
+.card-youtube {
+  background-image: url(../../assets/img/bounty/bg-youtubecampaign.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 293px;
+  height: 390px;
+  border-radius: 8px;
+}
+.card-tiktok {
+  background-image: url(../../assets/img/bounty/bg-tiktokcampaign.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 293px;
+  height: 390px;
+  border-radius: 8px;
+}

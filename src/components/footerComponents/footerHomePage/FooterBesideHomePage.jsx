@@ -102,40 +102,33 @@ export default function FooterBesideHomePage() {
                   </li>
                 </ul>
               </div>
-              <div className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2">
-                <h6 className="text-uppercase font-weight-bold mb-4 text-gold">
-                  {Translate("f2_legal")}
-                </h6>
-                <ul className="list-unstyled mb-0">
-                {
-                  Object.keys(dynamicPages).map((categories, categoryIndex) => {
-                    if (dynamicPages[categories].length) {
-                      return (
-                        <div
-                          key={categoryIndex}
-                          className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2"
-                        >
-                          <h6 className="text-uppercase font-weight-bold mb-4 text-gold">
-                            {categories.toUpperCase()}
-                          </h6>
-                          <ul className="list-unstyled mb-0">
-                            {dynamicPages[categories].map((page, pageIndex) => {
-                              return (
-                                <li className="mb-3" key={pageIndex}>
-                                  <Link to={`/pages/${page.category}/${page.pageSlug}`}>
-                                    {toTitleCase(page.pageName)}
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      )
-                    }
-                  })
-                }
-                </ul>
-              </div>
+              {
+                Object.keys(dynamicPages).map((categories, categoryIndex) => {
+                  if (dynamicPages[categories].length) {
+                    return (
+                      <div
+                        key={categoryIndex}
+                        className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2"
+                      >
+                        <h6 className="text-uppercase font-weight-bold mb-4 text-gold">
+                          {categories.toUpperCase()}
+                        </h6>
+                        <ul className="list-unstyled mb-0">
+                          {dynamicPages[categories].map((page, pageIndex) => {
+                            return (
+                              <li className="mb-3" key={pageIndex}>
+                                <Link to={`/pages/${page.category}/${page.pageSlug}`}>
+                                  {toTitleCase(page.pageName)}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    )
+                  }
+                })
+              }
               <div className="col-6 col-lg-2 col-md-6 mb-4 mb-lg-0 mt-2">
                 <h6 className="text-uppercase font-weight-bold mb-4 text-gold">
                   {Translate("f3_layanan")}
@@ -189,6 +182,14 @@ export default function FooterBesideHomePage() {
                       className="text-lg-footer font-14"
                     >
                       {Translate("f3_panduan")}
+                    </a>
+                  </li>
+                  <li className="mb-3">
+                    <a
+                      href="/bounty-program"
+                      className="text-lg-footer font-14"
+                    >
+                      Bounty Program
                     </a>
                   </li>
                 </ul>

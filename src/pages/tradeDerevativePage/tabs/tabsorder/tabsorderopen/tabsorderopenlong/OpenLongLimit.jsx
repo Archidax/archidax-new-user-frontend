@@ -1,5 +1,5 @@
 import React from 'react'
-import DropdownCustom from '../../../../../../components/dropdownCustom'
+import Popup from '../../../../../../components/popUps'
 
 function OpenLongLimit() {
     return (
@@ -11,7 +11,7 @@ function OpenLongLimit() {
                 <div className="rowFormGroupTradeDerivative">
                     <div className="formGroupTradeDerivative-left">
                         <div className="input-group groupInputTradeDerivative">
-                            <input type="text" className="groupInputTradeDerivative-input px-2 py-2 w-100 pr-5 ci-pd" placeholder="Search"/>
+                            <input type="text" className="groupInputTradeDerivative-input px-2 py-2 w-100 pr-5 ci-pd" placeholder="" disabled/>
                             <div className="groupInputTradeDerivative-appendR" style={{cursor: "pointer"}}>
                                 <span className="groupInputTradeDerivative-appendR-icon font-16 text-white pr-3">USDT</span>
                             </div>
@@ -35,7 +35,7 @@ function OpenLongLimit() {
                 <div className="form-group">
                     <div className="formGroupTradeDerivative-left">
                         <div className="input-group groupInputTradeDerivative">
-                            <input type="text" className="groupInputTradeDerivative-input px-2 py-2 w-100 pr-5 ci-pd" placeholder="Search"/>
+                            <input type="text" className="groupInputTradeDerivative-input px-2 py-2 w-100 pr-5 ci-pd" placeholder="(Cont)" disabled/>
                             <div className="groupInputTradeDerivative-appendR" style={{cursor: "pointer"}}>
                                 <span className="groupInputTradeDerivative-appendR-icon font-16 text-white pr-3">USDT</span>
                             </div>
@@ -86,9 +86,12 @@ function OpenLongLimit() {
 
                 {/* Button  */}
                 <div className="form-group">
-                    <button className="btn ax-bg-success ci-btn-success w-100" style={{borderRadius: "2px"}}>
+                    <div className="btn ax-bg-success ci-btn-success w-100" style={{borderRadius: "2px"}} onClick={() => Popup.fire({
+                        title: "COMING SOON!!!",
+                        text: "Coming soon to Archidax."
+                    })}>
                         Buy
-                    </button>
+                    </div>
                 </div>
             </form>
 

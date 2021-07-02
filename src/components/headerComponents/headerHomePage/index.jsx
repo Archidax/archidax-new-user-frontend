@@ -97,7 +97,11 @@ function HeaderHomePage(props) {
                       <a
                         className="d-flex  align-items-center dd-homepage
                        "
-                        href={"/launchpad"}
+                        href={
+                          PairSymbol
+                          ? `/pasar/${PairSymbol.toString().replace("/", "_")}`
+                          : "/pasar/BTC_USDT"
+                        }
                       >
                         <div>
                           <img src={spotmarketlogo} width="38px" />
@@ -133,7 +137,11 @@ function HeaderHomePage(props) {
                       <a
                         className="d-flex  align-items-center dd-homepage
                        "
-                        href={"/launchpad"}
+                        href={
+                          PairSymbol
+                          ? `/pasar-derivative/${PairSymbol.toString().replace("/", "_")}`
+                          : "/pasar-derivative/BTC_USDT"
+                        }
                       >
                         <div>
                           <img src={derivativelogo} width="38px" />

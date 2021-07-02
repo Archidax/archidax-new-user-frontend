@@ -91,48 +91,51 @@ function CardDashboardPasarTrading() {
                   id="dashboard-table"
                 >
                   <thead className="my-4">
-                    <th
-                      className="ci-tableHeads-custom text-white text-center"
-                      scope="col"
-                      style={{ height: "60px", verticalAlign: "middle" }}
-                    >
-                      {Translate('db_pasar_no')}
-                    </th>
-                    <th
-                      className="ci-tableHeads-custom text-white"
-                      scope="col"
-                      style={{ height: "60px", verticalAlign: "middle" }}
-                    >
-                      {Translate('db_pasar_nama_koin')}
-                    </th>
-                    <th
-                      className="ci-tableHeads-custom text-white"
-                      scope="col"
-                      style={{ height: "60px", verticalAlign: "middle" }}
-                    >
-                      {Translate('db_pasar_harga')}
-                    </th>
-                    <th
-                      className="ci-tableHeads-custom text-white"
-                      scope="col"
-                      style={{ height: "60px", verticalAlign: "middle" }}
-                    >
-                      {Translate('db_pasar_perubahan')}
-                    </th>
-                    <th
-                      className="ci-tableHeads-custom text-white"
-                      scope="col"
-                      style={{ height: "60px", verticalAlign: "middle" }}
-                    >
-                      {Translate('db_pasar_saldo_aktif')}
-                    </th>
-                    <th
-                      className="ci-tableHeads-custom text-center text-white"
-                      scope="col"
-                      style={{ height: "60px", verticalAlign: "middle" }}
-                    >
-                      {Translate('db_pasar_aksi')}
-                    </th>
+                    <tr>
+                      <th
+                        className="ci-tableHeads-custom text-white text-center"
+                        scope="col"
+                        style={{ height: "60px", verticalAlign: "middle" }}
+                      >
+                        {Translate('db_pasar_no')}
+                      </th>
+                      <th
+                        className="ci-tableHeads-custom text-white"
+                        scope="col"
+                        style={{ height: "60px", verticalAlign: "middle" }}
+                      >
+                        {Translate('db_pasar_nama_koin')}
+                      </th>
+                      <th
+                        className="ci-tableHeads-custom text-white"
+                        scope="col"
+                        style={{ height: "60px", verticalAlign: "middle" }}
+                      >
+                        {Translate('db_pasar_harga')}
+                      </th>
+                      <th
+                        className="ci-tableHeads-custom text-white"
+                        scope="col"
+                        style={{ height: "60px", verticalAlign: "middle" }}
+                      >
+                        {Translate('db_pasar_perubahan')}
+                      </th>
+                      <th
+                        className="ci-tableHeads-custom text-white"
+                        scope="col"
+                        style={{ height: "60px", verticalAlign: "middle" }}
+                      >
+                        {Translate('db_pasar_saldo_aktif')}
+                      </th>
+                      <th
+                        className="ci-tableHeads-custom text-center text-white"
+                        scope="col"
+                        style={{ height: "60px", verticalAlign: "middle" }}
+                      >
+                        {Translate('db_pasar_aksi')}
+                      </th>
+                    </tr>
+                    
                   </thead>
                   {listingList && listingList.length > 0 ? (
                     <PricePasarTrading data={listingList} />

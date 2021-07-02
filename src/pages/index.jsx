@@ -207,7 +207,7 @@ export default function MainPages() {
             <Route path={"/pasar/:symbol"}>
               <Pasar />
             </Route>
-            <Route path={"/pasar-derevative/:symbol"}>
+            <Route path={"/pasar-derivative/:symbol"}>
               <TradeDerevativePage />
             </Route>
             <Route path={`/pengajuan-koin`}>

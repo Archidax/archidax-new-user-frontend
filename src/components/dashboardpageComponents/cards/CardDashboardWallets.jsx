@@ -80,7 +80,7 @@ function CardDashboardWallets() {
             <Link to="/wallet">
               <button className="ci-btn-secondary ci-lg w-100 ci-bg-success text-white mt-3">
                 {Translate("selengkapnya")}
-                <i class="fas fa-angle-double-right ml-3"></i>
+                <i className="fas fa-angle-double-right ml-3"></i>
               </button>
             </Link>
           </div>

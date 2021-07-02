@@ -1,31 +1,33 @@
 import React from 'react';
 import BountyLogo from '../../assets/img/bounty/bountylogo.png';
+import BountyIcon from '../../assets/img/bounty/bounty.png';
+
 const bannerbountypage = () => {
   return (
     <div className="jumbotron-bounty bounty-banner">
       <div className="row d-flex justify-content-center">
         <div className="col">
-          <div>
-            <img src={BountyLogo} alt="bounty logo" />
-          </div>
+          {/* <div className="banner-blue"> </div>
+          <div className="banner-green"></div> */}
+          <img src={BountyLogo} alt="bounty logo" />
         </div>
-        <div className="col">
-          <h2>
+        <div className="col-8">
+          <h2 className="info ">
             Archidax Exchange invite you to be a part of the Bounty Event held
             in conjunction with the launch of the Archidax trading Platform.
           </h2>
-          <div className="row">
-            <div className="col">
-              <img src="" alt="" />
+          <div className="row my-5">
+            <div className="col-2 mr-4">
+              <img src={BountyIcon} alt="bounty" />
             </div>
-            <div className="col">
+            <div className="col-8">
               <table>
                 <tr>
                   <td>
                     <span>Token name</span>
                   </td>
                   <td>
-                    <span>ARCHI TOKEN (ARTO)</span>
+                    <span className="text-bold ml-3">ARCHI TOKEN (ARTO)</span>
                   </td>
                 </tr>
                 <tr>
@@ -33,22 +35,25 @@ const bannerbountypage = () => {
                     <span>Total Prize/Reward</span>
                   </td>
                   <td>
-                    <span>2.000.000 ARTO (400.000 USDT)</span>
+                    <span className="text-bold ml-3">
+                      2.000.000 ARTO (400.000 USDT)
+                    </span>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <span>Current Token Prize</span>
+                    <span>Current Token Prized</span>
                   </td>
                   <td>
-                    <span>0.2 USDT</span>
+                    <span className="text-bold ml-3">0.2 USDT</span>
                   </td>
                 </tr>
               </table>
             </div>
           </div>
-          <div>
-            <h1>BOUNTY START DATE : JUNE 27, 2021</h1>
+          <div classname="info">
+            <span className="text-bold">BOUNTY START DATE : JUNE 27, 2021</span>
+            <br />
             <span>
               Week Starts on Sunday 00:00 UTC and Ends on Sunday 23: 59 UTC
             </span>
