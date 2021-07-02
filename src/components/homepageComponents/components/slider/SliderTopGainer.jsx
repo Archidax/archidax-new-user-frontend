@@ -18,6 +18,9 @@ export default function SliderTopGainer({ dataHome }) {
         toolbar: {
           show: false,
         },
+        zoom: {
+          enabled: false
+        }
       },
       stroke: {
         show: true,

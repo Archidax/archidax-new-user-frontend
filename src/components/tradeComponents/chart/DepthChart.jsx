@@ -1,4 +1,4 @@
-import React, {useLayoutEffect,useRef} from "react";
+import React, {useEffect , useRef } from "react";
 import { useSelector } from "react-redux";
 import ReactApexChart from "react-apexcharts";
 
@@ -12,6 +12,12 @@ export default function DepthChart({ depthData }) {
   const { PairSymbol, price24H } = useSelector(
     (state) => state.pasarTradingReducer,
   );
+  
+  // useEffect(() => {
+  //   if(depthData){
+  //     console.log(depthData, "1213")
+  //   }
+  // }, [depthData])
   // const chart = useRef(null);
 
   // useLayoutEffect(() => {
@@ -77,42 +83,115 @@ export default function DepthChart({ depthData }) {
 
   const apexOptions = {
     chart: {
-      height: 280,
-      type: "area"
+      height: "100%",
+      width: "100%",
+      type: "area",
+      toolbar: {
+        show: false,
+      },
+      zoom: {
+        enabled: false
+      }
     },
+    colors: ['#00b52a', '#c20013'],
     stroke: {
       curve: 'stepline',
     },
     dataLabels: {
       enabled: false
     },
-    fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.7,
-        opacityTo: 0.9,
-        stops: [0, 90, 100]
+    xaxis: {
+      type: 'numeric',
+      labels: {
+        show: false,
+      },
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: {
+        show: false,
+      },
+      decimalsInFloat: 9,
+      tooltip: {
+        x: {
+          formatter: function(val) {
+            return val.toFixed(9);
+          }
+        }
       }
+    },
+    yaxis: {
+      show: false,
+    },
+    fill: {
+      gradient: {
+        enabled: true,
+        opacityFrom: 0.45,
+        opacityTo: 0
+      }
+    },
+    axisBorder: {
+      show: false,
+    },
+    labels: {
+      show: false,
+    },
+    legend: {
+      show: false,
+    },
+    grid: {
+      show: false,
+    },
+    tooltip: {
+      theme: 'dark',
+      // custom: function({ series, seriesIndex, dataPointIndex, w }) {
+      //   console.log(series)
+      //   console.log(seriesIndex)
+      //   console.log(w)
+      //   console.log(dataPointIndex)
+      //   return (
+      //     '<div class="container">' +
+      //       '<h1>coba</h1>' +
+      //       '<h1>coba</h1>' +
+      //       "<div>" +
+      //       w.config.series[0].categories[dataPointIndex] +
+      //       "</div>" +
+      //       '<div class="group1">Views: ' +
+      //       series[0][dataPointIndex] +
+      //       "</div>" +
+      //       "</div>" +
+      //       '<div class="group">' +
+      //       "<div>" +
+      //       w.config.series[1].categories[dataPointIndex] +
+      //       "</div>" +
+      //       '<div class="group2">Views: ' +
+      //       series[1][dataPointIndex] +
+      //       "</div>" +
+      //       "</div>" +
+      //     "</div>"
+      //   );
+      // }
     },
   };
 
   return (
     <>
-      <ReactApexChart
-        options={apexOptions}
-        series={[
-          {
-            name: "Series 1",
-            data: [[1, 45], [2, 52], [3, 38], [4, 25], [5, 19], [6, 23], [7, 2]]
-          },
-          {
-            name: "Series 2",
-            data: [[8, 0],[9, 8],[10, 19],[11, 30],[12, 48]]
-          }
-        ]}
-        type="area"
-      />
+      {depthData&&
+        <ReactApexChart
+          options={apexOptions}
+          series={[
+            {
+              name: "Bids",
+              data: depthData.bids?depthData.bids:[]
+            },
+            {
+              name: "Asks",
+              data: depthData.asks?depthData.asks:[]
+            }
+          ]}
+          type="area"
+        />
+      }
     </>
     // <div id="chartdiv" style={{ width: "100%", height: "100%" }}></div>
   );

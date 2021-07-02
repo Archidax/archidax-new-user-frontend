@@ -13,12 +13,14 @@ export default function TabsChartTrade() {
   const { PairSymbol, price24H } = useSelector((state) => state.pasarTradingReducer);
 
   useEffect(() => {
-    getChartDepth(PairSymbol, 50, (e) => {
-      setDepthData(e);
-    });
-    getVolumeChart(PairSymbol, 48, (e) => {
-      setVolumeData(e);
-    });
+    if(PairSymbol){
+      getChartDepth(PairSymbol, 50, (e) => {
+        setDepthData(e);
+      });
+      getVolumeChart(PairSymbol, 48, (e) => {
+        setVolumeData(e);
+      });
+    }
   }, [PairSymbol]);
 
   useEffect(() => {
@@ -86,8 +88,7 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            <VolumeChart />
-            {/* {volumeData && volumeData.length ? <VolumeChart volumeData={volumeData} /> : <></>} */}
+            {volumeData && volumeData.length ? <VolumeChart volumeData={volumeData} /> : <></>}
           </div>
           <div
             class="tab-pane fade"
@@ -95,8 +96,7 @@ export default function TabsChartTrade() {
             role="tabpanel"
             aria-labelledby="pills-profile-tab"
           >
-            <DepthChart />
-            {/* {depthData ? <DepthChart depthData={depthData} /> : <></>} */}
+            {depthData ? <DepthChart depthData={depthData} /> : <></>}
           </div>
         </div>
       </div>
