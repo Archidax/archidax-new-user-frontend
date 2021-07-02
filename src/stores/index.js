@@ -64,13 +64,13 @@ export const baseUrl = 'https://dev.archidax.net';
 export const baseUserSocketUrl = 'https://dev.archidax.net';
 // export const baseUserSocketUrl = 'http://localhost:8000'
 ///////////////////////////////////////////////////////////////
-export const baseUrlTrade = 'https://trade.archidax.net';
+// export const baseUrlTrade = 'https://trade.archidax.net';
 //  export const baseUrlTrade='http://192.168.0.161:2021';
-// export const baseUrlTrade='http://localhost:2021';
+export const baseUrlTrade='http://localhost:2021';
 //  export const baseUrlTrade='http://192.168.1.31:2021';
 ///////////////////////////////////////////////////////////////
-export const baseUrlTradeSocket = 'https://trade.archidax.net'
-// export const baseUrlTradeSocket = 'http://localhost:2021'
+// export const baseUrlTradeSocket = 'https://trade.archidax.net'
+export const baseUrlTradeSocket = 'http://localhost:2021'
 ///////////////////////////////////////////////////////////////
 export const baseUrlTradeVersion='/api/v1';
 ///////////////////////////////////////////////////////////////

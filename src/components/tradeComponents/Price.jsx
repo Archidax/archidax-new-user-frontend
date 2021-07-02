@@ -217,8 +217,8 @@ export default function Price() {
                 >
                   
                      <NumberFormat value={price24H
-                    ? convertNumber.toRupiah(price24H.Close, "CRYPTO")
-                    : 0} displayType={'text'} thousandSeparator={true} />
+                    ?price24H.Close
+                    : 0} displayType={'text'} decimalScale={15} thousandSeparator={true} />
                 </div>
 
                 {/* Change */}
