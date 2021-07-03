@@ -69,7 +69,7 @@ export const parseTime = (date) => {
 }
 
 export const parseFixedNumber = (amount, maxDecimals = 8) => {
-  let newAmount = amount ? amount.toString().replaceAll(/\./g, '') : ''
+  let newAmount = amount ? amount.toString().replace(/\./g, '') : ''
   // let front = parseInt(newAmount).toString()
   /////
   let front = ''
