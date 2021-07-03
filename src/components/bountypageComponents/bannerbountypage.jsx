@@ -11,11 +11,11 @@ const bannerbountypage = () => {
           <div className="banner-green"></div> */}
           <img src={BountyLogo} alt="bounty logo" />
         </div>
-        <div className="col-8">
-          <h2 className="info ">
+        <div className="col-7">
+          <h5 className="info">
             Archidax Exchange invite you to be a part of the Bounty Event held
             in conjunction with the launch of the Archidax trading Platform.
-          </h2>
+          </h5>
           <div className="row my-5">
             <div className="col-2 mr-4">
               <img src={BountyIcon} alt="bounty" />

@@ -215,6 +215,7 @@ export default function MarketBuy({balanceAsset}) {
             ></input> */}
              <NumberFormat 
               // prefix={pairTo?pairTo+" : ":null}
+              decimalScale={8}
               thousandSeparator={true}
               inputMode="decimal"
               name="estimation"

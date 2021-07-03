@@ -80,7 +80,7 @@ export default function LiveMarket() {
                             : "text-white"
                         } text-left`}
                       >
-                        <NumberFormat value={item.price?item.price:0} decimalScale={8} displayType={'text'} thousandSeparator={true} />
+                        <NumberFormat value={item.price?item.price:0} decimalScale={15} displayType={'text'} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${

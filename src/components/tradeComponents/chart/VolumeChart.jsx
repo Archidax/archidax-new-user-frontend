@@ -1,6 +1,7 @@
 import React from "react";
 import "zingchart/es6";
 import ZingChart from "zingchart-react";
+// import ReactApexChart from "react-apexcharts";
 
 export default function VolumeChart({ volumeData }) {
   const optionChart = {

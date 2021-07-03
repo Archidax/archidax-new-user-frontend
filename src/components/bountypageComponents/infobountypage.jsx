@@ -1,5 +1,5 @@
 import React from 'react';
-import Schedule from '../../assets/img/bounty/eventschedule.png';
+import Schedule from '../../assets/img/bounty/schedule.svg';
 const infobountypage = () => {
   const rules = [
     'All users must join the ARCHIDAX Telegram Community. You must remain in groups until the end of the bounty to qualify for rewards. Note that all questions, queries, and support requests should be asked in the community group.',
