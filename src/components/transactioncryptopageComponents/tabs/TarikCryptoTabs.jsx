@@ -5,33 +5,58 @@ import OTP from '../../otp/index'
 // Import Table
 import RiwayatTarikCrypto from './table/TableHistoryTarikCrypto'
 
-import { getMyBalance, transferCrypto } from '../../../stores/index'
+import { getMyAssets, getMyBalance, transferCrypto } from '../../../stores/index'
 import { useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import TarikInstructions from './tarikinstructions/TarikInstructions'
 import DropdownCoin from './DropdownCoin'
 import { getCoinIcon } from '../../../helpers'
-import { convertNumber } from '../../../assets/js'
-import USDTCoin from '../../../assets/img/trade/cryptologo/Tether_USDT.svg'
 import { fees } from '../../../assets/fee'
 
 function TarikCryptoTabs() {
     const { coinCode } = useParams()
-    const coinDetails = useSelector(state => state.setorCryptoReducer.coinDetails)
-    const coinPrice = useSelector(state => state.tarikCryptoReducer.coinPrice)
+
+    const [memo, setMemo] = useState('')
     const [amount, setAmount] = useState(0)
     const [customAmount, setCustomAmount] = useState(0)
     const [withdrawAddress, setWithdrawAddress] = useState('')
-    const [memo, setMemo] = useState('')
     const [totalTerimaBersih, setTotalTerimaBersih] = useState(0)
     const [code, setCode] = useState('')
     const request_id = useSelector(state => state.kycReducer.requestId)
     const { listingList } = useSelector(state => state.pasarTradingReducer)
 
 
+    const { assets } = useSelector(state => state.walletReducer)
+    const [myWallet, setMyWallet] = useState({
+        Address: "",
+        balance: 0,
+        isMaintained: false,
+        frozen_balance: 0,
+        _id: "",
+        user: "",
+        type: "",
+        detail_crypto: {
+            assetName: "",
+            symbol: "",
+            icon: "",
+            active: true,
+            price24h_open: 0,
+            price24h_close: 0,
+            price24h_high: 0,
+            price24h_low: 0,
+            price24h_volume: 0,
+            price24h_priceVolume: 0,
+            price24h_change: 0
+        }
+    })
+    useEffect(() => {
+        const found = assets.find(el => el.type === coinCode)
+        console.log(found)
+        if (found) setMyWallet(found)
+    }, [assets, coinCode])
+
     const [coinName, setCoinName] = useState("")
-    const [coinIcon, setCoinIcon] = useState(getCoinIcon("BTC"))
     const [closePrice, setClosePrice] = useState(0)
     const dispatch = useDispatch()
     const history = useHistory()
@@ -45,7 +70,6 @@ function TarikCryptoTabs() {
         if (coinCode === "USDT") {
             setClosePrice(0)
             setCoinName("USDT Tether")
-            setCoinIcon(USDTCoin)
             // getMyBalance(coinCode, dispatch)
         } else {
             const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
@@ -56,22 +80,17 @@ function TarikCryptoTabs() {
             } else {
                 setClosePrice(found.price_24hour.price24h_close)
                 setCoinName(found.assetName)
-                setCoinIcon(found.icon)
-                getMyBalance(coinCode, dispatch)
+                // getMyAssets(dispatch)
             }
-            // console.log(found, "found")
         }
-
     }, [coinCode, listingList, history, dispatch])
 
-    const bal = 100
+    // Picking percentage
     const setPercentAmount = (e, num) => {
         setCustomAmount(0)
         e.preventDefault()
-        setAmount(bal * (num / 100))
-        // setAmount(coinDetails.balance * (num / 100))
+        setAmount(myWallet.balance * (num / 100))
     }
-
 
     // Fee withdraw depends on coin
     const [feeWD, setFeeWD] = useState({
@@ -82,10 +101,14 @@ function TarikCryptoTabs() {
     })
     useEffect(() => {
         const found = fees.find(el => el.coin === coinCode)
-        console.log(found, "<<fee")
         if (found) setFeeWD(found)
+        else setFeeWD({
+            coin: coinCode,
+            minimumWithdraw: 0,
+            feeWithdraw: "Need update fee for: ",
+            ETHNetwork: false
+        })
     }, [coinCode])
-
 
     // Olah data
     useEffect(() => {
@@ -115,21 +138,28 @@ function TarikCryptoTabs() {
     // Kirim
     const kirim = (e) => {
         e.preventDefault()
-        const data = {
-            amount: customAmount === 0 ? amount : customAmount,
-            toAddress: withdrawAddress,
-            request_id: request_id,
-            code: code
+        let data
+        if (coinCode === "XLM") {
+            data = {
+                amount: customAmount === 0 ? amount : customAmount,
+                toAddress: withdrawAddress,
+                request_id: request_id,
+                memo: memo,
+                code: code
+            }
+        } else {
+            data = {
+                amount: customAmount === 0 ? amount : customAmount,
+                toAddress: withdrawAddress,
+                request_id: request_id,
+                code: code
+            }
         }
         transferCrypto(coinCode, data, history)
     }
 
     return (
         <div className="container-fluid">
-            {/* <h1 className="text-danger">{bal}</h1>
-            <h1 className="text-danger">{customAmount}</h1>
-            <h1 className="text-danger">{amount}</h1>
-            <h1 className="text-danger">{totalTerimaBersih}</h1> */}
             <div className="row border-top mt-3 border-warning">
                 <div className="dol-12 col-md-12 p-0">
                     <h3 className="ml-2 text-gold font-bold font-16 label-title-top my-4">Withdraw Crypto</h3>
@@ -168,7 +198,7 @@ function TarikCryptoTabs() {
                                                     <p className="mb-2 mt-2 text-white">Active Balance</p>
                                                 </div>
                                                 <div className="col-7">
-                                                    <p className="text-right mb-2 mt-2 text-white">{coinDetails.balance} {coinCode}</p>
+                                                    <p className="text-right mb-2 mt-2 text-white">{myWallet.balance} {coinCode}</p>
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -176,7 +206,7 @@ function TarikCryptoTabs() {
                                                     <p className="mb-2 mt-2 text-white">Frozen Balance</p>
                                                 </div>
                                                 <div className="col-7">
-                                                    <p className="text-right mb-2 mt-2 text-white">{coinDetails.frozen_balance} {coinCode}</p>
+                                                    <p className="text-right mb-2 mt-2 text-white">{myWallet.frozen_balance} {coinCode}</p>
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -184,7 +214,7 @@ function TarikCryptoTabs() {
                                                     <p className="mb-2 mt-2 text-white">Estimated USDT</p>
                                                 </div>
                                                 <div className="col-7">
-                                                    <p className="text-right mb-2 mt-2 text-white">{coinPrice * coinDetails.balance} USDT</p>
+                                                    <p className="text-right mb-2 mt-2 text-white">{closePrice * myWallet.balance} USDT</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -202,6 +232,11 @@ function TarikCryptoTabs() {
                                                 <div className="input-group ci-inputDefault-bg">
                                                     <input onChange={(e) => setCustomAmount(e.target.value)} value={customAmount === 0 ? amount : customAmount} type="number" className="form-control ci-inputDefault-bg-input ci-pd" id="Jumlah_penarikanCrypto" />
                                                 </div>
+                                                {
+                                                    customAmount > myWallet.balance && (
+                                                        <div className="ci-bg-danger py-1 px-2 rounded mt-2">Your balance is not sufficient</div>
+                                                    )
+                                                }
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -234,10 +269,10 @@ function TarikCryptoTabs() {
                                         {
                                             coinCode.toUpperCase() === "XLM" ?
                                                 <div className="form-group row">
-                                                    <label for="Alamat_penarikan_crypto" className="font-14 col-12 col-md-4 col-form-label">Note</label>
+                                                    <label for="Memo_penarikan_crypto" className="font-14 col-12 col-md-4 col-form-label">Memo</label>
                                                     <div className="col-12 col-md-8">
                                                         <div className="input-group ci-inputDefault-bg">
-                                                            <input onChange={(e) => setMemo(e.target.value)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" id="Alamat_penarikan_crypto" />
+                                                            <input onChange={(e) => setMemo(e.target.value)} type="text" className="form-control ci-inputDefault-bg-input ci-pd" id="Memo_penarikan_crypto" />
                                                         </div>
                                                     </div>
                                                 </div>
