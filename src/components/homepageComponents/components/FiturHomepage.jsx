@@ -168,7 +168,7 @@ export default function FiturHomepage() {
       </div>
 
       {/* Modal Opened */}
-      <div
+      {/* <div
         class="modal fade"
         id="modalComingSoon"
         tabindex="-1"
@@ -193,7 +193,7 @@ export default function FiturHomepage() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
