@@ -3,6 +3,7 @@ import axios from 'axios'
 import errorHandler from '../errorHandler'
 
 export const getMyAssets = (dispatch) => {
+    console.log("masuk")
     axios({
         method: "GET",
         url: `${baseUrl}/account/wallet/myinfo`,
