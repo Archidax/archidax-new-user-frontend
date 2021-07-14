@@ -33,12 +33,13 @@ export const logout = (dispatch, iosocket, email) => {
 }
 
 export const getIpUser = (dispatch) => {
+    const key = "a97edd71da8b92"
     axios({
         method: "GET",
-        url: `https://ipclient.herokuapp.com/`
+        url: `https://ipinfo.io/?&token=${key}`
     })
         .then(dataIp => {
-            console.log(dataIp.data, "<<<<<<IPuser")
+            // console.log(dataIp.data, "<<<<<<IPuser")
             dispatch({
                 type: "USER_IP", data: {
                     ip: dataIp.data.ip,
