@@ -26,7 +26,6 @@ function TarikCryptoTabs() {
     const request_id = useSelector(state => state.kycReducer.requestId)
     const { listingList } = useSelector(state => state.pasarTradingReducer)
 
-
     const { assets } = useSelector(state => state.walletReducer)
     const [myWallet, setMyWallet] = useState({
         Address: "",
@@ -70,7 +69,6 @@ function TarikCryptoTabs() {
         if (coinCode === "USDT") {
             setClosePrice(0)
             setCoinName("USDT Tether")
-            // getMyBalance(coinCode, dispatch)
         } else {
             const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
             if (coinCode === "TRON") {
@@ -80,7 +78,6 @@ function TarikCryptoTabs() {
             } else {
                 setClosePrice(found.price_24hour.price24h_close)
                 setCoinName(found.assetName)
-                // getMyAssets(dispatch)
             }
         }
     }, [coinCode, listingList, history, dispatch])
@@ -133,7 +130,6 @@ function TarikCryptoTabs() {
             }
         }
     }, [amount, customAmount, closePrice])
-
 
     // Kirim
     const kirim = (e) => {
