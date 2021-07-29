@@ -54,7 +54,7 @@ export default function ProfileTab(){
     }
   }, [zone,dispatch])
   return (
-    <div className="p-4">
+    <div className="p-4" style={{minHeight:'90vh'}}>
       <div className="bg-homepage2 profile-page-wrapper">
         <div className="row no-gutters p-4">
           <div className="col-md-12 col-lg-12">

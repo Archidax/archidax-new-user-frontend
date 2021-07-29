@@ -9,12 +9,13 @@ const infobountypage = () => {
     'Do not quote your previous reports, you must create a new report every week, do not edit old reports as we will not check these ARCHIDAX.',
   ];
   return (
-    <div className="container  mb-5">
-      <div className="d-flex  my-5">
-        <div className="icon-schedule rounded-circle align-items-center">
-          <img src={Schedule} alt="" width="40" className="img-center" />
-        </div>
-        <div className="card card-style bg-transparent mr-4 px-5 py-3">
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-5 col-md-7 col-sm-12 ">
+          {/* <div className="icon-schedule rounded-circle">
+            <img src={Schedule} alt="" width="40" className="img-center"/>
+          </div> */}
+        <div className="card card-style bg-transparent mr-4 px-5 py-3 mb-2">
           <h6>SCHEDULE</h6>
           <div className="d-flex align-items-center text-center">
             <p className="mr-5">Week 1</p>
@@ -32,11 +33,11 @@ const infobountypage = () => {
             <p className="mr-5">Week 4</p>
             <p className="text-bold">June 27 - July 24 ,2021</p>
           </div>
+        </div>  
         </div>
-
-        <div className="d-flex align-items-center">
-          <div className="v1 mr-3"></div>
-          <p>
+        {/* <div className="v1 mr-3 mt-4"></div> */}
+        <div className="col-lg-6 col-md-4 col-sm-12">
+          <p > 
             <b>NOTE :</b> especially for the first week, we give an exception
             that you can do the campaign process the same as the other weeks.
             <br />
@@ -53,7 +54,7 @@ const infobountypage = () => {
         </div>
       </div>
 
-      <ol type="A">
+      <ol type="A" className='mt-4'>
         {rules.map((item, index) => {
           return (
             <li key={index} className="mb-3">

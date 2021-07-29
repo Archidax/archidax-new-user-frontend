@@ -1,17 +1,29 @@
-import React from 'react';
-
+import React,{useEffect} from 'react'
+import Popup from '../../popUps'
 export default function PopupTwitter(props) {
+  useEffect(() => {
+    return () => {
+        Popup.close()
+    }
+    }, [])
   return (
-    <div className="modal">
-      <div className="modal-inner twitter">
+    <div className="modal-bounty">
+      <div className="modal-inner-bounty twitter">
         <div className="container">
           <div className="d-flex justify-content-between">
             <h2>Twitter Campaign</h2>
-            <span onClick={props.onHide} className="close-btn">
+            <span onClick={() => {
+                            if(props.onClickOk){
+                                Popup.close()
+                                props.onClickOk()
+                            }else {
+                                Popup.close()
+                            }
+                        }} className="close-btn">
               {' '}
               X{' '}
-            </span>
-          </div>
+            </span>          
+            </div>
           <div className="row">
             <div className="col-8">
               <span style={{ color: '#F9BD00' }}>How to join</span>

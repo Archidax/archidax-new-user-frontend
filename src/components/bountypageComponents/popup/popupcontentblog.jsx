@@ -1,13 +1,25 @@
-import React from 'react';
-
+import React,{useEffect} from 'react'
+import Popup from '../../popUps'
 export default function PopupContentBlog(props) {
+  useEffect(() => {
+    return () => {
+        Popup.close()
+    }
+    }, [])
   return (
-    <div className="modal">
-      <div className="modal-inner contentblog">
+    <div className="modal-bounty">
+      <div className="modal-inner-bounty contentblog">
         <div className="container">
           <div className="d-flex justify-content-between">
             <h2>Content Blog & Medium Campaign</h2>
-            <span onClick={props.onHide} className="close-btn">
+            <span  onClick={() => {
+                            if(props.onClickOk){
+                                Popup.close()
+                                props.onClickOk()
+                            }else {
+                                Popup.close()
+                            }
+                        }}  className="close-btn">
               {' '}
               X{' '}
             </span>

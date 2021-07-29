@@ -6,7 +6,7 @@ import NilaiAsset from "./wallet/NilaiAsset";
 
 import CopyrightDashboard from "../footerComponents/copyrightComponents/CopyrightDashboard";
 import Translate from "../../i18n/Translate";
-import imagesLoading from '../../assets/img/cryptoIndex/logo2d.png'
+import imagesLoading from '../../assets/img/loading/loading2d.svg'
 import {useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -34,7 +34,7 @@ function Wallet() {
                       top: 0,
                       left: 0 ,
                       backgroundColor: 'rgba(0,0,0,0.8)',
-                      zIndex:99999,
+                      zIndex:111,
                       position: 'absolute',
                       display: 'flex',
                       justifyContent: 'center',

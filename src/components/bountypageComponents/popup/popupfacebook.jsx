@@ -1,13 +1,25 @@
-import React from 'react';
-
+import React,{useEffect} from 'react';
+import Popup from '../../popUps'
 export default function PopupFacebook(props) {
+  useEffect(() => {
+    return () => {
+        Popup.close()
+    }
+    }, [])
   return (
-    <div className="modal">
-      <div className="modal-inner facebook">
+    <div className="modal-bounty">
+      <div className="modal-inner-bounty facebook">
         <div className="container">
           <div className="d-flex justify-content-between">
             <h2>Facebook Campaign</h2>
-            <span onClick={props.onHide} className="close-btn">
+            <span onClick={() => {
+                            if(props.onClickOk){
+                                Popup.close()
+                                props.onClickOk()
+                            }else {
+                                Popup.close()
+                            }
+                        }} className="close-btn">
               {' '}
               X{' '}
             </span>

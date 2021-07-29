@@ -6,26 +6,14 @@ import TranslationsLogo from '../../assets/img/bounty/translations.png';
 import ContentBlogLogo from '../../assets/img/bounty/contentblog.png';
 import YoutubeLogo from '../../assets/img/bounty/youtube.png';
 import TiktokLogo from '../../assets/img/bounty/tiktok.png';
-import PopupTwitter from './popup/popuptwitter';
-import PopupFacebook from './popup/popupfacebook';
-import PopupTelegram from './popup/popuptelegram';
-import PopupTranslations from './popup/popuptranslations';
-import PopupContentBlog from './popup/popupcontentblog';
-import PopupYoutube from './popup/popupyoutube';
-import PopupTiktok from './popup/popuptiktok';
+import Popup from "../../components/popUps"
 const BountyProgramPage = () => {
-  const [showTwitterModal, setShowTwitterModal] = useState(false);
-  const [showFacebookModal, setShowFacebookModal] = useState(false);
-  const [showTelegramModal, setShowTelegramModal] = useState(false);
-  const [showTranslationsModal, setShowTranslationsModal] = useState(false);
-  const [showContentBlogModal, setShowContentBlogModal] = useState(false);
-  const [showYoutubeModal, setShowYoutubeModal] = useState(false);
-  const [showTiktokModal, setShowTiktokModal] = useState(false);
   return (
     <div
       className="container min-h-100 "
       style={{ paddingBottom: '300px', paddingTop: '40px' }}
     >
+      
       <h1 className="text-center">Bounty Programs</h1>
       <div className="row justify-content-center ">
         {/* twitter */}
@@ -51,6 +39,7 @@ const BountyProgramPage = () => {
             <span className="d-block font-xs">
               10k Above: <b>250 Stakes/week</b>{' '}
             </span>
+            
           </div>
 
           <div
@@ -59,8 +48,8 @@ const BountyProgramPage = () => {
           >
             <button
               className="btn bg-transparent border-white text-white rounded px-5"
-              onClick={() => setShowTwitterModal(true)}
-            >
+              onClick={() => {Popup.popupTwitter({})}}           
+               >
               Detailed Rules
             </button>
           </div>
@@ -88,7 +77,7 @@ const BountyProgramPage = () => {
           <div className="text-center" style={{ marginTop: '115px' }}>
             <button
               className="btn bg-transparent border-white text-white rounded px-5"
-              onClick={() => setShowFacebookModal(true)}
+              onClick={() => {Popup.popupFacebook({})}}           
             >
               Detailed Rules
             </button>
@@ -132,7 +121,7 @@ const BountyProgramPage = () => {
           <div className="text-center" style={{ marginTop: '10px' }}>
             <button
               className="btn bg-transparent border-white text-white rounded px-4"
-              onClick={() => setShowTelegramModal(true)}
+              onClick={() => {Popup.popupTelegram({})}}           
             >
               Detailed Rules
             </button>
@@ -157,7 +146,7 @@ const BountyProgramPage = () => {
           <div className="text-center" style={{ marginTop: '130px' }}>
             <button
               className="btn bg-transparent border-white text-white rounded px-4"
-              onClick={() => setShowTranslationsModal(true)}
+              onClick={() => {Popup.popupTranslations({})}}           
             >
               Detailed Rules
             </button>
@@ -191,7 +180,7 @@ const BountyProgramPage = () => {
           <div className="text-center" style={{ marginTop: '90px' }}>
             <button
               className="btn bg-transparent border-white text-white rounded px-4"
-              onClick={() => setShowContentBlogModal(true)}
+              onClick={() => {Popup.popupContentblog({})}}           
             >
               Detailed Rules
             </button>
@@ -208,7 +197,7 @@ const BountyProgramPage = () => {
           <div className="text-center" style={{ marginTop: '175px' }}>
             <button
               className="btn bg-transparent border-white text-white rounded px-4"
-              onClick={() => setShowYoutubeModal(true)}
+              onClick={() => {Popup.popupYoutube({})}}           
             >
               Detailed Rules
             </button>
@@ -224,7 +213,7 @@ const BountyProgramPage = () => {
           <div className="text-center" style={{ marginTop: '175px' }}>
             <button
               className="btn bg-transparent border-white text-white rounded px-4"
-              onClick={() => setShowTiktokModal(true)}
+              onClick={() => {Popup.popupTiktok({})}}           
             >
               Detailed Rules
             </button>
@@ -232,29 +221,6 @@ const BountyProgramPage = () => {
         </div>
       </div>
 
-      {/* all popup */}
-      {showTwitterModal && (
-        <PopupTwitter onHide={() => setShowTwitterModal(false)} />
-      )}
-
-      {showFacebookModal && (
-        <PopupFacebook onHide={() => setShowFacebookModal(false)} />
-      )}
-      {showTelegramModal && (
-        <PopupTelegram onHide={() => setShowTelegramModal(false)} />
-      )}
-      {showTranslationsModal && (
-        <PopupTranslations onHide={() => setShowTranslationsModal(false)} />
-      )}
-      {showContentBlogModal && (
-        <PopupContentBlog onHide={() => setShowContentBlogModal(false)} />
-      )}
-      {showYoutubeModal && (
-        <PopupYoutube onHide={() => setShowYoutubeModal(false)} />
-      )}
-      {showTiktokModal && (
-        <PopupTiktok onHide={() => setShowTiktokModal(false)} />
-      )}
     </div>
   );
 };

@@ -1,17 +1,21 @@
-import React from 'react';
-import BountyLogo from '../../assets/img/bounty/bountylogo.png';
-import BountyIcon from '../../assets/img/bounty/bounty.png';
+import React from "react";
+import BountyLogo from "../../assets/img/bounty/bountylogo.png";
+import BountyIcon from "../../assets/img/bounty/bounty.png";
 
 const bannerbountypage = () => {
   return (
     <div className="jumbotron-bounty bounty-banner">
       <div className="row d-flex justify-content-center">
-        <div className="col">
+        <div className="col-lg-5 col-md-4 col-sm-12">
           {/* <div className="banner-blue"> </div>
           <div className="banner-green"></div> */}
-          <img src={BountyLogo} alt="bounty logo" />
+          <img
+            src={BountyLogo}
+            alt="bounty logo"
+            style={{ width: "100%", maxWidth: "350px", height: "auto" }}
+          />
         </div>
-        <div className="col-7">
+        <div className="col-lg-7 col-md-7 col-sm-12">
           <h5 className="info">
             Archidax Exchange invite you to be a part of the Bounty Event held
             in conjunction with the launch of the Archidax trading Platform.

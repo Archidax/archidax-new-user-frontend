@@ -112,7 +112,7 @@ export default function BantuanPage() {
 
   return (
     <div>
-      <div className="bantuan">
+      <div className="bantuan" >
         <Jumbotron className="banner-bantuan">
           <Container>
             <h1 className="title-banner-bantuan ci-text-white font-32">

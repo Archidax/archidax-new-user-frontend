@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { getCoinIcon, getCoinName } from "../../../helpers";
 import { convertNumber } from "../../../assets/js";
 import Translate from "../../../i18n/Translate";
-import imagesLoading from '../../../assets/img/cryptoIndex/logo2d.png'
+import imagesLoading from '../../../assets/img/loading/loading2d.svg'
 function TableAssetSaya() {
   const history = useHistory();
   const { assets } = useSelector((state) => state?.walletReducer);
@@ -45,7 +45,7 @@ function TableAssetSaya() {
           top: 0,
           left: 0 ,
           backgroundColor: 'rgba(0,0,0,0.8)',
-          zIndex:99999,
+          zIndex:111,
           position: 'absolute',
           display: 'flex',
           justifyContent: 'center',
