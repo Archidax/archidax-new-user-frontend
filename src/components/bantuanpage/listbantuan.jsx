@@ -73,7 +73,7 @@ export default function Listbantuan() {
   }, []);
 
   return (
-    <div className="container list-bantuan">
+    <div className="container list-bantuan" >
       <div className="row">
         {categories.map((item, index) => {
           return (

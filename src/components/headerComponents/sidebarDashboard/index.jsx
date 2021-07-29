@@ -32,7 +32,7 @@ export default function SidebarDashboard(props) {
       <div className={`close-click ${props.activeSidebar}`} onClick={props.onClickActiveSidebar}>
 
       </div>
-      <nav id="sidebar" className={`${props.activeSidebar}`}>
+      <nav id="sidebar" className={`${props.activeSidebar}`} style={{zIndex:999}}>
         <div className="sidebar-header">
           {/* Logo sidebar */}
           <Link to={"/home"} className="logo ci-baseLogo-link">

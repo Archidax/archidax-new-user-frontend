@@ -1,19 +1,32 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import Popup from '../../popUps'
 
 export default function PopupTelegram(props) {
+  useEffect(() => {
+    return () => {
+        Popup.close()
+    }
+    }, [])
   return (
-    <div className="modal">
-      <div className="modal-inner telegram">
+    <div className="modal-bounty">
+      <div className="modal-inner-bounty telegram">
         <div className="container">
           <div className="d-flex justify-content-between">
             <h2>Telegram Campaign</h2>
-            <span onClick={props.onHide} className="close-btn">
+            <span onClick={() => {
+                            if(props.onClickOk){
+                                Popup.close()
+                                props.onClickOk()
+                            }else {
+                                Popup.close()
+                            }
+                        }} className="close-btn">
               {' '}
               X{' '}
             </span>
           </div>
           <div className="row">
-            <div className="col-7">
+            <div className="col-lg-7 col-md-12 col-sm-12">
               <span style={{ color: '#F9BD00' }}>How to join</span>
               <span className="font-md d-block">
                 1. Every participant must follow the ARCHIDAX EXCHANGES Official

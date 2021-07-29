@@ -40,7 +40,7 @@ export default function FooterHomePage() {
   };
 
   return (
-    <div className="bg-homepage2 mt-3">
+    <div className="bg-homepage2">
       <div className="container">
         {/* <div
           className="py-4"

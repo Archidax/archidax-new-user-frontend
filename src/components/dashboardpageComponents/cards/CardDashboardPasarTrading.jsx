@@ -5,6 +5,8 @@ import pasarlogo from "../../../assets/img/dashboard/logo/pasar.svg";
 import Translate from "../../../i18n/Translate";
 import imagesLoading from '../../../assets/img/cryptoIndex/logo2d.png'
 import {useHistory} from 'react-router-dom'
+import loadinglogo from "../../../assets/img/loading/loading2d.svg"
+
 
 function CardDashboardPasarTrading() {
   const { listingList } = useSelector(
@@ -34,7 +36,7 @@ function CardDashboardPasarTrading() {
             top: 0,
             left: 0 ,
             backgroundColor: 'rgba(0,0,0,0.8)',
-            zIndex:99999,
+            zIndex:111,
             position: 'absolute',
             display: 'flex',
             justifyContent: 'center',
@@ -43,7 +45,7 @@ function CardDashboardPasarTrading() {
             cursor: 'pointer'
             
           }}>
-            <img src={imagesLoading} style={{width: "100px", height: "100px"}} className="ci-loading-img mb-3" alt="Loading..."/>
+            <img src={loadinglogo} style={{width: "100px", height: "100px"}} className="ci-loading-img mb-3" alt="Loading..."/>
             <p className="font-roboto text-white font-24 text-center">
               You haven't done your KYC. <br/>Please finish it to enjoy our feature!
             </p>

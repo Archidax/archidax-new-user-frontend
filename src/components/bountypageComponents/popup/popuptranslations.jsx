@@ -1,13 +1,25 @@
-import React from 'react';
-
+import React,{useEffect} from 'react';
+import Popup from '../../popUps'
 export default function Popuptranslations(props) {
+  useEffect(() => {
+    return () => {
+        Popup.close()
+    }
+    }, [])
   return (
-    <div className="modal">
-      <div className="modal-inner translations">
+    <div className="modal-bounty">
+      <div className="modal-inner-bounty translations">
         <div className="container">
           <div className="d-flex justify-content-between">
             <h2>Translations Campaign</h2>
-            <span onClick={props.onHide} className="close-btn">
+            <span  onClick={() => {
+                            if(props.onClickOk){
+                                Popup.close()
+                                props.onClickOk()
+                            }else {
+                                Popup.close()
+                            }
+                        }}  className="close-btn">
               {' '}
               X{' '}
             </span>
