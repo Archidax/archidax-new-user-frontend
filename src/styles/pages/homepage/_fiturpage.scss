@@ -27,3 +27,16 @@
   padding-top: 70px;
   padding-bottom: 20px;
 }
+
+
+@media  screen and (max-width: 512px) {
+  .fitur-dekstop{
+  display:none;
+  }
+}
+
+@media  screen and (min-width: 514px) {
+  .fitur-mobile{
+  display:none;
+  }
+}

@@ -74,7 +74,7 @@ function VerificationPage1() {
     // }, [provinsi])
 
     return (
-        <div className="container-fluid p-4" style={{ height: "92vh" }}>
+        <div className="container-fluid p-4" style={{ minHeight: "92vh" }}>
             {/* {JSON.stringify(input)} */}
             <div className="text-white font-12 p-3" style={{ backgroundColor: "#151933", border: "none" }}>
                 <h2 className="font-14 font-bold text-gold">{Translate('vp1_judul')}</h2>
@@ -305,7 +305,7 @@ function VerificationPage1() {
                         <button onClick={(e) => handleSubmit(e)} className="px-5 py-2 px-md-5 py-md-2 border-0 mt-3" style={{ backgroundColor: "#F9BD00" }}>{Translate('vp1_lanjut')}</button>
                     </div>
                 </div>
-            </div>12
+            </div>
         </div>
     )
 }
