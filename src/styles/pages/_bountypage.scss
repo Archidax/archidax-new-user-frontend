@@ -1,17 +1,16 @@
 .bounty-banner {
   //   background-image: url('../../assets/img/background/launchpad-banner.png');
   background-image: url(../../assets/img/bounty/bgbounty.png);
-  background-size: cover;
   background-repeat: no-repeat;
 }
 
 .jumbotron-bounty {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   margin-bottom: 2rem;
 }
 
 .info {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 table {
@@ -111,4 +110,11 @@ table {
   width: 293px;
   height: 390px;
   border-radius: 8px;
+}
+
+
+@media only screen and (max-width: 768px)  {
+  .bounty-banner {
+    background-image: none;
+  }
 }

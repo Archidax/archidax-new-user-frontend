@@ -9,6 +9,8 @@ import digifundlogo from "../../../assets/img/homepage/fitur/digifund.svg";
 import archiratorlogo from "../../../assets/img/homepage/fitur/archirator.svg";
 
 import coming_soonlogo from "../../../assets/img/homepage/fitur/coming_soon.svg";
+import Slider from "react-slick";
+import SliderFitur from "./slider/SliderFitur";
 
 export default function FiturHomepage() {
   return (
@@ -18,10 +20,15 @@ export default function FiturHomepage() {
           Archidax Features
         </h2>
         {/* ROW 1 */}
-        <div className="row mt-4">
+
+        <div className='d-block d-sm-none'>
+        <SliderFitur />
+        </div>
+            
+        <div className="row mt-4	d-none d-md-flex">
           {/* SPOT */}
-          <div className="col-lg-3 col-md-3 col-sm-12">
-            <div className="card-body-feature">
+          <div className="col-lg-3 col-md-3 col-sm-12 ">
+            <div className="card-body-feature"> 
               <div
                 className="box-feature-hp"
                 data-toggle="modal"
@@ -92,7 +99,7 @@ export default function FiturHomepage() {
           </div>
         </div>
         {/* ROW 2 */}
-        <div className="row">
+        <div className="row d-none d-md-flex">
           {/* SPOT */}
           <div className="col-lg-3 col-md-3 col-sm-12">
             <div className="card-body-feature">
