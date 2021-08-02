@@ -99,8 +99,11 @@ function HeaderHomePage(props) {
                        "
                         href={
                           PairSymbol
-                          ? `/pasar/${PairSymbol.toString().replace("/", "_")}`
-                          : "/pasar/BTC_USDT"
+                            ? `/pasar/${PairSymbol.toString().replace(
+                                "/",
+                                "_",
+                              )}`
+                            : "/pasar/BTC_USDT"
                         }
                       >
                         <div>
@@ -139,8 +142,11 @@ function HeaderHomePage(props) {
                        "
                         href={
                           PairSymbol
-                          ? `/pasar-derivative/${PairSymbol.toString().replace("/", "_")}`
-                          : "/pasar-derivative/BTC_USDT"
+                            ? `/pasar-derivative/${PairSymbol.toString().replace(
+                                "/",
+                                "_",
+                              )}`
+                            : "/pasar-derivative/BTC_USDT"
                         }
                       >
                         <div>
