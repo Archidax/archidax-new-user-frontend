@@ -53,6 +53,7 @@ import KeuanganPage from "./keuangan";
 import DynamicPage from "./dynamicPage";
 import { getAllDynamicPages } from "../stores/dynamicPage/functions";
 import DownloadPage from "./downloadpage/DownloadPage";
+import LendmarkPage from "./lendmarkPage";
 
 export default function MainPages() {
   const dispatch = useDispatch();
@@ -221,6 +222,9 @@ export default function MainPages() {
             </Route>
             <Route path="/launchpad">
               <LaunchpadPages />
+            </Route>
+            <Route path="/lendmark">
+              <LendmarkPage/>
             </Route>
             <Route path="/download">
               <DownloadPage />

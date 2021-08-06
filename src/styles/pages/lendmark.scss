@@ -1,0 +1,71 @@
+.card-lendmark{
+    border: none;
+}
+
+.tHeader-lendmark {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px 20px;
+}
+.item-market{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    cursor: pointer;
+
+    .span-market{
+        display: flex;
+        padding: 10px 20px;
+        align-items: center;
+        font-weight: bold;
+        .btn-lendmark{
+            color: white;
+            border: 2px solid $theme-GoldBase-BackgroundDefault ;
+            background: transparent;
+            padding: 5px 10px;
+            margin-right: 5px;
+            color: $theme-GoldBase-BackgroundDefault;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        .btn-lendmark:hover{
+            background-color: $theme-GoldBase-BackgroundDefault;
+            color: black;
+        }
+        .btn-lendmark:focus{
+            outline: none;
+        }
+    }
+
+}
+.item-market:hover{
+    box-shadow: -2px -1px 16px 1px rgba(0,0,0,0.50);
+-webkit-box-shadow: -2px -1px 16px 1px rgba(0,0,0,0.50);
+-moz-box-shadow: -2px -1px 16px 1px rgba(0,0,0,0.50);
+}
+
+.btn-enter-app{
+    color: white;
+    border: 2px solid $theme-GoldBase-BackgroundDefault ;
+    background: transparent;
+    padding: 5px 10px;
+    color: $theme-GoldBase-BackgroundDefault;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.btn-enter-app:hover{
+    background-color: $theme-GoldBase-BackgroundDefault;
+    color: black;
+}
+
+// mobile
+.mobile-deposit{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.apr{
+    background-color: $theme-GoldBase-BackgroundDefault;
+    border-radius: 10px;
+    width: 80px;
+    color: black;
+}

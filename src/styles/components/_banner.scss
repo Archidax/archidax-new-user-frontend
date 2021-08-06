@@ -51,3 +51,26 @@
     }
   }
 }
+
+.lendmark{
+  background: $theme-BlueDarkPrimaryBase-BackgroundDefault;
+  font-style: normal;
+  .lendmark-jumbotron {
+    background: url(../../assets/img/footercomponents/banner_archidax/Frame5.png);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 6rem 2rem;
+    color: #ffffff;
+    text-align: center;
+    font-weight: normal;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    
+  }
+}
