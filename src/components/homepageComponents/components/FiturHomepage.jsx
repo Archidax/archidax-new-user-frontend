@@ -11,6 +11,7 @@ import archiratorlogo from "../../../assets/img/homepage/fitur/archirator.svg";
 import coming_soonlogo from "../../../assets/img/homepage/fitur/coming_soon.svg";
 import Slider from "react-slick";
 import SliderFitur from "./slider/SliderFitur";
+import { Link } from "react-router-dom";
 
 export default function FiturHomepage() {
   return (
@@ -123,6 +124,7 @@ export default function FiturHomepage() {
           </div>
           {/* FUTURE */}
           <div className="col-lg-3 col-md-3 col-sm-12">
+          <Link to='/lendmark'>
             <div className="card-body-feature">
               <div className="box-feature-hp">
                 <div className="card-body text-center">
@@ -136,6 +138,7 @@ export default function FiturHomepage() {
                 </div>
               </div>
             </div>
+            </Link>
           </div>
           {/* STOCK */}
           <div className="col-lg-3 col-md-3 col-sm-12">
