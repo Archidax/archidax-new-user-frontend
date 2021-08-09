@@ -19,7 +19,7 @@ const index = () => {
     return (
         <>
          <nav
-      className={`navbar navbar-expand-lg px-5 py-3 font-roboto `}
+      className={`navbar navbar-expand-xl py-3 font-roboto `}
       style={{backgroundColor : '#1C233F'}}
     >
       <Link to="/home">
