@@ -39,7 +39,7 @@ function PopupGoogleActivator() {
                     </div>
                     <div className="modal-body ci-bg-secondary">
                         <div className="row p-4">
-                            <div className="col-12 col-md-6">
+                            <div className="col-12 col-md-8">
                                 <h3 className="text-white font-13 font-bold">{Translate('ka_text_mengapa_google_auth')}</h3>
                                 <ul className="p-0 pl-3">
                                     <li>{Translate('ka_alasan_google_auth1')}</li>
@@ -77,7 +77,7 @@ function PopupGoogleActivator() {
                                 </div>
 
                             </div>
-                            <div className="col-12 col-md-6">
+                            <div className="col-12 col-md-4">
                                 <p className="font-12 mb-3">{Translate('ka_text_scan')}</p>
                                 <div className="d-flex justify-content-center">
                                     <img src={gCode} alt="gCode" />
