@@ -1,4 +1,4 @@
-  .modal-bounty {
+.modal-bounty {
   position: fixed;
   top: 0;
   width: 100vw;
@@ -7,7 +7,8 @@
   justify-content: center;
   align-items: center;
   z-index: 99999999999;
-
+  animation-duration: 0.3s;
+  animation-name: popUpBounty;
 }
 
 .modal-inner-bounty {
@@ -56,4 +57,15 @@
   background-image: url(../../assets/img/bounty/popup/bg-popuptiktok.png);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+@keyframes popUpBounty {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
