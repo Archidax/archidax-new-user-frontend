@@ -1,0 +1,31 @@
+//
+.page-item-custom-pagination {
+    padding: 10px 15px;
+    background: $theme-BlueDarkBase-BackgroundDefault;
+    margin: 2px;
+    border-radius: 3px;
+  }
+
+  .page-link-custom-pagination {
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .page-link-custom-pagination {
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .page-link-custom-pagination:hover {
+  color: black;
+  }
+  .page-item-custom-pagination:hover {
+    background-color: $theme-GoldBase-BackgroundDefault;
+
+  }
+
+  .active-item-custom-pagination{
+    background-color: $theme-GoldBase-BackgroundDefault;
+  }
+
+  .active-link-custom-pagination{
+    color: black;
+  }
