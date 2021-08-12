@@ -170,7 +170,7 @@ export default function SidebarDashboard(props) {
                       }`}
                   >
                     <img src={profilelogo} alt="profilelogo" className="ml-1 mr-3" />
-                    Profile
+                    My Profile
                   </span>
                 </Link>
               </div>
@@ -181,7 +181,7 @@ export default function SidebarDashboard(props) {
                       }`}
                   >
                     <img src={riwayatlogo} alt="riwayatlogo" className="mr-3" />
-                    Riwayat
+                    History
                   </span>
                 </Link>
               </div>
@@ -192,7 +192,7 @@ export default function SidebarDashboard(props) {
                       }`}
                   >
                     <img src={keamananlogo} alt="keamananlogo" className="mr-3" />
-                    Pasar
+                    Account Security
                   </span>
                 </Link>
               </div>
