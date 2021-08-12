@@ -64,7 +64,7 @@ export default function SliderFitur() {
     lazyLoad: true,
     dots: true,
     infinite: true,
-    arrows: true,
+    arrows: false,
     speed: 1000,
     autoplay: true,
     autoplaySpeed: 3000,
