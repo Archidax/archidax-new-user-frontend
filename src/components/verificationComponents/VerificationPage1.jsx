@@ -264,10 +264,12 @@ function VerificationPage1() {
                         </div>
                         <div className="col-12 col-md-3">
                             <label for="hubunganKerabat" className="form-label">{Translate('vp1_telepon')}</label>
-                            <div className="input-group ci-inputDefault-bg">
+                            {/* <div className="input-group"> */}
                                 <PhoneInput
                                     country="sg"
-                                    inputClass=" ci-pd bg-dark ci-inputDefault-bg-input border-0"
+                                    containerClass='input-group ci-inputDefault-bg'
+                                    inputStyle={{backgroundColor:'#aeb4ce50'}}
+                                    inputClass="ci-inputDefault-bg-input border-0"
                                     placeholder="Enter phone number with its country code"
                                     value={input.nomorTeleponDarurat}
                                     onChange={(e) => {
@@ -280,7 +282,7 @@ function VerificationPage1() {
                                 // }
                                 }} 
                                 type="text" className="form-control ci-inputDefault-bg-input ci-pd" name="nomorTeleponDarurat"/> */}
-                            </div>
+                            {/* </div> */}
                         </div>
                         {/* <div className="col-12 col-md-3">
                             <label for="nomorTeleponDarurat" className="form-label">Nomor Telepon Darurat</label>
