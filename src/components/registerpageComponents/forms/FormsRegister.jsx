@@ -99,7 +99,7 @@ function FormsRegister({ navigation }) {
 
   return (
     <>
-      <form className="ci-registerForm mt-4">
+      <form className="ci-registerForm">
         <div className="row">
           <div className="col-lg-12">
             <div className="form-group mb-2">
@@ -215,7 +215,7 @@ function FormsRegister({ navigation }) {
           {
             !acceptablePassword && (
               <div className="col-lg-12">
-                <div className="form-group mb-2 rounded text-white py-1 px-3 font-12" style={{ backgroundColor: "rgba(225,225,0,0.3)" }}>
+                <div className="form-group mb-1 rounded text-white py-1 font-12 text-center" style={{ backgroundColor: "rgba(225,225,0,0.3)" }}>
                   Password must contain at least 1 uppercase, 1 lowercase, 1 special character, 8 characters length and does not contain your username.
                   </div>
               </div>
@@ -256,7 +256,7 @@ function FormsRegister({ navigation }) {
             </div>
           </div>
 
-          <div className="col-lg-12 mb-4 mt-2">
+          <div className="col-lg-12 my-2">
             <div className="d-flex justify-content-between">
               <div className="form-group mb-0">
                 <div className="custom-control custom-switch switch-secondary">
@@ -310,16 +310,14 @@ function FormsRegister({ navigation }) {
           </div>
 
           <div className="col-12 text-center">
-            <p className="mb-0 mt-3">
-              <small className="text-white mr-2">Have an account ?</small>{" "}
-              <span
+            <p className="my-1">
+              <small className="text-white mr-2">Have an account ? <span
                 className="text-white font-weight-bold"
                 onClick={() => history.push("/login")}
                 style={{ borderBottom: "1px solid white", cursor: "pointer" }}
               >
                 Sign in
-              </span>
-              <small className="text-white ml-2">now</small>
+              </span> now</small>{" "}
             </p>
           </div>
         </div>

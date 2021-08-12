@@ -7,7 +7,7 @@ import FormsRegister from "../forms/FormsRegister";
 
 function CardRegister() {
   return (
-    <div className="card ax-auth-card shadow-lg">
+    <div className="card ax-auth-card shadow-lg mt-3">
       <div className="card-body">
           <div className="px-3">
               <div className="ax-auth-logo-box">
@@ -17,8 +17,8 @@ function CardRegister() {
               </div>
               
               <div className="text-center ax-auth-logo-text">
-                  <h4 className="mt-0 mb-3 mt-4" style={{color: "#f9ba42"}}>Register</h4>
-                  <p className="text-muted mb-0">Register to create your account.</p>  
+                  <h4 className="mt-4" style={{color: "#f9ba42"}}>Register</h4>
+                  <p className="text-muted mb-0 p-0">Register to create your account.</p>  
               </div>
               
               <FormsRegister />
