@@ -8,9 +8,14 @@ import AOA from "../../assets/img/feelogo/Aurora_AOA.svg";
 import bannerOne from "../../assets/img/homepage/announcements/banner_listing4.jpg";
 import bannerTwo from "../../assets/img/homepage/announcements/banner_listing5.jpg";
 import bannerThree from "../../assets/img/homepage/announcements/banner_listing1.jpg";
-
-import { Link } from "react-router-dom";
+import bannerFour  from "../../assets/img/homepage/announcements/banner_listing2.jpg";
+import bannerFive from "../../assets/img/homepage/announcements/banner_listing6.jpg";
+import bannerSix from "../../assets/img/homepage/announcements/banner_listing7.jpg";
+import bannerSeven from "../../assets/img/homepage/announcements/banner_listing8.jpg";
+import bannerEight from "../../assets/img/homepage/announcements/banner_listing9.jpg";
+import bannerNine from "../../assets/img/homepage/announcements/banner_listing10.jpg";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 const LendmarkPage = () => {
   const dataMarket = [
     {
@@ -36,15 +41,14 @@ const LendmarkPage = () => {
   ];
   const settings = {
     lazyLoad: true,
-    dots: true,
+    dots: false,
     infinite: true,
     arrows: false,
     speed: 1000,
     autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: false,
+    autoplaySpeed: 10000,
+    pauseOnHover: true,
     responsive: [
-     
       {
         breakpoint: 480,
         settings: {
@@ -53,11 +57,12 @@ const LendmarkPage = () => {
         },
       },
     ],
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
   };
 
-  return (
+  const carouselImages  = [bannerOne, bannerTwo, bannerThree, bannerFour, bannerFive, bannerSix, bannerSeven, bannerEight, bannerNine ]
+  return ( 
     <div className="lendmark">
       <HeaderHomePage />
 
@@ -100,15 +105,16 @@ const LendmarkPage = () => {
                       $ 23928329308
                     </span>
                   </div>
-                  <div className="col-lg-7 d-flex align-items-center">
-                    <img src={bannerOne} alt="" width="150" className="mr-1" />
-                    <img src={bannerTwo} alt="" width="150" className="mr-1" />
-                    <img
-                      src={bannerThree}
-                      alt=""
-                      width="150"
-                      className="mr-1"
-                    />
+                  <div className="col-lg-7">
+                  <Slider {...settings}>
+                      {carouselImages.map((item) => {
+                          return(
+                            <div className='px-1'>
+                              <img src={item} alt="" style={{ borderRadius: "10px",width:'100%' }}  />
+                            </div>
+                          )
+                      })}
+                  </Slider>
                   </div>
                 </div>
                 <div></div>
@@ -188,12 +194,13 @@ const LendmarkPage = () => {
         <div className="d-block d-sm-none text-center text-white mb-2">
           <h6>Select Market</h6>
           <div>
-            <Slider {...settings}>
-              <img src={bannerOne} alt=""/>
-              <img src={bannerTwo} alt=""/>
-              <img src={bannerThree} alt=""/>
-            
-            </Slider>
+          <Slider {...settings}>
+                      {carouselImages.map((item) => {
+                          return(
+                              <img src={item} alt="" width="200" style={{ borderRadius: "10px" }} className='img-rounded' /> 
+                          )
+                      })}
+                  </Slider>
           </div>
         </div>
 

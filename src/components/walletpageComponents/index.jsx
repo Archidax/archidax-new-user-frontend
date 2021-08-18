@@ -58,7 +58,6 @@ function Wallet() {
                 </div>
 
                 <div className="row">
-                  
                   {/* <h3 style={{color: 'white'}}>lagi bug ya, nnti dlu, tertanda HAKIM</h3> */}
                   <NilaiAsset />
                 </div>
@@ -67,7 +66,7 @@ function Wallet() {
           </div>
         </div>
 
-        <div className="row mt-4">
+        <div className="row my-4">
           <div className="col-12 col-md-12">
             <TableAssetSaya />
           </div>
