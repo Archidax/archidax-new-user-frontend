@@ -7,18 +7,17 @@ import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 import { convertNumber } from "../../../assets/js";
 import { setPasarTrading } from "../../../stores/pasartrading/functions";
+import NumberFormat from "react-number-format";
 
-export default function CryptoPair() {
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
-  );
+export default function CryptoPair({ listingList }) {
   const { mode } = useSelector((state) => state.daynightReducer);
-
   return (
     <div className="">
       <div
         className={
-          mode ? "outter-table-wrapper4-dark" : "outter-table-wrapper4"
+          mode
+            ? "outter-table-wrapper4-dark height-listing"
+            : "outter-table-wrapper4 height-listing"
         }
       >
         <div class={mode ? "table-wrapper4-dark" : "table-wrapper4"}>
@@ -28,15 +27,22 @@ export default function CryptoPair() {
           >
             <thead className="">
               <tr className={mode ? "text-price-dark" : "text-price"}>
-                <th className="text-left">Pasangan</th>
-                <th className="text-left">Harga</th>
-                <th className="text-left">%</th>
+                <th className="text-left">Pair</th>
+                <th className="text-left">Price</th>
+                <th className="text-left">Change</th>
               </tr>
             </thead>
             <tbody>
-              {Exchange && Array.isArray(Exchange) && Exchange.length > 0 ? (
-                Exchange.filter((item) => {
-                  if (item.base.toString().toUpperCase() === "IDR") {
+              {listingList.map((val, index) => {
+                if (val.base === "BTC") {
+                  return <CryptoPairRealtime item={val} index={index} />;
+                }
+              })}
+            </tbody>
+            {/* <tbody>
+              {listingList && Array.isArray(listingList) && listingList.length > 0 ? (
+                listingList.filter((item) => {
+                  if (Data.base.toString().toUpperCase() === "BTC") {
                     return item;
                   } else {
                     return null;
@@ -47,7 +53,7 @@ export default function CryptoPair() {
               ) : (
                 <div className="text-center p-2">No Data</div>
               )}
-            </tbody>
+            </tbody> */}
           </table>
         </div>
       </div>
@@ -58,24 +64,22 @@ export default function CryptoPair() {
 function CryptoPairRealtime({ item, index }) {
   const { mode } = useSelector((state) => state.daynightReducer);
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
-
   const dispatch = useDispatch();
 
   const history = useHistory();
   const [Data, setData] = React.useState(item.price_24hour);
 
   const handleRowClick = () => {
-    history.push(`/pasar/${item.quote}_${item.base}`);
+    history.push(`/pasar/${Data.symbol.toString().replace("/", "_")}`);
   };
-
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-      IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
+    if (PairSymbol) {
+      IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+      IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
         if (data) {
           setData(data);
         }
-
-        if (PairSymbol === data.symbol) {
+        if (data && PairSymbol === data.symbol) {
           dispatch(
             setPasarTrading({
               Open: data.price24h_open,
@@ -89,10 +93,11 @@ function CryptoPairRealtime({ item, index }) {
           );
         }
       });
-      return () =>
-        IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
+      return () => {
+        IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+      };
     }
-  }, [item, setData]);
+  }, [item, PairSymbol]);
 
   if (Data) {
     return (
@@ -112,7 +117,7 @@ function CryptoPairRealtime({ item, index }) {
         <td
           className={`${mode ? "text-white" : "text-black"} ${
             convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
-            "text-price-dark"
+            "text-price"
               ? mode
                 ? "text-price-dark"
                 : "text-price"
@@ -120,7 +125,7 @@ function CryptoPairRealtime({ item, index }) {
           }`}
         >
           {Data &&
-            Number(Data.price24h_close).toLocaleString("id-ID").split(",")[0]}
+            <NumberFormat value={Data.price24h_close} decimalScale={8} displayType={'text'} thousandSeparator={true} />}
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${

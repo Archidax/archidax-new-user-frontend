@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import PencairanVoucherBerhasil from "./popUps/PencairanVoucherBerhasil";
+import Translate from "../../../i18n/Translate";
 
 export default function VoucherUmum(props) {
   const { redeemVoucherRequest } = props;
@@ -13,8 +13,7 @@ export default function VoucherUmum(props) {
     redeemVoucherRequest(data, setData);
   };
 
-  // const [showPopupVocherUmum, setShowPopupVocherUmum] = React.useState(false)
-  // const balance = "1.000.000";
+
 
   return (
     <div className="col-12 col-md-6 p-3">
@@ -24,14 +23,14 @@ export default function VoucherUmum(props) {
             <div className="row">
               <div className="col-12 col-md-12">
                 <div className="font-18 text-gold font-bold label-title-top">
-                  Voucher Umum
+                  {Translate('vc_umum')}
                 </div>
               </div>
             </div>
 
             <div className="mt-3 row">
               <div className="col-12 col-md-3 text-white lable-title">
-                <p className="ci-text-white mb-0 font-12">Kode Voucher</p>
+                <p className="ci-text-white mb-0 font-12">{Translate('vc_kode_voucher')}</p>
               </div>
               <div className="col-12 col-md-9 flex-column">
                 <div className="input-group ci-inputDefault-bg">
@@ -44,7 +43,7 @@ export default function VoucherUmum(props) {
                 </div>
                 <div className="font-10 mt-2 text-white-50">
                   <span className="font-bold mr-2 text-gold">
-                    * Format voucher:
+                    * {Translate('vc_format_voucher')}:
                   </span>
                   CTI-IDR-ABCDEFGH-IJKLMNOP-QRSTUVWX-YZ123456-7890ABCD
                 </div>
@@ -55,7 +54,7 @@ export default function VoucherUmum(props) {
               <div className="col-12 col-md-12 mb-3">
                 <ul style={{ paddingLeft: "25px", border: "0.5px dashed #f9bd00" }} className="font-12 mt-4 py-2 rounded">
                   <li className="font-12">
-                  Anda bisa mencairkan kode voucher yang anda miliki dengan memasukkan kode voucher tersebut pada form di atas.
+                  {Translate('vc_text_redeem')}
                   </li>
                 </ul>
               </div>
@@ -67,19 +66,13 @@ export default function VoucherUmum(props) {
                   data-target="#pencairanVoucherBerhasil"
                 >
                   {" "}
-                  Cairkan{" "}
+                  {Translate('vc_cairkan')}{" "}
                 </button>
               </div>
             </div>
           </div>
         </div>
       </form>
-      {/* <PencairanVoucherBerhasil showPopupVocherUmum={showPopupVocherUmum} setShowPopupVocherUmum={setShowPopupVocherUmum} value={
-        {
-          title: "Berhasil !!!",
-          text: `Dana sebesar ${balance} berhasil dicairkan.`
-        }
-      }/> */}
     </div>
   );
 }

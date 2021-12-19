@@ -1,0 +1,29 @@
+.card-body-feature {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.box-feature-hp {
+  background-color: #1c2230;
+  min-height: 200px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.box-feature-hp:hover {
+  //   background-color: #125462;
+  background-image: linear-gradient(#0f4651, #1b7f94);
+  transform: scale(1.07);
+  div {
+    h6 {
+      color: #a3a3a3 !important;
+    }
+  }
+}
+
+.margin-feature-hp {
+  padding-top: 70px;
+  padding-bottom: 20px;
+}

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Jumbotron } from "react-bootstrap";
 //import search from "../../assets/img/magnifying-glass.png";
 import Footer from "../footerComponents/footerHomePage/FooterHomePage";
@@ -8,6 +8,7 @@ import List from "./listberita";
 import Content from "./contentberita";
 import Header from "../headerComponents/headerBerita";
 import { berita, beritaRecent } from "../../stores/berita/functions";
+import Translate from "../../i18n/Translate";
 
 export default function Index () {
   const path = useLocation()
@@ -27,11 +28,11 @@ export default function Index () {
         <div className="container">
           <div className="row">
             <div className="col-12 my-2">
-              <h1 className="font-bold text-gold" style={{letterSpacing: "0.1em"}}>Berita</h1>
+              <h1 className="font-bold text-gold" style={{letterSpacing: "0.1em"}}>{Translate('br_berita')}</h1>
             </div>
             <div className="col-12 my-3">
               <p className="font-18" style={{letterSpacing: "1px", lineHeight: "1.7em"}}>
-                Pelajari tentang Cryptocurrency, Berita, Wawasan Pakar, dan Tips Perdagangan
+                {Translate('br_text_banner')}
               </p>
             </div>
           </div>
@@ -53,56 +54,56 @@ export default function Index () {
         >
           <li className="nav-item">
             <Link
-              to="/berita"
-              className={`nav-link active berita-nav-item ${path === "/berita" ? "active" : ""}`}
+              to="/news"
+              className={`nav-link active berita-nav-item ${path === "/news" ? "active" : ""}`}
               id="pills-berita-tab"
               data-toggle="pill"
               role="tab"
               aria-controls="pills-berita"
               aria-selected="true"
             >
-              Berita
+              {Translate('br_berita')}
             </Link>
           </li>
           <li className="nav-item">
             <Link
-              to="/berita/pengumuman"
-              className={`nav-link berita-nav-item ${path === "/berita/pengumuman" ? "active" : ""}`}
+              to="/news/announcement"
+              className={`nav-link berita-nav-item ${path === "/news/announcement" ? "active" : ""}`}
               id="pills-pengumuman-tab"
               data-toggle="pill"
               role="tab"
               aria-controls="pills-pengumuman"
               aria-selected="false"
             >
-              Pengumuman
+              {Translate('br_pengumuman')}
             </Link>
           </li>
           <li className="nav-item">
             <Link
-              to="/berita/artikel"
-              className={`nav-link berita-nav-item ${path === "/berita/artikel" ? "active" : ""}`}
+              to="/news/article"
+              className={`nav-link berita-nav-item ${path === "/news/artikel" ? "active" : ""}`}
               id="pills-artikel-tab"
               data-toggle="pill"
               role="tab"
               aria-controls="pills-artikel"
               aria-selected="false"
             >
-              Artikel
+              {Translate('br_artikel')}
             </Link>
           </li>
         </ul>
       </div>
       <Switch>
-        <Route exact path="/berita">
-          <List title="Berita" data={dataBerita.Berita} />
+        <Route exact path="/news">
+          <List title={Translate('br_berita')} data={dataBerita.Berita} />
         </Route>
-        <Route exact path="/berita/pengumuman">
-          <List title="Pengumuman" data={dataBerita.Pengumuman} />
+        <Route exact path="/news/announcement">
+          <List title={Translate('br_pengumuman')} data={dataBerita.Pengumuman} />
         </Route>
-        <Route exact path="/berita/artikel">
-          <List title="Artikel" data={dataBerita.Artikel} />
+        <Route exact path="/news/article">
+          <List title={Translate('br_artikel')} data={dataBerita.Artikel} />
         </Route>
-        <Route path="/berita/:slug">
+        <Route path="/news/:slug">
           <Content />
         </Route>
       </Switch>

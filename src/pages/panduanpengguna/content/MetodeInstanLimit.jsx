@@ -6,25 +6,25 @@ function MetodeInstanLimit() {
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-gold font-34 font-weight-bold">
-                        Metode Instan dan Metode Limit
+                        Instant Method and Limit Method
                     </h2>
                 </div>
             </div>
             <div className="row mt-2">
                 <div className="col-12 mt-2">
-                    <p className="text-gray2 font-15 text-justify">Untuk proses jual dan beli aset kripto terdapat 2 metode yang disediakan oleh platform exchange kami, yaitu Metode Limit dan Metode Instan.</p>
+                    <p className="text-gray2 font-15 text-justify">For the process of buying and selling crypto assets, there are 2 methods provided by our exchange platform, namely the Limit Method and the Instant Method.</p>
                     <ol>
-                        <li className="text-gray2 font-16">Metode Instan</li>
-                        <p className="text-gray2 font-14">Metode Instan adalah proses jual beli crypto dengan waktu yang relatif singkat, tanpa harus menunggu order Anda tereksekusi, hal ini karena sudah langsung menggunakan harga yang dibuat oleh para <i>market maker</i>. Biasanya, metode instan ini juga disebut <i>market taker</i>.</p>
-                        <p className="text-gray2 font-14 font-weight-bold">Anda tidak perlu mengatur harganya karena anda membeli aset kripto di harga jual saat itu. Misalnya, harga crypto seperti Bitcoin menyentuh Rp 700 juta, jika menggunakan market taker atau metode instant, anda akan membelinya di harga Rp 700 juta.</p>
-                        <p className="text-gray2 font-14">Keuntungan menggunakan metode ini adalah Anda bisa menjual/membeli Bitcoin secara instan, tanpa harus menunggu order Anda tereksekusi karena sudah langsung menggunakan harga yang dibuat oleh para <i>market maker</i>.</p>
-                        <p className="text-gray2 font-14">Kekurangannya, Anda akan dikenakan biaya sebesar 0.25% untuk setiap transaksi (biaya sudah termasuk PPN).</p>
+                        <li className="text-gray2 font-16">Instant Method</li>
+                        <p className="text-gray2 font-14">The Instant method is the process of buying and selling crypto in a relatively short time, without having to wait for your order to be executed, this is because you have immediately used the price set by market makers. Usually, this instant method is also called a <i>market taker</i>.</p>
+                        <p className="text-gray2 font-14 font-weight-bold">You don't need to set the price because you bought the crypto asset at the current selling price. For example, the price of a crypto like Bitcoin touched IDR 700 million, if you use a market taker or instant method, you will buy it at IDR 700 million.</p>
+                        <p className="text-gray2 font-14">The advantage of using this method is that you can sell/buy Bitcoin instantly, without having to wait for your order to be executed because you have immediately used the price set by <i>market makers.</i></p>
+                        <p className="text-gray2 font-14">The drawback, you will be charged a fee of 0.25% for each transaction (fees include VAT).</p>
                         
-                        <li className="text-gray2 font-16">Metode Limit</li>
-                        <p className="text-gray2 font-14">Metode Limit adalah proses jual beli crypto dengan harga yang Anda tentukan sendiri. Biasanya, metode limit juga disebut <i>market maker</i>.</p>
-                        <p className="text-gray2 font-14">Anda bisa membeli aset kripto dengan menggunakan harga yang anda tentukan sendiri. Misalnya, harga Bitcoin masih Rp 700 juta. Anda ingin membelinya di harga Rp 680 juta. Jadi, nantinya saldo rupiah anda akan di-lock di harga Rp 680 juta. Order anda akan tereksekusi ketika harga aset Bitcoin menyentuh Rp 680 juta.</p>
-                        <p className="text-gray2 font-14">Metode limit juga berlaku saat anda ingin menjual harga aset kriptonya. Misalnya, anda sudah membeli harga sebuah crypto. Kemudian, anda ingin mematok keuntungan sekitar 100%, anda bisa menggunakan metode ini untuk menentukan limit harga jualnya.</p>
-                        <p className="text-gray2 font-14">Keuntungan menjadi menggunakan metode ini, Anda tidak dikenakan biaya transaksi apapun (0% fee) dalam proses jual-beli crypto dan bisa mentransaksikan crypto di harga yang Anda mau. Kekurangannya, Anda terpaksa harus menunggu beberapa saat sampai harga Bitcoin bergerak menyentuh harga yang Anda mau.</p>
+                        <li className="text-gray2 font-16">Limit Method</li>
+                        <p className="text-gray2 font-14">The Limit method is the process of buying and selling crypto at a price that you set yourself. Usually, the limit method is also called the <i>market maker</i>.</p>
+                        <p className="text-gray2 font-14">You can buy crypto assets at a price that you set yourself. For example, the price of Bitcoin is still IDR 700 million. You want to buy it at Rp. 680 million. So, later on, your rupiah balance will be locked at IDR 680 million. Your order will be executed when the Bitcoin asset price touches IDR 680 million.</p>
+                        <p className="text-gray2 font-14">The limit method also applies when you want to sell the crypto asset price. For example, you have bought the price of crypto. Then, if you want to set a profit of around 100%, you can use this method to set a limit on the selling price.</p>
+                        <p className="text-gray2 font-14">The advantage of using this method is that you are not charged any transaction fees (0% fee) in the crypto trading process and can trade crypto at the price you want. The drawback is, you are forced to wait a while until the Bitcoin price moves to touch the price you want.</p>
                     </ol>
                 </div>
             </div>

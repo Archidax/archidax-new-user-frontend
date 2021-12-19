@@ -1,0 +1,40 @@
+.launchpad-banner {
+  //   background-image: url('../../assets/img/background/launchpad-banner.png');
+  background-image: url(../../assets/img/launchpad/launchpad-header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.jumbotron-launchpad {
+  padding: 6rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.content-launchpad {
+  min-height: 100vh;
+}
+.ci-tabs-launchpad.active {
+  background: #f9ba42 !important;
+  color: black !important;
+}
+
+
+// Launchpad Partner
+.card-launchpad-partner {
+  background-image: url('../../assets/img/cardBackground/cardBG3_1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+}
+.launchpad-partner-stats {
+  display: grid;
+  grid-template-columns: 0.20fr 0.20fr 0.30fr 0.30fr;
+  grid-column-gap: 8px;
+}
+@media only screen and (max-width: 600px) {
+  .launchpad-partner-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
+    grid-column-gap: 8px;
+  }
+}

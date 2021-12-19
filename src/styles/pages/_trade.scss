@@ -48,6 +48,7 @@ $base-color3-dark: black;
 $base-color4-dark: white;
 $base-color5-dark: #f9ba42;
 $base-color6-dark: black;
+$base-color-alt: #283148;
 $base-color-table-dropdown-dark: #0c0c0c;
 $base-color-tabs-global-dark: black;
 $base-color-tabs-global-active-dark: #0c0c0c;
@@ -86,7 +87,7 @@ $price-text: black;
 $price-text2: white;
 $tab-header: #00688f;
 $tab-hover: rgba(232, 232, 232, 1);
-$chat-bg: rgba(189, 189, 189, 0.3);
+$chat-bg: black;
 $chat-color: black;
 
 :root {
@@ -146,6 +147,11 @@ $chat-color: black;
   margin: auto;
 }
 
+.width-chart2 {
+  width: 98%;
+  margin: auto;
+}
+
 .dummy-card {
   background-color: $base-color3;
   // height: 400px;
@@ -168,7 +174,7 @@ $chat-color: black;
 }
 
 .height-kanan {
-  height: 360px;
+  height: 328px;
 }
 
 .border-market {
@@ -207,7 +213,8 @@ $chat-color: black;
   background-color: $base-color2;
 }
 .bg-trade3-dark {
-  background-color: $base-color2-dark;
+  // background-color: $base-color2-dark;
+  background-color: #131722;
 }
 .bg-trade4 {
   background-color: $base-color3;
@@ -273,12 +280,27 @@ $chat-color: black;
 
 .text-price {
   color: $price-text !important;
-  font-size: 13px;
+  font-size: 10px;
 }
 .text-price-dark {
   color: $price-text-dark !important;
-  font-size: 13px;
+  font-size: 10px;
 }
+
+@media (min-width: 1400px) {
+  .text-price {
+    color: $price-text !important;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .text-price-dark {
+    color: $price-text-dark !important;
+    font-size: 13px;
+  }
+}
+
 .text-price2 {
   color: $price-text2;
 }
@@ -312,11 +334,6 @@ $chat-color: black;
 
 .border-trade {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.width-trade {
-  width: 85%;
-  margin: auto;
 }
 
 // Tabs
@@ -358,6 +375,60 @@ $chat-color: black;
   }
 }
 
+.tabs-global-dark2-buy-sell {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    // background-color: $base-color-tabs-global-dark;
+    background-color: #131722;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #fff;
+    background: $base-color-tabs-global-active-dark;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    border-bottom: 1px solid #f9ba42;
+    position: relative;
+    height: 40px !important;
+    width: 100% !important;
+  }
+
+  .nav .nav-item .nav-link.active::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 45%;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-top: solid 10px #f9ba42;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent;
+  }
+}
+
+//
+.tabs-global-dark2 {
+  .nav .nav-item .nav-link {
+    background: transparent;
+    color: #f9ba42;
+    border-radius: 0px;
+    font-size: 16px;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #f9ba42;
+    background: transparent;
+    border-radius: 0px;
+    font-size: 16px;
+  }
+}
+
 // Time Price
 .tabs-mainchart {
   .nav .nav-item .nav-link {
@@ -375,6 +446,31 @@ $chat-color: black;
     border-radius: 0px;
     height: 40px;
     font-size: 14px;
+  }
+}
+
+// Tabs Chart
+.tabs-volume-tab {
+  .nav .nav-item .nav-link {
+    // background: transparent;
+    background-color: $base-color-tabs-mainchart;
+    color: #fff;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
+  }
+
+  .nav .nav-item .nav-link.active {
+    color: #178d6a;
+    // background: $base-color-tabs-mainchart-active;
+    border-bottom: 1px solid #178d6a;
+    border-radius: 0px;
+    height: 40px;
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
   }
 }
 
@@ -448,7 +544,7 @@ $chat-color: black;
 
 .input-label-trade {
   position: absolute;
-  top: 45px;
+  top: 39px;
   left: 60px;
   background: $base-color1;
   color: $price-text;
@@ -460,7 +556,7 @@ $chat-color: black;
 }
 .input-label-trade-dark {
   position: absolute;
-  top: 45px;
+  top: 39px;
   left: 60px;
   background: #0d0d0d;
   color: $price-text-dark;
@@ -473,7 +569,7 @@ $chat-color: black;
 
 .input-label-trade2 {
   position: absolute;
-  top: 105px;
+  top: 97px;
   left: 60px;
   background: $base-color1;
   color: $price-text;
@@ -485,7 +581,7 @@ $chat-color: black;
 }
 .input-label-trade2-dark {
   position: absolute;
-  top: 105px;
+  top: 97px;
   left: 60px;
   background: #0d0d0d;
   color: $price-text-dark;
@@ -498,7 +594,7 @@ $chat-color: black;
 
 .input-label-trade3 {
   position: absolute;
-  top: 250px;
+  top: 235px;
   left: 60px;
   background: $base-color1;
   color: $price-text;
@@ -510,7 +606,7 @@ $chat-color: black;
 }
 .input-label-trade3-dark {
   position: absolute;
-  top: 250px;
+  top: 235px;
   left: 60px;
   background: #0d0d0d;
   color: $price-text-dark;
@@ -580,7 +676,7 @@ $chat-color: black;
 .table-wrapper2,
 .table-wrapper2-dark {
   overflow-y: auto;
-  height: 293px;
+  height: 270px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -614,7 +710,8 @@ $chat-color: black;
 .table-wrapper2-dark th {
   position: sticky;
   top: 0;
-  background-color: $tab-header-dark !important;
+  background-color: $base-color-alt !important;
+  // warna table market list
 }
 
 /* A bit more styling to make it look better */
@@ -655,7 +752,7 @@ $chat-color: black;
   }
 
   th {
-    background: $base-color2-dark;
+    background: $base-color-alt;
   }
 
   th {
@@ -685,7 +782,6 @@ $chat-color: black;
 }
 .table-wrapper3 {
   overflow-y: auto;
-  height: 340px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -711,7 +807,6 @@ $chat-color: black;
 }
 .table-wrapper3-dark {
   overflow-y: auto;
-  height: 340px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -786,16 +881,47 @@ $chat-color: black;
   th {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 18px;
-    padding-right: 18px;
-    font-size: 13px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 10px;
   }
   td {
     padding-top: 7px;
     padding-bottom: 3px;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
     font-size: 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .table-wrapper3-dark {
+    background: $base-color1-dark;
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      background: $base-color1-dark;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    th {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      font-size: 13px;
+    }
+    td {
+      padding-top: 7px;
+      padding-bottom: 3px;
+      padding-left: 18px;
+      padding-right: 18px;
+      font-size: 12px;
+    }
   }
 }
 
@@ -810,7 +936,6 @@ $chat-color: black;
 }
 .table-wrapper4 {
   overflow-y: auto;
-  height: 339px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -836,7 +961,6 @@ $chat-color: black;
 }
 .table-wrapper4-dark {
   overflow-y: auto;
-  height: 339px;
 
   /* width */
   &::-webkit-scrollbar {
@@ -1263,7 +1387,7 @@ $chat-color: black;
   width: 360px;
   border: none;
   &-scrollbar {
-    max-height: 300px;
+    max-height: 370px;
     overflow-x: auto;
     border-radius: 6px;
     .table-wrapper4 {
@@ -1293,6 +1417,45 @@ $chat-color: black;
     }
   }
 }
+
+// listing exchange
+.ci-dropdown-menu-TradeSymbol2 {
+  background: lighten($color: rgb(13, 13, 13), $amount: 5);
+  margin-top: 8px;
+  width: 360px;
+  border: none;
+  &-scrollbar {
+    max-height: 600px;
+    overflow-x: auto;
+    border-radius: 6px;
+    .table-wrapper4 {
+      background: $base-color-table-dropdown;
+    }
+    /* width */
+    &::-webkit-scrollbar {
+      width: 5px;
+      display: none;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 8px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background-color: #f9ba42 !important;
+      border-radius: 8px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #aeb4ce;
+    }
+  }
+}
+
 .ci-dropdown-toggle-custom::after {
   content: none !important;
 }
@@ -1382,14 +1545,14 @@ input:checked + .slider:before {
 @media (min-width: 750px) {
   .list-coin-responsive {
     padding: 0px 0px;
-    width: 80%;
+    width: 100%;
   }
 }
 
 @media (min-width: 1024px) {
   .list-coin-responsive {
     padding: 0px 0px;
-    width: 80%;
+    width: 100%;
   }
 }
 
@@ -1488,4 +1651,42 @@ input:checked + .slider:before {
 
 .nav-trade-full {
   background-color: #00688f;
+}
+
+// Tabs Radio Button
+input ~ .tabbuy {
+  display: none;
+}
+#tabbuy1:checked ~ .tabbuy.content1,
+#tabbuy2:checked ~ .tabbuy.content2 {
+  display: block;
+}
+
+input ~ .tabsell {
+  display: none;
+}
+#tabsell1:checked ~ .tabsell.content1,
+#tabsell2:checked ~ .tabsell.content2 {
+  display: block;
+}
+
+// volume
+.dark-sell {
+  background: url(../../assets/img/trade/volume/dark-sell.svg);
+  background-repeat: no-repeat;
+}
+
+.day-sell {
+  background: url(../../assets/img/trade/volume/day-sell.svg);
+  background-repeat: no-repeat;
+}
+
+.dark-buy {
+  background: url(../../assets/img/trade/volume/dark-buy.svg);
+  background-repeat: no-repeat;
+}
+
+.day-buy {
+  background: url(../../assets/img/trade/volume/day-buy.svg);
+  background-repeat: no-repeat;
 }

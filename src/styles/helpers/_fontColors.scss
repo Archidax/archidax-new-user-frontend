@@ -27,19 +27,28 @@
 }
 
 .ci-text-up {
-  color :#00FF19;
+  color: #00ff19;
 }
 
 .ci-text-down {
-  color: #ED4C5C;
+  color: #ed4c5c;
+}
+
+.text-content {
+  color: #7d7f84;
 }
 
 .text-grad-gold {
-  background: #F9BD00;
-  background: -webkit-linear-gradient(to right, #F9BD00 0%, #CFAC21 100%);
-  background: -moz-linear-gradient(to right, #F9BD00 0%, #CFAC21 100%);
-  background: linear-gradient(to right, #F9BD00 0%, #CFAC21 100%);
+  background: #f9bd00;
+  background: -webkit-linear-gradient(to right, #f9bd00 0%, #cfac21 100%);
+  background: -moz-linear-gradient(to right, #f9bd00 0%, #cfac21 100%);
+  background: linear-gradient(to right, #f9bd00 0%, #cfac21 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 /* Theme Colors Text Dark Mode*/
+
+.chatcolor:hover {
+  color: #f9ba42;
+  font-weight: bold;
+}

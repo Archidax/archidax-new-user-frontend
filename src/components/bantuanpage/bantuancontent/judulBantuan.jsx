@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Link, useParams} from "react-router-dom";
 import {baseAxios} from '../../../stores'
 import swal from 'sweetalert2'
+import Translate from '../../../i18n/Translate';
 
 export default function JudulBantuan() {
   const params = useParams()
@@ -46,7 +47,7 @@ export default function JudulBantuan() {
             })
           :
             <div>
-              <div className="ci-text-white font-12">No Data</div>
+              <div className="ci-text-white font-12">{Translate('vc_tidak_ada_data')}</div>
             </div>
         }
       </div>

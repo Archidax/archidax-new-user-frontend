@@ -1,10 +1,12 @@
 import React from "react";
 import TableComponent from "./table/TableHomepage";
 
-export default function TableHomepage({ dataHome }) {
+export default function TableHomepage() {
   return (
-    <div className="container-homepage p-0 mb-hp-r">
-      <TableComponent dataHome={dataHome} />
+    <div className="bg-archidax mb-hp-r">
+      <div className="container-homepage p-0 ">
+        <TableComponent />
+      </div>
     </div>
   );
 }

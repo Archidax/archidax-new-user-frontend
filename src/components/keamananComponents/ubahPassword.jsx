@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import warning from "../../assets/img/warning.png"
 import OTP from '../otp'
 import { requestPasswordChange } from '../../stores'
+import Translate from '../../i18n/Translate';
 
 export default function UbahPassword(props) {
   const { toggleModal } = props
@@ -131,20 +132,20 @@ export default function UbahPassword(props) {
             </button>
           </div>
           <div className="modal-body modal-body-custom">
-            <p className="label-title-top text-center">Ubah Password</p>
+            <p className="label-title-top text-center">{Translate('ka_ubah_password')}</p>
             <div className="container">
               <div className="row warning-ubah-password mb-4">
                 <div className="col-1 d-flex align-items-center">
                   <img src={warning} alt="warning" />
                 </div>
                 <div className="col-11">
-                  <p className="text-warning-custom mb-0">Mengubah kata sandi Anda akan mengeluarkan Anda dari semua perangkat, termasuk ponsel Anda. Anda harus memasukkan kata sandi baru di semua perangkat Anda.</p>
+                  <p className="text-warning-custom mb-0">{Translate('ka_text_warning_ubah_pass')}</p>
                 </div>
               </div>
             </div>
             <form onSubmit={(e)=>submitForm(e)}>
               <div className="form-group row no-gutters">
-                <label htmlFor="inputPasswordLama label-input" className="col-sm-4 col-form-label label-title">Password Lama</label>
+                <label htmlFor="inputPasswordLama label-input" className="col-sm-4 col-form-label label-title">{Translate('ka_pass_lama')}</label>
                 <div className="col-sm-8 input-group ci-inputDefault-bg  d-flex align-items-center  pl-2">
                   <input value={data.password} type={show ? "text" : "password"} onChange={e => handleData(e.target.value,'password')} className="form-control ci-inputDefault-bg-input ci-pd" id="inputPasswordLama"/>
                   {/* <input value={passwordLama} type={show ? "text" : "password"} onChange={e => setPasswordLama(e.target.value)} className="form-control ci-inputDefault-bg-input ci-pd" id="inputPasswordLama"/> */}
@@ -157,7 +158,7 @@ export default function UbahPassword(props) {
                 }
               </div>
               <div className="form-group row no-gutters">
-                <label htmlFor="inputPasswordBaru label-input" className="col-sm-4 col-form-label label-title">Password Baru</label>
+                <label htmlFor="inputPasswordBaru label-input" className="col-sm-4 col-form-label label-title">{Translate('ka_pass_baru')}</label>
                 <div className="col-sm-8 input-group ci-inputDefault-bg  d-flex align-items-center pl-2">
                   <input type={show2 ? "text" : "password"} value={data.newPassword} onChange={e => handleData(e.target.value, 'newPassword')} className="form-control ci-inputDefault-bg-input ci-pd" id="inputPasswordBaru"/>
                   {/* <input type={show2 ? "text" : "password"} value={passwordBaru} onChange={e => setPasswordBaru(e.target.value)} className="form-control ci-inputDefault-bg-input ci-pd" id="inputPasswordBaru"/> */}
@@ -170,7 +171,7 @@ export default function UbahPassword(props) {
                 }
               </div>
               <div className="form-group row no-gutters">
-                <label htmlFor="inputPasswordKonfirmasilabel-input" className="col-sm-4 col-form-label label-title">Konfirmasi Password</label>
+                <label htmlFor="inputPasswordKonfirmasilabel-input" className="col-sm-4 col-form-label label-title">{Translate('ka_konfirmasi_pass')}</label>
                 <div className="col-sm-8 input-group ci-inputDefault-bg d-flex align-items-center  pl-2">
                   <input type={show3 ? "text" : "password"} value={data.confirmPassword} onChange={e => handleData(e.target.value, 'confirmPassword')} className="form-control ci-inputDefault-bg-input ci-pd" id="inputPasswordKonfirmasi"/>
                   {/* <input type={show3 ? "text" : "password"} value={password2} onChange={e => setPassword2(e.target.value)} className="form-control ci-inputDefault-bg-input ci-pd" id="inputPasswordKonfirmasi"/> */}
@@ -186,7 +187,7 @@ export default function UbahPassword(props) {
                 }
               </div>
               <div className="form-group row no-gutters">
-                <label htmlFor="inputPasswordPin label-input" className="col-sm-4 col-form-label label-title">PIN SMS</label>
+                <label htmlFor="inputPasswordPin label-input" className="col-sm-4 col-form-label label-title">{Translate('ue_pin_sms')}</label>
                 <div className="col-sm-4 input-group ci-inputDefault-bg  pl-2">
                   <input value={data.code} onChange={e => handleData(e.target.value, 'code')} type="password" className="form-control ci-inputDefault-bg-input ci-pd" id="inputPasswordPin"/>
                 </div>
@@ -206,7 +207,7 @@ export default function UbahPassword(props) {
                     </div> Processing...
                     </>
                   :
-                  <>Ubah Password</>
+                  <>{Translate('ka_ubah_password')}</>
                 }
               </button>
             </form>

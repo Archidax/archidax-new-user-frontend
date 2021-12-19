@@ -6,15 +6,13 @@ import { postAddress } from '../../../stores'
 import province from '../../provinces'
 import { kodePosFormatError } from '../../../stores/errorHandler'
 import OTP from '../../../components/otp'
+import Translate from '../../../i18n/Translate';
 
 export default function AlamatTab (){
     const dispatch = useDispatch()
 
     const kyc = useSelector(state => state.kycReducer)
     const history = useHistory()
-
-    // const [showPopUp, setShowPopUp] = useState(false)
-    // const [showPopUpSimpan, setShowPopUpSimpan] = useState(false)
 
     const [street, setStreet] = useState("")
     const [provinces, setProvinces] = useState("")
@@ -24,10 +22,6 @@ export default function AlamatTab (){
 
     const [kotaArr, setKotaArr] = useState([])
     
-
-    // const sendPinSMS = (pin) => {
-    //     setShowPopUpSimpan(true)
-    // }
     
     const changeAddress = () => {
         kodePosFormatError(kodePos, () => {
@@ -39,11 +33,6 @@ export default function AlamatTab (){
         setKotaArr(province[provinces])
     }, [provinces])
     
-    // useEffect(() => {
-    //     if(!kyc.alamat) {
-    //         readMe(dispatch)
-    //     }
-    // }, [])
     return (
         <>
         <div className="container-fluid p-4" >
@@ -55,21 +44,21 @@ export default function AlamatTab (){
                     }}
                     onClick={() => {
                             history.replace('/profile')
-                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" /> Kembali ke profil</p>
+                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" /> {Translate('ue_kembali')}</p>
                 </div>
             </div>
             
             <div className="row no-gutters bg-homepage2 p-4">
                 <div className="col-12">
-                    <p className="label-title-top mb-0 font-roboto">Ubah Alamat</p>
+                    <p className="label-title-top mb-0 font-roboto">{Translate('ua_ubah_alamat')}</p>
                 </div>
                 <div className="col-12 mt-1 mb-5">
-                    <p className="label-title mb-0">Lengkapi isian berikut untuk mengajukan penggantian alamat.</p>
+                    <p className="label-title mb-0">{Translate('ua_text_lengkapi')}</p>
                 </div>
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="ci-text-white mb-0 label-title">Alamat Lama</p>
+                            <p className="ci-text-white mb-0 label-title">{Translate('ua_alamat_lama')}</p>
                         </div>
                         <div className="col-12 col-md-8">
                             <div className="col-12">
@@ -98,7 +87,7 @@ export default function AlamatTab (){
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="ci-text-white mb-0 label-title">Alamat Baru</p>
+                            <p className="ci-text-white mb-0 label-title">{Translate('ua_alamat_baru')}</p>
                         </div>
                         <div className="col-12 col-md-8">
                             <div className="input-group ci-inputDefault-bg">
@@ -110,7 +99,7 @@ export default function AlamatTab (){
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="ci-text-white mb-0 label-title">Provinsi</p>
+                            <p className="ci-text-white mb-0 label-title">{Translate('ua_provinsi')}</p>
                         </div>
                         <div className="col-12 col-md-8">
                             <Dropdown value={provinces} onChange={setProvinces} dataOptions={Object.keys(province)} searchBar={true}/>
@@ -120,7 +109,7 @@ export default function AlamatTab (){
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="ci-text-white mb-0 label-title">Kota</p>
+                            <p className="ci-text-white mb-0 label-title">{Translate('ua_kota')}</p>
                         </div>
                         <div className="col-12 col-md-8">
                             <Dropdown  value={kota} onChange={setKota} dataOptions={kotaArr} searchBar={true}/>
@@ -130,7 +119,7 @@ export default function AlamatTab (){
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="ci-text-white mb-0 label-title">Kode Pos</p>
+                            <p className="ci-text-white mb-0 label-title">{Translate('ua_kode_pos')}</p>
                         </div>
                         <div className="col-12 col-md-8">
                             <div className="input-group ci-inputDefault-bg">
@@ -143,7 +132,7 @@ export default function AlamatTab (){
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                        <p className="ci-text-white mb-0 label-title">PIN SMS</p>
+                        <p className="ci-text-white mb-0 label-title">{Translate('ue_pin_sms')}</p>
                         </div>
                         <div className="col-12 col-md-8">
                             <div className="row no-gutters">
@@ -161,7 +150,7 @@ export default function AlamatTab (){
                     </div>
                 </div>
                 <div className="col-12 splitter d-flex justify-content-end mt-5">
-                    <button onClick={changeAddress} className="ci-btn-warning ci-md mt-3">Simpan</button>
+                    <button onClick={changeAddress} className="ci-btn-warning ci-md mt-3">{Translate('ue_simpan')}</button>
                 </div>
             </div>
         </div>

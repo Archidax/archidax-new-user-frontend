@@ -11,7 +11,7 @@ import { beritaRecent } from "../../../stores/berita/functions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import Slider from "react-slick";
-export default function SliderBannerDashboard () {
+export default function SliderBannerDashboard() {
   const dispatch = useDispatch();
   const history = useHistory();
   React.useEffect(() => {
@@ -54,7 +54,7 @@ export default function SliderBannerDashboard () {
     <div className="px-3 text-white ci-bg-primary pt-2 font-14">
       <CarouselProvider
         visibleSlides={1}
-        totalSlides={6}
+        totalSlides={40}
         naturalSlideWidth={100}
         naturalSlideHeight={2}
         interval={5000}
@@ -72,7 +72,7 @@ export default function SliderBannerDashboard () {
                     cursor: "pointer",
                   }}
                   onClick={() => {
-                    history.push(`/berita/${item.slug}`);
+                    history.push(`/news/${item.slug}`);
                   }}
                 >
                   <p className="m-0 font-15">{item.title}</p>
@@ -104,4 +104,4 @@ export default function SliderBannerDashboard () {
       </CarouselProvider>
     </div>
   );
-};
+}

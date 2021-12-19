@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import buylogo from "../../../assets/img/trade/buy.png";
+import NumberFormat from "react-number-format";
+
 import buylogo from "../../../assets/img/trade/icon/arrowbuy.svg";
 import walletlogo from "../../../assets/img/trade/wallet.png";
 import { PercentMath } from "../helpers/trade";
@@ -9,28 +10,19 @@ import {
   SET_RX_FORM_DATABUY,
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
-import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
-
-import { convertNumber } from "../../../assets/js";
 
 import { Link, useParams } from "react-router-dom";
-import { parseFixedNumber } from "../../../helpers/functions";
 
-export default function LimitBuy() {
+export default function LimitBuy({ balanceAsset }) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   let { symbol } = useParams();
   const { mode } = useSelector((state) => state.daynightReducer);
 
-  const [balance, setBalance] = useState("");
-  const { PairSymbol, pairFrom } = useSelector((state) =>
+  const { PairSymbol, pairTo } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
 
-  const { username } = useSelector((state) =>
-    state ? (state.profileReducer ? state.profileReducer : {}) : {},
-  );
-
-  const { saldo, assets } = useSelector((state) => state?.walletReducer);
+  const { saldo } = useSelector((state) => state?.walletReducer);
   const [inputPrice, setInputPrice] = useState("");
   const [inputAmount, setInputAmount] = useState("");
   const dispatch = useDispatch();
@@ -80,174 +72,272 @@ export default function LimitBuy() {
         }),
       );
     }
-    if (pairFrom.toString().toUpperCase() === "IDR") {
-      saldo ? setBalance(saldo) : setBalance(0);
-    } else {
-      const UsdtBalance = assets.find((el) => el.type === "USDT");
-      setBalance(UsdtBalance ? UsdtBalance.balance : 0);
-    }
-  }, [price, dispatch, amount, saldo, pairFrom, assets]);
-
-  React.useEffect(() => {
-    if (
-      IoWebSocketTrade &&
-      IoWebSocketTrade.connected &&
-      pairFrom &&
-      username
-    ) {
-      IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-        if (data) {
-          setBalance(data.balance);
-        }
-      });
-      return () =>
-        IoWebSocketTrade.removeEventListener(
-          `WalletBalance-${username}-${pairFrom}`,
-        );
-    }
-  }, [setBalance, pairFrom, username]);
+  }, [price, dispatch, amount, saldo, pairTo]);
 
   return (
     <div
       className={`${
         mode ? "bg-trade-dark" : "bg-trade"
-      }  col-12 px-0 py-3 height-kanan`}
+      }  col-12 px-0 pt-1 pb-3 height-kanan`}
     >
-      <div className="width-trade">
+      <div className="width-trade2">
         <form onSubmit={isLoginPages ? PostBuyLimit : PostBuyLimitDisabled}>
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
               <img src={buylogo} width="22px" alt="buylogo" />
-              <h6 className="text-buy mb-0 ml-2 font-19">Beli</h6>
+              <h6 className="text-buy mb-1 ml-2 font-19">Buy</h6>
             </div>
             <div className="make-middle">
               <img src={walletlogo} width="14px" alt="walletlogo" />
-              <div className="text-dgrey ml-2 font-14">
-                {pairFrom ? pairFrom : "-"}:
+              <div className="text-dgrey ml-2 lmt-font">
+                {pairTo ? pairTo : "-"}:
               </div>
               <div
                 className={`${
                   mode ? "text-price-dark" : "text-price"
-                } ml-2 font-14`}
+                } ml-2 lmt-font`}
               >
-                <span>{convertNumber.toRupiah(balance)}</span>
+                <span>
+                  <NumberFormat value={balanceAsset||0} decimalScale={8} displayType={'text'} thousandSeparator={true} />
+                </span>
               </div>
             </div>
           </div>
+
           <div className="d-flex">
-            <span
-              className={mode ? "input-label-trade-dark" : "input-label-trade"}
+            <div
+              className="col-3 p-0"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
             >
-              Limit Harga
-            </span>
-            <input
-              type="text"
-              id="fname"
-              name="fname"
-              placeholder="0"
-              className={`col-12 py-2 mt-3 ${
-                mode ? "border-market-dark" : "border-market"
-              }`}
-              // value={parseFixedNumber(inputPrice)}
-              value={inputPrice}
-              onChange={(e) => setInputPrice(e.target.value)}
-            ></input>
-          </div>
-          <div className="d-flex">
-            <span
-              className={
-                mode ? "input-label-trade2-dark" : "input-label-trade2"
-              }
-            >
-              Total Pembelian
-            </span>
-            <input
+              <h5
+                className="lmt-font mt-4"
+                style={{ color: mode ? "white" : "black" }}
+              >
+                Limit Price :{" "}
+              </h5>
+            </div>
+            {/* <input
               type="number"
               id="fname"
               name="fname"
               placeholder="0"
-              className={`col-12 py-2 mt-3 ${
+              className={`col-9 py-1 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
+              value={inputPrice}
+              onChange={(e) => setInputPrice(e.target.value)}
+            ></input> */}
+            <NumberFormat 
+              // prefix={pairTo ? pairTo+" : " : null}
+              thousandSeparator={true}
+              className={`col-9 py-1 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              inputMode="decimal"
+              placeholder="0"
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
+              value={inputPrice}
+              onValueChange={(values) => {
+                const {value} = values;
+                setInputPrice(value);
+              }}
+            />
+          </div>
+          <div className="d-flex">
+            <div
+              className="col-3 p-0"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <h5
+                className="lmt-font mt-4 "
+                style={{ color: mode ? "white" : "black" }}
+              >
+                Amount :{" "}
+              </h5>
+            </div>
+            {/* <input
+              type="number"
+              id="fname"
+              name="fname"
+              placeholder="0"
+              className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
-              onChange={(e) => setInputAmount(e.target.value)}
-            ></input>
+              onKeyDown={(evt) =>
+                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
+              }
+              onChange={(e) => {
+                setInputAmount(e.target.value);
+              }}
+            ></input> */}
+            <NumberFormat 
+              thousandSeparator={true}
+              className={`col-9 py-1 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              inputMode="decimal"
+              placeholder="0"
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
+              value={inputAmount}
+              onValueChange={(values) => {
+                const {value} = values;
+                setInputAmount(value);
+              }}
+            />
           </div>
           <div
             id={mode ? "grid-trade-percent-dark" : "grid-trade-percent"}
-            className="text-center mt-3"
+            className="text-center mt-3 col-9 offset-3"
           >
-            <button
-              type="button"
+            <div
+              class="form-check form-check-inline"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
               onClick={() =>
                 setInputAmount(
                   PercentMath({
                     select: 0,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
             >
-              25%
-            </button>
-            <button
-              type="button"
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+              />
+              <label
+                class="form-check-label font-12 mt-1"
+                style={{ color: mode ? "white" : "black" }}
+                for="inlineRadio1"
+              >
+                25%
+              </label>
+            </div>
+            <div
+              class="form-check form-check-inline"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
               onClick={() =>
                 setInputAmount(
                   PercentMath({
                     select: 1,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
             >
-              50%
-            </button>
-            <button
-              type="button"
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+              />
+              <label
+                class="form-check-label font-12  mt-1"
+                style={{ color: mode ? "white" : "black" }}
+                for="inlineRadio2"
+              >
+                50%
+              </label>
+            </div>
+            <div
+              class="form-check form-check-inline"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
               onClick={() =>
                 setInputAmount(
                   PercentMath({
                     select: 2,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
             >
-              75%
-            </button>
-            <button
-              type="button"
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio3"
+              />
+              <label
+                class="form-check-label font-12  mt-1"
+                style={{ color: mode ? "white" : "black" }}
+                for="inlineRadio3"
+              >
+                75%
+              </label>
+            </div>
+            <div
+              class="form-check form-check-inline"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
               onClick={() =>
                 setInputAmount(
                   PercentMath({
                     select: 3,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
             >
-              100%
-            </button>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio4"
+              />
+              <label
+                class="form-check-label font-12  mt-1"
+                style={{ color: mode ? "white" : "black" }}
+                for="inlineRadio4"
+              >
+                100%
+              </label>
+            </div>
           </div>
-          <p
-            className={`mb-0 ${
-              mode ? "text-price-dark" : "text-price"
-            } font-12`}
-            style={{ marginTop: "10px" }}
-          >
-            Fee : Maker <span className="text-sell">0%</span> - Taker{" "}
-            <span className="text-sell">0,25%</span>
-          </p>
+
           <div className="d-flex">
-            <span
-              className={
-                mode ? "input-label-trade3-dark" : "input-label-trade3"
-              }
+            <div
+              className="col-3 p-0"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
             >
-              Estimasi
-            </span>
-            <input
+              <h5
+                className="lmt-font mt-4 "
+                style={{ color: mode ? "white" : "black" }}
+              >
+                Estimation :{" "}
+              </h5>
+            </div>
+            {/* <input
               type="number"
               id="fname"
               name="fname"
@@ -257,12 +347,36 @@ export default function LimitBuy() {
                   : 0
               }
               placeholder="0"
-              className={`col-12 py-2 mt-3 ${
+              className={`col-9 py-1 mt-3 ${
                 mode ? "border-market-dark" : "border-market"
               }`}
               disabled
-            ></input>
+            ></input> */}
+             <NumberFormat 
+              // prefix={pairFrom?pairFrom+" : ":null}
+              thousandSeparator={true}
+              className={`col-9 py-1 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              inputMode="decimal"
+              placeholder="0"
+              value={
+                Number.isFinite(inputAmount / inputPrice)
+                  ? Number(inputAmount / inputPrice)
+                  : 0
+              }
+              disabled
+            />
           </div>
+          <p
+            className={`col-9 offset-3 p-0 mb-0 ${
+              mode ? "text-price-dark" : "text-price"
+            } font-12  mt-1`}
+            style={{ marginTop: "10px" }}
+          >
+            Fee : Maker <span className="text-sell">0%</span> - Taker{" "}
+            <span className="text-sell">0,25%</span>
+          </p>
           {isLoginPages ? (
             <button
               type="submit"
@@ -272,21 +386,21 @@ export default function LimitBuy() {
             >
               <h5
                 className={`mb-0 font-16 ${
-                  mode ? "font-weight-bold" : "text-white font-bolder2"
+                  mode ? "font-weight-bold" : " font-bolder2"
                 }`}
               >
-                Beli
+                Buy
               </h5>
             </button>
           ) : (
-            <div className="text-center bg-loginfirst col-12 mt-3">
+            <div className="text-center bg-loginfirst col-9 offset-3 mt-4">
               <h5 className="mb-0 font-13 font-weight-bold">
                 <Link to="/login" className="mr-2">
-                  Masuk
+                  Login
                 </Link>
-                atau
+                or
                 <Link to="/login" className="ml-2">
-                  Daftar
+                  Register
                 </Link>
               </h5>
             </div>

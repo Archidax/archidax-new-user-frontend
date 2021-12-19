@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { generateAddress, getMyBalance } from '../../../stores';
 import ReactQRCode from 'react-qr-code'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-
+import Translate from "../../../i18n/Translate";
 // Instruksi
 import AOAInstructions from './setorinstructions/AOAInstructions'
 import BNBInstructions from './setorinstructions/BNBInstructions'
@@ -23,6 +23,7 @@ import UNIInstructions from './setorinstructions/UNIInstructions';
 
 import { useHistory, useParams } from 'react-router-dom';
 import DropdownCoin from './DropdownCoin';
+import USDTCoin from '../../../assets/img/trade/cryptologo/Tether_USDT.svg'
 
 // Coin libs
 import GenericInstructions from './setorinstructions/GenericInstructions';
@@ -36,25 +37,44 @@ function SetorCryptoTabs() {
     const dispatch = useDispatch()
     const history = useHistory()
     const [copied, setCopied] = useState(false)
-    const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
+    const { listingList } = useSelector(state => state.pasarTradingReducer)
     const [coinIcon, setCoinIcon] = useState(getCoinIcon("BTC"))
     const [closePrice, setClosePrice] = useState(0)
 
+    const assets = useSelector(state => state.walletReducer.assets)
+
     useEffect(() => {
-        const found = Exchange.find(coin => coin.initialSymbol === coinCode.toUpperCase())
-        if (coinCode === "TRON") {
-            history.push("/crypto/setor-crypto/TRX")
-        } else if (!found) {
-            history.push("/crypto/setor-crypto/BTC")
-        } else {
-            setClosePrice(found.price_24hour.price24h_close)
-            setCoinName(found.assetName)
-            setCoinIcon(found.icon)
-            getMyBalance(coinCode, dispatch)
-            // getPriceEstimation(found.alias, dispatch)
-            // setPriceEstimation(found)
+        const found = assets.find(coin => coin.type === "USDT")
+        if(found) {
+            if(found.balance !== 0) {
+                generateAddress("USDT", dispatch)
+            }
         }
-    }, [coinCode, history, dispatch, Exchange])
+    }, [])
+
+    useEffect(() => {
+        if(coinCode==="USDT") {
+            setClosePrice(0)
+            setCoinName("USDT Tether")
+            setCoinIcon(USDTCoin)
+            // getMyBalance(coinCode, dispatch)
+        } else {
+            const found = listingList.find(coin => coin.initialSymbol === coinCode.toUpperCase())
+            if (coinCode === "TRON") {
+                history.push("/crypto/setor-crypto/TRX")
+            } else if (!found) {
+                history.push("/crypto/setor-crypto/BTC")
+            } else {
+                setClosePrice(found.price_24hour.price24h_close)
+                setCoinName(found.assetName)
+                setCoinIcon(found.icon)
+                getMyBalance(coinCode, dispatch)
+                // setCoinName(found.name)
+                // getMyBalance(coinCode, dispatch)
+                // getPriceEstimation(found.alias, dispatch)
+            }
+        }
+    }, [coinCode, history, dispatch, listingList])
 
     // Generate Address
     const aktifkan = () => {
@@ -96,7 +116,6 @@ function SetorCryptoTabs() {
                 return <GenericInstructions />;
         }
     }
-
     return (
         <div className="container-fluid">
             <div className="row border-top mt-3 border-warning">
@@ -127,14 +146,14 @@ function SetorCryptoTabs() {
                                                     </div>
                                                 </button>
 
-                                                <DropdownCoin data={Exchange} action="setor-crypto" />
+                                                <DropdownCoin data={listingList} action="setor-crypto" />
                                             </div>
 
                                         </div>
                                         <div className="col-12 col-md-8">
                                             <div className="row">
                                                 <div className="col-5">
-                                                    <p className="mb-2 mt-2 text-white">Saldo Aktif</p>
+                                                    <p className="mb-2 mt-2 text-white">{Translate('db_saldoactive')}</p>
                                                 </div>
                                                 <div className="col-7">
                                                     <p className="text-right mb-2 mt-2 text-white">{coinDetails.balance} {coinCode}</p>
@@ -142,7 +161,7 @@ function SetorCryptoTabs() {
                                             </div>
                                             <div className="row">
                                                 <div className="col-5">
-                                                    <p className="mb-2 mt-2 text-white">Saldo Beku</p>
+                                                    <p className="mb-2 mt-2 text-white">{Translate('db_frozenbalance')}</p>
                                                 </div>
                                                 <div className="col-7">
                                                     <p className="text-right mb-2 mt-2 text-white">{coinDetails.frozen_balance} {coinCode}</p>
@@ -150,10 +169,10 @@ function SetorCryptoTabs() {
                                             </div>
                                             <div className="row">
                                                 <div className="col-5">
-                                                    <p className="mb-2 mt-2 text-white">Estimasi Rupiah</p>
+                                                    <p className="mb-2 mt-2 text-white">{Translate('db_asset_estimate')}</p>
                                                 </div>
                                                 <div className="col-7">
-                                                    <p className="text-right mb-2 mt-2 text-white">{convertNumber.toMoney(closePrice * coinDetails.balance, "Rp.")}</p>
+                                                    <p className="text-right mb-2 mt-2 text-white">{convertNumber.toMoney(closePrice * coinDetails.balance, "USDT ")}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -182,7 +201,7 @@ function SetorCryptoTabs() {
                                                     </div>
 
                                                     <div className="col-12 col-md-10">
-                                                        <label for="address" className="font-14 col-form-label text-left">Harap setorkan aset Anda ke alamat berikut :</label>
+                                                        <label for="address" className="font-14 col-form-label text-left">{Translate('db_harap_setor')}</label>
                                                         <div className="input-group ci-inputDefault-bg">
                                                             <input type="text" className="form-control ci-inputDefault-bg-input font-13" id="address" placeholder={coinDetails.address} disabled />
                                                             <div className="ci-inputDefault-bg-appendR d-block justify-content-center p-1">

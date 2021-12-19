@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 // Import Images
-import logoIcon from "../../../assets/img/logo_flat.svg";
+import logoIcon from "../../../assets/img/logoArchidax.png";
 import profilelogo from "../../../assets/img/header/headerdashboard/profile.svg";
 import keamananlogo from "../../../assets/img/header/headerdashboard/keamanan.svg";
 import riwayatlogo from "../../../assets/img/header/headerdashboard/riwayat.svg";
@@ -15,10 +15,12 @@ import bantuanIcon from "../../../assets/affiliasi/bitcoin-icon.svg";
 import affiliasiIcon from "../../../assets/affiliasi/affiliasi-icon.svg";
 import blogIcon from "../../../assets/affiliasi/blog-icon.svg";
 import walletIcon from "../../../assets/affiliasi/wallet-icon.svg";
+import LaunchpadIcon from "../../../assets/affiliasi/launchpad-icon.svg";
 
 // Import redux
 import { logout } from "../../../stores";
 import { useDispatch } from "react-redux";
+import Translate from "../../../i18n/Translate";
 
 export default function SidebarDashboard(props) {
   const dispatch = useDispatch();
@@ -54,7 +56,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={dashboardIcon} alt="dashboardIcon" className="ml-1 mr-3" />
-                    Dashboard
+                    {Translate('si_dashboard')}
                   </span>
                 </Link>
               </div>
@@ -66,7 +68,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={walletIcon} alt="walletIcon" className="mr-3" />
-                    Wallet
+                    {Translate('si_wallet')}
                   </span>
                 </Link>
               </div>
@@ -78,7 +80,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={pasarIcon} alt="pasarIcon" className="mr-3" />
-                    Pasar
+                    {Translate('si_pasar')}
                   </span>
                 </Link>
               </div>
@@ -90,7 +92,7 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={voucherIcon} alt="voucherIcon" className="mr-3" />
-                    Voucher
+                    {Translate('si_voucher')}
                   </span>
                 </Link>
               </div>
@@ -104,19 +106,19 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={affiliasiIcon} alt="affiliasiIcon" className="mr-3" />
-                    Program Afiliasi
+                    {Translate('si_program')}
                   </span>
                 </Link>
               </div>
               <div className="nav-item">
-                <Link className={`ci-nav-link`} to={`/berita`}>
+                <Link className={`ci-nav-link`} to={`/news`}>
                   <span
                     className={`ci-spanText pt-2 pb-2 pl-3 font-14 ${
-                      locationSidebar.pathname === "/berita" ? "active" : ""
+                      locationSidebar.pathname === "/news" ? "active" : ""
                     }`}
                   >
                     <img src={blogIcon} alt="blogIcon" className="mr-3" />
-                    Berita
+                    {Translate('si_berita')}
                   </span>
                 </Link>
               </div>
@@ -128,7 +130,31 @@ export default function SidebarDashboard(props) {
                     }`}
                   >
                     <img src={bantuanIcon} alt="bantuanIcon" className="mr-3" />
-                    Bantuan
+                    {Translate('si_bantuan')}
+                  </span>
+                </Link>
+              </div>
+              <div className="nav-item">
+                <Link className={`ci-nav-link`} to={`/launchpad`}>
+                  <span
+                    className={`ci-spanText pt-2 pb-2 pl-3 font-14 ${
+                      locationSidebar.pathname === "/launchpad" ? "active" : ""
+                    }`}
+                  >
+                    <img src={LaunchpadIcon} alt="LaunchpadIcon" className="mr-3" />
+                    {Translate('Launchpad')}
+                  </span>
+                </Link>
+              </div>
+              <div className="nav-item">
+                <Link className={`ci-nav-link`} to={`/launchpad-partner`}>
+                  <span
+                    className={`ci-spanText pt-2 pb-2 pl-3 font-14 ${
+                      locationSidebar.pathname === "/launchpad-partner" ? "active" : ""
+                    }`}
+                  >
+                    <img src={LaunchpadIcon} alt="LaunchpadIcon" className="mr-3" />
+                    {Translate('Partner Launchpad')}
                   </span>
                 </Link>
               </div>

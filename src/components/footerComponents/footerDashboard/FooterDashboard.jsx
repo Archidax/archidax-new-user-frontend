@@ -7,7 +7,7 @@ export default function FooterDashboard() {
         <hr className="hr-copyright" />
         <div className="d-flex justify-content-between">
           <p className="text-white mb-0 py-2 font-14">
-            Copyright © 2021 CryptoIndex. All Rights Reserved
+            Copyright © 2021 Archidax. All Rights Reserved
           </p>
 
           <div

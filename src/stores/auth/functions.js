@@ -5,30 +5,30 @@ import Popup from '../../components/popUps'
 import { baseUrl } from '../index'
 import axios from 'axios'
 
-export const logout = (dispatch) => {
+export const logout = (dispatch, iosocket, email) => {
     dispatch({ type: "CLEAN_KYC" })
     dispatch({ type: "CLEAN_PROFILE" })
     dispatch({ type: "CLEAN_AUTH" })
     dispatch({ type: "GAUTH_STATUS", data: false })
     dispatch({ type: "LOGIN_GAUTH", data: false })
     localStorage.removeItem("token")
-//     axios({
-//         method: "PATCH",
-//         url: `${baseUrl}/users/logout`,
-//         headers: { jwttoken: localStorage.getItem('token') }
-//     })
-//         .then(data => {
-//             console.log(data, "<<<<<<<<<<logout")
-//             dispatch({ type: "CLEAN_KYC" })
-//             dispatch({ type: "CLEAN_PROFILE" })
-//             dispatch({ type: "CLEAN_AUTH" })
-//             dispatch({ type: "GAUTH_STATUS", data: false })
-//             dispatch({ type: "LOGIN_GAUTH", data: false })
-//         })
-//         .catch(err => console.log(err))
-// }
-
-
+    if(iosocket && email){
+        iosocket(email).emit('logout')
+    }
+    // axios({
+    //     method: "PATCH",
+    //     url: `${baseUrl}/users/logout`,
+    //     headers: { jwttoken: localStorage.getItem('token') }
+    // })
+    //     .then(data => {
+    //         console.log(data, "<<<<<<<<<<logout")
+    //         dispatch({ type: "CLEAN_KYC" })
+    //         dispatch({ type: "CLEAN_PROFILE" })
+    //         dispatch({ type: "CLEAN_AUTH" })
+    //         dispatch({ type: "GAUTH_STATUS", data: false })
+    //         dispatch({ type: "LOGIN_GAUTH", data: false })
+    //     })
+    //     .catch(err => console.log(err))
 }
 
 export const getIpUser = (dispatch) => {
@@ -54,35 +54,42 @@ export const login = (dispatch, data, remember, history, ip) => {
     Popup.showLoading()
     baseAxios.post('/users/login', data)
         .then(async (response) => {
-            console.log(response, "<<<<<<<<<<responselogin")
-            try {
-                await localStorage.setItem("token", response.data.token)
-                if (remember) {
-                    await localStorage.setItem("codeouser", data.email)
-                } else {
-                    await localStorage.removeItem("codeouser")
+            Popup.close()
+            Popup.fire({
+                title: "Berhasil!",
+                text: response.data.message,
+                onClickOk: () => {
+                    history.replace('/login')
                 }
-                dispatch({ type: "SET_ISLOGIN", data: true })
-                dispatch({ type: "GAUTH_STATUS", data: response.data.active2fa })
+            })
+            // try {
+            //     await localStorage.setItem("token", response.data.token)
+            //     if (remember) {
+            //         await localStorage.setItem("codeouser", data.email)
+            //     } else {
+            //         await localStorage.removeItem("codeouser")
+            //     }
+            //     dispatch({ type: "SET_ISLOGIN", data: true })
+            //     dispatch({ type: "GAUTH_STATUS", data: response.data.active2fa })
 
-                if (response.data.active2fa) {
-                    history.replace("/gauth")
-                } else {
-                    axios({
-                        method: "PUT",
-                        url: `${baseUrl}/users/saveIp`,
-                        data: ip,
-                        headers: { jwttoken: response.data.token }
-                    })
-                    .then(data => {
-                        console.log(data, "<< dont have gauth but ip is saved")
-                    })
-                    history.replace("/")
-                }
-            }
-            catch (err) {
-                console.log(err)
-            }
+            //     if (response.data.active2fa) {
+            //         history.replace("/gauth")
+            //     } else {
+            //         axios({
+            //             method: "PUT",
+            //             url: `${baseUrl}/users/saveIp`,
+            //             data: ip,
+            //             headers: { jwttoken: response.data.token }
+            //         })
+            //         .then(data => {
+            //             console.log(data, "<< dont have gauth but ip is saved")
+            //         })
+            //         history.replace("/")
+            //     }
+            // }
+            // catch (err) {
+            //     console.log(err)
+            // }
         })
         .catch(err => {
             errorHandler(err)
@@ -197,4 +204,54 @@ export const deactiveSebenarnya = (dispatch, id, cb) => {
         cb()
     })
     .catch(errorHandler)
+}
+
+export const verifyEmail = (key, history) => {
+    baseAxios({
+        method: "GET",
+        url: `/api/auth/verify/${key}`
+    })
+    .then((dataIp) => {
+        history.push('/login?emailverified')
+    })
+    .catch(err => {
+        history.push('/home')
+    })
+}
+export const verifyLogin = (dispatch, data, remember, history, ip) => {
+    Popup.showLoading()
+    baseAxios.post('/users/login/token', {token: data})
+        .then(async (response) => {
+            try {
+                await localStorage.setItem("token", response.data.token)
+                if (remember) {
+                    await localStorage.setItem("codeouser", data.email)
+                } else {
+                    await localStorage.removeItem("codeouser")
+                }
+                dispatch({ type: "SET_ISLOGIN", data: true })
+                dispatch({ type: "GAUTH_STATUS", data: response.data.active2fa })
+
+                if (response.data.active2fa) {
+                    history.replace("/gauth")
+                } else {
+                    axios({
+                        method: "PUT",
+                        url: `${baseUrl}/users/saveIp`,
+                        data: ip,
+                        headers: { jwttoken: response.data.token }
+                    })
+                    .then(data => {
+                        console.log(data, "<< dont have gauth but ip is saved")
+                    })
+                    history.replace("/")
+                }
+            }
+            catch (err) {
+                console.log(err)
+            }
+        })
+        .catch(err => {
+            errorHandler(err)
+        })
 }

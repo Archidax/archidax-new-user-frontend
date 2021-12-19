@@ -5,6 +5,7 @@ import appstoreImg from '../../assets/img/appstore.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { get2FA, verifyGAuth } from '../../stores/index'
 import ReactCodeInput from 'react-code-input'
+import Translate from '../../i18n/Translate'
 
 function PopupGoogleActivator() {
     const gCode = useSelector(state => state.keamananReducer.gCode)
@@ -28,7 +29,7 @@ function PopupGoogleActivator() {
                 <div className="modal-content ci-bg-secondary">
                     <div className="modal-header border-0">
                         <div className="col-11 d-flex justify-content-center">
-                            <div className="modal-title font-14 font-bold">Aktifkan Google Authenticator</div>
+                            <div className="modal-title font-14 font-bold">{Translate('ka_aktifkan_google_auth')}</div>
                         </div>
                         <div className="col-1">
                             <button type="button" className="close text-white" data-dismiss="modal" aria-label="Close">
@@ -39,21 +40,21 @@ function PopupGoogleActivator() {
                     <div className="modal-body ci-bg-secondary">
                         <div className="row p-4">
                             <div className="col-12 col-md-6">
-                                <h3 className="text-white font-13 font-bold">Mengapa harus menggunakan Google Authenticator?</h3>
+                                <h3 className="text-white font-13 font-bold">{Translate('ka_text_mengapa_google_auth')}</h3>
                                 <ul className="p-0 pl-3">
-                                    <li>Melindungi akun dari hacker.</li>
-                                    <li>Dana lebih aman.</li>
-                                    <li>Mudah digunakan.</li>
-                                    <li>Bisa di-install di Android, iPhone, iPad, dan Komputer/Laptop.</li>
+                                    <li>{Translate('ka_alasan_google_auth1')}</li>
+                                    <li>{Translate('ka_alasan_google_auth2')}</li>
+                                    <li>{Translate('ka_alasan_google_auth3')}</li>
+                                    <li>{Translate('ka_alasan_google_auth4')}</li>
                                 </ul>
-                                <p className="font-12 text-white">Unduh dan pasang aplikasi Google Authenticator</p>
+                                <p className="font-12 text-white">{Translate('ka_unduh_google_auth')}</p>
                                 <div className="my-3 d-flex justify-content-center">
                                     <img src={playstoreImg} alt="playstoreImg" className="m-2" />
                                     <img src={appstoreImg}  alt="appstoreImg" className="m-2" />
                                 </div>
                                 <div className="row d-flex align-content-center my-2">
                                     <div className="col-12 col-md-4">
-                                        Password Akun
+                                        {Translate('ka_pass_akun')}
                                     </div>
                                     <div className="col-12 col-md-8 ci-inputDefault-bg">
                                         <input onChange={(e) => setPassword(e.target.value)} type="password" className="form-control ci-inputDefault-bg-input ci-pd" />
@@ -61,7 +62,7 @@ function PopupGoogleActivator() {
                                 </div>
                                 <div className="row d-flex align-content-center my-2">
                                     <div className="col-12 col-md-4">
-                                        Kode Authenticator
+                                        {Translate('ka_kode_auth')}
                                     </div>
                                     <div className="col-12 col-md-8 w-100">
                                         <ReactCodeInput
@@ -72,12 +73,12 @@ function PopupGoogleActivator() {
                                     </div>
                                 </div>
                                 <div className="row p-3">
-                                    <button className="w-100 border-0 py-2 ci-bg-gold" onClick={(e) => aktifkan(e)}>Aktifkan</button>
+                                    <button className="w-100 border-0 py-2 ci-bg-gold" onClick={(e) => aktifkan(e)}>{Translate('ka_aktifkan')}</button>
                                 </div>
 
                             </div>
                             <div className="col-12 col-md-6">
-                                <p className="font-12 mb-3">Scan barcode di bawah dengan Google Authenticator, kemudian masukan PIN yang dihasilkan</p>
+                                <p className="font-12 mb-3">{Translate('ka_text_scan')}</p>
                                 <div className="d-flex justify-content-center">
                                     <img src={gCode} alt="gCode" />
                                 </div>

@@ -16,9 +16,6 @@ const initialState = {
     pairTo:"",
     icon:"",
     other:null,
-    LISTING_EXCHANGE_ORDER:{
-        Exchange:[]    
-    },
     OrderPending: [],
     FormDataBuy:{
         price:0,
@@ -28,8 +25,9 @@ const initialState = {
         price:0,
         amount:0,
     },
+    searchCrypto: '',
+    listingList: [],
     myFav:[],
-    searchCrypto: ''
 };
 
 const pasarTradingReducer = ((state = initialState, action) => {
@@ -37,18 +35,24 @@ const pasarTradingReducer = ((state = initialState, action) => {
     switch (type) {
         case "SET_LOADING":
             return { ...state, loading: data};
+        case "SET_LISTINGLIST": 
+            return {
+                ...state, listingList: data
+            }
+        case "RX_PAIR":
+            return {
+                ...state,
+                PairSymbol:`${data.pairFrom}/${data.pairTo}`,
+                currencyFrom:data.currencyFrom,
+                currencyTo:data.currencyTo,
+                pairFrom:data.pairFrom,
+                pairTo:data.pairTo,
+                icon: data.icon
+            }
         case "SET_PASAR_TRADING":
             return { ...state, price24H: data };
         case "SET_MYFAV":
             return { ...state, myFav: data };
-        case "LISTING_EXCHANGE":
-            return {
-                ...state,
-                LISTING_EXCHANGE_ORDER:{
-                    ...state.LISTING_EXCHANGE_ORDER,
-                    Exchange:data,
-                }
-            }
         case "SET_ORDER_PENDING":
             return {
                 ...state,
@@ -68,16 +72,6 @@ const pasarTradingReducer = ((state = initialState, action) => {
             return {
                 ...state,
                 OrderPending: []
-            }
-        case "RX_PAIR":
-            return {
-                ...state,
-                PairSymbol:`${data.pairTo}/${data.pairFrom}`,
-                currencyFrom:data.currencyFrom,
-                currencyTo:data.currencyTo,
-                pairFrom:data.pairFrom,
-                pairTo:data.pairTo,
-                icon: data.icon
             }
         case "SET_FORMDATASELL":
             return {
@@ -101,6 +95,17 @@ const pasarTradingReducer = ((state = initialState, action) => {
             return {
                 ...state,
                 searchCrypto: data
+            }
+
+        case "SET_UPDATELISTING":
+            let tmp = [...state.listingList]
+            tmp.map(val => {
+                if(val.symbol === data.symbol){
+                    val.Price = data
+                }
+            })
+            return {
+                ...state, listingList: tmp
             }
         default : 
             return state;

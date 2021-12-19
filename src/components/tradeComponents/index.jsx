@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Price from "./Price";
 import ListBuy from "./listMarket/ListBuy";
 import ListSell from "./listMarket/ListSell";
-import ListingExchange from "./listingExchange/ListingExchange";
+// import ListingExchange from "./listingExchange/ListingExchange";
 import LiveMarket from "./liveMarket/LiveMarket";
 import ChartTrade from "./chart/index";
 import LimitMarketChat from "./limitMarket/TabsLimitMarketChat";
-import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
+// import PernyataanResikoTrade from "../footerComponents/pernyataanResiko/PernyataanResikoTrade";
+import TabListingNewsChat from "../tradeComponents/TabListingNewsChat";
+import TabLiveMarket from "./TabLiveMarket";
 
-import OrderPending from "./orderPendingHistory/OrderPending";
+import OrderPendingTab from "./orderPendingHistory/OrderPending";
 import OrderHistory from "./orderPendingHistory/OrderHistory";
 
 import { useParams, useHistory } from "react-router-dom";
@@ -17,7 +19,7 @@ import { SET_RX_PAIR } from "../../stores/pasartrading/functions";
 import { getMyAssets } from "../../stores/wallet/functions";
 import { readMe } from "../../stores/kyc/functions";
 
-import ProtectedPagePasar from "./card/HalamanLoginPasar";
+// import ProtectedPagePasar from "./card/HalamanLoginPasar";
 
 export default function Index() {
   let history = useHistory();
@@ -25,163 +27,243 @@ export default function Index() {
   const dispatch = useDispatch();
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
+  const [historyLength, setHistoryLength] = useState(0);
+  // const Order = useSelector((state) =>
+  //   state ? state?.pasarTradingReducer : {},
+  // );
 
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
+  const { listingList, OrderPending } = useSelector(
+    (state) => state.pasarTradingReducer,
   );
 
-  React.useEffect(() => {
-    if (symbol && Exchange.length) {
-      const dataSymbol = Exchange.find(
-        (data) => data.symbol === symbol.toString().replace("_", "/"),
+  useEffect(() => {
+    if (symbol && listingList.length) {
+      const dataSymbol = listingList.find(
+        (data) => data.symbol === symbol.split("_").join("/").toString(),
       );
       if (dataSymbol) {
-        let symbolQuote = dataSymbol.symbol.split("/")[0];
-        let symbolBase = dataSymbol.symbol.split("/")[1];
+        let symbolFrom = dataSymbol.symbol.split("/")[0];
+        let symbolTo = dataSymbol.symbol.split("/")[1];
         dispatch(
           SET_RX_PAIR({
-            currencyFrom: symbolBase,
-            currencyTo: symbolQuote,
-            pairFrom: dataSymbol.base,
-            pairTo: dataSymbol.quote,
-            icon: dataSymbol.price_24hour.icon,
-            other:dataSymbol,
+            currencyFrom: symbolFrom,
+            currencyTo: symbolTo,
+            pairFrom: symbolFrom,
+            pairTo: symbolTo,
+            icon: dataSymbol.icon,
           }),
         );
       }
     }
-  }, [symbol, dispatch, Exchange]);
+  }, [symbol, dispatch, listingList]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isLoginPages) {
-      getMyAssets(dispatch);
       readMe(dispatch, history);
+      getMyAssets(dispatch);
     }
   }, [isLoginPages, dispatch, history]);
 
   return (
     <div className={mode ? "body-trade2-dark" : "body-trade2"}>
-      <div className="width-chart">
+      <div className="width-chart2" style={{ paddingBottom: "1px" }}>
         <div className="row">
-          <div className="col-12 p-0">
-            <Price />
-          </div>
-        </div>
-        <div className="row mb-1">
-          <div className="col-lg-7 col-xs-12 col-sm-12">
-            <div className="row">
-              <div
-                className={`col-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div
-                  className={`${mode ? "dummy-card-dark" : "dummy-card3"}`}
-                  style={{ height: "449px" }}
-                >
-                  <ChartTrade />
-                </div>
-              </div>
-              <div
-                className={`col-lg-6 col-sm-12 col-xs-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div style={{ height: "30px" }}>
-                  <h6
-                    className={`mb-0 ${mode ? "text-gold" : "text-black"} px-3`}
-                  >
-                    Market Jual
-                  </h6>
-                </div>
-                <div
-                  className={mode ? "dummy-card2-dark" : "dummy-card3"}
-                  style={{ height: "310px" }}
-                >
-                  <ListSell />
-                </div>
-              </div>
-              <div
-                className={`col-lg-6 col-sm-12 col-xs-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div style={{ height: "30px" }}>
-                  <h6
-                    className={`mb-0 ${mode ? "text-gold" : "text-black"} px-3`}
-                  >
-                    Market Beli
-                  </h6>
-                </div>
-                <div
-                  className={mode ? "dummy-card2-dark" : "dummy-card3"}
-                  style={{ height: "310px" }}
-                >
-                  <ListBuy />
-                </div>
-              </div>
+          <div className="col-sm-first">
+            <div
+              className="col-12 p-0"
+              style={{
+                minHeight: "50vh",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
+              }}
+            >
+              <Price />
+            </div>
+            <div
+              className="col-12 p-0"
+              style={{
+                minHeight: "30vh",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
+              }}
+            >
+              {/* <LiveMarket /> */}
+              <TabLiveMarket />
             </div>
           </div>
-          <div className="col-lg-5 col-xs-12 col-sm-12">
+
+          <div className="col-sm-second">
             <div className="row">
               <div
-                className={`col-lg-6 col-sm-12 col-xs-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
+                className="col-12 p-0"
+                style={{
+                  minHeight: "53.5vh",
+                  background: mode ? "black" : "white",
+                  border: mode ? "1px solid black" : "1px solid grey",
+                }}
               >
-                <div className={mode ? "dummy-card2-dark" : "dummy-card2"}>
-                  <ListingExchange />
-                </div>
-              </div>
-              <div
-                className={`col-lg-6 col-sm-12 col-xs-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
-              >
-                <div className={mode ? "dummy-card2-dark" : "dummy-card3"}>
-                  <LiveMarket />
-                </div>
+                <ChartTrade />
               </div>
             </div>
 
             <div className="row">
               <div
-                className={`col-12 p-1 ${
-                  mode ? "dummy-card-dark" : "dummy-card"
-                } mt-2-trade`}
+                class="accordion col-12 p-0"
+                id="accordionExample"
+                style={{ margin: "0px 1px" }}
               >
-                <div
-                  className={`${
-                    mode ? "dummy-card2-dark" : "dummy-card3"
-                  } height-limit-chat`}
-                >
-                  <LimitMarketChat />
+                <div style={{ marginTop: "2px" }}>
+                  <div
+                    id="headingOne"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="false"
+                    aria-controls="collapseOne"
+                  >
+                    <div
+                      className={
+                        mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
+                      }
+                    >
+                      <th
+                        className="collapsed text-gold atr-resp mb-0"
+                        style={{ padding: "2px 12px" }}
+                      >
+                        Order Book
+                      </th>
+                    </div>
+                  </div>
+                  <div
+                    id="collapseOne"
+                    class="collapse show"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordionExample"
+                  >
+                    <div
+                      className="row"
+                      style={{ width: "100%", margin: "0px" }}
+                    >
+                      <div
+                        className="col-6 p-0"
+                        style={{
+                          minHeight: "26vh",
+                          background: mode ? "black" : "white",
+                          border: mode ? "1px solid black" : "1px solid grey",
+                        }}
+                      >
+                        <ListSell />
+                      </div>
+                      <div
+                        className="col-6 p-0"
+                        style={{
+                          minHeight: "26vh",
+                          background: mode ? "black" : "white",
+                          border: mode ? "1px solid black" : "1px solid grey",
+                        }}
+                      >
+                        <ListBuy />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style={{ marginTop: "2px" }}>
+                  <div
+                    class=""
+                    id="headingTwo"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    <div
+                      className={
+                        mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
+                      }
+                    >
+                      <th
+                        className="collapsed text-gold atr-resp mb-0"
+                        style={{ padding: "2px 12px" }}
+                      >
+                        Order Pending (
+                        {/* {Order &&
+                        Order.OrderPending &&
+                        Array.isArray(Order.OrderPending)
+                          ? Order.OrderPending.length
+                          : 0} */}
+                        {OrderPending.length})
+                      </th>
+                    </div>
+                  </div>
+                  <div
+                    id="collapseTwo"
+                    class="collapse"
+                    aria-labelledby="headingTwo"
+                    data-parent="#accordionExample"
+                  >
+                    <OrderPendingTab />
+                  </div>
+                </div>
+                <div style={{ marginTop: "2px" }}>
+                  <div
+                    id="headingThree"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    <div
+                      className={
+                        mode ? "bg-trade3-dark py-1" : "bg-trade3 py-1"
+                      }
+                    >
+                      <th
+                        className="collapsed text-gold atr-resp mb-0"
+                        style={{ padding: "2px 12px" }}
+                      >
+                        Order History ({historyLength})
+                      </th>
+                    </div>
+                  </div>
+                  <div
+                    id="collapseThree"
+                    class="collapse"
+                    aria-labelledby="headingThree"
+                    data-parent="#accordionExample"
+                  >
+                    <OrderHistory setHistoryLength={setHistoryLength} />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div className="col-sm-third p-0 mt-1">
+            <div
+              className="col-12 p-0"
+              style={{
+                minHeight: "42.8vh",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
+              }}
+            >
+              {/* <Price /> */}
+              {/* <ListingExchange /> */}
+              <TabListingNewsChat />
+            </div>
+            <div
+              className="col-12 p-0"
+              style={{
+                minHeight: "43.8vh",
+                background: mode ? "black" : "white",
+                border: mode ? "1px solid black" : "1px solid grey",
+              }}
+            >
+              <LimitMarketChat />
+            </div>
+          </div>
         </div>
-        <ProtectedPagePasar>
-          <div className="row">
-            <div className="col-12 p-1">
-              <h6 className={`${mode ? "text-gold" : "text-black"} px-3 mb-0`}>
-                Order Pending
-              </h6>
-              <OrderPending />
-            </div>
-          </div>
-          <div className="row mt-1 mb-2">
-            <div className="col-12 p-1">
-              <h6 className={`${mode ? "text-gold" : "text-black"} px-3`}>
-                Order History
-              </h6>
-              <OrderHistory />
-            </div>
-          </div>
-        </ProtectedPagePasar>
-      </div>
-      <div>
-        <PernyataanResikoTrade />
       </div>
     </div>
   );

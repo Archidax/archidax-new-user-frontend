@@ -5,6 +5,7 @@ import { hidePhoneNumber } from '../../../helpers'
 import PopupBuatVoucherUmum from './popUps/PopupBuatVoucherUmum'
 import PopupKonfirmasiOTP from "./popUps/PopupKonfirmasiOTP";
 import PopUp from '../../popUps/index'
+import Translate from "../../../i18n/Translate";
 
 export default function VoucherUmum(props) {
 
@@ -59,14 +60,14 @@ export default function VoucherUmum(props) {
         <div className="card-body">
           <div className="row">
             <div className="col-12 col-md-12">
-              <div className="font-18 text-gold font-bold label-title-top">Voucher Umum</div>
+              <div className="font-18 text-gold font-bold label-title-top">{Translate('vc_umum')}</div>
             </div>
           </div>
 
           <form onSubmit={e => submitForm(e)}>
             <div className="mt-3 row">
               <div className="col-12 col-md-3 ci-text-white lable-title mb-1">
-                <p className="ci-text-white mb-0 font-12">Nominal Rupiah</p>
+                <p className="ci-text-white mb-0 font-12">{Translate('vc_nominal_rupiah')}</p>
               </div>
               <div className="col-12 col-md-9 flex-column">
                 <div className="input-group ci-inputDefault-bg">
@@ -79,15 +80,15 @@ export default function VoucherUmum(props) {
               <div className="col-12 col-md-12">
                 <ul style={{ paddingLeft: "25px", border: "0.5px dashed #f9bd00" }} className="font-12 mt-4 mb-md-5 mb-0 py-2 rounded mb-3">
                   <li className="font-12">
-                    Maksimal penarikan voucher Rp. 250.000.000 per hari.
+                    {Translate('vc_text_maks_penarikan')}
                   </li>
                   <li className="font-12">
-                    Pembuatan voucher per hari diakumulasikan dengan total penarikan Rupiah.
+                    {Translate('vc_text_penarikan')}
                   </li>
                 </ul>
               </div>
               <div className="col-12 col-md-12 w-100 justify-content-end d-flex mt-0">
-                <button className="ci-btnOL-secondary ci-lg ci-bg-warning border-0 text-dark" type='submit' > Buat Voucher </button>
+                <button className="ci-btnOL-secondary ci-lg ci-bg-warning border-0 text-dark" type='submit' > {Translate('vc_buat_voucher')} </button>
               </div>
             </div>
           </form>

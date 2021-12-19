@@ -5,13 +5,15 @@ import { downloadRiwayatTransaksi, getRiwayatTransaksi } from '../../stores/inde
 import moment from 'moment'
 import { convertNumber } from '../../assets/js';
 import Pagination from 'react-js-pagination'
+import Translate from '../../i18n/Translate';
 
 const tableHeader = [
-  "Waktu", "Pair", "Jenis", "Jumlah", "Harga", "Total Harga", "Status",
+  Translate('rw_waktu'), Translate('rw_pair'), Translate('rw_jenis'), Translate('rw_jumlah'), Translate('rw_harga'), Translate('rw_total_harga'), Translate('rw_status'),
 ];
 
+
 export default function RiwayatTransaksi() {
-  const Exchange = useSelector(state => state.pasarTradingReducer.LISTING_EXCHANGE_ORDER.Exchange)
+  const { listingList } = useSelector(state => state.pasarTradingReducer)
   const riwayat = useSelector(state => state.riwayatReducer.riwayatTransaksi)
   // const numberOfPages = useSelector(state => state.riwayatReducer.pagesRiwayatTransaksi)
   const totalDocs = useSelector(state => state.riwayatReducer.totalDocsRiwayatTransaksi)
@@ -48,11 +50,11 @@ export default function RiwayatTransaksi() {
         <div className="row mb-4">
           <div className="col-12 col-md-8">
             <div className="row h-100">
-              <div className="col-12 col-md-4 select-wrapper">
+            <div className="col-12 col-md-4 select-wrapper">
                 <select className="select w-100 h-100" onChange={(e) => setPair(e.target.value)}>
-                  <option value="" selected >Semua</option>
+                  <option value="" selected >All</option>
                   {
-                    Exchange.map((el, index) => {
+                    listingList.map((el, index) => {
                       return (
                         <option key={index} value={el.symbol}>{el.symbol}</option>
                       )
@@ -62,25 +64,25 @@ export default function RiwayatTransaksi() {
               </div>
               <div className="col-12 col-md-4 select-wrapper">
                 <select className="select w-100 h-100" onChange={(e) => setMonth(e.target.value)}>
-                  <option value="" selected >Semua</option>
-                  <option value="1"> Januari</option>
-                  <option value="2">Februari</option>
-                  <option value="3">Maret</option>
+                  <option value="" selected >All</option>
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
                   <option value="4">April</option>
-                  <option value="5">Mei</option>
-                  <option value="6">Juni</option>
-                  <option value="7">Juli</option>
-                  <option value="8">Agustus</option>
+                  <option value="5">May</option>
+                  <option value="6">June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
                   <option value="9">September</option>
-                  <option value="10">Oktober</option>
+                  <option value="10">October</option>
                   <option value="11">November</option>
-                  <option value="12">Desember</option>
+                  <option value="12">December</option>
                 </select>
               </div>
               <div className="col-12 col-md-4 select-wrapper">
                 <select className="select w-100 h-100" onChange={(e) => setYear(e.target.value)}>
-                  <option value="" selected >Semua</option>
-                  <option value="2021"> 2021</option>
+                  <option value="" selected >All</option>
+                  <option value="2021">2021</option>
                   <option value="2022">2022</option>
                   <option value="2023">2023</option>
                   <option value="2024">2024</option>
@@ -130,10 +132,10 @@ export default function RiwayatTransaksi() {
                       <td className="font-12">{data.symbol}</td>
                       <td className="font-12">{data.side === "BUY" ? <span className="text-success">BUY</span> : <span className="text-danger">SELL</span>}</td>
                       <td className="font-12">{Number.isInteger(data.amount) ? data.amount : data.amount.toFixed(9)}</td>
-                      <td className="font-12">{convertNumber.toMoney(Math.floor(data.price), "Rp.")}</td>
-                      <td className="font-12">{convertNumber.toMoney(Math.floor(data.total), "Rp.")}</td>
+                      <td className="font-12">{convertNumber.toMoney(Math.floor(data.price), "USDT")}</td>
+                      <td className="font-12">{convertNumber.toMoney(Math.floor(data.total), "USDT")}</td>
                       {/* <td className="font-12">{data.type_transaction}</td> */}
-                      <td className="font-12">{data.transaction_status === "Success" ? <span className="text-success">BERHASIL</span> : <span className="text-warning">Pending</span>}</td>
+                      <td className="font-12">{data.transaction_status === "Success" ? <span className="text-success">Success</span> : <span className="text-warning">Pending</span>}</td>
                     </tr>
                   )
                 })

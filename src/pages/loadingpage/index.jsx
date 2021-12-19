@@ -1,14 +1,19 @@
-import React from 'react';
+import React from "react";
 
 // Import Images
-import imagesLoading from '../../assets/img/cryptoIndex/logo2d.png'
+import loadinglogo from "../../assets/img/loading/loading2d.svg";
 
 function LoadingPage() {
-    return (
-        <div className="ci-loading-page">
-            <img src={imagesLoading} style={{width: "80px", height: "80px"}} className="ci-loading-img" alt="Loading..."/>
-        </div>
-    )
+  return (
+    <div className="ci-loading-page">
+      <img
+        src={loadinglogo}
+        style={{ width: "80px", height: "80px" }}
+        className="ci-loading-img"
+        alt="Loading..."
+      />
+    </div>
+  );
 }
 
-export default LoadingPage
+export default LoadingPage;
