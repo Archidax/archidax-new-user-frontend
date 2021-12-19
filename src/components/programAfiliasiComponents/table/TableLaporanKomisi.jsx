@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
+import Translate from '../../../i18n/Translate'
 // import DropdownCustom from '../../dropdown'
 import TidakAdaData from '../datas/TidakAdaData'
 
 const months = [
-    { name: "Januari", value: "1" },
-    { name: "Februari", value: "2" },
-    { name: "Maret", value: "3" },
+    { name: "January", value: "1" },
+    { name: "February", value: "2" },
+    { name: "March", value: "3" },
     { name: "April", value: "4" },
-    { name: "Mei", value: "5" },
-    { name: "Juni", value: "6" },
-    { name: "Juli", value: "7" },
-    { name: "Agustus", value: "8" },
+    { name: "May", value: "5" },
+    { name: "June", value: "6" },
+    { name: "July", value: "7" },
+    { name: "August", value: "8" },
     { name: "September", value: "9" },
-    { name: "Oktober", value: "10" },
+    { name: "October", value: "10" },
     { name: "November", value: "11" },
-    { name: "Desember", value: "12" },
+    { name: "December", value: "12" },
 ]
 
 const years = [
@@ -36,7 +37,7 @@ function TableLaporanKomisi() {
                     <div className="row d-flex">
                         <div className="col-12 col-md-4 m-0 my-1">
                             <select onChange={(e) => setMonth(e.target.value)} className="w-100 border-0 py-2 px-3 font-12 ci-bg-secondary text-white">
-                                <option value="" selected>Semua</option>
+                                <option value="" selected>All</option>
                                 {
                                     months.map(month => {
                                         return (
@@ -49,7 +50,7 @@ function TableLaporanKomisi() {
 
                         <div className="col-12 col-md-4 m-0 my-1">
                             <select onChange={(e) => setYear(e.target.value)} className="w-100 border-0 py-2 px-3 font-12 ci-bg-secondary text-white">
-                                <option value="" selected>Semua</option>
+                                <option value="" selected>All</option>
                                 {
                                     years.map(year => {
                                         return (
@@ -61,14 +62,14 @@ function TableLaporanKomisi() {
                         </div>
 
                         <div className="col-12 col-md-3 my-1">
-                            <button onClick={() => filter()} className="w-100 border-0 ci-bg-secondary py-2 px-1 text-white font-12">Filter</button>
+                            <button onClick={() => filter()} className="w-100 border-0 ci-bg-secondary py-2 px-1 text-white font-12">{Translate('pa_filter')}</button>
                         </div>
 
                     </div>
                 </div>
                 <div className="col-12 col-md-2 mt-1">
                     <button className="ci-btn-success ci-md w-100">
-                    <i class="fas fa-file-download mr-2"></i> <span className="font-12">Export to CSV</span>
+                    <i class="fas fa-file-download mr-2"></i> <span className="font-12">{Translate('vc_export')}</span>
                     </button>
                 </div>
             </div>
@@ -79,9 +80,9 @@ function TableLaporanKomisi() {
                         <table className="table ci-table-custom">
                             <thead>
                                 <tr>
-                                    <th className="ci-tableHeads-custom-2 text-white">Periode Mulai</th>
-                                    <th className="ci-tableHeads-custom-2 text-white">Periode Berakhir</th>
-                                    <th className="ci-tableHeads-custom-2 text-white">Komisi</th>
+                                    <th className="ci-tableHeads-custom-2 text-white">{Translate('pa_periode_mulai')}</th>
+                                    <th className="ci-tableHeads-custom-2 text-white">{Translate('pa_periode_mulai')}</th>
+                                    <th className="ci-tableHeads-custom-2 text-white">{Translate('pa_komisi')}</th>
                                 </tr>
                             </thead>
                             <tbody>

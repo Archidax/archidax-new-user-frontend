@@ -4,20 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
-
 import { convertNumber } from "../../../assets/js";
-import { setPasarTrading } from "../../../stores/pasartrading/functions";
 
-export default function FiatPair() {
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
-  );
+import { setPasarTrading } from "../../../stores/pasartrading/functions";
+import NumberFormat from "react-number-format";
+
+export default function FiatPair({ listingList }) {
   const { mode } = useSelector((state) => state.daynightReducer);
   return (
     <div className="">
       <div
         className={
-          mode ? "outter-table-wrapper4-dark" : "outter-table-wrapper4"
+          mode
+            ? "outter-table-wrapper4-dark height-listing"
+            : "outter-table-wrapper4 height-listing"
         }
       >
         <div class={mode ? "table-wrapper4-dark" : "table-wrapper4"}>
@@ -27,15 +27,22 @@ export default function FiatPair() {
           >
             <thead className="">
               <tr className={mode ? "text-price-dark" : "text-price"}>
-                <th className="text-left">Pasangan</th>
-                <th className="text-left">Harga</th>
-                <th className="text-left">%</th>
+                <th className="text-left">Pair</th>
+                <th className="text-left">Price</th>
+                <th className="text-left">Change</th>
               </tr>
             </thead>
             <tbody>
-              {Exchange && Array.isArray(Exchange) && Exchange.length > 0 ? (
-                Exchange.filter((item) => {
-                  if (item.base.toString().toUpperCase() === "USDT") {
+              {listingList.map((val, index) => {
+                if (val.base === "USDT") {
+                  return <FiatPairRealtime item={val} index={index} />;
+                }
+              })}
+            </tbody>
+            {/* <tbody>
+              {listingList && Array.isArray(listingList) && listingList.length > 0 ? (
+                listingList.filter((item) => {
+                  if (Data.base.toString().toUpperCase() === "USDT") {
                     return item;
                   } else {
                     return null;
@@ -46,7 +53,7 @@ export default function FiatPair() {
               ) : (
                 <div className="text-center p-2">No Data</div>
               )}
-            </tbody>
+            </tbody> */}
           </table>
         </div>
       </div>
@@ -58,21 +65,21 @@ function FiatPairRealtime({ item, index }) {
   const { PairSymbol } = useSelector((state) => state.pasarTradingReducer);
   const history = useHistory();
   const dispatch = useDispatch();
-  const [Data, setData] = React.useState(item.price_24hour);
   const { mode } = useSelector((state) => state.daynightReducer);
+  const [Data, setData] = React.useState(item.price_24hour);
 
   const handleRowClick = () => {
-    history.push(`/pasar/${item.quote}_${item.base}`);
+    history.push(`/pasar/${Data.symbol.toString().replace("/", "_")}`);
   };
 
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-      IoWebSocketTrade.removeAllListeners(`Prices-${item.symbol}`);
-      IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
+    if (PairSymbol) {
+      IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
+      IoWebSocketTrade.on(`Prices-${Data.symbol}`, (data) => {
         if (data) {
           setData(data);
         }
-        if (PairSymbol === data.symbol) {
+        if (data && PairSymbol === data.symbol) {
           dispatch(
             setPasarTrading({
               Open: data.price24h_open,
@@ -87,9 +94,9 @@ function FiatPairRealtime({ item, index }) {
         }
       });
       return () =>
-        IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
+        IoWebSocketTrade.removeEventListener(`Prices-${Data.symbol}`);
     }
-  }, [item, setData, PairSymbol]);
+  }, [item, PairSymbol]);
 
   if (Data) {
     return (
@@ -108,40 +115,28 @@ function FiatPairRealtime({ item, index }) {
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${
-            convertNumber.tradeUpDownChange(
-              item.price_24hour.price24h_change,
-              2,
-            ) === "text-price"
+            convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+            "text-price"
               ? mode
                 ? "text-price-dark"
                 : "text-price"
-              : convertNumber.tradeUpDownChange(
-                  item.price_24hour.price24h_change,
-                  2,
-                )
+              : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
           }`}
         >
-          {item.price_24hour &&
-            Number(item.price_24hour.price24h_close).toLocaleString("id-ID", {
-              maximumFractionDigits: 6,
-            })}
+          {Data &&
+            <NumberFormat value={Data.price24h_close} decimalScale={15} displayType={'text'} thousandSeparator={true} />}
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${
-            convertNumber.tradeUpDownChange(
-              item.price_24hour.price24h_change,
-              2,
-            ) === "text-price"
+            convertNumber.tradeUpDownChange(Data.price24h_change, 2) ===
+            "text-price"
               ? mode
                 ? "text-price-dark"
                 : "text-price"
-              : convertNumber.tradeUpDownChange(
-                  item.price_24hour.price24h_change,
-                  2,
-                )
+              : convertNumber.tradeUpDownChange(Data.price24h_change, 2)
           }`}
         >
-          {convertNumber.tradeChange(item.price_24hour.price24h_change, 2)}
+          {convertNumber.tradeChange(Data.price24h_change, 2)}
         </td>
       </tr>
     );

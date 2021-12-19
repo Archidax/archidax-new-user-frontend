@@ -1,22 +1,26 @@
 import React, { useEffect } from "react";
+import { GetListingExchange } from '../../stores/pasartrading/functions'
 import { useDispatch } from "react-redux";
 import BannerPasar from "../../components/tradeComponents/bannerPasar/BannerPasar";
 import MainPageTrade from "../../components/tradeComponents/MainPageTrade";
 
 export default function PasarPage() {
-  // const [search, setSearch] = useState('');
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch({
-      type: "SET_SEARCH_CRYPTO",
-      //data: search
-    });
-  }, [
-    //search,
-    dispatch,
-  ]);
-
+  // const [search, setSearch] = useState('');
+  
+  // useEffect(() => {
+  //   GetListingExchange(dispatch)
+  // },[])
+  
+  // useEffect(() => {
+  //   dispatch({
+  //     type: "SET_SEARCH_CRYPTO",
+  //     //data: search
+  //   });
+  // }, [
+  //   //search,
+  //   dispatch,
+  // ]);
   return (
     <div className="mt-3" style={{ minHeight: "87vh" }}>
       <div className="mx-2">

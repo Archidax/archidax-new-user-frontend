@@ -6,11 +6,11 @@ import DataKonfirmasi from './konfirmasiTabs/DataKonfirmasi'
 import { CSVLink } from 'react-csv'
 
 const months = [
-    { name: "Semua", code: "" }, { name: "Januari", code: "01" }, { name: "Februari", code: "02" }, { name: "Maret", code: "03" }, { name: "April", code: "04" }, { name: "Mei", code: "05" }, { name: "Juni", code: "06" },
+    { name: "All", code: "" }, { name: "Januari", code: "01" }, { name: "Februari", code: "02" }, { name: "Maret", code: "03" }, { name: "April", code: "04" }, { name: "Mei", code: "05" }, { name: "Juni", code: "06" },
     { name: "Juli", code: "07" }, { name: "Agustus", code: "08" }, { name: "September", code: "09" }, { name: "Oktober", code: "10" }, { name: "November", code: "11" }, { name: "Desember", code: "12" }
 ]
 
-const years = ["Semua", 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]
+const years = ["All", 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030]
 
 function KonfirmasiSetorList() {
     const confirmationRequests = useSelector(state => state.setorRupiahReducer.confirmationRequests)
@@ -65,14 +65,14 @@ function KonfirmasiSetorList() {
 
     useEffect(() => {
         const data = [[
-            'Tanggal Deposit',
-            'Jumlah Deposit',
-            'Metode Pembayaran',
-            'Jenis Pembayaran',
-            'Nomor Rekening',
-            'Berita Transfer',
-            'Pesan Tambahan',
-            'Bukti Transfer',
+            'Date',
+            'Amount',
+            'Method',
+            'Payment',
+            // 'Nomor Rekening',
+            // 'Berita Transfer',
+            // 'Pesan Tambahan',
+            'Proof of Payment',
             'Status'
         ]]
         confirmationRequests.forEach(el => {
@@ -81,9 +81,9 @@ function KonfirmasiSetorList() {
                 el.jumlah_depo,
                 el.metode_pembayaran,
                 el.jenis_pembayaran,
-                el.akun_rekening,
-                el.berita_transfer,
-                el.pesan_tambahan,
+                // el.akun_rekening,
+                // el.berita_transfer,
+                // el.pesan_tambahan,
                 el.bukti_transfer,
                 el.isDone === false && el.isReject === false ? "Pending" : el.isDone === true ? "Sukses" : el.isReject === true ? "Rejected" : "Pending"
             ]
@@ -95,15 +95,15 @@ function KonfirmasiSetorList() {
 
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid" style={{minHeight: "94vh"}}>
             <div className="row border-top mt-3 border-warning">
                 <div className="container-fluid p-3 text-white font-12 ci-bg-primary my-4">
-                    <h2 className="mb-4 label-title-top">Riwayat Konfirmasi</h2>
+                    <h2 className="mb-4 label-title-top">Deposit Confirmation</h2>
 
                     <div className="row m-0 my-3 d-flex  justify-content-between">
                         <div>
                             <select onChange={(e) => filterStatus(e.target.value)} className="form-select font-12 py-2 px-3 border-0 m-1 text-white ci-bg-secondary">
-                                <option value="all">Semua</option>
+                                <option value="all">All</option>
                                 <option value="pending">Pending</option>
                                 <option value="success">Success</option>
                                 <option value="rejected">Rejected</option>
@@ -120,21 +120,21 @@ function KonfirmasiSetorList() {
                             </select>
                         </div>
                         <div>
-                            <button className="px-3 py-2 border-0 m-1 text-white ci-bg-success"><CSVLink data={dataCSV} filename={'riwayat-setor-rupiah.csv'}><i class="fas fa-file-download mr-2"></i> <span className="font-12">Export to CSV</span></CSVLink></button>
+                            <button className="px-3 py-2 border-0 m-1 text-white ci-bg-success"><CSVLink data={dataCSV} filename={'deposit-history.csv'}><i class="fas fa-file-download mr-2"></i> <span className="font-12">Export to CSV</span></CSVLink></button>
                         </div>
                     </div>
 
                     <div>
                         <table className="table text-white">
                             <thead className="py-5 font-12">
-                                <th>Tanggal Deposit</th>
-                                <th>Jumlah Deposit</th>
-                                <th>Metode Pembayaran</th>
-                                <th>Jenis Pembayaran</th>
-                                <th>Nomor Rekening</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Payment</th>
+                                {/* <th>Nomor Rekening</th>
                                 <th>Berita Transfer</th>
-                                <th>Pesan Tambahan</th>
-                                <th>Bukti Transfer</th>
+                                <th>Pesan Tambahan</th> */}
+                                <th>Proof of Payment</th>
                                 <th>Status</th>
                             </thead>
                             <tbody>
@@ -149,7 +149,7 @@ function KonfirmasiSetorList() {
                                             berita={item.berita_transfer}
                                             pesan={item.pesan_tambahan}
                                             bukti={item.bukti_transfer}
-                                            status={item.isDone === false && item.isReject === false ? "Pending" : item.isDone === true ? "Sukses" : item.isReject === true ? "Rejected" : "Pending"}
+                                            status={item.isDone === false && item.isReject === false ? "Pending" : item.isDone === true ? "Success" : item.isReject === true ? "Rejected" : "Pending"}
                                         />
                                     )
                                 })}

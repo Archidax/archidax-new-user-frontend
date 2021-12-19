@@ -9,6 +9,7 @@ import {
   imageSizeError,
 } from "../../../stores/errorHandler";
 import OTP from "../../../components/otp";
+import Translate from "../../../i18n/Translate";
 
 export default function TelefonTab(){
   const dispatch = useDispatch();
@@ -37,9 +38,9 @@ export default function TelefonTab(){
     });
   };
   
-  useEffect(() => {
-    getStatus(dispatch);
-  }, [dispatch]);
+  // useEffect(() => {
+  //   getStatus(dispatch);
+  // }, [dispatch]);
 
   return loading.telefonVerification ? (
     <Waiting />
@@ -58,7 +59,7 @@ export default function TelefonTab(){
               className="ci-text-white mb-0 font-14"
             >
               <i className="fas fa-arrow-circle-left edit-button mr-2" />{" "}
-              Kembali ke profil
+              {Translate('ue_kembali')}
             </p>
           </div>
         </div>
@@ -66,19 +67,19 @@ export default function TelefonTab(){
         <div className="row no-gutters bg-homepage2 p-4">
           <div className="col-12">
             <p className="label-title-top mb-0 font-roboto">
-              Ubah Nomor Telepon
+              {Translate('ut_ubah_telepon')}
             </p>
           </div>
           <div className="col-12 mt-1 mb-5">
             <p className="label-title mb-0">
-              Lengkapi isian berikut untuk mengajukan penggantian nomor telepon.
+              {Translate('ut_text_lengkapi')}
             </p>
           </div>
           <div className="col-10 mb-3">
             <div className="row no-gutters">
               <div className="col-12 col-md-4 d-flex align-items-center">
                 <p className="ci-text-white mb-0 label-title">
-                  Nomor Telepon Lama
+                  {Translate('ut_nomor_lama')}
                 </p>
               </div>
 
@@ -99,7 +100,7 @@ export default function TelefonTab(){
             <div className="row no-gutters">
               <div className="col-12 col-md-4 d-flex align-items-center">
                 <p className="ci-text-white mb-0 label-title">
-                  Nomor Telepon Baru
+                  {Translate('ut_nomor_baru')}
                 </p>
               </div>
               <div className="col-12 col-md-8">
@@ -126,7 +127,7 @@ export default function TelefonTab(){
             <div className="row no-gutters">
               <div className="col-12 col-md-4 d-flex align-items-center">
                 <p className="ci-text-white mb-0 label-title">
-                  Apakah anda masih memiliki nomor tersebut?
+                  {Translate('ut_apakah_masih_memiliki_no')}
                 </p>
               </div>
               <div className="col-12 col-md-8">
@@ -143,7 +144,7 @@ export default function TelefonTab(){
               <div className="col-10 mb-3">
                 <div className="row no-gutters">
                   <div className="col-12 col-md-4 d-flex align-items-center">
-                    <p className="ci-text-white mb-0 label-title">PIN SMS</p>
+                    <p className="ci-text-white mb-0 label-title">{Translate('ue_pin_sms')}</p>
                   </div>
                   <div className="col-12 col-md-8">
                     <div className="row no-gutters">
@@ -171,7 +172,7 @@ export default function TelefonTab(){
                   onClick={updateTelefonOwn}
                   className="button-yellow font-roboto mt-3"
                 >
-                  Simpan
+                  {Translate('ue_simpan')}
                 </button>
               </div>
             </>
@@ -181,7 +182,7 @@ export default function TelefonTab(){
                 <div className="row no-gutters">
                   <div className="col-12 col-md-4 d-flex align-items-center">
                     <p className="ci-text-white mb-0 label-title">
-                      Alasan Penggantian
+                      {Translate('ue_alasan')}
                     </p>
                   </div>
                   <div className="col-12 col-md-8">
@@ -197,7 +198,7 @@ export default function TelefonTab(){
                 <div className="row no-gutters">
                   <div className="col-12 col-md-4 d-flex align-items-center">
                     <p className="ci-text-white mb-0 label-title">
-                      Kartu Identitas (KTP / SIM / Passport)
+                      {Translate('ue_kartu_identitas')}
                     </p>
                   </div>
                   <div className="col-12 col-md-8">
@@ -217,7 +218,7 @@ export default function TelefonTab(){
                               borderRadius: "4px",
                             }}
                           >
-                            Unggah
+                            {Translate('ue_uanggah')}
                           </label>
                           <input
                             style={{
@@ -237,16 +238,11 @@ export default function TelefonTab(){
                               {file ? file.name : "Belum memilih file.."}
                             </span>
                             <span className="ci-text-white mb-0 font-10">
-                              Maksimal ukuran file 1MB
+                              {Translate('ue_ukuran_file')}
                             </span>
                           </div>
                         </div>
                       </div>
-                      {/* <div className="col-12">
-                        <p className="ci-text-white font-12 mb-0">
-                          Maksimal ukuran file 1MB.
-                        </p>
-                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -257,7 +253,7 @@ export default function TelefonTab(){
                   onClick={updateTelefonNotOwn}
                   className="ci-btn-warning ci-md mt-3"
                 >
-                  Simpan
+                 {Translate('ue_simpan')}
                 </button>
               </div>
             </>

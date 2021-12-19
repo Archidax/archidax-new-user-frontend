@@ -1,61 +1,74 @@
 /* Netral Colors Background Dark Mode */
 .ci-bg-black {
-    background-color: $theme-Black-BackgroundDefault;
+  background-color: $theme-Black-BackgroundDefault;
 }
 .ci-bg-white {
-    background-color: $theme-White-BackgroundDefault;
+  background-color: $theme-White-BackgroundDefault;
 }
 
 .ci-bg-primary {
-    background-color: #151933;
+  background-color: #151933;
 }
 
 .ci-bg-secondary {
-    background-color: #2C355A;
+  background-color: #2c355a;
 }
 
 .ci-bg-gold {
-    background-color: $theme-GoldBase-BackgroundDefault;
+  background-color: $theme-GoldBase-BackgroundDefault;
 }
 
 .ci-bg-danger {
-    background-color: #ED4C5C;
+  background-color: #ed4c5c;
 }
 
 .ci-bg-warning {
-    background-color: #F9BD00;
+  background-color: #f9bd00;
 }
 
 .ci-bg-info {
-    background-color: #00A2E0;
+  background-color: #00a2e0;
 }
 
 .ci-bg-success {
-    background-color: #1BA27A;
+  background-color: #1ba27a;
+}
+.ax-bg-success {
+    background: #189129;
 }
 
 .ci-bg-gray {
-    background-color: #CBCBCB;
+  background-color: #cbcbcb;
 }
-
 
 .arrow-right {
-    width: 0; 
-    height: 0; 
-    border-top: 30px solid #17a2b8;
-    border-bottom: 30px solid #17a2b8;
-    border-left: 30px solid #dfb332;
+  width: 0;
+  height: 0;
+  border-top: 30px solid #17a2b8;
+  border-bottom: 30px solid #17a2b8;
+  border-left: 30px solid #dfb332;
 }
 .arrow-right2 {
-    width: 0; 
-    height: 0; 
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent;
-    border-left: 30px solid  #17a2b8;
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid #17a2b8;
 }
 
 .active-price {
-    background-color: #17a2b8;
+  background-color: #17a2b8;
 }
 
 /* Theme Colors Background Dark Mode */
+
+.bg-dd-homepage {
+  background: rgba(28, 34, 48, 0.85);
+  width: 750px;
+}
+
+@media (min-width: 1367px) {
+  .bg-dd-homepage {
+    width: 1200px;
+  }
+}

@@ -11,6 +11,7 @@ import GMT from "../../timezone";
 import { convertNumber } from "../../../assets/js";
 import Popup from "../../../components/popUps";
 import {changeGMT, changeBahasa, changeSubs} from '../../../stores'
+import Translate from "../../../i18n/Translate";
 
 export default function ProfileTab(){
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function ProfileTab(){
   const [lang, setLang] = useState(profile.bahasa);
   const [subs, setSubs] = useState(profile.langganan);
   const [zone, setZone] = useState(profile.timezone);
-  const opsiSubs = [{val: false, text:"Tidak Berlangganan"}, {val: true, text:"Berlangganan"}];
+  const opsiSubs = [{val: false, text:"Unsubscribe"}, {val: true, text:"Subscribe"}];
   const sendImage = (img) => {
     const formData = new FormData();
     formData.append("file", img);
@@ -55,11 +56,6 @@ export default function ProfileTab(){
   return (
     <div className="p-4">
       <div className="bg-homepage2 profile-page-wrapper">
-        {/* <div className="row no-gutters">
-                        <div className="col-12 pt-4 pl-4 pr-4 pb-0">
-                            <p className="mb-0 font-22 ci-text-white font-roboto">Profile</p>
-                        </div>
-                    </div> */}
         <div className="row no-gutters p-4">
           <div className="col-md-12 col-lg-12">
             <div className="row no-gutters first-section pb-3">
@@ -77,7 +73,7 @@ export default function ProfileTab(){
                         src={profile.foto ? profile.foto : defaultpp}
                         alt="foto"
                       />
-                      <label for="inputFile">Ganti Foto</label>
+                      <label for="inputFile">{Translate('pr_ganti_foto')}</label>
                       <input
                         style={{
                           display: "none",
@@ -93,7 +89,7 @@ export default function ProfileTab(){
                       />
                     </div>
                     <p className="ci-text-white label-title2 mb-0 mt-1 font-14">
-                      Ukuran file max. 500kB
+                      {Translate('pr_ukuran_max')}
                     </p>
                   </div>
                 </div>
@@ -101,13 +97,13 @@ export default function ProfileTab(){
               <div className="col-sm-12 col-md-12 col-lg-12 col-xl-9">
                 <div className="row no-gutters ml-0 ml-xl-3">
                   <div className="col-12 mb-2">
-                    <p className="label-title-top mb-0 font-roboto">Profile</p>
+                    <p className="label-title-top mb-0 font-roboto">{Translate('pr_profile')}</p>
                   </div>
                   <div className="col-12 mb-2 mb-md-1">
                     <div className="row no-gutters">
                       <div className="col-12 col-md-3 d-flex align-items-end">
                         <p className="ci-text-white mb-0 label-title">
-                          Status KYC
+                          {Translate('pr_status_kyc')}
                         </p>
                       </div>
                       <div className="col-12 col-md-9">
@@ -125,7 +121,7 @@ export default function ProfileTab(){
                                 className="text-center"
                               >
                                 <p className=" mb-0 lable-title">
-                                  Terverifikasi
+                                  {Translate('db_terverifikasi')}
                                 </p>
                               </div>
                             ) : kyc &&
@@ -143,7 +139,7 @@ export default function ProfileTab(){
                                 className="text-center"
                               >
                                 <p className=" mb-0 lable-title">
-                                  Menunggu verifikasi
+                                  {Translate('db_menunggu_verifikasi')}
                                 </p>
                               </div>
                             ) : (
@@ -161,7 +157,7 @@ export default function ProfileTab(){
                                   padding: "2px 0",
                                 }}
                               >
-                                Belum verifikasi
+                                {Translate('db_belum_verifikasi')}
                               </button>
                             )}
                           </div>
@@ -173,7 +169,7 @@ export default function ProfileTab(){
                     <div className="row no-gutters">
                       <div className="col-12 col-md-3 d-flex align-items-center">
                         <p className="ci-text-white mb-0 label-title">
-                          Nama Lengkap
+                          {Translate('pr_nama_lengkap')}
                         </p>
                       </div>
                       <div className="col-12 col-md-9">
@@ -187,7 +183,7 @@ export default function ProfileTab(){
                     <div className="row no-gutters">
                       <div className="col-12 col-md-3 d-flex align-items-center">
                         <p className="ci-text-white mb-0 label-title">
-                          Username
+                          {Translate('pa_username')}
                         </p>
                       </div>
                       <div className="col-12 col-md-9">
@@ -200,7 +196,7 @@ export default function ProfileTab(){
                   <div className="col-12 mb-2">
                     <div className="row no-gutters">
                       <div className="col-12 col-md-3 d-flex align-items-center">
-                        <p className="ci-text-white mb-0 label-title">Email</p>
+                        <p className="ci-text-white mb-0 label-title">{Translate('pr_email')}</p>
                       </div>
                       <div className="col-12 col-md-9">
                         <p className="ci-text-white mb-0 label-title2">
@@ -219,7 +215,7 @@ export default function ProfileTab(){
                     <div className="row no-gutters">
                       <div className="col-12 col-md-3 d-flex align-items-center">
                         <p className="ci-text-white mb-0 label-title">
-                          Nomor Telefon
+                         {Translate('pr_nomor_telefon')}
                         </p>
                       </div>
                       <div className="col-12 col-md-9">
@@ -238,7 +234,7 @@ export default function ProfileTab(){
                   <div className="col-12 mb-2">
                     <div className="row no-gutters">
                       <div className="col-12 col-md-3 d-flex align-items-center">
-                        <p className="ci-text-white mb-0 label-title">Alamat</p>
+                        <p className="ci-text-white mb-0 label-title">{Translate('bn_alamat')}</p>
                       </div>
                       <div className="col-12 col-md-9">
                         <p className="ci-text-white mb-0 label-title2">
@@ -259,7 +255,7 @@ export default function ProfileTab(){
             <div className="row no-gutters mt-3 setting-akun">
               <div className="col-12 mb-2">
                 <p className="label-title-top mb-0 font-roboto">
-                  Limit Akun{" "}
+                  {Translate('pr_limit_akun')}{" "}
                   <i
                     onClick={() => {
                       history.push("/profile/limit-akun");
@@ -272,7 +268,7 @@ export default function ProfileTab(){
                 <div className="row no-gutters mb-2">
                   <div className="col-12 col-md-3">
                     <p className="ci-text-white mb-0 label-title">
-                      Limit Penarikan
+                      {Translate('pr_limit_penarikan')}
                     </p>
                   </div>
                   <div className="col-12 col-md-9">
@@ -286,7 +282,7 @@ export default function ProfileTab(){
                 <div className="row no-gutters">
                   <div className="col-12 col-md-3">
                     <p className="ci-text-white mb-0 label-title">
-                      Status Akun
+                     {Translate('pr_status_akun')}
                     </p>
                   </div>
                   <div className="col-12 col-md-9">
@@ -298,7 +294,7 @@ export default function ProfileTab(){
             <div className="row no-gutters mt-3">
               <div className="col-12 mb-2">
                 <p className="label-title-top mb-0 font-roboto">
-                  Kontak Darurat{" "}
+                  {Translate('pr_kontak_darurat')}{" "}
                   <i
                     onClick={() => {
                       history.push("/profile/ubah-kontak-darurat");
@@ -310,7 +306,7 @@ export default function ProfileTab(){
               <div className="col-12 mb-2">
                 <div className="row no-gutters">
                   <div className="col-12 col-md-3 d-flex align-items-center">
-                    <p className=" mb-0 label-title">Nama Kerabat</p>
+                    <p className=" mb-0 label-title">{Translate('pr_nama_kerabat')}</p>
                   </div>
                   <div className="col-12 col-md-9">
                     <p className=" mb-0 label-title2">{kyc.namaKerabat}</p>
@@ -320,7 +316,7 @@ export default function ProfileTab(){
               <div className="col-12 mb-2">
                 <div className="row no-gutters">
                   <div className="col-12 col-md-3 d-flex align-items-center">
-                    <p className=" mb-0 label-title">Hubungan Kerabat</p>
+                    <p className=" mb-0 label-title">{Translate('pr_hubungan_kerabat')}</p>
                   </div>
                   <div className="col-12 col-md-9">
                     <p className=" mb-0 label-title2">{kyc.hubunganKerabat}</p>
@@ -330,7 +326,7 @@ export default function ProfileTab(){
               <div className="col-12 mb-2">
                 <div className="row no-gutters">
                   <div className="col-12 col-md-3 d-flex align-items-center">
-                    <p className=" mb-0 label-title">Nomor Telefon Kerabat</p>
+                    <p className=" mb-0 label-title">{Translate('pr_nomor_kerabat')}</p>
                   </div>
                   <div className="col-12 col-md-9">
                     <p className=" mb-0 label-title2">
@@ -343,13 +339,13 @@ export default function ProfileTab(){
             <div className="row no-gutters mt-3 setting-akun first-section pb-3">
               <div className="col-12 mb-2">
                 <p className="label-title-top mb-0 font-roboto">
-                  Pengaturan Akun
+                  {Translate('pr_pengaturan_akun')}
                 </p>
               </div>
               <div className="col-12 mb-2">
                 <div className="row no-gutters">
                   <div className="col-12 col-md-3 d-flex align-items-center">
-                    <p className=" mb-0 label-title">Zona Waktu</p>
+                    <p className=" mb-0 label-title">{Translate('pr_zona_waktu')}</p>
                   </div>
                   <div className="col-12 col-md-9">
                     <DropdownCustom
@@ -363,7 +359,7 @@ export default function ProfileTab(){
               <div className="col-12 mb-2">
                 <div className="row no-gutters">
                   <div className="col-12 col-md-3 d-flex align-items-center">
-                    <p className=" mb-0 label-title">Bahasa</p>
+                    <p className=" mb-0 label-title">{Translate('pr_bahasa')}</p>
                   </div>
                   <div className="col-12 col-md-9">
                     <DropdownCustom
@@ -377,7 +373,7 @@ export default function ProfileTab(){
               <div className="col-12 mb-2">
                 <div className="row no-gutters">
                   <div className="col-12 col-md-3 d-flex align-items-center">
-                    <p className=" mb-0 label-title">Newsletter</p>
+                    <p className=" mb-0 label-title">{Translate('pr_newsletter')}</p>
                   </div>
                   <div className="col-12 col-md-9">
                     <DropdownCustom
@@ -390,7 +386,7 @@ export default function ProfileTab(){
               </div>
             </div>
             <button onClick={deactivate} className="ci-btn-danger ci-md mt-3">
-              De-aktifasi
+              {Translate('pr_de_aktifasi')}
             </button>
           </div>
         </div>

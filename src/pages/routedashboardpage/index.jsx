@@ -50,42 +50,27 @@ import Protectedkyc from "./protectedkyc";
 import LoadingPage from "../../pages/loadingpage";
 // import _404Page from "../404page";
 
-import { readMe, getStatus } from "../../stores";
+import { readMe, getStatus, getNotifications, initLoad } from "../../stores";
 import SetorKonfirmasi from "../../components/penyetoranPageComponents/tabs/setorTabs/SetorKonfirmasi";
 
 import { I18nProvider, LOCALES } from "../../i18n";
 import CopyrightDashboard from "../../components/footerComponents/copyrightComponents/CopyrightDashboard";
 import axios from "axios";
+import LaunchpadPartner from "../launchpadPartner";
+import LaunchpadPartnerDetail from "../launchpadPartner/LaunchpadPartnerDetail";
 // import PasarHomePage from "../tradepage/PasarPage";
 // import BasicChart from "../../components/tradeComponents/basicChart/BasicChart";
 
-function RouteDashboardPage() {
-  const isLoginAccount = useSelector((state) => state.userReducer.isLogin);
+function RouteDashboardPage(props) {
+  const { flag, locale, setLocale } = props
+  const isLoginAccount = useSelector((state) => state.userReducer.isLogin)
+  const loading = useSelector((state) => state.loadingReducer)
+  const history = useHistory()
+  const dispatch = useDispatch()
 
-  const [locale, setLocale] = React.useState(
-    localStorage.CryptoIndexLocale ? localStorage.CryptoIndexLocale : "",
-  );
-  const [flag, setFlag] = useState("flag-icon-id");
-  const history = useHistory();
-  const dispatch = useDispatch();
-  const loading = useSelector((state) => state.loadingReducer);
-
-  const [activeSidebar, setActiveSidebar] = React.useState("");
-  // const [notactiveSidebar, setnotActiveSidebar] = React.useState("active");
-  const { email } = useSelector((state) => state?.profileReducer);
-
-  useEffect(() => {
-    axios
-      .get("https://ipclient.herokuapp.com/")
-      .then(({ data }) => {
-        if (data.country === "ID") {
-          setLocale(LOCALES.INDONESIA);
-        } else {
-          setLocale(LOCALES.ENGLISH);
-        }
-      })
-      .catch((err) => {});
-  }, []);
+  const [activeSidebar, setActiveSidebar] = useState("")
+  // const [notactiveSidebar, setnotActiveSidebar] = useState("active")
+  const { email } = useSelector((state) => state?.profileReducer)
 
   const onClickActiveSidebar = () => {
     if (activeSidebar === "") {
@@ -109,34 +94,22 @@ function RouteDashboardPage() {
   };
 
   useEffect(() => {
-    switch (locale) {
-      case LOCALES.INDONESIA:
-        setFlag("flag-icon-id");
-        break;
-      case LOCALES.ENGLISH:
-        setFlag("flag-icon-us");
-        break;
-      case LOCALES.VIETNAM:
-        setFlag("flag-icon-vn");
-        break;
-      default:
-        setFlag("flag-icon-id");
-    }
-    localStorage.setItem("CryptoIndexLocale", locale);
-  }, [locale]);
-
-  useEffect(() => {
     if (isLoginAccount) {
-      if (localStorage.getItem("myFav") && email) {
-        const data = JSON.parse(localStorage.getItem("myFav"));
-        dispatch(setMyFav(data[email] || []));
+      if(email){
+        if (localStorage.getItem("myFav")) {
+          const data = JSON.parse(localStorage.getItem("myFav"));
+          dispatch(setMyFav(data[email] || []));
+        }
+      } else {
+        // getNotifications(dispatch)
+        // getStatus(dispatch, history)
+        // getMyAssets(dispatch)
+        // readMe(dispatch, history);
+        initLoad(dispatch)
       }
-      readMe(dispatch, history);
-      getStatus(dispatch, history);
-      dispatch(GetListingExchange());
-      getMyAssets(dispatch);
-    }
-  }, [history, email, dispatch, isLoginAccount]);
+      // dispatch(GetListingExchange());
+    } 
+  }, [email, isLoginAccount]);
 
   let match = useRouteMatch({
     path: "/pasar/:symbol",
@@ -148,7 +121,7 @@ function RouteDashboardPage() {
     <LoadingPage />
   ) : (
     <div className="wrapper">
-      <I18nProvider locale={locale}>
+      {/* <I18nProvider locale={locale}> */}
         <Sidebar onClickActiveSidebar={onClickActiveSidebar} />
         <Switch>
           {/* <Dashboard /> */}
@@ -197,7 +170,7 @@ function RouteDashboardPage() {
             <Protectedkyc path={`/setor-rupiah/konfirmasi`}>
               <SetorKonfirmasi />
             </Protectedkyc>
-            <Protectedkyc path={`/wallet/setor-rupiah`}>
+            <Protectedkyc path={`/wallet/deposit`}>
               <SetorTarikPage />
             </Protectedkyc>
             <Protectedkyc exact path={`/wallet`}>
@@ -227,13 +200,19 @@ function RouteDashboardPage() {
             <Route path={`/verification/waiting`}>
               <VerificationWaiting />
             </Route>
+            <Route exact path={`/launchpad-partner`}>
+              <LaunchpadPartner />
+            </Route>
+            <Route path={`/launchpad-partner/:id`}>
+              <LaunchpadPartnerDetail />
+            </Route>
             <Route exact path="/">
               <Dashboard />
             </Route>
             <CopyrightDashboard />
           </div>
         </Switch>
-      </I18nProvider>
+      {/* </I18nProvider> */}
       {/* <Footer /> */}
     </div>
   );

@@ -5,6 +5,7 @@ import { postEmail, getStatus } from '../../../stores'
 import { useSelector, useDispatch } from 'react-redux'
 import { emailFormatError, imageSizeError} from '../../../stores/errorHandler'
 import OTP from '../../../components/otp'
+import Translate from '../../../i18n/Translate';
 
 export default function EmailRequestTab () {
     const dispatch = useDispatch()
@@ -12,11 +13,7 @@ export default function EmailRequestTab () {
     const loading = useSelector(state => state.loadingReducer)
 
     const history = useHistory()
-    // const [showPopUp, setShowPopUp] = useState(false)
-    // const [showPopUpSimpan, setShowPopUpSimpan] = useState(false)
-   
 
-    // const [emailLama, setEmailLama] = useState("")
     const [newEmail, setNewEmail] = useState("")
     const [img, setImg] = useState(undefined)
     const [alasan, setAlasan] = useState("")
@@ -44,12 +41,9 @@ export default function EmailRequestTab () {
     }
 
 
-    // const sendPinSMS = (pin) => {
-    //     setShowPopUpSimpan(true)
-    // }
-    useEffect(() => {
-       getStatus(dispatch)
-    }, [dispatch])
+    // useEffect(() => {
+    //    getStatus(dispatch)
+    // }, [dispatch])
 
     return (
         loading.emailVerification ? 
@@ -65,21 +59,21 @@ export default function EmailRequestTab () {
                     }}
                     onClick={() => {
                             history.replace('/profile')
-                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" /> Kembali ke profil</p>
+                    }} className="ci-text-white mb-0"><i className="fas fa-arrow-circle-left edit-button mr-2" />{Translate('ue_kembali')}</p>
                 </div>
             </div>
             
             <div className="row no-gutters bg-homepage2 p-4">
                 <div className="col-12">
-                    <p className="label-title-top mb-0 font-roboto">Ubah Email</p>
+                    <p className="label-title-top mb-0 font-roboto">{Translate('ue_ubah_email')}</p>
                 </div>
                 <div className="col-12 mt-1 mb-5">
-                    <p className="label-title mb-0">Lengkapi isian berikut untuk mengajukan penggantian alamat email.</p>
+                    <p className="label-title mb-0">{Translate('ue_text_lengkapi')}</p>
                 </div>
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="ci-text-white mb-0 label-title">Email Lama</p>
+                            <p className="ci-text-white mb-0 label-title">{Translate('ue_email_lama')}</p>
                         </div>
                         <div className="col-12 col-md-8">
                             <div className="input-group ci-inputDefault-bg">
@@ -91,7 +85,7 @@ export default function EmailRequestTab () {
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="ci-text-white mb-0 label-title">Email Baru</p>
+                            <p className="ci-text-white mb-0 label-title">{Translate('ue_email_baru')}</p>
                         </div>
                         <div className="col-12 col-md-8 ">
                             <div className="input-group ci-inputDefault-bg">
@@ -103,7 +97,7 @@ export default function EmailRequestTab () {
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="ci-text-white mb-0 label-title">Kartu Identitas ( KTP / SIM / Passport )</p>
+                            <p className="ci-text-white mb-0 label-title">{Translate('ue_kartu_identitas')}</p>
                         </div>
                         <div className="col-12 col-md-8 ">
                             <div className="row input-custom-file no-gutters">
@@ -124,7 +118,7 @@ export default function EmailRequestTab () {
                                         borderRadius: "4px",
                                         }}
                                     >
-                                        Unggah
+                                        {Translate('ue_uanggah')}
                                     </label>
                                     <input
                                         style={{
@@ -144,26 +138,11 @@ export default function EmailRequestTab () {
                                         {img ? img.name : "Belum memilih file.."}
                                         </span>
                                         <span className="ci-text-white mb-0 font-10">
-                                        Maksimal ukuran file 1MB
+                                        {Translate('ue_ukuran_file')}
                                         </span>
                                     </div>
                                     </div>
                                 </div>
-                                
-                                {/* <div className="col-12">
-                                    <label for="inputFile">Unggah</label>
-                                    <input style={{
-                                        display: 'none'
-                                    }} onChange={e => {
-                                        imageSizeError(e.target.files[0], 1000000, () => {
-                                            setImg(e.target.files[0])
-                                        })
-                                    }} id="inputFile" type="file" accept=".png, .jpg, .jpeg"/>
-                                    <span className="ci-text-white label-title pl-3">{img ? img.name : "Belum memilih file.."}</span>
-                                </div>
-                                <div className="col-12">
-                                    <p className="ci-text-white font-12 mb-0">Maksimal ukuran file 1MB.</p>
-                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -172,7 +151,7 @@ export default function EmailRequestTab () {
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                            <p className="ci-text-white mb-0 label-title">Alasan Penggantian</p>
+                            <p className="ci-text-white mb-0 label-title">{Translate('ue_alasan')}</p>
                         </div>
                         <div className="col-12 col-md-8 ">
                             <div className="input-group ci-inputDefault-bg">
@@ -186,7 +165,7 @@ export default function EmailRequestTab () {
                 <div className="col-12 mb-3">
                     <div className="row no-gutters">
                         <div className="col-12 col-md-4 d-flex align-items-center">
-                        <p className="ci-text-white mb-0 label-title">PIN SMS</p>
+                        <p className="ci-text-white mb-0 label-title">{Translate('ue_pin_sms')}</p>
                         </div>
                         <div className="col-12 col-md-8 ">
                             <div className="row no-gutters">
@@ -204,7 +183,7 @@ export default function EmailRequestTab () {
                     </div>
                 </div>
                 <div className="col-12 splitter d-flex justify-content-end mt-3">
-                    <button disabled={disableSimpan} onClick={changeEmail} className="ci-btn-warning ci-md mt-3">Simpan</button>
+                    <button disabled={disableSimpan} onClick={changeEmail} className="ci-btn-warning ci-md mt-3">{Translate('ue_simpan')}</button>
                 </div>
             </div>
         </div>

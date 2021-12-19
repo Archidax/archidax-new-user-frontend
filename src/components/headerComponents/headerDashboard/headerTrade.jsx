@@ -4,16 +4,17 @@ import {
   // useRouteMatch
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import logocryptoindex from "../../../assets/img/logo_flat.svg";
+import logocryptoindex from "../../../assets/img/logoArchidax.png";
 
 // Import Elements
 import FlagsDropdownHeader from "./elements/flagsdropdown";
 import WalletsDropdownHeaderTrade from "./elements/walletsdropdown/WalletsDropdownHeaderTrade";
-import NotificationDropdownHeader from "./elements/notificationdropdown";
-import ProfileDropdownHeader from "./elements/profiledropdown";
+import NotificationDropdownHeader from "./elements/notificationdropdown/notiftrade";
+import ProfileDropdownHeader from "./elements/profiledropdown/profiledropdowntrade";
 
 import ProtectedPagePasar from "../../tradeComponents/card/HalamanLoginHeader";
 import ProtectedPagePasar2 from "../../tradeComponents/card/HalamanLoginPasar";
+import DayNight from "../../../components/tradeComponents/daynight/DayNight";
 
 function HeaderDashboard(props) {
   const { mode } = useSelector((state) => state.daynightReducer);
@@ -23,9 +24,9 @@ function HeaderDashboard(props) {
   return (
     <>
       <nav
-        className={`col-12 p-1 ${
+        className={`col-12 navbar-trade p-1 ${
           mode ? "navbar-dark bg-header-dark" : "bg-header"
-        } navbar navbar-expand-lg py-3 px-4`}
+        } navbar navbar-expand-lg py-1 px-4`}
       >
         <Link to="/home">
           <img
@@ -50,16 +51,26 @@ function HeaderDashboard(props) {
           <ul class="navbar-nav mr-auto mx-5 mt-2 mt-lg-0">
             <li class="nav-item mx-2">
               <Link to="/">
-                <h6 className="mb-0 font-16">Beranda</h6>
+                <h6 className="mb-0 font-16">Dashboard</h6>
               </Link>
             </li>
             <ProtectedPagePasar2>
               <li class="nav-item mx-2">
                 <Link to="/pasar">
-                  <h6 className="mb-0 font-16">Pasar</h6>
+                  <h6 className="mb-0 font-16">Trade</h6>
                 </Link>
               </li>
             </ProtectedPagePasar2>
+            <li class="nav-item mx-2">
+              <Link to="/launchpad">
+                <h6 className="mb-0 font-16">Launchpad</h6>
+              </Link>
+            </li>
+            <li class="nav-item mx-2">
+              <Link to="/funding">
+                <h6 className="mb-0 font-16">Funding</h6>
+              </Link>
+            </li>
           </ul>
           <ProtectedPagePasar>
             <form class="form-inline my-2 my-lg-0">
@@ -69,6 +80,9 @@ function HeaderDashboard(props) {
               <ProfileDropdownHeader />
             </form>
           </ProtectedPagePasar>
+          <div className="ml-4">
+            <DayNight />
+          </div>
         </div>
       </nav>
       {/* <nav className="navbar navbar-expand-lg bg-trade-header navbar-light pt-3 pb-3">

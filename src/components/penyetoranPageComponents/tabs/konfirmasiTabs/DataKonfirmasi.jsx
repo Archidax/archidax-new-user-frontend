@@ -7,11 +7,11 @@ function DataKonfirmasi({tanggal, jumlah, metode, jenis, norek, berita, pesan, b
             <td>{jumlah}</td>
             <td>{metode}</td>
             <td>{jenis}</td>
-            <td>{norek}</td>
+            {/* <td>{norek}</td>
             <td>{berita}</td>
-            <td>{pesan}</td>
-            <td><a className="p-2 bg-info" href={bukti} target="_blank" rel="noreferrer">Lihat</a></td>
-            <td className={status === "Pending" ? "text-warning" : status === "Sukses" ? "text-success" : "text-danger"}>{status}</td>
+            <td>{pesan}</td> */}
+            <td><a className="p-2 bg-info" href={bukti} target="_blank" rel="noreferrer">View</a></td>
+            <td className={status === "Pending" ? "text-warning" : status === "Success" ? "text-success" : "text-danger"}>{status}</td>
         </tr>
     )
 }

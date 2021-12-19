@@ -13,8 +13,11 @@ export const getNotifications = (dispatch) => {
                 data: data
             })
         })
-        // .catch(errorHandler)
+        .catch(err => {
+            console.log(err)
+        })
 }
+
 export const setReadNotifications = async (dispatch, data, history) => {
     if(!data.read){
         await baseAxios.get(`/users/notification/read/${data._id}`, {

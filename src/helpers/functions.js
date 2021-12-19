@@ -26,7 +26,7 @@ export const errHandler = (err, func) => {
             // history.replace('/login')
         }else {
             Popup.fire({
-                title: "Gagal!",
+                title: "Error",
                 text: err.response.data.message,
                 onClickOk: func ? func : undefined
             })
@@ -35,7 +35,7 @@ export const errHandler = (err, func) => {
         // localStorage.removeItem('token')
         // window.open("http://localhost:3000/404","_self")
         // Popup.fire({
-        //     title: 'Gagal!',
+        //     title: 'Failed!',
         //     text: "Server sedang sibuk!",
         //     onClickOk: () => 
         // })
@@ -69,8 +69,7 @@ export const parseTime = (date) => {
 }
 
 export const parseFixedNumber = (amount, maxDecimals = 8) => {
-  console.log(maxDecimals, 'decimals <==')
-  let newAmount = amount ? amount.toString().replaceAll('.', '') : ''
+  let newAmount = amount ? amount.toString().replace(/\./g, '') : ''
   // let front = parseInt(newAmount).toString()
   /////
   let front = ''
@@ -93,4 +92,10 @@ export const parseFixedNumber = (amount, maxDecimals = 8) => {
   } else {
     return ''
   }
+}
+
+export function toTitleCase(str) {
+  return str.toLowerCase().split(' ').map(function(word) {
+    return (word.charAt(0).toUpperCase() + word.slice(1));
+  }).join(' ');
 }

@@ -10,7 +10,6 @@ export const readMe = (dispatch, history) => {
         }
     })
     .then((response) => {
-        
         if(response.data.kyc){
             dispatch({type: "SET_KYCSTATUS", data: response.data.kyc})
         }else{
@@ -89,8 +88,8 @@ export const verifyStepTwo = (dispatch, data, history) => {
     .then(response => {
         console.log(response, "<<< result data")
         Popup.fire({
-            title: "Berhasil!",
-            text: "Verifikasi anda sedang kami proses, kami akan melakukan moderasi dalam 1-48 jam ke depan."
+            title: "Success",
+            text: "Your verification is being processed, it can take 1 to 48 hours."
         })
         dispatch({type: "CHANGE_KYCV2", data: {
             kycStatus: "2",

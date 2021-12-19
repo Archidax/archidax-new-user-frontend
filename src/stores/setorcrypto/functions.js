@@ -1,6 +1,7 @@
 import axios from 'axios'
 import popUps from '../../components/popUps'
 import errorHandler from '../errorHandler'
+import {getMyAssets} from '../../stores'
 import { baseUrl } from '../index'
 
 // All balance based on coin
@@ -20,7 +21,7 @@ export const getMyBalance = (coin, dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(({ data }) => {
-            console.log(data, `<<< ${coin} balance`)
+            // console.log(data, `<<< ${coin} balance`)
             if (coin === "BTC") {
                 if (data.user === null) {
                     dispatch({
@@ -173,8 +174,7 @@ export const generateAddress = (coin, dispatch) => {
         headers: { jwttoken: localStorage.getItem('token') }
     })
         .then(data => {
-            console.log(data, `<<<${coin} address`)
-            getMyBalance(coin, dispatch)
+            getMyAssets(dispatch)
             popUps.close()
         })
         .catch(err => {

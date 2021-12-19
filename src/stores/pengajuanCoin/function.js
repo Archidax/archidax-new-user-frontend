@@ -1,9 +1,9 @@
-import { baseAxios, baseUrlTrade, baseUrlTradeVersion } from '../index'
+import { baseUrlTrade, baseUrlTradeVersion } from '../index'
 import Popup from '../../components/popUps'
 import errorHandler from '../errorHandler'
 import axios from 'axios'
 
-export const postPengajuanKoin = (data, history) => {
+export const postPengajuanKoin = (data) => {
     Popup.fire(
         {
             title: "Ajukan Koin!",
@@ -16,7 +16,6 @@ export const postPengajuanKoin = (data, history) => {
                     },
                 })
                 .then((response) => {
-                    // history.push("/")
                     Popup.fire({
                         title: "Berhasil !",
                         text: "Koin berhasil Buat."

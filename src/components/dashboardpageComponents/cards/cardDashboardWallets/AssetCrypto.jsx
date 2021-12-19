@@ -4,7 +4,7 @@ import { getCoinIcon } from "../../../../helpers/coins";
 function AssetCrypto({ data }) {
   return (
     <div className="mt-2 table-responsive">
-      {data.map((el, index) => {
+      {data&&Array.isArray(data)&&data.map((el, index) => {
         if (index < 7) {
           return (
             <div

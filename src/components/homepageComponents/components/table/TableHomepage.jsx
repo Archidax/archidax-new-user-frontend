@@ -1,10 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import { convertNumber } from "../../../../assets/js";
 
 import { useHistory } from "react-router-dom";
 
-export default function TableHomepage({ dataHome }) {
+export default function TableHomepage() {
+  const { listingList } = useSelector((state) =>
+    state ? state.pasarTradingReducer : {},
+  );
   const history = useHistory();
 
   return (
@@ -14,25 +18,23 @@ export default function TableHomepage({ dataHome }) {
           <table id="homepage-table">
             <thead className="tb-border-bottom">
               <tr className="text-white">
-                <th className="text-left">Pasangan</th>
-                <th className="text-left">Nama Koin</th>
-                <th className="text-left">Persentase</th>
-                <th className="text-left">Harga (24 jam)</th>
-                <th className="text-left">High (24 jam)</th>
-                <th className="text-left">Low (24 jam)</th>
-                <th className="text-left">Volume (24 jam)</th>
+                <th className="text-left">Symbol Coin</th>
+                <th className="text-left">Coin Name</th>
+                <th className="text-left">Change</th>
+                <th className="text-left">Price (24 Hours)</th>
+                <th className="text-left">High (24 Hours)</th>
+                <th className="text-left">Low (24 Hours)</th>
+                <th className="text-left">Volume (24 Hours)</th>
               </tr>
             </thead>
             <tbody>
-              {dataHome && Array.isArray(dataHome) && dataHome.length > 0 ? (
-                dataHome.map((item) => {
+              {listingList &&
+              Array.isArray(listingList) &&
+              listingList.length > 0 ? (
+                listingList.map((item) => {
                   const handleRowClick = (row) => {
                     history.push(
-                      `/pasar/${
-                        item.symbol
-                          ? item.symbol.toString().replace("/", "_")
-                          : null
-                      }`,
+                      `/pasar/${item.symbol.toString().replace("/", "_")}`,
                     );
                   };
                   return (
@@ -50,24 +52,49 @@ export default function TableHomepage({ dataHome }) {
                       </td>
                       <td className="text-white text-left">{item.assetName}</td>
                       <td
-                        className={`${convertNumber.tradeUpDownChangeHomepage(
-                          item.price24h_change,
-                          2,
-                        )}`}
+                        className={`${
+                          item.price_24hour
+                            ? convertNumber.tradeUpDownChangeHomepage(
+                                item.price_24hour.price24h_change,
+                                2,
+                              )
+                            : "-"
+                        }`}
                       >
-                        {convertNumber.tradeChange(item.price24h_change, 2)}
+                        {item.price_24hour
+                          ? convertNumber.tradeChange(
+                              item.price_24hour.price24h_change,
+                              2,
+                            )
+                          : "- "}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_close)}
+                        {item.price_24hour
+                          ? convertNumber.toRupiah(
+                              item.price_24hour.price24h_close,
+                            )
+                          : "- "}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_high)}
+                        {item.price_24hour
+                          ? convertNumber.toRupiah(
+                              item.price_24hour.price24h_high,
+                            )
+                          : "- "}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_low)}
+                        {item.price_24hour
+                          ? convertNumber.toRupiah(
+                              item.price_24hour.price24h_low,
+                            )
+                          : "- "}
                       </td>
                       <td className="text-white text-left">
-                        {convertNumber.toRupiah(item.price24h_volume)}{" "}
+                        {item.price_24hour
+                          ? convertNumber.toRupiah(
+                              item.price_24hour.price24h_volume,
+                            )
+                          : "- "}{" "}
                         {item.symbol ? item.symbol.split("/")[0] : null}
                       </td>
                     </tr>
@@ -80,27 +107,6 @@ export default function TableHomepage({ dataHome }) {
                   </td>
                 </tr>
               )}
-              {/* 
-                      <tr className="tb-border-bottom2">
-                        <td className="text-white table-center">
-                          <img
-                            src=""
-                            style={{ maxHeight: "23px", marginRight: "10px" }}
-                          />
-                          <div>BTC / IDR</div>
-                        </td>
-                        <td className="text-white text-left">Bitcoin</td>
-                        <td className="text-white text-left">640.714.000</td>
-                        <td className="price-green">4.5%</td>
-                        <td className="price-green">10%</td>
-                        <td className="text-white text-left">
-                          <span>173,4bn </span>IDR
-                        </td>
-                        <td className="text-white text-left">
-                          <span>173,4bn </span>IDR
-                        </td>
-                      </tr>
-                */}
             </tbody>
           </table>
         </div>

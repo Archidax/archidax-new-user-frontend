@@ -13,6 +13,7 @@ import twitter from "../../assets/img/twitter_white.png";
 import linkedin from "../../assets/img/linkedin_white.png";
 
 import parse from 'html-react-parser'
+import Translate from "../../i18n/Translate";
 
 
 export default function ContentBerita () {
@@ -46,7 +47,7 @@ export default function ContentBerita () {
     <div className="container content-berita">
       <p>
         <i className="fas fa-chevron-circle-left mr-2 text-white-50"></i>
-        <span onClick={() => window.history.go(-1)} className="font-12 text-white-50">Kembali</span>
+        <span onClick={() => window.history.go(-1)} className="font-12 text-white-50">{Translate('br_kembali')}</span>
       </p>
       <div className="row justify-content-between">
         <div className="col col-md-8">
@@ -74,7 +75,7 @@ export default function ContentBerita () {
                 </article>
               </>
           }
-          <p className="share ci-text-white font-11">Bagikan melalui:</p>
+          <p className="share ci-text-white font-11">{Translate('br_bagikan_melalui')}:</p>
           <div data-href={`https://staging.cryptoindex.id/berita/${slug}`}>
             <a target="_blank" rel="noreferrer" href={`https://www.facebook.com/sharer/sharer.php?u=https://staging.cryptoindex.id/berita/${slug}&amp;src=sdkpreparse`} className="">
               <img src={facebook} alt="facebook" className="btn button-share via-fb"/>
@@ -84,14 +85,14 @@ export default function ContentBerita () {
           </div>
         </div>
         <div className="col col-md-3">
-          <h1 className="title-list-other text-gold label-title-top">Artikel Terbaru</h1>
+          <h1 className="title-list-other text-gold label-title-top">{Translate('br_artikel_terbaru')}</h1>
           {
             Recent.length ? 
               Recent.map((news) => {
-                return <Link to={`/berita/${news.slug}`} ><p key={news._id} className="font-12 py-4 m-0" style={{borderBottom: "0.2px solid grey"}}>{news.title}</p></Link>
+                return <Link to={`/news/${news.slug}`} ><p key={news._id} className="font-12 py-4 m-0" style={{borderBottom: "0.2px solid grey"}}>{news.title}</p></Link>
               })
             :
-              <p className="title-artikel ci-text-white font-12">No data</p>
+              <p className="title-artikel ci-text-white font-12">{Translate('vc_tidak_ada_data')}</p>
           }
         </div>
       </div>

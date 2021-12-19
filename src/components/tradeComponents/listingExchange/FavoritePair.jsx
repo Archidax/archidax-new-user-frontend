@@ -3,13 +3,10 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
-
 import { convertNumber } from "../../../assets/js";
+import NumberFormat from "react-number-format";
 
-export default function FavoritePair() {
-  const { Exchange } = useSelector(
-    (state) => state.pasarTradingReducer?.LISTING_EXCHANGE_ORDER,
-  );
+export default function FavoritePair({ listingList }) {
   const { mode } = useSelector((state) => state.daynightReducer);
   const { myFav } = useSelector((state) => state.pasarTradingReducer);
   const { email } = useSelector((state) => state?.profileReducer);
@@ -18,7 +15,9 @@ export default function FavoritePair() {
     <div className="">
       <div
         className={
-          mode ? "outter-table-wrapper4-dark" : "outter-table-wrapper4"
+          mode
+            ? "outter-table-wrapper4-dark height-listing"
+            : "outter-table-wrapper4 height-listing"
         }
       >
         <div class={mode ? "table-wrapper4-dark" : "table-wrapper4"}>
@@ -28,25 +27,27 @@ export default function FavoritePair() {
           >
             <thead className="">
               <tr className={mode ? "text-price-dark" : "text-price"}>
-                <th className="text-left">Pasangan</th>
-                <th className="text-left">Harga</th>
-                <th className="text-left">%</th>
+                <th className="text-left">Pair</th>
+                <th className="text-left">Price</th>
+                <th className="text-left">Change</th>
               </tr>
             </thead>
             <tbody>
               {email &&
-              Exchange &&
-              Array.isArray(Exchange) &&
-              Exchange.length > 0 ? (
-                Exchange.filter((item) => {
-                  if (myFav.includes(item._id)) {
-                    return item;
-                  } else {
-                    return null;
-                  }
-                }).map((item, index) => {
-                  return <FavoritePairRealtime item={item} index={index} />;
-                })
+              listingList &&
+              Array.isArray(listingList) &&
+              listingList.length > 0 ? (
+                listingList
+                  .filter((item) => {
+                    if (myFav.includes(item._id)) {
+                      return item;
+                    } else {
+                      return null;
+                    }
+                  })
+                  .map((item, index) => {
+                    return <FavoritePairRealtime item={item} index={index} />;
+                  })
               ) : (
                 <div className="text-center p-2">No Data</div>
               )}
@@ -64,19 +65,16 @@ function FavoritePairRealtime({ item, index }) {
   const { mode } = useSelector((state) => state.daynightReducer);
 
   const handleRowClick = () => {
-    history.push(`/pasar/${item.quote}_${item.base}`);
+    history.push(`/pasar/${item.symbol.toString().replace("/", "_")}`);
   };
 
   React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && item) {
-      IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
-        if (data) {
-          setData(data);
-        }
-      });
-      return () =>
-        IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
-    }
+    IoWebSocketTrade.on(`Prices-${item.symbol}`, (data) => {
+      if (data) {
+        setData(data);
+      }
+    });
+    return () => IoWebSocketTrade.removeEventListener(`Prices-${item.symbol}`);
   }, [item, setData]);
 
   if (Data) {
@@ -109,9 +107,8 @@ function FavoritePairRealtime({ item, index }) {
                 )
           }`}
         >
-          {Data.price24h_close
-            ? convertNumber.toRupiah(Data.price24h_close)
-            : 0}
+           {Data &&
+            <NumberFormat value={Data.price24h_close} decimalScale={8} displayType={'text'} thousandSeparator={true} />}
         </td>
         <td
           className={`${mode ? "text-white" : "text-black"} ${

@@ -1,0 +1,60 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.modal-inner {
+  position: relative;
+  padding: 32px;
+  border-radius: 8px;
+  color: white;
+  overflow: auto;
+}
+
+.close-btn {
+  cursor: pointer;
+}
+
+.twitter {
+  background-image: url(../../assets/img/bounty/popup/bg-popuptwitter.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.facebook {
+  background-image: url(../../assets/img/bounty/popup/bg-popupfacebook.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.telegram {
+  background-image: url(../../assets/img/bounty/popup/bg-popuptelegram.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.translations {
+  background-image: url(../../assets/img/bounty/popup/bg-popuptranslations.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.contentblog {
+  background-image: url(../../assets/img/bounty/popup/bg-popupcontentblog.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 100px;
+  bottom: 200px;
+}
+.youtube {
+  background-image: url(../../assets/img/bounty/popup/bg-popupyoutube.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.tiktok {
+  background-image: url(../../assets/img/bounty/popup/bg-popuptiktok.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

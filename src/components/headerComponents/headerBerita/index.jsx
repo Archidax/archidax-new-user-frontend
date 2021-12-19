@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FlagsDropdownHeader from "../headerDashboard/elements/flagsdropdown";
-import logo from "../../../assets/img/logo.svg";
+import logo from "../../../assets/img/logoArchidax.png";
+import Translate from "../../../i18n/Translate";
 
 export default function Index() {
   return (
@@ -14,7 +15,7 @@ export default function Index() {
           {/* <FlagsDropdownHeader/> */}
           <Link to="/" style={{
             letterSpacing: '1.2px'
-          }} className="font-roboto ci-text-white mb-0 text-gold">Kembali ke Cryptoindex.com</Link>
+          }} className="font-roboto ci-text-white mb-0 text-gold">{Translate('hberita_kembali')}</Link>
         </div>
       </div>
     </nav>

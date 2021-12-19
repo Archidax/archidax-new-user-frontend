@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Translate from '../../../i18n/Translate'
 import { getAffiliationList } from '../../../stores'
 // import DropdownCustom from '../../dropdown'
 import TidakAdaData from '../datas/TidakAdaData'
 
 const months = [
-    { name: "Januari", value: "1" },
-    { name: "Februari", value: "2" },
-    { name: "Maret", value: "3" },
+    { name: "January", value: "1" },
+    { name: "February", value: "2" },
+    { name: "March", value: "3" },
     { name: "April", value: "4" },
-    { name: "Mei", value: "5" },
-    { name: "Juni", value: "6" },
-    { name: "Juli", value: "7" },
-    { name: "Agustus", value: "8" },
+    { name: "May", value: "5" },
+    { name: "June", value: "6" },
+    { name: "July", value: "7" },
+    { name: "August", value: "8" },
     { name: "September", value: "9" },
-    { name: "Oktober", value: "10" },
+    { name: "October", value: "10" },
     { name: "November", value: "11" },
-    { name: "Desember", value: "12" },
+    { name: "December", value: "12" },
 ]
+
 
 const years = [
     2021, 2022, 2023, 2024, 2025,
@@ -45,7 +47,7 @@ function TableDaftarAffiliasi() {
                     <div className="row d-flex justify-content-center align-items-center">
                         <div className="col-12 col-md-4 m-0 my-1">
                             <select onChange={(e) => setMonth(e.target.value)} className="w-100 border-0 py-2 px-3 font-12 ci-bg-secondary text-white">
-                                <option value="" selected>-- Semua --</option>
+                                <option value="" selected>All</option>
                                 {
                                     months.map(month => {
                                         return (
@@ -58,7 +60,7 @@ function TableDaftarAffiliasi() {
 
                         <div className="col-12 col-md-4 m-0 my-1">
                             <select onChange={(e) => setYear(e.target.value)} className="w-100 border-0 py-2 px-3 font-12 ci-bg-secondary text-white">
-                                <option value="" selected>-- Semua --</option>
+                                <option value="" selected>All</option>
                                 {
                                     years.map(year => {
                                         return (
@@ -70,14 +72,14 @@ function TableDaftarAffiliasi() {
                         </div>
 
                         <div className="col-12 col-md-3 my-1">
-                            <button onClick={() => filter()} className="w-100 border-0 ci-bg-secondary py-2 px-1 text-white font-12">Filter</button>
+                            <button onClick={() => filter()} className="w-100 border-0 ci-bg-secondary py-2 px-1 text-white font-12">{Translate('pa_filter')}</button>
                         </div>
 
                     </div>
                 </div>
                 <div className="col-12 col-md-2 mt-1">
                     <button className="ci-btn-success ci-md w-100">
-                    <i class="fas fa-file-download mr-2"></i> <span className="font-12">Export to CSV</span>
+                    <i class="fas fa-file-download mr-2"></i> <span className="font-12">{Translate('vc_export')}</span>
                     </button>
                 </div>
             </div>
@@ -89,10 +91,10 @@ function TableDaftarAffiliasi() {
                             <thead>
                                 <tr>
                                     {/* <th className="ci-tableHeads-custom-2 text-white">Nama Lengkap</th> */}
-                                    <th className="ci-tableHeads-custom-2 text-white">Username</th>
-                                    <th className="ci-tableHeads-custom-2 text-white">Tanggal Pendaftaran</th>
-                                    <th className="ci-tableHeads-custom-2 text-white">Verifikasi Email</th>
-                                    <th className="ci-tableHeads-custom-2 text-white">Verifikasi Identitas</th>
+                                    <th className="ci-tableHeads-custom-2 text-white">{Translate('pa_username')}</th>
+                                    <th className="ci-tableHeads-custom-2 text-white">{Translate('pa_tanggal_pendaftaran')}</th>
+                                    <th className="ci-tableHeads-custom-2 text-white">{Translate('pa_verivikasi_email')}</th>
+                                    <th className="ci-tableHeads-custom-2 text-white">{Translate('pa_verivikasi_identitas')}</th>
                                 </tr>
                             </thead>
                             {

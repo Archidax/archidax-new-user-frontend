@@ -7,7 +7,7 @@ function ChartKeuangan(props) {
     const data = {
         series: [{
             name: 'series1',
-            data: props.dataChart&&props.dataChart.volumePrice.length?props.dataChart.volumePrice:[]
+            data: props.dataChart?props.dataChart.volumePrice:[]
           }],
         options: {
             chart: {
@@ -34,7 +34,7 @@ function ChartKeuangan(props) {
                     show:false,
                 },
                 type: 'datetime',
-                categories: props.dataChart&&props.dataChart.date.length?props.dataChart.date:[]
+                categories: props.dataChart?props.dataChart.date:[]
             },
             yaxis : {
                 labels : {

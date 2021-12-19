@@ -1,16 +1,17 @@
 import React from 'react';
 import {convertNumber} from '../../../assets/js'
-
+import ReactLoading from 'react-loading';
+import Translate from "../../../i18n/Translate";
 function Table24Jam({MarketData}) {
 
-    const tableHeader = [
-        "Rank", "Nama Koin", "Harga Terakhir", "Volume",
-      ];
+    const tableHeader = [ "Rank", "Coin Name", "Last Price", "Volume" ];
 
     return (
         <div>
-            <h3 className="font-14 text-gold">Top coin berdasarkan volume 24 jam terakhir</h3>
+            <h3 className="font-14 text-gold">{Translate('top_coin')}</h3>
             <div className="table-responsive table-keuangan">
+            {
+                MarketData?
                 <table className="table table-hover">
                     <thead>
                     <tr>
@@ -24,9 +25,7 @@ function Table24Jam({MarketData}) {
                     </tr>
                     </thead>
                     <tbody>
-                    {
-                        MarketData&&MarketData.length&&MarketData.sort((a, b) => b.price24h_priceVolume - a.price24h_priceVolume)
-                        .map((item, index) => {
+                    { MarketData.length&&MarketData.sort((a, b) => b.price24h_priceVolume - a.price24h_priceVolume).map((item, index) => {
                         return (
                             <tr key={index} className="table-row-custom">
                                 <td className="font-12">#{index+1}</td>
@@ -43,7 +42,13 @@ function Table24Jam({MarketData}) {
                         })
                     }
                     </tbody>
-                </table>
+                </table>:
+                <>  
+                    <div style={{width: "100%", height: "200px"}} className="d-flex justify-content-center align-items-center">
+                        <ReactLoading type={'spin'} color={'#ffffff'} height={'50px'} width={'50px'} />
+                    </div>
+                </>
+            }
             </div>
         </div>
     )

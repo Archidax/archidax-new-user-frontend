@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import buylogo from "../../../assets/img/trade/buy.png";
+import buylogo2 from "../../../assets/img/trade/keranjanghitam.svg";
 import walletlogo from "../../../assets/img/trade/wallet.png";
+import walletlogo2 from "../../../assets/img/trade/wallet2.svg";
 import { PercentMath } from "../helpers/trade";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,22 +11,16 @@ import {
 } from "../../../stores/pasartrading/functions";
 import Popup from "../../../components/popUps";
 
-import { convertNumber } from "../../../assets/js";
-import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
+import NumberFormat from "react-number-format";
 
 import { Link } from "react-router-dom";
 
-export default function MarketBuy() {
+export default function MarketBuy({balanceAsset}) {
   const isLoginPages = useSelector((state) => state.userReducer.isLogin);
   const { mode } = useSelector((state) => state.daynightReducer);
-  const [balance, setBalance] = useState("");
-  const { PairSymbol, pairFrom, price24H } = useSelector((state) =>
+  const { PairSymbol, pairTo, price24H } = useSelector((state) =>
     state ? (state.pasarTradingReducer ? state.pasarTradingReducer : {}) : {},
   );
-  const { username } = useSelector((state) =>
-    state ? (state.profileReducer ? state.profileReducer : {}) : {},
-  );
-  const { saldo, assets } = useSelector((state) => state?.walletReducer);
   const [inputAmount, setInputAmount] = useState("");
   const dispatch = useDispatch();
   const { price, amount } = useSelector(
@@ -63,32 +59,8 @@ export default function MarketBuy() {
         }),
       );
     }
-    if (pairFrom.toString().toUpperCase() === "IDR") {
-      saldo ? setBalance(saldo) : setBalance(0);
-    } else {
-      const UsdtBalance = assets.find((el) => el.type === "USDT");
-      setBalance(UsdtBalance ? UsdtBalance.balance : 0);
-    }
-  }, [amount, dispatch, saldo, pairFrom, assets, price]);
 
-  React.useEffect(() => {
-    if (
-      IoWebSocketTrade &&
-      IoWebSocketTrade.connected &&
-      pairFrom &&
-      username
-    ) {
-      IoWebSocketTrade.on(`WalletBalance-${username}-${pairFrom}`, (data) => {
-        if (data) {
-          setBalance(data.balance);
-        }
-      });
-      return () =>
-        IoWebSocketTrade.removeEventListener(
-          `WalletBalance-${username}-${pairFrom}`,
-        );
-    }
-  }, [setBalance, pairFrom, username]);
+  }, [amount, dispatch, price]);
 
   return (
     <div
@@ -97,23 +69,27 @@ export default function MarketBuy() {
       }  col-12 px-0 py-3 height-kanan`}
     >
       <form onSubmit={isLoginPages ? PostBuyMarket : PostBuyInstantDisabled}>
-        <div className="width-trade">
+        <div className="width-trade2">
           <div className="row justify-content-between mx-2">
             <div className="make-middle">
-              <img src={buylogo} width="22px" alt="buylogo" />
-              <div className="text-buy ml-2 font-20 font-bolder2">Beli</div>
+              <img src={mode ? buylogo : buylogo2} width="22px" alt="buylogo" />
+              <div className="text-buy ml-2 font-20 font-bolder2">Buy</div>
             </div>
             <div className="make-middle">
-              <img src={walletlogo} alt="walletlogo" width="14px" />
-              <div className="text-dgrey ml-2 font-14">
-                {pairFrom ? pairFrom : "-"}:
+              <img
+                src={mode ? walletlogo : walletlogo2}
+                alt="walletlogo"
+                width="14px"
+              />
+              <div className="text-dgrey ml-2 font-14 font-bolder2">
+                {pairTo ? pairTo : "-"}:
               </div>
               <div
                 className={`${
                   mode ? "text-price-dark" : "text-price"
                 } ml-2 font-14`}
               >
-                <span>{convertNumber.toRupiah(balance)}</span>
+                <span><NumberFormat value={balanceAsset||0} decimalScale={8} displayType={'text'} thousandSeparator={true} /></span>
               </div>
             </div>
           </div>
@@ -124,9 +100,9 @@ export default function MarketBuy() {
                 mode ? "input-label-trade4-dark" : "input-label-trade4"
               }
             >
-              Total Pembelian
+              Total Amount
             </span>
-            <input
+            {/* <input
               type="number"
               name="amount"
               placeholder="0"
@@ -134,8 +110,24 @@ export default function MarketBuy() {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
               onChange={(e) => setInputAmount(e.target.value)}
-            ></input>
+            ></input> */}
+            <NumberFormat 
+              // prefix={pairFrom?pairFrom+" : ":null}
+              thousandSeparator={true}
+              inputMode="decimal"
+              placeholder="0"
+              className={`col-12 py-2 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              onKeyDown={(evt) => ["e", "E", "+", "-",","].includes(evt.key) && evt.preventDefault()}
+              value={inputAmount}
+              onValueChange={(values) => {
+                const {value} = values;
+                setInputAmount(value);
+              }}
+            />
           </div>
 
           <div
@@ -148,7 +140,7 @@ export default function MarketBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 0,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -161,7 +153,7 @@ export default function MarketBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 1,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -174,7 +166,7 @@ export default function MarketBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 2,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -187,7 +179,7 @@ export default function MarketBuy() {
                 setInputAmount(
                   PercentMath({
                     select: 3,
-                    value: balance,
+                    value: balanceAsset,
                   }).result,
                 )
               }
@@ -209,9 +201,9 @@ export default function MarketBuy() {
                 mode ? "input-label-trade5-dark" : "input-label-trade5"
               }
             >
-              Estimasi
+              Estimation
             </span>
-            <input
+            {/* <input
               type="number"
               id="fname"
               name="fname"
@@ -220,7 +212,20 @@ export default function MarketBuy() {
                 mode ? "border-market-dark" : "border-market"
               }`}
               value={inputAmount / price24H.Close}
-            ></input>
+            ></input> */}
+             <NumberFormat 
+              // prefix={pairTo?pairTo+" : ":null}
+              decimalScale={8}
+              thousandSeparator={true}
+              inputMode="decimal"
+              name="estimation"
+              placeholder="0"
+              className={`col-12 py-2 mt-3 ${
+                mode ? "border-market-dark" : "border-market"
+              }`}
+              value={inputAmount / price24H.Close}
+              disabled
+            />
           </div>
           {isLoginPages ? (
             <button
@@ -234,18 +239,18 @@ export default function MarketBuy() {
                   mode ? "font-weight-bold" : "text-white font-bolder2"
                 }`}
               >
-                Beli
+                Buy
               </h5>
             </button>
           ) : (
             <div className="text-center bg-loginfirst col-12 mt-3">
               <h5 className="mb-0 font-13 font-weight-bold">
                 <Link to="/login" className="mr-2">
-                  Masuk
+                  Login
                 </Link>
-                atau
+                or
                 <Link to="/login" className="ml-2">
-                  Daftar
+                  Register
                 </Link>
               </h5>
             </div>

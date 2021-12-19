@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   GetOrderBuyAndSell,
@@ -7,34 +7,39 @@ import {
 import { IoWebSocketTrade } from "../../../configuration/IoWebSocket";
 
 import { convertNumber } from "../../../assets/js";
+import { useParams } from "react-router";
+
+import NumberFormat from "react-number-format";
+
+// import darksell from "../../../assets/img/trade/volume/dark-sell.svg";
 
 export default function ListSell() {
+  const {symbol}=useParams();
   const [data, setData] = useState([]);
   const { mode } = useSelector((state) => state.daynightReducer);
   const dispatch = useDispatch();
-  const { PairSymbol, pairTo, pairFrom } = useSelector(
+  const { pairTo, pairFrom } = useSelector(
     (state) => state.pasarTradingReducer,
   );
-  useEffect(() => {
-    if (PairSymbol) {
+  
+  React.useEffect(() => {
+    if (symbol&&IoWebSocketTrade) {
+      let Symbols=symbol.replace("_","/");
       GetOrderBuyAndSell({
         dispatch: setData,
-        pair: PairSymbol,
+        PairSymbol: Symbols,
         side: "SELL",
         limit: 50,
       });
-    }
-  }, [setData, PairSymbol]);
-
-  React.useEffect(() => {
-    if (IoWebSocketTrade && IoWebSocketTrade.connected && PairSymbol) {
-      IoWebSocketTrade.on(`OrderSell-${PairSymbol}`, (data) => {
-        setData(data);
+      IoWebSocketTrade.removeEventListener(`OrderSell-${Symbols}`);
+      IoWebSocketTrade.on(`OrderSell-${Symbols}`, (data) => {
+        if(data){
+          setData(data);
+        }
       });
-      return () =>
-        IoWebSocketTrade.removeEventListener(`OrderSell-${PairSymbol}`);
+      return () => IoWebSocketTrade.removeEventListener(`OrderSell-${Symbols}`);
     }
-  }, [setData, PairSymbol]);
+  }, [symbol]);
 
   return (
     <div>
@@ -44,15 +49,22 @@ export default function ListSell() {
             <thead className="">
               <tr className={mode ? "text-price2-dark" : "text-price2"}>
                 {/* <th className="text-left">Jumlah</th> */}
-                <th className="text-left font-bolder25">Harga</th>
-                <th className="text-left font-bolder25">{pairTo}</th>
+                <th className="text-left font-bolder25">Price</th>
                 <th className="text-left font-bolder25">{pairFrom}</th>
+                <th className="text-left font-bolder25">{pairTo}</th>
               </tr>
             </thead>
-            <tbody>
-              {data && Array.isArray(data) && data.length > 0 ? (
-                data.map((item, index) => {
-                  return (
+
+            {data && Array.isArray(data) && data.length > 0 ? (
+              data.map((item, index) => {
+                return (
+                  <tbody
+                    className={`${mode ? "dark-sell" : "day-sell"}`}
+                    style={{
+                      backgroundSize: `${(item.amount / item.stock) * 100}%`,
+                      backgroundRepeat: "repeat-y",
+                    }} // value based on volume sisa
+                  >
                     <tr
                       key={index}
                       style={{
@@ -72,39 +84,38 @@ export default function ListSell() {
                           mode ? "text-danger" : "text-danger font-bolder25"
                         } text-left`}
                       >
-                        {pairFrom === "USDT"
-                          ? item.price
-                          : convertNumber.toRupiah(item.price)}
+                        <NumberFormat value={item.price} displayType={'text'} decimalScale={15} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
                           mode ? "text-price-dark" : "text-price font-bolder25"
                         } text-left`}
                       >
-                        {item.amount
-                          ? convertNumber.toRupiah(item.amount, "CRYPTO")
-                          : 0}
+                           <NumberFormat value={item.amount} decimalScale={8} displayType={'text'} thousandSeparator={true} />
                       </td>
                       <td
                         className={`${
                           mode ? "text-price-dark" : "text-price font-bolder25"
                         } text-left`}
                       >
-                        {pairFrom === "USDT"
-                          ? item.total
-                          : convertNumber.toRupiah(item.total)}
+                        <NumberFormat value={Number(item.amount * item.price)} decimalScale={8} displayType={'text'} fixedDecimalScale={true} thousandSeparator={true} />
                       </td>
                     </tr>
-                  );
-                })
-              ) : (
+                  </tbody>
+                );
+              })
+            ) : (
+              <tbody
+              // className={`${mode ? "dark-sell" : "day-sell"}`}
+              // style={{ backgroundSize: "35%" }}
+              >
                 <tr>
                   <td className="text-left text-sell text-center" colSpan={4}>
                     No Order
                   </td>
                 </tr>
-              )}
-            </tbody>
+              </tbody>
+            )}
           </table>
         </div>
       </div>

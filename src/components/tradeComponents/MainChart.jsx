@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import BasicChart from "./basicChart/BasicChart";
 
 export default function MainChart(props) {
-  const { symbol } = props
-  const [PairSymbol, setPairSymbol] = useState('BTC/IDR')
-  const [resolution, setResolution] = useState('60')
+  const { symbol } = props;
+  const [PairSymbol, setPairSymbol] = useState("BTC/IDR");
+  const [resolution, setResolution] = useState("60");
 
   useEffect(() => {
-    setPairSymbol(symbol.replace('_','/'))
-  },[symbol])
+    setPairSymbol(symbol.replace("_", "/"));
+  }, [symbol]);
 
   return (
     <div>
@@ -98,12 +98,17 @@ export default function MainChart(props) {
             </ul>
           </div>
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <Link to={`/marketdepth/${PairSymbol?PairSymbol.toString().replace("/","_"):undefined}`} target="_blank">
+            <Link
+              to={`/marketdepth/${
+                PairSymbol ? PairSymbol.toString().replace("/", "_") : undefined
+              }`}
+              target="_blank"
+            >
               <button className="ci-dropdown-btn-wallets-trade2">
                 <h6 className="mb-0 mx-2">Market Depth</h6>
               </button>
             </Link>
-            <Link to={`/chart/${PairSymbol.replace('/','_')}`} target="_blank">
+            <Link to={`/chart/${PairSymbol.replace("/", "_")}`} target="_blank">
               <button className="ci-dropdown-btn-wallets-trade2">
                 <h6 className="mb-0 mx-2">TradingView</h6>
               </button>

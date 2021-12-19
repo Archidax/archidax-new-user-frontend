@@ -30,20 +30,24 @@ export default function TradeChartCard(props) {
         "use_localstorage_for_settings",
         "header_interval_dialog_button",
         "header_compare",
-        "widget_logo",
+        // "widget_logo",
         "header_symbol_search",
         // "go_to_date",
         // "mouse_wheel_scale",
         // "left_toolbar"
       ],
       enabled_features: [
-        // "study_templates",
-        'hide_left_toolbar_by_default',
+        "study_templates",
+        // 'hide_left_toolbar_by_default',
       ],
-      // toolbar_bg: '#f4f7f9',
+      toolbar_bg: mode ? '#140f0f': '#ffffff',
       fullscreen: props.fullscreen,
       autosize: props.autosize,
       theme: props.theme,
+      format:"price",
+      minmov : 1, 
+      pricescale : 10000000000, 
+      minmove2 : 0,
       style: props.style,
       time_frames: [
         { text: "1d", resolution: "1D", description: "1 Day", title: "1d" },
@@ -56,14 +60,15 @@ export default function TradeChartCard(props) {
       overrides: {
         // "mainSeriesProperties.showCountdown": true,
         "paneProperties.background": mode ? 'black':"#ffffff",
-        "paneProperties.vertGridProperties.color": "#363c4e",
-        // "paneProperties.horzGridProperties.color": "#363c4e",
+        "paneProperties.vertGridProperties.color": "black",
+        // "paneProperties.horzGridProperties.color": "black",
         "symbolWatermarkProperties.transparency": 90,
         "scalesProperties.textColor": "#AAA",
         "mainSeriesProperties.candleStyle.wickUpColor": "#336854",
         "mainSeriesProperties.candleStyle.wickDownColor": "#7f323f",
+        'mainSeriesProperties.minTick': '1000000000,1,false'
       },
-      timezone: props.timezone
+      timezone: props.timezone,
     };
 
     let tvWidget = (window.tvWidget = new window.TradingView.widget(
@@ -94,17 +99,19 @@ export default function TradeChartCard(props) {
       // });
       // di hidden
 
-      tvWidget
-        .chart()
-        .onIntervalChanged()
-        .subscribe(null, function (interval, obj) {
-          console.log("interval", interval);
-          if (interval === 15) obj.timeframe = "1D";
-          if (interval === 30) obj.timeframe = "7D";
-          if (interval === 180) obj.timeframe = "30D";
-          if (interval === "1D") obj.timeframe = "6M";
-          if (interval === "7D") obj.timeframe = "5Y";
-        });
+        // tvWidget
+        //   .chart()
+        //   .onIntervalChanged()
+        //   .subscribe(null, function (interval, obj) {
+        //     if (interval === 15) obj.timeframe = "1D";
+        //     if (interval === 30) obj.timeframe = "7D";
+        //     if (interval === 180) obj.timeframe = "30D";
+        //     // if (interval === "1D") obj.timeframe = "6M";
+        //     // if (interval === "7D") obj.timeframe = "5Y";
+        //   });
+        tvWidget.activeChart().createStudy('Moving Average', false, false, [5], "#FFFFFF")
+        tvWidget.activeChart().createStudy('Moving Average', false, false, [25])
+        tvWidget.activeChart().createStudy('Moving Average', false, false, [50])
     });
     return () => {
       if (tvWidget !== null) {
@@ -112,7 +119,7 @@ export default function TradeChartCard(props) {
         tvWidget = null;
       }
     };
-  }, [props, mode]);
+  }, [props]);
 
   return <div id={props.containerId} className={"TVChartContainer h-100"} />;
 }
